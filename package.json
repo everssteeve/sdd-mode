@@ -1,0 +1,36 @@
+{
+  "name": "aiad-sdd",
+  "version": "1.2.0",
+  "description": "AIAD SDD Mode — Spec Driven Development pour Claude Code. Framework de développement spec-first avec agents IA.",
+  "keywords": [
+    "aiad",
+    "sdd",
+    "spec-driven-development",
+    "claude-code",
+    "ai-agents",
+    "product-engineering",
+    "spec-first",
+    "context-engineering"
+  ],
+  "author": "Steeve Evers <evers.steeve@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/everssteeve/sdd-mode.git"
+  },
+  "homepage": "https://aiad.ovh",
+  "bin": {
+    "aiad-sdd": "bin/aiad-sdd.js"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "templates/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "type": "module"
+}

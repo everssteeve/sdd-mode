@@ -1,0 +1,9 @@
+# Fichiers de développement
+.git
+.gitignore
+.DS_Store
+node_modules
+*.log
+
+# Build artifacts
+*.tgz
