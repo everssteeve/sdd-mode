@@ -1,7 +1,7 @@
 # SDD Mode — Configuration Agent
 
 > Ce fichier configure l'agent IA (Claude Code, Cursor, Copilot) pour le développement en mode SDD.
-> Framework AIAD v1.5 — SDD Mode v1.4 — https://aiad.ovh
+> Framework AIAD v1.6 — SDD Mode v1.6 — https://aiad.ovh
 
 ---
 
@@ -21,6 +21,7 @@ La paternité de l'intention ne se délègue pas. Tu exécutes avec excellence, 
 ├── ARCHITECTURE.md         ← Standards techniques (injection : condensé permanent)
 ├── AGENT-GUIDE.md          ← Contexte permanent + Lessons Learned + Human Learnings
 ├── gouvernance/            ← Agents Tier 1 avec droit de veto
+│   ├── _index.md
 │   ├── AIAD-AI-ACT.md    ← Conformité EU AI Act
 │   ├── AIAD-RGPD.md      ← Privacy by Design, RGPD
 │   ├── AIAD-RGAA.md      ← Accessibilité RGAA 4.1 / WCAG 2.1
@@ -29,6 +30,10 @@ La paternité de l'intention ne se délègue pas. Tu exécutes avec excellence, 
 │   └── _index.md
 ├── specs/                  ← SPECs techniques (COMMENT)
 │   └── _index.md
+├── facts/                  ← Traces /sdd-fact (v1.6)
+├── metrics/                ← Persistance des données métriques
+│   ├── security/           ← Rapports /sdd-security (v1.6)
+│   └── audit/              ← Rapports /sdd-audit (v1.6)
 └── CHANGELOG-ARTEFACTS.md  ← Historique des mises à jour
 ```
 
@@ -51,7 +56,7 @@ Le développement suit ce cycle — ne jamais sauter d'étape :
 Intent Statement → SPEC → Execution Gate (SQS ≥ 4/5) → Exécution Agent → Validation → Drift Lock
 ```
 
-### Commandes du cycle SDD (10)
+### Commandes du cycle SDD (13)
 
 | Commande | Phase | Description |
 |----------|-------|-------------|
@@ -65,6 +70,9 @@ Intent Statement → SPEC → Execution Gate (SQS ≥ 4/5) → Exécution Agent 
 | `/sdd-split` | Spécification | Découper une SPEC trop volumineuse |
 | `/sdd-resume` | Exécution | Reprendre une session agent interrompue |
 | `/sdd-context` | Amélioration | Auditer le budget de contexte (estimation vs. réel) |
+| `/sdd-fact` | Correction | Capturer et qualifier un écart livré/désiré |
+| `/sdd-security` | Audit | Audit sécurité (OWASP, secrets, permissions agents) |
+| `/sdd-audit` | Audit | Audit qualité (conformité SPEC, dette technique) |
 
 ### Commandes framework AIAD — Synchronisations & Rituels (11)
 
@@ -108,8 +116,10 @@ Tu es responsable du Context Engineering Budget de chaque session agent. Règles
 
 1. **Contexte permanent** : AGENT-GUIDE condensé + résumé ARCHITECTURE (max 500 tokens chacun)
 2. **Activation par tâche** : UNE seule SPEC à la fois
-3. **Seuil de context rot** : Au-delà de ~50K tokens, ta qualité se dégrade — reste sous ce seuil
+3. **Seuil opérationnel (v1.6)** : utiliser 60-70 % du contexte disponible comme maximum effectif — au-delà, les symptômes de dégradation (context rot) apparaissent avant la limite théorique
 4. **Le PRD complet** n'est injecté qu'en phase de cadrage, pas en développement
+5. **Règle de placement** : toujours placer l'Intent Statement et la SPEC active en tête de contexte (contre le "lost in the middle effect")
+6. **Référence modèles (v1.6)** : Opus 4.7 (1M tokens effectifs) ; Sonnet 4.6 (200k) ; Haiku 4.5 (200k) — la fenêtre disponible ne change pas le seuil de 60-70 %, elle le déplace vers le haut
 
 ## Règles absolues
 

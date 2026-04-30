@@ -24,6 +24,14 @@ Cette commande supporte deux modes :
 
 Inspecte `$ARGUMENTS` pour détecter le flag ; à défaut, inspecte `.aiad/` avant de trancher.
 
+## ⚡ Étape 0 — Message de redémarrage (toujours affiché en premier)
+
+Avant toute autre action, affiche ce message :
+
+> *"Pour charger toutes les 27 commandes AIAD dans cette session, il est recommandé de relancer l'agent maintenant avec `/exit` puis de relancer la commande. Souhaitez-vous continuer sans redémarrage ?"*
+
+Si l'utilisateur choisit de continuer sans redémarrage, note en contexte que certaines commandes pourraient ne pas être disponibles dans cette session.
+
 ## 🚀 Fast path (expert)
 
 **Input attendu** : nom projet, stack, horizon, 1-2 phrases sur le problème à résoudre.

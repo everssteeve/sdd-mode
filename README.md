@@ -44,6 +44,7 @@ npx aiad-sdd status
 ├── ARCHITECTURE.md         ← Standards techniques (template)
 ├── AGENT-GUIDE.md          ← Contexte permanent agent (template)
 ├── gouvernance/            ← Agents Tier 1 (droit de veto)
+│   ├── _index.md
 │   ├── AIAD-AI-ACT.md    ← Conformité EU AI Act
 │   ├── AIAD-RGPD.md      ← Privacy by Design, RGPD
 │   ├── AIAD-RGAA.md      ← Accessibilité RGAA 4.1 / WCAG 2.1
@@ -52,12 +53,16 @@ npx aiad-sdd status
 │   └── _index.md
 ├── specs/                  ← SPECs techniques
 │   └── _index.md
+├── facts/                  ← Traces /sdd-fact
+├── metrics/                ← Persistance des données métriques
+│   ├── security/           ← Rapports /sdd-security
+│   └── audit/              ← Rapports /sdd-audit
 └── CHANGELOG-ARTEFACTS.md  ← Historique des mises à jour
 ```
 
 ### Commandes Claude Code
 
-**Cycle SDD (10 commandes) :**
+**Cycle SDD (13 commandes) :**
 
 | Commande | Phase | Description |
 |----------|-------|-------------|
@@ -71,6 +76,9 @@ npx aiad-sdd status
 | `/sdd-split` | Spécification | Découper une SPEC trop volumineuse |
 | `/sdd-resume` | Exécution | Reprendre une session agent interrompue |
 | `/sdd-context` | Amélioration | Auditer le budget de contexte (estimation vs. réel) |
+| `/sdd-fact` | Correction | Capturer et qualifier un écart livré/désiré |
+| `/sdd-security` | Audit | Audit sécurité (OWASP, secrets, permissions agents) |
+| `/sdd-audit` | Audit | Audit qualité (conformité SPEC, dette technique) |
 
 **Framework AIAD — Synchronisations & Rituels (11 commandes) :**
 
@@ -182,7 +190,7 @@ AIAD (Artificial Intelligence Agent Development) est un framework open source po
 - **Site** : [aiad.ovh](https://aiad.ovh)
 - **Constitution** : 7 valeurs fondatrices, gouvernance gardien/communauté
 - **5 responsabilités** : PM, Product Engineer, Agents Engineer, QA Engineer, Tech Lead
-- **24 commandes** : 10 SDD Mode + 11 synchronisations & rituels AIAD + 3 métriques
+- **27 commandes** : 13 SDD Mode + 11 synchronisations & rituels AIAD + 3 métriques
 
 ## Licence
 

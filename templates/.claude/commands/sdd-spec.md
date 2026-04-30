@@ -21,6 +21,10 @@ Cette commande supporte deux modes :
 
 Inspecte `$ARGUMENTS` pour détecter le flag ; à défaut, inspecte `.aiad/` avant de trancher.
 
+## Option REASONS Canvas (v1.6)
+
+Si l'utilisateur le souhaite, propose d'utiliser le **REASONS Canvas** (SPDD — Kevlin Henney) comme approche de structuration de la SPEC avant de passer au format standard AIAD. Les deux sont compatibles : le REASONS Canvas enrichit la justification de l'intention sans remplacer le format de SPEC AIAD. Propose cette option en mode guidé si l'Intent Statement semble complexe ou ambigu.
+
 ## 🚀 Fast path (expert)
 
 **Input attendu** : ID de l'Intent parent (INTENT-NNN) + découpage de tâches si l'humain le propose déjà.
