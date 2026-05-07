@@ -50,6 +50,14 @@ Pour chaque SPEC en statut `in-progress` ou `validation` (lire `.aiad/specs/_ind
 | ARCHITECTURE.md | OUI / À VÉRIFIER |
 | AGENT-GUIDE.md | OUI / À VÉRIFIER |
 
+### Étape 5 — Croiser avec la matrice machine-vérifiable
+
+Depuis la v1.10, déléguer à la skill [`traceability`](../traceability/SKILL.md) la mesure des annotations `@intent` / `@spec` / `@verified-by` / `@governance`. Un gap bloquant (SPEC validée sans code, SPEC orpheline référencée dans le code) = **DRIFT** même si l'heuristique git de l'étape 1 dit OK.
+
+```bash
+npx aiad-sdd trace --fail-on-gap   # exit 1 si gap bloquant
+```
+
 ## Output
 
 ```

@@ -33,7 +33,8 @@ La paternité de l'intention ne se délègue pas. Tu exécutes avec excellence, 
 ├── facts/                  ← Traces /sdd fact (v1.6)
 ├── metrics/                ← Persistance des données métriques
 │   ├── security/           ← Rapports /sdd security (v1.6)
-│   └── audit/              ← Rapports /sdd audit (v1.6)
+│   ├── audit/              ← Rapports /sdd audit (v1.6)
+│   └── traceability/       ← Snapshots /sdd trace (v1.10) — Markdown + JSON + HTML
 └── CHANGELOG-ARTEFACTS.md  ← Historique des mises à jour
 ```
 
@@ -69,6 +70,7 @@ Depuis la v1.9, les blocs de logique récurrents sont extraits en **skills auto-
 | `context-budget` | Calcule les 5 métriques santé (M1–M5) du contexte | `/sdd context`, `/sdd exec`, `/sdd resume` |
 | `reasons-canvas` | Facilite la structuration SPDD (Kevlin Henney) | `/sdd spec` (option) |
 | `ears-validator` | Lint EARS sur les critères d'acceptation | `/sdd spec`, `/sdd gate`, `/sdd validate`, `/sdd audit` |
+| `traceability` (v1.10) | Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests | `/sdd trace`, `/sdd drift-check`, `/sdd validate`, `/sdd audit`, GitHub Action |
 
 **Composition** : les commandes les plus complexes (`/sdd validate`, `/sdd exec`) **composent plusieurs skills sans dupliquer leur logique** — ex. validate = `ears-validator` + `drift-detection` + `regulatory-veto`.
 
@@ -78,11 +80,11 @@ Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire
 
 | Router | Sous-commandes |
 |--------|----------------|
-| `/sdd <sub>` | `init`, `intent`, `spec`, `gate`, `exec`, `validate`, `drift-check`, `fact`, `security`, `audit`, `context`, `resume`, `split` |
+| `/sdd <sub>` | `init`, `intent`, `spec`, `gate`, `exec`, `validate`, `drift-check`, `trace`, `fact`, `security`, `audit`, `context`, `resume`, `split` |
 | `/aiad <sub>` | `init`, `onboard`, `status`, `health`, `gouvernance`, `tech-review`, `standup`, `demo`, `retro`, `intention`, `sync-strat`, `dora`, `flow`, `dashboard` |
 | `/aiad-help [sub]` | Aide contextuelle, parcours type, recherche d'une commande |
 
-### Commandes du cycle SDD (13) — via `/sdd <sub>`
+### Commandes du cycle SDD (14) — via `/sdd <sub>`
 
 | Forme courante | Phase | Description |
 |----------------|-------|-------------|
@@ -93,6 +95,7 @@ Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire
 | `/sdd exec` | Exécution | Lancer l'agent avec contexte optimisé (post-Gate) |
 | `/sdd validate` | Validation | Valider le code produit |
 | `/sdd drift-check` | Intégration | Vérifier synchronisation artefacts/code |
+| `/sdd trace` | Intégration | Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests (v1.10) |
 | `/sdd split` | Spécification | Découper une SPEC trop volumineuse |
 | `/sdd resume` | Exécution | Reprendre une session agent interrompue |
 | `/sdd context` | Amélioration | Auditer le budget de contexte (estimation vs. réel) |
@@ -139,6 +142,30 @@ Chaque commande AIAD / SDD supporte deux modes d'exécution :
 Chaque fichier de commande contient un bloc **🚀 Fast path (expert)** (input attendu / output produit / 3 actions condensées) suivi d'un bloc **📖 Mode guidé (pas à pas)** avec le détail complet. Les **Règles** et **Anti-patterns** s'appliquent aux deux modes.
 
 Cas particulier : `/aiad intention` (Atelier d'Intention) reste un **espace humain pur** dans les deux modes — le mode fast ne saute que les explications sur le rituel, jamais la facilitation elle-même.
+
+## Annotations machine-vérifiables (v1.10)
+
+À partir de la v1.10, le Drift Lock est mesuré algorithmiquement via la matrice de traçabilité produite par `/sdd trace`. Tu DOIS poser ces annotations dans le code que tu écris :
+
+| Tag | Format | Cardinalité |
+|-----|--------|-------------|
+| `@intent` | `INTENT-NNN` | 0..1 |
+| `@spec` | `SPEC-NNN-N-slug` | **1..n** (obligatoire sur tout code applicatif) |
+| `@verified-by` | chemin relatif vers un test | 0..n |
+| `@governance` | `AIAD-RGPD,AIAD-AI-ACT,…` | 0..1 |
+
+Acceptés dans JSDoc, commentaires `//` / `#`, docstrings Python `"""…"""`.
+
+```ts
+/**
+ * @intent INTENT-042
+ * @spec SPEC-042-1-flow-auth
+ * @verified-by tests/auth/oidc.test.ts
+ * @governance AIAD-RGPD
+ */
+```
+
+Lance `npx aiad-sdd trace` pour générer la matrice. La GitHub Action `.github/workflows/sdd-trace.yml` invoque `aiad-sdd trace --fail-on-gap` sur chaque PR — un gap bloquant fait échouer la pipeline.
 
 ## Context Engineering Budget
 

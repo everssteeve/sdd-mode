@@ -37,3 +37,6 @@ patterns:
   # Métriques générées automatiquement par les commandes /sdd-*
   - ".aiad/metrics/**"
   - ".aiad/facts/**"
+
+  # GitHub Actions (CI traceability v1.10)
+  - ".github/workflows/sdd-trace.yml"

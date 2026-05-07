@@ -11,7 +11,7 @@ Tu es un facilitateur AIAD. L'utilisateur cherche à s'orienter parmi les comman
 
 1. Lis `$ARGUMENTS`.
    - **Vide** → affiche la **vue d'ensemble** ci-dessous (carte des deux routers + parcours types).
-   - `sdd` → liste détaillée des 13 sous-commandes SDD (depuis le router `/sdd`).
+   - `sdd` → liste détaillée des 14 sous-commandes SDD (depuis le router `/sdd`).
    - `aiad` → liste détaillée des 14 sous-commandes AIAD (depuis le router `/aiad`).
    - **Toute autre chaîne** → cherche la commande concordante (par nom partiel ou intention) dans les fichiers de `.claude/sdd/` et `.claude/aiad/` ; pour la meilleure correspondance, lis le fichier puis résume :
      - Quoi : 1 phrase
@@ -30,7 +30,7 @@ Affiche dans cet ordre :
 ### 2. Parcours types
 
 - **Découverte d'un nouveau besoin** :
-  `/sdd intent` → `/sdd spec` → `/sdd gate` → `/sdd exec` → `/sdd validate` → `/sdd drift-check`
+  `/sdd intent` → `/sdd spec` → `/sdd gate` → `/sdd exec` → `/sdd validate` → `/sdd drift-check` → `/sdd trace`
 - **Bootstrap d'un projet** :
   `/sdd init` (cadrage tech) puis `/aiad init` (rituels) puis `/aiad onboard` (équipe)
 - **Pilotage d'itération** :

@@ -1,6 +1,6 @@
 ---
 name: sdd
-description: Cycle SDD — intent spec gate exec validate drift fact security audit context resume split init
+description: Cycle SDD — intent spec gate exec validate drift trace fact security audit context resume split init
 ---
 
 # SDD Router
@@ -18,6 +18,7 @@ Tu es un Product Engineer AIAD. L'utilisateur a invoqué `/sdd` avec des argumen
 | `exec`          | Lancer l'exécution agent post-Gate                            |
 | `validate`      | Valider le code produit par l'agent                           |
 | `drift-check`   | Vérifier la synchronisation artefacts/code (Drift Lock)       |
+| `trace`         | Matrice de traçabilité Intent ↔ SPEC ↔ Code ↔ Tests           |
 | `fact`          | Capturer un écart livré/désiré                                |
 | `security`      | Audit sécurité (OWASP, secrets, permissions agents)           |
 | `audit`         | Audit qualité (conformité SPEC, dette, AGENT-GUIDE)           |

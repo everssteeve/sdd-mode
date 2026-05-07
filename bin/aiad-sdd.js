@@ -11,6 +11,7 @@ import { addGovernance } from '../lib/governance.js';
 import { showStatus } from '../lib/status.js';
 import { installerHooks, desinstallerHooks } from '../lib/hooks.js';
 import { bench } from '../lib/coldstart.js';
+import { trace } from '../lib/sdd-trace.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -29,6 +30,7 @@ const AIDE = `
     hooks [options]       Installe / désinstalle le hook Git pre-commit (Drift Lock)
     status                Affiche l'état SDD du projet
     bench                 Mesure le poids des frontmatters de commandes (cold-start)
+    trace [options]       Génère la matrice Intent ↔ SPEC ↔ Code ↔ Tests
     help                  Affiche cette aide
 
   Options init :
@@ -45,6 +47,13 @@ const AIDE = `
     --uninstall           Désinstalle le hook pre-commit
     --force               Écrase un hook pre-commit utilisateur existant
 
+  Options trace :
+    --format <list>       Formats produits (md,json,html — défaut: tous)
+    --out <dir>           Dossier de sortie (défaut: .aiad/metrics/traceability)
+    --json                Imprime la matrice JSON sur stdout (CI)
+    --fail-on-gap         Exit 1 si gap bloquant détecté (CI)
+    --quiet               Pas de résumé console
+
   Exemples :
     npx aiad-sdd init                       Initialisation complète
     npx aiad-sdd init --minimal             Profil minimal (4 commandes, ≤ 1k tokens)
@@ -59,6 +68,8 @@ const AIDE = `
     npx aiad-sdd hooks                      Installe le hook pre-commit
     npx aiad-sdd hooks --uninstall          Désinstalle le hook pre-commit
     npx aiad-sdd status                     État du projet SDD
+    npx aiad-sdd trace                      Génère la matrice de traçabilité (md+json+html)
+    npx aiad-sdd trace --fail-on-gap        Échoue si gap bloquant (usage CI)
 
   Framework AIAD — Artificial Intelligence Agent Development — Open Source
 `;
@@ -114,6 +125,10 @@ async function main() {
 
     case 'bench':
       bench(cwd());
+      break;
+
+    case 'trace':
+      await trace(cwd(), flags);
       break;
 
     case 'help':
