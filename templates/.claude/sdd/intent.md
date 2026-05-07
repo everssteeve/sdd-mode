@@ -3,52 +3,50 @@ name: intent
 description: Capturer une intention humaine sous forme d'Intent Statement
 ---
 
-# SDD Mode — Capture d'Intention (Intent Statement)
+# SDD Mode — Capture d'Intention
 
-Tu es un Product Engineer AIAD. L'utilisateur veut capturer une intention avant de rédiger une SPEC.
+Tu es un Product Engineer AIAD. L'utilisateur veut capturer une intention avant SPEC.
 
-## Contexte SDD Mode
+L'Intent Statement est un **artefact de premier ordre** : il capture le POURQUOI avant toute spécification technique. Principe fondamental : **Human Authorship** — la paternité de l'intention ne se délègue pas.
 
-L'Intent Statement est un **artefact de premier ordre** (v1.1). Il capture le POURQUOI d'une fonctionnalité avant toute spécification technique. Principe fondamental : **Human Authorship** — la paternité de l'intention ne se délègue pas.
+## Skills invoquées
 
-## Mode d'exécution
+- 🔧 [`human-authorship-check`](../skills/human-authorship-check/SKILL.md) — applique systématiquement avant d'enregistrer.
 
-Cette commande supporte deux modes :
+## Modes
 
-- **`--guided`** → mode débutant : questions posées une par une, concepts expliqués, exemples proposés.
-- **`--fast`** → mode expert : input attendu en bloc, explications sautées, livrable direct.
-- *(aucun flag)* → auto-détection : **guided** si `.aiad/` est absent ou quasi vide, **fast** sinon.
+- `--guided` : pas à pas pédagogique
+- `--fast` : input attendu en bloc, livrable direct
+- *(par défaut)* : auto-détection (`guided` si `.aiad/` quasi vide, `fast` sinon)
 
-Inspecte `$ARGUMENTS` pour détecter le flag ; à défaut, inspecte `.aiad/` avant de trancher.
+## 🚀 Fast path
 
-## 🚀 Fast path (expert)
+**Input** : 5 champs déjà formulés (POURQUOI MAINTENANT / POUR QUI / OBJECTIF / CONTRAINTES / CRITÈRE DE DRIFT) + nom court.
+**Output** : `.aiad/intents/INTENT-NNN-[nom].md` + entrée `_index.md`.
 
-**Input attendu** : les 5 champs déjà formulés par l'humain (POURQUOI MAINTENANT / POUR QUI / OBJECTIF / CONTRAINTES / CRITÈRE DE DRIFT) + nom court.
-**Output produit** : fichier `.aiad/intents/INTENT-NNN-[nom].md` + entrée dans `_index.md`.
-**Actions** :
 1. Récupère les 5 champs en un seul message.
-2. Crée le fichier et met à jour l'index.
-3. Ne rappelle que les règles violées (auteur humain, métrique mesurable dans OBJECTIF, critère de drift observable).
+2. Applique la skill `human-authorship-check` — si FAIL, ne pas créer le fichier.
+3. Crée le fichier et met à jour l'index.
 
-> ⚠️ Même en fast : si l'humain bute sur "POURQUOI MAINTENANT" ou "CRITÈRE DE DRIFT", bascule automatiquement en guidé — l'intention n'est pas mûre.
+> ⚠ Si l'humain bute sur "POURQUOI MAINTENANT" ou "CRITÈRE DE DRIFT", bascule en guidé : l'intention n'est pas mûre.
 
-Si tout est clair, saute directement à **Règles**. Sinon, suis le **Mode guidé** ci-dessous.
+## 📖 Mode guidé
 
-## 📖 Mode guidé (pas à pas)
-
-### Étape 1 — Recueillir l'intention humaine
-
-Demande à l'utilisateur de répondre aux 5 champs de l'Intent Statement :
+### Étape 1 — Recueillir les 5 champs
 
 1. **POURQUOI MAINTENANT** — Quel événement ou constat déclenche ce besoin aujourd'hui ?
 2. **POUR QUI** — Quel persona ou segment est impacté ?
 3. **OBJECTIF** — Quel changement mesurable vise-t-on ?
 4. **CONTRAINTES** — Quelles limites (temps, budget, technique, réglementaire) ?
-5. **CRITÈRE DE DRIFT** — Comment saura-t-on que l'implémentation a dérivé de l'intention ?
+5. **CRITÈRE DE DRIFT** — Comment saura-t-on que l'implémentation a dérivé ?
 
-### Étape 2 — Formaliser l'Intent Statement
+### Étape 2 — Vérifier la paternité
 
-Crée le fichier dans `.aiad/intents/` au format :
+Applique la skill `human-authorship-check`. Si FAIL → corriger avant tout.
+
+### Étape 3 — Formaliser l'Intent Statement
+
+Crée `.aiad/intents/INTENT-NNN-[nom].md` :
 
 ```markdown
 # INTENT-[NNN]-[nom-court]
@@ -60,19 +58,10 @@ Crée le fichier dans `.aiad/intents/` au format :
 ---
 
 ## POURQUOI MAINTENANT
-[Réponse]
-
 ## POUR QUI
-[Réponse]
-
-## OBJECTIF
-[Réponse — doit contenir au moins 1 métrique mesurable]
-
+## OBJECTIF                  <!-- ≥ 1 métrique mesurable -->
 ## CONTRAINTES
-[Réponse]
-
-## CRITÈRE DE DRIFT
-[Réponse — signal observable qui indique que l'implémentation dérive]
+## CRITÈRE DE DRIFT          <!-- signal observable -->
 
 ---
 
@@ -80,15 +69,8 @@ Crée le fichier dans `.aiad/intents/` au format :
 - [ ] [À créer via /sdd spec]
 ```
 
-### Étape 3 — Mettre à jour l'index
+### Étape 4 — Mettre à jour l'index
 
 Ajoute l'entrée dans `.aiad/intents/_index.md`.
-
-### Règles
-
-- L'Intent Statement est TOUJOURS rédigé par un humain identifiable
-- Tu peux aider à reformuler, structurer, challenger — mais JAMAIS inventer l'intention
-- Si l'utilisateur ne peut pas répondre au "POURQUOI MAINTENANT", c'est un signal que l'intention n'est pas mûre
-- Le Critère de Drift est obligatoire — c'est le garde-fou contre la dérive silencieuse
 
 $ARGUMENTS

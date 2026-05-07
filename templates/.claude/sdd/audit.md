@@ -5,118 +5,110 @@ description: Audit qualité du code (conformité SPEC, dette technique, cohéren
 
 # SDD Mode — Audit Qualité
 
-Tu es un Product Engineer AIAD. L'utilisateur veut réaliser un audit de qualité du code implémenté.
+Tu es un Product Engineer AIAD. L'utilisateur veut un audit de qualité du code implémenté.
 
-## Contexte SDD Mode
+`/sdd audit` couvre **4 dimensions** : conformité SPEC, qualité du code, dette technique, cohérence AGENT-GUIDE. Recommandé avant ou pendant la validation. Le rapport est persisté dans `.aiad/metrics/audit/`.
 
-`/sdd audit` vérifie la conformité du code livré sur 4 dimensions : conformité SPEC, qualité du code, dette technique, cohérence avec l'AGENT-GUIDE. Recommandé avant ou pendant la validation — notamment pour les fonctionnalités à fort enjeu technique ou après plusieurs itérations d'un même composant. Le rapport est persisté dans `.aiad/metrics/audit/`.
+**Recommandation modèle** : Opus 4.7 ou Sonnet 4.6.
 
-**Recommandation modèle** : Opus 4.7 ou Sonnet 4.6 pour l'analyse de conformité.
+## Skills invoquées
 
-## Mode d'exécution
+- 🔧 [`drift-detection`](../skills/drift-detection/SKILL.md) — alimente la dimension "conformité SPEC".
+- 🔧 [`ears-validator`](../skills/ears-validator/SKILL.md) — vérifie que les critères de §3 sont implémentables / vérifiables.
 
-- **`--guided`** → explication des axes, questions de contexte, audit section par section.
-- **`--fast`** → input attendu en bloc, rapport direct.
-- *(aucun flag)* → auto-détection.
+## Modes
 
-Inspecte `$ARGUMENTS`.
+- `--guided` : section par section
+- `--fast` : rapport direct
+- *(par défaut)* : auto-détection
 
-## 🚀 Fast path (expert)
+## 🚀 Fast path
 
-**Input attendu** : SPEC-NNN de référence + fichiers implémentés (ou chemin).
-**Output produit** : rapport audit persisté dans `.aiad/metrics/audit/YYYY-MM-DD-SPEC-NNN.md`.
-**Actions** :
-1. Comparer code ↔ SPEC critère par critère — noter tout drift.
-2. Évaluer la qualité du code et la dette technique introduite.
-3. Vérifier la cohérence avec les conventions de l'AGENT-GUIDE.
+**Input** : SPEC-NNN + fichiers implémentés.
+**Output** : rapport persisté dans `.aiad/metrics/audit/YYYY-MM-DD-SPEC-NNN.md`.
 
-Si tout est clair, saute directement à **Règles**. Sinon, suis le **Mode guidé** ci-dessous.
+1. Compare code ↔ SPEC critère par critère (skill `drift-detection`).
+2. Évalue qualité du code et dette technique.
+3. Vérifie cohérence avec les conventions de l'AGENT-GUIDE.
 
-## 📖 Mode guidé (pas à pas)
+## 📖 Mode guidé
 
 ### Étape 0 — Recommandation modèle
 
-Affiche : *"Cet audit est plus efficace avec Opus 4.7 ou Sonnet 4.6 pour l'analyse de conformité."*
+Affiche : *"Audit plus efficace avec Opus 4.7 ou Sonnet 4.6 pour l'analyse de conformité."*
 
 ### Étape 1 — Conformité code ↔ SPEC
 
-Pour chaque critère d'acceptance de la SPEC :
+Applique la skill `ears-validator` sur §3, puis pour chaque critère vérifié :
 - Critère implémenté ?
 - Cas limites couverts ?
 - Tests correspondants présents ?
 
-**Drift détecté** : noter tout écart entre SPEC et code livré — déclenche une mise à jour SPEC (Drift Lock).
+Applique la skill `drift-detection`. Tout drift détecté déclenche une MAJ SPEC (Drift Lock).
 
 ### Étape 2 — Qualité du code
 
 - Complexité cyclomatique acceptable ?
-- Couplage et cohésion des modules ?
+- Couplage / cohésion des modules ?
 - Lisibilité : nommage, longueur des fonctions ?
-- Duplication de code identifiée ?
+- Duplication ?
 
 ### Étape 3 — Dette technique
 
-Pour chaque élément de dette identifié :
-- Type : délibérée / accidentelle / bit rot
-- Sévérité : critique / significative / cosmétique
-- Effort estimé de remédiation
-- Lien vers SPEC ou Intent concerné
+| Élément | Type | Sévérité | Effort |
+|---------|------|----------|--------|
+| [...] | délibérée / accidentelle / bit rot | critique / significative / cosmétique | F/M/É |
 
 ### Étape 4 — Cohérence AGENT-GUIDE
 
-- Les conventions de nommage documentées sont-elles respectées ?
-- Les patterns favorisés sont-ils utilisés ?
-- Les anti-patterns documentés sont-ils évités ?
-- Y a-t-il de nouvelles conventions émergentes à proposer ?
+- Conventions de nommage respectées ?
+- Patterns favorisés utilisés ?
+- Anti-patterns évités ?
+- Nouvelles conventions émergentes à proposer ?
 
 ### Étape 5 — Produire le rapport
 
 ```markdown
 # Rapport Audit — [SPEC-NNN] — [YYYY-MM-DD]
 
-**Modèle utilisé** : [ex. claude-opus-4-7]
+**Modèle utilisé** : [...]
 **SPEC auditée** : [SPEC-NNN]
-**Périmètre** : [fichiers parcourus]
+**Périmètre** : [fichiers]
 
 ## Conformité SPEC
 
 | Critère | Statut | Notes |
 |---------|--------|-------|
-| [critère 1] | ✅ / ⚠️ / ❌ | |
 
-**Drift détecté** : [oui/non — détail si oui]
+**Drift détecté** : [oui/non]
 
 ## Qualité du Code
-
-[Évaluation avec exemples concrets]
+[Évaluation + exemples]
 
 ## Dette Technique
-
-| Élément | Type | Sévérité | Effort estimé |
-|---------|------|----------|--------------|
+| Élément | Type | Sévérité | Effort |
+|---------|------|----------|--------|
 
 ## Cohérence AGENT-GUIDE
-
-[Conformité aux conventions + nouvelles conventions suggérées]
+[Conformité + nouvelles conventions suggérées]
 
 ## Recommandations
-
-[Actions priorisées : BLOQUANT / IMPORTANT / SUGGESTION]
+[BLOQUANT / IMPORTANT / SUGGESTION]
 ```
 
-Persiste le rapport dans `.aiad/metrics/audit/YYYY-MM-DD-SPEC-NNN.md`.
+Persiste dans `.aiad/metrics/audit/YYYY-MM-DD-SPEC-NNN.md`.
 
-### Règles
+## Règles
 
-- Un drift détecté en étape 1 déclenche automatiquement une proposition de mise à jour SPEC
-- Les nouvelles conventions identifiées doivent être validées par le PE avant intégration dans l'AGENT-GUIDE
-- Un audit qualité ne remplace pas la validation fonctionnelle QA
-- La dette délibérée doit être documentée, pas ignorée
+- Un drift détecté déclenche automatiquement une proposition de MAJ SPEC.
+- Nouvelles conventions identifiées → validées par le PE avant intégration AGENT-GUIDE.
+- Audit qualité ≠ validation fonctionnelle QA.
+- Dette délibérée = à documenter, pas à ignorer.
 
-### Anti-patterns
+## Anti-patterns
 
-- **Audit cosmétique** : signaler uniquement le style sans analyser la conformité SPEC
-- **Ignorer la dette délibérée** : toute dette délibérée doit être tracée, même si acceptée
-- **Confondre avec `/sdd security`** : cet audit couvre la qualité, pas la sécurité — les deux sont complémentaires
+- **Audit cosmétique** : signaler le style sans analyser la conformité SPEC.
+- **Ignorer la dette délibérée** : toute dette doit être tracée.
+- **Confondre avec `/sdd security`** : `/sdd audit` couvre la qualité, pas la sécurité.
 
 $ARGUMENTS

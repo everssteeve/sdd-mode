@@ -7,74 +7,71 @@ description: Cadrage initial d'un projet SDD Mode (PRD + ARCHITECTURE + AGENT-GU
 
 Tu es un Product Engineer AIAD. L'utilisateur veut initialiser le cadrage d'un nouveau projet (ou d'une nouvelle fonctionnalité majeure) en mode SDD.
 
-## Contexte SDD Mode
+Le cadrage produit les **3 artefacts fondamentaux** :
+1. **PRD.md** — Vision produit (PM)
+2. **ARCHITECTURE.md** — Décisions techniques (Tech Lead)
+3. **AGENT-GUIDE.md** — Contexte permanent agent (AE)
 
-Le cadrage initial produit les 3 artefacts fondamentaux :
-1. **PRD.md** — Vision produit (maintenu par le PM)
-2. **ARCHITECTURE.md** — Décisions techniques (maintenu par le Tech Lead)
-3. **AGENT-GUIDE.md** — Contexte permanent agent (maintenu par l'AE)
+## Skills invoquées
 
-## Mode d'exécution
+- 🔧 [`human-authorship-check`](../skills/human-authorship-check/SKILL.md) — vérifie que les "POURQUOI" du PRD sont humains.
 
-Cette commande supporte deux modes :
+## Modes
 
-- **`--guided`** → mode débutant : questions posées une par une, concepts expliqués, exemples proposés.
-- **`--fast`** → mode expert : input attendu en bloc, explications sautées, livrable direct.
-- *(aucun flag)* → auto-détection : **guided** si `.aiad/` est absent ou quasi vide, **fast** sinon.
+- `--guided` : pas à pas
+- `--fast` : 3 artefacts directs
+- *(par défaut)* : auto-détection
 
-Inspecte `$ARGUMENTS` pour détecter le flag ; à défaut, inspecte `.aiad/` avant de trancher.
+## ⚡ Étape 0 — Message de redémarrage
 
-## ⚡ Étape 0 — Message de redémarrage (toujours affiché en premier)
+Avant toute action, affiche :
 
-Avant toute autre action, affiche ce message :
+> *"Pour charger toutes les 27 commandes AIAD dans cette session, il est recommandé de relancer l'agent (`/exit` puis relancer la commande). Souhaites-tu continuer sans redémarrage ?"*
 
-> *"Pour charger toutes les 27 commandes AIAD dans cette session, il est recommandé de relancer l'agent maintenant avec `/exit` puis de relancer la commande. Souhaitez-vous continuer sans redémarrage ?"*
+Si l'utilisateur continue sans redémarrer, note que certaines commandes pourraient ne pas être disponibles.
 
-Si l'utilisateur choisit de continuer sans redémarrage, note en contexte que certaines commandes pourraient ne pas être disponibles dans cette session.
+## 🚀 Fast path
 
-## 🚀 Fast path (expert)
+**Input** : nom projet, stack, horizon, 1-2 phrases sur le problème.
+**Output** : `PRD.md` + `ARCHITECTURE.md` + `AGENT-GUIDE.md` pré-remplis.
 
-**Input attendu** : nom projet, stack, horizon, 1-2 phrases sur le problème à résoudre.
-**Output produit** : `PRD.md` + `ARCHITECTURE.md` + `AGENT-GUIDE.md` pré-remplis.
-**Actions** :
 1. Demande les 3-5 éléments de cadrage en un seul bloc.
-2. Produis les 3 artefacts directement avec les sections remplies.
-3. Livre en diff pour validation, pas en dialogue section par section.
+2. Applique la skill `human-authorship-check` sur les "POURQUOI" du PRD.
+3. Produis les 3 artefacts directement.
+4. Livre en diff pour validation, pas section par section.
 
-Si tout est clair, saute directement à **Règles**. Sinon, suis le **Mode guidé** ci-dessous.
-
-## 📖 Mode guidé (pas à pas)
+## 📖 Mode guidé
 
 ### Étape 1 — Comprendre l'intention
 
-Pose 3-5 questions de cadrage pour comprendre :
+Pose 3-5 questions :
 - Quel problème résoudre ? Pour qui ? Pourquoi maintenant ?
 - Quelles contraintes techniques ou business ?
 - Quelle taille d'équipe et quel horizon temporel ?
 
+Applique la skill `human-authorship-check` — la paternité de la vision produit ne se délègue pas.
+
 ### Étape 2 — Rédiger le PRD
 
-Utilise le template `.aiad/PRD.md` et remplis-le avec les réponses obtenues.
-Assure-toi que chaque Outcome Criteria est mesurable (baseline → cible → méthode).
+Utilise `.aiad/PRD.md`. Chaque Outcome Criteria doit être mesurable (baseline → cible → méthode).
 
 ### Étape 3 — Rédiger l'ARCHITECTURE
 
-Sur la base du PRD validé, propose une stack technique et remplis `.aiad/ARCHITECTURE.md`.
-Prépare un résumé condensé (max 500 tokens) pour le Context Engineering Budget.
+Sur la base du PRD validé, propose une stack et remplis `.aiad/ARCHITECTURE.md`. Prépare un résumé condensé (≤ 500 tokens) pour le Context Engineering Budget.
 
 ### Étape 4 — Rédiger l'AGENT-GUIDE
 
-Remplis `.aiad/AGENT-GUIDE.md` avec le contexte du projet :
+Remplis `.aiad/AGENT-GUIDE.md` avec :
 - Stack technique (référence rapide)
 - Règles absolues (TOUJOURS / JAMAIS)
 - Conventions de code avec exemples
 - Vocabulaire métier
 
-### Règles
+## Règles
 
-- Ne commence JAMAIS à coder sans les 3 artefacts validés
-- Chaque artefact doit être compréhensible en 10 minutes
-- Le PRD ne contient pas de "comment" technique — uniquement le "quoi" et le "pourquoi"
-- L'ARCHITECTURE doit être compressible sans perdre son essentiel
+- Ne JAMAIS commencer à coder sans les 3 artefacts validés.
+- Chaque artefact doit être compréhensible en 10 minutes.
+- Le PRD ne contient pas de "comment" technique — uniquement le "quoi" et le "pourquoi".
+- L'ARCHITECTURE doit être compressible sans perdre son essentiel.
 
 $ARGUMENTS

@@ -56,6 +56,22 @@ Le développement suit ce cycle — ne jamais sauter d'étape :
 Intent Statement → SPEC → Execution Gate (SQS ≥ 4/5) → Exécution Agent → Validation → Drift Lock
 ```
 
+### Skills réutilisables (v1.9)
+
+Depuis la v1.9, les blocs de logique récurrents sont extraits en **skills auto-déclenchées** dans `.claude/skills/<name>/SKILL.md`. Elles sont chargées par Claude Code en fonction de leur `description` et invoquées par les commandes SDD pour rester DRY :
+
+| Skill | Rôle | Commandes qui l'invoquent |
+|-------|------|--------------------------|
+| `human-authorship-check` | Vérifie la paternité humaine d'un Intent / décision | `/sdd intent`, `/sdd init` |
+| `regulatory-veto` | Applique les 4 AGENT-GUIDEs Tier 1 (AI-ACT/RGPD/RGAA/RGESN) | `/sdd validate`, `/sdd security`, `/sdd exec`, `/sdd fact` |
+| `drift-detection` | Détecte un drift code ↔ SPEC sur un diff | `/sdd drift-check`, `/sdd validate`, `/sdd audit`, `/sdd fact`, `/sdd resume` |
+| `sqs-scoring` | Score les 5 critères SQS + Test de l'Étranger | `/sdd gate`, `/sdd split`, `/sdd exec` |
+| `context-budget` | Calcule les 5 métriques santé (M1–M5) du contexte | `/sdd context`, `/sdd exec`, `/sdd resume` |
+| `reasons-canvas` | Facilite la structuration SPDD (Kevlin Henney) | `/sdd spec` (option) |
+| `ears-validator` | Lint EARS sur les critères d'acceptation | `/sdd spec`, `/sdd gate`, `/sdd validate`, `/sdd audit` |
+
+**Composition** : les commandes les plus complexes (`/sdd validate`, `/sdd exec`) **composent plusieurs skills sans dupliquer leur logique** — ex. validate = `ears-validator` + `drift-detection` + `regulatory-veto`.
+
 ### Routers (v1.7 — namespacing des commandes)
 
 Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire le poids du system prompt à froid (-94 % de frontmatter chargé une fois les alias rétro-compat retirés). Les corps des sous-commandes sont stockés dans `.claude/sdd/` et `.claude/aiad/` — chargés uniquement à la demande par le router via `Read`.

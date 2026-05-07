@@ -7,60 +7,55 @@ description: Capturer et qualifier un écart livré/désiré (patch, dette, inte
 
 Tu es un Product Engineer AIAD. L'utilisateur a constaté un écart entre le comportement livré et le comportement désiré.
 
-## Contexte SDD Mode
-
 `/sdd fact` est une commande de correction transverse — elle capture et qualifie un écart sans déclencher un cycle Intent complet. Elle trace dans `.aiad/facts/FACT-NNN.md` avec lien vers la SPEC concernée, contribuant au Drift Lock.
 
-## Mode d'exécution
+## Skills invoquées
 
-- **`--guided`** → questions posées une par une, qualification guidée pas à pas.
-- **`--fast`** → input attendu en bloc, livrable direct.
-- *(aucun flag)* → auto-détection.
+- 🔧 [`drift-detection`](../skills/drift-detection/SKILL.md) — qualifie l'écart au regard de la SPEC référente.
+- 🔧 [`regulatory-veto`](../skills/regulatory-veto/SKILL.md) — applique si l'écart a une dimension sécurité / conformité.
 
-Inspecte `$ARGUMENTS`.
+## Modes
 
-## 🚀 Fast path (expert)
+- `--guided` : qualification pas à pas
+- `--fast` : livrable direct
+- *(par défaut)* : auto-détection
 
-**Input attendu** : description de l'écart (livré vs. désiré) + SPEC concernée si connue.
-**Output produit** : `FACT-NNN.md` dans `.aiad/facts/` avec décision tracée.
-**Actions** :
-1. Capture l'écart précis : livré vs. désiré.
-2. Qualifie l'impact (fonctionnel / sécurité / performance / conformité spec).
-3. Décide de l'action : patch immédiat / nouveau Intent / ajustement SPEC / dette connue.
+## 🚀 Fast path
 
-Si tout est clair, saute directement à **Règles**. Sinon, suis le **Mode guidé** ci-dessous.
+**Input** : description de l'écart (livré vs désiré) + SPEC concernée si connue.
+**Output** : `FACT-NNN.md` dans `.aiad/facts/` avec décision tracée.
 
-## 📖 Mode guidé (pas à pas)
+1. Capture l'écart précis : livré vs désiré.
+2. Applique la skill `drift-detection` pour qualifier au regard de la SPEC.
+3. Si dimension sécurité / conformité → applique la skill `regulatory-veto`.
+4. Décide l'action : patch immédiat / nouveau Intent / ajustement SPEC / dette connue.
+
+## 📖 Mode guidé
 
 ### Étape 1 — Capturer l'écart
 
-Pose 2-3 questions pour caractériser précisément l'écart :
 - Qu'est-ce qui a été livré ?
 - Qu'est-ce qui était attendu ?
-- Quelle SPEC était la référence (si applicable) ?
+- Quelle SPEC était la référence ?
 
 ### Étape 2 — Qualifier l'impact
 
-Aide l'utilisateur à qualifier l'impact parmi :
-- **Fonctionnel** : le comportement ne correspond pas aux critères d'acceptance
-- **Sécurité** : l'écart crée une exposition ou une vulnérabilité
-- **Performance** : l'écart entraîne une dégradation mesurable
-- **Conformité spec** : la SPEC est devenue obsolète par rapport au code livré
+- **Fonctionnel** : comportement ≠ critères d'acceptance
+- **Sécurité** : exposition / vulnérabilité (→ skill `regulatory-veto`)
+- **Performance** : dégradation mesurable
+- **Conformité spec** : SPEC obsolète vs code (→ skill `drift-detection`)
 
-### Étape 3 — Décider de l'action corrective
+### Étape 3 — Décider l'action
 
-Propose les quatre options :
-1. **Patch immédiat** — correction dans la session courante, lien vers la SPEC
-2. **Nouveau Intent Statement** — l'écart révèle un besoin non capturé → `/sdd intent`
-3. **Ajustement SPEC existante** — la SPEC doit refléter le comportement réel, mise à jour en place
-4. **Dette technique connue** — documenter l'écart comme dette acceptée avec justification
+1. **Patch immédiat** — correction dans la session courante, lien vers SPEC
+2. **Nouveau Intent Statement** — `/sdd intent`
+3. **Ajustement SPEC** — mise à jour en place
+4. **Dette technique connue** — documenter avec justification
 
-### Étape 4 — Tracer dans `.aiad/facts/`
-
-Crée le fichier au format :
+### Étape 4 — Tracer
 
 ```markdown
-# FACT-[NNN] — [titre court]
+# FACT-[NNN] — [titre]
 
 **Date** : [YYYY-MM-DD]
 **Auteur** : [PE]
@@ -68,32 +63,29 @@ Crée le fichier au format :
 **Statut** : [ouvert / résolu / dette]
 
 ## Écart constaté
-
-**Livré** : [description précise]
-**Désiré** : [description précise]
+**Livré** : [...]
+**Désiré** : [...]
 
 ## Impact qualifié
-
-- Type : [fonctionnel / sécurité / performance / conformité spec]
-- Sévérité : [critique / majeur / mineur]
+- Type : fonctionnel / sécurité / performance / conformité spec
+- Sévérité : critique / majeur / mineur
 
 ## Décision d'action
-
-**Action choisie** : [patch immédiat / nouveau Intent / ajustement SPEC / dette connue]
+**Action choisie** : [patch / Intent / SPEC / dette]
 **Justification** : [1-2 phrases]
 **Lien SPEC** : [SPEC-NNN ou Intent créé]
 ```
 
-### Règles
+## Règles
 
-- Ne pas créer un FACT pour un bug trivial (typo, style) — réserver aux écarts comportementaux
-- Si l'écart révèle un problème d'intention (pas d'implémentation), escalader vers `/sdd intent`
-- Le champ "SPEC concernée" est obligatoire — si aucune SPEC n'existe, c'est un signal de drift structurel
-- Un FACT ouvert depuis > 2 itérations doit devenir une dette formelle ou un Intent
+- Pas de FACT pour un bug trivial (typo, style) — réserver aux écarts comportementaux.
+- Si l'écart révèle un problème d'intention → `/sdd intent`.
+- Champ "SPEC concernée" obligatoire — si aucune n'existe, c'est un signal de drift structurel.
+- Un FACT ouvert > 2 itérations doit devenir une dette formelle ou un Intent.
 
-### Anti-patterns
+## Anti-patterns
 
-- **Accumuler les FACTs sans résolution** : un backlog de FACTs ouverts est un signe de dette intentionnelle
-- **Créer un FACT pour éviter un Intent** : si l'écart est fonctionnel majeur, la bonne réponse est `/sdd intent`
+- **Accumuler les FACTs sans résolution** : signe de dette intentionnelle.
+- **Créer un FACT pour éviter un Intent** : si l'écart est fonctionnel majeur, la bonne réponse est `/sdd intent`.
 
 $ARGUMENTS

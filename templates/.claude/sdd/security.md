@@ -5,111 +5,94 @@ description: Audit sécurité du code (OWASP Top 10, secrets, permissions agents
 
 # SDD Mode — Audit Sécurité
 
-Tu es un Product Engineer AIAD. L'utilisateur veut réaliser un audit de sécurité du code implémenté.
+Tu es un Product Engineer AIAD. L'utilisateur veut un audit de sécurité du code implémenté.
 
-## Contexte SDD Mode
+`/sdd security` est un audit structuré sur 4 axes — recommandé après toute implémentation impliquant des accès, des données utilisateur, des secrets ou un composant IA, et avant toute PR critique. Le rapport est persisté dans `.aiad/metrics/security/`.
 
-`/sdd security` est un audit structuré sur 4 axes. Recommandé après toute implémentation impliquant des accès, des données utilisateur, des secrets ou un composant IA — et avant toute PR critique. Le rapport est persisté dans `.aiad/metrics/security/`.
+**Recommandation modèle** : Opus 4.7 ou équivalent frontier pour maximiser la détection.
 
-**Recommandation modèle** : utiliser un modèle frontier (Opus 4.7 ou équivalent) pour maximiser la détection de vulnérabilités.
+## Skills invoquées
 
-## Mode d'exécution
+- 🔧 [`regulatory-veto`](../skills/regulatory-veto/SKILL.md) — couvre l'axe 4 (conformité réglementaire — AI-ACT / RGPD / RGAA / RGESN).
 
-- **`--guided`** → explication des axes, questions de contexte, audit section par section.
-- **`--fast`** → input attendu en bloc, rapport direct.
-- *(aucun flag)* → auto-détection.
+## Modes
 
-Inspecte `$ARGUMENTS`.
+- `--guided` : audit section par section
+- `--fast` : rapport direct
+- *(par défaut)* : auto-détection
 
-## 🚀 Fast path (expert)
+## 🚀 Fast path
 
-**Input attendu** : SPEC-NNN concernée + fichiers implémentés (ou chemin).
-**Output produit** : rapport sécurité persisté dans `.aiad/metrics/security/YYYY-MM-DD-SPEC-NNN.md`.
-**Actions** :
+**Input** : SPEC-NNN concernée + fichiers implémentés.
+**Output** : rapport persisté dans `.aiad/metrics/security/YYYY-MM-DD-SPEC-NNN.md`.
+
 1. Recommander Opus 4.7 si pas déjà actif.
-2. Parcourir les 4 axes (OWASP / secrets / permissions agents / conformité réglementaire).
-3. Produire le rapport structuré : risques critiques / moyens / bonnes pratiques confirmées.
+2. Parcourir les **4 axes** : OWASP / secrets / permissions agents / conformité.
+3. Pour l'axe 4 (conformité), appliquer la skill `regulatory-veto`.
+4. Produire le rapport : risques critiques / moyens / bonnes pratiques confirmées.
 
-Si tout est clair, saute directement à **Règles**. Sinon, suis le **Mode guidé** ci-dessous.
-
-## 📖 Mode guidé (pas à pas)
+## 📖 Mode guidé
 
 ### Étape 0 — Recommandation modèle
 
-Affiche ce message : *"Cet audit est plus efficace avec un modèle frontier (Opus 4.7). Si vous n'êtes pas sur Opus 4.7, considérez de basculer avant de continuer (`/fast` dans Claude Code)."*
+Affiche : *"Cet audit est plus efficace avec Opus 4.7. Si tu n'es pas sur Opus 4.7, considère de basculer (`/fast` dans Claude Code)."*
 
 ### Étape 1 — Axe OWASP Top 10
 
-Parcours le code sur les 10 catégories :
-- A01 Broken Access Control
-- A02 Cryptographic Failures
-- A03 Injection (SQL, prompt injection, command injection)
-- A04 Insecure Design
-- A05 Security Misconfiguration
-- A06 Vulnerable and Outdated Components
-- A07 Identification and Authentication Failures
-- A08 Software and Data Integrity Failures
-- A09 Security Logging and Monitoring Failures
-- A10 Server-Side Request Forgery (SSRF)
+Parcours le code sur les 10 catégories : A01 Broken Access Control, A02 Crypto, A03 Injection (SQL, prompt, command), A04 Insecure Design, A05 Misconfig, A06 Vulnerable Components, A07 Auth Failures, A08 Integrity, A09 Logging, A10 SSRF.
 
 ### Étape 2 — Gestion des secrets
 
-- Secrets dans le code source (hardcodés, dans les logs) ?
-- Variables d'environnement correctement référencées ?
-- `.env.example` présent et `.env` dans `.gitignore` ?
+- Secrets hardcodés ou dans les logs ?
+- Variables d'env correctement référencées ?
+- `.env.example` présent + `.env` dans `.gitignore` ?
 - Rotation des clés documentée ?
 
 ### Étape 3 — Permissions des agents (Harness Engineering)
 
-Vérifier le principe de **minimal necessary permissions** :
-- Un agent de génération de code n'a-t-il pas accès aux systèmes de production ?
-- Les webhooks et tokens d'API sont-ils scopés au minimum nécessaire ?
-- Les permissions des agents sont-elles documentées dans l'AGENT-GUIDE ?
+Principe **minimal necessary permissions** :
+- Un agent de génération n'a pas accès à la prod ?
+- Webhooks et tokens d'API scopés au minimum ?
+- Permissions documentées dans l'AGENT-GUIDE ?
 
-### Étape 4 — Conformité réglementaire (si applicable)
+### Étape 4 — Conformité réglementaire
 
-- Si composant IA → vérifier AIAD-AI-ACT (divulgation, supervision humaine)
-- Si données personnelles → vérifier AIAD-RGPD (base légale, minimisation, droits)
+Applique la skill `regulatory-veto`. Si VETO → rapport **risque critique** ; si WARN → **risque moyen** avec plan.
 
 ### Étape 5 — Produire le rapport
 
 ```markdown
 # Rapport Sécurité — [SPEC-NNN] — [YYYY-MM-DD]
 
-**Modèle utilisé** : [ex. claude-opus-4-7]
+**Modèle utilisé** : claude-opus-4-7
 **SPEC auditée** : [SPEC-NNN]
-**Périmètre** : [fichiers parcourus]
+**Périmètre** : [fichiers]
 
 ## Risques Critiques 🚨
-
-[Problèmes bloquants — à corriger avant merge]
+[Bloquants — corriger avant merge]
 
 ## Risques Moyens ⚠️
-
-[Problèmes importants — à adresser dans la prochaine itération]
+[À adresser dans la prochaine itération]
 
 ## Bonnes Pratiques Confirmées ✅
-
-[Ce qui est bien fait — à conserver]
+[À conserver]
 
 ## Recommandations
-
-[Actions concrètes avec priorité : BLOQUANT / IMPORTANT / SUGGESTION]
+[Actions priorisées : BLOQUANT / IMPORTANT / SUGGESTION]
 ```
 
-Persiste le rapport dans `.aiad/metrics/security/YYYY-MM-DD-SPEC-NNN.md`.
+Persiste dans `.aiad/metrics/security/YYYY-MM-DD-SPEC-NNN.md`.
 
-### Règles
+## Règles
 
-- Un risque critique bloque le merge — équivalent à un veto de gouvernance
-- Ne pas ignorer les avertissements sur les secrets même dans les environnements de dev
-- Documenter les faux positifs pour affiner les audits suivants
-- Si des agents AIAD sont configurés, vérifier leurs permissions à chaque audit
+- Un risque critique bloque le merge — équivalent à un veto Tier 1.
+- Ne pas ignorer les avertissements sur les secrets, même en dev.
+- Documenter les faux positifs pour affiner les audits suivants.
 
-### Anti-patterns
+## Anti-patterns
 
-- **Audit superficiel** : parcourir uniquement le code visible sans vérifier les dépendances
-- **Reporter les risques critiques** : un risque critique non adressé est une dette de sécurité active
-- **Ignorer l'axe "agents"** : les permissions des agents IA sont une surface d'attaque à part entière
+- **Audit superficiel** : parcourir le code visible sans vérifier les dépendances.
+- **Reporter les risques critiques** : c'est de la dette de sécurité active.
+- **Ignorer l'axe agents** : leurs permissions sont une surface d'attaque à part entière.
 
 $ARGUMENTS

@@ -103,6 +103,8 @@ L'upgrade est **purement additif** — tes fichiers personnalisés (Intent State
 
 > **Nouveau en v1.7** — Les 27 commandes sont regroupées sous **3 routers** (`/sdd`, `/aiad`, `/aiad-help`). Les corps des sous-commandes sont chargés à la demande, pas dans le system prompt à froid (mesure : -94 % de frontmatter chargé une fois les alias rétro-compat retirés). Mesure-le toi-même : `npx aiad-sdd bench`.
 >
+> **Nouveau en v1.9** — 7 **skills réutilisables** auto-déclenchées factorisent la logique récurrente : `human-authorship-check`, `regulatory-veto`, `drift-detection`, `sqs-scoring`, `context-budget`, `reasons-canvas`, `ears-validator`. Les commandes SDD sont **plus courtes (-32 % de bytes cumulés)** et composables. Cf. `.claude/skills/`.
+>
 > Les anciens alias plats (`/sdd-spec`, `/aiad-status`, …) restent fonctionnels pendant 1 version et seront retirés à la v2.
 
 **Cycle SDD (13 sous-commandes) — `/sdd <sub>` :**
