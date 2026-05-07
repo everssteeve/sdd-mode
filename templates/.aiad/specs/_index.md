@@ -1,12 +1,14 @@
 # Index des SPECs
 
 > Chaque SPEC est une spécification technique atomique liée à un Intent Statement.
-> Format : `SPEC-NNN-[nom-court].md`
-> Commande : `/sdd-spec` dans Claude Code
+> Nommage : `SPEC-NNN-[nom-court].md`
+> Commande : `/sdd spec` (ajouter `--ears` pour la variante EARS) dans Claude Code
 
-| ID | Titre | Intent parent | SQS | Statut | PR |
-|----|-------|---------------|-----|--------|----|
-| | | | | | |
+| ID | Titre | Intent parent | Format | SQS | Statut | PR |
+|----|-------|---------------|--------|-----|--------|----|
+| | | | | | | |
+
+> Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 
 ## Statuts possibles
 

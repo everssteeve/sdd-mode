@@ -25,6 +25,17 @@ description: Use when evaluating a SPEC's quality (Spec Quality Score). Scores t
 | 4 | **Non-ambiguïté** | Un dev / agent peut-il implémenter sans poser de question ? |
 | 5 | **Traçabilité** | Intent parent + dépendances explicitement référencés ? |
 
+### Modulation EARS du critère 2 (Testabilité)
+
+Si la SPEC déclare `Format : EARS` (cf. skill `ears-validator` mode strict), le score critère 2 est dérivé du linter :
+
+| Résultat linter EARS strict | Critère 2 |
+|---|---|
+| 0 violation R1–R7 sur tous les critères §3 | **1/1** (bonus +1 garanti — critères EARS conformes = testables par construction) |
+| ≥ 1 violation | **0/1** forcé (peu importe l'apparence, EARS non conforme = testabilité non garantie) |
+
+En format `prose` (mode indicatif), le critère 2 reste évalué selon la rubrique standard.
+
 ## Test de l'Étranger (non scorable, OBLIGATOIRE)
 
 > "Un Product Engineer qui n'a JAMAIS vu ce projet peut-il comprendre cette SPEC

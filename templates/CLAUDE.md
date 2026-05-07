@@ -69,10 +69,20 @@ Depuis la v1.9, les blocs de logique récurrents sont extraits en **skills auto-
 | `sqs-scoring` | Score les 5 critères SQS + Test de l'Étranger | `/sdd gate`, `/sdd split`, `/sdd exec` |
 | `context-budget` | Calcule les 5 métriques santé (M1–M5) du contexte | `/sdd context`, `/sdd exec`, `/sdd resume` |
 | `reasons-canvas` | Facilite la structuration SPDD (Kevlin Henney) | `/sdd spec` (option) |
-| `ears-validator` | Lint EARS sur les critères d'acceptation | `/sdd spec`, `/sdd gate`, `/sdd validate`, `/sdd audit` |
+| `ears-validator` | Lint EARS sur les critères d'acceptation (mode strict si `Format : EARS`, indicatif sinon) | `/sdd spec`, `/sdd gate`, `/sdd validate`, `/sdd audit` |
 | `traceability` (v1.10) | Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests | `/sdd trace`, `/sdd drift-check`, `/sdd validate`, `/sdd audit`, GitHub Action |
 
 **Composition** : les commandes les plus complexes (`/sdd validate`, `/sdd exec`) **composent plusieurs skills sans dupliquer leur logique** — ex. validate = `ears-validator` + `drift-detection` + `regulatory-veto`.
+
+### Variante EARS optionnelle (v1.11)
+
+Depuis la v1.11, les SPECs peuvent être rédigées au **format EARS** (Easy Approach to Requirements Syntax) via `/sdd spec --ears`. Cohabitation avec le format prose : aucune obligation, aucune migration imposée. La variante EARS s'appuie sur le template `.aiad/specs/spec-ears-template.md` et déclare `Format : EARS` en entête. Effets :
+
+- À `/sdd gate`, le linter `ears-validator` passe en mode **strict** (règles R1–R7 : mots interdits, multi-SHALL, déclencheurs WHEN/WHILE/IF/WHERE, sujet explicite, verbes observables, quantification, conjonctions).
+- 0 violation → bonus **+1 sur le critère SQS 2 (Testabilité)** garanti.
+- ≥ 1 violation → critère 2 forcé à 0 (la Gate ferme, plan de remédiation R1–R7 critère par critère).
+
+À utiliser quand l'ambiguïté coûterait cher : sécurité, paiement, conformité réglementaire, contrats d'API publics.
 
 ### Routers (v1.7 — namespacing des commandes)
 

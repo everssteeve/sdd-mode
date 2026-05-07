@@ -105,6 +105,8 @@ L'upgrade est **purement additif** — tes fichiers personnalisés (Intent State
 >
 > **Nouveau en v1.9** — 7 **skills réutilisables** auto-déclenchées factorisent la logique récurrente : `human-authorship-check`, `regulatory-veto`, `drift-detection`, `sqs-scoring`, `context-budget`, `reasons-canvas`, `ears-validator`. Les commandes SDD sont **plus courtes (-32 % de bytes cumulés)** et composables. Cf. `.claude/skills/`.
 >
+> **Nouveau en v1.11** — Variante **EARS optionnelle** pour les SPECs critiques (`/sdd spec --ears`). Linter strict R1–R7 (mots interdits, multi-SHALL, déclencheurs WHEN/WHILE/IF/WHERE, …), bonus +1 sur le SQS Testabilité si 0 violation. Cohabitation totale avec le format prose. Cf. `.aiad/specs/spec-ears-template.md`.
+>
 > Les anciens alias plats (`/sdd-spec`, `/aiad-status`, …) restent fonctionnels pendant 1 version et seront retirés à la v2.
 
 **Cycle SDD (13 sous-commandes) — `/sdd <sub>` :**
