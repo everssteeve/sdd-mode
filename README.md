@@ -20,8 +20,13 @@ SDD Mode (Spec Driven Development Mode) est le framework de développement d'[AI
 
 ## Installation
 
+**Démarre minimal, évolue progressivement** — choisis ton profil selon le besoin.
+
 ```bash
-# Initialisation complète (structure + gouvernance + commandes Claude Code)
+# Profil minimal (AIAD-Lean) — 4 commandes, ≤ 1k tokens cold-start
+npx aiad-sdd init --minimal
+
+# Profil complet (structure + gouvernance + 27 commandes Claude Code)
 npx aiad-sdd init
 
 # Sans les agents de gouvernance
@@ -33,6 +38,40 @@ npx aiad-sdd gouvernance
 # Voir l'état du projet
 npx aiad-sdd status
 ```
+
+### Profil minimal — 3 différenciateurs essentiels
+
+Le profil `--minimal` installe uniquement les 3 fondations qui distinguent AIAD : **Intent Statement**, **SQS** (Spec Quality Score), **Drift Lock**.
+
+```
+.aiad/
+├── AGENT-GUIDE.md      ← contexte permanent (sans gouvernance Tier 1)
+├── intents/_index.md
+└── specs/_index.md
+
+.claude/commands/       ← 4 commandes seulement
+├── sdd-intent.md       ← Capturer l'intention humaine (POURQUOI)
+├── sdd-spec.md         ← Rédiger une SPEC depuis un Intent
+├── sdd-gate.md         ← Valider la SPEC (SQS ≥ 4/5)
+└── sdd-drift-check.md  ← Vérifier la synchro code/SPEC
+
+CLAUDE.md               ← condensé (constitution AIAD 7 valeurs + cycle minimal)
+```
+
+Mesure : ~93 tokens de frontmatter + ~700 tokens de CLAUDE.md = **~793 tokens cold-start** (< 1 000).
+
+### Évoluer à la demande
+
+À tout moment, tu peux ajouter un module au profil minimal :
+
+```bash
+npx aiad-sdd init --upgrade gouvernance   # Agents Tier 1 (AI-ACT, RGPD, RGAA, RGESN)
+npx aiad-sdd init --upgrade rituals       # standup, retro, demo, intention, sync-strat, …
+npx aiad-sdd init --upgrade metrics       # dashboard, DORA, flow + commandes /sdd fact|security|audit|context
+npx aiad-sdd init --upgrade all           # Bascule complète vers le profil 27 commandes
+```
+
+L'upgrade est **purement additif** — tes fichiers personnalisés (Intent Statements, SPECs, AGENT-GUIDE, CLAUDE.md) sont préservés. Ajoute `--force` pour resynchroniser tout.
 
 ## Ce qui est installé
 

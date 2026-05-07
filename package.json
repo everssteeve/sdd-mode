@@ -1,6 +1,6 @@
 {
   "name": "aiad-sdd",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "AIAD SDD Mode — Spec Driven Development pour Claude Code. Framework de développement spec-first avec agents IA.",
   "keywords": [
     "aiad",

@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { init } from '../lib/init.js';
 import { update } from '../lib/update.js';
+import { upgrade } from '../lib/upgrade.js';
 import { addGovernance } from '../lib/governance.js';
 import { showStatus } from '../lib/status.js';
 import { installerHooks, desinstallerHooks } from '../lib/hooks.js';
@@ -31,6 +32,8 @@ const AIDE = `
     help                  Affiche cette aide
 
   Options init :
+    --minimal             Profil AIAD-Lean : 4 commandes (intent/spec/gate/drift-check)
+    --upgrade <module>    Ajoute un module (rituals|metrics|gouvernance|all)
     --sans-gouvernance    Initialise sans les agents de gouvernance
     --with-git-hooks      Installe le hook pre-commit (Drift Lock)
     --force               Écrase les fichiers existants
@@ -44,6 +47,11 @@ const AIDE = `
 
   Exemples :
     npx aiad-sdd init                       Initialisation complète
+    npx aiad-sdd init --minimal             Profil minimal (4 commandes, ≤ 1k tokens)
+    npx aiad-sdd init --upgrade rituals     Ajoute les rituels au profil minimal
+    npx aiad-sdd init --upgrade gouvernance Ajoute les agents Tier 1 (AI-ACT, RGPD, …)
+    npx aiad-sdd init --upgrade metrics     Ajoute dashboards & métriques DORA/flow
+    npx aiad-sdd init --upgrade all         Bascule minimal → profil complet
     npx aiad-sdd init --with-git-hooks      Init + Drift Lock pre-commit
     npx aiad-sdd update                     Mise à jour (préserve vos fichiers)
     npx aiad-sdd init --force               Réinitialisation (écrase tout)
@@ -55,15 +63,32 @@ const AIDE = `
   Framework AIAD — Artificial Intelligence Agent Development — Open Source
 `;
 
+function lireValeurFlag(nom) {
+  const idx = flags.indexOf(nom);
+  if (idx === -1) return null;
+  const valeur = flags[idx + 1];
+  if (!valeur || valeur.startsWith('--')) return null;
+  return valeur;
+}
+
 async function main() {
   switch (command) {
-    case 'init':
+    case 'init': {
+      const moduleUpgrade = lireValeurFlag('--upgrade');
+      if (moduleUpgrade) {
+        await upgrade(cwd(), moduleUpgrade, {
+          force: flags.includes('--force'),
+        });
+        break;
+      }
       await init(cwd(), {
         sansGouvernance: flags.includes('--sans-gouvernance'),
         force: flags.includes('--force'),
         withGitHooks: flags.includes('--with-git-hooks'),
+        minimal: flags.includes('--minimal'),
       });
       break;
+    }
 
     case 'update':
       await update(cwd(), {
