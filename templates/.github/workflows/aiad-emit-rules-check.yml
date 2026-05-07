@@ -1,0 +1,79 @@
+# AIAD SDD Mode — Multi-runtime parity check (Évolution #8 — v1.12)
+#
+# Vérifie que les fichiers émis (AGENTS.md, CLAUDE.md header, .cursor/rules/,
+# .codex/, GEMINI.md) sont synchronisés avec la source de vérité
+# (.aiad/AGENT-GUIDE.md + .aiad/gouvernance/ + Intent actif).
+#
+# Échec → la PR a modifié AGENT-GUIDE sans régénérer les cibles, OU a
+# modifié manuellement un fichier émis (qui sera écrasé). Régénérer avec :
+#
+#   npx aiad-sdd emit-rules
+#
+# Documentation : https://aiad.ovh
+
+name: AIAD Emit Rules — multi-runtime parity
+
+on:
+  pull_request:
+    branches: [main, master, dev]
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  emit-rules-check:
+    name: Parité AGENT-GUIDE ↔ AGENTS.md / Cursor / Codex / Gemini
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install aiad-sdd
+        run: |
+          if [ -f package.json ]; then
+            npm install --no-audit --no-fund --omit=optional || true
+          fi
+          npm install --no-save --no-audit --no-fund aiad-sdd@latest
+
+      - name: Verify multi-runtime parity
+        run: npx aiad-sdd emit-rules --check
+
+      - name: Comment PR with remediation
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = [
+              '<!-- aiad-sdd:emit-rules -->',
+              '## ⚠️ AIAD Emit Rules — divergence détectée',
+              '',
+              'Un ou plusieurs fichiers dérivés (`AGENTS.md`, `CLAUDE.md` header, `.cursor/rules/*.mdc`, `.codex/AGENT.md`, `GEMINI.md`) sont **désynchronisés** avec la source de vérité (`.aiad/AGENT-GUIDE.md` + `.aiad/gouvernance/`).',
+              '',
+              '**Remédiation** :',
+              '',
+              '```bash',
+              'npx aiad-sdd emit-rules',
+              'git add AGENTS.md CLAUDE.md .cursor/rules .codex GEMINI.md',
+              'git commit -m "chore: regenerate multi-runtime rules"',
+              '```',
+              '',
+              '> 💡 Le header `<!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->` indique que toute modification manuelle sera écrasée. Les règles se modifient dans `.aiad/AGENT-GUIDE.md` ou `.aiad/gouvernance/`.',
+            ].join('\n');
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            const comments = await github.rest.issues.listComments({ owner, repo, issue_number });
+            const existing = comments.data.find((c) => c.body && c.body.includes('<!-- aiad-sdd:emit-rules -->'));
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }

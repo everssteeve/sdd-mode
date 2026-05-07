@@ -12,6 +12,7 @@ import { showStatus } from '../lib/status.js';
 import { installerHooks, desinstallerHooks } from '../lib/hooks.js';
 import { bench } from '../lib/coldstart.js';
 import { trace } from '../lib/sdd-trace.js';
+import { emitRules } from '../lib/emit-rules.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -31,11 +32,14 @@ const AIDE = `
     status                Affiche l'état SDD du projet
     bench                 Mesure le poids des frontmatters de commandes (cold-start)
     trace [options]       Génère la matrice Intent ↔ SPEC ↔ Code ↔ Tests
+    emit-rules [options]  Régénère AGENTS.md, CLAUDE.md, .cursor/rules/, .codex/, GEMINI.md
     help                  Affiche cette aide
 
   Options init :
     --minimal             Profil AIAD-Lean : 4 commandes (intent/spec/gate/drift-check)
     --upgrade <module>    Ajoute un module (rituals|metrics|gouvernance|all)
+    --runtime <list>      Cible IA — claude-code|cursor|codex|copilot|gemini|all
+                          (séparés par virgule, défaut : claude-code)
     --sans-gouvernance    Initialise sans les agents de gouvernance
     --with-git-hooks      Installe le hook pre-commit (Drift Lock)
     --force               Écrase les fichiers existants
@@ -54,6 +58,11 @@ const AIDE = `
     --fail-on-gap         Exit 1 si gap bloquant détecté (CI)
     --quiet               Pas de résumé console
 
+  Options emit-rules :
+    --runtime <list>      Runtimes ciblés — claude-code|cursor|codex|copilot|gemini|all
+                          (séparés par virgule, défaut : all)
+    --check               Mode CI — exit 1 si divergence avec AGENT-GUIDE
+
   Exemples :
     npx aiad-sdd init                       Initialisation complète
     npx aiad-sdd init --minimal             Profil minimal (4 commandes, ≤ 1k tokens)
@@ -70,6 +79,9 @@ const AIDE = `
     npx aiad-sdd status                     État du projet SDD
     npx aiad-sdd trace                      Génère la matrice de traçabilité (md+json+html)
     npx aiad-sdd trace --fail-on-gap        Échoue si gap bloquant (usage CI)
+    npx aiad-sdd emit-rules                 Régénère AGENTS.md + Cursor + Codex + Gemini
+    npx aiad-sdd emit-rules --runtime cursor  Cible un runtime unique
+    npx aiad-sdd emit-rules --check         Vérifie la parité (usage CI)
 
   Framework AIAD — Artificial Intelligence Agent Development — Open Source
 `;
@@ -82,6 +94,12 @@ function lireValeurFlag(nom) {
   return valeur;
 }
 
+function lireListeFlag(nom, defaut) {
+  const v = lireValeurFlag(nom);
+  if (!v) return defaut;
+  return v.split(',').map((s) => s.trim()).filter(Boolean);
+}
+
 async function main() {
   switch (command) {
     case 'init': {
@@ -92,11 +110,13 @@ async function main() {
         });
         break;
       }
+      const runtimes = lireListeFlag('--runtime', ['claude-code']);
       await init(cwd(), {
         sansGouvernance: flags.includes('--sans-gouvernance'),
         force: flags.includes('--force'),
         withGitHooks: flags.includes('--with-git-hooks'),
         minimal: flags.includes('--minimal'),
+        runtimes,
       });
       break;
     }
@@ -129,6 +149,14 @@ async function main() {
 
     case 'trace':
       await trace(cwd(), flags);
+      break;
+
+    case 'emit-rules':
+      await emitRules(cwd(), {
+        runtimes: lireListeFlag('--runtime', ['all']),
+        check: flags.includes('--check'),
+        force: flags.includes('--force'),
+      });
       break;
 
     case 'help':

@@ -32,8 +32,15 @@ npx aiad-sdd init
 # Sans les agents de gouvernance
 npx aiad-sdd init --sans-gouvernance
 
+# Multi-runtime (v1.12) — Claude Code + Cursor + Codex + Copilot + Gemini
+npx aiad-sdd init --runtime all
+npx aiad-sdd init --runtime cursor
+
 # Mettre à jour les agents de gouvernance
 npx aiad-sdd gouvernance
+
+# Régénérer les fichiers de règles multi-runtime depuis l'AGENT-GUIDE
+npx aiad-sdd emit-rules
 
 # Voir l'état du projet
 npx aiad-sdd status
@@ -107,6 +114,8 @@ L'upgrade est **purement additif** — tes fichiers personnalisés (Intent State
 >
 > **Nouveau en v1.11** — Variante **EARS optionnelle** pour les SPECs critiques (`/sdd spec --ears`). Linter strict R1–R7 (mots interdits, multi-SHALL, déclencheurs WHEN/WHILE/IF/WHERE, …), bonus +1 sur le SQS Testabilité si 0 violation. Cohabitation totale avec le format prose. Cf. `.aiad/specs/spec-ears-template.md`.
 >
+> **Nouveau en v1.12** — **Multi-runtime** via `/aiad emit-rules`. AIAD devient **source amont** : `.aiad/AGENT-GUIDE.md` + `.aiad/gouvernance/` génèrent `AGENTS.md`, `CLAUDE.md` (header), `.cursor/rules/*.mdc`, `.codex/AGENT.md`, `GEMINI.md`. Une seule modification → tous les runtimes alignés. Workflow CI `aiad-emit-rules-check.yml` bloque toute divergence. Cible explicite via `aiad-sdd init --runtime cursor|codex|copilot|gemini|all`.
+>
 > Les anciens alias plats (`/sdd-spec`, `/aiad-status`, …) restent fonctionnels pendant 1 version et seront retirés à la v2.
 
 **Cycle SDD (13 sous-commandes) — `/sdd <sub>` :**
@@ -151,7 +160,46 @@ L'upgrade est **purement additif** — tes fichiers personnalisés (Intent State
 | `/aiad dora` | Métriques | DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR) |
 | `/aiad flow` | Métriques | Flow Metrics (Cycle Time, Lead Time, Throughput, WIP, Flow Efficiency) |
 
+**Multi-runtime (v1.12) — `/aiad <sub>` :**
+
+| Forme courante | Phase | Description |
+|----------------|-------|-------------|
+| `/aiad emit-rules` | Adoption | Régénère `AGENTS.md`, `CLAUDE.md` (header), `.cursor/rules/`, `.codex/`, `GEMINI.md` depuis `.aiad/AGENT-GUIDE.md` |
+
 **Aide :** `/aiad-help` — vue d'ensemble, parcours type, recherche d'une commande par mot-clé.
+
+### Multi-runtime (v1.12)
+
+AIAD se positionne en **source amont** : une seule modification dans `.aiad/AGENT-GUIDE.md` ou `.aiad/gouvernance/` propage automatiquement vers tous les runtimes IA.
+
+```bash
+# Régénération complète (Claude Code + Cursor + Codex + Copilot + Gemini)
+npx aiad-sdd emit-rules
+
+# Cible un runtime unique
+npx aiad-sdd emit-rules --runtime cursor
+npx aiad-sdd emit-rules --runtime cursor,codex
+
+# Mode CI — exit 1 si divergence
+npx aiad-sdd emit-rules --check
+
+# Bootstrap projet avec runtime explicite
+npx aiad-sdd init --runtime all
+npx aiad-sdd init --runtime cursor
+```
+
+**Fichiers émis :**
+
+| Fichier | Runtime | Mécanisme |
+|---------|---------|-----------|
+| `AGENTS.md` | Standard inter-outils + Copilot | Source canonique |
+| `CLAUDE.md` (header) | Claude Code | Header de cohérence injecté entre sentinels |
+| `.cursor/rules/aiad.mdc` | Cursor — règle principale | `alwaysApply: true` |
+| `.cursor/rules/aiad-{rgpd,rgaa,ai-act,rgesn}.mdc` | Cursor — Tier 1 | Scopés via globs, `alwaysApply: false` |
+| `.codex/AGENT.md` | OpenAI Codex | Optionnel |
+| `GEMINI.md` | Google Gemini | Optionnel |
+
+Chaque fichier émis porte un `source-hash` SHA-256 dans son frontmatter et le header `<!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->`. Le workflow `aiad-emit-rules-check.yml` (déployé via `init --upgrade all`) bloque toute PR qui modifie l'AGENT-GUIDE sans régénérer les cibles, OU qui modifie manuellement un fichier dérivé.
 
 ### CLAUDE.md
 
