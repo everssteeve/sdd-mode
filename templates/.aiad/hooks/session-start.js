@@ -70,7 +70,7 @@ function main() {
   const activeIntents = intentRows.filter(r => isActiveIntentStatus(r[6]));
 
   if (!activeIntents.length) {
-    lines.push('[AIAD] Aucun Intent actif. Suggestion : lance /sdd-intent pour capturer une intention humaine avant de coder.');
+    lines.push('[AIAD] Aucun Intent actif. Suggestion : lance /sdd intent pour capturer une intention humaine avant de coder.');
   } else {
     for (const row of activeIntents.slice(0, MAX_INTENTS)) {
       const id = row[1];

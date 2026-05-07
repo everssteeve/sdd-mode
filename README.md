@@ -62,47 +62,53 @@ npx aiad-sdd status
 
 ### Commandes Claude Code
 
-**Cycle SDD (13 commandes) :**
+> **Nouveau en v1.7** — Les 27 commandes sont regroupées sous **3 routers** (`/sdd`, `/aiad`, `/aiad-help`). Les corps des sous-commandes sont chargés à la demande, pas dans le system prompt à froid (mesure : -94 % de frontmatter chargé une fois les alias rétro-compat retirés). Mesure-le toi-même : `npx aiad-sdd bench`.
+>
+> Les anciens alias plats (`/sdd-spec`, `/aiad-status`, …) restent fonctionnels pendant 1 version et seront retirés à la v2.
 
-| Commande | Phase | Description |
-|----------|-------|-------------|
-| `/sdd-init` | Cadrage | Initialiser PRD + ARCHITECTURE + AGENT-GUIDE |
-| `/sdd-intent` | Intention | Capturer un Intent Statement (POURQUOI) |
-| `/sdd-spec` | Spécification | Rédiger une SPEC depuis un Intent |
-| `/sdd-gate` | Validation | Execution Gate + SQS + plan de remédiation |
-| `/sdd-exec` | Exécution | Lancer l'agent avec contexte optimisé (post-Gate) |
-| `/sdd-validate` | Validation | Valider le code produit par l'agent |
-| `/sdd-drift-check` | Intégration | Vérifier synchronisation artefacts/code |
-| `/sdd-split` | Spécification | Découper une SPEC trop volumineuse |
-| `/sdd-resume` | Exécution | Reprendre une session agent interrompue |
-| `/sdd-context` | Amélioration | Auditer le budget de contexte (estimation vs. réel) |
-| `/sdd-fact` | Correction | Capturer et qualifier un écart livré/désiré |
-| `/sdd-security` | Audit | Audit sécurité (OWASP, secrets, permissions agents) |
-| `/sdd-audit` | Audit | Audit qualité (conformité SPEC, dette technique) |
+**Cycle SDD (13 sous-commandes) — `/sdd <sub>` :**
 
-**Framework AIAD — Synchronisations & Rituels (11 commandes) :**
+| Forme courante | Phase | Description |
+|----------------|-------|-------------|
+| `/sdd init` | Cadrage | Initialiser PRD + ARCHITECTURE + AGENT-GUIDE |
+| `/sdd intent` | Intention | Capturer un Intent Statement (POURQUOI) |
+| `/sdd spec` | Spécification | Rédiger une SPEC depuis un Intent |
+| `/sdd gate` | Validation | Execution Gate + SQS + plan de remédiation |
+| `/sdd exec` | Exécution | Lancer l'agent avec contexte optimisé (post-Gate) |
+| `/sdd validate` | Validation | Valider le code produit par l'agent |
+| `/sdd drift-check` | Intégration | Vérifier synchronisation artefacts/code |
+| `/sdd split` | Spécification | Découper une SPEC trop volumineuse |
+| `/sdd resume` | Exécution | Reprendre une session agent interrompue |
+| `/sdd context` | Amélioration | Auditer le budget de contexte (estimation vs. réel) |
+| `/sdd fact` | Correction | Capturer et qualifier un écart livré/désiré |
+| `/sdd security` | Audit | Audit sécurité (OWASP, secrets, permissions agents) |
+| `/sdd audit` | Audit | Audit qualité (conformité SPEC, dette technique) |
 
-| Commande | Phase | Description |
-|----------|-------|-------------|
-| `/aiad-init` | Adoption | Bootstrapper AIAD sur un projet existant |
-| `/aiad-onboard` | Adoption | Générer un briefing d'onboarding nouveau membre |
-| `/aiad-gouvernance` | Gouvernance | Vérifier la conformité Tier 1 (AI-ACT, RGPD, RGAA, RGESN) |
-| `/aiad-health` | Monitoring | Diagnostiquer la santé des artefacts |
-| `/aiad-status` | Monitoring | État du projet SDD |
-| `/aiad-retro` | Amélioration | Rétrospective + signaux d'évolution |
-| `/aiad-intention` | Alignement | Atelier d'Intention (rituel mensuel, espace humain pur) |
-| `/aiad-sync-strat` | Alignement | Synchronisation alignement stratégique (mensuelle, 1h30) |
-| `/aiad-demo` | Feedback | Demo & Feedback (hebdomadaire, 45 min) |
-| `/aiad-tech-review` | Technique | Tech Review (synchronisation technique hebdomadaire) |
-| `/aiad-standup` | Monitoring | Standup quotidien AIAD (état, blockers, intentions du jour) |
+**Framework AIAD — Synchronisations & Rituels (11 sous-commandes) — `/aiad <sub>` :**
 
-**Métriques & Dashboards AIAD (3 commandes) :**
+| Forme courante | Phase | Description |
+|----------------|-------|-------------|
+| `/aiad init` | Adoption | Bootstrapper AIAD sur un projet existant |
+| `/aiad onboard` | Adoption | Générer un briefing d'onboarding nouveau membre |
+| `/aiad gouvernance` | Gouvernance | Vérifier la conformité Tier 1 (AI-ACT, RGPD, RGAA, RGESN) |
+| `/aiad health` | Monitoring | Diagnostiquer la santé des artefacts |
+| `/aiad status` | Monitoring | État du projet SDD |
+| `/aiad retro` | Amélioration | Rétrospective + signaux d'évolution |
+| `/aiad intention` | Alignement | Atelier d'Intention (rituel mensuel, espace humain pur) |
+| `/aiad sync-strat` | Alignement | Synchronisation alignement stratégique (mensuelle, 1h30) |
+| `/aiad demo` | Feedback | Demo & Feedback (hebdomadaire, 45 min) |
+| `/aiad tech-review` | Technique | Tech Review (synchronisation technique hebdomadaire) |
+| `/aiad standup` | Monitoring | Standup quotidien AIAD (état, blockers, intentions du jour) |
 
-| Commande | Phase | Description |
-|----------|-------|-------------|
-| `/aiad-dashboard` | Métriques | Dashboard de santé globale du projet AIAD |
-| `/aiad-dora` | Métriques | DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR) |
-| `/aiad-flow` | Métriques | Flow Metrics (Cycle Time, Lead Time, Throughput, WIP, Flow Efficiency) |
+**Métriques & Dashboards AIAD (3 sous-commandes) — `/aiad <sub>` :**
+
+| Forme courante | Phase | Description |
+|----------------|-------|-------------|
+| `/aiad dashboard` | Métriques | Dashboard de santé globale du projet AIAD |
+| `/aiad dora` | Métriques | DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR) |
+| `/aiad flow` | Métriques | Flow Metrics (Cycle Time, Lead Time, Throughput, WIP, Flow Efficiency) |
+
+**Aide :** `/aiad-help` — vue d'ensemble, parcours type, recherche d'une commande par mot-clé.
 
 ### CLAUDE.md
 
@@ -111,23 +117,23 @@ Un `CLAUDE.md` est créé (ou enrichi) avec le contexte SDD Mode complet : cycle
 ## Cycle de développement
 
 ```
-┌─────────────┐     ┌──────────┐     ┌──────────────┐
-│  /sdd-intent │────▶│ /sdd-spec │────▶│  /sdd-gate   │
-│  Intention   │     │  SPEC    │     │  SQS ≥ 4/5   │
-└─────────────┘     └────┬─────┘     └──────┬───────┘
-                         │                    │
-                    /sdd-split           /sdd-exec
-                   (si atomicité        (contexte
-                    insuffisante)        optimisé)
-                                             │
-     ┌───────────────────────────────────────┘
+┌──────────────┐     ┌────────────┐     ┌──────────────┐
+│ /sdd intent  │────▶│ /sdd spec  │────▶│  /sdd gate   │
+│  Intention   │     │   SPEC     │     │  SQS ≥ 4/5   │
+└──────────────┘     └─────┬──────┘     └──────┬───────┘
+                           │                    │
+                     /sdd split            /sdd exec
+                    (si atomicité         (contexte
+                     insuffisante)         optimisé)
+                                              │
+     ┌────────────────────────────────────────┘
      ▼
-┌──────────────┐     ┌──────────────┐     ┌────────────────┐
-│  /sdd-exec   │────▶│ /sdd-validate│────▶│/sdd-drift-check│
-│  Agent IA    │     │  Validation  │     │  Drift Lock    │
-└──────┬───────┘     └──────────────┘     └────────────────┘
+┌──────────────┐     ┌──────────────┐     ┌──────────────────┐
+│  /sdd exec   │────▶│ /sdd validate│────▶│ /sdd drift-check │
+│  Agent IA    │     │  Validation  │     │   Drift Lock     │
+└──────┬───────┘     └──────────────┘     └──────────────────┘
        │
-  /sdd-resume                              /sdd-context
+  /sdd resume                              /sdd context
  (si session                              (audit post-
   interrompue)                             session)
 ```
@@ -139,30 +145,30 @@ Un `CLAUDE.md` est créé (ou enrichi) avec le contexte SDD Mode complet : cycle
 npx aiad-sdd init
 
 # 2. Dans Claude Code, lancer le cadrage (nouveau projet)
-/sdd-init
+/sdd init
 # OU bootstrapper sur un projet existant
-/aiad-init
+/aiad init
 
 # 3. Capturer la première intention
-/sdd-intent
+/sdd intent
 
 # 4. Rédiger la première SPEC
-/sdd-spec
-# Si la SPEC est trop grosse → /sdd-split
+/sdd spec
+# Si la SPEC est trop grosse → /sdd split
 
 # 5. Valider la SPEC (Execution Gate)
-/sdd-gate
+/sdd gate
 
 # 6. Lancer l'agent avec contexte optimisé
-/sdd-exec
-# Si la session est interrompue → /sdd-resume
+/sdd exec
+# Si la session est interrompue → /sdd resume
 
 # 7. Valider et verrouiller
-/sdd-validate
-/sdd-drift-check
+/sdd validate
+/sdd drift-check
 
 # 8. Auditer le budget de contexte (optionnel, recommandé)
-/sdd-context
+/sdd context
 ```
 
 ## Agents de gouvernance
@@ -190,7 +196,7 @@ AIAD (Artificial Intelligence Agent Development) est un framework open source po
 - **Site** : [aiad.ovh](https://aiad.ovh)
 - **Constitution** : 7 valeurs fondatrices, gouvernance gardien/communauté
 - **5 responsabilités** : PM, Product Engineer, Agents Engineer, QA Engineer, Tech Lead
-- **27 commandes** : 13 SDD Mode + 11 synchronisations & rituels AIAD + 3 métriques
+- **27 commandes** (13 SDD + 11 rituels + 3 métriques), regroupées sous **3 routers** depuis la v1.7
 
 ## Licence
 

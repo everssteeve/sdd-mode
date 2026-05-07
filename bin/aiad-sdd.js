@@ -9,6 +9,7 @@ import { update } from '../lib/update.js';
 import { addGovernance } from '../lib/governance.js';
 import { showStatus } from '../lib/status.js';
 import { installerHooks, desinstallerHooks } from '../lib/hooks.js';
+import { bench } from '../lib/coldstart.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -26,6 +27,7 @@ const AIDE = `
     gouvernance           Ajoute/met à jour les agents de gouvernance
     hooks [options]       Installe / désinstalle le hook Git pre-commit (Drift Lock)
     status                Affiche l'état SDD du projet
+    bench                 Mesure le poids des frontmatters de commandes (cold-start)
     help                  Affiche cette aide
 
   Options init :
@@ -83,6 +85,10 @@ async function main() {
 
     case 'status':
       await showStatus(cwd());
+      break;
+
+    case 'bench':
+      bench(cwd());
       break;
 
     case 'help':
