@@ -1,6 +1,6 @@
 ---
 name: aiad
-description: Rituels AIAD + métriques + multi-runtime — status standup retro demo intention sync-strat dora flow dashboard emit-rules
+description: Rituels AIAD + métriques + multi-runtime — status standup retro demo intention sync-strat dora flow dashboard dashboard-html emit-rules
 ---
 
 # AIAD Router
@@ -24,7 +24,8 @@ Tu es un facilitateur AIAD. L'utilisateur a invoqué `/aiad` avec des arguments.
 | `sync-strat`    | Synchronisation alignement stratégique (Sync 1)               |
 | `dora`          | Calculer et analyser les 4 métriques DORA                     |
 | `flow`          | Calculer et analyser les Flow Metrics                         |
-| `dashboard`     | Dashboard équipe (hebdo / mensuel)                            |
+| `dashboard`     | Dashboard équipe ASCII (hebdo / mensuel — rituel)             |
+| `dashboard-html`| Dashboard HTML multi-pages dans `dashboard/` (pilotage)       |
 | `emit-rules`    | Régénère AGENTS.md, CLAUDE.md, .cursor/rules/ (multi-runtime) |
 
 ## Routage

@@ -93,7 +93,7 @@ Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire
 | Router | Sous-commandes |
 |--------|----------------|
 | `/sdd <sub>` | `init`, `intent`, `spec`, `gate`, `exec`, `validate`, `drift-check`, `trace`, `fact`, `security`, `audit`, `context`, `resume`, `split` |
-| `/aiad <sub>` | `init`, `onboard`, `status`, `health`, `gouvernance`, `tech-review`, `standup`, `demo`, `retro`, `intention`, `sync-strat`, `dora`, `flow`, `dashboard` |
+| `/aiad <sub>` | `init`, `onboard`, `status`, `health`, `gouvernance`, `tech-review`, `standup`, `demo`, `retro`, `intention`, `sync-strat`, `dora`, `flow`, `dashboard`, `dashboard-html` |
 | `/aiad-help [sub]` | Aide contextuelle, parcours type, recherche d'une commande |
 
 ### Commandes du cycle SDD (14) — via `/sdd <sub>`
@@ -131,11 +131,12 @@ Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire
 | `/aiad tech-review` | Technique | Tech Review (synchronisation technique hebdomadaire) |
 | `/aiad standup` | Monitoring | Standup quotidien AIAD (état, blockers, intentions du jour) |
 
-### Commandes métriques & dashboards AIAD (3) — via `/aiad <sub>`
+### Commandes métriques & dashboards AIAD (4) — via `/aiad <sub>`
 
 | Forme courante | Phase | Description |
 |----------------|-------|-------------|
-| `/aiad dashboard` | Métriques | Dashboard de santé globale du projet AIAD |
+| `/aiad dashboard` | Métriques | Dashboard ASCII (rituel équipe — hebdo / mensuel) |
+| `/aiad dashboard-html` | Métriques | Dashboard HTML multi-pages dans `dashboard/` (pilotage continu) |
 | `/aiad dora` | Métriques | DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR) |
 | `/aiad flow` | Métriques | Flow Metrics (Cycle Time, Lead Time, Throughput, WIP, Flow Efficiency) |
 

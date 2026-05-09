@@ -13,6 +13,7 @@ import { installerHooks, desinstallerHooks } from '../lib/hooks.js';
 import { bench } from '../lib/coldstart.js';
 import { trace } from '../lib/sdd-trace.js';
 import { emitRules } from '../lib/emit-rules.js';
+import { dashboard, serveDashboard } from '../lib/dashboard.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -32,6 +33,7 @@ const AIDE = `
     status                Affiche l'état SDD du projet
     bench                 Mesure le poids des frontmatters de commandes (cold-start)
     trace [options]       Génère la matrice Intent ↔ SPEC ↔ Code ↔ Tests
+    dashboard [options]   Génère le dashboard HTML multi-pages dans dashboard/
     emit-rules [options]  Régénère AGENTS.md, CLAUDE.md, .cursor/rules/, .codex/, GEMINI.md
     help                  Affiche cette aide
 
@@ -63,6 +65,14 @@ const AIDE = `
                           (séparés par virgule, défaut : all)
     --check               Mode CI — exit 1 si divergence avec AGENT-GUIDE
 
+  Options dashboard :
+    --out <dir>           Dossier de sortie (défaut : dashboard)
+    --quiet               Pas de résumé console
+    --serve               Lance un serveur HTTP local après génération
+    --port <n>            Port du serveur --serve (défaut : 8765)
+    --source-base <url>   URL préfixant les liens vers les fichiers .md sources
+                          (ex: GitHub Pages → blob/main/)
+
   Exemples :
     npx aiad-sdd init                       Initialisation complète
     npx aiad-sdd init --minimal             Profil minimal (4 commandes, ≤ 1k tokens)
@@ -79,6 +89,9 @@ const AIDE = `
     npx aiad-sdd status                     État du projet SDD
     npx aiad-sdd trace                      Génère la matrice de traçabilité (md+json+html)
     npx aiad-sdd trace --fail-on-gap        Échoue si gap bloquant (usage CI)
+    npx aiad-sdd dashboard                  Génère le dashboard HTML dans dashboard/
+    npx aiad-sdd dashboard --serve          Génère puis sert sur http://127.0.0.1:8765
+    npx aiad-sdd dashboard --out docs/dash  Dashboard dans un dossier custom
     npx aiad-sdd emit-rules                 Régénère AGENTS.md + Cursor + Codex + Gemini
     npx aiad-sdd emit-rules --runtime cursor  Cible un runtime unique
     npx aiad-sdd emit-rules --check         Vérifie la parité (usage CI)
@@ -150,6 +163,27 @@ async function main() {
     case 'trace':
       await trace(cwd(), flags);
       break;
+
+    case 'dashboard': {
+      const result = await dashboard(cwd(), {
+        out: lireValeurFlag('--out'),
+        quiet: flags.includes('--quiet'),
+        sourceBase: lireValeurFlag('--source-base'),
+      });
+      if (flags.includes('--serve')) {
+        const port = lireValeurFlag('--port');
+        const { server } = await serveDashboard(result.outDir, { port });
+        // Garde le process en vie. Ctrl+C arrête le serveur proprement.
+        const arret = () => {
+          console.log('\n  Arrêt du serveur…');
+          server.close(() => process.exit(0));
+        };
+        process.on('SIGINT', arret);
+        process.on('SIGTERM', arret);
+        await new Promise(() => {}); // bloque jusqu'à un signal
+      }
+      break;
+    }
 
     case 'emit-rules':
       await emitRules(cwd(), {
