@@ -53,16 +53,52 @@ Applique la skill `human-authorship-check` — la paternité de la vision produi
 
 ### Étape 2 — Rédiger le PRD
 
-Utilise `.aiad/PRD.md`. Chaque Outcome Criteria doit être mesurable (baseline → cible → méthode).
+Présente les deux options suivantes au PE avant de continuer :
+
+```
+📋 PRD.md — Comment veux-tu le renseigner ?
+
+  A) Assistant PRD  (/sdd prd)
+     → Je te pose des questions comme un PM expérimenté (problem, personas,
+       outcomes mesurables, scope, risques). Tu réponds, je rédige le PRD.
+     → Recommandé pour un nouveau projet ou si le PRD est encore flou.
+
+  B) Manuel
+     → J'ouvre le template .aiad/PRD.md avec les sections pré-remplies.
+     → Tu le complètes à ton rythme, puis /sdd init reprend depuis l'ARCHITECTURE.
+
+Ton choix ? (A/B)
+```
+
+- Si **A** → charge `.claude/sdd/prd.md` avec ton outil `Read` et suis ses instructions.
+- Si **B** → affiche le contenu actuel de `.aiad/PRD.md` et indique au PE de le compléter, puis propose de continuer avec `/sdd init` une fois terminé.
 
 ### Étape 3 — Rédiger l'ARCHITECTURE
 
-Sur la base du PRD validé, propose une stack et remplis `.aiad/ARCHITECTURE.md`. Prépare un résumé condensé (≤ 500 tokens) pour le Context Engineering Budget.
+Une fois le PRD validé, présente les deux options :
+
+```
+🏗 ARCHITECTURE.md — Comment veux-tu le renseigner ?
+
+  A) Assistant ARCHITECTURE  (/sdd arch)
+     → Je te pose des questions comme un architecte expérimenté (NFRs, stack,
+       composants, flux critique, sécurité, ADRs). Tu réponds, je rédige le doc.
+     → Recommandé si la stack n'est pas encore arrêtée ou si l'équipe est junior.
+
+  B) Manuel
+     → J'ouvre le template .aiad/ARCHITECTURE.md avec les sections pré-remplies.
+     → Tu le complètes à ton rythme, puis /sdd init reprend depuis l'AGENT-GUIDE.
+
+Ton choix ? (A/B)
+```
+
+- Si **A** → charge `.claude/sdd/arch.md` avec ton outil `Read` et suis ses instructions.
+- Si **B** → affiche le contenu actuel de `.aiad/ARCHITECTURE.md` et indique au PE de le compléter.
 
 ### Étape 4 — Rédiger l'AGENT-GUIDE
 
 Remplis `.aiad/AGENT-GUIDE.md` avec :
-- Stack technique (référence rapide)
+- Stack technique (référence rapide, dérivée de l'ARCHITECTURE.md)
 - Règles absolues (TOUJOURS / JAMAIS)
 - Conventions de code avec exemples
 - Vocabulaire métier

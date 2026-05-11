@@ -29,14 +29,15 @@ Les flags `--ears` et `--guided`/`--fast` sont **cumulables** (`/sdd spec --ears
 **Output** : une ou plusieurs SPECs dans `.aiad/specs/` + MAJ `_index.md` et Intent parent.
 
 1. Vérifie l'Intent parent, propose un découpage atomique (1 SPEC = 1 PR).
-2. **Choix du template** :
+2. **Si ≥ 2 SPECs** → affiche immédiatement le plan de parallélisme (waves + graphe de dépendances, voir Étape 4b en mode guidé). Valide avec le PE avant de continuer.
+3. **Choix du template** :
    - Si `--ears` (ou si l'utilisateur déclare vouloir EARS) → copie `spec-ears-template.md` comme base et conserve l'entête `Format : EARS`.
    - Sinon → format prose standard.
-3. Rédige chaque SPEC au format complet (Contexte / Input / Processing / Output / Cas limites / Critères d'Acceptation / Interface / Dépendances / Budget contexte / DoOD).
-4. Applique la skill `ears-validator` sur §3 :
+4. Rédige chaque SPEC au format complet (Contexte / Input / Processing / Output / Cas limites / Critères d'Acceptation / Interface / Dépendances / Budget contexte / DoOD).
+5. Applique la skill `ears-validator` sur §3 :
    - Mode `--ears` → linter **strict**, corrige toutes les violations avant finalisation (0 violation requis).
    - Sinon → linter **indicatif**, signale les ambiguïtés mais ne réécrit pas sans accord du PE.
-5. Mets à jour les index et liaisons (`.aiad/specs/_index.md` — colonne `Format` : `prose` ou `EARS`).
+6. Mets à jour les index et liaisons (`.aiad/specs/_index.md` — colonne `Format` : `prose` ou `EARS`).
 
 ## 📖 Mode guidé
 
@@ -65,6 +66,57 @@ Si `--ears` est passé en argument, saute la question.
 ### Étape 4 — Décomposer en tâches atomiques
 
 1 SPEC = 1 PR potentielle. Propose la décomposition à l'utilisateur pour validation.
+
+### Étape 4b — Plan de parallélisme (si ≥ 2 SPECs)
+
+**Dès que tu identifies plusieurs SPECs**, analyse leurs dépendances et affiche obligatoirement un plan d'exécution **avant** de rédiger quoi que ce soit.
+
+#### Règles d'analyse des dépendances
+
+Une SPEC B dépend de A si :
+- B utilise une interface / API définie dans A
+- B suppose que des données créées par A existent
+- B teste une fonctionnalité fournie par A
+- A et B modifient le même module et créent des conflits de merge prévisibles
+
+Si aucune de ces conditions n'est vraie → les deux SPECs sont **parallélisables**.
+
+#### Format du plan d'exécution
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  Plan d'exécution — INTENT-[NNN]                        │
+├────────────┬──────────────────────────┬─────────────────┤
+│ SPEC       │ Titre                    │ Dépend de       │
+├────────────┼──────────────────────────┼─────────────────┤
+│ SPEC-NNN-1 │ [titre court]            │ —               │
+│ SPEC-NNN-2 │ [titre court]            │ —               │
+│ SPEC-NNN-3 │ [titre court]            │ SPEC-NNN-1      │
+│ SPEC-NNN-4 │ [titre court]            │ SPEC-NNN-2, 3   │
+└────────────┴──────────────────────────┴─────────────────┘
+
+Graphe de dépendances :
+
+  Wave 1 ── (parallèle) ──────────────────────────────────
+  │  🔀 SPEC-NNN-1 : [titre]
+  │  🔀 SPEC-NNN-2 : [titre]
+  │
+  Wave 2 ── (après Wave 1) ───────────────────────────────
+  │  ⏳ SPEC-NNN-3 : [titre]  (attend SPEC-NNN-1)
+  │
+  Wave 3 ── (après Wave 2) ───────────────────────────────
+     ⏳ SPEC-NNN-4 : [titre]  (attend SPEC-NNN-2 + 3)
+
+Légende :
+  🔀  Peut démarrer immédiatement / en parallèle
+  ⏳  Bloquée jusqu'à la fin de la wave précédente
+  ──  Les SPECs d'une même wave peuvent être développées simultanément
+
+⚠  SPECs bloquantes critiques : SPEC-NNN-1 et SPEC-NNN-2
+   (leur retard retarde toutes les waves suivantes — à prioriser)
+```
+
+**Valide ce plan avec le PE avant de rédiger les SPECs.** Si le PE réorganise les dépendances, recalcule les waves.
 
 ### Étape 5 — Rédiger chaque SPEC
 

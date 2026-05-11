@@ -96,13 +96,15 @@ Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire
 | `/aiad <sub>` | `init`, `onboard`, `status`, `health`, `gouvernance`, `tech-review`, `standup`, `demo`, `retro`, `intention`, `sync-strat`, `dora`, `flow`, `dashboard`, `dashboard-html` |
 | `/aiad-help [sub]` | Aide contextuelle, parcours type, recherche d'une commande |
 
-### Commandes du cycle SDD (14) — via `/sdd <sub>`
+### Commandes du cycle SDD (16) — via `/sdd <sub>`
 
 | Forme courante | Phase | Description |
 |----------------|-------|-------------|
-| `/sdd init` | Cadrage | Initialiser PRD + ARCHITECTURE + AGENT-GUIDE |
+| `/sdd prd` | Cadrage | Assistant PRD — discovery produit guidé (questions PM) |
+| `/sdd arch` | Cadrage | Assistant ARCHITECTURE — discovery technique guidé (questions architecte) |
+| `/sdd init` | Cadrage | Initialiser PRD + ARCHITECTURE + AGENT-GUIDE (propose les assistants) |
 | `/sdd intent` | Intention | Capturer un Intent Statement |
-| `/sdd spec` | Spécification | Rédiger une SPEC depuis un Intent |
+| `/sdd spec` | Spécification | Rédiger une ou plusieurs SPECs + plan de parallélisme |
 | `/sdd gate` | Validation | Execution Gate + SQS + plan de remédiation |
 | `/sdd exec` | Exécution | Lancer l'agent avec contexte optimisé (post-Gate) |
 | `/sdd validate` | Validation | Valider le code produit |
