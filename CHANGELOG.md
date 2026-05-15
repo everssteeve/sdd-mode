@@ -9,6 +9,31 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit search/permalink/capacity (#456-#458, loop 13)
+
+13ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues
+d'ergonomie + d'analyse trimestrielle qui scellent l'usage quotidien.
+
+- **Recherche globale Cmd+K** (#456) — `lib/dashboard/global-search.js`
+  indexe ~80 items (18 sélecteurs : tables, cards, chips, links) et
+  filtre en live au keystroke avec compteur visible + masquage des
+  sections vides. Raccourci `Cmd+K` / `Ctrl+K` pour focus, `Esc` pour
+  reset. Sticky top 3rem avec backdrop-filter.
+- **Permalinks par section** (#457) —
+  `lib/dashboard/section-permalinks.js` ajoute un bouton 🔗 sur chaque
+  `<h2[id]>` (35 sur le bench) qui copie l'URL complète avec ancre via
+  `navigator.clipboard`. Toast feedback "Lien copié : {id}". Auto-scroll
+  vers l'ancre si présente au chargement.
+- **Capacity planner trimestriel** (#458) —
+  `lib/dashboard/capacity-planner.js` lit `team_capacity_per_quarter`
+  du PRD ou fallback `intents_per_pe × team_size` ou défaut 10, classe
+  chaque trimestre en 4 paliers (saturé/plein/sain/sous-utilisé) avec
+  barres de progression + chips Intents. Signale les Intents actifs
+  sans target.
+
+Zéro modification de `render.js` (toujours 849/850 LOC). pm.html monte
+à **37 sections** maintenant.
+
 ### Ajouté — Dashboard PM cockpit deep-dive/progression (#453-#455, loop 12)
 
 12ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues qui
