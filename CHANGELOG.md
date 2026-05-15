@@ -9,6 +9,31 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit ergonomie/décision (#441-#443, loop 8)
+
+8ᵉ boucle d'audit PM (2026-05-15) — pm.html ayant atteint 21 sections,
+l'enjeu devient l'ergonomie. Le cockpit gagne 3 vues : navigation TOC,
+arbitrage RICE, journal de décisions.
+
+- **Sommaire latéral sticky** (#441) — `lib/dashboard/pm-toc.js` wrappe
+  `pagePm` dans une grille 2 colonnes (responsive ≥ 1280px), génère un
+  `<nav>` qui auto-tag les `<h2>` côté client (slugify + ids uniques) et
+  highlight l'entrée visible via `IntersectionObserver`. **23 entrées
+  TOC** sur le bench.
+- **Matrice RICE / Impact × Effort** (#442) — `lib/dashboard/rice-matrix.js`
+  score impact (priority/RICE/WSJF) et effort (SPECs liées + bonus
+  contraintes lourdes RGPD/PCI). Classifie en 4 quadrants : quick-wins,
+  big-bets, fill-ins, time-sinks. SVG 480×320 avec quadrants colorés,
+  points cliquables vers fichier source, table compagnon.
+- **Journal de décisions** (#443) — `lib/dashboard/decision-log.js`
+  parse `## 7. Trade-offs et Décisions Clés` du PRD (look-ahead de
+  séparatrice pour détecter l'en-tête peu importe ses cellules) et
+  consolide les facts `/sdd fact`. Cards facts bordées par gravité.
+
+Zéro modification de `render.js` (toujours 849/850 LOC). pm.html monte
+à **23 sections** maintenant. Le `<nav>` TOC est généré côté client à
+partir du DOM — pas de coupling serveur/client sur la liste.
+
 ### Ajouté — Dashboard PM cockpit lean product (#438-#440, loop 7)
 
 7ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues lean product

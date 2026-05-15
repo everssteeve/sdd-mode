@@ -60,6 +60,8 @@ US-006 | COULD  | RSSI peut auditer les liens créés → Outcome : Logs exporta
 | Décision | Raison | Coût / Bénéfice |
 |----------|--------|-----------------|
 | Hébergement OVH FR uniquement | Souveraineté EU stricte | -20 % perf APAC / +0 risque RGPD |
+| Pas de plan gratuit illimité | Modèle SMB rentable dès le 1er mois | -10 % adoption initiale / +30 % LTV |
+| Paiement SEPA prioritaire avant CB | Public cible SMB EU = comptes pros SEPA | +2 sem dev / +12 % conversion EU |
 
 ## 8. Dépendances et Risques
 
