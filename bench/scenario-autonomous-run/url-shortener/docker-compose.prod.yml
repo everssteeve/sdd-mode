@@ -1,0 +1,16 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3091:3091"
+    environment:
+      NODE_ENV: production
+      PORT: "3091"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3091/healthz"]
+      interval: 15s
+      timeout: 3s
+      retries: 4

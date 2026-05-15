@@ -1,0 +1,17 @@
+{
+  "id": "fastapi-aiad",
+  "title": "FastAPI + AIAD SDD (Python 3.11+ uv)",
+  "description": "API Python FastAPI 0.115+ avec uv pour la gestion de deps, ruff + black, pytest. AIAD SDD préinstallé : agents Tier 1 EU, Drift Lock, traçabilité multi-runtime.",
+  "target": "python",
+  "language": "python",
+  "framework": "fastapi",
+  "license": "MIT",
+  "scripts": {
+    "start": "uv run uvicorn app.main:app --reload",
+    "test": "uv run pytest",
+    "lint": "uv run ruff check . && uv run black --check ."
+  },
+  "engines": {
+    "python": ">=3.11"
+  }
+}

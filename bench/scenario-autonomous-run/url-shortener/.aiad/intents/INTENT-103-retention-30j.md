@@ -16,7 +16,8 @@ hypothesis_status: partial
 confidence: 0.45
 okr: KR-1.3
 kind: discovery
-tags: [retention, email, q3, growth]
+tags: [retention, email, q3, growth, llm]
+ai_risk: limited
 depends_on:
   - INTENT-102
 personas:

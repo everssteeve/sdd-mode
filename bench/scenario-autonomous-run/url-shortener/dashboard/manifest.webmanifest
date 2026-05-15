@@ -1,0 +1,25 @@
+{
+  "name": "url-shortener-bench — AIAD SDD Dashboard",
+  "short_name": "url-shortene",
+  "description": "Dashboard SDD Mode pour url-shortener-bench — santé, maturité, gouvernance, rituels.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f7f8fa",
+  "theme_color": "#2563eb",
+  "lang": "fr",
+  "categories": [
+    "productivity",
+    "business",
+    "developer-tools"
+  ],
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+node_modules/
+*.log
+.DS_Store
+.env
+.env.local
+dist/
+build/
+coverage/
+
+# AIAD SDD — artefacts régénérés automatiquement
+.aiad/metrics/
+.aiad/.cache/
+dashboard/
+DOCUMENTATION.md

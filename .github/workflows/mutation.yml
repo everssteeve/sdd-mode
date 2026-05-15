@@ -1,0 +1,34 @@
+name: Mutation testing
+
+# Stratégie : pas sur chaque PR (trop lent — 5-10 min). Trigger :
+#   - push sur main (validation post-merge)
+#   - workflow_dispatch (manuel, depuis l'UI GitHub)
+#   - cron nightly à 04:00 UTC (alerte de régression overnight)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 4 * * *'
+
+jobs:
+  mutation:
+    name: mutation testing batch (5 modules clés)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run batch
+        run: npm run mutation:batch
+      - name: Upload report
+        if: always()
+        run: node scripts/mutation-batch.js --json > mutation-report.json
+        continue-on-error: true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mutation-report
+          path: mutation-report.json

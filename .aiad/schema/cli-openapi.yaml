@@ -1,0 +1,648 @@
+
+openapi: "3.1.0"
+info:
+  title: "AIAD SDD — CLI JSON outputs"
+  version: "1.14.0"
+  description: "Documentation des sorties `--json` du CLI `aiad-sdd`.\n\nPermet l'intégration par des consommateurs externes (ServiceNow,\ndashboards custom, pipelines analytics).\n\nLes routes sont **fictives** : chaque endpoint modélise la forme\nJSON retournée par `aiad-sdd <command> --json`.\n\nDocumentation : https://aiad.ovh/cli-schema"
+  contact:
+    name: AIAD
+    url: "https://aiad.ovh"
+  license:
+    name: MIT
+paths:
+  "/cli/status":
+    get:
+      summary: "État du projet SDD"
+      operationId: cli_status
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd status --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "État du projet SDD"
+          content:
+            "application/json":
+              schema:
+                type: object
+                required:
+                  - valid
+                properties:
+                  valid:
+                    type: boolean
+                  intents:
+                    type: integer
+                  specs:
+                    type: integer
+                  gouvernance:
+                    type: array
+                    items:
+                      type: string
+  "/cli/doctor":
+    get:
+      summary: "Diagnostic complet du projet"
+      operationId: cli_doctor
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd doctor --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Diagnostic complet du projet"
+          content:
+            "application/json":
+              schema:
+                type: object
+                required:
+                  - ok
+                properties:
+                  ok:
+                    type: boolean
+                  checks:
+                    type: array
+                    items:
+                      type: object
+                  leadership:
+                    "$ref": "#/components/schemas/LeadershipMetrics"
+  "/cli/trace":
+    get:
+      summary: "Matrice de traçabilité Intent ↔ SPEC ↔ Code ↔ Tests"
+      operationId: cli_trace
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd trace --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Matrice de traçabilité Intent ↔ SPEC ↔ Code ↔ Tests"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/TraceabilityMatrix"
+  "/cli/sbom":
+    get:
+      summary: "Software Bill of Materials CycloneDX v1.5"
+      operationId: cli_sbom
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd sbom --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Software Bill of Materials CycloneDX v1.5"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/CycloneDxSbom"
+  "/cli/dpia":
+    get:
+      summary: "AIPD pré-remplie (Article 35 RGPD)"
+      operationId: cli_dpia
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd dpia --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "AIPD pré-remplie (Article 35 RGPD)"
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  path:
+                    type: string
+                  sections:
+                    type: array
+                    items:
+                      type: string
+  "/cli/sovereignty":
+    get:
+      summary: "Score EU Sovereignty composite (5 dimensions)"
+      operationId: cli_sovereignty
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd sovereignty --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Score EU Sovereignty composite (5 dimensions)"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/SovereigntyScore"
+  "/cli/adrs":
+    get:
+      summary: "Architecture Decision Records extraits de .aiad/ARCHITECTURE.md"
+      operationId: cli_adrs
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd adrs --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Architecture Decision Records extraits de .aiad/ARCHITECTURE.md"
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  fichier:
+                    type:
+                      - string
+                      - "null"
+                  total:
+                    type: integer
+                  entrees:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        titre:
+                          type: string
+                        section:
+                          type:
+                            - string
+                            - "null"
+                        ligne:
+                          type: integer
+                        corps:
+                          type: string
+                      required:
+                        - id
+                        - titre
+                        - ligne
+                required:
+                  - fichier
+                  - total
+                  - entrees
+  "/cli/sla":
+    get:
+      summary: "Matrice SLA (versions supportées + politique)"
+      operationId: cli_sla
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd sla --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Matrice SLA (versions supportées + politique)"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/SlaMatrix"
+  "/cli/audit/log":
+    get:
+      summary: "Log audit trail crypto-signé"
+      operationId: cli_audit_log
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd audit log --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Log audit trail crypto-signé"
+          content:
+            "application/json":
+              schema:
+                type: object
+                required:
+                  - total
+                  - events
+                properties:
+                  total:
+                    type: integer
+                  events:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/AuditEvent"
+  "/cli/audit/verify":
+    get:
+      summary: "Vérification de la chaîne audit (intégrité + signatures)"
+      operationId: cli_audit_verify
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd audit verify --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Vérification de la chaîne audit (intégrité + signatures)"
+          content:
+            "application/json":
+              schema:
+                type: object
+                required:
+                  - valid
+                properties:
+                  valid:
+                    type: boolean
+                  raisons:
+                    type: array
+                    items:
+                      type: string
+                  indexCassures:
+                    type: array
+                    items:
+                      type: integer
+  "/cli/archive/--list":
+    get:
+      summary: "Liste des artefacts archivés"
+      operationId: cli_archive_list
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd archive --list --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Liste des artefacts archivés"
+          content:
+            "application/json":
+              schema:
+                type: object
+                required:
+                  - total
+                  - archives
+                properties:
+                  total:
+                    type: integer
+                  archives:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/ArchivedArtifact"
+  "/cli/hook-stats":
+    get:
+      summary: "Métriques du hook pre-commit (p50/p95/timeouts)"
+      operationId: cli_hook_stats
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd hook-stats --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Métriques du hook pre-commit (p50/p95/timeouts)"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/HookStats"
+  "/cli/pii-scan":
+    get:
+      summary: "Détection de PII dans Intents/SPECs"
+      operationId: cli_pii_scan
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd pii-scan --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Détection de PII dans Intents/SPECs"
+          content:
+            "application/json":
+              schema:
+                type: object
+                required:
+                  - mode
+                  - files
+                  - findings
+                properties:
+                  mode:
+                    type: string
+                    enum:
+                      - block
+                      - warn
+                      - "off"
+                  files:
+                    type: integer
+                  findings:
+                    type: integer
+                  byFile:
+                    type: object
+                    additionalProperties:
+                      type: array
+  "/cli/reflect":
+    get:
+      summary: "Rétrospective sprint via Ollama (3-5 axes)"
+      operationId: cli_reflect
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd reflect --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Rétrospective sprint via Ollama (3-5 axes)"
+          content:
+            "application/json":
+              schema:
+                type: object
+                required:
+                  - axes
+                properties:
+                  since:
+                    type: string
+                    format: date-time
+                  axes:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/ReflectAxis"
+  "/cli/webhooks/list":
+    get:
+      summary: "Liste des souscriptions webhooks"
+      operationId: cli_webhooks_list
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd webhooks list --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Liste des souscriptions webhooks"
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  subscriptions:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/WebhookSubscription"
+  "/cli/offline/status":
+    get:
+      summary: "Statut du mode air-gapped"
+      operationId: cli_offline_status
+      tags:
+        - cli
+      description: "Sortie de la commande `aiad-sdd offline status --json`.\n\nCette route est **fictive** — utilisée uniquement pour documenter la forme JSON via OpenAPI. La commande s'exécute via le CLI local."
+      responses:
+        "200":
+          description: "Statut du mode air-gapped"
+          content:
+            "application/json":
+              schema:
+                type: object
+                required:
+                  - offline
+                properties:
+                  offline:
+                    type: boolean
+                  env:
+                    type:
+                      - string
+                      - "null"
+                  allowlist:
+                    type: array
+                    items:
+                      type: string
+                  attempts:
+                    type: integer
+                  recent:
+                    type: array
+components:
+  schemas:
+    TraceabilityMatrix:
+      type: object
+      properties:
+        intents:
+          type: array
+          items:
+            type: object
+        specs:
+          type: array
+          items:
+            type: object
+        code:
+          type: array
+          items:
+            type: object
+        gaps:
+          type: array
+          items:
+            type: object
+    CycloneDxSbom:
+      type: object
+      description: "CycloneDX v1.5 — voir https://cyclonedx.org/specification/overview/"
+      properties:
+        bomFormat:
+          type: string
+          enum:
+            - CycloneDX
+        specVersion:
+          type: string
+        components:
+          type: array
+          items:
+            type: object
+    SovereigntyScore:
+      type: object
+      required:
+        - score
+        - level
+        - dimensions
+      properties:
+        score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        level:
+          type: string
+          enum:
+            - Bronze
+            - Silver
+            - Gold
+            - Platinum
+        maxScore:
+          type: integer
+        dimensions:
+          type: object
+          properties:
+            juridictions:
+              type: object
+            agentsTier1:
+              type: object
+            langueFr:
+              type: object
+            autorites:
+              type: object
+            hebergement:
+              type: object
+        recommendations:
+          type: array
+          items:
+            type: string
+    SlaMatrix:
+      type: object
+      properties:
+        generatedAt:
+          type: string
+          format: date
+        versionCourante:
+          type:
+            - string
+            - "null"
+        versions:
+          type: array
+          items:
+            type: object
+            properties:
+              versionRange:
+                type: string
+              releaseDate:
+                type:
+                  - string
+                  - "null"
+              supportedUntil:
+                type:
+                  - string
+                  - "null"
+              status:
+                type: string
+                enum:
+                  - supported
+                  - security-only
+                  - unsupported
+    AuditEvent:
+      type: object
+      required:
+        - ts
+        - action
+        - artifact
+      properties:
+        ts:
+          type: string
+          format: date-time
+        actor:
+          type: string
+        action:
+          type: string
+          enum:
+            - created
+            - modified
+            - deleted
+            - imported
+            - archived
+        artifact:
+          type: string
+        hashAvant:
+          type:
+            - string
+            - "null"
+        hashApres:
+          type:
+            - string
+            - "null"
+        hashChain:
+          type: string
+        sig:
+          type:
+            - string
+            - "null"
+    ArchivedArtifact:
+      type: object
+      required:
+        - id
+        - sousDossier
+        - fichier
+      properties:
+        id:
+          type: string
+        sousDossier:
+          type: string
+          enum:
+            - intents
+            - specs
+        fichier:
+          type: string
+        archivedAt:
+          type:
+            - string
+            - "null"
+          format: date-time
+        archivedBy:
+          type:
+            - string
+            - "null"
+        archivedReason:
+          type:
+            - string
+            - "null"
+    HookStats:
+      type: object
+      properties:
+        stats:
+          type: object
+          properties:
+            count:
+              type: integer
+            p50:
+              type: integer
+            p95:
+              type: integer
+            max:
+              type: integer
+            ratioFail:
+              type: number
+            timeouts:
+              type: integer
+            scopeLeaks:
+              type: integer
+            sante:
+              type: string
+              enum:
+                - verte
+                - attention
+                - critique
+                - inconnue
+    ReflectAxis:
+      type: object
+      required:
+        - titre
+        - observation
+        - recommandation
+        - priorite
+      properties:
+        titre:
+          type: string
+        observation:
+          type: string
+        recommandation:
+          type: string
+        priorite:
+          type: string
+          enum:
+            - haute
+            - moyenne
+            - basse
+    WebhookSubscription:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+        events:
+          type: array
+          items:
+            type: string
+        secret:
+          type: string
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+    LeadershipMetrics:
+      type: object
+      properties:
+        humanAuthorshipRatio:
+          type: object
+        governanceCoverage:
+          type: object
+        traceCompleteness:
+          type: object
+        langueArtefacts:
+          type: object
+    JnspVerdict:
+      type: object
+      required:
+        - verdict
+      properties:
+        verdict:
+          type: string
+          enum:
+            - pass
+            - fail
+            - jnsp
+        motif:
+          type: string
+          description: "Ce qui empêche de trancher (gouvernance ambiguë, critère non testable, fichier illisible, annotations absentes…)"
+        question:
+          type: string
+          description: "Reformulation pour l'humain — doit pouvoir recevoir une réponse oui/non ou choisie dans un ensemble fini."
+        contexte:
+          type: object
+          description: "Ce qui est connu (fichiers lus, refs vérifiées) — permet à l'humain de répondre sans relire toute la session."
+tags:
+  -     name: cli
+    description: "Commandes CLI AIAD SDD"

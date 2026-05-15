@@ -1,0 +1,4144 @@
+{
+  "_meta": {
+    "schema": "aiad-sdd-dashboard",
+    "version": "1.14.0",
+    "generated": "2026-05-14T03:07:31.407Z",
+    "slim": true
+  },
+  "projet": {
+    "nom": "aiad-sdd",
+    "version": "1.14.0",
+    "racine": "/Users/steeve/Dev/packages/aiad-sdd",
+    "genere": "2026-05-14T03:07:31.407Z"
+  },
+  "fondamentaux": [
+    {
+      "nom": "PRD.md",
+      "chemin": ".aiad/PRD.md",
+      "titre": "PRD : [Titre fonctionnel court]",
+      "present": true,
+      "rempli": false,
+      "tailleKo": 1.6
+    },
+    {
+      "nom": "ARCHITECTURE.md",
+      "chemin": ".aiad/ARCHITECTURE.md",
+      "titre": "ARCHITECTURE",
+      "present": true,
+      "rempli": false,
+      "tailleKo": 2.1
+    },
+    {
+      "nom": "AGENT-GUIDE.md",
+      "chemin": ".aiad/AGENT-GUIDE.md",
+      "titre": "AGENT-GUIDE — [Nom du projet]",
+      "present": true,
+      "rempli": false,
+      "tailleKo": 3.8
+    }
+  ],
+  "intents": [],
+  "specs": [],
+  "gouvernance": [
+    {
+      "id": "AIAD-AI-ACT",
+      "present": false,
+      "titre": "AIAD-AI-ACT",
+      "file": null,
+      "tailleKo": 0,
+      "declenche": "Composant IA (ML, LLM, scoring, recommandation)",
+      "referentiel": "Règlement (UE) 2024/1689 — EU AI Act"
+    },
+    {
+      "id": "AIAD-RGPD",
+      "present": false,
+      "titre": "AIAD-RGPD",
+      "file": null,
+      "tailleKo": 0,
+      "declenche": "Traitement de données personnelles",
+      "referentiel": "RGPD (UE) 2016/679"
+    },
+    {
+      "id": "AIAD-RGAA",
+      "present": false,
+      "titre": "AIAD-RGAA",
+      "file": null,
+      "tailleKo": 0,
+      "declenche": "Production d'une interface utilisateur",
+      "referentiel": "RGAA 4.1 / WCAG 2.1"
+    },
+    {
+      "id": "AIAD-RGESN",
+      "present": false,
+      "titre": "AIAD-RGESN",
+      "file": null,
+      "tailleKo": 0,
+      "declenche": "Toute décision technique (perf, ressources, dépendances)",
+      "referentiel": "RGESN v2 — Référentiel Général Écoconception"
+    },
+    {
+      "id": "AIAD-CRA",
+      "present": false,
+      "titre": "AIAD-CRA",
+      "file": null,
+      "tailleKo": 0,
+      "declenche": "Produit logiciel commercialisable en UE (SBOM, vulnérabilités, mises à jour)",
+      "referentiel": "Règlement (UE) 2024/2847 — Cyber Resilience Act"
+    }
+  ],
+  "facts": [],
+  "changelog": {
+    "entrees": [],
+    "file": ".aiad/CHANGELOG-ARTEFACTS.md"
+  },
+  "metrics": {
+    "categories": {
+      "deployments": {
+        "categorie": "deployments",
+        "dir": null,
+        "fichiers": []
+      },
+      "specs": {
+        "categorie": "specs",
+        "dir": null,
+        "fichiers": []
+      },
+      "standup": {
+        "categorie": "standup",
+        "dir": null,
+        "fichiers": []
+      },
+      "drift": {
+        "categorie": "drift",
+        "dir": null,
+        "fichiers": []
+      },
+      "retro": {
+        "categorie": "retro",
+        "dir": null,
+        "fichiers": []
+      },
+      "demo": {
+        "categorie": "demo",
+        "dir": null,
+        "fichiers": []
+      },
+      "sync-strat": {
+        "categorie": "sync-strat",
+        "dir": null,
+        "fichiers": []
+      },
+      "tech-review": {
+        "categorie": "tech-review",
+        "dir": null,
+        "fichiers": []
+      },
+      "security": {
+        "categorie": "security",
+        "dir": null,
+        "fichiers": []
+      },
+      "audit": {
+        "categorie": "audit",
+        "dir": null,
+        "fichiers": []
+      }
+    },
+    "agregats": {
+      "deployments": {
+        "total": 0,
+        "success": 0,
+        "hotfix": 0,
+        "cycleTimeMoyen": null,
+        "leadTimeMoyen": null
+      },
+      "specs": {
+        "total": 0,
+        "sqsMoyen": null,
+        "gateFirstPass": 0
+      },
+      "standup": {
+        "total": 0,
+        "wipMoyen": null
+      },
+      "drift": {
+        "total": 0,
+        "driftsDetectes": 0,
+        "driftsResolus": 0
+      }
+    }
+  },
+  "matrice": {
+    "generatedAt": "2026-05-14T03:07:31.432Z",
+    "summary": {
+      "intents": 0,
+      "specs": 0,
+      "codeFiles": 144,
+      "annotatedCodeFiles": 20,
+      "testFiles": 176,
+      "annotatedTestFiles": 20
+    },
+    "forward": [],
+    "backward": [
+      {
+        "test": {
+          "path": "templates/projects/fastapi-aiad/tests/test_main.py",
+          "line": 3
+        },
+        "intent": null,
+        "code": [
+          {
+            "path": "lib/tour.js",
+            "line": 146
+          },
+          {
+            "path": "scripts/bench-trace.js",
+            "line": 55
+          },
+          {
+            "path": "templates/projects/fastapi-aiad/app/main.py",
+            "line": 4
+          },
+          {
+            "path": "templates/projects/node-aiad/src/index.js",
+            "line": 2
+          }
+        ]
+      },
+      {
+        "test": {
+          "path": "templates/projects/node-aiad/test/index.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/ai-act-audit.test.js",
+          "line": 94
+        },
+        "intent": null,
+        "code": [
+          {
+            "path": "lib/tour.js",
+            "line": 146
+          },
+          {
+            "path": "scripts/bench-trace.js",
+            "line": 55
+          },
+          {
+            "path": "templates/projects/fastapi-aiad/app/main.py",
+            "line": 4
+          },
+          {
+            "path": "templates/projects/node-aiad/src/index.js",
+            "line": 2
+          }
+        ]
+      },
+      {
+        "test": {
+          "path": "test/ai-act-audit.test.js",
+          "line": 96
+        },
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/annotations.test.js",
+          "line": 13
+        },
+        "intent": null,
+        "code": [
+          {
+            "path": "lib/sdd-trace.js",
+            "line": 44
+          },
+          {
+            "path": "lib/sdd-trace.js",
+            "line": 45
+          },
+          {
+            "path": "lib/sdd-trace.js",
+            "line": 46
+          },
+          {
+            "path": "lib/sdd-trace.js",
+            "line": 47
+          }
+        ]
+      },
+      {
+        "test": {
+          "path": "test/annotations.test.js",
+          "line": 26
+        },
+        "intent": null,
+        "code": [
+          {
+            "path": "lib/tour.js",
+            "line": 146
+          },
+          {
+            "path": "scripts/bench-trace.js",
+            "line": 55
+          },
+          {
+            "path": "templates/projects/fastapi-aiad/app/main.py",
+            "line": 4
+          },
+          {
+            "path": "templates/projects/node-aiad/src/index.js",
+            "line": 2
+          }
+        ]
+      },
+      {
+        "test": {
+          "path": "test/annotations.test.js",
+          "line": 27
+        },
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/annotations.test.js",
+          "line": 36
+        },
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/annotations.test.js",
+          "line": 65
+        },
+        "intent": null,
+        "code": [
+          {
+            "path": "lib/tour.js",
+            "line": 146
+          },
+          {
+            "path": "scripts/bench-trace.js",
+            "line": 55
+          },
+          {
+            "path": "templates/projects/fastapi-aiad/app/main.py",
+            "line": 4
+          },
+          {
+            "path": "templates/projects/node-aiad/src/index.js",
+            "line": 2
+          }
+        ]
+      },
+      {
+        "test": {
+          "path": "test/anonymize.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/archive.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/audit.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/azure-devops.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/backup.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/badge.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/badges-block.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/bench-comparison.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/bench-compose-prod.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/bench-dockerfile.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/bench-history.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/bench-start-script.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/bench.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/bitbucket.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/brief.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/bun-compat.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/bun-parity.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/cert.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/ci-templates.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/cli-adrs.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/cli-parsing.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/cli-schema.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/command-hooks.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/completion.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/confluence.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/csp.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-_history-utils.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-adrs.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-assets-autotag.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-audit-trail.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-collect-supplementary.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-collect.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-dpo.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-edge-cases.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-glossaire.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-graph.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-learnings.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-legal.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-onboarding.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-outcomes-history.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-outcomes.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-perf-budgets.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-pm.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-qa.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-render.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-rituels.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-sante-globale-history.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-sante-globale.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-source-base.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-sre.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-tech-debt-history.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-tech-debt.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-violations.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-watch.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dinum.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/docs-dora-flow.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/docs.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/doctor-fix.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/doctor-supplementaire.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/doctor.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dora-record.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dpia.test.js",
+          "line": 113
+        },
+        "intent": null,
+        "code": [
+          {
+            "path": "lib/tour.js",
+            "line": 146
+          },
+          {
+            "path": "scripts/bench-trace.js",
+            "line": 55
+          },
+          {
+            "path": "templates/projects/fastapi-aiad/app/main.py",
+            "line": 4
+          },
+          {
+            "path": "templates/projects/node-aiad/src/index.js",
+            "line": 2
+          }
+        ]
+      },
+      {
+        "test": {
+          "path": "test/dpia.test.js",
+          "line": 114
+        },
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/dry-run.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/emit-rules-concurrent.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/emit-rules.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/en-aliases.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/favicon.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/forges-ci.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/frontmatter-integration.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/frontmatter.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/fs-ops-errors.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/fs-ops.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/github-action.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/github-app.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/gitlab.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-apac.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-ch-fadp.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-cra.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-eu-extended-vague2.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-eu-extended.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-eu-financial.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-eu-platforms.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-fr-anssi.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-iso-standards.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-latam.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-lint.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-marketplace.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/governance-packs.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      },
+      {
+        "test": {
+          "path": "test/hook-sandbox.test.js",
+          "line": 0
+        },
+        "spec": null,
+        "intent": null,
+        "code": []
+      }
+    ],
+    "gaps": {
+      "intentsSansSpec": [],
+      "specsSansCode": [],
+      "specsValideesNonImplementees": [],
+      "codeSansSpec": [
+        {
+          "path": "lib/ai-act-audit.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-AI-ACT"
+                ],
+                "line": 6
+              },
+              {
+                "tags": [
+                  "AIAD-AI-ACT"
+                ],
+                "line": 66
+              },
+              {
+                "tags": [
+                  "AIAD-AI-ACT"
+                ],
+                "line": 158
+              },
+              {
+                "tags": [
+                  "AIAD-AI-ACT"
+                ],
+                "line": 167
+              },
+              {
+                "tags": [
+                  "AIAD-AI-ACT"
+                ],
+                "line": 170
+              },
+              {
+                "tags": [
+                  "AIAD-AI-ACT"
+                ],
+                "line": 311
+              }
+            ]
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/anonymize.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/archive.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/audit.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/azure-devops.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/backup.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/badge.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/bench-history.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/bitbucket.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/brief.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/cert.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/ci-templates.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/cli-schema.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/command-hooks.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/completion.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/confluence.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/_history-utils.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/adrs.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/audit-trail.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/badges-block.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/collect-supplementary.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/collect.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/csp.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/dpo.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 7
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 37
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 147
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 164
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 173
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 176
+              }
+            ]
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/dashboard/edge-cases.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/favicon.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/glossaire.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [
+              {
+                "path": "dans",
+                "line": 27
+              }
+            ],
+            "governance": []
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/dashboard/governance.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/graph.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [
+              {
+                "path": "(test",
+                "line": 84
+              }
+            ],
+            "governance": []
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/dashboard/kpi-cards.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/learnings.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/legal.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/manifest.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/meta-share.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/notfound.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/outcomes-history.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/outcomes.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/perf-budgets.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/pm.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/qa.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/rituels.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/sante-globale-history.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/sante-globale.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/server.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/sitemap.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/source-base.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/sre.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/tech-debt-history.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/tech-debt.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dashboard/violations.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-XXX",
+                  "AIAD-YYY"
+                ],
+                "line": 8
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 16
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 22
+              },
+              {
+                "tags": [
+                  "qui"
+                ],
+                "line": 72
+              },
+              {
+                "tags": [
+                  "AIAD-XXX"
+                ],
+                "line": 201
+              }
+            ]
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/dashboard/watch.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dinum.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 17
+              }
+            ]
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/docs.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/doctor-fix.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/doctor.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dora-record.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/dpia.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 71
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 126
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 217
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 220
+              }
+            ]
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/frontmatter.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/fs-ops.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/github-app.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/gitlab.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/governance-lint.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/governance-marketplace.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/governance-packs.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/hook-sandbox.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/i18n.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/import.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/init-tui.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/leadership-metrics.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-"
+                ],
+                "line": 71
+              }
+            ]
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/lockfile.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/marketplace.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/meta.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/migrate-v2.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/migrate.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/negotiate.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/obsidian-export.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/offline.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/openapi-export.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/org-config.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/pii-scan.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/plugins.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/provenance.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/rbac.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/refactor-spec.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/reflect.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/repl.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/reproducibility.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/review.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/sbom.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/score.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/self-update.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/skills.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/sla.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/sovereignty-score.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/spec-version.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/specs-library.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/standup-url.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/storybook.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/suggest.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        },
+        {
+          "path": "lib/telemetry.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
+        }
+      ],
+      "codeSansTests": [
+        {
+          "path": "lib/dashboard/onboarding.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [
+              {
+                "id": "SPEC-NNN-x",
+                "line": 76
+              }
+            ],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/dashboard/render.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [
+              {
+                "id": "SPEC-NNN-",
+                "line": 728
+              }
+            ],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/spec-suggester.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [
+              {
+                "id": "INTENT-NNN",
+                "line": 24
+              }
+            ],
+            "specs": [
+              {
+                "id": "SPEC-XXX-N-slug",
+                "line": 3
+              }
+            ],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": true
+        }
+      ],
+      "intentsOrphelinsSurCode": [
+        {
+          "id": "INTENT-NNN",
+          "file": "lib/sarif.js",
+          "line": 53
+        },
+        {
+          "id": "INTENT-NNN",
+          "file": "lib/spec-suggester.js",
+          "line": 24
+        },
+        {
+          "id": "INTENT-NNN",
+          "file": "lib/suggest-annotations.js",
+          "line": 89
+        },
+        {
+          "id": "INTENT-001",
+          "file": "templates/projects/fastapi-aiad/app/main.py",
+          "line": 3
+        },
+        {
+          "id": "INTENT-001",
+          "file": "templates/projects/node-aiad/src/index.js",
+          "line": 1
+        },
+        {
+          "id": "INTENT-NNN",
+          "file": "lib/emit-rules.js",
+          "line": 359
+        },
+        {
+          "id": "INTENT-NNN",
+          "file": "lib/sdd-trace.js",
+          "line": 38
+        }
+      ],
+      "specsOrphelinsSurCode": [
+        {
+          "id": "SPEC-NNN-x",
+          "file": "lib/dashboard/onboarding.js",
+          "line": 76
+        },
+        {
+          "id": "SPEC-NNN-",
+          "file": "lib/dashboard/render.js",
+          "line": 728
+        },
+        {
+          "id": "SPEC-NNN-N-",
+          "file": "lib/sarif.js",
+          "line": 45
+        },
+        {
+          "id": "SPEC-XXX-N-slug",
+          "file": "lib/spec-suggester.js",
+          "line": 3
+        },
+        {
+          "id": "SPEC-NNN-N-slug",
+          "file": "lib/suggest-annotations.js",
+          "line": 90
+        },
+        {
+          "id": "SPEC-001-1-export-donnees",
+          "file": "lib/tour.js",
+          "line": 146
+        },
+        {
+          "id": "SPEC-001-1-bench",
+          "file": "scripts/bench-trace.js",
+          "line": 55
+        },
+        {
+          "id": "SPEC-001-1-bootstrap",
+          "file": "templates/projects/fastapi-aiad/app/main.py",
+          "line": 4
+        },
+        {
+          "id": "SPEC-001-1-bootstrap",
+          "file": "templates/projects/node-aiad/src/index.js",
+          "line": 2
+        },
+        {
+          "id": "SPEC-NNN-N-slug",
+          "file": "lib/emit-rules.js",
+          "line": 360
+        },
+        {
+          "id": "SPEC-NNN-NN-slug",
+          "file": "lib/sdd-trace.js",
+          "line": 39
+        },
+        {
+          "id": "SPEC-042-1-flow-auth",
+          "file": "lib/sdd-trace.js",
+          "line": 44
+        },
+        {
+          "id": "SPEC-042-1-flow-auth",
+          "file": "lib/sdd-trace.js",
+          "line": 45
+        },
+        {
+          "id": "SPEC-042-1-flow-auth",
+          "file": "lib/sdd-trace.js",
+          "line": 46
+        },
+        {
+          "id": "SPEC-042-1-flow-auth",
+          "file": "lib/sdd-trace.js",
+          "line": 47
+        },
+        {
+          "id": "SPEC-NNN-N",
+          "file": "lib/sdd-trace.js",
+          "line": 447
+        },
+        {
+          "id": "SPEC-NNN-N-slug",
+          "file": "lib/sdd-trace.js",
+          "line": 448
+        }
+      ],
+      "codeSansSpec_truncated": true,
+      "codeSansSpec_total": 133
+    },
+    "backward_total": 222,
+    "backward_truncated": true
+  },
+  "signaux": {
+    "git": true,
+    "hooks": false,
+    "leadership": {
+      "humanAuthorshipRatio": {
+        "total": 0,
+        "sufficient": 0,
+        "ratio": null,
+        "seuilCharsMinimum": 50
+      },
+      "governanceCoverage": {
+        "sensitiveFiles": 2,
+        "governedFiles": 0,
+        "ratio": 0
+      },
+      "traceCompleteness": {
+        "total": 0,
+        "complete": 0,
+        "ratio": null
+      },
+      "langueArtefacts": {
+        "fr": 0,
+        "en": 0,
+        "mixed": 0,
+        "neutral": 0,
+        "total": 0
+      }
+    },
+    "leadershipHistory": [
+      {
+        "mois": "2026-05",
+        "ts": 1778728051449,
+        "humanAuthorshipRatio": null,
+        "governanceCoverage": 0,
+        "traceCompleteness": null,
+        "langueArtefacts": {
+          "fr": 0,
+          "en": 0,
+          "mixed": 0,
+          "neutral": 0,
+          "total": 0
+        }
+      }
+    ]
+  },
+  "supplementaire": {
+    "dpia": {
+      "fichiers": [],
+      "total": 0,
+      "latest": null
+    },
+    "aiAct": {
+      "fichiers": [],
+      "total": 0,
+      "latest": null
+    },
+    "sbom": {
+      "present": false,
+      "file": null,
+      "format": null,
+      "specVersion": null,
+      "components": 0,
+      "mtime": null
+    },
+    "sovereignty": {
+      "available": true,
+      "score": 0,
+      "maxScore": 100,
+      "level": "Bronze",
+      "levelColor": "rouge",
+      "dimensions": {
+        "juridictions": {
+          "score": 0,
+          "juridictions": [],
+          "packs": []
+        },
+        "agentsTier1": {
+          "score": 0,
+          "baseline": 0,
+          "prime": 0,
+          "agents": []
+        },
+        "langueFr": {
+          "score": 0,
+          "ratioFr": null,
+          "total": 0
+        },
+        "autorites": {
+          "score": 0,
+          "autorites": []
+        },
+        "hebergement": {
+          "score": 0,
+          "sources": []
+        }
+      },
+      "recommendations": [
+        "Installer un pack juridictionnel additionnel (`aiad-sdd gouvernance --pack fr-anssi`, `de-bsi`, etc.) pour renforcer la couverture EU.",
+        "Compléter les 4 agents EU baseline (AI-ACT, RGPD, RGAA, RGESN) — cap commun européen.",
+        "Référencer explicitement la CNIL et l'ANSSI dans les SPECs sensibles (privacy, sécurité, identité).",
+        "Déclarer un engagement d'hébergement EU dans `publiccode.yml` (`countries: [fr]`) ou installer le pack `fr-anssi` (agent SecNumCloud)."
+      ]
+    },
+    "hookStats": {
+      "available": false,
+      "count": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0,
+      "ratioFail": 0,
+      "timeouts": 0,
+      "scopeLeaks": 0,
+      "sante": "inconnue"
+    }
+  },
+  "maturite": {
+    "score": 0,
+    "scoreBrut": 0,
+    "total": 5,
+    "plafond": 3,
+    "raisonPlafond": "2/3 métriques leadership indéfinies (2/3)",
+    "signaux": {
+      "git": true,
+      "hooks": false,
+      "indefinies": 2
+    },
+    "label": "Non initialisé",
+    "cls": "maturite-bad"
+  },
+  "specsParIntent": {},
+  "qa": {
+    "queueReadySansTests": [],
+    "coverage": [],
+    "coverageReelTotal": null,
+    "coverageReelFile": null,
+    "audit": {
+      "VALIDÉ": 0,
+      "CORRECTIONS": 0,
+      "REJET": 0,
+      "AUTRE": 0,
+      "total": 0
+    },
+    "ears": {
+      "total": 0,
+      "passants": 0,
+      "aRelinter": 0,
+      "liste": []
+    },
+    "testsRecents": [
+      {
+        "path": "test/cli-schema.test.js",
+        "mtime": 1778727989755.2024
+      },
+      {
+        "path": "test/dashboard-kanban.test.js",
+        "mtime": 1778727115940.212
+      },
+      {
+        "path": "test/dashboard-audit-trail.test.js",
+        "mtime": 1778726947523.1592
+      },
+      {
+        "path": "test/dashboard-legal.test.js",
+        "mtime": 1778726795450.008
+      },
+      {
+        "path": "test/dashboard-adrs.test.js",
+        "mtime": 1778726626998.7957
+      },
+      {
+        "path": "test/dashboard-dpo.test.js",
+        "mtime": 1778726491540.9663
+      },
+      {
+        "path": "test/dashboard-render.test.js",
+        "mtime": 1778726323499.2483
+      },
+      {
+        "path": "test/status.test.js",
+        "mtime": 1778726054964.263
+      },
+      {
+        "path": "test/doctor.test.js",
+        "mtime": 1778725922034.0493
+      },
+      {
+        "path": "test/workspace.test.js",
+        "mtime": 1778725204466.0027
+      },
+      {
+        "path": "test/brief.test.js",
+        "mtime": 1778724765453.758
+      },
+      {
+        "path": "test/dashboard.test.js",
+        "mtime": 1778724472090.33
+      },
+      {
+        "path": "test/dashboard-qa.test.js",
+        "mtime": 1778724351629.2957
+      },
+      {
+        "path": "test/dashboard-pm.test.js",
+        "mtime": 1778724106136.979
+      },
+      {
+        "path": "test/completion.test.js",
+        "mtime": 1778722734925.267
+      },
+      {
+        "path": "test/dashboard-learnings.test.js",
+        "mtime": 1778721921700.7385
+      },
+      {
+        "path": "test/dashboard-source-base.test.js",
+        "mtime": 1778721613837.6875
+      },
+      {
+        "path": "test/ci-templates.test.js",
+        "mtime": 1778720621691.1274
+      },
+      {
+        "path": "test/dashboard-edge-cases.test.js",
+        "mtime": 1778719918037.2861
+      },
+      {
+        "path": "test/dashboard-violations.test.js",
+        "mtime": 1778719314614.091
+      },
+      {
+        "path": "test/dashboard-tech-debt.test.js",
+        "mtime": 1778719300267.0037
+      },
+      {
+        "path": "test/server-mime.test.js",
+        "mtime": 1778719064788.142
+      },
+      {
+        "path": "test/cli-parsing.test.js",
+        "mtime": 1778716643612.2622
+      },
+      {
+        "path": "test/standup-url.test.js",
+        "mtime": 1778716114928.2588
+      },
+      {
+        "path": "test/badge.test.js",
+        "mtime": 1778714038963.8389
+      },
+      {
+        "path": "test/hook-sandbox.test.js",
+        "mtime": 1778710351936.2578
+      },
+      {
+        "path": "test/sovereignty-score.test.js",
+        "mtime": 1778709769830.296
+      },
+      {
+        "path": "test/trace-watch.test.js",
+        "mtime": 1778709437050.8267
+      },
+      {
+        "path": "test/workspace-analytics.test.js",
+        "mtime": 1778709092159.8667
+      },
+      {
+        "path": "test/meta.test.js",
+        "mtime": 1778708900186.351
+      },
+      {
+        "path": "test/notfound.test.js",
+        "mtime": 1778706942544.9287
+      },
+      {
+        "path": "test/dashboard-graph.test.js",
+        "mtime": 1778706674864.4866
+      },
+      {
+        "path": "test/csp.test.js",
+        "mtime": 1778706475206.0076
+      },
+      {
+        "path": "test/manifest.test.js",
+        "mtime": 1778705510438.3782
+      },
+      {
+        "path": "test/meta-share.test.js",
+        "mtime": 1778705366443.8752
+      },
+      {
+        "path": "test/sitemap.test.js",
+        "mtime": 1778705179309.2559
+      },
+      {
+        "path": "test/favicon.test.js",
+        "mtime": 1778704870774.9211
+      },
+      {
+        "path": "test/badges-block.test.js",
+        "mtime": 1778704028707.1692
+      },
+      {
+        "path": "test/json-output.test.js",
+        "mtime": 1778701441068.3745
+      },
+      {
+        "path": "test/upgrade.test.js",
+        "mtime": 1778700449153.8813
+      },
+      {
+        "path": "test/update.test.js",
+        "mtime": 1778700449153.7979
+      },
+      {
+        "path": "test/init-snapshot.test.js",
+        "mtime": 1778700449153.6987
+      },
+      {
+        "path": "test/init.test.js",
+        "mtime": 1778700449153.528
+      },
+      {
+        "path": "test/emit-rules.test.js",
+        "mtime": 1778700449153.31
+      },
+      {
+        "path": "test/dry-run.test.js",
+        "mtime": 1778700449152.9727
+      },
+      {
+        "path": "test/bench.test.js",
+        "mtime": 1778700449152.6648
+      },
+      {
+        "path": "test/dashboard-_history-utils.test.js",
+        "mtime": 1778699475409.569
+      },
+      {
+        "path": "test/dashboard-sante-globale-history.test.js",
+        "mtime": 1778699233111.1174
+      },
+      {
+        "path": "test/dashboard-sante-globale.test.js",
+        "mtime": 1778698956372.943
+      },
+      {
+        "path": "test/dashboard-rituels.test.js",
+        "mtime": 1778698642267.9517
+      },
+      {
+        "path": "test/dashboard-onboarding.test.js",
+        "mtime": 1778698400848.0845
+      },
+      {
+        "path": "test/dashboard-glossaire.test.js",
+        "mtime": 1778698356215.6719
+      },
+      {
+        "path": "test/dashboard-outcomes.test.js",
+        "mtime": 1778697848225.875
+      },
+      {
+        "path": "test/dashboard-perf-budgets.test.js",
+        "mtime": 1778697629540.0854
+      },
+      {
+        "path": "test/dashboard-outcomes-history.test.js",
+        "mtime": 1778696486833.1282
+      },
+      {
+        "path": "test/migrate-v2.test.js",
+        "mtime": 1778695650241.3423
+      },
+      {
+        "path": "test/obsidian-export.test.js",
+        "mtime": 1778695397811.5254
+      },
+      {
+        "path": "test/dashboard-sre.test.js",
+        "mtime": 1778694444208.6897
+      },
+      {
+        "path": "test/dashboard-tech-debt-history.test.js",
+        "mtime": 1778692937699.9255
+      },
+      {
+        "path": "test/bench-compose-prod.test.js",
+        "mtime": 1778682659080.1548
+      },
+      {
+        "path": "test/self-update.test.js",
+        "mtime": 1778681970496.7988
+      },
+      {
+        "path": "test/bench-start-script.test.js",
+        "mtime": 1778681480661.7131
+      },
+      {
+        "path": "test/doctor-supplementaire.test.js",
+        "mtime": 1778681291662.3655
+      },
+      {
+        "path": "test/bench-dockerfile.test.js",
+        "mtime": 1778680560996.2844
+      },
+      {
+        "path": "test/docs-dora-flow.test.js",
+        "mtime": 1778680133522.834
+      },
+      {
+        "path": "test/leadership-metrics.test.js",
+        "mtime": 1778679768684.4727
+      },
+      {
+        "path": "test/dora-record.test.js",
+        "mtime": 1778679005474.2617
+      },
+      {
+        "path": "test/dashboard-assets-autotag.test.js",
+        "mtime": 1778676748235.0327
+      },
+      {
+        "path": "test/cli-adrs.test.js",
+        "mtime": 1778675485473.917
+      },
+      {
+        "path": "test/dashboard-collect-supplementary.test.js",
+        "mtime": 1778671577010.2068
+      },
+      {
+        "path": "test/dashboard-collect.test.js",
+        "mtime": 1778671126488.1758
+      },
+      {
+        "path": "test/trace.test.js",
+        "mtime": 1778666990337.9858
+      },
+      {
+        "path": "test/sdd-trace-aliases.test.js",
+        "mtime": 1778666978246.4653
+      },
+      {
+        "path": "test/pre-commit.test.js",
+        "mtime": 1778603263887.7253
+      },
+      {
+        "path": "test/bench-history.test.js",
+        "mtime": 1778482883863.1438
+      },
+      {
+        "path": "test/tutorial.test.js",
+        "mtime": 1778481089715.5686
+      },
+      {
+        "path": "test/doctor-fix.test.js",
+        "mtime": 1778479282748.1306
+      },
+      {
+        "path": "test/rbac.test.js",
+        "mtime": 1778477456375.2056
+      },
+      {
+        "path": "test/org-config.test.js",
+        "mtime": 1778473825304.8142
+      },
+      {
+        "path": "test/command-hooks.test.js",
+        "mtime": 1778470398370.03
+      },
+      {
+        "path": "test/plugins.test.js",
+        "mtime": 1778468682521.033
+      },
+      {
+        "path": "test/anonymize.test.js",
+        "mtime": 1778466919936.8145
+      },
+      {
+        "path": "test/specs-library-vague3.test.js",
+        "mtime": 1778465211076.5723
+      },
+      {
+        "path": "test/specs-library-vague2.test.js",
+        "mtime": 1778463490673.2576
+      },
+      {
+        "path": "test/github-app.test.js",
+        "mtime": 1778461614563.2473
+      },
+      {
+        "path": "test/bitbucket.test.js",
+        "mtime": 1778458143881.204
+      },
+      {
+        "path": "test/offline.test.js",
+        "mtime": 1778456476110.5789
+      },
+      {
+        "path": "test/bun-parity.test.js",
+        "mtime": 1778454762722.9756
+      },
+      {
+        "path": "test/backup.test.js",
+        "mtime": 1778453022932.026
+      },
+      {
+        "path": "test/pii-scan.test.js",
+        "mtime": 1778451262833.5574
+      },
+      {
+        "path": "test/tour.test.js",
+        "mtime": 1778449498464.8088
+      },
+      {
+        "path": "test/sla.test.js",
+        "mtime": 1778445897219.6055
+      },
+      {
+        "path": "test/archive.test.js",
+        "mtime": 1778444125470.7341
+      },
+      {
+        "path": "test/spec-version.test.js",
+        "mtime": 1778442430235.7444
+      },
+      {
+        "path": "test/refactor-spec.test.js",
+        "mtime": 1778440606033.7021
+      },
+      {
+        "path": "test/negotiate.test.js",
+        "mtime": 1778438899063.1882
+      },
+      {
+        "path": "test/reflect.test.js",
+        "mtime": 1778437172593.5803
+      },
+      {
+        "path": "test/governance-latam.test.js",
+        "mtime": 1778435467310.8367
+      },
+      {
+        "path": "test/governance-apac.test.js",
+        "mtime": 1778433751585.742
+      },
+      {
+        "path": "test/webhooks.test.js",
+        "mtime": 1778432013204.6897
+      },
+      {
+        "path": "test/confluence.test.js",
+        "mtime": 1778430301796.5276
+      },
+      {
+        "path": "test/azure-devops.test.js",
+        "mtime": 1778428540948.075
+      },
+      {
+        "path": "test/gitlab.test.js",
+        "mtime": 1778426779917.7773
+      },
+      {
+        "path": "test/dinum.test.js",
+        "mtime": 1778423290406.3887
+      },
+      {
+        "path": "test/governance-fr-anssi.test.js",
+        "mtime": 1778421513160.1064
+      },
+      {
+        "path": "test/provenance.test.js",
+        "mtime": 1778417844370.1626
+      },
+      {
+        "path": "test/audit.test.js",
+        "mtime": 1778416097537.1003
+      },
+      {
+        "path": "test/marketplace.test.js",
+        "mtime": 1778414993714.2625
+      },
+      {
+        "path": "test/cert.test.js",
+        "mtime": 1778414098629.2158
+      },
+      {
+        "path": "test/storybook.test.js",
+        "mtime": 1778413131342.7297
+      },
+      {
+        "path": "test/governance-eu-extended.test.js",
+        "mtime": 1778412244332.5525
+      },
+      {
+        "path": "test/governance-eu-extended-vague2.test.js",
+        "mtime": 1778412206788.585
+      },
+      {
+        "path": "test/governance-ch-fadp.test.js",
+        "mtime": 1778411285553.557
+      },
+      {
+        "path": "test/governance-iso-standards.test.js",
+        "mtime": 1778410439575.5479
+      },
+      {
+        "path": "test/governance-eu-platforms.test.js",
+        "mtime": 1778409549322.9514
+      },
+      {
+        "path": "test/openapi-export.test.js",
+        "mtime": 1778408716504.98
+      },
+      {
+        "path": "test/suggest-annotations.test.js",
+        "mtime": 1778407723597.1636
+      },
+      {
+        "path": "test/review.test.js",
+        "mtime": 1778406838274.4404
+      },
+      {
+        "path": "test/init-parallel.test.js",
+        "mtime": 1778404985045.3625
+      },
+      {
+        "path": "test/vscode-snippets.test.js",
+        "mtime": 1778404034527.469
+      },
+      {
+        "path": "test/bun-compat.test.js",
+        "mtime": 1778403224958.7937
+      },
+      {
+        "path": "test/mutation-batch.test.js",
+        "mtime": 1778402410212.0686
+      },
+      {
+        "path": "test/lint-esm.test.js",
+        "mtime": 1778401516815.1355
+      },
+      {
+        "path": "test/lint-size.test.js",
+        "mtime": 1778400707804.3914
+      },
+      {
+        "path": "test/lint-deps.test.js",
+        "mtime": 1778399831186.752
+      },
+      {
+        "path": "test/governance-lint.test.js",
+        "mtime": 1778398955412.902
+      },
+      {
+        "path": "test/specs-library.test.js",
+        "mtime": 1778398119108.313
+      },
+      {
+        "path": "test/score.test.js",
+        "mtime": 1778397179599.8262
+      },
+      {
+        "path": "test/bench-comparison.test.js",
+        "mtime": 1778396264347.36
+      },
+      {
+        "path": "test/mutation-test.test.js",
+        "mtime": 1778395400048.0781
+      },
+      {
+        "path": "test/release.test.js",
+        "mtime": 1778394609256.6865
+      },
+      {
+        "path": "test/governance-packs.test.js",
+        "mtime": 1778393807048.7285
+      },
+      {
+        "path": "test/i18n-coverage.test.js",
+        "mtime": 1778392777525.3057
+      },
+      {
+        "path": "test/trace-worker.test.js",
+        "mtime": 1778391877907.814
+      },
+      {
+        "path": "test/trace-cache.test.js",
+        "mtime": 1778390927928.467
+      },
+      {
+        "path": "test/import.test.js",
+        "mtime": 1778389985486.6855
+      },
+      {
+        "path": "test/suggest.test.js",
+        "mtime": 1778389142652.581
+      },
+      {
+        "path": "test/init-tui.test.js",
+        "mtime": 1778388311686.1072
+      },
+      {
+        "path": "test/templates.test.js",
+        "mtime": 1778387463411.3877
+      },
+      {
+        "path": "test/governance-eu-financial.test.js",
+        "mtime": 1778386512769.7786
+      },
+      {
+        "path": "test/docs.test.js",
+        "mtime": 1778385549988.2712
+      },
+      {
+        "path": "test/governance-cra.test.js",
+        "mtime": 1778385467132.8884
+      },
+      {
+        "path": "test/dpia.test.js",
+        "mtime": 1778384520402.305
+      },
+      {
+        "path": "test/reproducibility.test.js",
+        "mtime": 1778383632002.9192
+      },
+      {
+        "path": "test/sbom.test.js",
+        "mtime": 1778382829120.5327
+      },
+      {
+        "path": "test/security-md.test.js",
+        "mtime": 1778381822155.9243
+      },
+      {
+        "path": "test/tarball-hygiene.test.js",
+        "mtime": 1778381805910.8887
+      },
+      {
+        "path": "test/governance-marketplace.test.js",
+        "mtime": 1778380861951.7986
+      },
+      {
+        "path": "test/ai-act-audit.test.js",
+        "mtime": 1778380012805.053
+      },
+      {
+        "path": "test/trace-perf.test.js",
+        "mtime": 1778378373712.2168
+      },
+      {
+        "path": "test/en-aliases.test.js",
+        "mtime": 1778377580322.9902
+      },
+      {
+        "path": "test/i18n.test.js",
+        "mtime": 1778376048490.0852
+      },
+      {
+        "path": "test/migrate.test.js",
+        "mtime": 1778375195494.378
+      },
+      {
+        "path": "test/repl.test.js",
+        "mtime": 1778374386164.8403
+      },
+      {
+        "path": "test/forges-ci.test.js",
+        "mtime": 1778373574487.9392
+      },
+      {
+        "path": "test/vscode-extension.test.js",
+        "mtime": 1778372813238.3164
+      },
+      {
+        "path": "test/github-action.test.js",
+        "mtime": 1778372056445.8591
+      },
+      {
+        "path": "test/spec-suggester.test.js",
+        "mtime": 1778371305046.7886
+      },
+      {
+        "path": "test/multi-language.test.js",
+        "mtime": 1778369591745.6409
+      },
+      {
+        "path": "test/telemetry.test.js",
+        "mtime": 1778367885907.2664
+      },
+      {
+        "path": "test/fs-ops-errors.test.js",
+        "mtime": 1778362457225.9397
+      },
+      {
+        "path": "test/skills.test.js",
+        "mtime": 1778359278215.5474
+      },
+      {
+        "path": "test/dashboard-watch.test.js",
+        "mtime": 1778358526068.625
+      },
+      {
+        "path": "test/sarif.test.js",
+        "mtime": 1778357633145.1365
+      },
+      {
+        "path": "test/trace-git.test.js",
+        "mtime": 1778356859430.479
+      },
+      {
+        "path": "test/uninstall.test.js",
+        "mtime": 1778356143545.683
+      },
+      {
+        "path": "test/update-check.test.js",
+        "mtime": 1778355327825.786
+      },
+      {
+        "path": "test/emit-rules-concurrent.test.js",
+        "mtime": 1778353767201.1167
+      },
+      {
+        "path": "test/lockfile.test.js",
+        "mtime": 1778353753964.971
+      },
+      {
+        "path": "test/frontmatter-integration.test.js",
+        "mtime": 1778352981303.154
+      },
+      {
+        "path": "test/frontmatter.test.js",
+        "mtime": 1778352961503.7761
+      },
+      {
+        "path": "test/fs-ops.test.js",
+        "mtime": 1778345026087.577
+      },
+      {
+        "path": "test/term.test.js",
+        "mtime": 1778344281892.7568
+      },
+      {
+        "path": "test/annotations.test.js",
+        "mtime": 1778343082757.9756
+      }
+    ],
+    "regressions": {
+      "regressions": [],
+      "dernierRun": null,
+      "runPrecedent": null,
+      "total": 0
+    },
+    "runsHistoryFile": null
+  },
+  "pm": {
+    "zombies": [],
+    "draftsAnciens": [],
+    "specsNonDemontrees": [],
+    "seuils": {
+      "intentZombieJours": 30,
+      "intentDraftJours": 14
+    },
+    "lastDemoMtime": null
+  },
+  "adrs": {
+    "fichier": ".aiad/ARCHITECTURE.md",
+    "total": 0,
+    "entrees": []
+  },
+  "kanban": [
+    {
+      "id": "todo",
+      "titre": "To-Do",
+      "statuts": [
+        "draft",
+        "ready"
+      ],
+      "cards": []
+    },
+    {
+      "id": "in-progress",
+      "titre": "In-Progress",
+      "statuts": [
+        "in-progress"
+      ],
+      "cards": []
+    },
+    {
+      "id": "review",
+      "titre": "Review",
+      "statuts": [
+        "review",
+        "validation"
+      ],
+      "cards": []
+    },
+    {
+      "id": "done",
+      "titre": "Done",
+      "statuts": [
+        "done"
+      ],
+      "cards": []
+    }
+  ],
+  "kanbanConflits": [],
+  "focusAlertes": {
+    "all": [],
+    "pm": [],
+    "pe": [],
+    "ae": [],
+    "qa": [],
+    "tl": []
+  },
+  "techDebt": {
+    "seuilLoc": 200,
+    "seuilLocWarn": 100,
+    "sourceSeuil": "default",
+    "jnsp": {
+      "total": 28,
+      "markers": [
+        {
+          "file": "CHANGELOG.md",
+          "line": 213,
+          "question": "` dans le code.",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "CHANGELOG.md",
+          "line": 218,
+          "question": "` non résolu (mode `block`) ou avertit",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "CLAUDE.md",
+          "line": 234,
+          "question": "<question précise à l'humain>",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "CLAUDE.md",
+          "line": 238,
+          "question": "` non résolu. Le bypass `git commit --no-verify`",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "README.md",
+          "line": 95,
+          "question": "<question précise pour l'humain>",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "README.md",
+          "line": 98,
+          "question": "` non",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "bench/scenario-autonomous-run/url-shortener/AGENTS.md",
+          "line": 85,
+          "question": "<question précise pour l'humain>` ; le hook pre-commit bloque tout diff qui en contient",
+          "ageDays": 88,
+          "age": "stale"
+        },
+        {
+          "file": "bench/scenario-autonomous-run/url-shortener/CLAUDE.md",
+          "line": 244,
+          "question": "<question précise à l'humain>",
+          "ageDays": 1,
+          "age": "recent"
+        },
+        {
+          "file": "bench/scenario-autonomous-run/url-shortener/CLAUDE.md",
+          "line": 248,
+          "question": "` non résolu. Le bypass `git commit --no-verify`",
+          "ageDays": 1,
+          "age": "recent"
+        },
+        {
+          "file": "lib/emit-rules.js",
+          "line": 186,
+          "question": "<question>` ; le pre-commit bloque si présent',",
+          "ageDays": 2,
+          "age": "recent"
+        },
+        {
+          "file": "templates/CLAUDE.md",
+          "line": 234,
+          "question": "<question précise à l'humain>",
+          "ageDays": 1,
+          "age": "recent"
+        },
+        {
+          "file": "templates/CLAUDE.md",
+          "line": 238,
+          "question": "` non résolu. Le bypass `git commit --no-verify`",
+          "ageDays": 1,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 22,
+          "question": "dans .js .ts .py .md', () => {",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 26,
+          "question": "choisir entre Redis et Postgres\\nconst x = 1;\\n');",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 27,
+          "question": "format date ISO ou UNIX ?\\n');",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 28,
+          "question": "niveau de log par défaut ?\\n');",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 29,
+          "question": "validation par qui ?\\n');",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 45,
+          "question": "noise\\n');",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 46,
+          "question": "noise\\n');",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 58,
+          "question": "marker ${i}\\n`;",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 125,
+          "question": "déléguer ?\\n');",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 188,
+          "question": "récent\\n');",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 189,
+          "question": "medium\\n');",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 190,
+          "question": "ancien\\n');",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/dashboard-tech-debt.test.js",
+          "line": 303,
+          "question": "q1\\n');",
+          "ageDays": 0,
+          "age": "recent"
+        },
+        {
+          "file": "test/pre-commit.test.js",
+          "line": 214,
+          "question": "quel comportement si le user est verrouillé ?\\n  return null;\\n}');",
+          "ageDays": 1,
+          "age": "recent"
+        },
+        {
+          "file": "test/pre-commit.test.js",
+          "line": 229,
+          "question": "à clarifier\\nexport const x = 1;\\n');",
+          "ageDays": 1,
+          "age": "recent"
+        },
+        {
+          "file": "test/pre-commit.test.js",
+          "line": 243,
+          "question": "→ pas de blocage attendu.",
+          "ageDays": 1,
+          "age": "recent"
+        }
+      ],
+      "parAge": {
+        "recent": 27,
+        "medium": 0,
+        "stale": 1,
+        "unknown": 0
+      }
+    },
+    "specsGrosses": {
+      "total": 0,
+      "entrees": []
+    },
+    "specsWarning": {
+      "total": 0,
+      "entrees": []
+    }
+  },
+  "techDebtHistory": {
+    "snapshots": 1,
+    "buckets": [
+      {
+        "semaine": "2026-04-20",
+        "samples": 0,
+        "jnsp": null,
+        "jnspStale": null,
+        "specsGrosses": null,
+        "specsWarning": null,
+        "valeur": null
+      },
+      {
+        "semaine": "2026-04-27",
+        "samples": 0,
+        "jnsp": null,
+        "jnspStale": null,
+        "specsGrosses": null,
+        "specsWarning": null,
+        "valeur": null
+      },
+      {
+        "semaine": "2026-05-04",
+        "samples": 0,
+        "jnsp": null,
+        "jnspStale": null,
+        "specsGrosses": null,
+        "specsWarning": null,
+        "valeur": null
+      },
+      {
+        "semaine": "2026-05-11",
+        "samples": 1,
+        "jnsp": 28,
+        "jnspStale": 1,
+        "specsGrosses": 0,
+        "specsWarning": 0
+      }
+    ],
+    "tendance": {
+      "jnsp": "unknown",
+      "delta": 0
+    },
+    "prune": {
+      "pruned": [],
+      "kept": 1
+    }
+  },
+  "learnings": {
+    "fichier": ".aiad/AGENT-GUIDE.md",
+    "lessonsLearned": {
+      "total": 0,
+      "entrees": []
+    },
+    "humanLearnings": {
+      "total": 0,
+      "entrees": []
+    }
+  },
+  "auditTrail": {
+    "fichier": null,
+    "total": 0,
+    "parAction": {},
+    "recents7j": 0,
+    "recents30j": 0,
+    "derniers": [],
+    "chaine": {
+      "valide": null,
+      "raisons": []
+    }
+  },
+  "violations": {
+    "total": 0,
+    "typeA": {
+      "total": 0,
+      "entrees": []
+    },
+    "typeB": {
+      "total": 0,
+      "entrees": []
+    },
+    "parTag": {}
+  },
+  "sre": {
+    "hookStats": {
+      "available": false,
+      "count": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0,
+      "ratioFail": 0,
+      "timeouts": 0,
+      "scopeLeaks": 0,
+      "sante": "inconnue"
+    },
+    "deployments": null,
+    "security": {
+      "total": 0,
+      "derniers": []
+    },
+    "audit": {
+      "total": 0,
+      "derniers": []
+    },
+    "severites": {
+      "security": {
+        "critique": 0,
+        "élevé": 0,
+        "moyen": 0,
+        "mineur": 0,
+        "bonne pratique": 0
+      },
+      "audit": {
+        "critique": 0,
+        "élevé": 0,
+        "moyen": 0,
+        "mineur": 0,
+        "bonne pratique": 0
+      }
+    }
+  },
+  "dpo": {
+    "dpia": {
+      "total": 0,
+      "latest": null,
+      "fichiers": []
+    },
+    "specsRgpd": {
+      "total": 0,
+      "entrees": []
+    },
+    "fichiersRgpd": {
+      "total": 6,
+      "entrees": [
+        {
+          "path": "lib/dashboard/dpo.js"
+        },
+        {
+          "path": "lib/dashboard/violations.js"
+        },
+        {
+          "path": "lib/dinum.js"
+        },
+        {
+          "path": "lib/dpia.js"
+        },
+        {
+          "path": "lib/emit-rules.js"
+        },
+        {
+          "path": "lib/sdd-trace.js"
+        }
+      ]
+    },
+    "coverage": {
+      "ratio": null,
+      "couvertes": 0,
+      "nonCouvertes": 0,
+      "entreesNonCouvertes": []
+    }
+  },
+  "outcomes": {
+    "fichier": ".aiad/PRD.md",
+    "total": 0,
+    "criteres": [],
+    "mesures": {
+      "fichier": null,
+      "date": null,
+      "mesures": []
+    },
+    "evolution": {
+      "snapshots": 0,
+      "timelines": []
+    }
+  },
+  "edgeCases": {
+    "totalItems": 0,
+    "totalCovered": 0,
+    "totalSpecs": 0,
+    "ratio": null,
+    "byspec": []
+  },
+  "perfBudgets": {
+    "fichier": null,
+    "total": 0,
+    "budgets": []
+  },
+  "santeGlobale": {
+    "score": 50,
+    "total": 100,
+    "scoreBrut": 40,
+    "maxBrut": 80,
+    "breakdown": [
+      {
+        "id": "maturite",
+        "label": "Maturité fondamentaux",
+        "max": 20,
+        "ratio": 0,
+        "points": 0,
+        "disponible": true
+      },
+      {
+        "id": "governance",
+        "label": "Couverture Tier 1",
+        "max": 20,
+        "ratio": 0,
+        "points": 0,
+        "disponible": true
+      },
+      {
+        "id": "dpo",
+        "label": "Coverage RGPD",
+        "max": 20,
+        "ratio": 1,
+        "points": 20,
+        "disponible": true
+      },
+      {
+        "id": "edgeCases",
+        "label": "Edge cases couverts",
+        "max": 20,
+        "ratio": null,
+        "points": 0,
+        "disponible": false
+      },
+      {
+        "id": "violations",
+        "label": "Conformité Tier 1",
+        "max": 20,
+        "ratio": 1,
+        "points": 20,
+        "disponible": true
+      }
+    ],
+    "niveau": "attention",
+    "composantesDisponibles": 4,
+    "evolution": {
+      "snapshots": 1,
+      "buckets": [
+        {
+          "semaine": "2026-02-23",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-03-02",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-03-09",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-03-16",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-03-23",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-03-30",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-04-06",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-04-13",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-04-20",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-04-27",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-05-04",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-05-11",
+          "samples": 1,
+          "score": 50,
+          "niveau": "attention"
+        }
+      ],
+      "tendance": {
+        "sens": "unknown",
+        "delta": 0
+      },
+      "prune": {
+        "pruned": [],
+        "kept": 1
+      }
+    }
+  },
+  "adrsDrift": {
+    "referencesTotal": 9,
+    "orphelins": [
+      {
+        "adrId": "ADR-001",
+        "file": "test/dashboard-adrs.test.js",
+        "line": 152
+      },
+      {
+        "adrId": "ADR-002",
+        "file": "test/dashboard-adrs.test.js",
+        "line": 153
+      },
+      {
+        "adrId": "ADR-003",
+        "file": "test/dashboard-adrs.test.js",
+        "line": 154
+      },
+      {
+        "adrId": "ADR-999",
+        "file": "test/dashboard-adrs.test.js",
+        "line": 166
+      },
+      {
+        "adrId": "ADR-888",
+        "file": "test/dashboard-adrs.test.js",
+        "line": 168
+      },
+      {
+        "adrId": "ADR-001",
+        "file": "test/dashboard-adrs.test.js",
+        "line": 169
+      },
+      {
+        "adrId": "ADR-001",
+        "file": "test/dashboard-adrs.test.js",
+        "line": 179
+      },
+      {
+        "adrId": "ADR-001",
+        "file": "test/dashboard-adrs.test.js",
+        "line": 189
+      },
+      {
+        "adrId": "ADR-999",
+        "file": "test/dashboard-adrs.test.js",
+        "line": 189
+      }
+    ],
+    "total": 9
+  },
+  "legalPacks": [],
+  "publicUrl": "",
+  "sourceBase": "",
+  "generatedAt": "2026-05-14T03:07:31.407Z"
+}

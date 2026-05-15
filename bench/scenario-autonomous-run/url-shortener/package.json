@@ -1,0 +1,7 @@
+{
+  "name": "url-shortener-bench",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "AIAD SDD bench scenario — autonomous run sandbox",
+  "private": true
+}

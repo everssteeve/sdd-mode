@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-15T13:45:35.149Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Vue d&#39;ensemble — url-shortener-bench</title>
+<meta name="description" content="Vue d&#39;ensemble — Pulse global du projet SDD Mode · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Vue d&#39;ensemble — url-shortener-bench"/>
+<meta property="og:description" content="Vue d&#39;ensemble — Pulse global du projet SDD Mode · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue d&#39;ensemble — url-shortener-bench"/>
+<meta name="twitter:description" content="Vue d&#39;ensemble — Pulse global du projet SDD Mode · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">url-shortener-bench</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v0.1.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="active">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 15/05/2026 15:45:35<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>Vue d&#39;ensemble</h1>
+      <div class="subtitle">Pulse global du projet SDD Mode</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/05/2026 15:45:35. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">url-shortener-bench · v0.1.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  
+<section><h2>Alertes <span class="count">5 signal(s)</span></h2><div class="alertes-list"><a href="drifts.html" class="alerte alerte-warn"><div class="alerte-titre">Fact majeur ouvert — FACT-001-cnil-retention</div><div class="alerte-detail">FACT-001 — Logs analytics conservés au-delà des 13 mois CNIL</div><div class="alerte-action">→ planifier remédiation</div></a><a href="traceability.html" class="alerte alerte-warn"><div class="alerte-titre">SPEC validée sans code — SPEC-101-1-formulaire-paiement</div><div class="alerte-detail">statut done mais aucune annotation @spec dans le code</div><div class="alerte-action">→ lancer /sdd exec ou annoter le code livré</div></a><a href="traceability.html" class="alerte alerte-warn"><div class="alerte-titre">SPEC validée sans code — SPEC-101-2-relance-panier</div><div class="alerte-detail">statut in-progress mais aucune annotation @spec dans le code</div><div class="alerte-action">→ lancer /sdd exec ou annoter le code livré</div></a><a href="traceability.html" class="alerte alerte-warn"><div class="alerte-titre">SPEC validée sans code — SPEC-103-1-relance-email</div><div class="alerte-detail">statut ready mais aucune annotation @spec dans le code</div><div class="alerte-action">→ lancer /sdd exec ou annoter le code livré</div></a><a href="intents.html" class="alerte alerte-warn"><div class="alerte-titre">Intent zombie — INTENT-101-conversion-checkout</div><div class="alerte-detail">actif depuis 45j sans clôture</div><div class="alerte-action">→ archiver ou relancer (cf. /aiad health)</div></a></div></section>
+<div class="kpis">
+  <div class="kpi warn">
+    <div class="label">Maturité</div>
+    <div class="value">3/5</div>
+    <div class="delta">Opérationnel</div>
+  </div>
+  <div class="kpi">
+    <div class="label">Intents actifs</div>
+    <div class="value">2<span class="muted" style="font-size:1rem;font-weight:400;"> / 3</span></div>
+    <div class="delta">total</div>
+  </div>
+  <div class="kpi">
+    <div class="label">SPECs prêtes+</div>
+    <div class="value">3<span class="muted" style="font-size:1rem;font-weight:400;"> / 3</span></div>
+    <div class="delta">ready / in-progress / done</div>
+  </div>
+  <div class="kpi ok">
+    <div class="label">Gouvernance Tier 1</div>
+    <div class="value">5/5</div>
+    <div class="delta">agents installés</div>
+  </div>
+  <div class="kpi bad">
+    <div class="label">Gaps traçabilité</div>
+    <div class="value">8</div>
+    <div class="delta">tous types confondus</div>
+  </div>
+  <div class="kpi warn">
+    <div class="label">Drifts ouverts</div>
+    <div class="value">1</div>
+    <div class="delta">sur 1 fact(s)</div>
+  </div>
+  
+  <a class="kpi warn" href="legal.html" style="text-decoration:none;color:inherit;display:block">
+    <div class="label">Souveraineté EU</div>
+    <div class="value">50<span class="muted" style="font-size:.7rem">/100</span></div>
+    <div class="delta">Silver · voir legal</div>
+  </a>
+  
+  <a class="kpi warn" href="governance.html" style="text-decoration:none;color:inherit;display:block">
+    <div class="label">Violations Tier 1</div>
+    <div class="value">3</div>
+    <div class="delta">0 orpheline(s) · 3 non implémentée(s) · voir gouvernance</div>
+  </a>
+</div>
+
+<section>
+    <h2>Santé projet <span class="badge badge-bad" style="font-size:.8rem">🔴 Critique · 40/100</span></h2>
+    <p class="muted" style="font-size:.85rem">Composite normalisé /100 sur 4/5 composantes mesurables. Une vue exec en 1 nombre, breakdown détaillé ci-dessous.</p>
+    <table>
+      <thead><tr><th>Composante</th><th>Ratio</th><th style="text-align:right">Points</th></tr></thead>
+      <tbody><tr>
+      <td>Maturité fondamentaux</td>
+      <td>
+        <div style="display:flex;align-items:center;gap:.5rem">
+          <div style="flex:1;height:6px;background:var(--bg-alt);border-radius:3px;overflow:hidden;min-width:80px">
+            <div style="width:60%;height:100%;background:#e8590c"></div>
+          </div>
+          <span class="muted" style="font-size:.75rem;min-width:2.5rem;text-align:right">60%</span>
+        </div>
+      </td>
+      <td style="text-align:right;font-weight:600">12/20</td>
+    </tr><tr>
+      <td>Couverture Tier 1</td>
+      <td>
+        <div style="display:flex;align-items:center;gap:.5rem">
+          <div style="flex:1;height:6px;background:var(--bg-alt);border-radius:3px;overflow:hidden;min-width:80px">
+            <div style="width:100%;height:100%;background:#2b8a3e"></div>
+          </div>
+          <span class="muted" style="font-size:.75rem;min-width:2.5rem;text-align:right">100%</span>
+        </div>
+      </td>
+      <td style="text-align:right;font-weight:600">20/20</td>
+    </tr><tr>
+      <td>Coverage RGPD</td>
+      <td>
+        <div style="display:flex;align-items:center;gap:.5rem">
+          <div style="flex:1;height:6px;background:var(--bg-alt);border-radius:3px;overflow:hidden;min-width:80px">
+            <div style="width:0%;height:100%;background:#c92a2a"></div>
+          </div>
+          <span class="muted" style="font-size:.75rem;min-width:2.5rem;text-align:right">0%</span>
+        </div>
+      </td>
+      <td style="text-align:right;font-weight:600">0/20</td>
+    </tr><tr><td>Edge cases couverts</td><td class="muted">—</td><td class="muted" style="text-align:right">non mesurable</td></tr><tr>
+      <td>Conformité Tier 1</td>
+      <td>
+        <div style="display:flex;align-items:center;gap:.5rem">
+          <div style="flex:1;height:6px;background:var(--bg-alt);border-radius:3px;overflow:hidden;min-width:80px">
+            <div style="width:0%;height:100%;background:#c92a2a"></div>
+          </div>
+          <span class="muted" style="font-size:.75rem;min-width:2.5rem;text-align:right">0%</span>
+        </div>
+      </td>
+      <td style="text-align:right;font-weight:600">0/20</td>
+    </tr></tbody>
+      <tfoot>
+        <tr style="font-weight:700;border-top:2px solid var(--border)">
+          <td>Total</td><td></td><td style="text-align:right">32/80 → 40/100</td>
+        </tr>
+      </tfoot>
+    </table>
+    <div style="margin-top:.75rem">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
+      <strong style="font-size:.9rem">Évolution 12 dernières semaines</strong>
+      <span class="badge" style="font-size:.75rem">historique court</span>
+    </div>
+    <svg viewBox="0 0 320 80" role="img" aria-label="Timeline santé 12 semaines" style="max-width:100%;height:auto;display:block">
+      <line x1="6" y1="16.4" x2="314.0" y2="16.4" stroke="#2b8a3e" stroke-width="0.5" stroke-dasharray="2,3" opacity="0.5"><title>Seuil 85</title></line><text x="316.0" y="19.4" font-size="8" fill="#2b8a3e" opacity="0.7">85</text><line x1="6" y1="24.8" x2="314.0" y2="24.8" stroke="#52b788" stroke-width="0.5" stroke-dasharray="2,3" opacity="0.5"><title>Seuil 70</title></line><text x="316.0" y="27.8" font-size="8" fill="#52b788" opacity="0.7">70</text><line x1="6" y1="36.0" x2="314.0" y2="36.0" stroke="#e8590c" stroke-width="0.5" stroke-dasharray="2,3" opacity="0.5"><title>Seuil 50</title></line><text x="316.0" y="39.0" font-size="8" fill="#e8590c" opacity="0.7">50</text>
+      
+      <circle cx="314.0" cy="41.6" r="3" fill="#c92a2a"><title>2026-05-11 : 40/100 (critique)</title></circle>
+    </svg>
+    <p class="muted" style="font-size:.75rem;margin-top:.25rem">2 snapshot(s) · seuils ●85 excellent · ●70 sain · ●50 attention</p>
+  </div>
+  </section>
+
+<section>
+  <h2>Leadership EU/FR</h2>
+  <p class="muted">Indicateurs de positionnement leader — calculés en local, sans télémétrie.</p>
+  
+  <div class="kpis">
+    <div class="kpi ok">
+      <div class="label">Human Authorship</div>
+      <div class="value">100%</div>
+      <div class="delta">3/3 Intents ≥ 50 caractères</div>
+      
+    </div>
+    <div class="kpi ">
+      <div class="label">Governance Coverage</div>
+      <div class="value">—</div>
+      <div class="delta">Aucun fichier sensible détecté</div>
+      
+    </div>
+    <div class="kpi bad">
+      <div class="label">Trace Completeness</div>
+      <div class="value">0%</div>
+      <div class="delta">0/3 SPECs avec code+tests</div>
+      
+    </div>
+    <div class="kpi">
+      <div class="label">Langue artefacts</div>
+      <div class="value">FR 5</div>
+      <div class="delta">5 FR · 0 EN · 0 mixte · 1 neutre</div>
+    </div>
+  </div>
+</section>
+<section>
+    <h2>Outcome Criteria (PRD) <span class="count">4</span></h2>
+    <p class="muted" style="font-size:.85rem">Promesse produit — extrait automatiquement de la section <code>## Outcome Criteria</code> de <a class="src-link" href="../.aiad/PRD.md" target="_blank" rel="noopener" title="Ouvrir .aiad/PRD.md">.aiad/PRD.md</a>.</p>
+    <p class="muted" style="font-size:.8rem">⚠ Aucune mesure courante. Ajoute un fichier <code>.aiad/metrics/outcomes/YYYY-MM-DD.md</code> avec un tableau Markdown <code>| Critère | Actuel |</code> pour comparer à la cible.</p>
+    <table>
+      <thead><tr><th>Critère</th><th>Baseline</th><th>Cible</th><th>Méthode</th></tr></thead>
+      <tbody>
+    <tr>
+      <td><strong>Latence p95 redirect</strong></td>
+      <td class="muted">180 ms</td>
+      <td><span class="badge badge-info" style="font-size:.75rem">&lt; 50 ms</span></td>
+      
+      <td class="muted" style="font-size:.85rem">sondes synthétiques</td>
+    </tr>
+    <tr>
+      <td><strong>Conversion checkout</strong></td>
+      <td class="muted">62 %</td>
+      <td><span class="badge badge-info" style="font-size:.75rem">&gt; 70 %</span></td>
+      
+      <td class="muted" style="font-size:.85rem">analytics interne</td>
+    </tr>
+    <tr>
+      <td><strong>Rétention J+30</strong></td>
+      <td class="muted">38-52 %</td>
+      <td><span class="badge badge-info" style="font-size:.75rem">&gt;= 55 % stable</span></td>
+      
+      <td class="muted" style="font-size:.85rem">cohortes hebdo</td>
+    </tr>
+    <tr>
+      <td><strong>Drop-off onboarding mobile</strong></td>
+      <td class="muted">38 %</td>
+      <td><span class="badge badge-info" style="font-size:.75rem">&lt; 20 %</span></td>
+      
+      <td class="muted" style="font-size:.85rem">analytics funnel</td>
+    </tr></tbody>
+    </table>
+    
+  </section>
+<section class="badges-readme" aria-labelledby="badges-readme-h">
+  <h2 id="badges-readme-h">Badges README</h2>
+  <p class="muted">Copier-coller dans le <code>README.md</code> du projet (les SVG se rafraîchissent à chaque <code>aiad-sdd dashboard</code>).</p>
+  <div class="badges-row" style="display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.75rem 0">
+    <img src="badge.svg" alt="Santé AIAD SDD" loading="lazy"/>
+    <img src="badge-maturite.svg" alt="Maturité AIAD" loading="lazy"/>
+    <img src="badge-violations.svg" alt="Violations Tier 1" loading="lazy"/>
+  </div>
+  <details>
+    <summary class="muted">Voir le snippet Markdown</summary>
+    <pre style="background:var(--bg-mute,#f4f4f4);padding:.5rem;border-radius:4px;overflow:auto;font-size:.85em"><code>![Santé AIAD SDD](dashboard/badge.svg)
+![Maturité AIAD](dashboard/badge-maturite.svg)
+![Violations Tier 1](dashboard/badge-violations.svg)</code></pre>
+  </details>
+</section>
+
+<section>
+  <h2>À valider cette semaine <span class="badge warn">1 action(s)</span></h2>
+  <div class="split">
+    <div>
+      <h3>Intents zombies <span class="count">0 (active &gt; 30j sans SPEC remuée)</span></h3>
+      <p class="muted"><span class="badge ok">Zombies : 0</span> Rien à valider.</p>
+    </div>
+    <div>
+      <h3>Intents drafts vieux <span class="count">0 (draft &gt; 14j)</span></h3>
+      <p class="muted"><span class="badge ok">Drafts : 0</span> Rien à valider.</p>
+    </div>
+  </div>
+  <h3 style="margin-top:1.5rem">SPECs done non démontrées</h3>
+  
+    <p class="muted"><span class="badge warn">SPECs done non démontrées : 1</span></p>
+    <p class="muted"><em>Aucune trace de <code>/aiad demo</code> dans <code>.aiad/metrics/demo/</code> — toutes les SPECs <code>done</code> sont listées.</em></p>
+    <table>
+      <thead><tr><th>ID</th><th>Titre</th><th>Done depuis</th></tr></thead>
+      <tbody>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-101-1-formulaire-paiement.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-1-formulaire-paiement.md">SPEC-101-1-formulaire-paiement</a></td>
+      <td>Formulaire de paiement v2</td>
+      <td class="muted">15/05/2026</td>
+    </tr></tbody>
+    </table>
+</section>
+
+
+<section>
+  <h2>Maturité du projet</h2>
+  <div class="maturite maturite-info">
+    <div class="label">Opérationnel</div>
+    <div class="barre"><div class="fill" style="width:60%"></div></div>
+    <div class="score">3 / 5</div>
+  </div>
+  <p class="muted" style="margin-top:.5rem"><strong>Plafonné à 4/5</strong> — Drift Lock incomplet (git). <a href="https://aiad.ovh/docs/maturite" target="_blank" rel="noopener">Comment relever le score</a>.</p>
+</section>
+
+<section>
+  <h2>Artefacts fondamentaux</h2>
+  <table>
+    <thead><tr><th>Fichier</th><th>État</th><th>Titre</th><th>Taille</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><a class="src-link" href="../.aiad/PRD.md" target="_blank" rel="noopener" title="Ouvrir .aiad/PRD.md">.aiad/PRD.md</a></td>
+      <td><span class="badge badge-muted">rédigé</span></td>
+      <td>PRD : tinr.ly — URL shortener souverain</td>
+      <td class="muted">3.4 Ko</td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/ARCHITECTURE.md" target="_blank" rel="noopener" title="Ouvrir .aiad/ARCHITECTURE.md">.aiad/ARCHITECTURE.md</a></td>
+      <td><span class="badge badge-warn">template</span></td>
+      <td>ARCHITECTURE</td>
+      <td class="muted">2.1 Ko</td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/AGENT-GUIDE.md" target="_blank" rel="noopener" title="Ouvrir .aiad/AGENT-GUIDE.md">.aiad/AGENT-GUIDE.md</a></td>
+      <td><span class="badge badge-warn">template</span></td>
+      <td>AGENT-GUIDE — [Nom du projet]</td>
+      <td class="muted">3.8 Ko</td>
+    </tr></tbody>
+  </table>
+</section>
+
+<div class="split">
+  <section>
+    <h2>SPECs récentes</h2>
+    <table>
+          <thead><tr><th>ID</th><th>Titre</th><th>Statut</th><th>SQS</th></tr></thead>
+          <tbody>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-101-1-formulaire-paiement.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-1-formulaire-paiement.md">SPEC-101-1-formulaire-paiement</a></td>
+      <td>Formulaire de paiement v2</td>
+      <td><span class="badge badge-ok">done</span></td>
+      <td><span class="badge badge-ok">SQS 4.6/5</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-101-2-relance-panier.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-2-relance-panier.md">SPEC-101-2-relance-panier</a></td>
+      <td>Relance panier abandonné</td>
+      <td><span class="badge badge-info">in-progress</span></td>
+      <td><span class="badge badge-ok">SQS 4.2/5</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-103-1-relance-email.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-103-1-relance-email.md">SPEC-103-1-relance-email</a></td>
+      <td>Email de relance semaine 2</td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td><span class="badge badge-ok">SQS 4.0/5</span></td>
+    </tr></tbody>
+        </table>
+  </section>
+  <section>
+    <h2>Changelog récent</h2>
+    <div class="empty"><strong>Aucune entrée de changelog.</strong>Les changements d'artefacts seront tracés ici.</div>
+  </section>
+</div>
+
+<section>
+  <h2>Actions rapides</h2>
+  <div class="actions">
+    <a href="intents.html">→ Voir les Intents</a>
+    <a href="specs.html">→ Voir les SPECs</a>
+    <a href="traceability.html">→ Matrice de traçabilité</a>
+    <a href="metrics.html">→ Métriques DORA & Flow</a>
+    <a href="governance.html">→ Gouvernance Tier 1</a>
+    <a href="drifts.html">→ Drifts & Facts</a>
+  </div>
+</section>
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

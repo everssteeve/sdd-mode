@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-14T03:07:31.407Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Onboarding — aiad-sdd</title>
+<meta name="description" content="Onboarding — Visite guidée par rôle + glossaire AIAD · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Onboarding — aiad-sdd"/>
+<meta property="og:description" content="Onboarding — Visite guidée par rôle + glossaire AIAD · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta property="og:url" content="onboarding.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Onboarding — aiad-sdd"/>
+<meta name="twitter:description" content="Onboarding — Visite guidée par rôle + glossaire AIAD · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.14.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="active">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 14/05/2026 05:07:31<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>Onboarding</h1>
+      <div class="subtitle">Visite guidée par rôle + glossaire AIAD</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 14/05/2026 05:07:31. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.14.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  
+<section>
+  <h2>Onboarding</h2>
+  <p class="muted">Nouveau dans le projet ? Sélectionne ton rôle pour voir les widgets et concepts qui te concernent.</p>
+  <div class="alerte alerte-info" style="margin:1rem 0;font-size:.9rem">
+    <div class="alerte-titre">💡 Tooltips automatiques sur le jargon AIAD</div>
+    <div class="alerte-detail">Les termes <dfn class="aiad-term-demo" style="border-bottom:1px dotted var(--accent);cursor:help">soulignés en pointillés</dfn> dans le dashboard (Intent, SPEC, SQS, Gate, EARS, Tier 1…) affichent leur définition au survol. <a href="?notooltips=1">Désactiver pour cette session</a>.</div>
+  </div>
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0"><button class="onboard-tab" data-role="pm" style="padding:.5rem 1rem;border:1px solid var(--border);background:transparent;color:inherit;cursor:pointer;border-radius:6px">Product Manager</button> <button class="onboard-tab" data-role="pe" style="padding:.5rem 1rem;border:1px solid var(--border);background:transparent;color:inherit;cursor:pointer;border-radius:6px">Product Engineer</button> <button class="onboard-tab" data-role="ae" style="padding:.5rem 1rem;border:1px solid var(--border);background:transparent;color:inherit;cursor:pointer;border-radius:6px">Agent Engineer / Tech</button> <button class="onboard-tab" data-role="qa" style="padding:.5rem 1rem;border:1px solid var(--border);background:transparent;color:inherit;cursor:pointer;border-radius:6px">Quality Assurance</button> <button class="onboard-tab" data-role="tl" style="padding:.5rem 1rem;border:1px solid var(--border);background:transparent;color:inherit;cursor:pointer;border-radius:6px">Tech Lead</button></div>
+  
+    <div class="onboard-panel" data-role="pm" style="display:none">
+      <p>Tu portes l&#39;intention. Ton job : valider que ce qui est livré correspond à ce qui était demandé, repérer ce qui dérive et débloquer ton équipe.</p>
+      <h3>Widgets clés</h3>
+      <ul style="list-style:none;padding-left:0">
+      <li style="margin-bottom:.75rem">
+        <a href="index.html"><strong>Section &quot;À valider cette semaine&quot;</strong></a>
+        <div class="muted" style="margin-top:.25rem">Zombies + drafts vieux + SPECs done non démontrées — ta queue PM en un coup d&#39;œil.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="intents.html"><strong>Page Intents</strong></a>
+        <div class="muted" style="margin-top:.25rem">Pulse global du POURQUOI capturé. Filtre `status` pour voir les actifs.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="metrics.html"><strong>Page Métriques (DORA + Flow)</strong></a>
+        <div class="muted" style="margin-top:.25rem">Vitesse réelle de livraison + qualité gate, sans BI tiers.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="index.html"><strong>Fil &quot;Activité rituelle&quot;</strong></a>
+        <div class="muted" style="margin-top:.25rem">Standup / Demo / Rétro — narration courte des rituels de la semaine.</div>
+      </li></ul>
+      <h3>Glossaire utile</h3>
+      
+      <details style="margin-bottom:.5rem">
+        <summary><strong>Intent Statement</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Le POURQUOI capturé avant toute spec. Document `INTENT-NNN.md` qui exprime le besoin, jamais la solution.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>SPEC</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Spécification atomique (1 unité de livrable). Lie un Intent au code via `@spec SPEC-NNN-x` dans le code et `@verified-by` dans les tests.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>SQS (Spec Quality Score)</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Score 0..5 attribué par la Gate. ≥ 4/5 → la SPEC est prête à être exécutée par l&#39;agent.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>Execution Gate</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Validation humaine de la SPEC avant exécution. Vérifie SQS + EARS lint + Test de l&#39;Étranger.</p>
+      </details>
+    </div>
+    <div class="onboard-panel" data-role="pe" style="display:none">
+      <p>Tu orchestres l&#39;exécution. Ton job : passer un Intent à une SPEC validée, ouvrir la Gate, lancer l&#39;agent, vérifier la traçabilité.</p>
+      <h3>Widgets clés</h3>
+      <ul style="list-style:none;padding-left:0">
+      <li style="margin-bottom:.75rem">
+        <a href="specs.html"><strong>Page SPECs</strong></a>
+        <div class="muted" style="margin-top:.25rem">État de chaque SPEC : draft/ready/in-progress/done + score SQS.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="traceability.html"><strong>Page Traçabilité</strong></a>
+        <div class="muted" style="margin-top:.25rem">Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests. Gaps mis en évidence.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="drifts.html"><strong>Page Drifts &amp; Facts</strong></a>
+        <div class="muted" style="margin-top:.25rem">Drifts détectés (code/SPEC désynchronisés) + facts capturés via /sdd fact.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="graph.html"><strong>Page Graphe</strong></a>
+        <div class="muted" style="margin-top:.25rem">Vue D3 force-directed des dépendances Intent/SPEC/Code/Gouvernance.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="index.html"><strong>KPI Maturité (index)</strong></a>
+        <div class="muted" style="margin-top:.25rem">Score 0..5 + plafond. Indique si tu travailles sur de la roche solide.</div>
+      </li></ul>
+      <h3>Glossaire utile</h3>
+      
+      <details style="margin-bottom:.5rem">
+        <summary><strong>SPEC</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Spécification atomique (1 unité de livrable). Lie un Intent au code via `@spec SPEC-NNN-x` dans le code et `@verified-by` dans les tests.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>SQS (Spec Quality Score)</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Score 0..5 attribué par la Gate. ≥ 4/5 → la SPEC est prête à être exécutée par l&#39;agent.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>Execution Gate</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Validation humaine de la SPEC avant exécution. Vérifie SQS + EARS lint + Test de l&#39;Étranger.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>Drift Lock</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Mécanisme qui détecte une désynchronisation code ↔ SPEC. Hook pre-commit + matrice de traçabilité.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>JNSP — Je Ne Sais Pas</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Verdict honnête plutôt qu&#39;invention. Code spécial 2 dans les CLI AIAD : &quot;décision humaine requise&quot;.</p>
+      </details>
+    </div>
+    <div class="onboard-panel" data-role="ae" style="display:none">
+      <p>Tu instrumentes les agents. Ton job : déployer du code annoté, contrôler la couverture, garantir la conformité gouvernance.</p>
+      <h3>Widgets clés</h3>
+      <ul style="list-style:none;padding-left:0">
+      <li style="margin-bottom:.75rem">
+        <a href="governance.html"><strong>Page Gouvernance Tier 1</strong></a>
+        <div class="muted" style="margin-top:.25rem">AI-ACT, RGPD, RGAA, RGESN, CRA — droit de veto. Vérifie la couverture.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="legal.html"><strong>Page Legal &amp; Compliance</strong></a>
+        <div class="muted" style="margin-top:.25rem">AI Act audit, DPIA, SBOM, sovereignty score, packs juridictionnels.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="metrics.html"><strong>Page Métriques · Leadership EU/FR</strong></a>
+        <div class="muted" style="margin-top:.25rem">Human Authorship + Governance Coverage + Trace Completeness, en local.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="index.html"><strong>KPI Composants tiers SBOM (index)</strong></a>
+        <div class="muted" style="margin-top:.25rem">Alerte si &gt; 50 composants tiers — audit recommandé.</div>
+      </li></ul>
+      <h3>Glossaire utile</h3>
+      
+      <details style="margin-bottom:.5rem">
+        <summary><strong>Agent de gouvernance Tier 1</strong></summary>
+        <p class="muted" style="margin-top:.25rem">AI-ACT, RGPD, RGAA, RGESN, CRA. Ont un droit de veto sur le code/SPEC.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>SBOM — Software Bill of Materials</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Liste de tous les composants tiers (format CycloneDX). Exigé par le Cyber Resilience Act EU.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>Score Souveraineté</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Score composite 0..100 (Bronze→Platinum) qui mesure 5 dimensions : juridictions, agents Tier 1, langue, autorités, hébergement.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>Tier 1</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Niveau de gouvernance avec droit de veto. AIAD-AI-ACT, AIAD-RGPD, AIAD-RGAA, AIAD-RGESN, AIAD-CRA.</p>
+      </details>
+    </div>
+    <div class="onboard-panel" data-role="qa" style="display:none">
+      <p>Tu garantis que ce qui passe la Gate est vraiment livré et testé. Ton job : queue actionnable, coverage par SPEC, suivi des régressions.</p>
+      <h3>Widgets clés</h3>
+      <ul style="list-style:none;padding-left:0">
+      <li style="margin-bottom:.75rem">
+        <a href="qa.html"><strong>Page Quality Assurance</strong></a>
+        <div class="muted" style="margin-top:.25rem">Queue SPECs ready sans test + coverage par SPEC + EARS lint + régressions.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="qa.html"><strong>Section Coverage par SPEC</strong></a>
+        <div class="muted" style="margin-top:.25rem">Si `.aiad/metrics/tests/coverage-summary.json` existe → coverage RÉEL c8/istanbul.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="qa.html"><strong>Section Régressions détectées</strong></a>
+        <div class="muted" style="margin-top:.25rem">Tests pass → fail entre 2 derniers runs (lit `.aiad/metrics/tests/runs.jsonl`).</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="traceability.html"><strong>Page Traçabilité</strong></a>
+        <div class="muted" style="margin-top:.25rem">Matrice backward Tests → Code → SPEC. Repérer les tests orphelins.</div>
+      </li></ul>
+      <h3>Glossaire utile</h3>
+      
+      <details style="margin-bottom:.5rem">
+        <summary><strong>SPEC</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Spécification atomique (1 unité de livrable). Lie un Intent au code via `@spec SPEC-NNN-x` dans le code et `@verified-by` dans les tests.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>@verified-by</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Annotation dans un fichier de test qui pointe vers la SPEC qu&#39;il vérifie. Alimente la matrice backward.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>EARS — Easy Approach to Requirements Syntax</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Format de SPEC strict (WHEN/WHILE/IF/WHERE + sujet + SHALL). Activé via `format: EARS` en frontmatter.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>SQS (Spec Quality Score)</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Score 0..5 attribué par la Gate. ≥ 4/5 → la SPEC est prête à être exécutée par l&#39;agent.</p>
+      </details>
+    </div>
+    <div class="onboard-panel" data-role="tl" style="display:none">
+      <p>Tu prends les décisions techniques structurantes. Ton job : ADRs à jour, drift architecture détecté, dette technique sous contrôle.</p>
+      <h3>Widgets clés</h3>
+      <ul style="list-style:none;padding-left:0">
+      <li style="margin-bottom:.75rem">
+        <a href="adrs.html"><strong>Page Architecture Decision Records</strong></a>
+        <div class="muted" style="margin-top:.25rem">Tous les ADR extraits de ARCHITECTURE.md + drift code → ADR archivé.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="adrs.html"><strong>Section &quot;Drift Architecture&quot;</strong></a>
+        <div class="muted" style="margin-top:.25rem">Code référençant un ADR absent de ARCHITECTURE.md (archivé sans nettoyage).</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="traceability.html"><strong>Page Traçabilité</strong></a>
+        <div class="muted" style="margin-top:.25rem">Gap &quot;code sans @spec&quot; — repérer le code non-annoté.</div>
+      </li>
+      <li style="margin-bottom:.75rem">
+        <a href="changelog.html"><strong>Page Changelog</strong></a>
+        <div class="muted" style="margin-top:.25rem">Historique des évolutions d&#39;artefacts architecturaux.</div>
+      </li></ul>
+      <h3>Glossaire utile</h3>
+      
+      <details style="margin-bottom:.5rem">
+        <summary><strong>ADR — Architecture Decision Record</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Décision technique structurante documentée dans ARCHITECTURE.md sous forme `**ADR-NNN** : décision`. Le code peut y référer via `@adr ADR-NNN`.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>Drift Lock</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Mécanisme qui détecte une désynchronisation code ↔ SPEC. Hook pre-commit + matrice de traçabilité.</p>
+      </details>
+      <details style="margin-bottom:.5rem">
+        <summary><strong>Tier 1</strong></summary>
+        <p class="muted" style="margin-top:.25rem">Niveau de gouvernance avec droit de veto. AIAD-AI-ACT, AIAD-RGPD, AIAD-RGAA, AIAD-RGESN, AIAD-CRA.</p>
+      </details>
+    </div>
+  <p class="muted">Aucune information envoyée vers un serveur — tout est statique, généré localement par <code>aiad-sdd dashboard</code>.</p>
+</section>
+<script>
+  (function () {
+    var tabs = document.querySelectorAll('.onboard-tab');
+    var panels = document.querySelectorAll('.onboard-panel');
+    function activate(role) {
+      tabs.forEach(function (t) {
+        var on = t.getAttribute('data-role') === role;
+        t.style.background = on ? 'var(--ok-bg)' : 'transparent';
+        t.style.color = on ? 'var(--ok-fg)' : 'inherit';
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(function (p) {
+        p.style.display = p.getAttribute('data-role') === role ? 'block' : 'none';
+      });
+      try { localStorage.setItem('aiad-onboard-role', role); } catch (e) {}
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { activate(t.getAttribute('data-role')); });
+    });
+    var url = new URLSearchParams(window.location.search);
+    var fromUrl = url.get('role');
+    var stored;
+    try { stored = localStorage.getItem('aiad-onboard-role'); } catch (e) { stored = null; }
+    activate(fromUrl || stored || 'pm');
+  })();
+</script>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

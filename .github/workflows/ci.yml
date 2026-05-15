@@ -1,0 +1,144 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  test:
+    name: tests (node ${{ matrix.node }} · ${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        node: [18, 20, 22]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Lint (node --check sur lib/, bin/, test/)
+        run: npm run lint
+
+      - name: Lint deps (zero-dep runtime guard)
+        run: npm run lint:deps
+
+      - name: Lint size (module size budget)
+        run: npm run lint:size
+
+      - name: Lint ESM (no CommonJS residuals)
+        run: npm run lint:esm
+
+      - name: Tests
+        run: npm test
+
+  coverage:
+    name: couverture (node 22 · seuils 75/70/65 %)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Vérifie les seuils de couverture
+        run: npm run test:coverage:threshold
+
+  pack:
+    name: npm pack --dry-run (vérifie le tarball publié)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Pack
+        run: npm pack --dry-run
+
+      - name: Vérifie l'absence de fichiers exclus dans le tarball
+        run: |
+          npm pack --json > /tmp/pack.json
+          node -e "
+            const j = JSON.parse(require('fs').readFileSync('/tmp/pack.json', 'utf8'));
+            const files = (j[0]?.files || []).map(f => f.path);
+            const interdits = files.filter(f =>
+              f.endsWith('.DS_Store') ||
+              f.endsWith('.tgz') ||
+              f.startsWith('.playwright-mcp/') ||
+              f.startsWith('test/') ||
+              f.startsWith('docs/') ||
+              f.startsWith('scripts/') ||
+              f.startsWith('.github/') ||
+              f === 'CONTRIBUTING.md' ||
+              f === 'productbacklog.md' ||
+              f === 'SDDMode.md' ||
+              f === 'frameworkAIAD.md'
+            );
+            if (interdits.length > 0) {
+              console.error('Fichiers interdits dans le tarball :');
+              for (const f of interdits) console.error('  - ' + f);
+              process.exit(1);
+            }
+            console.log('Tarball propre — ' + files.length + ' fichiers.');
+          "
+
+  reproducibility:
+    name: build reproductible (content hash cross-Node)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Calcule content hash déterministe
+        id: hash
+        run: |
+          HASH=$(node bin/aiad-sdd.js verify-reproducibility --json | node -e "
+            let d='';process.stdin.on('data',c=>d+=c).on('end',()=>console.log(JSON.parse(d).hash));
+          ")
+          echo "hash=$HASH" >> $GITHUB_OUTPUT
+          echo "Hash Node ${{ matrix.node }} : $HASH"
+      - name: Upload hash en artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-hash-node-${{ matrix.node }}
+          path: /dev/null
+          if-no-files-found: ignore
+          # Stocke le hash dans le NOM de l'artifact via une seconde étape :
+      - name: Persiste le hash
+        run: echo "${{ steps.hash.outputs.hash }}" > content-hash-node-${{ matrix.node }}.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: content-hash-node-${{ matrix.node }}-file
+          path: content-hash-node-${{ matrix.node }}.txt
+
+  reproducibility-verify:
+    name: vérifie identité des hashes Node 18/20/22
+    needs: reproducibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: content-hash-node-*-file
+          merge-multiple: true
+      - name: Compare les hashes
+        run: |
+          H18=$(cat content-hash-node-18.txt)
+          H20=$(cat content-hash-node-20.txt)
+          H22=$(cat content-hash-node-22.txt)
+          echo "Node 18 : $H18"
+          echo "Node 20 : $H20"
+          echo "Node 22 : $H22"
+          if [ "$H18" != "$H20" ] || [ "$H20" != "$H22" ]; then
+            echo "::error::Build NON reproductible — les hashes divergent."
+            exit 1
+          fi
+          echo "✓ Build reproductible — hash identique sur Node 18/20/22 : $H22"

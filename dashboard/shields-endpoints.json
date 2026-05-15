@@ -1,0 +1,26 @@
+[
+  {
+    "type": "sante",
+    "schemaVersion": 1,
+    "label": "AIAD SDD",
+    "message": "50/100 attention",
+    "color": "dfb317",
+    "cacheSeconds": 300
+  },
+  {
+    "type": "maturite",
+    "schemaVersion": 1,
+    "label": "AIAD Maturité",
+    "message": "0/5 Non initialisé",
+    "color": "e05d44",
+    "cacheSeconds": 300
+  },
+  {
+    "type": "violations",
+    "schemaVersion": 1,
+    "label": "AIAD Violations",
+    "message": "aucune dérive",
+    "color": "4c1",
+    "cacheSeconds": 300
+  }
+]

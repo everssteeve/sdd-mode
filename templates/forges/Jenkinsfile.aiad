@@ -1,0 +1,84 @@
+// AIAD SDD — Template Jenkinsfile (pipeline déclaratif).
+//
+// **Cible** : Jenkins 2.346+ (Pipeline as Code, agents Docker), souvent
+// déployé en self-hosted dans les banques et institutions EU.
+//
+// **Usage** : copier ce fichier à la racine du repo en `Jenkinsfile`,
+// puis configurer un job Pipeline Jenkins pointant sur ce repo.
+//
+// Documentation : https://aiad.ovh
+
+pipeline {
+  agent {
+    docker {
+      image 'node:22-alpine'
+      args  '-u root'
+    }
+  }
+
+  environment {
+    AIAD_NO_COLOR     = '1'
+    CI                = 'true'
+  }
+
+  options {
+    timeout(time: 15, unit: 'MINUTES')
+    buildDiscarder(logRotator(numToKeepStr: '20'))
+    timestamps()
+  }
+
+  stages {
+
+    stage('AIAD : matrice de traçabilité') {
+      steps {
+        sh 'npx -y aiad-sdd trace --fail-on-gap'
+      }
+      post {
+        always {
+          archiveArtifacts artifacts: '.aiad/metrics/traceability/**/*', allowEmptyArchive: true
+        }
+      }
+    }
+
+    stage('AIAD : parité multi-runtime') {
+      steps {
+        sh 'npx -y aiad-sdd emit-rules --check'
+      }
+    }
+
+    stage('AIAD : parité commandes/gouvernance') {
+      steps {
+        sh 'npx -y aiad-sdd update --check'
+      }
+    }
+
+    stage('AIAD : score souveraineté EU') {
+      steps {
+        // --check : exit 1 si score < 60
+        sh 'npx -y aiad-sdd sovereignty --check'
+      }
+    }
+
+    stage('AIAD : SLA matrix') {
+      steps {
+        sh 'npx -y aiad-sdd sla check'
+      }
+    }
+
+    stage('AIAD : audit trail') {
+      steps {
+        sh 'npx -y aiad-sdd audit verify'
+      }
+    }
+
+  }
+
+  post {
+    failure {
+      echo 'AIAD pipeline failed — examine artefacts .aiad/metrics/traceability/'
+    }
+    always {
+      cleanWs()
+    }
+  }
+}

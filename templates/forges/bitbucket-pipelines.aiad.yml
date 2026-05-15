@@ -1,0 +1,63 @@
+# AIAD SDD — Template Bitbucket Pipelines.
+#
+# Bitbucket ne supporte pas les `include:` cross-repo nativement. À copier
+# / merger dans ton `bitbucket-pipelines.yml` principal.
+#
+# Documentation : https://aiad.ovh
+
+image: node:22
+
+definitions:
+  steps:
+    - step: &aiad-trace
+        name: 'AIAD : matrice de traçabilité'
+        script:
+          - export AIAD_NO_COLOR=1
+          - npx -y aiad-sdd trace --fail-on-gap
+        artifacts:
+          - .aiad/metrics/traceability/**
+
+    - step: &aiad-emit-rules-check
+        name: 'AIAD : parité multi-runtime'
+        script:
+          - export AIAD_NO_COLOR=1
+          - npx -y aiad-sdd emit-rules --check
+
+    - step: &aiad-docs-check
+        name: 'AIAD : parité documentation'
+        script:
+          - export AIAD_NO_COLOR=1
+          - npx -y aiad-sdd docs --check
+
+    - step: &aiad-update-check
+        name: 'AIAD : parité commandes/gouvernance'
+        script:
+          - export AIAD_NO_COLOR=1
+          - npx -y aiad-sdd update --check
+
+    # (#250 + #251) Validation dashboard sans écriture (CI rapide).
+    - step: &aiad-dashboard-check
+        name: 'AIAD : dashboard --check'
+        script:
+          - export AIAD_NO_COLOR=1
+          - npx -y aiad-sdd dashboard --check
+
+pipelines:
+  pull-requests:
+    '**':
+      - parallel:
+          - step: *aiad-trace
+          - step: *aiad-emit-rules-check
+          - step: *aiad-docs-check
+          - step: *aiad-update-check
+          - step: *aiad-dashboard-check
+
+  branches:
+    main:
+      - step:
+          name: 'AIAD : dashboard public'
+          script:
+            - export AIAD_NO_COLOR=1
+            - npx -y aiad-sdd dashboard --quiet
+          artifacts:
+            - dashboard/**

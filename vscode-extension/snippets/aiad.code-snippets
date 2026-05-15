@@ -1,0 +1,275 @@
+{
+  "_doc": "Snippets VS Code pour les commandes AIAD SDD. Tape `aiad-` dans un fichier Markdown ou autre pour déclencher l'autocomplétion. Couvre les 14 commandes /sdd, 15 commandes /aiad, 4 annotations machine, 4 squelettes d'artefacts.",
+
+  "AIAD — /sdd init": {
+    "prefix": ["aiad-sdd-init", "/sdd init"],
+    "scope": "markdown",
+    "body": ["/sdd init"],
+    "description": "Cadrage : initialiser PRD + ARCHITECTURE + AGENT-GUIDE."
+  },
+  "AIAD — /sdd intent": {
+    "prefix": ["aiad-sdd-intent", "/sdd intent"],
+    "scope": "markdown",
+    "body": ["/sdd intent ${1:titre intention}"],
+    "description": "Capturer un Intent Statement (le pourquoi)."
+  },
+  "AIAD — /sdd spec": {
+    "prefix": ["aiad-sdd-spec", "/sdd spec"],
+    "scope": "markdown",
+    "body": ["/sdd spec ${1:--ears} parent=${2:INTENT-001} ${3:slug}"],
+    "description": "Rédiger une SPEC depuis un Intent (option --ears pour mode strict)."
+  },
+  "AIAD — /sdd gate": {
+    "prefix": ["aiad-sdd-gate", "/sdd gate"],
+    "scope": "markdown",
+    "body": ["/sdd gate ${1:SPEC-001-1-slug}"],
+    "description": "Execution Gate + SQS + plan de remédiation."
+  },
+  "AIAD — /sdd exec": {
+    "prefix": ["aiad-sdd-exec", "/sdd exec"],
+    "scope": "markdown",
+    "body": ["/sdd exec ${1:SPEC-001-1-slug}"],
+    "description": "Lancer l'agent avec contexte optimisé (post-Gate)."
+  },
+  "AIAD — /sdd validate": {
+    "prefix": ["aiad-sdd-validate", "/sdd validate"],
+    "scope": "markdown",
+    "body": ["/sdd validate ${1:SPEC-001-1-slug}"],
+    "description": "Valider le code produit contre la SPEC."
+  },
+  "AIAD — /sdd drift-check": {
+    "prefix": ["aiad-sdd-drift-check", "/sdd drift-check"],
+    "scope": "markdown",
+    "body": ["/sdd drift-check"],
+    "description": "Vérifier synchronisation artefacts/code (Drift Lock)."
+  },
+  "AIAD — /sdd trace": {
+    "prefix": ["aiad-sdd-trace", "/sdd trace"],
+    "scope": "markdown",
+    "body": ["/sdd trace${1: --fail-on-gap}"],
+    "description": "Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests."
+  },
+  "AIAD — /sdd split": {
+    "prefix": ["aiad-sdd-split", "/sdd split"],
+    "scope": "markdown",
+    "body": ["/sdd split ${1:SPEC-001-1-slug}"],
+    "description": "Découper une SPEC trop volumineuse."
+  },
+  "AIAD — /sdd resume": {
+    "prefix": ["aiad-sdd-resume", "/sdd resume"],
+    "scope": "markdown",
+    "body": ["/sdd resume"],
+    "description": "Reprendre une session agent interrompue."
+  },
+  "AIAD — /sdd context": {
+    "prefix": ["aiad-sdd-context", "/sdd context"],
+    "scope": "markdown",
+    "body": ["/sdd context"],
+    "description": "Auditer le budget de contexte."
+  },
+  "AIAD — /sdd fact": {
+    "prefix": ["aiad-sdd-fact", "/sdd fact"],
+    "scope": "markdown",
+    "body": ["/sdd fact ${1:écart livré/désiré}"],
+    "description": "Capturer et qualifier un écart livré/désiré."
+  },
+  "AIAD — /sdd security": {
+    "prefix": ["aiad-sdd-security", "/sdd security"],
+    "scope": "markdown",
+    "body": ["/sdd security"],
+    "description": "Audit sécurité (OWASP, secrets, permissions agents)."
+  },
+  "AIAD — /sdd audit": {
+    "prefix": ["aiad-sdd-audit", "/sdd audit"],
+    "scope": "markdown",
+    "body": ["/sdd audit"],
+    "description": "Audit qualité (conformité SPEC, dette technique)."
+  },
+
+  "AIAD — /aiad init": {
+    "prefix": ["aiad-aiad-init", "/aiad init"],
+    "scope": "markdown",
+    "body": ["/aiad init"],
+    "description": "Bootstrapper AIAD sur un projet existant."
+  },
+  "AIAD — /aiad onboard": {
+    "prefix": ["aiad-aiad-onboard", "/aiad onboard"],
+    "scope": "markdown",
+    "body": ["/aiad onboard"],
+    "description": "Briefing d'onboarding nouveau membre."
+  },
+  "AIAD — /aiad status": {
+    "prefix": ["aiad-aiad-status", "/aiad status"],
+    "scope": "markdown",
+    "body": ["/aiad status"],
+    "description": "État du projet SDD."
+  },
+  "AIAD — /aiad health": {
+    "prefix": ["aiad-aiad-health", "/aiad health"],
+    "scope": "markdown",
+    "body": ["/aiad health"],
+    "description": "Diagnostiquer la santé des artefacts."
+  },
+  "AIAD — /aiad gouvernance": {
+    "prefix": ["aiad-aiad-gouvernance", "/aiad gouvernance"],
+    "scope": "markdown",
+    "body": ["/aiad gouvernance"],
+    "description": "Vérifier la conformité Tier 1 (RGPD, AI-ACT, RGAA, RGESN, CRA)."
+  },
+  "AIAD — /aiad tech-review": {
+    "prefix": ["aiad-aiad-tech-review", "/aiad tech-review"],
+    "scope": "markdown",
+    "body": ["/aiad tech-review"],
+    "description": "Tech Review (synchronisation technique hebdomadaire)."
+  },
+  "AIAD — /aiad standup": {
+    "prefix": ["aiad-aiad-standup", "/aiad standup"],
+    "scope": "markdown",
+    "body": ["/aiad standup"],
+    "description": "Standup quotidien AIAD (état, blockers, intentions du jour)."
+  },
+  "AIAD — /aiad demo": {
+    "prefix": ["aiad-aiad-demo", "/aiad demo"],
+    "scope": "markdown",
+    "body": ["/aiad demo"],
+    "description": "Demo & Feedback (hebdomadaire, 45 min)."
+  },
+  "AIAD — /aiad retro": {
+    "prefix": ["aiad-aiad-retro", "/aiad retro"],
+    "scope": "markdown",
+    "body": ["/aiad retro"],
+    "description": "Rétrospective + signaux d'évolution."
+  },
+  "AIAD — /aiad intention": {
+    "prefix": ["aiad-aiad-intention", "/aiad intention"],
+    "scope": "markdown",
+    "body": ["/aiad intention"],
+    "description": "Atelier d'Intention (rituel mensuel, espace humain pur)."
+  },
+  "AIAD — /aiad sync-strat": {
+    "prefix": ["aiad-aiad-sync-strat", "/aiad sync-strat"],
+    "scope": "markdown",
+    "body": ["/aiad sync-strat"],
+    "description": "Synchronisation alignement stratégique (mensuelle, 1h30)."
+  },
+  "AIAD — /aiad dashboard": {
+    "prefix": ["aiad-aiad-dashboard", "/aiad dashboard"],
+    "scope": "markdown",
+    "body": ["/aiad dashboard"],
+    "description": "Dashboard ASCII (rituel équipe — hebdo / mensuel)."
+  },
+  "AIAD — /aiad dashboard-html": {
+    "prefix": ["aiad-aiad-dashboard-html", "/aiad dashboard-html"],
+    "scope": "markdown",
+    "body": ["/aiad dashboard-html"],
+    "description": "Dashboard HTML multi-pages dans dashboard/ (pilotage continu)."
+  },
+  "AIAD — /aiad dora": {
+    "prefix": ["aiad-aiad-dora", "/aiad dora"],
+    "scope": "markdown",
+    "body": ["/aiad dora"],
+    "description": "DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR)."
+  },
+  "AIAD — /aiad flow": {
+    "prefix": ["aiad-aiad-flow", "/aiad flow"],
+    "scope": "markdown",
+    "body": ["/aiad flow"],
+    "description": "Flow Metrics (Cycle Time, Lead Time, Throughput, WIP, Flow Efficiency)."
+  },
+
+  "AIAD — annotation @intent": {
+    "prefix": ["aiad-intent", "@intent"],
+    "body": ["// @intent INTENT-${1:001}"],
+    "description": "Annotation machine-vérifiable : Intent parent."
+  },
+  "AIAD — annotation @spec": {
+    "prefix": ["aiad-spec", "@spec"],
+    "body": ["// @spec SPEC-${1:001}-${2:1}-${3:slug}"],
+    "description": "Annotation machine-vérifiable : SPEC implémentée par ce code."
+  },
+  "AIAD — annotation @verified-by": {
+    "prefix": ["aiad-verified-by", "@verified-by"],
+    "body": ["// @verified-by ${1:tests/path/to/test.ts}"],
+    "description": "Annotation machine-vérifiable : test qui valide ce code."
+  },
+  "AIAD — annotation @governance": {
+    "prefix": ["aiad-governance", "@governance"],
+    "body": ["// @governance ${1|AIAD-RGPD,AIAD-AI-ACT,AIAD-RGAA,AIAD-RGESN,AIAD-CRA|}"],
+    "description": "Annotation machine-vérifiable : agent Tier 1 applicable."
+  },
+  "AIAD — bloc d'annotations complet": {
+    "prefix": ["aiad-block", "aiad-annotations"],
+    "body": [
+      "/**",
+      " * @intent INTENT-${1:001}",
+      " * @spec SPEC-${2:001}-${3:1}-${4:slug}",
+      " * @verified-by ${5:tests/path/test.ts}",
+      " * @governance ${6:AIAD-RGPD}",
+      " */"
+    ],
+    "description": "Bloc JSDoc complet avec les 4 annotations AIAD."
+  },
+
+  "AIAD — squelette Intent Statement": {
+    "prefix": ["aiad-skel-intent", "skel-intent"],
+    "scope": "markdown",
+    "body": [
+      "---",
+      "title: \"${1:titre intention}\"",
+      "status: draft",
+      "auteur: ${2:nom}",
+      "date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+      "---",
+      "",
+      "# INTENT-${3:001} — ${1:titre intention}",
+      "",
+      "## Pourquoi",
+      "",
+      "${4:Quel besoin métier ou utilisateur cette fonctionnalité résout-elle ?}",
+      "",
+      "## Conséquence si rien",
+      "",
+      "${5:Quel impact si on ne fait rien ?}",
+      "",
+      "## Frontière",
+      "",
+      "${6:Ce qui est inclus + ce qui N'est PAS inclus.}",
+      "",
+      "## Indicateur de succès",
+      "",
+      "${7:Comment saurons-nous que c'est réussi ?}"
+    ],
+    "description": "Squelette complet d'un Intent Statement (frontmatter + 4 sections)."
+  },
+  "AIAD — squelette SPEC EARS": {
+    "prefix": ["aiad-skel-spec", "skel-spec"],
+    "scope": "markdown",
+    "body": [
+      "---",
+      "title: \"${1:titre spec}\"",
+      "parent_intent: INTENT-${2:001}",
+      "status: draft",
+      "format: EARS",
+      "governance: ${3|AIAD-RGPD,AIAD-AI-ACT,AIAD-RGAA,AIAD-RGESN,AIAD-CRA|}",
+      "---",
+      "",
+      "# SPEC-${4:001}-${5:1}-${6:slug} — ${1:titre spec}",
+      "",
+      "## Contexte",
+      "",
+      "${7:Description du contexte technique.}",
+      "",
+      "## Critères d'acceptation (EARS)",
+      "",
+      "### R1 — ${8:premier critère}",
+      "",
+      "**WHEN** ${9:déclencheur},",
+      "**THE SYSTEM SHALL** ${10:comportement attendu observable}.",
+      "",
+      "## Test de l'Étranger",
+      "",
+      "${11:Un développeur extérieur peut-il implémenter sans poser de question ?}"
+    ],
+    "description": "Squelette SPEC en mode EARS strict avec frontmatter + critère R1."
+  }
+}

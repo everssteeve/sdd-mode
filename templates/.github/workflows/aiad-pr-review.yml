@@ -1,0 +1,122 @@
+name: AIAD — PR review automatisé
+
+# Workflow qui, à chaque pull request, exécute le pipeline AIAD complet
+# et publie en commentaire PR :
+#   1. Le rapport `aiad-sdd review <base>` (diff Intent/SPEC + impact gouvernance)
+#   2. Le score EU Sovereignty (Bronze → Platinum)
+#   3. Le verdict matrice de traçabilité (gaps détectés)
+#
+# **Substitut pragmatique** à une GitHub App déployée — fonctionne avec
+# le `GITHUB_TOKEN` automatique, aucun serveur tiers requis. Permet aux
+# organisations de bénéficier des fonctionnalités App sans dépendre de
+# l'infrastructure marketplace.
+#
+# **Permissions minimales** :
+#   - pull-requests: write (commenter les PRs)
+#   - contents: read (lire le code)
+#   - checks: write (publier le status check souveraineté)
+#
+# Documentation : https://aiad.ovh/github-app
+
+on:
+  pull_request:
+    branches: [main, master, dev]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  pull-requests: write
+  contents: read
+  checks: write
+
+jobs:
+  aiad-review:
+    name: AIAD review + sovereignty + trace
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # pour le diff vs base
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: aiad-sdd review (diff Intent/SPEC)
+        id: review
+        env:
+          AIAD_NO_COLOR: '1'
+        run: |
+          BASE_BRANCH="${{ github.base_ref || 'main' }}"
+          npx -y aiad-sdd review "$BASE_BRANCH" --out .aiad/reviews/pr-${{ github.event.pull_request.number }}.md || true
+          if [ -f ".aiad/reviews/pr-${{ github.event.pull_request.number }}.md" ]; then
+            REPORT=$(cat ".aiad/reviews/pr-${{ github.event.pull_request.number }}.md")
+            # Escape for GHA output
+            REPORT="${REPORT//'%'/'%25'}"
+            REPORT="${REPORT//$'\n'/'%0A'}"
+            REPORT="${REPORT//$'\r'/'%0D'}"
+            echo "report=$REPORT" >> "$GITHUB_OUTPUT"
+          else
+            echo "report=_(aucun changement Intent/SPEC détecté)_" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: aiad-sdd sovereignty (score EU)
+        id: sovereignty
+        env:
+          AIAD_NO_COLOR: '1'
+        run: |
+          SCORE_JSON=$(npx -y aiad-sdd sovereignty --json)
+          SCORE=$(echo "$SCORE_JSON" | node -e 'process.stdin.on("data",d=>{const r=JSON.parse(d.toString());console.log(r.score+"/"+r.maxScore+" "+r.level)})')
+          echo "score=$SCORE" >> "$GITHUB_OUTPUT"
+
+      - name: aiad-sdd trace (matrice + détection gap)
+        id: trace
+        env:
+          AIAD_NO_COLOR: '1'
+        run: |
+          npx -y aiad-sdd trace --json --quiet > /tmp/trace.json || true
+          GAPS=$(node -e 'const r=JSON.parse(require("fs").readFileSync("/tmp/trace.json","utf8"));console.log((r.gaps||[]).length)')
+          echo "gaps=$GAPS" >> "$GITHUB_OUTPUT"
+
+      - name: Publier le commentaire AIAD sur la PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const review = `${{ steps.review.outputs.report }}`;
+            const score = `${{ steps.sovereignty.outputs.score }}`;
+            const gaps = `${{ steps.trace.outputs.gaps }}`;
+            const body = [
+              '## 🤖 AIAD SDD — Review automatisée',
+              '',
+              `**EU Sovereignty Score** : ${score}`,
+              `**Gaps traçabilité** : ${gaps}`,
+              '',
+              '### Diff Intent / SPEC',
+              '',
+              review,
+              '',
+              '---',
+              '_Posté automatiquement par le workflow [aiad-pr-review](https://aiad.ovh/github-app)._',
+            ].join('\n');
+            // Update or create comment (single source of truth)
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const previous = comments.find((c) => c.user.type === 'Bot' && c.body && c.body.startsWith('## 🤖 AIAD SDD'));
+            if (previous) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: previous.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

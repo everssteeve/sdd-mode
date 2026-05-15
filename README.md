@@ -80,6 +80,30 @@ npx aiad-sdd init --upgrade all           # Bascule complète vers le profil 27 
 
 L'upgrade est **purement additif** — tes fichiers personnalisés (Intent Statements, SPECs, AGENT-GUIDE, CLAUDE.md) sont préservés. Ajoute `--force` pour resynchroniser tout.
 
+## L'agent peut dire « Je ne sais pas »
+
+La plupart des frameworks de dev assisté par IA forcent une réponse :
+l'agent invente quand il ne sait pas. AIAD SDD pose le contrat inverse —
+**dire `JNSP` (Je Ne Sais Pas) est un signal valide, pas un échec**.
+
+L'agent émet un verdict `JNSP` (ou `UNKNOWN` en sortie EN) quand il
+détecte une zone non décidable : intention sans humain identifiable,
+critère non testable, gouvernance Tier 1 ambiguë, annotations
+`@spec` absentes, fichier de contexte tronqué. Forme dans le code :
+
+```js
+// TODO-JNSP: <question précise pour l'humain>
+```
+
+Le hook `pre-commit` bloque tout commit contenant un `TODO-JNSP:` non
+résolu. Les skills retournent un verdict tri-état (`PASS` / `FAIL` /
+`JNSP`) plutôt que binaire — un `UNKNOWN` côté gouvernance = VETO par
+défaut (fail-closed). Détail dans `templates/.aiad/AGENT-GUIDE.md`
+section INCERTITUDE, propagé automatiquement à `AGENTS.md`,
+`.cursor/rules/`, `.codex/AGENT.md` et `GEMINI.md` via `emit-rules`.
+
+**Convention exit codes** : `0` PASS, `1` FAIL/erreur, `2` JNSP.
+
 ## Ce qui est installé
 
 ### Structure `.aiad/`
@@ -261,6 +285,55 @@ npx aiad-sdd init
 # 8. Auditer le budget de contexte (optionnel, recommandé)
 /sdd context
 ```
+
+## Publication & CI (v1.14+)
+
+Au-delà du cycle SDD, AIAD propose une **chaîne complète de publication** du dashboard projet :
+
+```bash
+# Génère dashboard HTML (16 pages) + badges SVG + sitemap + manifest PWA + 404.html
+npx aiad-sdd dashboard
+
+# Brief one-pager pour standup / Slack-bot
+npx aiad-sdd brief                  # texte humain
+npx aiad-sdd brief --json           # JSON (Slack-bot, CI)
+npx aiad-sdd brief --markdown       # Markdown pasteable Slack/Notion/PR
+npx aiad-sdd brief --strict=70      # CI gate (exit 1 si santé < 70)
+
+# Standup async pour le canal Slack/Teams (5 URLs Kanban par rôle)
+npx aiad-sdd standup --all --markdown --public-url=https://owner.github.io/repo
+
+# Badges SVG style shields.io pour README
+npx aiad-sdd badge --all            # trio santé + maturité + violations Tier 1
+npx aiad-sdd badge --shields-endpoint  # JSON pour gist + shields.io (live badge sans re-commit)
+
+# Validation CI rapide sans écriture
+npx aiad-sdd dashboard --check      # exit 1 si erreur, ~5s
+
+# Templates CI/CD pour 6 forges
+npx aiad-sdd ci-template --list                    # github|gitlab|jenkins|drone|bitbucket|azure
+npx aiad-sdd ci-template github                    # workflow .github/workflows/aiad.yml
+
+# Publication publique (GitHub Pages, etc.)
+npx aiad-sdd dashboard --public-url=https://owner.github.io/repo
+# → og:url, og:image, sitemap.xml, manifest.webmanifest absolus
+# → preview Slack/Teams avec thumbnail badge SVG
+
+# Liens vers les fichiers sources (ADRs, SPECs, learnings...) → blob/main GitHub
+npx aiad-sdd dashboard --source-base=https://github.com/owner/repo/blob/main
+npx aiad-sdd dashboard --source-base=auto    # auto-détecte git remote (github/gitlab/bitbucket)
+AIAD_SOURCE_BASE=https://...  npx aiad-sdd dashboard   # env (CI/CD)
+# → colonnes "Ligne L24" hyperliées vers `ARCHITECTURE.md#L24` (anchor exacte)
+# → ADRs, edge-cases QA, learnings, tech-debt JNSP, violations Tier 1 cliquables
+```
+
+Le workflow GitHub Actions installé inclut **5 jobs PR matrix** (trace, emit-rules, docs, update, dashboard --check) + **gate `brief --strict=70`** + **deploy Pages auto** + **commit-back des badges** + auto-configuration `AIAD_PUBLIC_URL` (pages_url) et `AIAD_SOURCE_BASE` (blob/sha immuable).
+
+Toutes les commandes `--json` exposent un bloc `_meta: { schema, version, generated }` pour discrimination consumer (**13 schémas distincts** : `aiad-sdd-{dashboard, dashboard-check, brief, doctor, status, workspace, trace, sovereignty, dora, hook-stats, standup, adrs, ci-template}`).
+
+**Documentation OpenAPI 3.1** : **22 routes** + **13 composants réutilisables** (TraceabilityMatrix, AuditEvent, PublicationContext, SovereigntyScore, HookStats, LeadershipMetrics, etc.) documentés dans `lib/cli-schema.js`. Codegen TypeScript supporté via `openapi-typescript` sur le doc construit par `construireOpenApi()`. Contrats `publicationContext` + `--source-base` chain garantis typés côté consumer (Slack-bot, Notion sync, audit scripts).
+
+Le pattern Unix `--quiet` *quiet on success, loud on failure* est appliqué à 4 commandes CI : `brief --quiet --strict=N`, `doctor --quiet --strict-sante=N`, `workspace --quiet`, `dashboard --serve --quiet`.
 
 ## Agents de gouvernance
 

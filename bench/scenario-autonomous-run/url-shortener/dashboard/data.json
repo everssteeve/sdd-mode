@@ -1,0 +1,4235 @@
+{
+  "_meta": {
+    "schema": "aiad-sdd-dashboard",
+    "version": "1.14.0",
+    "generated": "2026-05-15T13:45:35.149Z",
+    "slim": true
+  },
+  "projet": {
+    "nom": "url-shortener-bench",
+    "version": "0.1.0",
+    "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
+    "genere": "2026-05-15T13:45:35.149Z"
+  },
+  "fondamentaux": [
+    {
+      "nom": "PRD.md",
+      "chemin": ".aiad/PRD.md",
+      "titre": "PRD : tinr.ly — URL shortener souverain",
+      "present": true,
+      "rempli": true,
+      "tailleKo": 3.4
+    },
+    {
+      "nom": "ARCHITECTURE.md",
+      "chemin": ".aiad/ARCHITECTURE.md",
+      "titre": "ARCHITECTURE",
+      "present": true,
+      "rempli": false,
+      "tailleKo": 2.1
+    },
+    {
+      "nom": "AGENT-GUIDE.md",
+      "chemin": ".aiad/AGENT-GUIDE.md",
+      "titre": "AGENT-GUIDE — [Nom du projet]",
+      "present": true,
+      "rempli": false,
+      "tailleKo": 3.8
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-101-conversion-checkout",
+      "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+      "titre": "Améliorer la conversion du checkout",
+      "statut": "active",
+      "auteur": "Steeve",
+      "date": "2026-04-01",
+      "priority": "P0",
+      "target": "Q2-2026",
+      "target_date": "2026-05-25",
+      "personas": [
+        "Acheteur SMB"
+      ],
+      "user_stories": [
+        "US-002"
+      ],
+      "outcomes": [
+        "Conversion checkout"
+      ],
+      "owner": "Steeve",
+      "sponsor": "Direction Sales",
+      "risks": [
+        "Dépendance Stripe pour SEPA",
+        "RGPD consent management"
+      ],
+      "risk_level": "high",
+      "hypothesis": "Si on simplifie le checkout à 2 étapes, la conversion remontera à >70 %",
+      "hypothesis_status": "untested",
+      "okr": "KR-1.2",
+      "kind": "delivery",
+      "tags": [
+        "paiement",
+        "conversion",
+        "sepa",
+        "mobile",
+        "q2"
+      ],
+      "confidence": 65,
+      "activatedAt": "2026-04-01",
+      "problem": null,
+      "sections": {
+        "pourquoi": "Le funnel checkout chute à 62 % de conversion sur la dernière mesure mensuelle.\nSponsor sales a remonté la friction lors du COMEX du 28/03.",
+        "pourQui": "Acheteurs récurrents EU (segment SMB), exposés au formulaire de paiement v1.",
+        "objectif": "Remonter le taux de conversion checkout > 70 % en 4 semaines, mesuré par\nanalytics interne (cohorte hebdomadaire glissante).",
+        "contraintes": "- RGPD (pas de nouveau cookie de tracking sans consentement)\n- Pas de nouveau provider de paiement à intégrer\n- Compatible mobile-first",
+        "critereDrift": "Si après 4 semaines la conversion reste < 65 % sur 7 jours glissants → drift\nconfirmé : l'objectif n'a pas été atteint et il faut investiguer la cause\nprofonde avant tout nouveau chantier checkout."
+      },
+      "mtime": 1778845222031.1401
+    },
+    {
+      "id": "INTENT-102-onboarding-mobile",
+      "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+      "titre": "Onboarding mobile en moins de 30 secondes",
+      "statut": "running",
+      "auteur": "Steeve",
+      "date": "2026-03-15",
+      "priority": "P1",
+      "target": "Q3-2026",
+      "target_date": "2026-06-10",
+      "user_stories": [
+        "US-003"
+      ],
+      "outcomes": [
+        "Drop-off onboarding mobile"
+      ],
+      "owner": "Alice",
+      "sponsor": "Direction Marketing",
+      "hypothesis": "Si on simplifie l'onboarding mobile à 3 écrans (vs 5), le drop-off baisse de 38% à <20%",
+      "okrs": [
+        "KR-1.1",
+        "KR-1.3"
+      ],
+      "kind": "experiment",
+      "tags": [
+        "mobile",
+        "onboarding",
+        "q3",
+        "growth"
+      ],
+      "confidence_level": "low",
+      "experiment": null,
+      "activatedAt": null,
+      "problem": null,
+      "sections": {
+        "pourquoi": "Hypothèse PM : les nouveaux comptes mobile (43 % des inscriptions du Q1) ne\nsont pas suffisamment guidés. Le drop-off à l'onboarding est de 38 %.",
+        "pourQui": "Nouveaux utilisateurs mobiles iOS/Android, premier lancement de l'app.",
+        "objectif": "Réduire le drop-off onboarding à < 20 % en 6 semaines.",
+        "contraintes": "- WCAG 2.1 AA (accessibilité)\n- Pas de SMS (RGPD + coût)",
+        "critereDrift": "Si drop-off > 30 % à la fin du sprint 5 → drift, revoir l'hypothèse PM\nplutôt que pousser une nouvelle itération."
+      },
+      "mtime": 1778849739242.9475
+    },
+    {
+      "id": "INTENT-103-retention-30j",
+      "file": ".aiad/intents/INTENT-103-retention-30j.md",
+      "titre": "Rétention J+30 stabilisée à 55 %",
+      "statut": "active",
+      "auteur": "Steeve",
+      "date": "2026-04-20",
+      "priority": "P2",
+      "rice": 38,
+      "target": "Q3-2026",
+      "personas": [
+        "Marketing EU"
+      ],
+      "user_stories": [
+        "US-004"
+      ],
+      "outcomes": [
+        "Rétention J+30"
+      ],
+      "depends_on": [
+        "INTENT-102"
+      ],
+      "owner": "Steeve",
+      "sponsor": "Direction Marketing",
+      "risk_level": "medium",
+      "hypothesis": "Une boucle email à J+7 sur les utilisateurs inactifs augmentera la rétention J+30 à >55 %",
+      "hypothesis_status": "partial",
+      "okr": "KR-1.3",
+      "kind": "discovery",
+      "tags": [
+        "retention",
+        "email",
+        "q3",
+        "growth",
+        "llm"
+      ],
+      "confidence": 0.45,
+      "ai_risk": "limited",
+      "activatedAt": "2026-04-20",
+      "problem": null,
+      "sections": {
+        "pourquoi": "Rétention J+30 oscille entre 38 % et 52 % depuis 3 mois. Le board veut une\nstabilité ≥ 55 % pour passer la phase de scale-up.",
+        "pourQui": "Cohorte utilisateurs activés (≥ 1 lien créé dans les 24 h).",
+        "objectif": "Atteindre 55 % de rétention J+30 stable sur 4 cohortes consécutives.",
+        "contraintes": "- RGESN (limiter notifications / push)\n- Pas d'ajout de feature majeure — uniquement boucle réengagement existante",
+        "critereDrift": "Si une cohorte tombe sous 45 % → drift, on stoppe les itérations et on\nrevoit la boucle d'engagement à partir des données comportementales."
+      },
+      "mtime": 1778852592144.8154
+    }
+  ],
+  "specs": [
+    {
+      "id": "SPEC-101-1-formulaire-paiement",
+      "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+      "titre": "Formulaire de paiement v2",
+      "parentIntent": "INTENT-101",
+      "statut": "done",
+      "format": "prose",
+      "sqs": "4.6",
+      "governance": "AIAD-RGPD, AIAD-RGAA",
+      "parallelWith": [],
+      "auteur": "Steeve",
+      "date": "2026-04-10",
+      "mtime": 1778833555394.2512
+    },
+    {
+      "id": "SPEC-101-2-relance-panier",
+      "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+      "titre": "Relance panier abandonné",
+      "parentIntent": "INTENT-101",
+      "statut": "in-progress",
+      "format": "prose",
+      "sqs": "4.2",
+      "governance": "AIAD-RGPD",
+      "parallelWith": [],
+      "auteur": "Steeve",
+      "date": "2026-04-25",
+      "mtime": 1778833557808.8782
+    },
+    {
+      "id": "SPEC-103-1-relance-email",
+      "file": ".aiad/specs/SPEC-103-1-relance-email.md",
+      "titre": "Email de relance semaine 2",
+      "parentIntent": "INTENT-103",
+      "statut": "ready",
+      "format": "prose",
+      "sqs": "4",
+      "governance": null,
+      "parallelWith": [],
+      "auteur": "Steeve",
+      "date": "2026-04-28",
+      "mtime": 1778833560826.2664
+    }
+  ],
+  "gouvernance": [
+    {
+      "id": "AIAD-AI-ACT",
+      "present": true,
+      "titre": "AGENT-GUIDE — Agent de Gouvernance EU AI Act",
+      "file": ".aiad/gouvernance/AIAD-AI-ACT.md",
+      "tailleKo": 53.3,
+      "declenche": "Composant IA (ML, LLM, scoring, recommandation)",
+      "referentiel": "Règlement (UE) 2024/1689 — EU AI Act"
+    },
+    {
+      "id": "AIAD-RGPD",
+      "present": true,
+      "titre": "AGENT-GUIDE — Agent de Gouvernance RGPD",
+      "file": ".aiad/gouvernance/AIAD-RGPD.md",
+      "tailleKo": 47.9,
+      "declenche": "Traitement de données personnelles",
+      "referentiel": "RGPD (UE) 2016/679"
+    },
+    {
+      "id": "AIAD-RGAA",
+      "present": true,
+      "titre": "AGENT-GUIDE — Agent de Gouvernance RGAA",
+      "file": ".aiad/gouvernance/AIAD-RGAA.md",
+      "tailleKo": 36.2,
+      "declenche": "Production d'une interface utilisateur",
+      "referentiel": "RGAA 4.1 / WCAG 2.1"
+    },
+    {
+      "id": "AIAD-RGESN",
+      "present": true,
+      "titre": "AGENT-GUIDE — Agent de Gouvernance RGESN",
+      "file": ".aiad/gouvernance/AIAD-RGESN.md",
+      "tailleKo": 29.4,
+      "declenche": "Toute décision technique (perf, ressources, dépendances)",
+      "referentiel": "RGESN v2 — Référentiel Général Écoconception"
+    },
+    {
+      "id": "AIAD-CRA",
+      "present": true,
+      "titre": "AGENT-GUIDE — Agent de Gouvernance Cyber Resilience Act",
+      "file": ".aiad/gouvernance/AIAD-CRA.md",
+      "tailleKo": 21.9,
+      "declenche": "Produit logiciel commercialisable en UE (SBOM, vulnérabilités, mises à jour)",
+      "referentiel": "Règlement (UE) 2024/2847 — Cyber Resilience Act"
+    }
+  ],
+  "facts": [
+    {
+      "id": "FACT-001-cnil-retention",
+      "file": ".aiad/facts/FACT-001-cnil-retention.md",
+      "titre": "FACT-001 — Logs analytics conservés au-delà des 13 mois CNIL",
+      "date": "2026-05-05",
+      "gravite": "major",
+      "statut": "open",
+      "cause": "Job de purge des logs analytics non programmé en cron"
+    }
+  ],
+  "changelog": {
+    "entrees": [],
+    "file": ".aiad/CHANGELOG-ARTEFACTS.md"
+  },
+  "metrics": {
+    "categories": {
+      "deployments": {
+        "categorie": "deployments",
+        "dir": null,
+        "fichiers": []
+      },
+      "specs": {
+        "categorie": "specs",
+        "dir": null,
+        "fichiers": []
+      },
+      "standup": {
+        "categorie": "standup",
+        "dir": null,
+        "fichiers": []
+      },
+      "drift": {
+        "categorie": "drift",
+        "dir": null,
+        "fichiers": []
+      },
+      "retro": {
+        "categorie": "retro",
+        "dir": null,
+        "fichiers": []
+      },
+      "demo": {
+        "categorie": "demo",
+        "dir": null,
+        "fichiers": []
+      },
+      "sync-strat": {
+        "categorie": "sync-strat",
+        "dir": null,
+        "fichiers": []
+      },
+      "tech-review": {
+        "categorie": "tech-review",
+        "dir": null,
+        "fichiers": []
+      },
+      "security": {
+        "categorie": "security",
+        "dir": ".aiad/metrics/security",
+        "fichiers": []
+      },
+      "audit": {
+        "categorie": "audit",
+        "dir": ".aiad/metrics/audit",
+        "fichiers": []
+      }
+    },
+    "agregats": {
+      "deployments": {
+        "total": 0,
+        "success": 0,
+        "hotfix": 0,
+        "cycleTimeMoyen": null,
+        "leadTimeMoyen": null
+      },
+      "specs": {
+        "total": 0,
+        "sqsMoyen": null,
+        "gateFirstPass": 0
+      },
+      "standup": {
+        "total": 0,
+        "wipMoyen": null
+      },
+      "drift": {
+        "total": 0,
+        "driftsDetectes": 0,
+        "driftsResolus": 0
+      }
+    }
+  },
+  "matrice": {
+    "generatedAt": "2026-05-15T13:45:35.154Z",
+    "summary": {
+      "intents": 3,
+      "specs": 3,
+      "codeFiles": 1,
+      "annotatedCodeFiles": 1,
+      "testFiles": 0,
+      "annotatedTestFiles": 0
+    },
+    "forward": [
+      {
+        "intent": {
+          "id": "INTENT-101-conversion-checkout",
+          "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+          "title": "Améliorer la conversion du checkout",
+          "status": "active"
+        },
+        "specs": [
+          {
+            "spec": {
+              "id": "SPEC-101-1-formulaire-paiement",
+              "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+              "title": "Formulaire de paiement v2",
+              "parentIntent": "INTENT-101",
+              "status": "done"
+            },
+            "code": [],
+            "tests": []
+          },
+          {
+            "spec": {
+              "id": "SPEC-101-2-relance-panier",
+              "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+              "title": "Relance panier abandonné",
+              "parentIntent": "INTENT-101",
+              "status": "in-progress"
+            },
+            "code": [],
+            "tests": []
+          }
+        ]
+      },
+      {
+        "intent": {
+          "id": "INTENT-102-onboarding-mobile",
+          "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+          "title": "Onboarding mobile en moins de 30 secondes",
+          "status": "running"
+        },
+        "specs": []
+      },
+      {
+        "intent": {
+          "id": "INTENT-103-retention-30j",
+          "file": ".aiad/intents/INTENT-103-retention-30j.md",
+          "title": "Rétention J+30 stabilisée à 55 %",
+          "status": "active"
+        },
+        "specs": [
+          {
+            "spec": {
+              "id": "SPEC-103-1-relance-email",
+              "file": ".aiad/specs/SPEC-103-1-relance-email.md",
+              "title": "Email de relance semaine 2",
+              "parentIntent": "INTENT-103",
+              "status": "ready"
+            },
+            "code": [],
+            "tests": []
+          }
+        ]
+      }
+    ],
+    "backward": [],
+    "gaps": {
+      "intentsSansSpec": [
+        {
+          "id": "INTENT-102-onboarding-mobile",
+          "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+          "title": "Onboarding mobile en moins de 30 secondes",
+          "status": "running"
+        }
+      ],
+      "specsSansCode": [
+        {
+          "id": "SPEC-101-1-formulaire-paiement",
+          "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+          "title": "Formulaire de paiement v2",
+          "parentIntent": "INTENT-101",
+          "status": "done"
+        },
+        {
+          "id": "SPEC-101-2-relance-panier",
+          "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+          "title": "Relance panier abandonné",
+          "parentIntent": "INTENT-101",
+          "status": "in-progress"
+        },
+        {
+          "id": "SPEC-103-1-relance-email",
+          "file": ".aiad/specs/SPEC-103-1-relance-email.md",
+          "title": "Email de relance semaine 2",
+          "parentIntent": "INTENT-103",
+          "status": "ready"
+        }
+      ],
+      "specsValideesNonImplementees": [
+        {
+          "id": "SPEC-101-1-formulaire-paiement",
+          "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+          "title": "Formulaire de paiement v2",
+          "parentIntent": "INTENT-101",
+          "status": "done"
+        },
+        {
+          "id": "SPEC-101-2-relance-panier",
+          "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+          "title": "Relance panier abandonné",
+          "parentIntent": "INTENT-101",
+          "status": "in-progress"
+        },
+        {
+          "id": "SPEC-103-1-relance-email",
+          "file": ".aiad/specs/SPEC-103-1-relance-email.md",
+          "title": "Email de relance semaine 2",
+          "parentIntent": "INTENT-103",
+          "status": "ready"
+        }
+      ],
+      "codeSansSpec": [
+        {
+          "path": "dashboard/assets/app.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [
+              {
+                "path": "dans",
+                "line": 181
+              },
+              {
+                "path": "dans",
+                "line": 181
+              }
+            ],
+            "governance": []
+          },
+          "annotated": true
+        }
+      ],
+      "codeSansTests": [],
+      "intentsOrphelinsSurCode": [],
+      "specsOrphelinsSurCode": []
+    }
+  },
+  "signaux": {
+    "git": false,
+    "hooks": true,
+    "leadership": {
+      "humanAuthorshipRatio": {
+        "total": 3,
+        "sufficient": 3,
+        "ratio": 1,
+        "seuilCharsMinimum": 50
+      },
+      "governanceCoverage": {
+        "sensitiveFiles": 0,
+        "governedFiles": 0,
+        "ratio": null
+      },
+      "traceCompleteness": {
+        "total": 3,
+        "complete": 0,
+        "ratio": 0
+      },
+      "langueArtefacts": {
+        "fr": 5,
+        "en": 0,
+        "mixed": 0,
+        "neutral": 1,
+        "total": 6
+      }
+    },
+    "leadershipHistory": [
+      {
+        "mois": "2026-05",
+        "ts": 1778852735155,
+        "humanAuthorshipRatio": 1,
+        "governanceCoverage": null,
+        "traceCompleteness": 0,
+        "langueArtefacts": {
+          "fr": 5,
+          "en": 0,
+          "mixed": 0,
+          "neutral": 1,
+          "total": 6
+        }
+      }
+    ]
+  },
+  "supplementaire": {
+    "dpia": {
+      "fichiers": [],
+      "total": 0,
+      "latest": null
+    },
+    "aiAct": {
+      "fichiers": [],
+      "total": 0,
+      "latest": null
+    },
+    "sbom": {
+      "present": false,
+      "file": null,
+      "format": null,
+      "specVersion": null,
+      "components": 0,
+      "mtime": null
+    },
+    "sovereignty": {
+      "available": true,
+      "score": 50,
+      "maxScore": 100,
+      "level": "Silver",
+      "levelColor": "gris",
+      "dimensions": {
+        "juridictions": {
+          "score": 4,
+          "juridictions": [
+            "eu"
+          ],
+          "packs": [
+            "eu-baseline"
+          ]
+        },
+        "agentsTier1": {
+          "score": 14,
+          "baseline": 4,
+          "prime": 1,
+          "agents": [
+            "AIAD-AI-ACT.md",
+            "AIAD-CRA.md",
+            "AIAD-RGAA.md",
+            "AIAD-RGESN.md",
+            "AIAD-RGPD.md"
+          ]
+        },
+        "langueFr": {
+          "score": 17,
+          "ratioFr": 0.8333333333333334,
+          "fr": 5,
+          "mixed": 0,
+          "en": 0,
+          "neutral": 1,
+          "total": 6
+        },
+        "autorites": {
+          "score": 15,
+          "autorites": [
+            "cnil",
+            "anssi",
+            "dinum"
+          ]
+        },
+        "hebergement": {
+          "score": 0,
+          "sources": []
+        }
+      },
+      "recommendations": [
+        "Installer un pack juridictionnel additionnel (`aiad-sdd gouvernance --pack fr-anssi`, `de-bsi`, etc.) pour renforcer la couverture EU.",
+        "Déclarer un engagement d'hébergement EU dans `publiccode.yml` (`countries: [fr]`) ou installer le pack `fr-anssi` (agent SecNumCloud)."
+      ]
+    },
+    "hookStats": {
+      "available": false,
+      "count": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0,
+      "ratioFail": 0,
+      "timeouts": 0,
+      "scopeLeaks": 0,
+      "sante": "inconnue"
+    }
+  },
+  "maturite": {
+    "score": 3,
+    "scoreBrut": 3,
+    "total": 5,
+    "plafond": 4,
+    "raisonPlafond": "Drift Lock incomplet (git)",
+    "signaux": {
+      "git": false,
+      "hooks": true,
+      "indefinies": 1
+    },
+    "label": "Opérationnel",
+    "cls": "maturite-info"
+  },
+  "specsParIntent": {
+    "INTENT-101": [
+      {
+        "id": "SPEC-101-1-formulaire-paiement",
+        "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+        "titre": "Formulaire de paiement v2",
+        "parentIntent": "INTENT-101",
+        "statut": "done",
+        "format": "prose",
+        "sqs": "4.6",
+        "governance": "AIAD-RGPD, AIAD-RGAA",
+        "parallelWith": [],
+        "auteur": "Steeve",
+        "date": "2026-04-10",
+        "mtime": 1778833555394.2512
+      },
+      {
+        "id": "SPEC-101-2-relance-panier",
+        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+        "titre": "Relance panier abandonné",
+        "parentIntent": "INTENT-101",
+        "statut": "in-progress",
+        "format": "prose",
+        "sqs": "4.2",
+        "governance": "AIAD-RGPD",
+        "parallelWith": [],
+        "auteur": "Steeve",
+        "date": "2026-04-25",
+        "mtime": 1778833557808.8782
+      }
+    ],
+    "INTENT-103": [
+      {
+        "id": "SPEC-103-1-relance-email",
+        "file": ".aiad/specs/SPEC-103-1-relance-email.md",
+        "titre": "Email de relance semaine 2",
+        "parentIntent": "INTENT-103",
+        "statut": "ready",
+        "format": "prose",
+        "sqs": "4",
+        "governance": null,
+        "parallelWith": [],
+        "auteur": "Steeve",
+        "date": "2026-04-28",
+        "mtime": 1778833560826.2664
+      }
+    ]
+  },
+  "qa": {
+    "queueReadySansTests": [
+      {
+        "id": "SPEC-101-1-formulaire-paiement",
+        "titre": "Formulaire de paiement v2",
+        "statut": "done",
+        "parentIntent": "INTENT-101-conversion-checkout",
+        "parentIntentFile": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+        "codeLies": 0
+      },
+      {
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "statut": "in-progress",
+        "parentIntent": "INTENT-101-conversion-checkout",
+        "parentIntentFile": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+        "codeLies": 0
+      },
+      {
+        "id": "SPEC-103-1-relance-email",
+        "titre": "Email de relance semaine 2",
+        "statut": "ready",
+        "parentIntent": "INTENT-103-retention-30j",
+        "parentIntentFile": ".aiad/intents/INTENT-103-retention-30j.md",
+        "file": ".aiad/specs/SPEC-103-1-relance-email.md",
+        "codeLies": 0
+      }
+    ],
+    "coverage": [
+      {
+        "id": "SPEC-101-1-formulaire-paiement",
+        "titre": "Formulaire de paiement v2",
+        "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+        "tests": 0,
+        "code": 0,
+        "ratio": null,
+        "pct": null,
+        "band": "na",
+        "source": "heuristique"
+      },
+      {
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+        "tests": 0,
+        "code": 0,
+        "ratio": null,
+        "pct": null,
+        "band": "na",
+        "source": "heuristique"
+      },
+      {
+        "id": "SPEC-103-1-relance-email",
+        "titre": "Email de relance semaine 2",
+        "file": ".aiad/specs/SPEC-103-1-relance-email.md",
+        "tests": 0,
+        "code": 0,
+        "ratio": null,
+        "pct": null,
+        "band": "na",
+        "source": "heuristique"
+      }
+    ],
+    "coverageReelTotal": null,
+    "coverageReelFile": null,
+    "audit": {
+      "VALIDÉ": 0,
+      "CORRECTIONS": 0,
+      "REJET": 0,
+      "AUTRE": 0,
+      "total": 0
+    },
+    "ears": {
+      "total": 0,
+      "passants": 0,
+      "aRelinter": 0,
+      "liste": []
+    },
+    "testsRecents": [],
+    "regressions": {
+      "regressions": [],
+      "dernierRun": null,
+      "runPrecedent": null,
+      "total": 0
+    },
+    "runsHistoryFile": null
+  },
+  "pm": {
+    "zombies": [],
+    "draftsAnciens": [],
+    "specsNonDemontrees": [
+      {
+        "id": "SPEC-101-1-formulaire-paiement",
+        "titre": "Formulaire de paiement v2",
+        "mtime": 1778833555394.2512,
+        "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+        "lastDemo": null
+      }
+    ],
+    "avancement": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "statut": "active",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "total": 2,
+        "done": 1,
+        "enCours": 1,
+        "ratio": 0.5
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "statut": "running",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "total": 0,
+        "done": 0,
+        "enCours": 0,
+        "ratio": null
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "statut": "active",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "total": 1,
+        "done": 0,
+        "enCours": 0,
+        "ratio": 0
+      }
+    ],
+    "funnel": {
+      "idea": 1,
+      "validated": 0,
+      "inDelivery": 2,
+      "done": 0,
+      "archived": 0
+    },
+    "seuils": {
+      "intentZombieJours": 30,
+      "intentDraftJours": 14
+    },
+    "lastDemoMtime": null
+  },
+  "velocity": {
+    "intentsParMois": [
+      {
+        "key": "2025-12",
+        "label": "déc. 25",
+        "count": 0,
+        "ts": 1764547200000
+      },
+      {
+        "key": "2026-01",
+        "label": "janv. 26",
+        "count": 0,
+        "ts": 1767225600000
+      },
+      {
+        "key": "2026-02",
+        "label": "févr. 26",
+        "count": 0,
+        "ts": 1769904000000
+      },
+      {
+        "key": "2026-03",
+        "label": "mars 26",
+        "count": 0,
+        "ts": 1772323200000
+      },
+      {
+        "key": "2026-04",
+        "label": "avr. 26",
+        "count": 0,
+        "ts": 1775001600000
+      },
+      {
+        "key": "2026-05",
+        "label": "mai 26",
+        "count": 0,
+        "ts": 1777593600000
+      }
+    ],
+    "specsParSemaine": [
+      {
+        "key": "2026-W9",
+        "label": "S9",
+        "count": 0,
+        "ts": 1771804800000
+      },
+      {
+        "key": "2026-W10",
+        "label": "S10",
+        "count": 0,
+        "ts": 1772409600000
+      },
+      {
+        "key": "2026-W11",
+        "label": "S11",
+        "count": 0,
+        "ts": 1773014400000
+      },
+      {
+        "key": "2026-W12",
+        "label": "S12",
+        "count": 0,
+        "ts": 1773619200000
+      },
+      {
+        "key": "2026-W13",
+        "label": "S13",
+        "count": 0,
+        "ts": 1774224000000
+      },
+      {
+        "key": "2026-W14",
+        "label": "S14",
+        "count": 0,
+        "ts": 1774828800000
+      },
+      {
+        "key": "2026-W15",
+        "label": "S15",
+        "count": 0,
+        "ts": 1775433600000
+      },
+      {
+        "key": "2026-W16",
+        "label": "S16",
+        "count": 0,
+        "ts": 1776038400000
+      },
+      {
+        "key": "2026-W17",
+        "label": "S17",
+        "count": 0,
+        "ts": 1776643200000
+      },
+      {
+        "key": "2026-W18",
+        "label": "S18",
+        "count": 0,
+        "ts": 1777248000000
+      },
+      {
+        "key": "2026-W19",
+        "label": "S19",
+        "count": 0,
+        "ts": 1777852800000
+      },
+      {
+        "key": "2026-W20",
+        "label": "S20",
+        "count": 1,
+        "ts": 1778457600000
+      }
+    ],
+    "totaux": {
+      "intentsDone": 0,
+      "specsDone": 1,
+      "moisCouverts": 6,
+      "semainesCouvertes": 12
+    },
+    "tendanceIntents": {
+      "sens": "flat",
+      "delta": 0
+    },
+    "tendanceSpecs": {
+      "sens": "up",
+      "delta": 1
+    }
+  },
+  "roadmap": {
+    "buckets": [
+      {
+        "quarter": {
+          "year": 2026,
+          "quarter": 1
+        },
+        "label": "Q1-2026",
+        "cle": 8104,
+        "intents": [],
+        "estActuel": false,
+        "estPasse": true
+      },
+      {
+        "quarter": {
+          "year": 2026,
+          "quarter": 2
+        },
+        "label": "Q2-2026",
+        "cle": 8105,
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "titre": "Améliorer la conversion du checkout",
+            "statut": "active",
+            "quarter": {
+              "year": 2026,
+              "quarter": 2
+            }
+          }
+        ],
+        "estActuel": true,
+        "estPasse": false
+      },
+      {
+        "quarter": {
+          "year": 2026,
+          "quarter": 3
+        },
+        "label": "Q3-2026",
+        "cle": 8106,
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "statut": "running",
+            "quarter": {
+              "year": 2026,
+              "quarter": 3
+            }
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "statut": "active",
+            "quarter": {
+              "year": 2026,
+              "quarter": 3
+            }
+          }
+        ],
+        "estActuel": false,
+        "estPasse": false
+      },
+      {
+        "quarter": {
+          "year": 2026,
+          "quarter": 4
+        },
+        "label": "Q4-2026",
+        "cle": 8107,
+        "intents": [],
+        "estActuel": false,
+        "estPasse": false
+      },
+      {
+        "quarter": {
+          "year": 2027,
+          "quarter": 1
+        },
+        "label": "Q1-2027",
+        "cle": 8108,
+        "intents": [],
+        "estActuel": false,
+        "estPasse": false
+      }
+    ],
+    "nonDates": [],
+    "totaux": {
+      "planifies": 3,
+      "nonDates": 0,
+      "total": 3
+    }
+  },
+  "adrs": {
+    "fichier": ".aiad/ARCHITECTURE.md",
+    "total": 0,
+    "entrees": []
+  },
+  "kanban": [
+    {
+      "id": "todo",
+      "titre": "To-Do",
+      "statuts": [
+        "draft",
+        "ready"
+      ],
+      "cards": [
+        {
+          "id": "SPEC-103-1-relance-email",
+          "titre": "Email de relance semaine 2",
+          "intentId": "INTENT-103-retention-30j",
+          "intentFile": ".aiad/intents/INTENT-103-retention-30j.md",
+          "statut": "ready",
+          "sqs": "4",
+          "governance": [],
+          "testsCount": 0,
+          "codeCount": 0,
+          "file": ".aiad/specs/SPEC-103-1-relance-email.md"
+        }
+      ]
+    },
+    {
+      "id": "in-progress",
+      "titre": "In-Progress",
+      "statuts": [
+        "in-progress"
+      ],
+      "cards": [
+        {
+          "id": "SPEC-101-2-relance-panier",
+          "titre": "Relance panier abandonné",
+          "intentId": "INTENT-101-conversion-checkout",
+          "intentFile": ".aiad/intents/INTENT-101-conversion-checkout.md",
+          "statut": "in-progress",
+          "sqs": "4.2",
+          "governance": [
+            "AIAD-RGPD"
+          ],
+          "testsCount": 0,
+          "codeCount": 0,
+          "file": ".aiad/specs/SPEC-101-2-relance-panier.md"
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "titre": "Review",
+      "statuts": [
+        "review",
+        "validation"
+      ],
+      "cards": []
+    },
+    {
+      "id": "done",
+      "titre": "Done",
+      "statuts": [
+        "done"
+      ],
+      "cards": [
+        {
+          "id": "SPEC-101-1-formulaire-paiement",
+          "titre": "Formulaire de paiement v2",
+          "intentId": "INTENT-101-conversion-checkout",
+          "intentFile": ".aiad/intents/INTENT-101-conversion-checkout.md",
+          "statut": "done",
+          "sqs": "4.6",
+          "governance": [
+            "AIAD-RGPD",
+            "AIAD-RGAA"
+          ],
+          "testsCount": 0,
+          "codeCount": 0,
+          "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md"
+        }
+      ]
+    }
+  ],
+  "kanbanConflits": [],
+  "focusAlertes": {
+    "all": [
+      {
+        "priorite": "P4",
+        "titre": "1 SPEC(s) Tier 1 sans tests",
+        "detail": "SPEC-101-2-relance-panier (AIAD-RGPD)",
+        "action": "AE — exiger preuve avant gate ; risque veto.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "ae",
+          "qa"
+        ]
+      },
+      {
+        "priorite": "P5",
+        "titre": "1 SPEC(s) prête(s) à exécuter",
+        "detail": "SPEC-103-1-relance-email",
+        "action": "PE — démarrer la prochaine via `/sdd exec`.",
+        "cardIds": [
+          "SPEC-103-1-relance-email"
+        ],
+        "roles": [
+          "pe"
+        ]
+      }
+    ],
+    "pm": [
+      {
+        "priorite": "P4",
+        "titre": "1 SPEC(s) Tier 1 sans tests",
+        "detail": "SPEC-101-2-relance-panier (AIAD-RGPD)",
+        "action": "AE — exiger preuve avant gate ; risque veto.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "ae",
+          "qa"
+        ]
+      },
+      {
+        "priorite": "P5",
+        "titre": "1 SPEC(s) prête(s) à exécuter",
+        "detail": "SPEC-103-1-relance-email",
+        "action": "PE — démarrer la prochaine via `/sdd exec`.",
+        "cardIds": [
+          "SPEC-103-1-relance-email"
+        ],
+        "roles": [
+          "pe"
+        ]
+      }
+    ],
+    "pe": [
+      {
+        "priorite": "P5",
+        "titre": "1 SPEC(s) prête(s) à exécuter",
+        "detail": "SPEC-103-1-relance-email",
+        "action": "PE — démarrer la prochaine via `/sdd exec`.",
+        "cardIds": [
+          "SPEC-103-1-relance-email"
+        ],
+        "roles": [
+          "pe"
+        ]
+      },
+      {
+        "priorite": "P4",
+        "titre": "1 SPEC(s) Tier 1 sans tests",
+        "detail": "SPEC-101-2-relance-panier (AIAD-RGPD)",
+        "action": "AE — exiger preuve avant gate ; risque veto.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "ae",
+          "qa"
+        ]
+      }
+    ],
+    "ae": [
+      {
+        "priorite": "P4",
+        "titre": "1 SPEC(s) Tier 1 sans tests",
+        "detail": "SPEC-101-2-relance-panier (AIAD-RGPD)",
+        "action": "AE — exiger preuve avant gate ; risque veto.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "ae",
+          "qa"
+        ]
+      },
+      {
+        "priorite": "P5",
+        "titre": "1 SPEC(s) prête(s) à exécuter",
+        "detail": "SPEC-103-1-relance-email",
+        "action": "PE — démarrer la prochaine via `/sdd exec`.",
+        "cardIds": [
+          "SPEC-103-1-relance-email"
+        ],
+        "roles": [
+          "pe"
+        ]
+      }
+    ],
+    "qa": [
+      {
+        "priorite": "P4",
+        "titre": "1 SPEC(s) Tier 1 sans tests",
+        "detail": "SPEC-101-2-relance-panier (AIAD-RGPD)",
+        "action": "AE — exiger preuve avant gate ; risque veto.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "ae",
+          "qa"
+        ]
+      },
+      {
+        "priorite": "P5",
+        "titre": "1 SPEC(s) prête(s) à exécuter",
+        "detail": "SPEC-103-1-relance-email",
+        "action": "PE — démarrer la prochaine via `/sdd exec`.",
+        "cardIds": [
+          "SPEC-103-1-relance-email"
+        ],
+        "roles": [
+          "pe"
+        ]
+      }
+    ],
+    "tl": [
+      {
+        "priorite": "P4",
+        "titre": "1 SPEC(s) Tier 1 sans tests",
+        "detail": "SPEC-101-2-relance-panier (AIAD-RGPD)",
+        "action": "AE — exiger preuve avant gate ; risque veto.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "ae",
+          "qa"
+        ]
+      },
+      {
+        "priorite": "P5",
+        "titre": "1 SPEC(s) prête(s) à exécuter",
+        "detail": "SPEC-103-1-relance-email",
+        "action": "PE — démarrer la prochaine via `/sdd exec`.",
+        "cardIds": [
+          "SPEC-103-1-relance-email"
+        ],
+        "roles": [
+          "pe"
+        ]
+      }
+    ]
+  },
+  "techDebt": {
+    "seuilLoc": 200,
+    "seuilLocWarn": 100,
+    "sourceSeuil": "default",
+    "jnsp": {
+      "total": 3,
+      "markers": [
+        {
+          "file": "AGENTS.md",
+          "line": 85,
+          "question": "<question précise pour l'humain>` ; le hook pre-commit bloque tout diff qui en contient",
+          "ageDays": 1,
+          "age": "recent"
+        },
+        {
+          "file": "CLAUDE.md",
+          "line": 244,
+          "question": "<question précise à l'humain>",
+          "ageDays": 1,
+          "age": "recent"
+        },
+        {
+          "file": "CLAUDE.md",
+          "line": 248,
+          "question": "` non résolu. Le bypass `git commit --no-verify`",
+          "ageDays": 1,
+          "age": "recent"
+        }
+      ],
+      "parAge": {
+        "recent": 3,
+        "medium": 0,
+        "stale": 0,
+        "unknown": 0
+      }
+    },
+    "specsGrosses": {
+      "total": 0,
+      "entrees": []
+    },
+    "specsWarning": {
+      "total": 0,
+      "entrees": []
+    }
+  },
+  "techDebtHistory": {
+    "snapshots": 2,
+    "buckets": [
+      {
+        "semaine": "2026-04-20",
+        "samples": 0,
+        "jnsp": null,
+        "jnspStale": null,
+        "specsGrosses": null,
+        "specsWarning": null,
+        "valeur": null
+      },
+      {
+        "semaine": "2026-04-27",
+        "samples": 0,
+        "jnsp": null,
+        "jnspStale": null,
+        "specsGrosses": null,
+        "specsWarning": null,
+        "valeur": null
+      },
+      {
+        "semaine": "2026-05-04",
+        "samples": 0,
+        "jnsp": null,
+        "jnspStale": null,
+        "specsGrosses": null,
+        "specsWarning": null,
+        "valeur": null
+      },
+      {
+        "semaine": "2026-05-11",
+        "samples": 2,
+        "jnsp": 3,
+        "jnspStale": 0,
+        "specsGrosses": 0,
+        "specsWarning": 0
+      }
+    ],
+    "tendance": {
+      "jnsp": "unknown",
+      "delta": 0
+    },
+    "prune": {
+      "pruned": [],
+      "kept": 2
+    }
+  },
+  "learnings": {
+    "fichier": ".aiad/AGENT-GUIDE.md",
+    "lessonsLearned": {
+      "total": 0,
+      "entrees": []
+    },
+    "humanLearnings": {
+      "total": 0,
+      "entrees": []
+    }
+  },
+  "auditTrail": {
+    "fichier": null,
+    "total": 0,
+    "parAction": {},
+    "recents7j": 0,
+    "recents30j": 0,
+    "derniers": [],
+    "chaine": {
+      "valide": null,
+      "raisons": []
+    }
+  },
+  "violations": {
+    "total": 3,
+    "typeA": {
+      "total": 0,
+      "entrees": []
+    },
+    "typeB": {
+      "total": 3,
+      "entrees": [
+        {
+          "type": "SPEC-non-implémentée",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-101-1-formulaire-paiement",
+          "specFile": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+          "statut": "done"
+        },
+        {
+          "type": "SPEC-non-implémentée",
+          "tag": "AIAD-RGPD",
+          "specId": "SPEC-101-1-formulaire-paiement",
+          "specFile": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+          "statut": "done"
+        },
+        {
+          "type": "SPEC-non-implémentée",
+          "tag": "AIAD-RGPD",
+          "specId": "SPEC-101-2-relance-panier",
+          "specFile": ".aiad/specs/SPEC-101-2-relance-panier.md",
+          "statut": "in-progress"
+        }
+      ]
+    },
+    "parTag": {
+      "AIAD-RGAA": 1,
+      "AIAD-RGPD": 2
+    }
+  },
+  "sre": {
+    "hookStats": {
+      "available": false,
+      "count": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0,
+      "ratioFail": 0,
+      "timeouts": 0,
+      "scopeLeaks": 0,
+      "sante": "inconnue"
+    },
+    "deployments": null,
+    "security": {
+      "total": 0,
+      "derniers": []
+    },
+    "audit": {
+      "total": 0,
+      "derniers": []
+    },
+    "severites": {
+      "security": {
+        "critique": 0,
+        "élevé": 0,
+        "moyen": 0,
+        "mineur": 0,
+        "bonne pratique": 0
+      },
+      "audit": {
+        "critique": 0,
+        "élevé": 0,
+        "moyen": 0,
+        "mineur": 0,
+        "bonne pratique": 0
+      }
+    }
+  },
+  "dpo": {
+    "dpia": {
+      "total": 0,
+      "latest": null,
+      "fichiers": []
+    },
+    "specsRgpd": {
+      "total": 2,
+      "entrees": [
+        {
+          "id": "SPEC-101-1-formulaire-paiement",
+          "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+          "statut": "done"
+        },
+        {
+          "id": "SPEC-101-2-relance-panier",
+          "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+          "statut": "in-progress"
+        }
+      ]
+    },
+    "fichiersRgpd": {
+      "total": 0,
+      "entrees": []
+    },
+    "coverage": {
+      "ratio": 0,
+      "couvertes": 0,
+      "nonCouvertes": 2,
+      "entreesNonCouvertes": [
+        {
+          "id": "SPEC-101-1-formulaire-paiement",
+          "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+          "statut": "done",
+          "fichiersCount": 0
+        },
+        {
+          "id": "SPEC-101-2-relance-panier",
+          "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+          "statut": "in-progress",
+          "fichiersCount": 0
+        }
+      ]
+    }
+  },
+  "outcomes": {
+    "fichier": ".aiad/PRD.md",
+    "total": 4,
+    "criteres": [
+      {
+        "critere": "Latence p95 redirect",
+        "baseline": "180 ms",
+        "cible": "< 50 ms",
+        "methode": "sondes synthétiques"
+      },
+      {
+        "critere": "Conversion checkout",
+        "baseline": "62 %",
+        "cible": "> 70 %",
+        "methode": "analytics interne"
+      },
+      {
+        "critere": "Rétention J+30",
+        "baseline": "38-52 %",
+        "cible": ">= 55 % stable",
+        "methode": "cohortes hebdo"
+      },
+      {
+        "critere": "Drop-off onboarding mobile",
+        "baseline": "38 %",
+        "cible": "< 20 %",
+        "methode": "analytics funnel"
+      }
+    ],
+    "mesures": {
+      "fichier": null,
+      "date": null,
+      "total": 0
+    },
+    "evolution": {
+      "snapshots": 0,
+      "timelines": []
+    }
+  },
+  "prdCoverage": {
+    "fichier": ".aiad/PRD.md",
+    "personas": [
+      {
+        "nom": "Marketing EU",
+        "besoin": "Raccourcir un lien tracker pour campagne email",
+        "resultat": "URL courte créée en moins de 3 s, analytics 30j conformes RGPD",
+        "intents": [
+          {
+            "id": "INTENT-103-retention-30j",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "titre": "Rétention J+30 stabilisée à 55 %"
+          }
+        ],
+        "count": 1
+      },
+      {
+        "nom": "RSSI",
+        "besoin": "Auditer l'usage de URL shorteners dans l'entreprise",
+        "resultat": "Tableau de bord conformité avec logs souverains",
+        "intents": [],
+        "count": 0
+      },
+      {
+        "nom": "Acheteur SMB",
+        "besoin": "Acheter un plan annuel",
+        "resultat": "Facture conforme EU, paiement SEPA, support FR",
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "titre": "Améliorer la conversion du checkout"
+          }
+        ],
+        "count": 1
+      },
+      {
+        "nom": "Dev API consumer",
+        "besoin": "Intégrer le shortener à son outil maison",
+        "resultat": "API REST documentée OpenAPI 3.1",
+        "intents": [],
+        "count": 0
+      }
+    ],
+    "userStories": [
+      {
+        "id": "US-001",
+        "priorite": "MUST",
+        "action": "Marketing EU peut créer une URL courte en moins de 3 s",
+        "outcome": "Latence p95 < 50 ms",
+        "intents": [],
+        "count": 0
+      },
+      {
+        "id": "US-002",
+        "priorite": "MUST",
+        "action": "Acheteur SMB peut payer son plan annuel SEPA",
+        "outcome": "Conversion checkout > 70 %",
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "titre": "Améliorer la conversion du checkout"
+          }
+        ],
+        "count": 1
+      },
+      {
+        "id": "US-003",
+        "priorite": "MUST",
+        "action": "Utilisateur mobile peut s'inscrire en moins de 30 s",
+        "outcome": "Drop-off onboarding < 20 %",
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "titre": "Onboarding mobile en moins de 30 secondes"
+          }
+        ],
+        "count": 1
+      },
+      {
+        "id": "US-004",
+        "priorite": "SHOULD",
+        "action": "Marketing EU peut consulter analytics 30j",
+        "outcome": "Rétention J+30 >= 55 %",
+        "intents": [
+          {
+            "id": "INTENT-103-retention-30j",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "titre": "Rétention J+30 stabilisée à 55 %"
+          }
+        ],
+        "count": 1
+      },
+      {
+        "id": "US-005",
+        "priorite": "SHOULD",
+        "action": "Dev peut intégrer via API REST documentée",
+        "outcome": "100 % endpoints couverts OpenAPI",
+        "intents": [],
+        "count": 0
+      },
+      {
+        "id": "US-006",
+        "priorite": "COULD",
+        "action": "RSSI peut auditer les liens créés",
+        "outcome": "Logs exportables CSV/JSON",
+        "intents": [],
+        "count": 0
+      }
+    ],
+    "outcomes": [
+      {
+        "critere": "Latence p95 redirect",
+        "baseline": "180 ms",
+        "cible": "< 50 ms",
+        "methode": "sondes synthétiques",
+        "intents": [],
+        "count": 0
+      },
+      {
+        "critere": "Conversion checkout",
+        "baseline": "62 %",
+        "cible": "> 70 %",
+        "methode": "analytics interne",
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "titre": "Améliorer la conversion du checkout"
+          }
+        ],
+        "count": 1
+      },
+      {
+        "critere": "Rétention J+30",
+        "baseline": "38-52 %",
+        "cible": ">= 55 % stable",
+        "methode": "cohortes hebdo",
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "titre": "Onboarding mobile en moins de 30 secondes"
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "titre": "Rétention J+30 stabilisée à 55 %"
+          }
+        ],
+        "count": 2
+      },
+      {
+        "critere": "Drop-off onboarding mobile",
+        "baseline": "38 %",
+        "cible": "< 20 %",
+        "methode": "analytics funnel",
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "titre": "Onboarding mobile en moins de 30 secondes"
+          }
+        ],
+        "count": 1
+      }
+    ],
+    "totaux": {
+      "personas": 4,
+      "personasCouvertes": 2,
+      "userStories": 6,
+      "userStoriesCouvertes": 3,
+      "outcomes": 4,
+      "outcomesCouverts": 3
+    }
+  },
+  "demoReadiness": {
+    "lastDemo": null,
+    "intents": [],
+    "specs": [
+      {
+        "id": "SPEC-101-1-formulaire-paiement",
+        "titre": "Formulaire de paiement v2",
+        "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+        "mtime": 1778833555394.2512,
+        "parentIntent": "INTENT-101"
+      }
+    ],
+    "total": 1
+  },
+  "personaDrill": [
+    {
+      "nom": "Marketing EU",
+      "besoin": "Raccourcir un lien tracker pour campagne email",
+      "resultat": "URL courte créée en moins de 3 s, analytics 30j conformes RGPD",
+      "intents": {
+        "draft": [],
+        "active": [
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "statut": "active",
+            "done": 0,
+            "total": 1,
+            "ratio": 0
+          }
+        ],
+        "done": [],
+        "archived": [],
+        "unknown": []
+      },
+      "totaux": {
+        "total": 1,
+        "actifs": 1,
+        "livres": 0
+      },
+      "etat": "couvert"
+    },
+    {
+      "nom": "RSSI",
+      "besoin": "Auditer l'usage de URL shorteners dans l'entreprise",
+      "resultat": "Tableau de bord conformité avec logs souverains",
+      "intents": {
+        "draft": [],
+        "active": [],
+        "done": [],
+        "archived": [],
+        "unknown": []
+      },
+      "totaux": {
+        "total": 0,
+        "actifs": 0,
+        "livres": 0
+      },
+      "etat": "orphelin"
+    },
+    {
+      "nom": "Acheteur SMB",
+      "besoin": "Acheter un plan annuel",
+      "resultat": "Facture conforme EU, paiement SEPA, support FR",
+      "intents": {
+        "draft": [],
+        "active": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "statut": "active",
+            "done": 1,
+            "total": 2,
+            "ratio": 0.5
+          }
+        ],
+        "done": [],
+        "archived": [],
+        "unknown": []
+      },
+      "totaux": {
+        "total": 1,
+        "actifs": 1,
+        "livres": 0
+      },
+      "etat": "couvert"
+    },
+    {
+      "nom": "Dev API consumer",
+      "besoin": "Intégrer le shortener à son outil maison",
+      "resultat": "API REST documentée OpenAPI 3.1",
+      "intents": {
+        "draft": [],
+        "active": [],
+        "done": [],
+        "archived": [],
+        "unknown": []
+      },
+      "totaux": {
+        "total": 0,
+        "actifs": 0,
+        "livres": 0
+      },
+      "etat": "orphelin"
+    }
+  ],
+  "deadlines": {
+    "buckets": {
+      "retard": [],
+      "urgent": [
+        {
+          "id": "INTENT-101-conversion-checkout",
+          "titre": "Améliorer la conversion du checkout",
+          "statut": "active",
+          "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+          "target": "Q2-2026",
+          "target_date": "2026-05-25",
+          "joursRestants": 10
+        }
+      ],
+      "proche": [
+        {
+          "id": "INTENT-102-onboarding-mobile",
+          "titre": "Onboarding mobile en moins de 30 secondes",
+          "statut": "running",
+          "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+          "target": "Q3-2026",
+          "target_date": "2026-06-10",
+          "joursRestants": 26
+        }
+      ],
+      "planifie": [
+        {
+          "id": "INTENT-103-retention-30j",
+          "titre": "Rétention J+30 stabilisée à 55 %",
+          "statut": "active",
+          "file": ".aiad/intents/INTENT-103-retention-30j.md",
+          "target": "Q3-2026",
+          "target_date": null,
+          "joursRestants": 139
+        }
+      ],
+      "sans-cible": [],
+      "livre": []
+    },
+    "totaux": {
+      "retard": 0,
+      "urgent": 1,
+      "proche": 1,
+      "planifie": 1,
+      "sansCible": 0,
+      "livre": 0
+    }
+  },
+  "pmDiff": {
+    "diff": {
+      "intents": {
+        "nouveaux": [
+          {
+            "id": "INTENT-103-retention-30j",
+            "statut": "active"
+          }
+        ],
+        "passesActifs": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "de": "draft"
+          }
+        ],
+        "passesDone": [],
+        "passesArchive": [],
+        "transitions": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "de": "draft",
+            "vers": "active"
+          },
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "de": "draft",
+            "vers": "running"
+          }
+        ]
+      },
+      "specs": {
+        "nouvelles": [
+          {
+            "id": "SPEC-101-2-relance-panier",
+            "statut": "in-progress",
+            "parentIntent": "INTENT-101"
+          },
+          {
+            "id": "SPEC-103-1-relance-email",
+            "statut": "ready",
+            "parentIntent": "INTENT-103"
+          }
+        ],
+        "passesDone": [
+          {
+            "id": "SPEC-101-1-formulaire-paiement",
+            "de": "in-progress",
+            "parentIntent": "INTENT-101"
+          }
+        ],
+        "transitions": [
+          {
+            "id": "SPEC-101-1-formulaire-paiement",
+            "de": "in-progress",
+            "vers": "done",
+            "parentIntent": "INTENT-101"
+          }
+        ]
+      }
+    },
+    "reference": {
+      "date": "2026-05-08",
+      "fichier": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener/.aiad/metrics/pm-snapshots/2026-05-08.json",
+      "data": {
+        "date": "2026-05-08",
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "statut": "draft"
+          },
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "statut": "draft"
+          }
+        ],
+        "specs": [
+          {
+            "id": "SPEC-101-1-formulaire-paiement",
+            "statut": "in-progress",
+            "parentIntent": "INTENT-101"
+          }
+        ]
+      },
+      "mtime": 1778837095702.2168,
+      "delta": 1
+    },
+    "courant": {
+      "date": "2026-05-15",
+      "fichier": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener/.aiad/metrics/pm-snapshots/2026-05-15.json",
+      "data": {
+        "date": "2026-05-15",
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "statut": "active"
+          },
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "statut": "running"
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "statut": "active"
+          }
+        ],
+        "specs": [
+          {
+            "id": "SPEC-101-1-formulaire-paiement",
+            "statut": "done",
+            "parentIntent": "INTENT-101"
+          },
+          {
+            "id": "SPEC-101-2-relance-panier",
+            "statut": "in-progress",
+            "parentIntent": "INTENT-101"
+          },
+          {
+            "id": "SPEC-103-1-relance-email",
+            "statut": "ready",
+            "parentIntent": "INTENT-103"
+          }
+        ]
+      },
+      "mtime": 1778852735171.9692
+    },
+    "totalChangements": 6
+  },
+  "intentDeps": {
+    "intents": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "statut": "active",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "bloquePar": [],
+        "bloque": [],
+        "bloqueActif": false
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "statut": "running",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "bloquePar": [],
+        "bloque": [
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "statut": "active",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md"
+          }
+        ],
+        "bloqueActif": false
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "statut": "active",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "bloquePar": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "statut": "running",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "livre": false
+          }
+        ],
+        "bloque": [],
+        "bloqueActif": true
+      }
+    ],
+    "avecDeps": [
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "statut": "running",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "bloquePar": [],
+        "bloque": [
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "statut": "active",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md"
+          }
+        ],
+        "bloqueActif": false
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "statut": "active",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "bloquePar": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "statut": "running",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "livre": false
+          }
+        ],
+        "bloque": [],
+        "bloqueActif": true
+      }
+    ],
+    "cycles": [],
+    "totaux": {
+      "avecDeps": 2,
+      "bloquesActifs": 1,
+      "cycles": 0
+    }
+  },
+  "ownership": {
+    "owners": [
+      {
+        "nom": "Steeve",
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "statut": "active",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md"
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "statut": "active",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md"
+          }
+        ],
+        "totaux": {
+          "total": 2,
+          "actifs": 2,
+          "livres": 0
+        }
+      },
+      {
+        "nom": "Alice",
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "statut": "running",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md"
+          }
+        ],
+        "totaux": {
+          "total": 1,
+          "actifs": 1,
+          "livres": 0
+        }
+      }
+    ],
+    "totaux": {
+      "ownersReels": 2,
+      "sansOwner": 0
+    }
+  },
+  "bottlenecks": {
+    "intents": [],
+    "specs": [],
+    "total": 0,
+    "seuils": {
+      "intent": {
+        "draft": {
+          "count": 5,
+          "age": 14
+        },
+        "active": {
+          "count": 8,
+          "age": 30
+        }
+      },
+      "spec": {
+        "draft": {
+          "count": 5,
+          "age": 7
+        },
+        "ready": {
+          "count": 5,
+          "age": 14
+        },
+        "review": {
+          "count": 3,
+          "age": 7
+        },
+        "in-progress": {
+          "count": 4,
+          "age": 14
+        },
+        "validation": {
+          "count": 3,
+          "age": 7
+        }
+      }
+    }
+  },
+  "sponsors": {
+    "sponsors": [
+      {
+        "nom": "Direction Marketing",
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "statut": "running",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "priority": "P1"
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "statut": "active",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "priority": "P2"
+          }
+        ],
+        "totaux": {
+          "total": 2,
+          "actifs": 1,
+          "drafts": 0,
+          "livres": 0
+        }
+      },
+      {
+        "nom": "Direction Sales",
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "statut": "active",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "priority": "P0"
+          }
+        ],
+        "totaux": {
+          "total": 1,
+          "actifs": 1,
+          "drafts": 0,
+          "livres": 0
+        }
+      }
+    ],
+    "totaux": {
+      "sponsors": 2,
+      "sansSponsor": 0
+    }
+  },
+  "cycleTime": {
+    "stats": null,
+    "livres": [],
+    "enCours": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "ageJours": 8,
+        "statut": "active"
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "ageJours": 8,
+        "statut": "running"
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "ageJours": 6,
+        "statut": "active"
+      }
+    ],
+    "plusLents": [],
+    "ageEnCours": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "ageJours": 8,
+        "statut": "active"
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "ageJours": 8,
+        "statut": "running"
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "ageJours": 6,
+        "statut": "active"
+      }
+    ]
+  },
+  "risks": {
+    "intents": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "niveau": "high",
+        "risques": [
+          {
+            "texte": "Dépendance Stripe pour SEPA",
+            "source": "frontmatter",
+            "niveau": "high"
+          },
+          {
+            "texte": "RGPD consent management",
+            "source": "frontmatter",
+            "niveau": "high"
+          },
+          {
+            "texte": "Réglementaire (mot-clé \"rgpd\")",
+            "source": "heuristique",
+            "niveau": "high",
+            "categorie": "Réglementaire",
+            "motCle": "rgpd"
+          }
+        ],
+        "countExplicites": 2,
+        "countHeuristiques": 1
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statut": "running",
+        "niveau": "high",
+        "risques": [
+          {
+            "texte": "Réglementaire (mot-clé \"rgpd\")",
+            "source": "heuristique",
+            "niveau": "high",
+            "categorie": "Réglementaire",
+            "motCle": "rgpd"
+          },
+          {
+            "texte": "Accessibilité (mot-clé \"wcag\")",
+            "source": "heuristique",
+            "niveau": "medium",
+            "categorie": "Accessibilité",
+            "motCle": "wcag"
+          }
+        ],
+        "countExplicites": 0,
+        "countHeuristiques": 2
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "niveau": "medium",
+        "risques": [],
+        "countExplicites": 0,
+        "countHeuristiques": 0
+      }
+    ],
+    "totaux": {
+      "intentsAvecRisques": 3,
+      "critical": 0,
+      "high": 2,
+      "medium": 1,
+      "low": 0,
+      "unknown": 0
+    }
+  },
+  "hypotheses": {
+    "hypotheses": [
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statutIntent": "active",
+        "hypothese": "Une boucle email à J+7 sur les utilisateurs inactifs augmentera la rétention J+30 à >55 %",
+        "source": "frontmatter",
+        "statut": "partial"
+      },
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statutIntent": "active",
+        "hypothese": "Si on simplifie le checkout à 2 étapes, la conversion remontera à >70 %",
+        "source": "frontmatter",
+        "statut": "untested"
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statutIntent": "running",
+        "hypothese": "Si on simplifie l'onboarding mobile à 3 écrans (vs 5), le drop-off baisse de 38% à <20%",
+        "source": "frontmatter",
+        "statut": "untested"
+      }
+    ],
+    "totaux": {
+      "validated": 0,
+      "invalidated": 0,
+      "untested": 2,
+      "partial": 1,
+      "total": 3
+    }
+  },
+  "riceMatrix": {
+    "points": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "impact": 10,
+        "effort": 4.8,
+        "quadrant": "quick-wins"
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statut": "running",
+        "impact": 7,
+        "effort": 1,
+        "quadrant": "quick-wins"
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "impact": 3.8,
+        "effort": 2,
+        "quadrant": "fill-ins"
+      }
+    ],
+    "totaux": {
+      "quick-wins": 2,
+      "big-bets": 0,
+      "fill-ins": 1,
+      "time-sinks": 0
+    }
+  },
+  "decisionLog": {
+    "prd": {
+      "fichier": ".aiad/PRD.md",
+      "total": 3,
+      "decisions": [
+        {
+          "decision": "Hébergement OVH FR uniquement",
+          "raison": "Souveraineté EU stricte",
+          "tradeoff": "-20 % perf APAC / +0 risque RGPD"
+        },
+        {
+          "decision": "Pas de plan gratuit illimité",
+          "raison": "Modèle SMB rentable dès le 1er mois",
+          "tradeoff": "-10 % adoption initiale / +30 % LTV"
+        },
+        {
+          "decision": "Paiement SEPA prioritaire avant CB",
+          "raison": "Public cible SMB EU = comptes pros SEPA",
+          "tradeoff": "+2 sem dev / +12 % conversion EU"
+        }
+      ]
+    },
+    "facts": [
+      {
+        "id": "FACT-001-cnil-retention",
+        "titre": "FACT-001 — Logs analytics conservés au-delà des 13 mois CNIL",
+        "gravite": "major",
+        "statut": "open",
+        "cause": "Job de purge des logs analytics non programmé en cron",
+        "file": ".aiad/facts/FACT-001-cnil-retention.md",
+        "date": "2026-05-05",
+        "mtime": null
+      }
+    ],
+    "totaux": {
+      "decisionsPrd": 3,
+      "facts": 1,
+      "factsOuverts": 1
+    }
+  },
+  "stickyAlerts": {
+    "alertes": [
+      {
+        "niveau": "warn",
+        "texte": "1 Intent(s) urgent(s) (≤ 14j)",
+        "ancre": "#echeances-intent"
+      }
+    ],
+    "total": 1,
+    "masquees": 0,
+    "critiques": 0
+  },
+  "recentActivity": {
+    "items": [
+      {
+        "type": "Intent",
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "mtime": 1778852592144.8154,
+        "ageMs": 143028.1845703125,
+        "ageHumain": "il y a 2 min"
+      },
+      {
+        "type": "Intent",
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statut": "running",
+        "mtime": 1778849739242.9475,
+        "ageMs": 2995930.0524902344,
+        "ageHumain": "il y a 50 min"
+      },
+      {
+        "type": "Intent",
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "mtime": 1778845222031.1401,
+        "ageMs": 7513141.859863281,
+        "ageHumain": "il y a 2 h"
+      },
+      {
+        "type": "SPEC",
+        "id": "SPEC-103-1-relance-email",
+        "titre": "Email de relance semaine 2",
+        "file": ".aiad/specs/SPEC-103-1-relance-email.md",
+        "statut": "ready",
+        "mtime": 1778833560826.2664,
+        "parentIntent": "INTENT-103",
+        "ageMs": 19174346.733642578,
+        "ageHumain": "il y a 5 h"
+      },
+      {
+        "type": "SPEC",
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+        "statut": "in-progress",
+        "mtime": 1778833557808.8782,
+        "parentIntent": "INTENT-101",
+        "ageMs": 19177364.121826172,
+        "ageHumain": "il y a 5 h"
+      },
+      {
+        "type": "SPEC",
+        "id": "SPEC-101-1-formulaire-paiement",
+        "titre": "Formulaire de paiement v2",
+        "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+        "statut": "done",
+        "mtime": 1778833555394.2512,
+        "parentIntent": "INTENT-101",
+        "ageMs": 19179778.748779297,
+        "ageHumain": "il y a 5 h"
+      }
+    ],
+    "totaux": {
+      "intents": 3,
+      "specs": 3,
+      "facts": 0
+    }
+  },
+  "cumulativeFlow": {
+    "points": [
+      {
+        "date": "2026-05-08",
+        "par": {
+          "draft": 2,
+          "active": 0,
+          "review": 0,
+          "in-progress": 0,
+          "validation": 0,
+          "done": 0,
+          "archived": 0,
+          "unknown": 0
+        }
+      },
+      {
+        "date": "2026-05-10",
+        "par": {
+          "draft": 3,
+          "active": 0,
+          "review": 0,
+          "in-progress": 0,
+          "validation": 0,
+          "done": 0,
+          "archived": 0,
+          "unknown": 0
+        }
+      },
+      {
+        "date": "2026-05-12",
+        "par": {
+          "draft": 2,
+          "active": 1,
+          "review": 0,
+          "in-progress": 0,
+          "validation": 0,
+          "done": 0,
+          "archived": 0,
+          "unknown": 0
+        }
+      },
+      {
+        "date": "2026-05-15",
+        "par": {
+          "draft": 0,
+          "active": 2,
+          "review": 0,
+          "in-progress": 0,
+          "validation": 0,
+          "done": 0,
+          "archived": 0,
+          "unknown": 1
+        }
+      }
+    ],
+    "statuts": [
+      "draft",
+      "active"
+    ],
+    "snapshots": 4
+  },
+  "okrMapping": {
+    "fichier": ".aiad/OKR.md",
+    "objectifs": [
+      {
+        "id": "O-1",
+        "description": "Devenir le raccourcisseur souverain EU de référence",
+        "keyResults": [
+          {
+            "id": "KR-1.1",
+            "description": "Atteindre 10k utilisateurs actifs mensuels",
+            "intents": [
+              {
+                "id": "INTENT-102-onboarding-mobile",
+                "titre": "Onboarding mobile en moins de 30 secondes"
+              }
+            ]
+          },
+          {
+            "id": "KR-1.2",
+            "description": "Conversion checkout > 70 %",
+            "intents": [
+              {
+                "id": "INTENT-101-conversion-checkout",
+                "titre": "Améliorer la conversion du checkout"
+              }
+            ]
+          },
+          {
+            "id": "KR-1.3",
+            "description": "Rétention J+30 stabilisée à 55 %",
+            "intents": [
+              {
+                "id": "INTENT-102-onboarding-mobile",
+                "titre": "Onboarding mobile en moins de 30 secondes"
+              },
+              {
+                "id": "INTENT-103-retention-30j",
+                "titre": "Rétention J+30 stabilisée à 55 %"
+              }
+            ]
+          }
+        ],
+        "intentsDirect": []
+      },
+      {
+        "id": "O-2",
+        "description": "Solidifier la promesse de conformité",
+        "keyResults": [
+          {
+            "id": "KR-2.1",
+            "description": "100 % hébergement EU vérifié par audit CNIL",
+            "intents": []
+          },
+          {
+            "id": "KR-2.2",
+            "description": "Réduire la latence p95 redirect sous 50 ms",
+            "intents": []
+          }
+        ],
+        "intentsDirect": []
+      }
+    ],
+    "orphelines": [],
+    "totaux": {
+      "objectifs": 2,
+      "keyResults": 5,
+      "intentsAlignes": 3,
+      "intentsTotal": 3,
+      "orphelines": 0
+    }
+  },
+  "discoveryBoard": {
+    "discovery": [
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "hypothese": "Une boucle email à J+7 sur les utilisateurs inactifs augmentera la rétention J+30 à >55 %",
+        "hypothesisStatus": "partial"
+      }
+    ],
+    "experiment": [
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statut": "running",
+        "hypothese": "Si on simplifie l'onboarding mobile à 3 écrans (vs 5), le drop-off baisse de 38% à <20%",
+        "hypothesisStatus": null
+      }
+    ],
+    "spike": [],
+    "research": [],
+    "prototype": [],
+    "delivery": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "hypothese": "Si on simplifie le checkout à 2 étapes, la conversion remontera à >70 %",
+        "hypothesisStatus": "untested"
+      }
+    ],
+    "totaux": {
+      "discovery": 2,
+      "delivery": 1,
+      "total": 3
+    }
+  },
+  "tagCloud": {
+    "tags": [
+      {
+        "tag": "growth",
+        "count": 2,
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "statut": "running"
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "statut": "active"
+          }
+        ]
+      },
+      {
+        "tag": "mobile",
+        "count": 2,
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "statut": "active"
+          },
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "statut": "running"
+          }
+        ]
+      },
+      {
+        "tag": "q3",
+        "count": 2,
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "statut": "running"
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "statut": "active"
+          }
+        ]
+      },
+      {
+        "tag": "conversion",
+        "count": 1,
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "statut": "active"
+          }
+        ]
+      },
+      {
+        "tag": "email",
+        "count": 1,
+        "intents": [
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "statut": "active"
+          }
+        ]
+      },
+      {
+        "tag": "llm",
+        "count": 1,
+        "intents": [
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "statut": "active"
+          }
+        ]
+      },
+      {
+        "tag": "onboarding",
+        "count": 1,
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "statut": "running"
+          }
+        ]
+      },
+      {
+        "tag": "paiement",
+        "count": 1,
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "statut": "active"
+          }
+        ]
+      },
+      {
+        "tag": "q2",
+        "count": 1,
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "statut": "active"
+          }
+        ]
+      },
+      {
+        "tag": "retention",
+        "count": 1,
+        "intents": [
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "statut": "active"
+          }
+        ]
+      },
+      {
+        "tag": "sepa",
+        "count": 1,
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "statut": "active"
+          }
+        ]
+      }
+    ],
+    "totaux": {
+      "tagsUniques": 11,
+      "intentsAvecTag": 3,
+      "intentsTotal": 3
+    }
+  },
+  "burnupChart": {
+    "points": [
+      {
+        "date": "2026-05-08",
+        "total": 2,
+        "done": 0
+      },
+      {
+        "date": "2026-05-10",
+        "total": 3,
+        "done": 0
+      },
+      {
+        "date": "2026-05-12",
+        "total": 3,
+        "done": 0
+      },
+      {
+        "date": "2026-05-15",
+        "total": 3,
+        "done": 0
+      }
+    ],
+    "estimation": {
+      "vitesse": 0,
+      "date": null,
+      "note": "vélocité ≤ 0 — pas d'estimation"
+    },
+    "snapshots": 4
+  },
+  "refinement": {
+    "items": [
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "raisons": [
+          {
+            "key": "bloque-actif",
+            "gravite": "medium",
+            "label": "Bloqué par une dépendance ouverte",
+            "action": "Discuter en standup, prioriser la dépendance."
+          }
+        ],
+        "pireGravite": "medium"
+      }
+    ],
+    "totaux": {
+      "total": 1,
+      "high": 0,
+      "medium": 1,
+      "low": 0
+    }
+  },
+  "capacityPlanner": {
+    "capacite": 10,
+    "capaciteSource": "défaut (2 Intents × 5 PE)",
+    "buckets": [
+      {
+        "quarter": {
+          "year": 2026,
+          "quarter": 1
+        },
+        "label": "Q1-2026",
+        "cle": 8104,
+        "charge": 0,
+        "intents": [],
+        "capacite": 10,
+        "ratio": 0,
+        "etat": "sous-utilise"
+      },
+      {
+        "quarter": {
+          "year": 2026,
+          "quarter": 2
+        },
+        "label": "Q2-2026",
+        "cle": 8105,
+        "charge": 1,
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "titre": "Améliorer la conversion du checkout",
+            "statut": "active"
+          }
+        ],
+        "capacite": 10,
+        "ratio": 0.1,
+        "etat": "sous-utilise"
+      },
+      {
+        "quarter": {
+          "year": 2026,
+          "quarter": 3
+        },
+        "label": "Q3-2026",
+        "cle": 8106,
+        "charge": 1,
+        "intents": [
+          {
+            "id": "INTENT-103-retention-30j",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "statut": "active"
+          }
+        ],
+        "capacite": 10,
+        "ratio": 0.1,
+        "etat": "sous-utilise"
+      },
+      {
+        "quarter": {
+          "year": 2026,
+          "quarter": 4
+        },
+        "label": "Q4-2026",
+        "cle": 8107,
+        "charge": 0,
+        "intents": [],
+        "capacite": 10,
+        "ratio": 0,
+        "etat": "sous-utilise"
+      },
+      {
+        "quarter": {
+          "year": 2027,
+          "quarter": 1
+        },
+        "label": "Q1-2027",
+        "cle": 8108,
+        "charge": 0,
+        "intents": [],
+        "capacite": 10,
+        "ratio": 0,
+        "etat": "sous-utilise"
+      }
+    ],
+    "totaux": {
+      "satures": 0,
+      "sansQuarter": 0
+    }
+  },
+  "confidenceTracker": {
+    "items": [
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "pct": 45,
+        "bande": "faible",
+        "hypothese": "Une boucle email à J+7 sur les utilisateurs inactifs augmentera la rétention J+30 à >55 %",
+        "hypStatut": "partial"
+      },
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "pct": 65,
+        "bande": "raisonnable",
+        "hypothese": "Si on simplifie le checkout à 2 étapes, la conversion remontera à >70 %",
+        "hypStatut": "untested"
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statut": "running",
+        "pct": 30,
+        "bande": "faible",
+        "hypothese": "Si on simplifie l'onboarding mobile à 3 écrans (vs 5), le drop-off baisse de 38% à <20%",
+        "hypStatut": "untested"
+      }
+    ],
+    "totaux": {
+      "total": 3,
+      "paris": 1,
+      "solides": 0
+    }
+  },
+  "pmJournal": {
+    "fichier": ".aiad/metrics/pm-journal",
+    "entries": [
+      {
+        "date": "2026-05-15",
+        "fichier": ".aiad/metrics/pm-journal/2026-05-15.md",
+        "contenu": "# 2026-05-15\n\n## Décisions\n\n- Confirmé le découpage INTENT-101 en 2 SPECs (formulaire-paiement + relance-panier).\n- **Reorganized** target_date INTENT-101 → 2026-05-25 (J-10) — alignement sprint courant.\n\n## Notes\n\n- Cockpit PM monte à 37 sections — UX devient un sujet, à raffiner avec le TOC (#441).\n",
+        "items": 3,
+        "mtime": 1778845247902.5645
+      },
+      {
+        "date": "2026-05-14",
+        "fichier": ".aiad/metrics/pm-journal/2026-05-14.md",
+        "contenu": "# 2026-05-14\n\n## Décisions\n\n- **Validé** la priorité P0 sur INTENT-101 (conversion checkout) — sponsor Direction Sales confirme l'urgence pour Q2.\n- Reporté INTENT-102 onboarding mobile à Q3 — pas assez de capacité dev ce trimestre, alignement OKR KR-1.1.\n\n## Blockers\n\n- INTENT-103 bloqué par INTENT-102 (en draft). Discuter en standup demain.\n- *Latence p95 redirect* n'a aucun Intent rattaché — OKR KR-2.2 orphelin, à corriger.\n\n## Notes utilisateur\n\n- Interview Marketing EU (Alice Martin, 14h) : friction sur l'onboarding mobile, drop-off à 38 % confirmé.\n- Acheteur SMB (Bob Durand) demande paiement SEPA prioritaire avant CB — cohérent avec décision PRD §7.\n",
+        "items": 6,
+        "mtime": 1778845244377.2234
+      }
+    ],
+    "totalEntries": 9,
+    "totalJours": 2
+  },
+  "smartSuggestions": {
+    "clusters": [
+      {
+        "type": "okr",
+        "cle": "KR-1.3",
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "statut": "running"
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "statut": "active"
+          }
+        ],
+        "action": "Considérer une revue conjointe — ces Intents servent tous KR-1.3."
+      }
+    ],
+    "totaux": {
+      "total": 1,
+      "okr": 1,
+      "persona": 0,
+      "tag": 0,
+      "doublon": 0
+    }
+  },
+  "activityHeatmap": {
+    "jours": [
+      {
+        "date": "2026-03-17",
+        "dow": 2,
+        "count": 0
+      },
+      {
+        "date": "2026-03-18",
+        "dow": 3,
+        "count": 0
+      },
+      {
+        "date": "2026-03-19",
+        "dow": 4,
+        "count": 0
+      },
+      {
+        "date": "2026-03-20",
+        "dow": 5,
+        "count": 0
+      },
+      {
+        "date": "2026-03-21",
+        "dow": 6,
+        "count": 0
+      },
+      {
+        "date": "2026-03-22",
+        "dow": 0,
+        "count": 0
+      },
+      {
+        "date": "2026-03-23",
+        "dow": 1,
+        "count": 0
+      },
+      {
+        "date": "2026-03-24",
+        "dow": 2,
+        "count": 0
+      },
+      {
+        "date": "2026-03-25",
+        "dow": 3,
+        "count": 0
+      },
+      {
+        "date": "2026-03-26",
+        "dow": 4,
+        "count": 0
+      },
+      {
+        "date": "2026-03-27",
+        "dow": 5,
+        "count": 0
+      },
+      {
+        "date": "2026-03-28",
+        "dow": 6,
+        "count": 0
+      },
+      {
+        "date": "2026-03-29",
+        "dow": 0,
+        "count": 0
+      },
+      {
+        "date": "2026-03-30",
+        "dow": 1,
+        "count": 0
+      },
+      {
+        "date": "2026-03-31",
+        "dow": 2,
+        "count": 0
+      },
+      {
+        "date": "2026-04-01",
+        "dow": 3,
+        "count": 0
+      },
+      {
+        "date": "2026-04-02",
+        "dow": 4,
+        "count": 0
+      },
+      {
+        "date": "2026-04-03",
+        "dow": 5,
+        "count": 0
+      },
+      {
+        "date": "2026-04-04",
+        "dow": 6,
+        "count": 0
+      },
+      {
+        "date": "2026-04-05",
+        "dow": 0,
+        "count": 0
+      },
+      {
+        "date": "2026-04-06",
+        "dow": 1,
+        "count": 0
+      },
+      {
+        "date": "2026-04-07",
+        "dow": 2,
+        "count": 0
+      },
+      {
+        "date": "2026-04-08",
+        "dow": 3,
+        "count": 0
+      },
+      {
+        "date": "2026-04-09",
+        "dow": 4,
+        "count": 0
+      },
+      {
+        "date": "2026-04-10",
+        "dow": 5,
+        "count": 0
+      },
+      {
+        "date": "2026-04-11",
+        "dow": 6,
+        "count": 0
+      },
+      {
+        "date": "2026-04-12",
+        "dow": 0,
+        "count": 0
+      },
+      {
+        "date": "2026-04-13",
+        "dow": 1,
+        "count": 0
+      },
+      {
+        "date": "2026-04-14",
+        "dow": 2,
+        "count": 0
+      },
+      {
+        "date": "2026-04-15",
+        "dow": 3,
+        "count": 0
+      },
+      {
+        "date": "2026-04-16",
+        "dow": 4,
+        "count": 0
+      },
+      {
+        "date": "2026-04-17",
+        "dow": 5,
+        "count": 0
+      },
+      {
+        "date": "2026-04-18",
+        "dow": 6,
+        "count": 0
+      },
+      {
+        "date": "2026-04-19",
+        "dow": 0,
+        "count": 0
+      },
+      {
+        "date": "2026-04-20",
+        "dow": 1,
+        "count": 0
+      },
+      {
+        "date": "2026-04-21",
+        "dow": 2,
+        "count": 0
+      },
+      {
+        "date": "2026-04-22",
+        "dow": 3,
+        "count": 0
+      },
+      {
+        "date": "2026-04-23",
+        "dow": 4,
+        "count": 0
+      },
+      {
+        "date": "2026-04-24",
+        "dow": 5,
+        "count": 0
+      },
+      {
+        "date": "2026-04-25",
+        "dow": 6,
+        "count": 0
+      },
+      {
+        "date": "2026-04-26",
+        "dow": 0,
+        "count": 0
+      },
+      {
+        "date": "2026-04-27",
+        "dow": 1,
+        "count": 0
+      },
+      {
+        "date": "2026-04-28",
+        "dow": 2,
+        "count": 0
+      },
+      {
+        "date": "2026-04-29",
+        "dow": 3,
+        "count": 0
+      },
+      {
+        "date": "2026-04-30",
+        "dow": 4,
+        "count": 0
+      },
+      {
+        "date": "2026-05-01",
+        "dow": 5,
+        "count": 0
+      },
+      {
+        "date": "2026-05-02",
+        "dow": 6,
+        "count": 0
+      },
+      {
+        "date": "2026-05-03",
+        "dow": 0,
+        "count": 0
+      },
+      {
+        "date": "2026-05-04",
+        "dow": 1,
+        "count": 0
+      },
+      {
+        "date": "2026-05-05",
+        "dow": 2,
+        "count": 0
+      },
+      {
+        "date": "2026-05-06",
+        "dow": 3,
+        "count": 0
+      },
+      {
+        "date": "2026-05-07",
+        "dow": 4,
+        "count": 0
+      },
+      {
+        "date": "2026-05-08",
+        "dow": 5,
+        "count": 0
+      },
+      {
+        "date": "2026-05-09",
+        "dow": 6,
+        "count": 0
+      },
+      {
+        "date": "2026-05-10",
+        "dow": 0,
+        "count": 0
+      },
+      {
+        "date": "2026-05-11",
+        "dow": 1,
+        "count": 0
+      },
+      {
+        "date": "2026-05-12",
+        "dow": 2,
+        "count": 0
+      },
+      {
+        "date": "2026-05-13",
+        "dow": 3,
+        "count": 0
+      },
+      {
+        "date": "2026-05-14",
+        "dow": 4,
+        "count": 0
+      },
+      {
+        "date": "2026-05-15",
+        "dow": 5,
+        "count": 6
+      }
+    ],
+    "nbJours": 60,
+    "max": 6,
+    "total": 6,
+    "joursActifs": 1,
+    "streak": 1
+  },
+  "dailyFocus": {
+    "gravite": "warn",
+    "titre": "1 pari(s) risqué(s) en cours",
+    "action": "Valider ou abandonner l'hypothèse",
+    "ancre": "#confidence-tracker",
+    "source": "pari"
+  },
+  "quickLinks": {
+    "source": ".aiad/pm-links.yml",
+    "liens": [
+      {
+        "label": "Notion — Roadmap produit",
+        "url": "https://www.notion.so/tinr-ly/roadmap",
+        "icone": "📒",
+        "description": "Vision long terme, OKR Q3-Q4"
+      },
+      {
+        "label": "Slack #product",
+        "url": "https://tinr-ly.slack.com/archives/CPRODUCT",
+        "icone": "💬",
+        "description": "Canal feedback équipe"
+      },
+      {
+        "label": "Calendar — rituels PM",
+        "url": "https://calendar.google.com/calendar/r",
+        "icone": "📅",
+        "description": "Standup / demo / retro"
+      },
+      {
+        "label": "Linear — bugs ouverts",
+        "url": "https://linear.app/tinr-ly/team/PRODUCT",
+        "icone": "🐛",
+        "description": "Suivi tickets QA"
+      },
+      {
+        "label": "Figma — prototypes mobile",
+        "url": "https://www.figma.com/files/team/tinr-ly",
+        "icone": "🎨",
+        "description": "Maquettes INTENT-102"
+      },
+      {
+        "label": "CNIL audit access",
+        "url": "mailto:dpo@tinr.ly",
+        "icone": "📜",
+        "description": "Contact DPO conformité RGPD"
+      }
+    ]
+  },
+  "velocityComparison": {
+    "semaineCouranteDebut": "2026-05-11",
+    "semainePrecedenteDebut": "2026-05-04",
+    "intents": {
+      "courant": 0,
+      "precedent": 0,
+      "abs": 0,
+      "rel": 0,
+      "sens": "flat"
+    },
+    "specs": {
+      "courant": 1,
+      "precedent": 0,
+      "abs": 1,
+      "rel": null,
+      "sens": "up"
+    },
+    "historique": {
+      "intents": [
+        0,
+        0,
+        0
+      ],
+      "specs": [
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "wipLimit": {
+    "limit": {
+      "intents": 5,
+      "specs": 8,
+      "source": "défaut (5/8)"
+    },
+    "intents": {
+      "charge": 2,
+      "limite": 5,
+      "etat": "sain",
+      "items": [
+        {
+          "id": "INTENT-101-conversion-checkout",
+          "titre": "Améliorer la conversion du checkout",
+          "statut": "active",
+          "file": ".aiad/intents/INTENT-101-conversion-checkout.md"
+        },
+        {
+          "id": "INTENT-103-retention-30j",
+          "titre": "Rétention J+30 stabilisée à 55 %",
+          "statut": "active",
+          "file": ".aiad/intents/INTENT-103-retention-30j.md"
+        }
+      ]
+    },
+    "specs": {
+      "charge": 1,
+      "limite": 8,
+      "etat": "sain",
+      "items": [
+        {
+          "id": "SPEC-101-2-relance-panier",
+          "titre": "Relance panier abandonné",
+          "statut": "in-progress",
+          "file": ".aiad/specs/SPEC-101-2-relance-panier.md"
+        }
+      ]
+    }
+  },
+  "backlogFreshness": {
+    "items": [
+      {
+        "type": "Intent",
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "mtime": 1778845222031.1401,
+        "ageJours": 0,
+        "bande": "frais"
+      },
+      {
+        "type": "Intent",
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "mtime": 1778852592144.8154,
+        "ageJours": 0,
+        "bande": "frais"
+      },
+      {
+        "type": "SPEC",
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+        "statut": "in-progress",
+        "mtime": 1778833557808.8782,
+        "ageJours": 0,
+        "bande": "frais"
+      },
+      {
+        "type": "SPEC",
+        "id": "SPEC-103-1-relance-email",
+        "titre": "Email de relance semaine 2",
+        "file": ".aiad/specs/SPEC-103-1-relance-email.md",
+        "statut": "ready",
+        "mtime": 1778833560826.2664,
+        "ageJours": 0,
+        "bande": "frais"
+      }
+    ],
+    "totaux": {
+      "total": 4,
+      "abandonne": 0,
+      "stale": 0,
+      "tiede": 0,
+      "frais": 4
+    }
+  },
+  "goalTree": {
+    "northStar": "Devenir le raccourcisseur d'URL européen de référence : 10 000 utilisateurs actifs / mois en 12 mois, 100 % hébergement EU, RGPD by design.",
+    "outcomes": [
+      {
+        "id": "Latence p95 redirect",
+        "cible": "< 50 ms",
+        "baseline": "180 ms",
+        "etat": null,
+        "intents": []
+      },
+      {
+        "id": "Conversion checkout",
+        "cible": "> 70 %",
+        "baseline": "62 %",
+        "etat": null,
+        "intents": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "statut": "active",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "specs": [
+              {
+                "id": "SPEC-101-1-formulaire-paiement",
+                "titre": "Formulaire de paiement v2",
+                "statut": "done",
+                "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md"
+              },
+              {
+                "id": "SPEC-101-2-relance-panier",
+                "titre": "Relance panier abandonné",
+                "statut": "in-progress",
+                "file": ".aiad/specs/SPEC-101-2-relance-panier.md"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Rétention J+30",
+        "cible": ">= 55 % stable",
+        "baseline": "38-52 %",
+        "etat": null,
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "statut": "running",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "specs": []
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "statut": "active",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "specs": [
+              {
+                "id": "SPEC-103-1-relance-email",
+                "titre": "Email de relance semaine 2",
+                "statut": "ready",
+                "file": ".aiad/specs/SPEC-103-1-relance-email.md"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Drop-off onboarding mobile",
+        "cible": "< 20 %",
+        "baseline": "38 %",
+        "etat": null,
+        "intents": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "statut": "running",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "specs": []
+          }
+        ]
+      }
+    ],
+    "intentsOrphelins": [],
+    "totaux": {
+      "outcomes": 4,
+      "intentsLies": 3,
+      "intentsOrphelins": 0
+    }
+  },
+  "abTestTracker": {
+    "items": [
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "intentStatut": "running",
+        "hypothesis": "Si on simplifie l'onboarding mobile à 3 écrans (vs 5), le drop-off baisse de 38% à <20%",
+        "metric": null,
+        "variantA": null,
+        "variantB": null,
+        "statut": "unknown",
+        "startedAt": null,
+        "concludedAt": null,
+        "sampleSize": null,
+        "winner": null,
+        "resultSummary": null
+      }
+    ],
+    "totaux": {
+      "total": 1,
+      "running": 0,
+      "valides": 0,
+      "invalides": 0,
+      "inconcluants": 0
+    }
+  },
+  "riskBurndown": {
+    "points": [
+      {
+        "date": "2026-05-08",
+        "ouverts": 2
+      },
+      {
+        "date": "2026-05-10",
+        "ouverts": 3
+      },
+      {
+        "date": "2026-05-12",
+        "ouverts": 3
+      },
+      {
+        "date": "2026-05-15",
+        "ouverts": 3
+      }
+    ],
+    "snapshots": 4,
+    "totalRisques": 3,
+    "courantsOuverts": 3,
+    "tendance": "up"
+  },
+  "outcomeLeaderboard": {
+    "items": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "priority": "P0",
+        "score": 6.5,
+        "outcomesServis": 1,
+        "poidsPrio": 5,
+        "base": 5,
+        "bonus": 1.5
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statut": "running",
+        "priority": "P1",
+        "score": 6,
+        "outcomesServis": 2,
+        "poidsPrio": 3,
+        "base": 6,
+        "bonus": 0
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "priority": "P2",
+        "score": 2.5,
+        "outcomesServis": 1,
+        "poidsPrio": 2,
+        "base": 2,
+        "bonus": 0.5
+      }
+    ],
+    "totaux": {
+      "total": 3
+    }
+  },
+  "velocityForecast": {
+    "points": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 1,
+        "y": 0
+      },
+      {
+        "x": 2,
+        "y": 0
+      },
+      {
+        "x": 3,
+        "y": 0
+      },
+      {
+        "x": 4,
+        "y": 0
+      },
+      {
+        "x": 5,
+        "y": 1
+      }
+    ],
+    "forecast": [
+      {
+        "semaineIdx": 6,
+        "y": 0.7,
+        "yMin": 0.3,
+        "yMax": 1
+      },
+      {
+        "semaineIdx": 7,
+        "y": 0.8,
+        "yMin": 0.5,
+        "yMax": 1.2
+      },
+      {
+        "semaineIdx": 8,
+        "y": 1,
+        "yMin": 0.6,
+        "yMax": 1.3
+      },
+      {
+        "semaineIdx": 9,
+        "y": 1.1,
+        "yMin": 0.8,
+        "yMax": 1.4
+      },
+      {
+        "semaineIdx": 10,
+        "y": 1.2,
+        "yMin": 0.9,
+        "yMax": 1.6
+      },
+      {
+        "semaineIdx": 11,
+        "y": 1.4,
+        "yMin": 1,
+        "yMax": 1.7
+      }
+    ],
+    "reg": {
+      "slope": 0.14,
+      "intercept": -0.2,
+      "stdErr": 0.3
+    },
+    "rythmeMoyen": 0.2,
+    "projectionHorizon": 6.2,
+    "horizonSem": 6,
+    "fenetreSem": 6,
+    "restant": 2,
+    "etaSemaines": 3
+  },
+  "aiActCompliance": {
+    "items": [
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "isAi": true,
+        "niveau": "limited",
+        "source": "frontmatter",
+        "keywords": [],
+        "categories": []
+      }
+    ],
+    "totaux": {
+      "total": 1,
+      "unacceptable": 0,
+      "high": 0,
+      "limited": 1,
+      "minimal": 0,
+      "explicite": 1,
+      "heuristique": 0
+    }
+  },
+  "edgeCases": {
+    "totalItems": 0,
+    "totalCovered": 0,
+    "totalSpecs": 0,
+    "ratio": null,
+    "byspec": []
+  },
+  "perfBudgets": {
+    "fichier": null,
+    "total": 0,
+    "budgets": []
+  },
+  "santeGlobale": {
+    "score": 40,
+    "total": 100,
+    "scoreBrut": 32,
+    "maxBrut": 80,
+    "breakdown": [
+      {
+        "id": "maturite",
+        "label": "Maturité fondamentaux",
+        "max": 20,
+        "ratio": 0.6,
+        "points": 12,
+        "disponible": true
+      },
+      {
+        "id": "governance",
+        "label": "Couverture Tier 1",
+        "max": 20,
+        "ratio": 1,
+        "points": 20,
+        "disponible": true
+      },
+      {
+        "id": "dpo",
+        "label": "Coverage RGPD",
+        "max": 20,
+        "ratio": 0,
+        "points": 0,
+        "disponible": true
+      },
+      {
+        "id": "edgeCases",
+        "label": "Edge cases couverts",
+        "max": 20,
+        "ratio": null,
+        "points": 0,
+        "disponible": false
+      },
+      {
+        "id": "violations",
+        "label": "Conformité Tier 1",
+        "max": 20,
+        "ratio": 0,
+        "points": 0,
+        "disponible": true
+      }
+    ],
+    "niveau": "critique",
+    "composantesDisponibles": 4,
+    "evolution": {
+      "snapshots": 2,
+      "buckets": [
+        {
+          "semaine": "2026-02-23",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-03-02",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-03-09",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-03-16",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-03-23",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-03-30",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-04-06",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-04-13",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-04-20",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-04-27",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-05-04",
+          "samples": 0,
+          "score": null,
+          "niveau": null,
+          "valeur": null
+        },
+        {
+          "semaine": "2026-05-11",
+          "samples": 2,
+          "score": 40,
+          "niveau": "critique"
+        }
+      ],
+      "tendance": {
+        "sens": "unknown",
+        "delta": 0
+      },
+      "prune": {
+        "pruned": [],
+        "kept": 2
+      }
+    }
+  },
+  "adrsDrift": {
+    "referencesTotal": 0,
+    "orphelins": [],
+    "total": 0
+  },
+  "legalPacks": [
+    {
+      "id": "apac-baseline",
+      "agents": [
+        "AIAD-AU-PRIVACY",
+        "AIAD-JP-APPI",
+        "AIAD-SG-PDPA"
+      ],
+      "file": ".aiad/gouvernance-packs/apac-baseline"
+    },
+    {
+      "id": "be-apd",
+      "agents": [
+        "AIAD-BE-APD"
+      ],
+      "file": ".aiad/gouvernance-packs/be-apd"
+    },
+    {
+      "id": "ch-fadp",
+      "agents": [
+        "AIAD-CH-FADP"
+      ],
+      "file": ".aiad/gouvernance-packs/ch-fadp"
+    },
+    {
+      "id": "de-bsi",
+      "agents": [
+        "AIAD-BSI-C5",
+        "AIAD-BSI-IT-GRUNDSCHUTZ",
+        "AIAD-DE-BDSG",
+        "AIAD-DE-BFDI-EMPLOYEE"
+      ],
+      "file": ".aiad/gouvernance-packs/de-bsi"
+    },
+    {
+      "id": "es-aepd",
+      "agents": [
+        "AIAD-AEPD",
+        "AIAD-CCN-STIC",
+        "AIAD-ENS",
+        "AIAD-LOPDGDD"
+      ],
+      "file": ".aiad/gouvernance-packs/es-aepd"
+    },
+    {
+      "id": "eu-financial",
+      "agents": [
+        "AIAD-DORA",
+        "AIAD-MICA",
+        "AIAD-PSD2",
+        "AIAD-SFDR"
+      ],
+      "file": ".aiad/gouvernance-packs/eu-financial"
+    },
+    {
+      "id": "eu-platforms",
+      "agents": [
+        "AIAD-DSA"
+      ],
+      "file": ".aiad/gouvernance-packs/eu-platforms"
+    },
+    {
+      "id": "fr-anssi",
+      "agents": [
+        "AIAD-HOMOLOGATION",
+        "AIAD-PASSI",
+        "AIAD-RGS",
+        "AIAD-SECNUMCLOUD"
+      ],
+      "file": ".aiad/gouvernance-packs/fr-anssi"
+    },
+    {
+      "id": "iso-standards",
+      "agents": [
+        "AIAD-ISO-42001"
+      ],
+      "file": ".aiad/gouvernance-packs/iso-standards"
+    },
+    {
+      "id": "it-agid",
+      "agents": [
+        "AIAD-IT-AGID"
+      ],
+      "file": ".aiad/gouvernance-packs/it-agid"
+    },
+    {
+      "id": "latam-baseline",
+      "agents": [
+        "AIAD-BR-LGPD",
+        "AIAD-MX-LFPDPPP"
+      ],
+      "file": ".aiad/gouvernance-packs/latam-baseline"
+    },
+    {
+      "id": "nl-ap",
+      "agents": [
+        "AIAD-NL-AP"
+      ],
+      "file": ".aiad/gouvernance-packs/nl-ap"
+    },
+    {
+      "id": "uk-baseline",
+      "agents": [
+        "AIAD-UK-AI",
+        "AIAD-UK-DPA",
+        "AIAD-UK-EQA",
+        "AIAD-UK-ESG"
+      ],
+      "file": ".aiad/gouvernance-packs/uk-baseline"
+    },
+    {
+      "id": "us-baseline",
+      "agents": [
+        "AIAD-ADA",
+        "AIAD-HIPAA",
+        "AIAD-NIST-AI-RMF",
+        "AIAD-SOC2"
+      ],
+      "file": ".aiad/gouvernance-packs/us-baseline"
+    }
+  ],
+  "publicUrl": "",
+  "sourceBase": "",
+  "generatedAt": "2026-05-15T13:45:35.149Z"
+}

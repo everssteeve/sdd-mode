@@ -1,0 +1,42 @@
+# AIAD SDD Mode — Whitelist du hook pre-commit
+#
+# Liste des fichiers ignorés par le check Drift Lock (un pattern par ligne,
+# préfixé par "- "). À utiliser avec parcimonie : chaque exception affaiblit
+# le Drift Lock.
+#
+# Convention de matching (style gitignore) :
+#   - pattern sans "/"  → match sur le basename       (ex. "*.md", "package.json")
+#   - pattern avec "/"  → match sur le chemin complet (ex. "docs/**/*.md")
+#
+# Note : les artefacts AIAD (.aiad/specs/*, .aiad/intents/*, etc.) sont
+# classés AVANT la whitelist, donc un pattern large comme "*.md" ne masque
+# jamais une SPEC.
+
+patterns:
+  # Documentation racine
+  - "README.md"
+  - "CHANGELOG.md"
+  - "LICENSE"
+
+  # Manifestes et lockfiles (mises à jour de dépendances)
+  - "package.json"
+  - "package-lock.json"
+  - "pnpm-lock.yaml"
+  - "yarn.lock"
+  - "uv.lock"
+  - "poetry.lock"
+  - "Cargo.lock"
+  - "go.sum"
+
+  # Fichiers d'environnement de référence (jamais de secrets)
+  - ".env.example"
+  - ".gitignore"
+  - ".npmignore"
+  - ".editorconfig"
+
+  # Métriques générées automatiquement par les commandes /sdd-*
+  - ".aiad/metrics/**"
+  - ".aiad/facts/**"
+
+  # GitHub Actions (CI traceability v1.10)
+  - ".github/workflows/sdd-trace.yml"

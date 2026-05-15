@@ -1,0 +1,122 @@
+{
+  "_doc": "Catalogue des packs gouvernance verticaux premium AIAD. Ces packs ne sont PAS embarqués dans aiad-sdd (contenus réglementaires sous licences restrictives). Ils sont distribués séparément par leurs auteurs/éditeurs et installables via `aiad-sdd gouvernance --pack-from <chemin>` (#46) après obtention de la licence d'usage.",
+  "_version": 1,
+  "_updated": "2026-05-10",
+  "packs": [
+    {
+      "id": "eu-health",
+      "title": "Santé EU — HDS · ISO 27799 · MDR · IVDR",
+      "secteur": "Santé",
+      "juridiction": "Union européenne (focus France pour HDS)",
+      "couverture": [
+        "HDS — Hébergement de données de santé (référentiel ANS / DGOS, France)",
+        "ISO/IEC 27799 — gestion de la sécurité de l'information dans la santé",
+        "MDR — Règlement (UE) 2017/745 sur les dispositifs médicaux",
+        "IVDR — Règlement (UE) 2017/746 sur les dispositifs médicaux de diagnostic in vitro",
+        "Recommandations CNIL santé + interfaces avec INS (Identifiant National de Santé)"
+      ],
+      "cible": "Éditeurs SaaS médicaux EU, dispositifs médicaux connectés, hébergeurs HDS, plateformes de télémédecine.",
+      "agents_attendus": [
+        "AIAD-HDS",
+        "AIAD-ISO-27799",
+        "AIAD-MDR-IVDR",
+        "AIAD-CNIL-SANTE"
+      ],
+      "modele": "premium",
+      "prix_indicatif_eur": "à partir de 4 800 €/an organisation",
+      "fournisseur": {
+        "nom": "AIAD Marketplace — éditeurs partenaires",
+        "contact": "marketplace@aiad.ovh",
+        "url": "https://aiad.ovh/marketplace/eu-health"
+      },
+      "essai_gratuit": "30 jours, fichiers redacted",
+      "format_distribution": "pack signé SHA-256 conforme #46 (governance-marketplace.js)"
+    },
+    {
+      "id": "automotive",
+      "title": "Automobile — TISAX · UN R155 · ISO/SAE 21434 · Type Approval EU",
+      "secteur": "Automotive",
+      "juridiction": "Union européenne + Royaume-Uni + zone UNECE",
+      "couverture": [
+        "TISAX — Trusted Information Security Assessment eXchange (VDA ISA, exigé par les OEM allemands)",
+        "UN R155 — Règlement UNECE sur la cybersécurité des véhicules (en vigueur juillet 2024)",
+        "ISO/SAE 21434:2021 — Cybersecurity engineering for road vehicles",
+        "ISO 26262 ASIL — Functional Safety automobile",
+        "EU Type Approval cybersécurité (homologation type)"
+      ],
+      "cible": "Constructeurs automobiles, équipementiers Tier 1/2 (OEM/T1/T2), fournisseurs de software embarqué, plateformes V2X.",
+      "agents_attendus": [
+        "AIAD-TISAX",
+        "AIAD-UN-R155",
+        "AIAD-ISO-21434",
+        "AIAD-ISO-26262"
+      ],
+      "modele": "premium",
+      "prix_indicatif_eur": "à partir de 9 500 €/an organisation",
+      "fournisseur": {
+        "nom": "AIAD Marketplace — éditeurs partenaires",
+        "contact": "marketplace@aiad.ovh",
+        "url": "https://aiad.ovh/marketplace/automotive"
+      },
+      "essai_gratuit": "non (secteur réglementé strict)",
+      "format_distribution": "pack signé SHA-256 conforme #46"
+    },
+    {
+      "id": "aerospace",
+      "title": "Aéronautique — DO-178C · DO-326A · ED-203A IA-aware · ARP-4754A",
+      "secteur": "Aéronautique / Aerospace",
+      "juridiction": "Mondial (FAA, EASA, MAA)",
+      "couverture": [
+        "DO-178C / ED-12C — Software Considerations in Airborne Systems and Equipment Certification",
+        "DO-326A / ED-202A — Airworthiness Security Process",
+        "ED-203A — Airworthiness Security Methods (extension IA-aware en cours, EUROCAE WG-72)",
+        "ARP-4754A — Guidelines for Development of Civil Aircraft and Systems",
+        "EASA AI Roadmap 2.0 — IA niveau 1A/1B/2/3 selon Concept Paper"
+      ],
+      "cible": "OEM aéronautiques, équipementiers, software houses certifiés DO-178, intégrateurs UAM/eVTOL, opérateurs aérospatiaux.",
+      "agents_attendus": [
+        "AIAD-DO-178C",
+        "AIAD-DO-326A",
+        "AIAD-EASA-AI-ROADMAP",
+        "AIAD-ARP-4754A"
+      ],
+      "modele": "premium",
+      "prix_indicatif_eur": "sur devis (≥ 12 000 €/an)",
+      "fournisseur": {
+        "nom": "AIAD Marketplace — éditeurs partenaires",
+        "contact": "marketplace@aiad.ovh",
+        "url": "https://aiad.ovh/marketplace/aerospace"
+      },
+      "essai_gratuit": "non (secteur réglementé strict)",
+      "format_distribution": "pack signé SHA-256 conforme #46 + audit pré-installation"
+    },
+    {
+      "id": "industrial",
+      "title": "Industriel — IEC 62443 · NIS2 · Machinery Regulation",
+      "secteur": "Industriel / OT / IIoT",
+      "juridiction": "Union européenne + International (CEI/IEC)",
+      "couverture": [
+        "IEC 62443 — Industrial communication networks — Network and system security (parties 2-x, 3-x, 4-x)",
+        "NIS2 — Directive (UE) 2022/2555 (transposition nationale fin 2024 / 2025)",
+        "Machinery Regulation — Règlement (UE) 2023/1230 (application 2027)",
+        "ISO/IEC 27019 — Energy industry information security",
+        "EN 18031-1/2/3 — Cybersécurité des produits radio (RED Article 3.3)"
+      ],
+      "cible": "Industriels (manufacturing, énergie, utilities), intégrateurs OT, fournisseurs SCADA/PLC/DCS, opérateurs critiques.",
+      "agents_attendus": [
+        "AIAD-IEC-62443",
+        "AIAD-NIS2",
+        "AIAD-MACHINERY-REG"
+      ],
+      "modele": "premium",
+      "prix_indicatif_eur": "à partir de 7 200 €/an organisation",
+      "fournisseur": {
+        "nom": "AIAD Marketplace — éditeurs partenaires",
+        "contact": "marketplace@aiad.ovh",
+        "url": "https://aiad.ovh/marketplace/industrial"
+      },
+      "essai_gratuit": "30 jours, fichiers partiels (parties 2-x uniquement)",
+      "format_distribution": "pack signé SHA-256 conforme #46"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-15T13:45:35.149Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>INTENT-101-conversion-checkout — Améliorer la conversion du checkout — url-shortener-bench</title>
+<meta name="description" content="INTENT-101-conversion-checkout — Améliorer la conversion du checkout — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="INTENT-101-conversion-checkout — Améliorer la conversion du checkout — url-shortener-bench"/>
+<meta property="og:description" content="INTENT-101-conversion-checkout — Améliorer la conversion du checkout — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="INTENT-101-conversion-checkout — Améliorer la conversion du checkout — url-shortener-bench"/>
+<meta name="twitter:description" content="INTENT-101-conversion-checkout — Améliorer la conversion du checkout — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">url-shortener-bench</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v0.1.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 15/05/2026 15:45:35<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>INTENT-101-conversion-checkout — Améliorer la conversion du checkout</h1>
+      <div class="subtitle">Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/05/2026 15:45:35. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">url-shortener-bench · v0.1.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+    .ip-cols { display:grid; grid-template-columns: 1fr 280px; gap: 1.5rem; align-items: start; }
+    @media (max-width: 900px) { .ip-cols { grid-template-columns: 1fr; } }
+    .ip-meta table { width:100%; font-size:.85rem; }
+    .ip-meta td { padding:.25rem .4rem; vertical-align:top; }
+    .ip-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+    .ip-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+    .ip-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+    .ip-sections pre { margin:0; white-space:pre-wrap; font-family: inherit; font-size:.88rem; line-height:1.45; }
+    .ip-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+    .ip-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+    .ip-actions a:hover { background:rgba(76,110,245,.18); }
+  </style>
+<div class="ip-cols">
+  <div class="ip-sections">
+    <h2><a class="src-link" href="../.aiad/intents/INTENT-101-conversion-checkout.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-101-conversion-checkout.md">INTENT-101-conversion-checkout</a> — Améliorer la conversion du checkout</h2>
+    <section><h3>POURQUOI MAINTENANT</h3><div class="md-light"><p>Le funnel checkout chute à 62 % de conversion sur la dernière mesure mensuelle. Sponsor sales a remonté la friction lors du COMEX du 28/03.</p></div></section><section><h3>POUR QUI</h3><div class="md-light"><p>Acheteurs récurrents EU (segment SMB), exposés au formulaire de paiement v1.</p></div></section><section><h3>OBJECTIF</h3><div class="md-light"><p>Remonter le taux de conversion checkout &gt; 70 % en 4 semaines, mesuré par analytics interne (cohorte hebdomadaire glissante).</p></div></section><section><h3>CONTRAINTES</h3><div class="md-light"><ul><li>RGPD (pas de nouveau cookie de tracking sans consentement)</li><li>Pas de nouveau provider de paiement à intégrer</li><li>Compatible mobile-first</li></ul></div></section><section><h3>CRITÈRE DE DRIFT</h3><div class="md-light"><p>Si après 4 semaines la conversion reste &lt; 65 % sur 7 jours glissants → drift confirmé : l&#39;objectif n&#39;a pas été atteint et il faut investiguer la cause profonde avant tout nouveau chantier checkout.</p></div></section>
+    <section><h3>SPECs liées</h3><p class="muted" style="font-size:.85rem">Avancement : <strong>1/2</strong> SPECs livrées (50 %), 1 en cours.</p><table><thead><tr><th>ID</th><th>Titre</th><th>Statut</th><th>SQS</th></tr></thead><tbody><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-101-1-formulaire-paiement.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-1-formulaire-paiement.md">SPEC-101-1-formulaire-paiement</a></td>
+      <td>Formulaire de paiement v2</td>
+      <td><span class="badge badge-ok">done</span></td>
+      <td class="muted">4.6</td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-101-2-relance-panier.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-2-relance-panier.md">SPEC-101-2-relance-panier</a></td>
+      <td>Relance panier abandonné</td>
+      <td><span class="badge badge-info">in-progress</span></td>
+      <td class="muted">4.2</td>
+    </tr></tbody></table></section>
+    <section><h3>Risques</h3><p>Niveau global : <strong>high</strong></p><div><span class="badge badge-bad" style="font-size:.78rem">Dépendance Stripe pour SEPA</span> <span class="badge badge-bad" style="font-size:.78rem">RGPD consent management</span> <span class="badge badge-bad" style="font-size:.78rem">Réglementaire (mot-clé &quot;rgpd&quot;)</span></div></section>
+    <section><h3>Hypothèse</h3><p><span class="badge badge-warn">untested</span></p><pre>Si on simplifie le checkout à 2 étapes, la conversion remontera à &gt;70 %</pre></section>
+    <section><h3>Dépendances</h3><p><strong>Bloqué par</strong> : <em class="muted">aucune</em></p><p><strong>Bloque</strong> : <em class="muted">aucun</em></p></section>
+    <div class="ip-actions">
+      <a href="pm.html">← Cockpit PM</a>
+      <a href="intents.html">← Catalogue Intents</a>
+      <a href="../.aiad/intents/INTENT-101-conversion-checkout.md" target="_blank">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="ip-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .3rem">Métadonnées</h3>
+    <table><tr><td><strong>Statut</strong></td><td><span class="badge badge-ok">active</span></td></tr><tr><td><strong>Priorité</strong></td><td><span class="badge badge-bad" title="P0 — urgent">P0</span></td></tr><tr><td><strong>Owner</strong></td><td>Steeve</td></tr><tr><td><strong>Sponsor</strong></td><td>Direction Sales</td></tr><tr><td><strong>Target</strong></td><td>Q2-2026</td></tr><tr><td><strong>Target date</strong></td><td>2026-05-25</td></tr><tr><td><strong>OKR</strong></td><td><code>KR-1.2</code></td></tr><tr><td><strong>Kind</strong></td><td><code>delivery</code></td></tr><tr><td><strong>Tags</strong></td><td><span class="badge badge-info" style="font-size:.75rem">#paiement</span> <span class="badge badge-info" style="font-size:.75rem">#conversion</span> <span class="badge badge-info" style="font-size:.75rem">#sepa</span> <span class="badge badge-info" style="font-size:.75rem">#mobile</span> <span class="badge badge-info" style="font-size:.75rem">#q2</span></td></tr><tr><td><strong>Date</strong></td><td>2026-04-01</td></tr><tr><td><strong>Auteur</strong></td><td>Steeve</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

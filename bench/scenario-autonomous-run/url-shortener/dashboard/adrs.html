@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-15T13:45:35.149Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Architecture Decision Records — url-shortener-bench</title>
+<meta name="description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Architecture Decision Records — url-shortener-bench"/>
+<meta property="og:description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta property="og:url" content="adrs.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Architecture Decision Records — url-shortener-bench"/>
+<meta name="twitter:description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">url-shortener-bench</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v0.1.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="active">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 15/05/2026 15:45:35<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>Architecture Decision Records</h1>
+      <div class="subtitle">ADRs extraits de ARCHITECTURE.md (persona Tech Lead)</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/05/2026 15:45:35. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">url-shortener-bench · v0.1.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <div class="empty">
+      <strong>Aucun ADR détecté dans <a class="src-link" href="../.aiad/ARCHITECTURE.md" target="_blank" rel="noopener" title="Ouvrir .aiad/ARCHITECTURE.md">.aiad/ARCHITECTURE.md</a>.</strong>
+      Convention : ajoute des lignes <code>- **ADR-NNN** : décision</code> dans ARCHITECTURE.md pour les capturer ici.
+    </div><section>
+    <h2>Dette technique <span class="count">3</span></h2>
+    <div class="kpis">
+      <div class="kpi"><div class="label">JNSP non résolus</div><div class="value">3</div><div class="delta"><span class="badge badge-bad" style="font-size:.7rem">0 oubliés</span></div></div>
+      <div class="kpi"><div class="label">SPECs > 200 LOC</div><div class="value">0</div><div class="delta">critiques</div></div>
+      <div class="kpi"><div class="label">SPECs > 100 LOC</div><div class="value">0</div><div class="delta">à surveiller</div></div>
+    </div>
+    <div style="margin-top:.75rem">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
+      <strong style="font-size:.9rem">Évolution 4 dernières semaines</strong>
+      <span class="badge" style="font-size:.75rem">Pas assez d'historique</span>
+    </div>
+    <svg viewBox="0 0 320 84" role="img" aria-label="Timeline dette technique 4 semaines" style="max-width:100%;height:auto;display:block">
+      <g font-size="10" fill="currentColor">
+    <rect x="28" y="0" width="8" height="8" fill="#4c6ef5"/>
+    <text x="40" y="8">JNSP</text>
+    <rect x="78" y="0" width="8" height="8" fill="#fa5252"/>
+    <text x="90" y="8">SPECs > seuil</text>
+  </g>
+      <line x1="28" y1="62" x2="316" y2="62" stroke="currentColor" opacity="0.2"/><text x="24" y="14.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">3</text><text x="24" y="62.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">0</text>
+      <text x="61.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">04-20</text><text x="132.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">04-27</text><text x="203.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">05-04</text><rect x="243.0" y="6.0" width="31.5" height="56.0" fill="#4c6ef5" rx="1"><title>JNSP 3 · semaine du 2026-05-11</title></rect><rect x="278.5" y="62.0" width="31.5" height="0.0" fill="#fa5252" rx="1"><title>SPECs grosses 0 · semaine du 2026-05-11</title></rect><text x="274.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">05-11</text>
+    </svg>
+    <p class="muted" style="font-size:.8rem;margin-top:.25rem">2 snapshot(s) total · 1 par jour persisté dans <code>.aiad/metrics/tech-debt/</code>.</p>
+  </div>
+    
+    <h3>JNSP non résolus <span class="count">3</span></h3>
+    <p class="muted">Markers <code>TODO-JNSP:</code> en attente de décision humaine. Triés du plus oublié au plus récent. Ancienneté = mtime du fichier (proxy : si le fichier a été modifié récemment sans résoudre le JNSP, le marker reste signalé "stale" si l'âge > 30j).</p>
+    <table>
+      <thead><tr><th>Fichier</th><th>Ligne</th><th>Question</th><th>Ancienneté</th></tr></thead>
+      <tbody>
+    <tr>
+      <td><a class="src-link" href="../AGENTS.md#L85" target="_blank" rel="noopener" title="Ouvrir AGENTS.md à la ligne 85">AGENTS.md</a></td>
+      <td class="muted"><a class="src-link" href="../AGENTS.md#L85" target="_blank" rel="noopener" title="Ouvrir AGENTS.md à la ligne 85">L85</a></td>
+      <td>&lt;question précise pour l&#39;humain&gt;` ; le hook pre-commit bloque tout diff qui en contient</td>
+      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(1j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../CLAUDE.md#L244" target="_blank" rel="noopener" title="Ouvrir CLAUDE.md à la ligne 244">CLAUDE.md</a></td>
+      <td class="muted"><a class="src-link" href="../CLAUDE.md#L244" target="_blank" rel="noopener" title="Ouvrir CLAUDE.md à la ligne 244">L244</a></td>
+      <td>&lt;question précise à l&#39;humain&gt;</td>
+      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(1j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../CLAUDE.md#L248" target="_blank" rel="noopener" title="Ouvrir CLAUDE.md à la ligne 248">CLAUDE.md</a></td>
+      <td class="muted"><a class="src-link" href="../CLAUDE.md#L248" target="_blank" rel="noopener" title="Ouvrir CLAUDE.md à la ligne 248">L248</a></td>
+      <td>` non résolu. Le bypass `git commit --no-verify`</td>
+      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(1j)</span></td>
+    </tr></tbody>
+    </table>
+    
+    
+  </section>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>
