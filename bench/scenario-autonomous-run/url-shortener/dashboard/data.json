@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T18:55:52.310Z",
+    "generated": "2026-05-15T19:10:43.077Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T18:55:52.310Z"
+    "genere": "2026-05-15T19:10:43.077Z"
   },
   "fondamentaux": [
     {
@@ -368,7 +368,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T18:55:52.315Z",
+    "generatedAt": "2026-05-15T19:10:43.084Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -541,7 +541,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778871352316,
+        "ts": 1778872243085,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2125,7 +2125,7 @@
           }
         ]
       },
-      "mtime": 1778871352332.1204
+      "mtime": 1778872243101.9019
     },
     "totalChangements": 6
   },
@@ -2615,7 +2615,7 @@
         "statut": "done",
         "mtime": 1778860461845.796,
         "parentIntent": "INTENT-101",
-        "ageMs": 10890487.204101562,
+        "ageMs": 11781257.204101562,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2625,7 +2625,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778860455699.9673,
-        "ageMs": 10896633.032714844,
+        "ageMs": 11787403.032714844,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2636,7 +2636,7 @@
         "statut": "review",
         "mtime": 1778860446713.6975,
         "parentIntent": "INTENT-101",
-        "ageMs": 10905619.302490234,
+        "ageMs": 11796389.302490234,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2646,7 +2646,7 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 18760188.184570312,
+        "ageMs": 19650958.184570312,
         "ageHumain": "il y a 5 h"
       },
       {
@@ -2656,7 +2656,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 21613090.052490234,
+        "ageMs": 22503860.052490234,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2667,8 +2667,8 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 37791506.73364258,
-        "ageHumain": "il y a 10 h"
+        "ageMs": 38682276.73364258,
+        "ageHumain": "il y a 11 h"
       }
     ],
     "totaux": {
@@ -4159,7 +4159,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778871344033.598
+        "mtime": 1778872233546.6526
       }
     ],
     "tendance": {
@@ -4647,57 +4647,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774032952337,
-        "fin": 1774637752337,
+        "debut": 1774033843108,
+        "fin": 1774638643108,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774637752337,
-        "fin": 1775242552337,
+        "debut": 1774638643108,
+        "fin": 1775243443108,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775242552337,
-        "fin": 1775847352337,
+        "debut": 1775243443108,
+        "fin": 1775848243108,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775847352337,
-        "fin": 1776452152337,
+        "debut": 1775848243108,
+        "fin": 1776453043108,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776452152337,
-        "fin": 1777056952337,
+        "debut": 1776453043108,
+        "fin": 1777057843108,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777056952337,
-        "fin": 1777661752337,
+        "debut": 1777057843108,
+        "fin": 1777662643108,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777661752337,
-        "fin": 1778266552337,
+        "debut": 1777662643108,
+        "fin": 1778267443108,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778266552337,
-        "fin": 1778871352337,
+        "debut": 1778267443108,
+        "fin": 1778872243108,
         "count": 5,
         "decisions": [
           {
@@ -5080,7 +5080,7 @@
         "statut": "ready"
       }
     ],
-    "nowMs": 1778871352338
+    "nowMs": 1778872243109
   },
   "hypothesisLifecycle": {
     "items": [
@@ -5159,10 +5159,10 @@
       }
     ],
     "plage": {
-      "min": 1776279352338,
+      "min": 1776280243109,
       "max": 1790812740000
     },
-    "now": 1778871352338,
+    "now": 1778872243109,
     "totaux": {
       "total": 3,
       "retard": 0,
@@ -5229,12 +5229,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1776279352338,
-      "fin": 1778871352338
+      "debut": 1776280243109,
+      "fin": 1778872243109
     },
     "fenetrePrecedente": {
-      "debut": 1773687352338,
-      "fin": 1776279352338
+      "debut": 1773688243109,
+      "fin": 1776280243109
     },
     "totalActivite": 7,
     "totalPrecedent": 0,
@@ -5705,7 +5705,7 @@
       "total": 1,
       "specs": 1,
       "intents": 0,
-      "now": 1778871352339
+      "now": 1778872243110
     }
   },
   "stateTransitions": {
@@ -6148,42 +6148,42 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1775847352340,
+        "finSem": 1775848243111,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1776452152340,
+        "finSem": 1776453043111,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1777056952340,
+        "finSem": 1777057843111,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1777661752340,
+        "finSem": 1777662643111,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1778266552340,
+        "finSem": 1778267443111,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 5,
-        "finSem": 1778871352340,
+        "finSem": 1778872243111,
         "intake": 3,
         "delivery": 0,
         "delta": 3
@@ -7147,8 +7147,8 @@
     "enCoursAuDebutSample": [],
     "totaux": {
       "duree": 14,
-      "debutSprint": 1777661752342,
-      "finSprint": 1778871352342,
+      "debutSprint": 1777662643113,
+      "finSprint": 1778872243113,
       "livrees": 1,
       "enCoursAuDebut": 0,
       "ajoutees": 2,
@@ -7248,6 +7248,208 @@
       "krEnPeril": 1
     },
     "message": null
+  },
+  "busFactor": {
+    "items": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "priority": "P0",
+        "owners": [
+          "Steeve"
+        ],
+        "busFactor": 1,
+        "etat": "single-owner"
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "priority": "P2",
+        "owners": [
+          "Steeve"
+        ],
+        "busFactor": 1,
+        "etat": "single-owner"
+      }
+    ],
+    "totaux": {
+      "total": 2,
+      "singleOwner": 2,
+      "pasDowner": 0,
+      "duo": 0,
+      "sain": 0,
+      "tauxSain": 0
+    }
+  },
+  "sentimentTrend": {
+    "buckets": [
+      {
+        "idx": 0,
+        "finSem": 1774638643113,
+        "total": 0,
+        "positif": 0,
+        "negatif": 0,
+        "question": 0,
+        "neutre": 0
+      },
+      {
+        "idx": 1,
+        "finSem": 1775243443113,
+        "total": 0,
+        "positif": 0,
+        "negatif": 0,
+        "question": 0,
+        "neutre": 0
+      },
+      {
+        "idx": 2,
+        "finSem": 1775848243113,
+        "total": 0,
+        "positif": 0,
+        "negatif": 0,
+        "question": 0,
+        "neutre": 0
+      },
+      {
+        "idx": 3,
+        "finSem": 1776453043113,
+        "total": 0,
+        "positif": 0,
+        "negatif": 0,
+        "question": 0,
+        "neutre": 0
+      },
+      {
+        "idx": 4,
+        "finSem": 1777057843113,
+        "total": 0,
+        "positif": 0,
+        "negatif": 0,
+        "question": 0,
+        "neutre": 0
+      },
+      {
+        "idx": 5,
+        "finSem": 1777662643113,
+        "total": 0,
+        "positif": 0,
+        "negatif": 0,
+        "question": 0,
+        "neutre": 0
+      },
+      {
+        "idx": 6,
+        "finSem": 1778267443113,
+        "total": 0,
+        "positif": 0,
+        "negatif": 0,
+        "question": 0,
+        "neutre": 0
+      },
+      {
+        "idx": 7,
+        "finSem": 1778872243113,
+        "total": 3,
+        "positif": 1,
+        "negatif": 1,
+        "question": 1,
+        "neutre": 0
+      }
+    ],
+    "nbSem": 8,
+    "totaux": {
+      "total": 3,
+      "positif": 1,
+      "negatif": 1,
+      "question": 1
+    },
+    "tendance": "stable",
+    "ratioAnc": 0,
+    "ratioRec": 0
+  },
+  "ritualsCalendar": {
+    "items": [
+      {
+        "id": "standup",
+        "label": "Standup",
+        "dossier": "standup",
+        "cadenceJours": 1,
+        "emoji": "🔁",
+        "lastMtime": null,
+        "prochain": null,
+        "joursDepuis": null,
+        "joursAvant": null,
+        "etat": "jamais"
+      },
+      {
+        "id": "demo",
+        "label": "Demo & Feedback",
+        "dossier": "demo",
+        "cadenceJours": 7,
+        "emoji": "🎬",
+        "lastMtime": null,
+        "prochain": null,
+        "joursDepuis": null,
+        "joursAvant": null,
+        "etat": "jamais"
+      },
+      {
+        "id": "tech-review",
+        "label": "Tech Review",
+        "dossier": "tech-review",
+        "cadenceJours": 7,
+        "emoji": "🔧",
+        "lastMtime": null,
+        "prochain": null,
+        "joursDepuis": null,
+        "joursAvant": null,
+        "etat": "jamais"
+      },
+      {
+        "id": "sync-strat",
+        "label": "Sync stratégique",
+        "dossier": "sync-strat",
+        "cadenceJours": 30,
+        "emoji": "🎯",
+        "lastMtime": null,
+        "prochain": null,
+        "joursDepuis": null,
+        "joursAvant": null,
+        "etat": "jamais"
+      },
+      {
+        "id": "retro",
+        "label": "Rétrospective",
+        "dossier": "retro",
+        "cadenceJours": 90,
+        "emoji": "🔄",
+        "lastMtime": null,
+        "prochain": null,
+        "joursDepuis": null,
+        "joursAvant": null,
+        "etat": "jamais"
+      },
+      {
+        "id": "intention",
+        "label": "Atelier d'Intention",
+        "dossier": "intention",
+        "cadenceJours": 30,
+        "emoji": "💡",
+        "lastMtime": null,
+        "prochain": null,
+        "joursDepuis": null,
+        "joursAvant": null,
+        "etat": "jamais"
+      }
+    ],
+    "totaux": {
+      "total": 6,
+      "retard": 0,
+      "imminent": 0,
+      "jamais": 6
+    }
   },
   "edgeCases": {
     "totalItems": 0,
@@ -7534,5 +7736,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T18:55:52.310Z"
+  "generatedAt": "2026-05-15T19:10:43.077Z"
 }

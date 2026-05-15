@@ -9,6 +9,31 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM bus-factor/sentiment-trend/rituals-calendar (#546-#548, loop 43)
+
+**43ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 120 sections h2,
+gagne un bus factor analyzer, une tendance sentiment client et un
+calendrier rituels.
+
+- **Bus factor analyzer** (#546) —
+  `lib/dashboard/bus-factor.js` compte owners distincts par Intent
+  actif. 4 états : pas-downer (0) / single-owner (1) / duo (2) /
+  sain (≥ 3). Identifie le risque single-point-of-failure RH.
+- **Évolution sentiment client** (#547) —
+  `lib/dashboard/sentiment-trend.js` distribue feedbacks (#496) par
+  semaine sur 8 sem, SVG bars groupées (vert/rouge/bleu), détecte
+  tendance moitié récente vs ancienne.
+- **Calendrier rituels AIAD** (#548) —
+  `lib/dashboard/rituals-calendar.js` calcule prochain rituel attendu
+  pour 6 rituels (standup 1j / demo 7j / tech-review 7j / sync-strat
+  30j / retro 90j / intention 30j) basé sur dernier mtime dans
+  `.aiad/metrics/`. 5 états (retard/imminent/proche/planifie/jamais).
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**43 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM acceptance-criteria/action-items/okr-progress (#543-#545, loop 42)
 
 **42ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 117 sections h2,
