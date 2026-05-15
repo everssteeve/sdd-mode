@@ -9,6 +9,27 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM initiative-cards/spec-lifecycle-time/quick-filters (#558-#560, loop 47)
+
+**47ᵉ boucle d'audit PM** (2026-05-16) — pm.html monte à 131 sections h2,
+gagne des cartes d'initiatives par thème, un lifecycle SPEC médian et
+des filtres rapides.
+
+- **Cartes d'initiatives par thème** (#558) —
+  `lib/dashboard/initiative-cards.js` groupe Intents par tag top 8,
+  agrège SPECs liées, calcule ratio livraison.
+- **Temps médian par statut SPEC** (#559) —
+  `lib/dashboard/spec-lifecycle-time.js` lit pm-snapshots et calcule
+  durée médiane que les SPECs passent dans chaque statut.
+- **Filtres rapides** (#560) —
+  `lib/dashboard/quick-filters.js` barre 5 chips pré-fabriqués qui
+  filtrent la table d'alignement Intent ↔ Livraison.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**47 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM sponsor-scorecard/outcome-north-star/activity-feed (#555-#557, loop 46)
 
 **46ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 128 sections h2,
