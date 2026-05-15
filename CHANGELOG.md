@@ -9,6 +9,36 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM outcome-attribution/dd-balance/velocity-by-sponsor (#492-#494, loop 25)
+
+**25ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 66 sections h2,
+gagne un rollup contribution outcome, un équilibre discovery/delivery
+et une vélocité par sponsor.
+
+- **Attribution outcomes** (#492) —
+  `lib/dashboard/outcome-attribution.js` croise PRD outcomes (#428)
+  avec SPECs livrées (done/archived) via Intent parent. Anti-vanity :
+  surface les outcomes à 0 contribution (prématurés ou en danger).
+  Cards colorées par ratio (vert ≥ 60% / orange) + chips SPECs
+  attribuées.
+- **Discovery / Delivery balance** (#493) —
+  `lib/dashboard/discovery-delivery-balance.js` classe les Intents
+  via `kind` (12 alias FR/EN) ou heuristique (hypothèse non validée
+  → discovery / active + SPECs ≥ 1 → delivery). Stacked bar + verdict
+  santé selon cibles standard PM 65/25/10 % (delivery/discovery/
+  enabler). Détecte déséquilibres > 25%.
+- **Vélocité par sponsor** (#494) —
+  `lib/dashboard/velocity-by-sponsor.js` agrège par sponsor unique
+  (5 alias FR/EN + multi-valued) : nb Intents portés, nb SPECs
+  livrées, throughput, cycle-time moyen. Table avec médailles
+  🥇🥈🥉 pour préparer les 1:1 sponsor.
+
+`SECTION_TO_TABS` (#480) étendu : les 3 nouvelles sections sont
+rattachées aux axes strategique/communication/tactique.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**25 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM stakeholder-comms/decision-velocity/weekly-checklist (#489-#491, loop 24)
 
 **24ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 63 sections h2,

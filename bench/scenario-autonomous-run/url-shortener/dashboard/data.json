@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T14:26:45.228Z",
+    "generated": "2026-05-15T14:40:45.568Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T14:26:45.228Z"
+    "genere": "2026-05-15T14:40:45.568Z"
   },
   "fondamentaux": [
     {
@@ -364,7 +364,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T14:26:45.233Z",
+    "generatedAt": "2026-05-15T14:40:45.572Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -551,7 +551,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778855205234,
+        "ts": 1778856045574,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2066,7 +2066,7 @@
           }
         ]
       },
-      "mtime": 1778855205250.5808
+      "mtime": 1778856045589.4233
     },
     "totalChangements": 6
   },
@@ -2555,8 +2555,8 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 2613107.1845703125,
-        "ageHumain": "il y a 44 min"
+        "ageMs": 3453445.1845703125,
+        "ageHumain": "il y a 58 min"
       },
       {
         "type": "Intent",
@@ -2565,7 +2565,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 5466009.052490234,
+        "ageMs": 6306347.052490234,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2575,7 +2575,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778845222031.1401,
-        "ageMs": 9983220.859863281,
+        "ageMs": 10823558.859863281,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2586,7 +2586,7 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 21644425.733642578,
+        "ageMs": 22484763.733642578,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2597,7 +2597,7 @@
         "statut": "in-progress",
         "mtime": 1778833557808.8782,
         "parentIntent": "INTENT-101",
-        "ageMs": 21647443.121826172,
+        "ageMs": 22487781.121826172,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2608,7 +2608,7 @@
         "statut": "done",
         "mtime": 1778833555394.2512,
         "parentIntent": "INTENT-101",
-        "ageMs": 21649857.748779297,
+        "ageMs": 22490195.748779297,
         "ageHumain": "il y a 6 h"
       }
     ],
@@ -4100,7 +4100,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778855198438.1501
+        "mtime": 1778856038613.441
       }
     ],
     "tendance": {
@@ -4584,57 +4584,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774016805256,
-        "fin": 1774621605256,
+        "debut": 1774017645595,
+        "fin": 1774622445595,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774621605256,
-        "fin": 1775226405256,
+        "debut": 1774622445595,
+        "fin": 1775227245595,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775226405256,
-        "fin": 1775831205256,
+        "debut": 1775227245595,
+        "fin": 1775832045595,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775831205256,
-        "fin": 1776436005256,
+        "debut": 1775832045595,
+        "fin": 1776436845595,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776436005256,
-        "fin": 1777040805256,
+        "debut": 1776436845595,
+        "fin": 1777041645595,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777040805256,
-        "fin": 1777645605256,
+        "debut": 1777041645595,
+        "fin": 1777646445595,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777645605256,
-        "fin": 1778250405256,
+        "debut": 1777646445595,
+        "fin": 1778251245595,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778250405256,
-        "fin": 1778855205256,
+        "debut": 1778251245595,
+        "fin": 1778856045595,
         "count": 5,
         "decisions": [
           {
@@ -4739,6 +4739,146 @@
         "anchor": "#retrospective-trimestrielle"
       }
     ]
+  },
+  "outcomeAttribution": {
+    "items": [
+      {
+        "titre": "?",
+        "target": null,
+        "nbIntents": 1,
+        "specsLivrees": 1,
+        "specsTotal": 2,
+        "ratio": 0.5,
+        "specsAttribues": [
+          {
+            "id": "SPEC-101-1-formulaire-paiement",
+            "statut": "done",
+            "parentIntent": "INTENT-101",
+            "mtime": 1778833555394.2512
+          }
+        ]
+      },
+      {
+        "titre": "?",
+        "target": null,
+        "nbIntents": 0,
+        "specsLivrees": 0,
+        "specsTotal": 0,
+        "ratio": null,
+        "specsAttribues": []
+      },
+      {
+        "titre": "?",
+        "target": null,
+        "nbIntents": 2,
+        "specsLivrees": 0,
+        "specsTotal": 1,
+        "ratio": 0,
+        "specsAttribues": []
+      },
+      {
+        "titre": "?",
+        "target": null,
+        "nbIntents": 1,
+        "specsLivrees": 0,
+        "specsTotal": 0,
+        "ratio": null,
+        "specsAttribues": []
+      }
+    ],
+    "totaux": {
+      "outcomes": 4,
+      "avecContribution": 1,
+      "sansContribution": 3,
+      "totalSpecsLivrees": 1
+    }
+  },
+  "discoveryDeliveryBalance": {
+    "buckets": {
+      "discovery": 2,
+      "delivery": 1,
+      "enabler": 0,
+      "inconnu": 0
+    },
+    "pcts": {
+      "discovery": 67,
+      "delivery": 33,
+      "enabler": 0,
+      "inconnu": 0
+    },
+    "echantillons": {
+      "discovery": [
+        {
+          "id": "INTENT-102-onboarding-mobile",
+          "titre": "Onboarding mobile en moins de 30 secondes",
+          "source": "kind"
+        },
+        {
+          "id": "INTENT-103-retention-30j",
+          "titre": "Rétention J+30 stabilisée à 55 %",
+          "source": "kind"
+        }
+      ],
+      "delivery": [
+        {
+          "id": "INTENT-101-conversion-checkout",
+          "titre": "Améliorer la conversion du checkout",
+          "source": "kind"
+        }
+      ],
+      "enabler": [],
+      "inconnu": []
+    },
+    "total": 3,
+    "sante": {
+      "delivery": {
+        "etat": "desequilibre",
+        "delta": -32
+      },
+      "discovery": {
+        "etat": "desequilibre",
+        "delta": 42
+      },
+      "enabler": {
+        "etat": "sain",
+        "delta": -10
+      }
+    },
+    "cibles": {
+      "delivery": 65,
+      "discovery": 25,
+      "enabler": 10
+    }
+  },
+  "velocityBySponsor": {
+    "items": [
+      {
+        "sponsor": "Direction Sales",
+        "nbIntents": 1,
+        "nbLivrees": 1,
+        "throughput": 1,
+        "cycleTimeMoyen": 0,
+        "intents": [
+          "INTENT-101-conversion-checkout"
+        ]
+      },
+      {
+        "sponsor": "Direction Marketing",
+        "nbIntents": 2,
+        "nbLivrees": 0,
+        "throughput": 0,
+        "cycleTimeMoyen": null,
+        "intents": [
+          "INTENT-102-onboarding-mobile",
+          "INTENT-103-retention-30j"
+        ]
+      }
+    ],
+    "totaux": {
+      "sponsors": 2,
+      "sponsorAvecLivraison": 1,
+      "meilleurThroughput": "Direction Sales"
+    }
   },
   "edgeCases": {
     "totalItems": 0,
@@ -5025,5 +5165,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T14:26:45.228Z"
+  "generatedAt": "2026-05-15T14:40:45.568Z"
 }
