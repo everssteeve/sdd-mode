@@ -9,6 +9,29 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit freshness/standup/retro (#471-#473, loop 18)
+
+18ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues axées
+rituels et hygiène : fraîcheur du backlog, timer de standup intégré,
+rétrospective trimestrielle pré-remplie.
+
+- **Backlog freshness** (#471) — `lib/dashboard/backlog-freshness.js`
+  classe les Intents/SPECs actifs en 4 paliers temporels (frais ≤ 14j /
+  tiède / stale / abandonné > 60j). Stats colorées + conseil
+  "rafraîchir, ré-évaluer ou archiver".
+- **Stand-up timer** (#472) — `lib/dashboard/standup-timer.js` rend un
+  widget timer 10/15/30 min directement intégré au cockpit. Démarrer /
+  Pause / Reset + Notification Web API à 0 s + beep audio. Animation
+  pulse quand timer terminé.
+- **Rétrospective trimestrielle** (#473) —
+  `lib/dashboard/quarterly-retro.js` génère un Markdown structuré avec
+  Intents livrés du quarter + hypothèses validées/invalidées (#440) +
+  outcomes ✓/✗ (#208) + métriques lead time (#438) + placeholders
+  apprentissages humains. Prêt à coller dans Notion / rétro doc.
+
+Zéro modification de `render.js` (toujours 849/850 LOC). pm.html monte
+à **50 sections** maintenant.
+
 ### Ajouté — Dashboard PM cockpit newsletter/velocity/wip (#468-#470, loop 17)
 
 17ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues : partage
