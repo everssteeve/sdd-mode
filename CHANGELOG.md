@@ -9,6 +9,38 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM notif-center/sqs-readiness/health-timeline (#483-#485, loop 22)
+
+**22ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 57 sections h2,
+gagne un agrégateur d'urgence, un rollup SQS et une timeline de santé.
+
+- **Centre de notifications** (#483) —
+  `lib/dashboard/notification-center.js` agrège 6 sources de signal
+  (retard target / risques critical-high / AI Act élevé-interdit /
+  zombies / backlog abandonné / drafts vieux) en une pile de cartes
+  triées par criticité (critique/élevé/attention). Chaque carte a un
+  deep-link `Voir →` vers la section détail. Empty state encourageant.
+  Inséré en TÊTE de la page PM, avant sticky alerts.
+- **SQS readiness scorecard** (#484) —
+  `lib/dashboard/sqs-readiness.js` lit `spec.sqs` du frontmatter,
+  agrège par Intent et classe en 5 états : `ready` (toutes ≥ 4),
+  `partial` (mix), `needs-work` (toutes < 4), `to-score` (SPECs sans
+  score), `no-spec` (aucune SPEC). Highlight des SPECs faibles par
+  Intent. Permet d'identifier le maillon faible avant `/sdd exec`.
+- **Timeline du score santé** (#485) —
+  `lib/dashboard/health-timeline.js` lit
+  `.aiad/metrics/sante-globale/*.json` (persisté par
+  `aiad-sdd health --persist`), trace une sparkline SVG 560×140 avec
+  seuils 80/50, cercles colorés selon niveau. Calcule la tendance
+  (up/down/flat/unknown) sur moitiés récente vs ancienne pour
+  répondre : "ça s'améliore ou ça se dégrade ?"
+
+`SECTION_TO_TABS` (#480) étendu : les 3 nouvelles sections sont
+rattachées à des axes spécifiques pour filtrage cohérent.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**22 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM cockpit tabs/md-export/ai-act (#480-#482, loop 21)
 
 **21ᵉ boucle d'audit PM** (2026-05-15) — pm.html à 54 sections gagne

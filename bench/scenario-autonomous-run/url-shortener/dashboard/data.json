@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T13:45:35.149Z",
+    "generated": "2026-05-15T13:57:27.833Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T13:45:35.149Z"
+    "genere": "2026-05-15T13:57:27.833Z"
   },
   "fondamentaux": [
     {
@@ -364,7 +364,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T13:45:35.154Z",
+    "generatedAt": "2026-05-15T13:57:27.838Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -551,7 +551,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778852735155,
+        "ts": 1778853447840,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2066,7 +2066,7 @@
           }
         ]
       },
-      "mtime": 1778852735171.9692
+      "mtime": 1778853447856.0317
     },
     "totalChangements": 6
   },
@@ -2555,8 +2555,8 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 143028.1845703125,
-        "ageHumain": "il y a 2 min"
+        "ageMs": 855712.1845703125,
+        "ageHumain": "il y a 14 min"
       },
       {
         "type": "Intent",
@@ -2565,8 +2565,8 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 2995930.0524902344,
-        "ageHumain": "il y a 50 min"
+        "ageMs": 3708614.0524902344,
+        "ageHumain": "il y a 1 h"
       },
       {
         "type": "Intent",
@@ -2575,7 +2575,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778845222031.1401,
-        "ageMs": 7513141.859863281,
+        "ageMs": 8225825.859863281,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2586,8 +2586,8 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 19174346.733642578,
-        "ageHumain": "il y a 5 h"
+        "ageMs": 19887030.733642578,
+        "ageHumain": "il y a 6 h"
       },
       {
         "type": "SPEC",
@@ -2597,8 +2597,8 @@
         "statut": "in-progress",
         "mtime": 1778833557808.8782,
         "parentIntent": "INTENT-101",
-        "ageMs": 19177364.121826172,
-        "ageHumain": "il y a 5 h"
+        "ageMs": 19890048.121826172,
+        "ageHumain": "il y a 6 h"
       },
       {
         "type": "SPEC",
@@ -2608,8 +2608,8 @@
         "statut": "done",
         "mtime": 1778833555394.2512,
         "parentIntent": "INTENT-101",
-        "ageMs": 19179778.748779297,
-        "ageHumain": "il y a 5 h"
+        "ageMs": 19892462.748779297,
+        "ageHumain": "il y a 6 h"
       }
     ],
     "totaux": {
@@ -3945,6 +3945,189 @@
       "heuristique": 0
     }
   },
+  "sqsReadiness": {
+    "items": [
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statut": "running",
+        "priority": "P1",
+        "etat": "no-spec",
+        "total": 0,
+        "score": {
+          "min": null,
+          "avg": null,
+          "scored": 0
+        },
+        "specsFaibles": []
+      },
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "priority": "P0",
+        "etat": "ready",
+        "total": 2,
+        "score": {
+          "min": 4.2,
+          "avg": 4.4,
+          "scored": 2
+        },
+        "specsFaibles": []
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "priority": "P2",
+        "etat": "ready",
+        "total": 1,
+        "score": {
+          "min": 4,
+          "avg": 4,
+          "scored": 1
+        },
+        "specsFaibles": []
+      }
+    ],
+    "totaux": {
+      "total": 3,
+      "ready": 2,
+      "partial": 0,
+      "needsWork": 0,
+      "toScore": 0,
+      "noSpec": 1
+    },
+    "seuil": 4
+  },
+  "healthTimeline": {
+    "points": [
+      {
+        "date": "2026-05-09",
+        "score": 79,
+        "niveau": "sain",
+        "composantes": [],
+        "mtime": 1778853361098.2708
+      },
+      {
+        "date": "2026-05-11",
+        "score": 48,
+        "niveau": "critique",
+        "composantes": [],
+        "mtime": 1778853361101.1677
+      },
+      {
+        "date": "2026-05-13",
+        "score": 74,
+        "niveau": "moyen",
+        "composantes": [],
+        "mtime": 1778853361103.4802
+      },
+      {
+        "date": "2026-05-14",
+        "score": 75,
+        "niveau": "sain",
+        "composantes": [
+          {
+            "id": "maturite",
+            "points": 0,
+            "max": 20,
+            "disponible": true
+          },
+          {
+            "id": "governance",
+            "points": 20,
+            "max": 20,
+            "disponible": true
+          },
+          {
+            "id": "dpo",
+            "points": 20,
+            "max": 20,
+            "disponible": true
+          },
+          {
+            "id": "edgeCases",
+            "points": 0,
+            "max": 20,
+            "disponible": false
+          },
+          {
+            "id": "violations",
+            "points": 20,
+            "max": 20,
+            "disponible": true
+          }
+        ],
+        "mtime": 1778738740588.7515
+      },
+      {
+        "date": "2026-05-15",
+        "score": 40,
+        "niveau": "critique",
+        "composantes": [
+          {
+            "id": "maturite",
+            "points": 12,
+            "max": 20,
+            "disponible": true
+          },
+          {
+            "id": "governance",
+            "points": 20,
+            "max": 20,
+            "disponible": true
+          },
+          {
+            "id": "dpo",
+            "points": 0,
+            "max": 20,
+            "disponible": true
+          },
+          {
+            "id": "edgeCases",
+            "points": 0,
+            "max": 20,
+            "disponible": false
+          },
+          {
+            "id": "violations",
+            "points": 0,
+            "max": 20,
+            "disponible": true
+          }
+        ],
+        "mtime": 1778853433861.5012
+      }
+    ],
+    "tendance": {
+      "direction": "flat",
+      "delta": -0.5,
+      "base": 63.5
+    },
+    "courant": null,
+    "nbPoints": 5
+  },
+  "notifications": {
+    "items": [
+      {
+        "niveau": "critique",
+        "libelle": "2 Intent(s) à risque critical/high",
+        "detail": "Risques structurants identifiés — challenger en revue.",
+        "count": 2,
+        "anchor": "#risques"
+      }
+    ],
+    "total": 1,
+    "parNiveau": {
+      "critique": 1,
+      "eleve": 0,
+      "attention": 0
+    }
+  },
   "edgeCases": {
     "totalItems": 0,
     "totalCovered": 0,
@@ -4007,7 +4190,7 @@
     "niveau": "critique",
     "composantesDisponibles": 4,
     "evolution": {
-      "snapshots": 2,
+      "snapshots": 5,
       "buckets": [
         {
           "semaine": "2026-02-23",
@@ -4081,25 +4264,24 @@
         },
         {
           "semaine": "2026-05-04",
-          "samples": 0,
-          "score": null,
-          "niveau": null,
-          "valeur": null
+          "samples": 1,
+          "score": 79,
+          "niveau": "sain"
         },
         {
           "semaine": "2026-05-11",
-          "samples": 2,
+          "samples": 4,
           "score": 40,
           "niveau": "critique"
         }
       ],
       "tendance": {
-        "sens": "unknown",
-        "delta": 0
+        "sens": "down",
+        "delta": -39
       },
       "prune": {
         "pruned": [],
-        "kept": 2
+        "kept": 5
       }
     }
   },
@@ -4231,5 +4413,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T13:45:35.149Z"
+  "generatedAt": "2026-05-15T13:57:27.833Z"
 }
