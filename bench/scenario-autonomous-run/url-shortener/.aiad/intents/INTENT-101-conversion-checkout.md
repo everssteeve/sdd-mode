@@ -10,6 +10,12 @@ target: Q2-2026
 target_date: 2026-05-25
 owner: Steeve
 sponsor: Direction Sales
+risk_level: high
+risks:
+  - Dépendance Stripe pour SEPA
+  - RGPD consent management
+hypothesis: Si on simplifie le checkout à 2 étapes, la conversion remontera à >70 %
+hypothesis_status: untested
 personas:
   - Acheteur SMB
 user_stories:

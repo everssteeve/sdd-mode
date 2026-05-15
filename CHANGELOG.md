@@ -9,6 +9,30 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit lean product (#438-#440, loop 7)
+
+7ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues lean product
+(vitesse + risques + hypothèses), trinité canonique du PM Lean.
+
+- **Vitesse de livraison / cycle time** (#438) — `lib/dashboard/cycle-time.js`
+  consomme les snapshots PM (#433) pour calculer p50/p95/moyenne/min/max
+  du lead time Intent capture → done. Grille KPI 6 colonnes + top 3 plus
+  lents + top 3 en cours par âge.
+- **Registre des risques** (#439) — `lib/dashboard/risks.js` combine
+  frontmatter `risks:` / `risk_level:` (explicite) avec heuristique sur la
+  section CONTRAINTES (15 mots-clés FR/EN classés en 6 catégories :
+  Réglementaire/Accessibilité/Sécurité/Dépendance/Performance/Ressources).
+  Niveau global = pire des niveaux. Cartes colorées par niveau.
+- **Suivi des hypothèses produit** (#440) — `lib/dashboard/hypotheses.js`
+  lit `hypothesis:` frontmatter (prime) ou section `## HYPOTHÈSE` du
+  body. Statut `validated/invalidated/untested/partial` (aliases FR).
+  Tri par priorité d'action : invalidées et partielles d'abord (à
+  retraiter), puis non-testées, puis validées.
+
+`lireIntents` étendu pour spread 15 nouveaux champs frontmatter (8 risk
++ 7 hypothesis). Zéro modification de `render.js` (toujours 849/850 LOC).
+pm.html monte à **21 sections** maintenant.
+
 ### Ajouté — Dashboard PM cockpit ownership/bottlenecks (#435-#437, loop 6)
 
 6ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues axées

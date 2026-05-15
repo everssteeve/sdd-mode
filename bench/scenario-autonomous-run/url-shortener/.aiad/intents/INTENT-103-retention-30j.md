@@ -10,6 +10,9 @@ rice: 38
 target: Q3-2026
 owner: Steeve
 sponsor: Direction Marketing
+risk_level: medium
+hypothesis: Une boucle email à J+7 sur les utilisateurs inactifs augmentera la rétention J+30 à >55 %
+hypothesis_status: partial
 depends_on:
   - INTENT-102
 personas:
