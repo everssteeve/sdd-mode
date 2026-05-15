@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T15:25:59.826Z",
+    "generated": "2026-05-15T15:40:26.551Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T15:25:59.826Z"
+    "genere": "2026-05-15T15:40:26.551Z"
   },
   "fondamentaux": [
     {
@@ -364,7 +364,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T15:25:59.831Z",
+    "generatedAt": "2026-05-15T15:40:26.557Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -551,7 +551,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778858759832,
+        "ts": 1778859626558,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2066,7 +2066,7 @@
           }
         ]
       },
-      "mtime": 1778858759850.0217
+      "mtime": 1778859626574.3787
     },
     "totalChangements": 6
   },
@@ -2555,7 +2555,7 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 6167706.1845703125,
+        "ageMs": 7034430.1845703125,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2565,7 +2565,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 9020608.052490234,
+        "ageMs": 9887332.052490234,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2575,7 +2575,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778845222031.1401,
-        "ageMs": 13537819.859863281,
+        "ageMs": 14404543.859863281,
         "ageHumain": "il y a 4 h"
       },
       {
@@ -2586,7 +2586,7 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 25199024.733642578,
+        "ageMs": 26065748.733642578,
         "ageHumain": "il y a 7 h"
       },
       {
@@ -2597,7 +2597,7 @@
         "statut": "in-progress",
         "mtime": 1778833557808.8782,
         "parentIntent": "INTENT-101",
-        "ageMs": 25202042.121826172,
+        "ageMs": 26068766.121826172,
         "ageHumain": "il y a 7 h"
       },
       {
@@ -2608,7 +2608,7 @@
         "statut": "done",
         "mtime": 1778833555394.2512,
         "parentIntent": "INTENT-101",
-        "ageMs": 25204456.748779297,
+        "ageMs": 26071180.748779297,
         "ageHumain": "il y a 7 h"
       }
     ],
@@ -4100,7 +4100,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778858751838.6028
+        "mtime": 1778859619230.0518
       }
     ],
     "tendance": {
@@ -4584,57 +4584,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774020359855,
-        "fin": 1774625159855,
+        "debut": 1774021226579,
+        "fin": 1774626026579,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774625159855,
-        "fin": 1775229959855,
+        "debut": 1774626026579,
+        "fin": 1775230826579,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775229959855,
-        "fin": 1775834759855,
+        "debut": 1775230826579,
+        "fin": 1775835626579,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775834759855,
-        "fin": 1776439559855,
+        "debut": 1775835626579,
+        "fin": 1776440426579,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776439559855,
-        "fin": 1777044359855,
+        "debut": 1776440426579,
+        "fin": 1777045226579,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777044359855,
-        "fin": 1777649159855,
+        "debut": 1777045226579,
+        "fin": 1777650026579,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777649159855,
-        "fin": 1778253959855,
+        "debut": 1777650026579,
+        "fin": 1778254826579,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778253959855,
-        "fin": 1778858759855,
+        "debut": 1778254826579,
+        "fin": 1778859626579,
         "count": 5,
         "decisions": [
           {
@@ -5017,7 +5017,7 @@
         "statut": "done"
       }
     ],
-    "nowMs": 1778858759856
+    "nowMs": 1778859626580
   },
   "hypothesisLifecycle": {
     "items": [
@@ -5096,10 +5096,10 @@
       }
     ],
     "plage": {
-      "min": 1776266759856,
+      "min": 1776267626581,
       "max": 1790812740000
     },
-    "now": 1778858759856,
+    "now": 1778859626581,
     "totaux": {
       "total": 3,
       "retard": 0,
@@ -5166,12 +5166,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1776266759856,
-      "fin": 1778858759856
+      "debut": 1776267626581,
+      "fin": 1778859626581
     },
     "fenetrePrecedente": {
-      "debut": 1773674759856,
-      "fin": 1776266759856
+      "debut": 1773675626581,
+      "fin": 1776267626581
     },
     "totalActivite": 7,
     "totalPrecedent": 0,
@@ -5443,6 +5443,144 @@
       "doneTresVieux": 0,
       "doublonsCandidats": 0,
       "total": 0
+    }
+  },
+  "timeToFirstSpec": {
+    "items": [
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statut": "running",
+        "mtime": 1778849739242.9475,
+        "premiereSpec": null,
+        "ttfsJours": null,
+        "etat": "non-decompose"
+      },
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "mtime": 1778845222031.1401,
+        "premiereSpec": {
+          "id": "SPEC-101-1-formulaire-paiement",
+          "mtime": 1778833555394.2512
+        },
+        "ttfsJours": 0,
+        "etat": "rapide"
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "mtime": 1778852592144.8154,
+        "premiereSpec": {
+          "id": "SPEC-103-1-relance-email",
+          "mtime": 1778833560826.2664
+        },
+        "ttfsJours": 0,
+        "etat": "rapide"
+      }
+    ],
+    "totaux": {
+      "total": 3,
+      "rapide": 2,
+      "normal": 0,
+      "lent": 0,
+      "tresLent": 0,
+      "nonDecompose": 1
+    },
+    "ttfsMoyen": 0
+  },
+  "customerVoiceWall": {
+    "citations": [
+      {
+        "fichier": "2026-05-10-checkout-bug.md",
+        "sentiment": "negatif",
+        "author": "Alice",
+        "source": "utilisateur",
+        "intent": "INTENT-101",
+        "date": 1778371200000,
+        "citation": "J'ai un problème sur le checkout, la page reste bloquée après le paiement SEPA. C'est cassé, merci de regarder."
+      },
+      {
+        "fichier": "2026-05-12-onboarding-feedback.md",
+        "sentiment": "question",
+        "author": "Direction Marketing",
+        "source": "sponsor",
+        "intent": "INTENT-102",
+        "date": 1778544000000,
+        "citation": "Comment se passe l'avancement sur l'onboarding mobile ? Pourquoi le drop-off reste-t-il à 35 % ? Quand est prévu le déploiement ?"
+      },
+      {
+        "fichier": "2026-05-14-feature-praise.md",
+        "sentiment": "positif",
+        "author": "Bob",
+        "source": "utilisateur",
+        "intent": null,
+        "date": 1778716800000,
+        "citation": "Super génial cette nouvelle fonctionnalité de relance email ! Bravo à toute l'équipe."
+      }
+    ],
+    "totalSource": 3,
+    "totaux": {
+      "affiches": 3,
+      "negatifs": 1,
+      "questions": 1,
+      "positifs": 1
+    }
+  },
+  "quarterlyDelivery": {
+    "items": [
+      {
+        "trim": "Q2-2026",
+        "planifie": 2,
+        "livre": 1,
+        "ecart": -1,
+        "ratio": 0.5,
+        "intentsPlanifies": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "statut": "active"
+          },
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "statut": "running"
+          }
+        ],
+        "specsLivrees": [
+          {
+            "id": "SPEC-101-1-formulaire-paiement",
+            "mtime": 1778833555394.2512
+          }
+        ]
+      },
+      {
+        "trim": "Q3-2026",
+        "planifie": 1,
+        "livre": 0,
+        "ecart": -1,
+        "ratio": 0,
+        "intentsPlanifies": [
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "statut": "active"
+          }
+        ],
+        "specsLivrees": []
+      }
+    ],
+    "totaux": {
+      "trimestres": 2,
+      "totalPlanifie": 3,
+      "totalLivre": 1,
+      "couvertures": 0,
+      "deficits": 2
     }
   },
   "edgeCases": {
@@ -5730,5 +5868,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T15:25:59.826Z"
+  "generatedAt": "2026-05-15T15:40:26.551Z"
 }

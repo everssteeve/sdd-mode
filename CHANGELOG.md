@@ -9,6 +9,32 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM ttfs/voice-wall/quarterly-delivery (#504-#506, loop 29)
+
+**29ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 78 sections h2,
+gagne un tracker de discovery velocity, un mur de voix client et un
+suivi planifié-vs-livré par trimestre.
+
+- **Time-to-first-SPEC** (#504) —
+  `lib/dashboard/time-to-first-spec.js` mesure pour chaque Intent
+  le délai entre création (mtime) et première SPEC liée. 5 buckets :
+  rapide / normal / lent / très-lent / non-décomposé. TTFS moyen
+  calculé. Signal-clé de la discovery velocity.
+- **Mur de la voix client** (#505) —
+  `lib/dashboard/customer-voice-wall.js` sélectionne les extraits
+  les plus impactants depuis `customerFeedback` (3 négatifs +
+  2 questions + 1 positif), nettoie l'extrait (180 chars max),
+  rend wall de citations avec `« … »` CSS et chips meta.
+- **Livraison par trimestre** (#506) —
+  `lib/dashboard/quarterly-delivery.js` croise planifié (Intents avec
+  `target_date` ou `target: Q1-2026`) vs livré (SPECs done/archived
+  par trimestre). Table + mini-bars empilées + écart coloré.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**29 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM intent-compare/sponsor-prep/backlog-hygiene (#501-#503, loop 28)
 
 **28ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 75 sections h2,
