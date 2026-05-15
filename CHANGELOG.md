@@ -9,6 +9,29 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit focus/filters/links (#465-#467, loop 16)
+
+16ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues d'usage
+quotidien : signal unique en haut, persistance des filtres, hub d'outils.
+
+- **Daily focus / north star widget** (#465) —
+  `lib/dashboard/daily-focus.js` extrait LA pire alerte parmi 6 sources
+  (cycle, fact critique, retard, goulot, pari, urgent ≤ 14j) et la rend
+  en bannière full-width gradient coloré avec emoji + action concrète +
+  lien d'ancre. Message "Pas de feu" si tout calme.
+- **Saved filters localStorage** (#466) —
+  `lib/dashboard/saved-filters.js` persiste `aiad-pm-search` (recherche
+  globale #456) et `aiad-pm-chips` (chips intents.html #421) entre
+  sessions. Widget UI avec indicator + bouton Reset.
+- **Quick links hub** (#467) — `lib/dashboard/quick-links.js` lit
+  `.aiad/pm-links.yml` (parser YAML inline custom) ou fallback PRD
+  frontmatter, rend une grille de cartes pour Notion / Slack / Jira /
+  Calendar / Figma. Allowlist URL strict (https/http/mailto) anti-XSS,
+  rejet `javascript:`.
+
+Zéro modification de `render.js` (toujours 849/850 LOC). pm.html monte
+à **44 sections** maintenant.
+
 ### Ajouté — Dashboard PM cockpit onboarding/suggestions/heatmap (#462-#464, loop 15)
 
 15ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues : guide
