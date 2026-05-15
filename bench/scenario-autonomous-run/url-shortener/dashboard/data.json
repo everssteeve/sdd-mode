@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T19:41:37.811Z",
+    "generated": "2026-05-15T19:56:30.436Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T19:41:37.811Z"
+    "genere": "2026-05-15T19:56:30.436Z"
   },
   "fondamentaux": [
     {
@@ -368,7 +368,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T19:41:37.816Z",
+    "generatedAt": "2026-05-15T19:56:30.442Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -541,7 +541,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778874097818,
+        "ts": 1778874990443,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2125,7 +2125,7 @@
           }
         ]
       },
-      "mtime": 1778874097833.2712
+      "mtime": 1778874990458.8281
     },
     "totalChangements": 6
   },
@@ -2615,7 +2615,7 @@
         "statut": "done",
         "mtime": 1778860461845.796,
         "parentIntent": "INTENT-101",
-        "ageMs": 13635988.204101562,
+        "ageMs": 14528614.204101562,
         "ageHumain": "il y a 4 h"
       },
       {
@@ -2625,7 +2625,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778860455699.9673,
-        "ageMs": 13642134.032714844,
+        "ageMs": 14534760.032714844,
         "ageHumain": "il y a 4 h"
       },
       {
@@ -2636,7 +2636,7 @@
         "statut": "review",
         "mtime": 1778860446713.6975,
         "parentIntent": "INTENT-101",
-        "ageMs": 13651120.302490234,
+        "ageMs": 14543746.302490234,
         "ageHumain": "il y a 4 h"
       },
       {
@@ -2646,7 +2646,7 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 21505689.184570312,
+        "ageMs": 22398315.184570312,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2656,7 +2656,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 24358591.052490234,
+        "ageMs": 25251217.052490234,
         "ageHumain": "il y a 7 h"
       },
       {
@@ -2667,8 +2667,8 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 40537007.73364258,
-        "ageHumain": "il y a 11 h"
+        "ageMs": 41429633.73364258,
+        "ageHumain": "il y a 12 h"
       }
     ],
     "totaux": {
@@ -4159,7 +4159,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778874089623.6536
+        "mtime": 1778874981722.324
       }
     ],
     "tendance": {
@@ -4647,57 +4647,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774035697838,
-        "fin": 1774640497838,
+        "debut": 1774036590464,
+        "fin": 1774641390464,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774640497838,
-        "fin": 1775245297838,
+        "debut": 1774641390464,
+        "fin": 1775246190464,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775245297838,
-        "fin": 1775850097838,
+        "debut": 1775246190464,
+        "fin": 1775850990464,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775850097838,
-        "fin": 1776454897838,
+        "debut": 1775850990464,
+        "fin": 1776455790464,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776454897838,
-        "fin": 1777059697838,
+        "debut": 1776455790464,
+        "fin": 1777060590464,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777059697838,
-        "fin": 1777664497838,
+        "debut": 1777060590464,
+        "fin": 1777665390464,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777664497838,
-        "fin": 1778269297838,
+        "debut": 1777665390464,
+        "fin": 1778270190464,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778269297838,
-        "fin": 1778874097838,
+        "debut": 1778270190464,
+        "fin": 1778874990464,
         "count": 5,
         "decisions": [
           {
@@ -5080,7 +5080,7 @@
         "statut": "ready"
       }
     ],
-    "nowMs": 1778874097839
+    "nowMs": 1778874990465
   },
   "hypothesisLifecycle": {
     "items": [
@@ -5159,10 +5159,10 @@
       }
     ],
     "plage": {
-      "min": 1776282097839,
+      "min": 1776282990465,
       "max": 1790812740000
     },
-    "now": 1778874097839,
+    "now": 1778874990465,
     "totaux": {
       "total": 3,
       "retard": 0,
@@ -5229,12 +5229,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1776282097839,
-      "fin": 1778874097839
+      "debut": 1776282990465,
+      "fin": 1778874990465
     },
     "fenetrePrecedente": {
-      "debut": 1773690097839,
-      "fin": 1776282097839
+      "debut": 1773690990465,
+      "fin": 1776282990465
     },
     "totalActivite": 7,
     "totalPrecedent": 0,
@@ -5705,7 +5705,7 @@
       "total": 1,
       "specs": 1,
       "intents": 0,
-      "now": 1778874097840
+      "now": 1778874990466
     }
   },
   "stateTransitions": {
@@ -6148,42 +6148,42 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1775850097841,
+        "finSem": 1775850990467,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1776454897841,
+        "finSem": 1776455790467,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1777059697841,
+        "finSem": 1777060590467,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1777664497841,
+        "finSem": 1777665390467,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1778269297841,
+        "finSem": 1778270190467,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 5,
-        "finSem": 1778874097841,
+        "finSem": 1778874990467,
         "intake": 3,
         "delivery": 0,
         "delta": 3
@@ -7147,8 +7147,8 @@
     "enCoursAuDebutSample": [],
     "totaux": {
       "duree": 14,
-      "debutSprint": 1777664497843,
-      "finSprint": 1778874097843,
+      "debutSprint": 1777665390469,
+      "finSprint": 1778874990469,
       "livrees": 1,
       "enCoursAuDebut": 0,
       "ajoutees": 2,
@@ -7287,7 +7287,7 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1774640497844,
+        "finSem": 1774641390470,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7296,7 +7296,7 @@
       },
       {
         "idx": 1,
-        "finSem": 1775245297844,
+        "finSem": 1775246190470,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7305,7 +7305,7 @@
       },
       {
         "idx": 2,
-        "finSem": 1775850097844,
+        "finSem": 1775850990470,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7314,7 +7314,7 @@
       },
       {
         "idx": 3,
-        "finSem": 1776454897844,
+        "finSem": 1776455790470,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7323,7 +7323,7 @@
       },
       {
         "idx": 4,
-        "finSem": 1777059697844,
+        "finSem": 1777060590470,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7332,7 +7332,7 @@
       },
       {
         "idx": 5,
-        "finSem": 1777664497844,
+        "finSem": 1777665390470,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7341,7 +7341,7 @@
       },
       {
         "idx": 6,
-        "finSem": 1778269297844,
+        "finSem": 1778270190470,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7350,7 +7350,7 @@
       },
       {
         "idx": 7,
-        "finSem": 1778874097844,
+        "finSem": 1778874990470,
         "total": 3,
         "positif": 1,
         "negatif": 1,
@@ -7745,6 +7745,155 @@
       "scoreMoyen": 3
     }
   },
+  "sponsorScorecard": {
+    "items": [
+      {
+        "sponsor": "Direction Sales",
+        "nbIntents": 1,
+        "score": 5,
+        "etat": "excellent",
+        "checks": {
+          "throughput": true,
+          "commsRecente": true,
+          "couvertureRisque": true,
+          "pasZombie": true,
+          "reviewOk": true
+        }
+      },
+      {
+        "sponsor": "Direction Marketing",
+        "nbIntents": 2,
+        "score": 3,
+        "etat": "partiel",
+        "checks": {
+          "throughput": false,
+          "commsRecente": true,
+          "couvertureRisque": false,
+          "pasZombie": true,
+          "reviewOk": true
+        }
+      }
+    ],
+    "totaux": {
+      "sponsors": 2,
+      "excellent": 1,
+      "faible": 0,
+      "scoreMoyen": 4
+    }
+  },
+  "outcomeNorthStar": {
+    "items": [
+      {
+        "titre": "",
+        "target": null,
+        "nbIntents": 0,
+        "score": 0,
+        "etat": "isole"
+      },
+      {
+        "titre": "",
+        "target": null,
+        "nbIntents": 1,
+        "score": 0,
+        "etat": "isole"
+      },
+      {
+        "titre": "",
+        "target": null,
+        "nbIntents": 2,
+        "score": 0,
+        "etat": "isole"
+      },
+      {
+        "titre": "",
+        "target": null,
+        "nbIntents": 1,
+        "score": 0,
+        "etat": "isole"
+      }
+    ],
+    "totaux": {
+      "total": 4,
+      "aligne": 0,
+      "partiel": 0,
+      "isole": 4,
+      "scoreMoyen": 0
+    },
+    "northStar": "Devenir le raccourcisseur d'URL européen de référence : 10 000 utilisateurs actifs / mois en 12 mois, 100 % hébergement EU, RGPD by design.",
+    "tokensNorthStar": 11
+  },
+  "activityFeed": {
+    "events": [
+      {
+        "type": "spec",
+        "id": "SPEC-101-1-formulaire-paiement",
+        "titre": "Formulaire de paiement v2",
+        "statut": "done",
+        "mtime": 1778860461845.796
+      },
+      {
+        "type": "intent",
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "statut": "active",
+        "mtime": 1778860455699.9673
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "statut": "review",
+        "mtime": 1778860446713.6975
+      },
+      {
+        "type": "intent",
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "statut": "active",
+        "mtime": 1778852592144.8154
+      },
+      {
+        "type": "intent",
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "statut": "running",
+        "mtime": 1778849739242.9475
+      },
+      {
+        "type": "journal",
+        "id": "2026-05-15.md",
+        "titre": "",
+        "mtime": 1778845247902.5645
+      },
+      {
+        "type": "journal",
+        "id": "2026-05-14.md",
+        "titre": "",
+        "mtime": 1778845244377.2234
+      },
+      {
+        "type": "fact",
+        "id": "FACT-001-cnil-retention.md",
+        "titre": "",
+        "mtime": 1778839809046.5867
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-103-1-relance-email",
+        "titre": "Email de relance semaine 2",
+        "statut": "ready",
+        "mtime": 1778833560826.2664
+      }
+    ],
+    "totaux": {
+      "total": 9,
+      "intents": 3,
+      "specs": 3,
+      "journal": 2,
+      "facts": 1,
+      "demos": 0
+    }
+  },
   "edgeCases": {
     "totalItems": 0,
     "totalCovered": 0,
@@ -8030,5 +8179,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T19:41:37.811Z"
+  "generatedAt": "2026-05-15T19:56:30.436Z"
 }

@@ -9,6 +9,30 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM sponsor-scorecard/outcome-north-star/activity-feed (#555-#557, loop 46)
+
+**46ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 128 sections h2,
+gagne un scorecard composite sponsor, un alignement outcome ↔ NS et un
+feed activité 7j.
+
+- **Scorecard sponsors** (#555) —
+  `lib/dashboard/sponsor-scorecard.js` score composite /5 par sponsor
+  sur 5 dimensions (throughput / engagement / couverture risque /
+  pas zombie / review ≤ 14j). 4 états avec chips ok/ko par dimension.
+- **Alignement Outcome ↔ North Star** (#556) —
+  `lib/dashboard/outcome-north-star.js` Jaccard sur tokens (22
+  stopwords) entre chaque outcome PRD §4 et NS §2. Identifie les
+  outcomes isolés de la vision produit.
+- **Feed activité 7j** (#557) —
+  `lib/dashboard/activity-feed.js` agrège 5 sources (Intents, SPECs,
+  journal, facts, demos) sur 7j, tri date desc, dates relatives
+  ("il y a X min/h/j").
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**46 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM section-visibility/quarterly-decisions/spec-quality-score (#552-#554, loop 45)
 
 **45ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 125 sections h2,
