@@ -9,6 +9,32 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM spec-scope/goal-alignment/velocity-sla (#525-#527, loop 36)
+
+**36ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 99 sections h2,
+gagne un T-shirt size SPEC, un score d'alignement North Star et un
+tracker SLA vélocité.
+
+- **Taille SPEC T-shirt size** (#525) —
+  `lib/dashboard/spec-scope.js` classe chaque SPEC en XS/S/M/L/XL
+  selon le nb de mots du body (≤100/≤300/≤700/≤1500/>1500). Marque
+  `aDecouper` pour XL. Signal de découpage à faire via `/sdd split`.
+- **Alignement Intent ↔ North Star** (#526) —
+  `lib/dashboard/goal-alignment.js` calcule similarité Jaccard
+  (tokens > 3 chars, 20 stopwords FR/EN supprimés) entre chaque
+  Intent (titre + POURQUOI + OBJECTIF) et le North Star du PRD §2.
+  Classes : aligné ≥ 0.15, partiel 0.05-0.15, isolé < 0.05.
+- **Vélocité vs SLA** (#527) —
+  `lib/dashboard/velocity-sla.js` compare la vélocité actuelle (#479
+  forecast) à un target_velocity configurable (frontmatter ou défaut
+  1.5 SPECs/sem). 4 états : tenu / proche / sous-rythme / critique
+  avec barre de progression colorée.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**36 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM discovery-to-delivery/owner-workload/reading-time (#522-#524, loop 35)
 
 **35ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 96 sections h2,
