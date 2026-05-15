@@ -9,6 +9,31 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM persona-outcome-matrix/throughput-trend/risk-concentration (#519-#521, loop 34)
+
+**34ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 93 sections h2,
+gagne une heatmap persona×outcome, un throughput backlog et une
+concentration des risques par sponsor.
+
+- **Matrice persona × outcome** (#519) —
+  `lib/dashboard/persona-outcome-matrix.js` croise personas PRD §3 ×
+  outcomes PRD §4. Cellules colorées par densité (0/1/2/many).
+  Identifie les zones blanches (persona sans outcome servi).
+- **Throughput backlog** (#520) —
+  `lib/dashboard/throughput-trend.js` compare intake (Intents créés)
+  vs delivery (Intents done/archived) par semaine sur 6 sem. SVG
+  barres groupées bleu/vert. Direction `gonfle`/`reduit`/`equilibre`
+  sur 3 dernières semaines. Warning rouge si gonfle.
+- **Concentration des risques par sponsor** (#521) —
+  `lib/dashboard/risk-concentration.js` groupe les Intents à risque
+  critical/high par sponsor (5 alias + multi-valued). Identifie le
+  hotspot. Empty-clean vert si zéro risque élevé.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**34 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM backlog-pyramid/spec-cross-intent/blocker-reminders (#516-#518, loop 33)
 
 **33ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 90 sections h2,
