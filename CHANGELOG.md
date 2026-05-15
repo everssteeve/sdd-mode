@@ -9,6 +9,31 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit onboarding/suggestions/heatmap (#462-#464, loop 15)
+
+15ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues : guide
+nouvel utilisateur, détection de clusters, et rythme d'activité.
+
+- **Onboarding tour 5 étapes** (#462) —
+  `lib/dashboard/onboarding-tour.js` injecte un overlay HTML caché +
+  script localStorage qui lance le tour au premier chargement. 5 étapes
+  (Bienvenue / Échéances / Top priorités / Roadmap & Capacity / Brief PM
+  & Wizard). Skip/Esc + bouton "🎓 Rejouer le tour" en bas de pm.html.
+- **Smart suggestions de rapprochement** (#463) —
+  `lib/dashboard/smart-suggestions.js` détecte 4 types de clusters
+  (OKR partagé, persona partagé, tags communs ≥ 2 / ≥ 3 Intents,
+  doublons potentiels via tokens ≥ 5 chars partagés). Tri par actionn-
+  abilité (doublons d'abord). Bug latent corrigé : dangling-else dans
+  `if (Array) for if (v) ... else if (string)` → helper `extraireSet`.
+- **Heatmap activité PM 60 jours** (#464) —
+  `lib/dashboard/activity-heatmap.js` rend une grille GitHub-style
+  (7 lignes × N/7 colonnes) avec opacité graduée sur 5 niveaux selon
+  ratio count/max. Compte les mtimes Intents+SPECs+facts. Stats
+  cumulées + streak depuis aujourd'hui.
+
+Zéro modification de `render.js` (toujours 849/850 LOC). pm.html monte
+à **42 sections** maintenant.
+
 ### Ajouté — Dashboard PM cockpit confidence/journal/markdown (#459-#461, loop 14)
 
 14ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues : risque
