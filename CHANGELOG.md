@@ -9,6 +9,33 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM done-timeline/prd-sections-coverage/outcome-completion (#528-#530, loop 37 🎯 100 sections atteintes)
+
+**37ᵉ boucle d'audit PM** (2026-05-15) — **pm.html dépasse 100 sections
+h2 (102)** — milestone PM cockpit. Gagne une timeline mensuelle, une
+couverture PRD section par section et un % de complétion par outcome.
+
+- **Timeline des livraisons** (#528) —
+  `lib/dashboard/done-timeline.js` regroupe Intents + SPECs done/
+  archived par bucket mensuel sur N mois (défaut 6). Bar chart + cards
+  mensuelles avec listes typées. Identifie le mois le plus actif.
+- **Couverture sections PRD** (#529) —
+  `lib/dashboard/prd-sections-coverage.js` parse les `## ` headings du
+  PRD, compte mots par section, classe (vide / squelette / léger /
+  fourni). Détecte présence des 6 sections AIAD canoniques (§1
+  Contexte, §2 North Star, §3 Personas, §4 Outcomes, §6 User Stories,
+  §7 Décisions).
+- **Complétion des outcomes** (#530) —
+  `lib/dashboard/outcome-completion.js` calcule % par outcome =
+  SPECs livrées / SPECs attendues via Intents rattachés. 5 états
+  (complet 100 % / avancé ≥ 60 % / progresse 25-60 % / début < 25 % /
+  sans-data). Barre de progression + tri pct desc.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**37 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM spec-scope/goal-alignment/velocity-sla (#525-#527, loop 36)
 
 **36ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 99 sections h2,

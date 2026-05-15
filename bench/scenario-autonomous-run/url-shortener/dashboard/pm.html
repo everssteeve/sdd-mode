@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-15T17:25:25.757Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-15T17:40:24.167Z"/><meta name="aiad-version" content="1.14.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Cockpit Product Manager — url-shortener-bench</title>
 <meta name="description" content="Cockpit Product Manager — Pilotage Intent ↔ Livraison · funnel · alertes hebdo · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
@@ -87,7 +87,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 15/05/2026 19:25:25<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 15/05/2026 19:40:24<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +96,7 @@
       <div class="subtitle">Pilotage Intent ↔ Livraison · funnel · alertes hebdo</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/05/2026 19:25:25. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/05/2026 19:40:24. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">url-shortener-bench · v0.1.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -203,7 +203,7 @@
 .wn-btn:hover { background:rgba(127,127,127,.06); }
 .wn-empty { padding:.5rem .7rem; background:rgba(43,138,62,.06); border-left:3px solid #2b8a3e; border-radius:.25rem; font-size:.85rem; color:#1c5a2a; }
 @media print { #whats-new-section { display:none !important; } }
-</style><section id="whats-new-section" data-now-ms="1778865925785">
+</style><section id="whats-new-section" data-now-ms="1778866824195">
     <h2>Nouveautés depuis votre dernière visite <span class="count wn-counter">… chargement…</span></h2>
     <p class="muted" style="font-size:.85rem">Compare les <strong>6 artefact(s) récent(s)</strong> avec le timestamp persisté dans <code>localStorage.aiad-pm-last-visit</code>. Bouton "Marquer tout lu" met à jour le timestamp.</p>
     <div class="wn-actions">
@@ -325,6 +325,71 @@
         <span class="ww-tag">parent INTENT-101</span>
         <span class="ww-tag">aujourd&#39;hui</span>
       </div>
+    </div></div>
+  </section>
+<style>
+.dt-bar { display:flex; gap:2px; height:36px; margin:.4rem 0; }
+.dt-month { flex:1; display:flex; flex-direction:column; justify-content:flex-end; min-width:0; position:relative; }
+.dt-month-bar { width:100%; background:#4c6ef5; border-radius:2px 2px 0 0; transition:height .2s; }
+.dt-month-bar.empty { background:rgba(127,127,127,.1); }
+.dt-month-label { font-size:.65rem; text-align:center; color:var(--muted, #777); padding-top:.2rem; transform:rotate(-30deg) translateX(-4px); transform-origin:left top; white-space:nowrap; height:0; overflow:visible; }
+.dt-month-count { font-size:.7rem; text-align:center; color:var(--accent, #4c6ef5); font-weight:600; padding-bottom:.05rem; }
+.dt-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:.4rem; margin-top:1.3rem; }
+.dt-bucket { padding:.45rem .55rem; border-radius:.3rem; background:rgba(127,127,127,.04); border-left:3px solid rgba(76,110,245,.4); }
+.dt-bucket.empty { opacity:.5; }
+.dt-bucket h4 { font-size:.85rem; margin:.1rem 0 .2rem; }
+.dt-list { list-style:none; padding:0; margin:0; font-size:.75rem; }
+.dt-list li { padding:.1rem 0; }
+.dt-list .tag { padding:.05rem .3rem; background:rgba(43,138,62,.12); color:#1c5a2a; border-radius:.15rem; font-size:.68rem; margin-right:.25rem; }
+.dt-list .tag.t-intent { background:rgba(76,110,245,.12); color:#3a4cba; }
+.dt-meta { padding:.4rem .55rem; background:rgba(43,138,62,.06); border-left:3px solid #2b8a3e; border-radius:.25rem; font-size:.85rem; color:#1c5a2a; margin:.3rem 0; }
+</style><section>
+    <h2>Timeline des livraisons <span class="count">6 mois · 1 SPEC(s) + 0 Intent(s)</span></h2>
+    <p class="muted" style="font-size:.85rem">Achievements par mois sur les 6 derniers mois. Visualise la cadence de livraison et identifie les pics ou creux.</p>
+    <div class="dt-bar"><div class="dt-month" title="déc. 2025 : 0 livrable(s)">
+      
+      <div class="dt-month-bar empty" style="height:4.0px"></div>
+      <div class="dt-month-label">déc.</div>
+    </div><div class="dt-month" title="janv. 2026 : 0 livrable(s)">
+      
+      <div class="dt-month-bar empty" style="height:4.0px"></div>
+      <div class="dt-month-label">janv.</div>
+    </div><div class="dt-month" title="févr. 2026 : 0 livrable(s)">
+      
+      <div class="dt-month-bar empty" style="height:4.0px"></div>
+      <div class="dt-month-label">févr.</div>
+    </div><div class="dt-month" title="mars 2026 : 0 livrable(s)">
+      
+      <div class="dt-month-bar empty" style="height:4.0px"></div>
+      <div class="dt-month-label">mars</div>
+    </div><div class="dt-month" title="avr. 2026 : 0 livrable(s)">
+      
+      <div class="dt-month-bar empty" style="height:4.0px"></div>
+      <div class="dt-month-label">avr.</div>
+    </div><div class="dt-month" title="mai 2026 : 1 livrable(s)">
+      <div class="dt-month-count">1</div>
+      <div class="dt-month-bar " style="height:30.0px"></div>
+      <div class="dt-month-label">mai</div>
+    </div></div>
+    <div class="dt-meta">🎉 Mois le plus actif : <strong>mai 2026</strong>.</div>
+    <div class="dt-grid"><div class="dt-bucket empty">
+      <h4>déc. 2025 <span class="count">0</span></h4>
+      <ul class="dt-list"></ul>
+    </div><div class="dt-bucket empty">
+      <h4>janv. 2026 <span class="count">0</span></h4>
+      <ul class="dt-list"></ul>
+    </div><div class="dt-bucket empty">
+      <h4>févr. 2026 <span class="count">0</span></h4>
+      <ul class="dt-list"></ul>
+    </div><div class="dt-bucket empty">
+      <h4>mars 2026 <span class="count">0</span></h4>
+      <ul class="dt-list"></ul>
+    </div><div class="dt-bucket empty">
+      <h4>avr. 2026 <span class="count">0</span></h4>
+      <ul class="dt-list"></ul>
+    </div><div class="dt-bucket ">
+      <h4>mai 2026 <span class="count">1</span></h4>
+      <ul class="dt-list"><li><span class="tag">spec</span><code>SPEC-101-1-formulaire-paiement</code></li></ul>
     </div></div>
   </section>
 <style>
@@ -812,7 +877,7 @@ body.pm-searching .pm-cockpit-tabs { display: none !important; }
     <button type="button" class="pm-cockpit-tab" data-tab="all" aria-pressed="true">Tout (56 sections)</button><button type="button" class="pm-cockpit-tab" data-tab="tactique" aria-pressed="false">Tactique</button><button type="button" class="pm-cockpit-tab" data-tab="strategique" aria-pressed="false">Stratégique</button><button type="button" class="pm-cockpit-tab" data-tab="communication" aria-pressed="false">Communication</button><button type="button" class="pm-cockpit-tab" data-tab="rituels" aria-pressed="false">Rituels</button>
   </div><script>
 (function () {
-  var SECTION_TO_TABS = {"a-valider-cette-semaine":"tactique rituels","echeances-intent":"tactique","goulots-detranglement":"tactique","ce-qui-a-change-cette-semaine":"tactique rituels","top-priorites-a-travailler":"tactique strategique","matrice-impact-effort":"tactique strategique","funnel-intent":"tactique strategique","a-raffiner-cette-semaine":"tactique rituels","suggestions-de-rapprochement":"tactique","arbre-des-objectifs":"strategique","roadmap-par-trimestre":"strategique","capacite-par-trimestre":"strategique","alignement-intent-livraison":"strategique tactique","couverture-prd":"strategique","alignement-okr":"strategique","outcome-leaderboard":"strategique","discovery-board":"strategique","hypotheses-produit":"strategique","confidence-tracker":"strategique","a-b-tests-experimentations":"strategique","wip-limit-work-in-progress":"strategique tactique","brief-pm-exportable":"communication","newsletter-pm-hebdo":"communication","retrospective-trimestrielle":"communication rituels","export-csv-des-intents":"communication","liens-rapides":"communication","pages-detaillees-intent":"communication","stand-up-timer":"rituels","preparer-la-prochaine-demo":"rituels communication","cockpit-product-manager":"rituels tactique strategique communication","velocite":"strategique","velocite-semaine-vs-precedente":"strategique tactique","velocity-forecast":"strategique","vitesse-de-livraison":"strategique","cumulative-flow-diagram":"strategique","burnup-chart":"strategique","risk-burndown":"strategique","fraicheur-du-backlog":"tactique","dependances-intent":"strategique tactique","risques":"tactique strategique","registre-des-risques":"strategique","drill-down-par-persona":"strategique","portefeuille-par-owner":"tactique","portefeuille-par-sponsor":"communication strategique","decisions-et-facts":"strategique communication","tag-cloud":"strategique","activite-recente":"rituels","heatmap-activite-pm":"rituels","journal-pm":"rituels","capturer-un-nouvel-intent":"tactique","imprimer-pdf":"communication","tour-dintroduction-pm":"rituels","commandes-pm-copy-paste":"tactique communication","centre-de-notifications":"tactique strategique communication rituels","sqs-readiness-scorecard":"tactique strategique","evolution-score-sante":"strategique rituels","maturite-documentaire-des-intents":"tactique strategique","narratif-strategique":"communication strategique","sprint-planner-commit-horizon":"tactique strategique","communication-stakeholder":"communication tactique","velocite-decisionnelle":"strategique rituels","checklist-hebdomadaire-pm":"rituels tactique","attribution-outcomes":"strategique","discovery-delivery-balance":"strategique tactique","velocite-par-sponsor":"communication strategique","fraicheur-cadrage":"strategique","inbox-feedback-utilisateur":"tactique communication","nouveautes-depuis-votre-derniere-visite":"tactique rituels","cycle-de-vie-des-hypotheses":"strategique tactique","roadmap-timeline":"strategique tactique","scorecard-pm-personnel":"rituels strategique","compare-intents":"tactique strategique","prep-1-1-sponsor":"communication strategique","hygiene-backlog":"tactique","time-to-first-spec":"strategique tactique","mur-de-la-voix-client":"communication tactique","livraison-par-trimestre":"strategique","file-de-revue-specs":"tactique","registre-des-risques-acceptes":"strategique communication","wins-recents":"communication rituels","transitions-detat-intent":"strategique rituels","dependances-orphelines":"tactique","agenda-demo-auto":"communication rituels","specs-bloquees":"tactique","clusters-thematiques-paires-de-tags":"strategique communication","cost-of-delay-scorer":"tactique strategique","pyramide-dage-backlog":"strategique tactique","specs-transverses":"tactique strategique","relances-blockers":"communication tactique","matrice-persona-outcome":"strategique","throughput-backlog":"strategique tactique","concentration-des-risques-par-sponsor":"strategique communication","discovery-delivery-cycle-time":"strategique","charge-par-owner":"tactique strategique","temps-de-lecture-artefacts":"tactique","taille-spec-t-shirt-size":"tactique","alignement-intent-north-star":"strategique","velocite-vs-sla":"strategique"};
+  var SECTION_TO_TABS = {"a-valider-cette-semaine":"tactique rituels","echeances-intent":"tactique","goulots-detranglement":"tactique","ce-qui-a-change-cette-semaine":"tactique rituels","top-priorites-a-travailler":"tactique strategique","matrice-impact-effort":"tactique strategique","funnel-intent":"tactique strategique","a-raffiner-cette-semaine":"tactique rituels","suggestions-de-rapprochement":"tactique","arbre-des-objectifs":"strategique","roadmap-par-trimestre":"strategique","capacite-par-trimestre":"strategique","alignement-intent-livraison":"strategique tactique","couverture-prd":"strategique","alignement-okr":"strategique","outcome-leaderboard":"strategique","discovery-board":"strategique","hypotheses-produit":"strategique","confidence-tracker":"strategique","a-b-tests-experimentations":"strategique","wip-limit-work-in-progress":"strategique tactique","brief-pm-exportable":"communication","newsletter-pm-hebdo":"communication","retrospective-trimestrielle":"communication rituels","export-csv-des-intents":"communication","liens-rapides":"communication","pages-detaillees-intent":"communication","stand-up-timer":"rituels","preparer-la-prochaine-demo":"rituels communication","cockpit-product-manager":"rituels tactique strategique communication","velocite":"strategique","velocite-semaine-vs-precedente":"strategique tactique","velocity-forecast":"strategique","vitesse-de-livraison":"strategique","cumulative-flow-diagram":"strategique","burnup-chart":"strategique","risk-burndown":"strategique","fraicheur-du-backlog":"tactique","dependances-intent":"strategique tactique","risques":"tactique strategique","registre-des-risques":"strategique","drill-down-par-persona":"strategique","portefeuille-par-owner":"tactique","portefeuille-par-sponsor":"communication strategique","decisions-et-facts":"strategique communication","tag-cloud":"strategique","activite-recente":"rituels","heatmap-activite-pm":"rituels","journal-pm":"rituels","capturer-un-nouvel-intent":"tactique","imprimer-pdf":"communication","tour-dintroduction-pm":"rituels","commandes-pm-copy-paste":"tactique communication","centre-de-notifications":"tactique strategique communication rituels","sqs-readiness-scorecard":"tactique strategique","evolution-score-sante":"strategique rituels","maturite-documentaire-des-intents":"tactique strategique","narratif-strategique":"communication strategique","sprint-planner-commit-horizon":"tactique strategique","communication-stakeholder":"communication tactique","velocite-decisionnelle":"strategique rituels","checklist-hebdomadaire-pm":"rituels tactique","attribution-outcomes":"strategique","discovery-delivery-balance":"strategique tactique","velocite-par-sponsor":"communication strategique","fraicheur-cadrage":"strategique","inbox-feedback-utilisateur":"tactique communication","nouveautes-depuis-votre-derniere-visite":"tactique rituels","cycle-de-vie-des-hypotheses":"strategique tactique","roadmap-timeline":"strategique tactique","scorecard-pm-personnel":"rituels strategique","compare-intents":"tactique strategique","prep-1-1-sponsor":"communication strategique","hygiene-backlog":"tactique","time-to-first-spec":"strategique tactique","mur-de-la-voix-client":"communication tactique","livraison-par-trimestre":"strategique","file-de-revue-specs":"tactique","registre-des-risques-acceptes":"strategique communication","wins-recents":"communication rituels","transitions-detat-intent":"strategique rituels","dependances-orphelines":"tactique","agenda-demo-auto":"communication rituels","specs-bloquees":"tactique","clusters-thematiques-paires-de-tags":"strategique communication","cost-of-delay-scorer":"tactique strategique","pyramide-dage-backlog":"strategique tactique","specs-transverses":"tactique strategique","relances-blockers":"communication tactique","matrice-persona-outcome":"strategique","throughput-backlog":"strategique tactique","concentration-des-risques-par-sponsor":"strategique communication","discovery-delivery-cycle-time":"strategique","charge-par-owner":"tactique strategique","temps-de-lecture-artefacts":"tactique","taille-spec-t-shirt-size":"tactique","alignement-intent-north-star":"strategique","velocite-vs-sla":"strategique","timeline-des-livraisons":"strategique communication rituels","couverture-sections-prd":"strategique","completion-des-outcomes":"strategique"};
   var KEY = 'aiad-pm-tab';
   var TABS = ['all', 'tactique', 'strategique', 'communication', 'rituels'];
   function init() {
@@ -1655,7 +1720,7 @@ body.pm-searching .pm-cockpit-tabs { display: none !important; }
     </li><li class="activite-item">
       <div><span class="badge badge-info" style="font-size:.7rem">Intent</span> <a class="src-link" href="../.aiad/intents/INTENT-102-onboarding-mobile.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-102-onboarding-mobile.md">INTENT-102-onboarding-mobile</a></div>
       <div class="activite-titre">Onboarding mobile en moins de 30 secondes <span class="activite-statut">(running)</span></div>
-      <div class="activite-age" title="15/05/2026 14:55:39">il y a 4 h</div>
+      <div class="activite-age" title="15/05/2026 14:55:39">il y a 5 h</div>
     </li><li class="activite-item">
       <div><span class="badge badge-muted" style="font-size:.7rem">SPEC</span> <a class="src-link" href="../.aiad/specs/SPEC-103-1-relance-email.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-103-1-relance-email.md">SPEC-103-1-relance-email</a></div>
       <div class="activite-titre">Email de relance semaine 2 <span class="activite-statut">(ready)</span></div>
@@ -2315,8 +2380,8 @@ EOF</pre>
       <div class="rt-label">distant</div>
     </div></div>
     <svg class="rt-gantt" viewBox="0 0 760 180" role="img" aria-label="Roadmap timeline Gantt-light">
-    <line x1="152.6" y1="30.0" x2="152.6" y2="152.0" stroke="currentColor" stroke-opacity=".1"/>
-      <text x="152.6" y="24.0" font-size="9" text-anchor="middle" fill="currentColor" opacity=".55">avr.</text><line x1="249.2" y1="30.0" x2="249.2" y2="152.0" stroke="currentColor" stroke-opacity=".1"/>
+    <line x1="152.5" y1="30.0" x2="152.5" y2="152.0" stroke="currentColor" stroke-opacity=".1"/>
+      <text x="152.5" y="24.0" font-size="9" text-anchor="middle" fill="currentColor" opacity=".55">avr.</text><line x1="249.2" y1="30.0" x2="249.2" y2="152.0" stroke="currentColor" stroke-opacity=".1"/>
       <text x="249.2" y="24.0" font-size="9" text-anchor="middle" fill="currentColor" opacity=".55">mai</text><line x1="349.0" y1="30.0" x2="349.0" y2="152.0" stroke="currentColor" stroke-opacity=".1"/>
       <text x="349.0" y="24.0" font-size="9" text-anchor="middle" fill="currentColor" opacity=".55">juin</text><line x1="445.7" y1="30.0" x2="445.7" y2="152.0" stroke="currentColor" stroke-opacity=".1"/>
       <text x="445.7" y="24.0" font-size="9" text-anchor="middle" fill="currentColor" opacity=".55">juil.</text><line x1="545.5" y1="30.0" x2="545.5" y2="152.0" stroke="currentColor" stroke-opacity=".1"/>
@@ -3181,6 +3246,85 @@ Début : 15 mai
       
     </div>
   </section>
+<style>
+.oc-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:.4rem; margin:.4rem 0; }
+.oc-stat { padding:.4rem; border-radius:.3rem; text-align:center; border:1px solid var(--border, #ddd); }
+.oc-stat .oc-val { font-size:1.2rem; font-weight:700; }
+.oc-stat .oc-label { font-size:.7rem; text-transform:uppercase; color:var(--muted, #777); }
+.oc-stat.e-complet { background:rgba(43,138,62,.1); border-color:rgba(43,138,62,.4); }
+.oc-stat.e-avance { background:rgba(43,138,62,.05); border-color:rgba(43,138,62,.3); }
+.oc-stat.e-progresse { background:rgba(245,166,35,.05); border-color:rgba(245,166,35,.3); }
+.oc-stat.e-debut { background:rgba(232,89,12,.06); border-color:rgba(232,89,12,.3); }
+.oc-stat.e-sans-data { background:rgba(127,127,127,.04); }
+.oc-row { padding:.45rem .55rem; margin:.25rem 0; border-radius:.3rem; background:rgba(127,127,127,.04); border-left:3px solid var(--border, #ccc); }
+.oc-row.e-complet { border-left-color:#2b8a3e; background:rgba(43,138,62,.05); }
+.oc-row.e-avance { border-left-color:rgba(43,138,62,.7); background:rgba(43,138,62,.03); }
+.oc-row.e-progresse { border-left-color:#f5a623; }
+.oc-row.e-debut { border-left-color:#e8590c; }
+.oc-row.e-sans-data { border-left-color:rgba(127,127,127,.3); opacity:.75; }
+.oc-head { display:flex; gap:.4rem; align-items:baseline; flex-wrap:wrap; font-size:.88rem; }
+.oc-progress { width:140px; height:8px; background:rgba(127,127,127,.15); border-radius:4px; overflow:hidden; display:inline-block; vertical-align:middle; }
+.oc-fill { height:100%; transition:width .2s; }
+.oc-fill.e-complet { background:#2b8a3e; }
+.oc-fill.e-avance { background:#3a9c4f; }
+.oc-fill.e-progresse { background:#f5a623; }
+.oc-fill.e-debut { background:#e8590c; }
+.oc-pct { font-weight:600; padding:.05rem .35rem; border-radius:.18rem; font-size:.75rem; }
+.oc-pct.e-complet { background:rgba(43,138,62,.18); color:#1c5a2a; }
+.oc-pct.e-avance { background:rgba(43,138,62,.12); color:#1c5a2a; }
+.oc-pct.e-progresse { background:rgba(245,166,35,.15); color:#7a560f; }
+.oc-pct.e-debut { background:rgba(232,89,12,.15); color:#7a3a08; }
+.oc-pct.e-sans-data { background:rgba(127,127,127,.12); }
+.oc-meta { font-size:.75rem; color:var(--muted, #777); margin-top:.25rem; }
+</style><section>
+    <h2>Complétion des outcomes <span class="count">4 outcome(s) — moyenne 25%</span></h2>
+    <p class="muted" style="font-size:.85rem">% de complétion = SPECs livrées / SPECs attendues via Intents rattachés. États : complet (100 %) / avancé (≥ 60 %) / progresse (25-60 %) / début (&lt; 25 %) / sans-data (0 SPEC).</p>
+    <div class="oc-grid"><div class="oc-stat e-complet">
+      <div class="oc-val">0</div>
+      <div class="oc-label">✓ Complet (100%)</div>
+    </div><div class="oc-stat e-avance">
+      <div class="oc-val">0</div>
+      <div class="oc-label">◐ Avancé (≥ 60%)</div>
+    </div><div class="oc-stat e-progresse">
+      <div class="oc-val">1</div>
+      <div class="oc-label">◐ Progresse (25-60%)</div>
+    </div><div class="oc-stat e-debut">
+      <div class="oc-val">1</div>
+      <div class="oc-label">⚠ Début (&lt; 25%)</div>
+    </div><div class="oc-stat e-sans-data">
+      <div class="oc-val">2</div>
+      <div class="oc-label">⊘ Sans SPECs</div>
+    </div></div>
+    <div><div class="oc-row e-progresse">
+      <div class="oc-head">
+        <strong>?</strong>
+        <span class="oc-pct e-progresse">50%</span>
+        <span class="oc-progress"><span class="oc-fill e-progresse" style="width:50%"></span></span>
+      </div>
+      <div class="oc-meta">1 Intent(s) rattaché(s) · 1/2 SPEC(s) livrée(s)</div>
+    </div><div class="oc-row e-debut">
+      <div class="oc-head">
+        <strong>?</strong>
+        <span class="oc-pct e-debut">0%</span>
+        <span class="oc-progress"><span class="oc-fill e-debut" style="width:0%"></span></span>
+      </div>
+      <div class="oc-meta">2 Intent(s) rattaché(s) · 0/1 SPEC(s) livrée(s)</div>
+    </div><div class="oc-row e-sans-data">
+      <div class="oc-head">
+        <strong>?</strong>
+        <span class="oc-pct e-sans-data">sans data</span>
+        <span class="oc-progress"><span class="oc-fill e-sans-data" style="width:0%"></span></span>
+      </div>
+      <div class="oc-meta">0 Intent(s) rattaché(s) · 0/0 SPEC(s) livrée(s)</div>
+    </div><div class="oc-row e-sans-data">
+      <div class="oc-head">
+        <strong>?</strong>
+        <span class="oc-pct e-sans-data">sans data</span>
+        <span class="oc-progress"><span class="oc-fill e-sans-data" style="width:0%"></span></span>
+      </div>
+      <div class="oc-meta">1 Intent(s) rattaché(s) · 0/0 SPEC(s) livrée(s)</div>
+    </div></div>
+  </section>
 <section>
     <h2>Couverture PRD <span class="count">2/4 personas · 3/6 US · 3/4 outcomes</span></h2>
     <p class="muted" style="font-size:.85rem">Pour chaque persona, user story et outcome déclaré dans <a class="src-link" href="../.aiad/PRD.md" target="_blank" rel="noopener" title="Ouvrir .aiad/PRD.md">.aiad/PRD.md</a>, nombre d'Intents qui le servent (matching frontmatter explicite + heuristique sur POURQUOI / POUR QUI / OBJECTIF + valeur cible).</p>
@@ -3313,6 +3457,101 @@ Début : 15 mai
       <div class="pf-meta">dernière édition 14/05/2026 · 10 sections h2 · seuil 60/180j</div>
     </div></div>
     <p class="muted" style="font-size:.85rem">✓ Tous les artefacts cadrage sont frais.</p>
+  </section>
+<style>
+.psc-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:.4rem; margin:.4rem 0; }
+.psc-stat { padding:.4rem; border-radius:.3rem; text-align:center; border:1px solid var(--border, #ddd); }
+.psc-stat .psc-val { font-size:1.15rem; font-weight:700; }
+.psc-stat .psc-label { font-size:.7rem; text-transform:uppercase; color:var(--muted, #777); }
+.psc-stat.s-vide { background:rgba(201,42,42,.05); border-color:rgba(201,42,42,.3); }
+.psc-stat.s-squelette { background:rgba(232,89,12,.05); border-color:rgba(232,89,12,.3); }
+.psc-stat.s-leger { background:rgba(245,166,35,.05); border-color:rgba(245,166,35,.3); }
+.psc-stat.s-fourni { background:rgba(43,138,62,.07); border-color:rgba(43,138,62,.3); }
+.psc-cano { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:.3rem; margin:.3rem 0; }
+.psc-cano-card { padding:.35rem .5rem; border-radius:.25rem; background:rgba(127,127,127,.05); border-left:3px solid var(--border, #ccc); }
+.psc-cano-card.absent { border-left-color:#c92a2a; background:rgba(201,42,42,.04); }
+.psc-cano-card.present { border-left-color:#2b8a3e; background:rgba(43,138,62,.04); }
+.psc-cano-card h4 { font-size:.78rem; margin:0; }
+.psc-cano-card .psc-meta { font-size:.7rem; color:var(--muted, #777); }
+.psc-row { padding:.25rem .4rem; margin:.1rem 0; font-size:.78rem; background:rgba(127,127,127,.04); border-radius:.18rem; display:flex; gap:.4rem; align-items:baseline; }
+.psc-tag { padding:.05rem .3rem; background:rgba(127,127,127,.1); border-radius:.15rem; font-size:.7rem; }
+.psc-tag.s-vide { background:rgba(201,42,42,.12); color:#7a1717; }
+.psc-tag.s-squelette { background:rgba(232,89,12,.12); color:#7a3a08; }
+.psc-tag.s-leger { background:rgba(245,166,35,.15); color:#7a560f; }
+.psc-tag.s-fourni { background:rgba(43,138,62,.12); color:#1c5a2a; }
+.psc-empty { padding:.5rem .7rem; background:rgba(201,42,42,.06); border-left:3px solid #c92a2a; border-radius:.25rem; font-size:.85rem; color:#7a1717; }
+</style><section>
+    <h2>Couverture sections PRD <span class="count">9 section(s) · 5/6 canoniques</span></h2>
+    <p class="muted" style="font-size:.85rem">Parse le PRD section par section : nb mots, état (vide / squelette < 30 / léger < 150 / fourni). Vérifie présence des 6 sections AIAD canoniques (§1 Contexte, §2 North Star, §3 Personas, §4 Outcomes, §6 User Stories, §7 Décisions).</p>
+    <div class="psc-grid"><div class="psc-stat s-fourni">
+      <div class="psc-val">0</div>
+      <div class="psc-label">fourni</div>
+    </div><div class="psc-stat s-leger">
+      <div class="psc-val">6</div>
+      <div class="psc-label">leger</div>
+    </div><div class="psc-stat s-squelette">
+      <div class="psc-val">3</div>
+      <div class="psc-label">squelette</div>
+    </div><div class="psc-stat s-vide">
+      <div class="psc-val">0</div>
+      <div class="psc-label">vide</div>
+    </div></div>
+    <div class="psc-cano"><div class="psc-cano-card present">
+      <h4>§1 Contexte</h4>
+      <div class="psc-meta">70 mots · leger</div>
+    </div><div class="psc-cano-card present">
+      <h4>§2 North Star</h4>
+      <div class="psc-meta">24 mots · squelette</div>
+    </div><div class="psc-cano-card present">
+      <h4>§3 Personas / Cas</h4>
+      <div class="psc-meta">89 mots · leger</div>
+    </div><div class="psc-cano-card present">
+      <h4>§4 Outcomes</h4>
+      <div class="psc-meta">69 mots · leger</div>
+    </div><div class="psc-cano-card present">
+      <h4>§6 User Stories</h4>
+      <div class="psc-meta">120 mots · leger</div>
+    </div><div class="psc-cano-card absent">
+      <h4>§7 Décisions</h4>
+      <div class="psc-meta">absente</div>
+    </div></div>
+    <div><div class="psc-row">
+      <strong>1. Contexte et Problème</strong>
+      <span class="psc-tag s-leger">leger</span>
+      <span class="muted">70 mots</span>
+    </div><div class="psc-row">
+      <strong>2. North Star / Product Goal</strong>
+      <span class="psc-tag s-squelette">squelette</span>
+      <span class="muted">24 mots</span>
+    </div><div class="psc-row">
+      <strong>3. Personas et Use Cases</strong>
+      <span class="psc-tag s-leger">leger</span>
+      <span class="muted">89 mots</span>
+    </div><div class="psc-row">
+      <strong>4. Outcome Criteria (Mesurables)</strong>
+      <span class="psc-tag s-leger">leger</span>
+      <span class="muted">69 mots</span>
+    </div><div class="psc-row">
+      <strong>5. Périmètre</strong>
+      <span class="psc-tag s-leger">leger</span>
+      <span class="muted">40 mots</span>
+    </div><div class="psc-row">
+      <strong>6. User Stories (Prioritaires)</strong>
+      <span class="psc-tag s-leger">leger</span>
+      <span class="muted">120 mots</span>
+    </div><div class="psc-row">
+      <strong>7. Trade-offs et Décisions Clés</strong>
+      <span class="psc-tag s-leger">leger</span>
+      <span class="muted">78 mots</span>
+    </div><div class="psc-row">
+      <strong>8. Dépendances et Risques</strong>
+      <span class="psc-tag s-squelette">squelette</span>
+      <span class="muted">24 mots</span>
+    </div><div class="psc-row">
+      <strong>9. Évolution Prévue (v2)</strong>
+      <span class="psc-tag s-squelette">squelette</span>
+      <span class="muted">10 mots</span>
+    </div></div>
   </section>
 <style>
 .okr-obj { padding:.6rem .8rem; margin:.5rem 0; border:1px solid var(--border, #ddd); border-left:4px solid #4c6ef5; border-radius:.4rem; background:var(--card-bg, #fff); }
