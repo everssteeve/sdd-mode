@@ -9,6 +9,30 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit OKR/discovery/tags (#450-#452, loop 11)
+
+11ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues qui
+complètent le dictionnaire PM canonique : alignement OKR, dual-track
+Agile, slicing transversal.
+
+- **Alignement OKR** (#450) — `lib/dashboard/okr-mapping.js` parse
+  `.aiad/OKR.md` (format `## O-N — Description` + `### KR-N.N : ...`)
+  et croise avec les Intents (frontmatter `okr:` / `okrs:`). Détecte les
+  références orphelines (KR cités par Intent mais absents d'OKR.md).
+- **Discovery board / dual-track Agile** (#451) —
+  `lib/dashboard/discovery-board.js` lit `kind:` du frontmatter et
+  bucketise en 6 modes (discovery/experiment/spike/research/prototype/
+  delivery). Distingue exploration vs exécution. Affiche
+  `hypothesisStatus` en badge sur chaque carte.
+- **Tag cloud transversal** (#452) — `lib/dashboard/tag-cloud.js` lit
+  `tags:` / `labels:` frontmatter, normalise (lowercase + tirets),
+  rend un cloud avec 4 tailles graduées + drill-down interactif côté
+  client (click → liste des Intents porteurs).
+
+`lireIntents` étendu pour spread 14 nouveaux champs frontmatter (8 OKR
++ 2 kind/track + 5 tag aliases). Zéro modification de `render.js`
+(toujours 849/850 LOC). pm.html monte à **31 sections** maintenant.
+
 ### Ajouté — Dashboard PM cockpit print/capture/flow (#447-#449, loop 10)
 
 10ᵉ boucle d'audit PM (2026-05-15) — le cockpit ferme la boucle entrée

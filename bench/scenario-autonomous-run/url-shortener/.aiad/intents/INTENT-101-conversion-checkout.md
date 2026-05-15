@@ -16,6 +16,9 @@ risks:
   - RGPD consent management
 hypothesis: Si on simplifie le checkout à 2 étapes, la conversion remontera à >70 %
 hypothesis_status: untested
+okr: KR-1.2
+kind: delivery
+tags: [paiement, conversion, sepa, mobile, q2]
 personas:
   - Acheteur SMB
 user_stories:

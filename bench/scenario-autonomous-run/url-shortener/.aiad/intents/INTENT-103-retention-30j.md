@@ -13,6 +13,9 @@ sponsor: Direction Marketing
 risk_level: medium
 hypothesis: Une boucle email à J+7 sur les utilisateurs inactifs augmentera la rétention J+30 à >55 %
 hypothesis_status: partial
+okr: KR-1.3
+kind: discovery
+tags: [retention, email, q3, growth]
 depends_on:
   - INTENT-102
 personas:

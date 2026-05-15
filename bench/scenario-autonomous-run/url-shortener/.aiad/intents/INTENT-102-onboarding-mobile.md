@@ -13,6 +13,9 @@ user_stories:
   - US-003
 outcomes:
   - Drop-off onboarding mobile
+okrs: [KR-1.1, KR-1.3]
+kind: experiment
+tags: [mobile, onboarding, q3, growth]
 ---
 
 # INTENT-102-onboarding-mobile
