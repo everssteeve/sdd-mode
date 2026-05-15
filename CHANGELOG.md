@@ -9,6 +9,34 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM state-transitions/orphan-deps/demo-agenda (#510-#512, loop 31)
+
+**31ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 84 sections h2,
+gagne une timeline transitions d'état, un détecteur de deps orphelines
+et un agenda demo auto.
+
+- **Transitions d'état Intent** (#510) —
+  `lib/dashboard/state-transitions.js` reconstitue depuis les snapshots
+  `pm-snapshots/*.json` la timeline de statut par Intent (draft → active
+  → done…). Détecte les **régressions** (ex. done → active) via
+  ranking. Cards avec flow coloré + warning rouge si régression.
+- **Dépendances orphelines** (#511) —
+  `lib/dashboard/orphan-deps.js` détecte les références
+  `depends_on:`/`blocked_by:` pointant vers un Intent inexistant
+  (typos, oublis post-archivage) + les self-loops. Empty-clean vert
+  si graphe propre.
+- **Agenda demo auto** (#512) —
+  `lib/dashboard/demo-agenda.js` génère un brouillon d'agenda à partir
+  des SPECs done non démontrées (#137), groupage par Intent parent,
+  tri priorité, budget temps configurable (cible 30 min par défaut,
+  2 min intro + 3 min/SPEC). Coupe les items hors fenêtre. Bouton
+  🖨 Imprimer.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**31 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM review-queue/accepted-risks/wins-wall (#507-#509, loop 30 🎉)
 
 **30ᵉ boucle d'audit PM** (2026-05-15) — MILESTONE 30 itérations

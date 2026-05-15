@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T15:56:23.344Z",
+    "generated": "2026-05-15T16:10:46.883Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T15:56:23.344Z"
+    "genere": "2026-05-15T16:10:46.883Z"
   },
   "fondamentaux": [
     {
@@ -368,7 +368,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T15:56:23.349Z",
+    "generatedAt": "2026-05-15T16:10:46.888Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -541,7 +541,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778860583351,
+        "ts": 1778861446890,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2125,7 +2125,7 @@
           }
         ]
       },
-      "mtime": 1778860583366.824
+      "mtime": 1778861446905.9458
     },
     "totalChangements": 6
   },
@@ -2615,8 +2615,8 @@
         "statut": "done",
         "mtime": 1778860461845.796,
         "parentIntent": "INTENT-101",
-        "ageMs": 121522.2041015625,
-        "ageHumain": "il y a 2 min"
+        "ageMs": 985061.2041015625,
+        "ageHumain": "il y a 16 min"
       },
       {
         "type": "Intent",
@@ -2625,8 +2625,8 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778860455699.9673,
-        "ageMs": 127668.03271484375,
-        "ageHumain": "il y a 2 min"
+        "ageMs": 991207.0327148438,
+        "ageHumain": "il y a 17 min"
       },
       {
         "type": "SPEC",
@@ -2636,8 +2636,8 @@
         "statut": "review",
         "mtime": 1778860446713.6975,
         "parentIntent": "INTENT-101",
-        "ageMs": 136654.30249023438,
-        "ageHumain": "il y a 2 min"
+        "ageMs": 1000193.3024902344,
+        "ageHumain": "il y a 17 min"
       },
       {
         "type": "Intent",
@@ -2646,7 +2646,7 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 7991223.1845703125,
+        "ageMs": 8854762.184570312,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2656,7 +2656,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 10844125.052490234,
+        "ageMs": 11707664.052490234,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2667,7 +2667,7 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 27022541.733642578,
+        "ageMs": 27886080.733642578,
         "ageHumain": "il y a 8 h"
       }
     ],
@@ -4159,7 +4159,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778860575599.0671
+        "mtime": 1778861439699.8464
       }
     ],
     "tendance": {
@@ -4647,57 +4647,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774022183372,
-        "fin": 1774626983372,
+        "debut": 1774023046911,
+        "fin": 1774627846911,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774626983372,
-        "fin": 1775231783372,
+        "debut": 1774627846911,
+        "fin": 1775232646911,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775231783372,
-        "fin": 1775836583372,
+        "debut": 1775232646911,
+        "fin": 1775837446911,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775836583372,
-        "fin": 1776441383372,
+        "debut": 1775837446911,
+        "fin": 1776442246911,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776441383372,
-        "fin": 1777046183372,
+        "debut": 1776442246911,
+        "fin": 1777047046911,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777046183372,
-        "fin": 1777650983372,
+        "debut": 1777047046911,
+        "fin": 1777651846911,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777650983372,
-        "fin": 1778255783372,
+        "debut": 1777651846911,
+        "fin": 1778256646911,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778255783372,
-        "fin": 1778860583372,
+        "debut": 1778256646911,
+        "fin": 1778861446911,
         "count": 5,
         "decisions": [
           {
@@ -5080,7 +5080,7 @@
         "statut": "ready"
       }
     ],
-    "nowMs": 1778860583373
+    "nowMs": 1778861446912
   },
   "hypothesisLifecycle": {
     "items": [
@@ -5159,10 +5159,10 @@
       }
     ],
     "plage": {
-      "min": 1776268583373,
+      "min": 1776269446912,
       "max": 1790812740000
     },
-    "now": 1778860583373,
+    "now": 1778861446912,
     "totaux": {
       "total": 3,
       "retard": 0,
@@ -5229,12 +5229,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1776268583373,
-      "fin": 1778860583373
+      "debut": 1776269446912,
+      "fin": 1778861446912
     },
     "fenetrePrecedente": {
-      "debut": 1773676583373,
-      "fin": 1776268583373
+      "debut": 1773677446912,
+      "fin": 1776269446912
     },
     "totalActivite": 7,
     "totalPrecedent": 0,
@@ -5705,8 +5705,149 @@
       "total": 1,
       "specs": 1,
       "intents": 0,
-      "now": 1778860583374
+      "now": 1778861446913
     }
+  },
+  "stateTransitions": {
+    "items": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statutCourant": "active",
+        "etats": [
+          {
+            "statut": "draft",
+            "ts": 1778198400000,
+            "date": "2026-05-08"
+          },
+          {
+            "statut": "active",
+            "ts": 1778544000000,
+            "date": "2026-05-12"
+          }
+        ],
+        "transitions": [
+          {
+            "de": "draft",
+            "vers": "active",
+            "ts": 1778544000000,
+            "date": "2026-05-12",
+            "regression": false
+          }
+        ],
+        "regressions": 0,
+        "nbEtats": 2
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statutCourant": "running",
+        "etats": [
+          {
+            "statut": "draft",
+            "ts": 1778198400000,
+            "date": "2026-05-08"
+          },
+          {
+            "statut": "running",
+            "ts": 1778803200000,
+            "date": "2026-05-15"
+          }
+        ],
+        "transitions": [
+          {
+            "de": "draft",
+            "vers": "running",
+            "ts": 1778803200000,
+            "date": "2026-05-15",
+            "regression": false
+          }
+        ],
+        "regressions": 0,
+        "nbEtats": 2
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statutCourant": "active",
+        "etats": [
+          {
+            "statut": "draft",
+            "ts": 1778371200000,
+            "date": "2026-05-10"
+          },
+          {
+            "statut": "active",
+            "ts": 1778803200000,
+            "date": "2026-05-15"
+          }
+        ],
+        "transitions": [
+          {
+            "de": "draft",
+            "vers": "active",
+            "ts": 1778803200000,
+            "date": "2026-05-15",
+            "regression": false
+          }
+        ],
+        "regressions": 0,
+        "nbEtats": 2
+      }
+    ],
+    "snapshots": 4,
+    "totaux": {
+      "intents": 3,
+      "avecRegression": 0,
+      "transitions": 3
+    },
+    "message": null
+  },
+  "orphanDeps": {
+    "orphelins": [],
+    "selfLoops": [],
+    "totaux": {
+      "total": 0,
+      "orphelins": 0,
+      "selfLoops": 0,
+      "intentsConcernes": 0
+    }
+  },
+  "demoAgenda": {
+    "items": [
+      {
+        "intentId": "INTENT-101",
+        "intentTitre": "Améliorer la conversion du checkout",
+        "priority": "P0",
+        "intentFile": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "specs": [
+          {
+            "id": "SPEC-101-1-formulaire-paiement",
+            "titre": "Formulaire de paiement v2",
+            "mtime": 1778860461845.796,
+            "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md"
+          }
+        ],
+        "dureeIntro": 2,
+        "specsAdmis": [
+          {
+            "id": "SPEC-101-1-formulaire-paiement",
+            "titre": "Formulaire de paiement v2",
+            "mtime": 1778860461845.796,
+            "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md"
+          }
+        ],
+        "specsCoupees": [],
+        "duree": 5
+      }
+    ],
+    "temps": 5,
+    "coupes": 0,
+    "dureeCible": 30,
+    "totauxSpecsDispo": 1
   },
   "edgeCases": {
     "totalItems": 0,
@@ -5993,5 +6134,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T15:56:23.344Z"
+  "generatedAt": "2026-05-15T16:10:46.883Z"
 }
