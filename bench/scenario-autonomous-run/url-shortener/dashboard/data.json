@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T17:40:24.167Z",
+    "generated": "2026-05-15T17:54:57.633Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T17:40:24.167Z"
+    "genere": "2026-05-15T17:54:57.633Z"
   },
   "fondamentaux": [
     {
@@ -368,7 +368,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T17:40:24.172Z",
+    "generatedAt": "2026-05-15T17:54:57.638Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -541,7 +541,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778866824173,
+        "ts": 1778867697640,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2125,7 +2125,7 @@
           }
         ]
       },
-      "mtime": 1778866824189.5916
+      "mtime": 1778867697655.0908
     },
     "totalChangements": 6
   },
@@ -2615,7 +2615,7 @@
         "statut": "done",
         "mtime": 1778860461845.796,
         "parentIntent": "INTENT-101",
-        "ageMs": 6362345.2041015625,
+        "ageMs": 7235810.2041015625,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2625,7 +2625,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778860455699.9673,
-        "ageMs": 6368491.032714844,
+        "ageMs": 7241956.032714844,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2636,7 +2636,7 @@
         "statut": "review",
         "mtime": 1778860446713.6975,
         "parentIntent": "INTENT-101",
-        "ageMs": 6377477.302490234,
+        "ageMs": 7250942.302490234,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2646,7 +2646,7 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 14232046.184570312,
+        "ageMs": 15105511.184570312,
         "ageHumain": "il y a 4 h"
       },
       {
@@ -2656,7 +2656,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 17084948.052490234,
+        "ageMs": 17958413.052490234,
         "ageHumain": "il y a 5 h"
       },
       {
@@ -2667,7 +2667,7 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 33263364.733642578,
+        "ageMs": 34136829.73364258,
         "ageHumain": "il y a 9 h"
       }
     ],
@@ -4159,7 +4159,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778866817214.6094
+        "mtime": 1778867689412.2954
       }
     ],
     "tendance": {
@@ -4647,57 +4647,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774028424194,
-        "fin": 1774633224194,
+        "debut": 1774029297660,
+        "fin": 1774634097660,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774633224194,
-        "fin": 1775238024194,
+        "debut": 1774634097660,
+        "fin": 1775238897660,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775238024194,
-        "fin": 1775842824194,
+        "debut": 1775238897660,
+        "fin": 1775843697660,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775842824194,
-        "fin": 1776447624194,
+        "debut": 1775843697660,
+        "fin": 1776448497660,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776447624194,
-        "fin": 1777052424194,
+        "debut": 1776448497660,
+        "fin": 1777053297660,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777052424194,
-        "fin": 1777657224194,
+        "debut": 1777053297660,
+        "fin": 1777658097660,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777657224194,
-        "fin": 1778262024194,
+        "debut": 1777658097660,
+        "fin": 1778262897660,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778262024194,
-        "fin": 1778866824194,
+        "debut": 1778262897660,
+        "fin": 1778867697660,
         "count": 5,
         "decisions": [
           {
@@ -5080,7 +5080,7 @@
         "statut": "ready"
       }
     ],
-    "nowMs": 1778866824195
+    "nowMs": 1778867697661
   },
   "hypothesisLifecycle": {
     "items": [
@@ -5159,10 +5159,10 @@
       }
     ],
     "plage": {
-      "min": 1776274824196,
+      "min": 1776275697661,
       "max": 1790812740000
     },
-    "now": 1778866824196,
+    "now": 1778867697661,
     "totaux": {
       "total": 3,
       "retard": 0,
@@ -5229,12 +5229,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1776274824196,
-      "fin": 1778866824196
+      "debut": 1776275697661,
+      "fin": 1778867697661
     },
     "fenetrePrecedente": {
-      "debut": 1773682824196,
-      "fin": 1776274824196
+      "debut": 1773683697661,
+      "fin": 1776275697661
     },
     "totalActivite": 7,
     "totalPrecedent": 0,
@@ -5705,7 +5705,7 @@
       "total": 1,
       "specs": 1,
       "intents": 0,
-      "now": 1778866824197
+      "now": 1778867697662
     }
   },
   "stateTransitions": {
@@ -6148,42 +6148,42 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1775842824197,
+        "finSem": 1775843697663,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1776447624197,
+        "finSem": 1776448497663,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1777052424197,
+        "finSem": 1777053297663,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1777657224197,
+        "finSem": 1777658097663,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1778262024197,
+        "finSem": 1778262897663,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 5,
-        "finSem": 1778866824197,
+        "finSem": 1778867697663,
         "intake": 3,
         "delivery": 0,
         "delta": 3
@@ -6740,6 +6740,60 @@
       "pctMoyen": 25
     }
   },
+  "riskTransparency": {
+    "items": [
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "niveau": "high",
+        "mitigation": [],
+        "accepte": false,
+        "couvert": false
+      },
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "niveau": "high",
+        "mitigation": [],
+        "accepte": true,
+        "couvert": true
+      }
+    ],
+    "totaux": {
+      "total": 2,
+      "couverts": 1,
+      "decouverts": 1,
+      "avecMitigation": 0,
+      "acceptes": 1,
+      "score": 50,
+      "etat": "partiel"
+    }
+  },
+  "cumulativeAchievements": {
+    "intentsTotal": 3,
+    "intentsActifs": 2,
+    "intentsLivres": 0,
+    "intentsDraft": 0,
+    "specsTotal": 3,
+    "specsLivrees": 1,
+    "specsEnCours": 2,
+    "ageMois": 1,
+    "ageJours": 1,
+    "debut": 1778833560826.2664,
+    "tauxLivrSpec": 33,
+    "vitesseSpecsParMois": 1
+  },
+  "standupScript": {
+    "texte": "# Standup 15/05/2026\n\n## 🎉 Hier (livrés dans les 24h)\n- ✅ SPEC SPEC-101-1-formulaire-paiement — Formulaire de paiement v2\n\n## 🚀 Aujourd'hui (top 3 priorités)\n- INTENT-101-conversion-checkout [P0] — Améliorer la conversion du checkout\n\n## ⛔ Blockers / Risques\n- ⚠ Risque high découvert : INTENT-102-onboarding-mobile\n\n## 🎯 Décisions à prendre\n- 🔍 SPEC SPEC-101-2-relance-panier en review\n",
+    "sections": {
+      "hierCount": 1,
+      "priorites": 1,
+      "blockers": 1,
+      "decisions": 1
+    }
+  },
   "edgeCases": {
     "totalItems": 0,
     "totalCovered": 0,
@@ -7025,5 +7079,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T17:40:24.167Z"
+  "generatedAt": "2026-05-15T17:54:57.633Z"
 }

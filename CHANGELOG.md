@@ -9,6 +9,33 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM risk-transparency/cumulative-achievements/standup-script (#531-#533, loop 38)
+
+**38ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 105 sections h2,
+gagne un score de transparence risque, un compteur cumulé projet et un
+script standup auto.
+
+- **Transparence du registre de risque** (#531) —
+  `lib/dashboard/risk-transparency.js` mesure % d'Intents à risque
+  critical/high avec mitigation explicite (`risks_mitigation:`) OU
+  acceptation formelle (#508). 5 états (parfait/bon/partiel/faible/
+  sans-data). Tri découverts d'abord.
+- **Cumul des achievements** (#532) —
+  `lib/dashboard/cumulative-achievements.js` calcule compteurs cumulés
+  depuis le jour 1 (mtime le plus ancien) : Intents livrés/actifs/
+  draft, SPECs livrées/en cours, vitesse moyenne SPECs/mois, taux
+  livraison.
+- **Script standup auto** (#533) —
+  `lib/dashboard/standup-script.js` génère un Markdown 4 sections
+  (🎉 Hier 24h livrés / 🚀 Top 3 P0-P1 / ⛔ Blockers zombies+risques
+  découverts / 🎯 SPECs en review). Bouton 📋 Copier via
+  `navigator.clipboard`.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**38 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM done-timeline/prd-sections-coverage/outcome-completion (#528-#530, loop 37 🎯 100 sections atteintes)
 
 **37ᵉ boucle d'audit PM** (2026-05-15) — **pm.html dépasse 100 sections
