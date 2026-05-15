@@ -9,6 +9,32 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM portfolio-diversity/dow-heatmap/pr-template (#537-#539, loop 40 🎉 MILESTONE 40 boucles)
+
+**40ᵉ boucle d'audit PM** (2026-05-15) — MILESTONE 40 itérations
+consécutives · pm.html monte à 111 sections h2 · render.js stable
+849/850 LOC sur 40 boucles.
+
+- **Diversité du portefeuille actif** (#537) —
+  `lib/dashboard/portfolio-diversity.js` calcule entropie de Shannon
+  normalisée sur 3 axes (tags / owners / sponsors) du portefeuille
+  actif. 4 états (uniforme / diversifié / concentré / mono-axe).
+  Détecte les single-points-of-failure.
+- **Heatmap activité par jour** (#538) —
+  `lib/dashboard/dow-heatmap.js` distribue mtime (Intents+SPECs) sur
+  7 buckets ISO (Lun→Dim), warning si > 25 % weekend (pression
+  équipe).
+- **Templates PR par Intent** (#539) —
+  `lib/dashboard/pr-template.js` génère description Markdown PR
+  pré-remplie : Summary + Changes (SPECs) + Test plan + Conformité
+  Tier 1 + Drift Lock avec annotations v1.10. Bouton 📋 Copier
+  individuel par Intent.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+**40 boucles consécutives** sans toucher au cœur du rendu
+(`render.js` stable 849/850 LOC) — milestone PM cockpit.
+
 ### Ajouté — Dashboard PM quarterly-retro-draft/prd-coverage-gaps/spec-annotation-coverage (#534-#536, loop 39)
 
 **39ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 108 sections h2,
