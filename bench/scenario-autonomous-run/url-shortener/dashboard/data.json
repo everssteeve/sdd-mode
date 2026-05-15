@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T16:25:05.984Z",
+    "generated": "2026-05-15T16:40:12.501Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T16:25:05.984Z"
+    "genere": "2026-05-15T16:40:12.501Z"
   },
   "fondamentaux": [
     {
@@ -368,7 +368,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T16:25:05.989Z",
+    "generatedAt": "2026-05-15T16:40:12.506Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -541,7 +541,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778862305990,
+        "ts": 1778863212508,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2125,7 +2125,7 @@
           }
         ]
       },
-      "mtime": 1778862306007.0042
+      "mtime": 1778863212524.0251
     },
     "totalChangements": 6
   },
@@ -2615,8 +2615,8 @@
         "statut": "done",
         "mtime": 1778860461845.796,
         "parentIntent": "INTENT-101",
-        "ageMs": 1844162.2041015625,
-        "ageHumain": "il y a 31 min"
+        "ageMs": 2750679.2041015625,
+        "ageHumain": "il y a 46 min"
       },
       {
         "type": "Intent",
@@ -2625,8 +2625,8 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778860455699.9673,
-        "ageMs": 1850308.0327148438,
-        "ageHumain": "il y a 31 min"
+        "ageMs": 2756825.0327148438,
+        "ageHumain": "il y a 46 min"
       },
       {
         "type": "SPEC",
@@ -2636,8 +2636,8 @@
         "statut": "review",
         "mtime": 1778860446713.6975,
         "parentIntent": "INTENT-101",
-        "ageMs": 1859294.3024902344,
-        "ageHumain": "il y a 31 min"
+        "ageMs": 2765811.3024902344,
+        "ageHumain": "il y a 46 min"
       },
       {
         "type": "Intent",
@@ -2646,7 +2646,7 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 9713863.184570312,
+        "ageMs": 10620380.184570312,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2656,8 +2656,8 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 12566765.052490234,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 13473282.052490234,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "SPEC",
@@ -2667,7 +2667,7 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 28745181.733642578,
+        "ageMs": 29651698.733642578,
         "ageHumain": "il y a 8 h"
       }
     ],
@@ -4159,7 +4159,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778862297683.2402
+        "mtime": 1778863204978.7578
       }
     ],
     "tendance": {
@@ -4647,57 +4647,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774023906012,
-        "fin": 1774628706012,
+        "debut": 1774024812529,
+        "fin": 1774629612529,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774628706012,
-        "fin": 1775233506012,
+        "debut": 1774629612529,
+        "fin": 1775234412529,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775233506012,
-        "fin": 1775838306012,
+        "debut": 1775234412529,
+        "fin": 1775839212529,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775838306012,
-        "fin": 1776443106012,
+        "debut": 1775839212529,
+        "fin": 1776444012529,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776443106012,
-        "fin": 1777047906012,
+        "debut": 1776444012529,
+        "fin": 1777048812529,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777047906012,
-        "fin": 1777652706012,
+        "debut": 1777048812529,
+        "fin": 1777653612529,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777652706012,
-        "fin": 1778257506012,
+        "debut": 1777653612529,
+        "fin": 1778258412529,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778257506012,
-        "fin": 1778862306012,
+        "debut": 1778258412529,
+        "fin": 1778863212529,
         "count": 5,
         "decisions": [
           {
@@ -5080,7 +5080,7 @@
         "statut": "ready"
       }
     ],
-    "nowMs": 1778862306013
+    "nowMs": 1778863212530
   },
   "hypothesisLifecycle": {
     "items": [
@@ -5159,10 +5159,10 @@
       }
     ],
     "plage": {
-      "min": 1776270306013,
+      "min": 1776271212530,
       "max": 1790812740000
     },
-    "now": 1778862306013,
+    "now": 1778863212530,
     "totaux": {
       "total": 3,
       "retard": 0,
@@ -5229,12 +5229,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1776270306013,
-      "fin": 1778862306013
+      "debut": 1776271212530,
+      "fin": 1778863212530
     },
     "fenetrePrecedente": {
-      "debut": 1773678306013,
-      "fin": 1776270306013
+      "debut": 1773679212530,
+      "fin": 1776271212530
     },
     "totalActivite": 7,
     "totalPrecedent": 0,
@@ -5705,7 +5705,7 @@
       "total": 1,
       "specs": 1,
       "intents": 0,
-      "now": 1778862306014
+      "now": 1778863212531
     }
   },
   "stateTransitions": {
@@ -5983,6 +5983,99 @@
       "standard": 1
     },
     "formule": "poidsPrio × urgenceTarget × multStatut"
+  },
+  "backlogPyramid": {
+    "buckets": [
+      {
+        "cle": "neuf",
+        "label": "0-7j",
+        "max": 7,
+        "couleur": "#2b8a3e",
+        "items": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+            "jours": 0,
+            "statut": "active"
+          },
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+            "jours": 0,
+            "statut": "running"
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "file": ".aiad/intents/INTENT-103-retention-30j.md",
+            "jours": 0,
+            "statut": "active"
+          }
+        ],
+        "count": 3
+      },
+      {
+        "cle": "recent",
+        "label": "8-30j",
+        "max": 30,
+        "couleur": "#4c6ef5",
+        "items": [],
+        "count": 0
+      },
+      {
+        "cle": "mature",
+        "label": "31-90j",
+        "max": 90,
+        "couleur": "#f5a623",
+        "items": [],
+        "count": 0
+      },
+      {
+        "cle": "ancien",
+        "label": "91-180j",
+        "max": 180,
+        "couleur": "#e8590c",
+        "items": [],
+        "count": 0
+      },
+      {
+        "cle": "heritage",
+        "label": "> 180j",
+        "max": null,
+        "couleur": "#c92a2a",
+        "items": [],
+        "count": 0
+      }
+    ],
+    "total": 3,
+    "ageMoyen": 0
+  },
+  "specCrossIntent": {
+    "items": [],
+    "totaux": {
+      "specs": 0,
+      "totalSpecs": 3,
+      "maxIntentsCroises": 0
+    }
+  },
+  "blockerReminders": {
+    "items": [
+      {
+        "type": "risque-ouvert",
+        "cible": "owner",
+        "sujet": "Risque high INTENT-102-onboarding-mobile non-mitigé",
+        "corps": "Bonjour Alice, le risque \"Réglementaire (mot-clé \"rgpd\")\" sur INTENT-102-onboarding-mobile est marqué niveau high sans acceptation formalisée ni plan de mitigation. Peux-tu proposer une action ou formaliser l'acceptation dans le frontmatter ?",
+        "intent": "INTENT-102-onboarding-mobile"
+      }
+    ],
+    "totaux": {
+      "total": 1,
+      "sponsorSilent": 0,
+      "specStuck": 0,
+      "risqueOuvert": 1
+    }
   },
   "edgeCases": {
     "totalItems": 0,
@@ -6269,5 +6362,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T16:25:05.984Z"
+  "generatedAt": "2026-05-15T16:40:12.501Z"
 }

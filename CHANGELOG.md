@@ -9,6 +9,33 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM backlog-pyramid/spec-cross-intent/blocker-reminders (#516-#518, loop 33)
+
+**33ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 90 sections h2,
+gagne une pyramide d'âge, un détecteur SPECs transverses et un
+générateur de relances prêtes à copier.
+
+- **Pyramide d'âge backlog** (#516) —
+  `lib/dashboard/backlog-pyramid.js` répartit les Intents non-archived
+  dans 5 buckets (neuf 0-7j / récent 8-30j / mature 31-90j / ancien
+  91-180j / héritage > 180j). Barre empilée colorée + détails top-5
+  par bucket + âge moyen global.
+- **SPECs transverses** (#517) —
+  `lib/dashboard/spec-cross-intent.js` détecte les SPECs qui
+  référencent ≥ 2 Intents (via parentIntent + frontmatter
+  `intents: [...]`). Cards avec bordure orange si ≥ 3 Intents
+  (potentiel découpage). Empty-clean si scoping propre.
+- **Relances blockers** (#518) —
+  `lib/dashboard/blocker-reminders.js` agrège 3 types de blockers
+  (sponsor silencieux, SPEC bloquée, risque non-accepté) en snippets
+  prêts à copier. Bouton 📋 Copier via navigator.clipboard. Templates
+  contextuels en français.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**33 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM spec-stuck/tag-clusters/cost-of-delay (#513-#515, loop 32)
 
 **32ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 87 sections h2,
