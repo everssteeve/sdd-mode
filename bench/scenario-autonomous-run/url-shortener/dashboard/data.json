@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T13:57:27.833Z",
+    "generated": "2026-05-15T14:11:00.359Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T13:57:27.833Z"
+    "genere": "2026-05-15T14:11:00.359Z"
   },
   "fondamentaux": [
     {
@@ -364,7 +364,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T13:57:27.838Z",
+    "generatedAt": "2026-05-15T14:11:00.364Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -551,7 +551,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778853447840,
+        "ts": 1778854260366,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2066,7 +2066,7 @@
           }
         ]
       },
-      "mtime": 1778853447856.0317
+      "mtime": 1778854260381.6892
     },
     "totalChangements": 6
   },
@@ -2555,8 +2555,8 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 855712.1845703125,
-        "ageHumain": "il y a 14 min"
+        "ageMs": 1668238.1845703125,
+        "ageHumain": "il y a 28 min"
       },
       {
         "type": "Intent",
@@ -2565,7 +2565,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 3708614.0524902344,
+        "ageMs": 4521140.052490234,
         "ageHumain": "il y a 1 h"
       },
       {
@@ -2575,8 +2575,8 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778845222031.1401,
-        "ageMs": 8225825.859863281,
-        "ageHumain": "il y a 2 h"
+        "ageMs": 9038351.859863281,
+        "ageHumain": "il y a 3 h"
       },
       {
         "type": "SPEC",
@@ -2586,7 +2586,7 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 19887030.733642578,
+        "ageMs": 20699556.733642578,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2597,7 +2597,7 @@
         "statut": "in-progress",
         "mtime": 1778833557808.8782,
         "parentIntent": "INTENT-101",
-        "ageMs": 19890048.121826172,
+        "ageMs": 20702574.121826172,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2608,7 +2608,7 @@
         "statut": "done",
         "mtime": 1778833555394.2512,
         "parentIntent": "INTENT-101",
-        "ageMs": 19892462.748779297,
+        "ageMs": 20704988.748779297,
         "ageHumain": "il y a 6 h"
       }
     ],
@@ -4100,7 +4100,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778853433861.5012
+        "mtime": 1778854253579.8843
       }
     ],
     "tendance": {
@@ -4126,6 +4126,405 @@
       "critique": 1,
       "eleve": 0,
       "attention": 0
+    }
+  },
+  "intentMaturity": {
+    "items": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "priority": "P0",
+        "cellules": [
+          {
+            "cle": "pourquoi",
+            "label": "POURQUOI MAINTENANT",
+            "etat": "mature",
+            "points": 20,
+            "chars": 139
+          },
+          {
+            "cle": "pourQui",
+            "label": "POUR QUI",
+            "etat": "mature",
+            "points": 20,
+            "chars": 76
+          },
+          {
+            "cle": "objectif",
+            "label": "OBJECTIF",
+            "etat": "mature",
+            "points": 20,
+            "chars": 124
+          },
+          {
+            "cle": "contraintes",
+            "label": "CONTRAINTES",
+            "etat": "mature",
+            "points": 20,
+            "chars": 135
+          },
+          {
+            "cle": "critereDrift",
+            "label": "CRITÈRE DE DRIFT",
+            "etat": "mature",
+            "points": 20,
+            "chars": 197
+          }
+        ],
+        "score": 100,
+        "etat": "complete"
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statut": "running",
+        "priority": "P1",
+        "cellules": [
+          {
+            "cle": "pourquoi",
+            "label": "POURQUOI MAINTENANT",
+            "etat": "mature",
+            "points": 20,
+            "chars": 145
+          },
+          {
+            "cle": "pourQui",
+            "label": "POUR QUI",
+            "etat": "mature",
+            "points": 20,
+            "chars": 70
+          },
+          {
+            "cle": "objectif",
+            "label": "OBJECTIF",
+            "etat": "mature",
+            "points": 20,
+            "chars": 54
+          },
+          {
+            "cle": "contraintes",
+            "label": "CONTRAINTES",
+            "etat": "mature",
+            "points": 20,
+            "chars": 56
+          },
+          {
+            "cle": "critereDrift",
+            "label": "CRITÈRE DE DRIFT",
+            "etat": "mature",
+            "points": 20,
+            "chars": 113
+          }
+        ],
+        "score": 100,
+        "etat": "complete"
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "priority": "P2",
+        "cellules": [
+          {
+            "cle": "pourquoi",
+            "label": "POURQUOI MAINTENANT",
+            "etat": "mature",
+            "points": 20,
+            "chars": 125
+          },
+          {
+            "cle": "pourQui",
+            "label": "POUR QUI",
+            "etat": "mature",
+            "points": 20,
+            "chars": 59
+          },
+          {
+            "cle": "objectif",
+            "label": "OBJECTIF",
+            "etat": "mature",
+            "points": 20,
+            "chars": 68
+          },
+          {
+            "cle": "contraintes",
+            "label": "CONTRAINTES",
+            "etat": "mature",
+            "points": 20,
+            "chars": 114
+          },
+          {
+            "cle": "critereDrift",
+            "label": "CRITÈRE DE DRIFT",
+            "etat": "mature",
+            "points": 20,
+            "chars": 139
+          }
+        ],
+        "score": 100,
+        "etat": "complete"
+      }
+    ],
+    "totaux": {
+      "total": 3,
+      "complete": 3,
+      "structured": 0,
+      "skeleton": 0,
+      "incomplete": 0
+    },
+    "sections": [
+      {
+        "cle": "pourquoi",
+        "label": "POURQUOI MAINTENANT"
+      },
+      {
+        "cle": "pourQui",
+        "label": "POUR QUI"
+      },
+      {
+        "cle": "objectif",
+        "label": "OBJECTIF"
+      },
+      {
+        "cle": "contraintes",
+        "label": "CONTRAINTES"
+      },
+      {
+        "cle": "critereDrift",
+        "label": "CRITÈRE DE DRIFT"
+      }
+    ]
+  },
+  "sprintPlanner": {
+    "commit": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "titre": "Améliorer la conversion du checkout",
+        "statut": "active",
+        "auteur": "Steeve",
+        "date": "2026-04-01",
+        "priority": "P0",
+        "target": "Q2-2026",
+        "target_date": "2026-05-25",
+        "personas": [
+          "Acheteur SMB"
+        ],
+        "user_stories": [
+          "US-002"
+        ],
+        "outcomes": [
+          "Conversion checkout"
+        ],
+        "owner": "Steeve",
+        "sponsor": "Direction Sales",
+        "risks": [
+          "Dépendance Stripe pour SEPA",
+          "RGPD consent management"
+        ],
+        "risk_level": "high",
+        "hypothesis": "Si on simplifie le checkout à 2 étapes, la conversion remontera à >70 %",
+        "hypothesis_status": "untested",
+        "okr": "KR-1.2",
+        "kind": "delivery",
+        "tags": [
+          "paiement",
+          "conversion",
+          "sepa",
+          "mobile",
+          "q2"
+        ],
+        "confidence": 65,
+        "activatedAt": "2026-04-01",
+        "problem": null,
+        "sections": {
+          "pourquoi": "Le funnel checkout chute à 62 % de conversion sur la dernière mesure mensuelle.\nSponsor sales a remonté la friction lors du COMEX du 28/03.",
+          "pourQui": "Acheteurs récurrents EU (segment SMB), exposés au formulaire de paiement v1.",
+          "objectif": "Remonter le taux de conversion checkout > 70 % en 4 semaines, mesuré par\nanalytics interne (cohorte hebdomadaire glissante).",
+          "contraintes": "- RGPD (pas de nouveau cookie de tracking sans consentement)\n- Pas de nouveau provider de paiement à intégrer\n- Compatible mobile-first",
+          "critereDrift": "Si après 4 semaines la conversion reste < 65 % sur 7 jours glissants → drift\nconfirmé : l'objectif n'a pas été atteint et il faut investiguer la cause\nprofonde avant tout nouveau chantier checkout."
+        },
+        "mtime": 1778845222031.1401,
+        "readiness": {
+          "id": "INTENT-101-conversion-checkout",
+          "titre": "Améliorer la conversion du checkout",
+          "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+          "statut": "active",
+          "priority": "P0",
+          "etat": "ready",
+          "total": 2,
+          "score": {
+            "min": 4.2,
+            "avg": 4.4,
+            "scored": 2
+          },
+          "specsFaibles": []
+        },
+        "score": 0,
+        "poids": 0,
+        "bonus": 0
+      }
+    ],
+    "stretch": [
+      {
+        "id": "INTENT-103-retention-30j",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "statut": "active",
+        "auteur": "Steeve",
+        "date": "2026-04-20",
+        "priority": "P2",
+        "rice": 38,
+        "target": "Q3-2026",
+        "personas": [
+          "Marketing EU"
+        ],
+        "user_stories": [
+          "US-004"
+        ],
+        "outcomes": [
+          "Rétention J+30"
+        ],
+        "depends_on": [
+          "INTENT-102"
+        ],
+        "owner": "Steeve",
+        "sponsor": "Direction Marketing",
+        "risk_level": "medium",
+        "hypothesis": "Une boucle email à J+7 sur les utilisateurs inactifs augmentera la rétention J+30 à >55 %",
+        "hypothesis_status": "partial",
+        "okr": "KR-1.3",
+        "kind": "discovery",
+        "tags": [
+          "retention",
+          "email",
+          "q3",
+          "growth",
+          "llm"
+        ],
+        "confidence": 0.45,
+        "ai_risk": "limited",
+        "activatedAt": "2026-04-20",
+        "problem": null,
+        "sections": {
+          "pourquoi": "Rétention J+30 oscille entre 38 % et 52 % depuis 3 mois. Le board veut une\nstabilité ≥ 55 % pour passer la phase de scale-up.",
+          "pourQui": "Cohorte utilisateurs activés (≥ 1 lien créé dans les 24 h).",
+          "objectif": "Atteindre 55 % de rétention J+30 stable sur 4 cohortes consécutives.",
+          "contraintes": "- RGESN (limiter notifications / push)\n- Pas d'ajout de feature majeure — uniquement boucle réengagement existante",
+          "critereDrift": "Si une cohorte tombe sous 45 % → drift, on stoppe les itérations et on\nrevoit la boucle d'engagement à partir des données comportementales."
+        },
+        "mtime": 1778852592144.8154,
+        "readiness": {
+          "id": "INTENT-103-retention-30j",
+          "titre": "Rétention J+30 stabilisée à 55 %",
+          "file": ".aiad/intents/INTENT-103-retention-30j.md",
+          "statut": "active",
+          "priority": "P2",
+          "etat": "ready",
+          "total": 1,
+          "score": {
+            "min": 4,
+            "avg": 4,
+            "scored": 1
+          },
+          "specsFaibles": []
+        },
+        "score": 20,
+        "poids": 2,
+        "bonus": 0
+      }
+    ],
+    "defer": [
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "statut": "running",
+        "auteur": "Steeve",
+        "date": "2026-03-15",
+        "priority": "P1",
+        "target": "Q3-2026",
+        "target_date": "2026-06-10",
+        "user_stories": [
+          "US-003"
+        ],
+        "outcomes": [
+          "Drop-off onboarding mobile"
+        ],
+        "owner": "Alice",
+        "sponsor": "Direction Marketing",
+        "hypothesis": "Si on simplifie l'onboarding mobile à 3 écrans (vs 5), le drop-off baisse de 38% à <20%",
+        "okrs": [
+          "KR-1.1",
+          "KR-1.3"
+        ],
+        "kind": "experiment",
+        "tags": [
+          "mobile",
+          "onboarding",
+          "q3",
+          "growth"
+        ],
+        "confidence_level": "low",
+        "experiment": null,
+        "activatedAt": null,
+        "problem": null,
+        "sections": {
+          "pourquoi": "Hypothèse PM : les nouveaux comptes mobile (43 % des inscriptions du Q1) ne\nsont pas suffisamment guidés. Le drop-off à l'onboarding est de 38 %.",
+          "pourQui": "Nouveaux utilisateurs mobiles iOS/Android, premier lancement de l'app.",
+          "objectif": "Réduire le drop-off onboarding à < 20 % en 6 semaines.",
+          "contraintes": "- WCAG 2.1 AA (accessibilité)\n- Pas de SMS (RGPD + coût)",
+          "critereDrift": "Si drop-off > 30 % à la fin du sprint 5 → drift, revoir l'hypothèse PM\nplutôt que pousser une nouvelle itération."
+        },
+        "mtime": 1778849739242.9475,
+        "readiness": {
+          "id": "INTENT-102-onboarding-mobile",
+          "titre": "Onboarding mobile en moins de 30 secondes",
+          "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+          "statut": "running",
+          "priority": "P1",
+          "etat": "no-spec",
+          "total": 0,
+          "score": {
+            "min": null,
+            "avg": null,
+            "scored": 0
+          },
+          "specsFaibles": []
+        },
+        "score": 14,
+        "poids": 1,
+        "bonus": 4
+      }
+    ],
+    "capacite": {
+      "capacite": 10,
+      "charge": 0,
+      "restant": 10,
+      "label": "Q1-2026",
+      "source": "défaut (2 Intents × 5 PE)"
+    },
+    "seuilCommit": 3
+  },
+  "strategicNarrative": {
+    "texte": "**url-shortener-bench** — état 2026-05-15 : 2 Intent(s) actif(s), 2 en delivery, 0 livré(s). Top priorité : **INTENT-101-conversion-checkout — Améliorer la conversion du checkout** [P0, active] (1/2 SPECs livrées). Risque majeur : **INTENT-101-conversion-checkout** [high] — Dépendance Stripe pour SEPA. Vélocité **0.2 SPECs/sem** en accélération (projection 6sem : 6.2 SPECs), ETA backlog ~3 sem. Santé du projet **40/100** stable sur 5 snapshots.",
+    "phrases": [
+      "**url-shortener-bench** — état 2026-05-15 : 2 Intent(s) actif(s), 2 en delivery, 0 livré(s).",
+      "Top priorité : **INTENT-101-conversion-checkout — Améliorer la conversion du checkout** [P0, active] (1/2 SPECs livrées).",
+      "Risque majeur : **INTENT-101-conversion-checkout** [high] — Dépendance Stripe pour SEPA.",
+      "Vélocité **0.2 SPECs/sem** en accélération (projection 6sem : 6.2 SPECs), ETA backlog ~3 sem.",
+      "Santé du projet **40/100** stable sur 5 snapshots."
+    ],
+    "meta": {
+      "intentsActifs": 2,
+      "risquesEleves": 2,
+      "healthScore": null,
+      "healthTrend": "flat",
+      "veloMoyen": 0.2
     }
   },
   "edgeCases": {
@@ -4413,5 +4812,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T13:57:27.833Z"
+  "generatedAt": "2026-05-15T14:11:00.359Z"
 }

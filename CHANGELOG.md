@@ -9,6 +9,38 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM maturity/narrative/sprint-planner (#486-#488, loop 23)
+
+**23ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 60 sections h2,
+gagne une métrique de complétude doc, un résumé factuel et un auto-prioritizer.
+
+- **Maturité documentaire des Intents** (#486) —
+  `lib/dashboard/intent-maturity.js` score chaque Intent sur ses 5
+  sections canoniques (POURQUOI / POUR QUI / OBJECTIF / CONTRAINTES /
+  CRITÈRE DE DRIFT) après nettoyage des placeholders bracketés.
+  3 niveaux par section (mature ≥ 50 chars / squelette < 50 / absent)
+  → score /100 et 4 états (complete / structured / skeleton /
+  incomplete). Identifie en amont les Intents squelettiques qui
+  généreront du drift en SPEC.
+- **Narratif stratégique** (#487) —
+  `lib/dashboard/strategic-narrative.js` compose un paragraphe factuel
+  de 4-6 phrases (counts, top priorité, risque majeur, vélocité,
+  santé, AI Act si pertinent) prêt à copier dans PR description,
+  Slack daily ou email exec. Bouton 📋 Copier via
+  `navigator.clipboard.writeText` (texte brut sans markdown).
+- **Sprint planner — commit horizon** (#488) —
+  `lib/dashboard/sprint-planner.js` croise SQS readiness (#484) +
+  priorité frontmatter + capacité trimestre courant (#443). 3 buckets :
+  Commit (P0-P1 ready/partial dans la capacité), Stretch
+  (P0-P2 ready si capacité supplémentaire), Defer (priorité basse ou
+  SQS faible). Auto-priorisation actionnable pour la prochaine demo.
+
+`SECTION_TO_TABS` (#480) étendu : les 3 nouvelles sections sont
+rattachées à des axes spécifiques pour filtrage cohérent.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**23 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM notif-center/sqs-readiness/health-timeline (#483-#485, loop 22)
 
 **22ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 57 sections h2,
