@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T19:25:40.200Z",
+    "generated": "2026-05-15T19:41:37.811Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T19:25:40.200Z"
+    "genere": "2026-05-15T19:41:37.811Z"
   },
   "fondamentaux": [
     {
@@ -368,7 +368,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T19:25:40.205Z",
+    "generatedAt": "2026-05-15T19:41:37.816Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -541,7 +541,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778873140207,
+        "ts": 1778874097818,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2125,7 +2125,7 @@
           }
         ]
       },
-      "mtime": 1778873140224.0642
+      "mtime": 1778874097833.2712
     },
     "totalChangements": 6
   },
@@ -2615,7 +2615,7 @@
         "statut": "done",
         "mtime": 1778860461845.796,
         "parentIntent": "INTENT-101",
-        "ageMs": 12678379.204101562,
+        "ageMs": 13635988.204101562,
         "ageHumain": "il y a 4 h"
       },
       {
@@ -2625,7 +2625,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778860455699.9673,
-        "ageMs": 12684525.032714844,
+        "ageMs": 13642134.032714844,
         "ageHumain": "il y a 4 h"
       },
       {
@@ -2636,7 +2636,7 @@
         "statut": "review",
         "mtime": 1778860446713.6975,
         "parentIntent": "INTENT-101",
-        "ageMs": 12693511.302490234,
+        "ageMs": 13651120.302490234,
         "ageHumain": "il y a 4 h"
       },
       {
@@ -2646,7 +2646,7 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 20548080.184570312,
+        "ageMs": 21505689.184570312,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2656,7 +2656,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 23400982.052490234,
+        "ageMs": 24358591.052490234,
         "ageHumain": "il y a 7 h"
       },
       {
@@ -2667,7 +2667,7 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 39579398.73364258,
+        "ageMs": 40537007.73364258,
         "ageHumain": "il y a 11 h"
       }
     ],
@@ -4159,7 +4159,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778873131930.9607
+        "mtime": 1778874089623.6536
       }
     ],
     "tendance": {
@@ -4647,57 +4647,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774034740229,
-        "fin": 1774639540229,
+        "debut": 1774035697838,
+        "fin": 1774640497838,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774639540229,
-        "fin": 1775244340229,
+        "debut": 1774640497838,
+        "fin": 1775245297838,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775244340229,
-        "fin": 1775849140229,
+        "debut": 1775245297838,
+        "fin": 1775850097838,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775849140229,
-        "fin": 1776453940229,
+        "debut": 1775850097838,
+        "fin": 1776454897838,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776453940229,
-        "fin": 1777058740229,
+        "debut": 1776454897838,
+        "fin": 1777059697838,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777058740229,
-        "fin": 1777663540229,
+        "debut": 1777059697838,
+        "fin": 1777664497838,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777663540229,
-        "fin": 1778268340229,
+        "debut": 1777664497838,
+        "fin": 1778269297838,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778268340229,
-        "fin": 1778873140229,
+        "debut": 1778269297838,
+        "fin": 1778874097838,
         "count": 5,
         "decisions": [
           {
@@ -5080,7 +5080,7 @@
         "statut": "ready"
       }
     ],
-    "nowMs": 1778873140230
+    "nowMs": 1778874097839
   },
   "hypothesisLifecycle": {
     "items": [
@@ -5159,10 +5159,10 @@
       }
     ],
     "plage": {
-      "min": 1776281140230,
+      "min": 1776282097839,
       "max": 1790812740000
     },
-    "now": 1778873140230,
+    "now": 1778874097839,
     "totaux": {
       "total": 3,
       "retard": 0,
@@ -5229,12 +5229,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1776281140231,
-      "fin": 1778873140231
+      "debut": 1776282097839,
+      "fin": 1778874097839
     },
     "fenetrePrecedente": {
-      "debut": 1773689140231,
-      "fin": 1776281140231
+      "debut": 1773690097839,
+      "fin": 1776282097839
     },
     "totalActivite": 7,
     "totalPrecedent": 0,
@@ -5705,7 +5705,7 @@
       "total": 1,
       "specs": 1,
       "intents": 0,
-      "now": 1778873140231
+      "now": 1778874097840
     }
   },
   "stateTransitions": {
@@ -6148,42 +6148,42 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1775849140232,
+        "finSem": 1775850097841,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1776453940232,
+        "finSem": 1776454897841,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1777058740232,
+        "finSem": 1777059697841,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1777663540232,
+        "finSem": 1777664497841,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1778268340232,
+        "finSem": 1778269297841,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 5,
-        "finSem": 1778873140232,
+        "finSem": 1778874097841,
         "intake": 3,
         "delivery": 0,
         "delta": 3
@@ -7147,8 +7147,8 @@
     "enCoursAuDebutSample": [],
     "totaux": {
       "duree": 14,
-      "debutSprint": 1777663540234,
-      "finSprint": 1778873140234,
+      "debutSprint": 1777664497843,
+      "finSprint": 1778874097843,
       "livrees": 1,
       "enCoursAuDebut": 0,
       "ajoutees": 2,
@@ -7287,7 +7287,7 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1774639540235,
+        "finSem": 1774640497844,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7296,7 +7296,7 @@
       },
       {
         "idx": 1,
-        "finSem": 1775244340235,
+        "finSem": 1775245297844,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7305,7 +7305,7 @@
       },
       {
         "idx": 2,
-        "finSem": 1775849140235,
+        "finSem": 1775850097844,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7314,7 +7314,7 @@
       },
       {
         "idx": 3,
-        "finSem": 1776453940235,
+        "finSem": 1776454897844,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7323,7 +7323,7 @@
       },
       {
         "idx": 4,
-        "finSem": 1777058740235,
+        "finSem": 1777059697844,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7332,7 +7332,7 @@
       },
       {
         "idx": 5,
-        "finSem": 1777663540235,
+        "finSem": 1777664497844,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7341,7 +7341,7 @@
       },
       {
         "idx": 6,
-        "finSem": 1778268340235,
+        "finSem": 1778269297844,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7350,7 +7350,7 @@
       },
       {
         "idx": 7,
-        "finSem": 1778873140235,
+        "finSem": 1778874097844,
         "total": 3,
         "positif": 1,
         "negatif": 1,
@@ -7631,6 +7631,118 @@
     "totaux": {
       "stakeholders": 4,
       "doubleRole": 0
+    }
+  },
+  "quarterlyDecisions": {
+    "items": [
+      {
+        "trim": "Q2-2026",
+        "decisions": [
+          {
+            "texte": "**Validé** la priorité P0 sur INTENT-101 (conversion checkout) — sponsor Direction Sales confirme l'urgence pour Q2.",
+            "fichier": "2026-05-14.md",
+            "ts": 1778716800000
+          },
+          {
+            "texte": "Reporté INTENT-102 onboarding mobile à Q3 — pas assez de capacité dev ce trimestre, alignement OKR KR-1.1.",
+            "fichier": "2026-05-14.md",
+            "ts": 1778716800000
+          },
+          {
+            "texte": "Confirmé le découpage INTENT-101 en 2 SPECs (formulaire-paiement + relance-panier).",
+            "fichier": "2026-05-15.md",
+            "ts": 1778803200000
+          },
+          {
+            "texte": "**Reorganized** target_date INTENT-101 → 2026-05-25 (J-10) — alignement sprint courant.",
+            "fichier": "2026-05-15.md",
+            "ts": 1778803200000
+          }
+        ],
+        "facts": [
+          {
+            "fichier": "FACT-001-cnil-retention.md",
+            "ts": 1778839809046.5867
+          }
+        ]
+      }
+    ],
+    "totaux": {
+      "trimestres": 1,
+      "totalDecisions": 4,
+      "totalFacts": 1
+    }
+  },
+  "specQualityScore": {
+    "items": [
+      {
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+        "statut": "review",
+        "score": 3,
+        "etat": "bon",
+        "checks": {
+          "sqs": {
+            "ok": true,
+            "valeur": 4.2
+          },
+          "taille": {
+            "ok": true,
+            "valeur": "XS"
+          },
+          "ac": {
+            "ok": false,
+            "valeur": 0
+          },
+          "anno": {
+            "ok": false,
+            "valeur": 0
+          },
+          "stable": {
+            "ok": true,
+            "valeur": "stable"
+          }
+        }
+      },
+      {
+        "id": "SPEC-103-1-relance-email",
+        "titre": "Email de relance semaine 2",
+        "file": ".aiad/specs/SPEC-103-1-relance-email.md",
+        "statut": "ready",
+        "score": 3,
+        "etat": "bon",
+        "checks": {
+          "sqs": {
+            "ok": true,
+            "valeur": 4
+          },
+          "taille": {
+            "ok": true,
+            "valeur": "XS"
+          },
+          "ac": {
+            "ok": false,
+            "valeur": 0
+          },
+          "anno": {
+            "ok": false,
+            "valeur": 0
+          },
+          "stable": {
+            "ok": true,
+            "valeur": "stable"
+          }
+        }
+      }
+    ],
+    "totaux": {
+      "total": 2,
+      "excellent": 0,
+      "bon": 2,
+      "partiel": 0,
+      "faible": 0,
+      "scoreMoyen": 3
     }
   },
   "edgeCases": {
@@ -7918,5 +8030,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T19:25:40.200Z"
+  "generatedAt": "2026-05-15T19:41:37.811Z"
 }
