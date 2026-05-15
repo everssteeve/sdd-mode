@@ -9,6 +9,32 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit confidence/journal/markdown (#459-#461, loop 14)
+
+14ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues : risque
+des paris, journaling décisions, et un coup de polish typographique.
+
+- **Confidence tracker** (#459) — `lib/dashboard/confidence-tracker.js`
+  lit `confidence: 75` (0-100 ou 0-1) ou `confidence_level:
+  high|medium|low` (mapped 90/60/30) du frontmatter. Classe en 4 bandes
+  (solide ≥ 80, raisonnable, faible, très-faible). Détecte les **paris
+  risqués** (active + faible/très-faible confidence) et les met en tête.
+- **Journal PM quotidien** (#460) — `lib/dashboard/pm-journal.js` lit
+  `.aiad/metrics/pm-journal/YYYY-MM-DD.md` (un fichier par jour), agrège
+  les 7 derniers jours avec compteur d'entrées atomiques. Génère la
+  **commande shell de capture rapide** prête à coller dans le terminal.
+- **Markdown render léger** (#461) — `lib/dashboard/markdown-light.js`
+  remplace les `<pre>` plain text des sections d'Intent par un rendu
+  HTML léger (gras, italic, code inline, liens avec allowlist URL,
+  listes, refs AIAD `INTENT-NNN`/`SPEC-NNN-N`/`KR-N.N` auto-wrappées
+  en `<code>`). **Anti-XSS strict** : escape HTML d'abord, `javascript:`
+  refusé. Appliqué à `intent-page.js` (#453) ET `pm.js#sectionsDetails`.
+
+`lireIntents` étendu pour spread 4 nouveaux champs frontmatter
+(`confidence`/`Confidence`/`confidence_level`/`confidenceLevel`). Zéro
+modification de `render.js` (toujours 849/850 LOC). pm.html monte à
+**39 sections** maintenant.
+
 ### Ajouté — Dashboard PM cockpit search/permalink/capacity (#456-#458, loop 13)
 
 13ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues

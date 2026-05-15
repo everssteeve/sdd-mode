@@ -15,6 +15,7 @@ outcomes:
   - Drop-off onboarding mobile
 okrs: [KR-1.1, KR-1.3]
 kind: experiment
+confidence_level: low
 tags: [mobile, onboarding, q3, growth]
 ---
 
