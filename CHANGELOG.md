@@ -9,6 +9,36 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM prd-freshness/customer-feedback/whats-new (#495-#497, loop 26)
+
+**26ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 69 sections h2,
+gagne une surveillance de la fraîcheur cadrage, une inbox feedback et
+un "what's new" persistant.
+
+- **Fraîcheur cadrage** (#495) —
+  `lib/dashboard/prd-freshness.js` surveille les mtimes de PRD /
+  ARCHITECTURE / AGENT-GUIDE avec seuils différenciés (PRD 30/90j,
+  archi+guide 60/180j). 4 états frais/tiède/périmée/absent + nb h2.
+  Détecte la dérive silencieuse de la vision documentaire.
+- **Inbox feedback utilisateur** (#496) —
+  `lib/dashboard/customer-feedback.js` scan
+  `.aiad/feedback/*.md` (et `customer-feedback/`) avec classification
+  sentiment heuristique (10 mots positifs / 12 négatifs / 6 questions,
+  négatif l'emporte sur positif). Frontmatter `source/author/intent/
+  date` reconnu. Cards par sentiment 👍👎❓·.
+- **Nouveautés depuis votre dernière visite** (#497) —
+  `lib/dashboard/whats-new.js` hybride serveur+client. Le HTML embarque
+  les 60 artefacts récents (Intents+SPECs) en JSON, le script client
+  filtre selon `localStorage.aiad-pm-last-visit` et affiche uniquement
+  les items modifiés depuis. Bouton "✓ Marquer tout lu" reset le
+  timestamp. Anti-XSS : escape `<>&` dans le JSON embarqué.
+
+`SECTION_TO_TABS` (#480) étendu : les 3 nouvelles sections sont
+rattachées aux axes strategique/tactique/communication/rituels.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**26 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM outcome-attribution/dd-balance/velocity-by-sponsor (#492-#494, loop 25)
 
 **25ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 66 sections h2,

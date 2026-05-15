@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T14:40:45.568Z",
+    "generated": "2026-05-15T14:55:43.037Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T14:40:45.568Z"
+    "genere": "2026-05-15T14:55:43.037Z"
   },
   "fondamentaux": [
     {
@@ -364,7 +364,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T14:40:45.572Z",
+    "generatedAt": "2026-05-15T14:55:43.042Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -551,7 +551,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778856045574,
+        "ts": 1778856943044,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2066,7 +2066,7 @@
           }
         ]
       },
-      "mtime": 1778856045589.4233
+      "mtime": 1778856943060.425
     },
     "totalChangements": 6
   },
@@ -2555,8 +2555,8 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 3453445.1845703125,
-        "ageHumain": "il y a 58 min"
+        "ageMs": 4350917.1845703125,
+        "ageHumain": "il y a 1 h"
       },
       {
         "type": "Intent",
@@ -2565,7 +2565,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 6306347.052490234,
+        "ageMs": 7203819.052490234,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2575,7 +2575,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778845222031.1401,
-        "ageMs": 10823558.859863281,
+        "ageMs": 11721030.859863281,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2586,7 +2586,7 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 22484763.733642578,
+        "ageMs": 23382235.733642578,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2597,7 +2597,7 @@
         "statut": "in-progress",
         "mtime": 1778833557808.8782,
         "parentIntent": "INTENT-101",
-        "ageMs": 22487781.121826172,
+        "ageMs": 23385253.121826172,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2608,7 +2608,7 @@
         "statut": "done",
         "mtime": 1778833555394.2512,
         "parentIntent": "INTENT-101",
-        "ageMs": 22490195.748779297,
+        "ageMs": 23387667.748779297,
         "ageHumain": "il y a 6 h"
       }
     ],
@@ -4100,7 +4100,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778856038613.441
+        "mtime": 1778856935114.8384
       }
     ],
     "tendance": {
@@ -4584,57 +4584,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774017645595,
-        "fin": 1774622445595,
+        "debut": 1774018543065,
+        "fin": 1774623343065,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774622445595,
-        "fin": 1775227245595,
+        "debut": 1774623343065,
+        "fin": 1775228143065,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775227245595,
-        "fin": 1775832045595,
+        "debut": 1775228143065,
+        "fin": 1775832943065,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775832045595,
-        "fin": 1776436845595,
+        "debut": 1775832943065,
+        "fin": 1776437743065,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776436845595,
-        "fin": 1777041645595,
+        "debut": 1776437743065,
+        "fin": 1777042543065,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777041645595,
-        "fin": 1777646445595,
+        "debut": 1777042543065,
+        "fin": 1777647343065,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777646445595,
-        "fin": 1778251245595,
+        "debut": 1777647343065,
+        "fin": 1778252143065,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778251245595,
-        "fin": 1778856045595,
+        "debut": 1778252143065,
+        "fin": 1778856943065,
         "count": 5,
         "decisions": [
           {
@@ -4879,6 +4879,145 @@
       "sponsorAvecLivraison": 1,
       "meilleurThroughput": "Direction Sales"
     }
+  },
+  "prdFreshness": {
+    "items": [
+      {
+        "cle": "prd",
+        "chemin": ".aiad/PRD.md",
+        "label": "PRD",
+        "warn": 30,
+        "alert": 90,
+        "present": true,
+        "mtime": 1778839799301.0808,
+        "jours": 0,
+        "etat": "frais",
+        "sectionsH2": 9
+      },
+      {
+        "cle": "arch",
+        "chemin": ".aiad/ARCHITECTURE.md",
+        "label": "ARCHITECTURE",
+        "warn": 60,
+        "alert": 180,
+        "present": true,
+        "mtime": 1778734527139.6992,
+        "jours": 1,
+        "etat": "frais",
+        "sectionsH2": 10
+      },
+      {
+        "cle": "guide",
+        "chemin": ".aiad/AGENT-GUIDE.md",
+        "label": "AGENT-GUIDE",
+        "warn": 60,
+        "alert": 180,
+        "present": true,
+        "mtime": 1778734527140.1196,
+        "jours": 1,
+        "etat": "frais",
+        "sectionsH2": 10
+      }
+    ],
+    "totaux": {
+      "total": 3,
+      "presents": 3,
+      "frais": 3,
+      "tiede": 0,
+      "perimee": 0,
+      "absents": 0
+    }
+  },
+  "customerFeedback": {
+    "items": [
+      {
+        "fichier": "2026-05-14-feature-praise.md",
+        "source": "utilisateur",
+        "author": "Bob",
+        "intent": null,
+        "date": 1778716800000,
+        "sentiment": "positif",
+        "extrait": "Super génial cette nouvelle fonctionnalité de relance email ! Bravo à toute l'équipe.",
+        "dossier": "feedback"
+      },
+      {
+        "fichier": "2026-05-12-onboarding-feedback.md",
+        "source": "sponsor",
+        "author": "Direction Marketing",
+        "intent": "INTENT-102",
+        "date": 1778544000000,
+        "sentiment": "question",
+        "extrait": "Comment se passe l'avancement sur l'onboarding mobile ? Pourquoi le drop-off reste-t-il à 35 % ? Quand est prévu le déploiement ?",
+        "dossier": "feedback"
+      },
+      {
+        "fichier": "2026-05-10-checkout-bug.md",
+        "source": "utilisateur",
+        "author": "Alice",
+        "intent": "INTENT-101",
+        "date": 1778371200000,
+        "sentiment": "negatif",
+        "extrait": "J'ai un problème sur le checkout, la page reste bloquée après le paiement SEPA. C'est cassé, merci de regarder.",
+        "dossier": "feedback"
+      }
+    ],
+    "totaux": {
+      "total": 3,
+      "positif": 1,
+      "negatif": 1,
+      "question": 1,
+      "neutre": 0
+    }
+  },
+  "whatsNew": {
+    "items": [
+      {
+        "type": "intent",
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "mtime": 1778852592144.8154,
+        "file": ".aiad/intents/INTENT-103-retention-30j.md"
+      },
+      {
+        "type": "intent",
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "mtime": 1778849739242.9475,
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md"
+      },
+      {
+        "type": "intent",
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "mtime": 1778845222031.1401,
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md"
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-103-1-relance-email",
+        "titre": "Email de relance semaine 2",
+        "mtime": 1778833560826.2664,
+        "parentIntent": "INTENT-103",
+        "statut": "ready"
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "mtime": 1778833557808.8782,
+        "parentIntent": "INTENT-101",
+        "statut": "in-progress"
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-101-1-formulaire-paiement",
+        "titre": "Formulaire de paiement v2",
+        "mtime": 1778833555394.2512,
+        "parentIntent": "INTENT-101",
+        "statut": "done"
+      }
+    ],
+    "nowMs": 1778856943066
   },
   "edgeCases": {
     "totalItems": 0,
@@ -5165,5 +5304,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T14:40:45.568Z"
+  "generatedAt": "2026-05-15T14:55:43.037Z"
 }
