@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T17:54:57.633Z",
+    "generated": "2026-05-15T18:10:06.599Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T17:54:57.633Z"
+    "genere": "2026-05-15T18:10:06.599Z"
   },
   "fondamentaux": [
     {
@@ -368,7 +368,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T17:54:57.638Z",
+    "generatedAt": "2026-05-15T18:10:06.605Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -541,7 +541,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778867697640,
+        "ts": 1778868606606,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2125,7 +2125,7 @@
           }
         ]
       },
-      "mtime": 1778867697655.0908
+      "mtime": 1778868606621.4717
     },
     "totalChangements": 6
   },
@@ -2615,7 +2615,7 @@
         "statut": "done",
         "mtime": 1778860461845.796,
         "parentIntent": "INTENT-101",
-        "ageMs": 7235810.2041015625,
+        "ageMs": 8144777.2041015625,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2625,7 +2625,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778860455699.9673,
-        "ageMs": 7241956.032714844,
+        "ageMs": 8150923.032714844,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2636,7 +2636,7 @@
         "statut": "review",
         "mtime": 1778860446713.6975,
         "parentIntent": "INTENT-101",
-        "ageMs": 7250942.302490234,
+        "ageMs": 8159909.302490234,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2646,7 +2646,7 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 15105511.184570312,
+        "ageMs": 16014478.184570312,
         "ageHumain": "il y a 4 h"
       },
       {
@@ -2656,7 +2656,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 17958413.052490234,
+        "ageMs": 18867380.052490234,
         "ageHumain": "il y a 5 h"
       },
       {
@@ -2667,8 +2667,8 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 34136829.73364258,
-        "ageHumain": "il y a 9 h"
+        "ageMs": 35045796.73364258,
+        "ageHumain": "il y a 10 h"
       }
     ],
     "totaux": {
@@ -4159,7 +4159,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778867689412.2954
+        "mtime": 1778868598216.978
       }
     ],
     "tendance": {
@@ -4647,57 +4647,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774029297660,
-        "fin": 1774634097660,
+        "debut": 1774030206627,
+        "fin": 1774635006627,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774634097660,
-        "fin": 1775238897660,
+        "debut": 1774635006627,
+        "fin": 1775239806627,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775238897660,
-        "fin": 1775843697660,
+        "debut": 1775239806627,
+        "fin": 1775844606627,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775843697660,
-        "fin": 1776448497660,
+        "debut": 1775844606627,
+        "fin": 1776449406627,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776448497660,
-        "fin": 1777053297660,
+        "debut": 1776449406627,
+        "fin": 1777054206627,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777053297660,
-        "fin": 1777658097660,
+        "debut": 1777054206627,
+        "fin": 1777659006627,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777658097660,
-        "fin": 1778262897660,
+        "debut": 1777659006627,
+        "fin": 1778263806627,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778262897660,
-        "fin": 1778867697660,
+        "debut": 1778263806627,
+        "fin": 1778868606627,
         "count": 5,
         "decisions": [
           {
@@ -5080,7 +5080,7 @@
         "statut": "ready"
       }
     ],
-    "nowMs": 1778867697661
+    "nowMs": 1778868606628
   },
   "hypothesisLifecycle": {
     "items": [
@@ -5159,10 +5159,10 @@
       }
     ],
     "plage": {
-      "min": 1776275697661,
+      "min": 1776276606628,
       "max": 1790812740000
     },
-    "now": 1778867697661,
+    "now": 1778868606628,
     "totaux": {
       "total": 3,
       "retard": 0,
@@ -5229,12 +5229,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1776275697661,
-      "fin": 1778867697661
+      "debut": 1776276606628,
+      "fin": 1778868606628
     },
     "fenetrePrecedente": {
-      "debut": 1773683697661,
-      "fin": 1776275697661
+      "debut": 1773684606628,
+      "fin": 1776276606628
     },
     "totalActivite": 7,
     "totalPrecedent": 0,
@@ -5705,7 +5705,7 @@
       "total": 1,
       "specs": 1,
       "intents": 0,
-      "now": 1778867697662
+      "now": 1778868606629
     }
   },
   "stateTransitions": {
@@ -6148,42 +6148,42 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1775843697663,
+        "finSem": 1775844606630,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1776448497663,
+        "finSem": 1776449406630,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1777053297663,
+        "finSem": 1777054206630,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1777658097663,
+        "finSem": 1777659006630,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1778262897663,
+        "finSem": 1778263806630,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 5,
-        "finSem": 1778867697663,
+        "finSem": 1778868606630,
         "intake": 3,
         "delivery": 0,
         "delta": 3
@@ -6794,6 +6794,118 @@
       "decisions": 1
     }
   },
+  "quarterlyRetroDraft": {
+    "trim": "Q2-2026",
+    "texte": "# Rétrospective Q2-2026 — url-shortener-bench\n\n_Brouillon généré automatiquement le 15/05/2026 depuis le dashboard PM. À enrichir en atelier équipe._\n\n## 1. 🎉 Livraisons du trimestre\n### SPECs livrées (1)\n- SPEC-101-1-formulaire-paiement — Formulaire de paiement v2\n\n## 2. 📊 Métriques clés\n- Vélocité moyenne : **0.2 SPECs/sem** (slope 0.14)\n- Throughput backlog : 3 intake vs 0 delivery sur 6 sem (direction : gonfle)\n\n## 3. 🧪 Hypothèses (apprentissages)\n- Total formulées : 3\n- ✓ Validées : 0 (0%)\n- ✗ Invalidées : 0\n- ◐ Partielles : 1\n\n## 4. ⚠ Risques marquants\n- **INTENT-101-conversion-checkout** [high] — Améliorer la conversion du checkout\n- **INTENT-102-onboarding-mobile** [high] — Onboarding mobile en moins de 30 secondes\n\n## 5. 🤝 Sujets pour la rétro humaine\nÀ remplir en atelier :\n- Qu'est-ce qui a bien fonctionné ?\n- Qu'est-ce qui a mal fonctionné ?\n- Quelle action concrète pour le prochain trimestre ?\n\n---\n_Généré par aiad-sdd dashboard — humain garde la paternité de la rétro réelle._",
+    "meta": {
+      "specsLivrees": 1,
+      "intentsArchives": 0,
+      "hypotheses": 3,
+      "risques": 2
+    }
+  },
+  "prdCoverageGaps": {
+    "outcomesSansIntent": [
+      {
+        "titre": "?",
+        "target": null
+      }
+    ],
+    "personasSansIntent": [],
+    "usSansIntent": [
+      {
+        "id": "US-001",
+        "libelle": ""
+      },
+      {
+        "id": "US-005",
+        "libelle": ""
+      },
+      {
+        "id": "US-006",
+        "libelle": ""
+      }
+    ],
+    "totaux": {
+      "outcomesDeclares": 4,
+      "outcomesSansIntent": 1,
+      "personasDeclares": 0,
+      "personasSansIntent": 0,
+      "usDeclares": 6,
+      "usSansIntent": 3,
+      "total": 4
+    }
+  },
+  "specAnnotationCoverage": {
+    "items": [
+      {
+        "id": "SPEC-101-1-formulaire-paiement",
+        "titre": "Formulaire de paiement v2",
+        "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+        "statut": "done",
+        "tags": {
+          "@intent": 0,
+          "@spec": 0,
+          "@verified-by": 0,
+          "@governance": 0
+        },
+        "nbTags": 0,
+        "pct": 0,
+        "etat": "vide"
+      },
+      {
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+        "statut": "review",
+        "tags": {
+          "@intent": 0,
+          "@spec": 0,
+          "@verified-by": 0,
+          "@governance": 0
+        },
+        "nbTags": 0,
+        "pct": 0,
+        "etat": "vide"
+      },
+      {
+        "id": "SPEC-103-1-relance-email",
+        "titre": "Email de relance semaine 2",
+        "file": ".aiad/specs/SPEC-103-1-relance-email.md",
+        "statut": "ready",
+        "tags": {
+          "@intent": 0,
+          "@spec": 0,
+          "@verified-by": 0,
+          "@governance": 0
+        },
+        "nbTags": 0,
+        "pct": 0,
+        "etat": "vide"
+      }
+    ],
+    "totaux": {
+      "total": 3,
+      "complet": 0,
+      "avance": 0,
+      "partiel": 0,
+      "debut": 0,
+      "vide": 3,
+      "tags": {
+        "@intent": 0,
+        "@spec": 0,
+        "@verified-by": 0,
+        "@governance": 0
+      },
+      "scoreMoyen": 0
+    },
+    "seuilTags": [
+      "@intent",
+      "@spec",
+      "@verified-by",
+      "@governance"
+    ]
+  },
   "edgeCases": {
     "totalItems": 0,
     "totalCovered": 0,
@@ -7079,5 +7191,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T17:54:57.633Z"
+  "generatedAt": "2026-05-15T18:10:06.599Z"
 }

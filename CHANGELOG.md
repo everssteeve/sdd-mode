@@ -9,6 +9,31 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM quarterly-retro-draft/prd-coverage-gaps/spec-annotation-coverage (#534-#536, loop 39)
+
+**39ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 108 sections h2,
+gagne un brouillon rétro trimestrielle, un détecteur de trous de
+couverture PRD et un mesureur d'annotations SPEC.
+
+- **Brouillon rétro trimestrielle** (#534) —
+  `lib/dashboard/quarterly-retro-draft.js` compose Markdown 5 sections
+  (livraisons 90j / métriques / hypothèses / risques / 3 questions
+  atelier). Détecte trimestre courant Q1-Q4. Bouton 📋 Copier.
+- **Trous de couverture PRD** (#535) —
+  `lib/dashboard/prd-coverage-gaps.js` croise PRD (outcomes §4,
+  personas §3, user-stories §6) avec Intents. Identifie cibles PRD
+  sans Intent rattaché. Empty-clean vert si couverture complète.
+- **Couverture annotations SPEC** (#536) —
+  `lib/dashboard/spec-annotation-coverage.js` mesure présence des 4
+  tags AIAD v1.10 (`@intent` / `@spec` / `@verified-by` / `@governance`)
+  dans le body des SPECs. 5 états (complet 4/4 → vide 0/4). Requis
+  pour le Drift Lock machine-vérifiable.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**39 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM risk-transparency/cumulative-achievements/standup-script (#531-#533, loop 38)
 
 **38ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 105 sections h2,
