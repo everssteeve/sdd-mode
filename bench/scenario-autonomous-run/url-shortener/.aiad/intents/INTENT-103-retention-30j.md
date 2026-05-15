@@ -8,6 +8,8 @@ activated_at: 2026-04-20
 priority: P2
 rice: 38
 target: Q3-2026
+owner: Steeve
+sponsor: Direction Marketing
 depends_on:
   - INTENT-102
 personas:

@@ -8,6 +8,8 @@ activated_at: 2026-04-01
 priority: P0
 target: Q2-2026
 target_date: 2026-05-25
+owner: Steeve
+sponsor: Direction Sales
 personas:
   - Acheteur SMB
 user_stories:

@@ -7,6 +7,8 @@ date: 2026-03-15
 priority: P1
 target: Q3-2026
 target_date: 2026-06-10
+owner: Alice
+sponsor: Direction Marketing
 user_stories:
   - US-003
 outcomes:

@@ -9,6 +9,30 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit ownership/bottlenecks (#435-#437, loop 6)
+
+6ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues axées
+sur les responsabilités humaines et la fluidité du pipeline.
+
+- **Portefeuille par owner** (#435) — `lib/dashboard/ownership.js` lit
+  9 alias frontmatter (`owner/pm/assignee/responsable/…`), construit map
+  owner → portefeuille avec stats actifs/livrés. Cartes responsive avec
+  bucket virtuel `_unassigned` orange pour les Intents sans owner.
+- **Détection de goulots** (#436) — `lib/dashboard/bottlenecks.js`
+  applique heuristique double : un statut est goulot SI compteur ≥ seuil
+  ET au moins 1 item plus ancien que seuilAge (jours). Seuils par défaut
+  adaptés Product Engineering (spec.review ≥ 3/7j, intent.draft ≥ 5/14j,
+  etc.). Cartes orange par goulot avec liste des items les plus vieux.
+- **Portefeuille par sponsor** (#437) — `lib/dashboard/sponsors.js` lit
+  8 alias frontmatter (`sponsor/stakeholder/business_owner/…`), groupe
+  par sponsor avec stats actifs/drafts/livrés colorées. Différencie un
+  sponsor (exec finance/oriente) d'un owner (PM exécute) — cohérent
+  RACI. Utile pour préparer 1:1 sponsor / COMEX.
+
+`lireIntents` étendu pour spread 16 nouveaux champs frontmatter (9
+ownership + 7 sponsor). Zéro modification de `render.js` (toujours 849/
+850 LOC) — tout passe par `pm.js → pagePm` qui monte à 18 sections.
+
 ### Ajouté — Dashboard PM cockpit communication/temps (#432-#434, loop 5)
 
 5ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues qui le
