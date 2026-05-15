@@ -2,7 +2,7 @@
 id: SPEC-101-2
 title: Relance panier abandonné
 parent_intent: INTENT-101
-status: in-progress
+status: review
 format: prose
 sqs: 4.2
 author: Steeve

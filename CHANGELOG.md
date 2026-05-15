@@ -9,6 +9,36 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM review-queue/accepted-risks/wins-wall (#507-#509, loop 30 🎉)
+
+**30ᵉ boucle d'audit PM** (2026-05-15) — MILESTONE 30 itérations
+consécutives · pm.html monte à 81 sections h2 · render.js stable 849/850
+LOC depuis 30 boucles.
+
+- **File de revue SPECs** (#507) —
+  `lib/dashboard/review-queue.js` surface les SPECs `review`/`validation`
+  triées par âge desc (plus ancienne en tête). Classes frais/tiède/
+  bloqué selon ancienneté (7j/14j). Warning si SPEC > 14j en review.
+- **Registre des risques acceptés** (#508) —
+  `lib/dashboard/accepted-risks.js` lit `risks_accepted: [...]` ou
+  `risk_status: accepted` du frontmatter (6 alias FR/EN). Gouvernance
+  lisible : "voici ce qu'on a CHOISI de NE PAS adresser, et pourquoi".
+  Bordure rouge si acceptation globale.
+- **Wins récents** (#509) —
+  `lib/dashboard/wins-wall.js` rend un mur des SPECs livrées + Intents
+  archivés des 30 derniers jours. Cards avec icônes 🚀 / 🎯, date
+  relative ("hier", "il y a 2sem") + banner cumulé. Maintient la
+  dynamique d'équipe — un dashboard qui ne montre que ce qui reste à
+  faire démotive.
+
+`collect.js` : spread étendu pour 6 nouveaux champs frontmatter risques
+(risks_accepted, risksAccepted, accepted_risks, acceptedRisks,
+risk_status, riskStatus). `SECTION_TO_TABS` (#480) étendu pour les 3
+nouveaux slugs.
+
+**30 boucles consécutives** sans toucher au cœur du rendu (`render.js`
+stable 849/850 LOC).
+
 ### Ajouté — Dashboard PM ttfs/voice-wall/quarterly-delivery (#504-#506, loop 29)
 
 **29ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 78 sections h2,

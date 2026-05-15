@@ -22,7 +22,7 @@
     },
     {
       "id": "SPEC-101-2-relance-panier",
-      "statut": "in-progress",
+      "statut": "review",
       "parentIntent": "INTENT-101"
     },
     {

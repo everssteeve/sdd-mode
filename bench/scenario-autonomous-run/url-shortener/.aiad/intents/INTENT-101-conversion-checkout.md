@@ -14,6 +14,9 @@ risk_level: high
 risks:
   - Dépendance Stripe pour SEPA
   - RGPD consent management
+risks_accepted:
+  - Latence p95 SEPA légèrement supérieure (décision validée comité 2026-04-12)
+  - Non-couverture browser IE11 (RGAA acquis sur 99 % du trafic)
 hypothesis: Si on simplifie le checkout à 2 étapes, la conversion remontera à >70 %
 hypothesis_status: untested
 confidence: 65

@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T15:40:26.551Z",
+    "generated": "2026-05-15T15:56:23.344Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T15:40:26.551Z"
+    "genere": "2026-05-15T15:56:23.344Z"
   },
   "fondamentaux": [
     {
@@ -76,6 +76,10 @@
         "q2"
       ],
       "confidence": 65,
+      "risks_accepted": [
+        "Latence p95 SEPA légèrement supérieure (décision validée comité 2026-04-12)",
+        "Non-couverture browser IE11 (RGAA acquis sur 99 % du trafic)"
+      ],
       "activatedAt": "2026-04-01",
       "problem": null,
       "sections": {
@@ -85,7 +89,7 @@
         "contraintes": "- RGPD (pas de nouveau cookie de tracking sans consentement)\n- Pas de nouveau provider de paiement à intégrer\n- Compatible mobile-first",
         "critereDrift": "Si après 4 semaines la conversion reste < 65 % sur 7 jours glissants → drift\nconfirmé : l'objectif n'a pas été atteint et il faut investiguer la cause\nprofonde avant tout nouveau chantier checkout."
       },
-      "mtime": 1778845222031.1401
+      "mtime": 1778860455699.9673
     },
     {
       "id": "INTENT-102-onboarding-mobile",
@@ -193,21 +197,21 @@
       "parallelWith": [],
       "auteur": "Steeve",
       "date": "2026-04-10",
-      "mtime": 1778833555394.2512
+      "mtime": 1778860461845.796
     },
     {
       "id": "SPEC-101-2-relance-panier",
       "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
       "titre": "Relance panier abandonné",
       "parentIntent": "INTENT-101",
-      "statut": "in-progress",
+      "statut": "review",
       "format": "prose",
       "sqs": "4.2",
       "governance": "AIAD-RGPD",
       "parallelWith": [],
       "auteur": "Steeve",
       "date": "2026-04-25",
-      "mtime": 1778833557808.8782
+      "mtime": 1778860446713.6975
     },
     {
       "id": "SPEC-103-1-relance-email",
@@ -364,7 +368,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T15:40:26.557Z",
+    "generatedAt": "2026-05-15T15:56:23.349Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -399,7 +403,7 @@
               "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
               "title": "Relance panier abandonné",
               "parentIntent": "INTENT-101",
-              "status": "in-progress"
+              "status": "review"
             },
             "code": [],
             "tests": []
@@ -456,13 +460,6 @@
           "status": "done"
         },
         {
-          "id": "SPEC-101-2-relance-panier",
-          "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
-          "title": "Relance panier abandonné",
-          "parentIntent": "INTENT-101",
-          "status": "in-progress"
-        },
-        {
           "id": "SPEC-103-1-relance-email",
           "file": ".aiad/specs/SPEC-103-1-relance-email.md",
           "title": "Email de relance semaine 2",
@@ -477,13 +474,6 @@
           "title": "Formulaire de paiement v2",
           "parentIntent": "INTENT-101",
           "status": "done"
-        },
-        {
-          "id": "SPEC-101-2-relance-panier",
-          "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
-          "title": "Relance panier abandonné",
-          "parentIntent": "INTENT-101",
-          "status": "in-progress"
         },
         {
           "id": "SPEC-103-1-relance-email",
@@ -551,7 +541,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778859626558,
+        "ts": 1778860583351,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -679,21 +669,21 @@
         "parallelWith": [],
         "auteur": "Steeve",
         "date": "2026-04-10",
-        "mtime": 1778833555394.2512
+        "mtime": 1778860461845.796
       },
       {
         "id": "SPEC-101-2-relance-panier",
         "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
         "titre": "Relance panier abandonné",
         "parentIntent": "INTENT-101",
-        "statut": "in-progress",
+        "statut": "review",
         "format": "prose",
         "sqs": "4.2",
         "governance": "AIAD-RGPD",
         "parallelWith": [],
         "auteur": "Steeve",
         "date": "2026-04-25",
-        "mtime": 1778833557808.8782
+        "mtime": 1778860446713.6975
       }
     ],
     "INTENT-103": [
@@ -722,15 +712,6 @@
         "parentIntent": "INTENT-101-conversion-checkout",
         "parentIntentFile": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
-        "codeLies": 0
-      },
-      {
-        "id": "SPEC-101-2-relance-panier",
-        "titre": "Relance panier abandonné",
-        "statut": "in-progress",
-        "parentIntent": "INTENT-101-conversion-checkout",
-        "parentIntentFile": ".aiad/intents/INTENT-101-conversion-checkout.md",
-        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
         "codeLies": 0
       },
       {
@@ -809,7 +790,7 @@
       {
         "id": "SPEC-101-1-formulaire-paiement",
         "titre": "Formulaire de paiement v2",
-        "mtime": 1778833555394.2512,
+        "mtime": 1778860461845.796,
         "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
         "lastDemo": null
       }
@@ -1118,13 +1099,22 @@
       "statuts": [
         "in-progress"
       ],
+      "cards": []
+    },
+    {
+      "id": "review",
+      "titre": "Review",
+      "statuts": [
+        "review",
+        "validation"
+      ],
       "cards": [
         {
           "id": "SPEC-101-2-relance-panier",
           "titre": "Relance panier abandonné",
           "intentId": "INTENT-101-conversion-checkout",
           "intentFile": ".aiad/intents/INTENT-101-conversion-checkout.md",
-          "statut": "in-progress",
+          "statut": "review",
           "sqs": "4.2",
           "governance": [
             "AIAD-RGPD"
@@ -1134,15 +1124,6 @@
           "file": ".aiad/specs/SPEC-101-2-relance-panier.md"
         }
       ]
-    },
-    {
-      "id": "review",
-      "titre": "Review",
-      "statuts": [
-        "review",
-        "validation"
-      ],
-      "cards": []
     },
     {
       "id": "done",
@@ -1173,6 +1154,19 @@
   "focusAlertes": {
     "all": [
       {
+        "priorite": "P2",
+        "titre": "1 SPEC(s) à valider",
+        "detail": "SPEC-101-2-relance-panier",
+        "action": "PM/QA passe en revue pour fermer la boucle Drift Lock.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "pm",
+          "qa"
+        ]
+      },
+      {
         "priorite": "P4",
         "titre": "1 SPEC(s) Tier 1 sans tests",
         "detail": "SPEC-101-2-relance-panier (AIAD-RGPD)",
@@ -1199,6 +1193,19 @@
       }
     ],
     "pm": [
+      {
+        "priorite": "P2",
+        "titre": "1 SPEC(s) à valider",
+        "detail": "SPEC-101-2-relance-panier",
+        "action": "PM/QA passe en revue pour fermer la boucle Drift Lock.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "pm",
+          "qa"
+        ]
+      },
       {
         "priorite": "P4",
         "titre": "1 SPEC(s) Tier 1 sans tests",
@@ -1239,6 +1246,19 @@
         ]
       },
       {
+        "priorite": "P2",
+        "titre": "1 SPEC(s) à valider",
+        "detail": "SPEC-101-2-relance-panier",
+        "action": "PM/QA passe en revue pour fermer la boucle Drift Lock.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "pm",
+          "qa"
+        ]
+      },
+      {
         "priorite": "P4",
         "titre": "1 SPEC(s) Tier 1 sans tests",
         "detail": "SPEC-101-2-relance-panier (AIAD-RGPD)",
@@ -1267,6 +1287,19 @@
         ]
       },
       {
+        "priorite": "P2",
+        "titre": "1 SPEC(s) à valider",
+        "detail": "SPEC-101-2-relance-panier",
+        "action": "PM/QA passe en revue pour fermer la boucle Drift Lock.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "pm",
+          "qa"
+        ]
+      },
+      {
         "priorite": "P5",
         "titre": "1 SPEC(s) prête(s) à exécuter",
         "detail": "SPEC-103-1-relance-email",
@@ -1280,6 +1313,19 @@
       }
     ],
     "qa": [
+      {
+        "priorite": "P2",
+        "titre": "1 SPEC(s) à valider",
+        "detail": "SPEC-101-2-relance-panier",
+        "action": "PM/QA passe en revue pour fermer la boucle Drift Lock.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "pm",
+          "qa"
+        ]
+      },
       {
         "priorite": "P4",
         "titre": "1 SPEC(s) Tier 1 sans tests",
@@ -1307,6 +1353,19 @@
       }
     ],
     "tl": [
+      {
+        "priorite": "P2",
+        "titre": "1 SPEC(s) à valider",
+        "detail": "SPEC-101-2-relance-panier",
+        "action": "PM/QA passe en revue pour fermer la boucle Drift Lock.",
+        "cardIds": [
+          "SPEC-101-2-relance-panier"
+        ],
+        "roles": [
+          "pm",
+          "qa"
+        ]
+      },
       {
         "priorite": "P4",
         "titre": "1 SPEC(s) Tier 1 sans tests",
@@ -1478,7 +1537,7 @@
           "tag": "AIAD-RGPD",
           "specId": "SPEC-101-2-relance-panier",
           "specFile": ".aiad/specs/SPEC-101-2-relance-panier.md",
-          "statut": "in-progress"
+          "statut": "review"
         }
       ]
     },
@@ -1542,7 +1601,7 @@
         {
           "id": "SPEC-101-2-relance-panier",
           "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
-          "statut": "in-progress"
+          "statut": "review"
         }
       ]
     },
@@ -1564,7 +1623,7 @@
         {
           "id": "SPEC-101-2-relance-panier",
           "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
-          "statut": "in-progress",
+          "statut": "review",
           "fichiersCount": 0
         }
       ]
@@ -1795,7 +1854,7 @@
         "id": "SPEC-101-1-formulaire-paiement",
         "titre": "Formulaire de paiement v2",
         "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
-        "mtime": 1778833555394.2512,
+        "mtime": 1778860461845.796,
         "parentIntent": "INTENT-101"
       }
     ],
@@ -1977,7 +2036,7 @@
         "nouvelles": [
           {
             "id": "SPEC-101-2-relance-panier",
-            "statut": "in-progress",
+            "statut": "review",
             "parentIntent": "INTENT-101"
           },
           {
@@ -2056,7 +2115,7 @@
           },
           {
             "id": "SPEC-101-2-relance-panier",
-            "statut": "in-progress",
+            "statut": "review",
             "parentIntent": "INTENT-101"
           },
           {
@@ -2066,7 +2125,7 @@
           }
         ]
       },
-      "mtime": 1778859626574.3787
+      "mtime": 1778860583366.824
     },
     "totalChangements": 6
   },
@@ -2549,13 +2608,45 @@
   "recentActivity": {
     "items": [
       {
+        "type": "SPEC",
+        "id": "SPEC-101-1-formulaire-paiement",
+        "titre": "Formulaire de paiement v2",
+        "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+        "statut": "done",
+        "mtime": 1778860461845.796,
+        "parentIntent": "INTENT-101",
+        "ageMs": 121522.2041015625,
+        "ageHumain": "il y a 2 min"
+      },
+      {
+        "type": "Intent",
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "mtime": 1778860455699.9673,
+        "ageMs": 127668.03271484375,
+        "ageHumain": "il y a 2 min"
+      },
+      {
+        "type": "SPEC",
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+        "statut": "review",
+        "mtime": 1778860446713.6975,
+        "parentIntent": "INTENT-101",
+        "ageMs": 136654.30249023438,
+        "ageHumain": "il y a 2 min"
+      },
+      {
         "type": "Intent",
         "id": "INTENT-103-retention-30j",
         "titre": "Rétention J+30 stabilisée à 55 %",
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 7034430.1845703125,
+        "ageMs": 7991223.1845703125,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2565,18 +2656,8 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 9887332.052490234,
+        "ageMs": 10844125.052490234,
         "ageHumain": "il y a 3 h"
-      },
-      {
-        "type": "Intent",
-        "id": "INTENT-101-conversion-checkout",
-        "titre": "Améliorer la conversion du checkout",
-        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
-        "statut": "active",
-        "mtime": 1778845222031.1401,
-        "ageMs": 14404543.859863281,
-        "ageHumain": "il y a 4 h"
       },
       {
         "type": "SPEC",
@@ -2586,30 +2667,8 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 26065748.733642578,
-        "ageHumain": "il y a 7 h"
-      },
-      {
-        "type": "SPEC",
-        "id": "SPEC-101-2-relance-panier",
-        "titre": "Relance panier abandonné",
-        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
-        "statut": "in-progress",
-        "mtime": 1778833557808.8782,
-        "parentIntent": "INTENT-101",
-        "ageMs": 26068766.121826172,
-        "ageHumain": "il y a 7 h"
-      },
-      {
-        "type": "SPEC",
-        "id": "SPEC-101-1-formulaire-paiement",
-        "titre": "Formulaire de paiement v2",
-        "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
-        "statut": "done",
-        "mtime": 1778833555394.2512,
-        "parentIntent": "INTENT-101",
-        "ageMs": 26071180.748779297,
-        "ageHumain": "il y a 7 h"
+        "ageMs": 27022541.733642578,
+        "ageHumain": "il y a 8 h"
       }
     ],
     "totaux": {
@@ -3603,7 +3662,7 @@
         {
           "id": "SPEC-101-2-relance-panier",
           "titre": "Relance panier abandonné",
-          "statut": "in-progress",
+          "statut": "review",
           "file": ".aiad/specs/SPEC-101-2-relance-panier.md"
         }
       ]
@@ -3617,7 +3676,7 @@
         "titre": "Améliorer la conversion du checkout",
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
-        "mtime": 1778845222031.1401,
+        "mtime": 1778860455699.9673,
         "ageJours": 0,
         "bande": "frais"
       },
@@ -3636,8 +3695,8 @@
         "id": "SPEC-101-2-relance-panier",
         "titre": "Relance panier abandonné",
         "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
-        "statut": "in-progress",
-        "mtime": 1778833557808.8782,
+        "statut": "review",
+        "mtime": 1778860446713.6975,
         "ageJours": 0,
         "bande": "frais"
       },
@@ -3691,7 +3750,7 @@
               {
                 "id": "SPEC-101-2-relance-panier",
                 "titre": "Relance panier abandonné",
-                "statut": "in-progress",
+                "statut": "review",
                 "file": ".aiad/specs/SPEC-101-2-relance-panier.md"
               }
             ]
@@ -4100,7 +4159,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778859619230.0518
+        "mtime": 1778860575599.0671
       }
     ],
     "tendance": {
@@ -4339,6 +4398,10 @@
           "q2"
         ],
         "confidence": 65,
+        "risks_accepted": [
+          "Latence p95 SEPA légèrement supérieure (décision validée comité 2026-04-12)",
+          "Non-couverture browser IE11 (RGAA acquis sur 99 % du trafic)"
+        ],
         "activatedAt": "2026-04-01",
         "problem": null,
         "sections": {
@@ -4348,7 +4411,7 @@
           "contraintes": "- RGPD (pas de nouveau cookie de tracking sans consentement)\n- Pas de nouveau provider de paiement à intégrer\n- Compatible mobile-first",
           "critereDrift": "Si après 4 semaines la conversion reste < 65 % sur 7 jours glissants → drift\nconfirmé : l'objectif n'a pas été atteint et il faut investiguer la cause\nprofonde avant tout nouveau chantier checkout."
         },
-        "mtime": 1778845222031.1401,
+        "mtime": 1778860455699.9673,
         "readiness": {
           "id": "INTENT-101-conversion-checkout",
           "titre": "Améliorer la conversion du checkout",
@@ -4584,57 +4647,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774021226579,
-        "fin": 1774626026579,
+        "debut": 1774022183372,
+        "fin": 1774626983372,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774626026579,
-        "fin": 1775230826579,
+        "debut": 1774626983372,
+        "fin": 1775231783372,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775230826579,
-        "fin": 1775835626579,
+        "debut": 1775231783372,
+        "fin": 1775836583372,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775835626579,
-        "fin": 1776440426579,
+        "debut": 1775836583372,
+        "fin": 1776441383372,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776440426579,
-        "fin": 1777045226579,
+        "debut": 1776441383372,
+        "fin": 1777046183372,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777045226579,
-        "fin": 1777650026579,
+        "debut": 1777046183372,
+        "fin": 1777650983372,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777650026579,
-        "fin": 1778254826579,
+        "debut": 1777650983372,
+        "fin": 1778255783372,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778254826579,
-        "fin": 1778859626579,
+        "debut": 1778255783372,
+        "fin": 1778860583372,
         "count": 5,
         "decisions": [
           {
@@ -4754,7 +4817,7 @@
             "id": "SPEC-101-1-formulaire-paiement",
             "statut": "done",
             "parentIntent": "INTENT-101",
-            "mtime": 1778833555394.2512
+            "mtime": 1778860461845.796
           }
         ]
       },
@@ -4972,6 +5035,29 @@
   "whatsNew": {
     "items": [
       {
+        "type": "spec",
+        "id": "SPEC-101-1-formulaire-paiement",
+        "titre": "Formulaire de paiement v2",
+        "mtime": 1778860461845.796,
+        "parentIntent": "INTENT-101",
+        "statut": "done"
+      },
+      {
+        "type": "intent",
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "mtime": 1778860455699.9673,
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md"
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "mtime": 1778860446713.6975,
+        "parentIntent": "INTENT-101",
+        "statut": "review"
+      },
+      {
         "type": "intent",
         "id": "INTENT-103-retention-30j",
         "titre": "Rétention J+30 stabilisée à 55 %",
@@ -4986,38 +5072,15 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md"
       },
       {
-        "type": "intent",
-        "id": "INTENT-101-conversion-checkout",
-        "titre": "Améliorer la conversion du checkout",
-        "mtime": 1778845222031.1401,
-        "file": ".aiad/intents/INTENT-101-conversion-checkout.md"
-      },
-      {
         "type": "spec",
         "id": "SPEC-103-1-relance-email",
         "titre": "Email de relance semaine 2",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
         "statut": "ready"
-      },
-      {
-        "type": "spec",
-        "id": "SPEC-101-2-relance-panier",
-        "titre": "Relance panier abandonné",
-        "mtime": 1778833557808.8782,
-        "parentIntent": "INTENT-101",
-        "statut": "in-progress"
-      },
-      {
-        "type": "spec",
-        "id": "SPEC-101-1-formulaire-paiement",
-        "titre": "Formulaire de paiement v2",
-        "mtime": 1778833555394.2512,
-        "parentIntent": "INTENT-101",
-        "statut": "done"
       }
     ],
-    "nowMs": 1778859626580
+    "nowMs": 1778860583373
   },
   "hypothesisLifecycle": {
     "items": [
@@ -5027,7 +5090,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "hypothesis": "Si on simplifie le checkout à 2 étapes, la conversion remontera à >70 %",
         "etat": "untested",
-        "mtime": 1778845222031.1401
+        "mtime": 1778860455699.9673
       },
       {
         "id": "INTENT-102-onboarding-mobile",
@@ -5067,7 +5130,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "priority": "P0",
-        "debut": 1778845222031.1401,
+        "debut": 1778860455699.9673,
         "echeance": 1779667200000,
         "proximite": "urgent",
         "target": "2026-05-25"
@@ -5096,10 +5159,10 @@
       }
     ],
     "plage": {
-      "min": 1776267626581,
+      "min": 1776268583373,
       "max": 1790812740000
     },
-    "now": 1778859626581,
+    "now": 1778860583373,
     "totaux": {
       "total": 3,
       "retard": 0,
@@ -5166,12 +5229,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1776267626581,
-      "fin": 1778859626581
+      "debut": 1776268583373,
+      "fin": 1778860583373
     },
     "fenetrePrecedente": {
-      "debut": 1773675626581,
-      "fin": 1776267626581
+      "debut": 1773676583373,
+      "fin": 1776268583373
     },
     "totalActivite": 7,
     "totalPrecedent": 0,
@@ -5382,7 +5445,7 @@
         "specsLivrees": 1,
         "dernierLivrable": {
           "id": "SPEC-101-1-formulaire-paiement",
-          "mtime": 1778833555394.2512
+          "mtime": 1778860461845.796
         },
         "risquesEleves": [
           {
@@ -5462,10 +5525,10 @@
         "titre": "Améliorer la conversion du checkout",
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
-        "mtime": 1778845222031.1401,
+        "mtime": 1778860455699.9673,
         "premiereSpec": {
-          "id": "SPEC-101-1-formulaire-paiement",
-          "mtime": 1778833555394.2512
+          "id": "SPEC-101-2-relance-panier",
+          "mtime": 1778860446713.6975
         },
         "ttfsJours": 0,
         "etat": "rapide"
@@ -5555,7 +5618,7 @@
         "specsLivrees": [
           {
             "id": "SPEC-101-1-formulaire-paiement",
-            "mtime": 1778833555394.2512
+            "mtime": 1778860461845.796
           }
         ]
       },
@@ -5581,6 +5644,68 @@
       "totalLivre": 1,
       "couvertures": 0,
       "deficits": 2
+    }
+  },
+  "reviewQueue": {
+    "items": [
+      {
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+        "statut": "review",
+        "parentIntent": "INTENT-101",
+        "mtime": 1778860446713.6975,
+        "ageJours": 0,
+        "etat": "frais",
+        "sqs": 4.2
+      }
+    ],
+    "totaux": {
+      "total": 1,
+      "frais": 1,
+      "tiede": 0,
+      "bloque": 0
+    }
+  },
+  "acceptedRisks": {
+    "items": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "sponsor": "Direction Sales",
+        "accepted": [
+          "Latence p95 SEPA légèrement supérieure (décision validée comité 2026-04-12)",
+          "Non-couverture browser IE11 (RGAA acquis sur 99 % du trafic)"
+        ],
+        "tousAcceptes": false,
+        "nbRisques": 2
+      }
+    ],
+    "totaux": {
+      "intents": 1,
+      "risquesAcceptes": 2,
+      "tousAcceptes": 0
+    }
+  },
+  "winsWall": {
+    "items": [
+      {
+        "type": "spec",
+        "id": "SPEC-101-1-formulaire-paiement",
+        "titre": "Formulaire de paiement v2",
+        "file": ".aiad/specs/SPEC-101-1-formulaire-paiement.md",
+        "statut": "done",
+        "parentIntent": "INTENT-101",
+        "mtime": 1778860461845.796
+      }
+    ],
+    "totaux": {
+      "total": 1,
+      "specs": 1,
+      "intents": 0,
+      "now": 1778860583374
     }
   },
   "edgeCases": {
@@ -5868,5 +5993,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T15:40:26.551Z"
+  "generatedAt": "2026-05-15T15:56:23.344Z"
 }
