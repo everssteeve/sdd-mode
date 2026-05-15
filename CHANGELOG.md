@@ -9,6 +9,30 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit theme/leaderboard/forecast (#477-#479, loop 20)
+
+**20ᵉ boucle d'audit PM** (2026-05-15) — le cockpit gagne 3 vues
+d'ergonomie + analyse stratégique + prédiction.
+
+- **Theme switcher PM-friendly** (#477) — `lib/dashboard/pm-theme.js`
+  expose 3 thèmes (default PE bleu / pm-warm chaud orange / pm-focus
+  haute densité). Persisté dans `localStorage.aiad-pm-theme`. CSS
+  overrides scopés via `body.pm-theme-{nom}`.
+- **Outcome contribution leaderboard** (#478) —
+  `lib/dashboard/outcome-leaderboard.js` calcule un score composite
+  `outcomesServis × poids_priorité` (P0=5, P1=3…) + bonus (+1 SPEC
+  done, +0.5 active). Table top 10 avec médailles 🥇🥈🥉. Aide à
+  protéger les contributeurs majeurs dans les arbitrages capacité.
+- **Velocity forecast** (#479) — `lib/dashboard/velocity-forecast.js`
+  applique une régression linéaire OLS sur les 6 dernières semaines
+  de SPECs done, projette 6 semaines en avant avec intervalle de
+  confiance ±1σ. Détecte accélération/décélération + ETA backlog
+  actuel. SVG historique + projection pointillée + zone de confiance.
+
+Zéro modification de `render.js` (toujours 849/850 LOC). pm.html monte
+à **56 sections** maintenant — **20 boucles consécutives** sans toucher
+au cœur du rendu.
+
 ### Ajouté — Dashboard PM cockpit goal-tree/ab-test/risk-burndown (#474-#476, loop 19)
 
 19ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues axées
