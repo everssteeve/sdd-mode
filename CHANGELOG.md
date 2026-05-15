@@ -9,6 +9,35 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM hypothesis-lifecycle/roadmap-timeline/pm-scorecard (#498-#500, loop 27)
+
+**27ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 72 sections h2,
+gagne une dynamique d'hypothèses, une roadmap Gantt et un scorecard PM
+personnel.
+
+- **Cycle de vie des hypothèses** (#498) —
+  `lib/dashboard/hypothesis-lifecycle.js` normalise 14 alias FR/EN
+  d'état (`untested`/`testing`/`validated`/`invalidated`/`partial`),
+  calcule taux de validation + mean time to resolution + détecte les
+  hypothèses qui stagnent (non-terminale > 30j). Warning rouge si
+  stagnation détectée.
+- **Roadmap timeline Gantt-light** (#499) —
+  `lib/dashboard/roadmap-timeline.js` parse ISO `YYYY-MM-DD` ou
+  `Q1-2026` (fin trimestre), rend SVG Gantt-light 760px avec barres
+  colorées selon proximité (retard/urgent/proche/distant) + ticks
+  mensuels + trait pointillé "maintenant". Visualisation rapide
+  d'un coup d'œil.
+- **Scorecard PM personnel** (#500) —
+  `lib/dashboard/pm-scorecard.js` mesure 6 KPIs sur 30j glissants
+  vs 30j précédents : Intents capturés, SPECs livrées, journal,
+  facts, demos, sync stratégiques. Direction (up/down/flat) selon
+  delta > ±10 %. Permet au PM de mesurer son rythme d'activité.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**27 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM prd-freshness/customer-feedback/whats-new (#495-#497, loop 26)
 
 **26ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 69 sections h2,

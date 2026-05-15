@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T14:55:43.037Z",
+    "generated": "2026-05-15T15:10:47.351Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T14:55:43.037Z"
+    "genere": "2026-05-15T15:10:47.351Z"
   },
   "fondamentaux": [
     {
@@ -364,7 +364,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T14:55:43.042Z",
+    "generatedAt": "2026-05-15T15:10:47.356Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -551,7 +551,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778856943044,
+        "ts": 1778857847358,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2066,7 +2066,7 @@
           }
         ]
       },
-      "mtime": 1778856943060.425
+      "mtime": 1778857847373.6602
     },
     "totalChangements": 6
   },
@@ -2555,7 +2555,7 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 4350917.1845703125,
+        "ageMs": 5255230.1845703125,
         "ageHumain": "il y a 1 h"
       },
       {
@@ -2565,7 +2565,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 7203819.052490234,
+        "ageMs": 8108132.052490234,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -2575,8 +2575,8 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778845222031.1401,
-        "ageMs": 11721030.859863281,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 12625343.859863281,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "SPEC",
@@ -2586,8 +2586,8 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 23382235.733642578,
-        "ageHumain": "il y a 6 h"
+        "ageMs": 24286548.733642578,
+        "ageHumain": "il y a 7 h"
       },
       {
         "type": "SPEC",
@@ -2597,8 +2597,8 @@
         "statut": "in-progress",
         "mtime": 1778833557808.8782,
         "parentIntent": "INTENT-101",
-        "ageMs": 23385253.121826172,
-        "ageHumain": "il y a 6 h"
+        "ageMs": 24289566.121826172,
+        "ageHumain": "il y a 7 h"
       },
       {
         "type": "SPEC",
@@ -2608,8 +2608,8 @@
         "statut": "done",
         "mtime": 1778833555394.2512,
         "parentIntent": "INTENT-101",
-        "ageMs": 23387667.748779297,
-        "ageHumain": "il y a 6 h"
+        "ageMs": 24291980.748779297,
+        "ageHumain": "il y a 7 h"
       }
     ],
     "totaux": {
@@ -4100,7 +4100,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778856935114.8384
+        "mtime": 1778857837342.467
       }
     ],
     "tendance": {
@@ -4584,57 +4584,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774018543065,
-        "fin": 1774623343065,
+        "debut": 1774019447379,
+        "fin": 1774624247379,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774623343065,
-        "fin": 1775228143065,
+        "debut": 1774624247379,
+        "fin": 1775229047379,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775228143065,
-        "fin": 1775832943065,
+        "debut": 1775229047379,
+        "fin": 1775833847379,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775832943065,
-        "fin": 1776437743065,
+        "debut": 1775833847379,
+        "fin": 1776438647379,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776437743065,
-        "fin": 1777042543065,
+        "debut": 1776438647379,
+        "fin": 1777043447379,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777042543065,
-        "fin": 1777647343065,
+        "debut": 1777043447379,
+        "fin": 1777648247379,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777647343065,
-        "fin": 1778252143065,
+        "debut": 1777648247379,
+        "fin": 1778253047379,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778252143065,
-        "fin": 1778856943065,
+        "debut": 1778253047379,
+        "fin": 1778857847379,
         "count": 5,
         "decisions": [
           {
@@ -5017,7 +5017,165 @@
         "statut": "done"
       }
     ],
-    "nowMs": 1778856943066
+    "nowMs": 1778857847380
+  },
+  "hypothesisLifecycle": {
+    "items": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "hypothesis": "Si on simplifie le checkout à 2 étapes, la conversion remontera à >70 %",
+        "etat": "untested",
+        "mtime": 1778845222031.1401
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "hypothesis": "Si on simplifie l'onboarding mobile à 3 écrans (vs 5), le drop-off baisse de 38% à <20%",
+        "etat": "untested",
+        "mtime": 1778849739242.9475
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "hypothesis": "Une boucle email à J+7 sur les utilisateurs inactifs augmentera la rétention J+30 à >55 %",
+        "etat": "partial",
+        "mtime": 1778852592144.8154
+      }
+    ],
+    "totaux": {
+      "total": 3,
+      "untested": 2,
+      "testing": 0,
+      "validated": 0,
+      "invalidated": 0,
+      "partial": 1
+    },
+    "tauxValidation": 0,
+    "stagnantes": 0,
+    "meanTtrJours": 0,
+    "stagnantesSample": []
+  },
+  "roadmapTimeline": {
+    "items": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "priority": "P0",
+        "debut": 1778845222031.1401,
+        "echeance": 1779667200000,
+        "proximite": "urgent",
+        "target": "2026-05-25"
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statut": "running",
+        "priority": "P1",
+        "debut": 1778849739242.9475,
+        "echeance": 1781049600000,
+        "proximite": "urgent",
+        "target": "2026-06-10"
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "priority": "P2",
+        "debut": 1778852592144.8154,
+        "echeance": 1790812740000,
+        "proximite": "distant",
+        "target": "Q3-2026"
+      }
+    ],
+    "plage": {
+      "min": 1776265847380,
+      "max": 1790812740000
+    },
+    "now": 1778857847380,
+    "totaux": {
+      "total": 3,
+      "retard": 0,
+      "urgent": 2,
+      "proche": 0,
+      "distant": 1
+    }
+  },
+  "pmScorecard": {
+    "kpis": [
+      {
+        "cle": "intents-crees",
+        "label": "Intents capturés",
+        "courant": 3,
+        "precedent": 0,
+        "icone": "💡",
+        "delta": 3,
+        "direction": "up"
+      },
+      {
+        "cle": "specs-livrees",
+        "label": "SPECs livrées",
+        "courant": 1,
+        "precedent": 0,
+        "icone": "🚀",
+        "delta": 1,
+        "direction": "up"
+      },
+      {
+        "cle": "journal",
+        "label": "Entrées journal",
+        "courant": 2,
+        "precedent": 0,
+        "icone": "📓",
+        "delta": 2,
+        "direction": "up"
+      },
+      {
+        "cle": "facts",
+        "label": "Facts capturés",
+        "courant": 1,
+        "precedent": 0,
+        "icone": "📊",
+        "delta": 1,
+        "direction": "up"
+      },
+      {
+        "cle": "demos",
+        "label": "Demos réalisées",
+        "courant": 0,
+        "precedent": 0,
+        "icone": "🎬",
+        "delta": 0,
+        "direction": "flat"
+      },
+      {
+        "cle": "syncs",
+        "label": "Sync stratégiques",
+        "courant": 0,
+        "precedent": 0,
+        "icone": "🎯",
+        "delta": 0,
+        "direction": "flat"
+      }
+    ],
+    "fenetre": {
+      "debut": 1776265847380,
+      "fin": 1778857847380
+    },
+    "fenetrePrecedente": {
+      "debut": 1773673847380,
+      "fin": 1776265847380
+    },
+    "totalActivite": 7,
+    "totalPrecedent": 0,
+    "directionGlobale": "up"
   },
   "edgeCases": {
     "totalItems": 0,
@@ -5304,5 +5462,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T14:55:43.037Z"
+  "generatedAt": "2026-05-15T15:10:47.351Z"
 }
