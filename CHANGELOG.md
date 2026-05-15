@@ -9,6 +9,31 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM acceptance-criteria/action-items/okr-progress (#543-#545, loop 42)
+
+**42ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 117 sections h2,
+gagne un extracteur de critères d'acceptation, un tracker d'action items
+et une progression OKR par KR.
+
+- **Critères d'acceptation SPEC** (#543) —
+  `lib/dashboard/acceptance-criteria.js` détecte 3 patterns dans le
+  body : section `## Critères d'acceptation`, critères EARS
+  (`WHEN/IF/WHILE/WHERE … SHALL …`), checkboxes `- [ ]`/`- [x]`.
+  Progression checkboxes mesure l'avancement testable.
+- **Action items journaux** (#544) —
+  `lib/dashboard/action-items.js` scan `pm-journal/` + `facts/` +
+  `metrics/retro/` pour extraire `- [ ]` / `- [x]`. Détecte référence
+  INTENT-NNN auto. Tri date desc.
+- **Progression OKR par KR** (#545) —
+  `lib/dashboard/okr-progress.js` calcule % par Key Result = SPECs
+  livrées / totales via Intents rattachés (#444). 5 états (atteint /
+  on-track / risque / en-peril / sans-data). Moyenne par objectif.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**42 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM velocity-by-tag/auto-archive-candidates/sprint-recap (#540-#542, loop 41)
 
 **41ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 114 sections h2,

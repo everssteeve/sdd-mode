@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T18:40:12.426Z",
+    "generated": "2026-05-15T18:55:52.310Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T18:40:12.426Z"
+    "genere": "2026-05-15T18:55:52.310Z"
   },
   "fondamentaux": [
     {
@@ -368,7 +368,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T18:40:12.433Z",
+    "generatedAt": "2026-05-15T18:55:52.315Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -541,7 +541,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778870412434,
+        "ts": 1778871352316,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2125,7 +2125,7 @@
           }
         ]
       },
-      "mtime": 1778870412449.2737
+      "mtime": 1778871352332.1204
     },
     "totalChangements": 6
   },
@@ -2615,7 +2615,7 @@
         "statut": "done",
         "mtime": 1778860461845.796,
         "parentIntent": "INTENT-101",
-        "ageMs": 9950604.204101562,
+        "ageMs": 10890487.204101562,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2625,7 +2625,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778860455699.9673,
-        "ageMs": 9956750.032714844,
+        "ageMs": 10896633.032714844,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2636,7 +2636,7 @@
         "statut": "review",
         "mtime": 1778860446713.6975,
         "parentIntent": "INTENT-101",
-        "ageMs": 9965736.302490234,
+        "ageMs": 10905619.302490234,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2646,7 +2646,7 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 17820305.184570312,
+        "ageMs": 18760188.184570312,
         "ageHumain": "il y a 5 h"
       },
       {
@@ -2656,7 +2656,7 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 20673207.052490234,
+        "ageMs": 21613090.052490234,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2667,7 +2667,7 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 36851623.73364258,
+        "ageMs": 37791506.73364258,
         "ageHumain": "il y a 10 h"
       }
     ],
@@ -4159,7 +4159,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778870396706.5088
+        "mtime": 1778871344033.598
       }
     ],
     "tendance": {
@@ -4647,57 +4647,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774032012454,
-        "fin": 1774636812454,
+        "debut": 1774032952337,
+        "fin": 1774637752337,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774636812454,
-        "fin": 1775241612454,
+        "debut": 1774637752337,
+        "fin": 1775242552337,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775241612454,
-        "fin": 1775846412454,
+        "debut": 1775242552337,
+        "fin": 1775847352337,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775846412454,
-        "fin": 1776451212454,
+        "debut": 1775847352337,
+        "fin": 1776452152337,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776451212454,
-        "fin": 1777056012454,
+        "debut": 1776452152337,
+        "fin": 1777056952337,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777056012454,
-        "fin": 1777660812454,
+        "debut": 1777056952337,
+        "fin": 1777661752337,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777660812454,
-        "fin": 1778265612454,
+        "debut": 1777661752337,
+        "fin": 1778266552337,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778265612454,
-        "fin": 1778870412454,
+        "debut": 1778266552337,
+        "fin": 1778871352337,
         "count": 5,
         "decisions": [
           {
@@ -5080,7 +5080,7 @@
         "statut": "ready"
       }
     ],
-    "nowMs": 1778870412455
+    "nowMs": 1778871352338
   },
   "hypothesisLifecycle": {
     "items": [
@@ -5159,10 +5159,10 @@
       }
     ],
     "plage": {
-      "min": 1776278412455,
+      "min": 1776279352338,
       "max": 1790812740000
     },
-    "now": 1778870412455,
+    "now": 1778871352338,
     "totaux": {
       "total": 3,
       "retard": 0,
@@ -5229,12 +5229,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1776278412456,
-      "fin": 1778870412456
+      "debut": 1776279352338,
+      "fin": 1778871352338
     },
     "fenetrePrecedente": {
-      "debut": 1773686412456,
-      "fin": 1776278412456
+      "debut": 1773687352338,
+      "fin": 1776279352338
     },
     "totalActivite": 7,
     "totalPrecedent": 0,
@@ -5705,7 +5705,7 @@
       "total": 1,
       "specs": 1,
       "intents": 0,
-      "now": 1778870412456
+      "now": 1778871352339
     }
   },
   "stateTransitions": {
@@ -6148,42 +6148,42 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1775846412457,
+        "finSem": 1775847352340,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1776451212457,
+        "finSem": 1776452152340,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1777056012457,
+        "finSem": 1777056952340,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1777660812457,
+        "finSem": 1777661752340,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1778265612457,
+        "finSem": 1778266552340,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 5,
-        "finSem": 1778870412457,
+        "finSem": 1778871352340,
         "intake": 3,
         "delivery": 0,
         "delta": 3
@@ -7147,14 +7147,107 @@
     "enCoursAuDebutSample": [],
     "totaux": {
       "duree": 14,
-      "debutSprint": 1777660812459,
-      "finSprint": 1778870412459,
+      "debutSprint": 1777661752342,
+      "finSprint": 1778871352342,
       "livrees": 1,
       "enCoursAuDebut": 0,
       "ajoutees": 2,
       "existant": 0,
       "completionRatio": null
     }
+  },
+  "acceptanceCriteria": {
+    "items": [],
+    "totaux": {
+      "specsAvecAC": 0,
+      "totalSpecs": 3,
+      "sansAC": 3,
+      "totalCriteres": 0,
+      "totalEars": 0,
+      "totalCheckboxes": 0,
+      "checkboxesFaits": 0
+    }
+  },
+  "actionItems": {
+    "items": [],
+    "nonFaits": [],
+    "faits": [],
+    "totaux": {
+      "total": 0,
+      "nonFaits": 0,
+      "faits": 0,
+      "tauxCompletion": 0
+    }
+  },
+  "okrProgress": {
+    "objectifs": [
+      {
+        "id": "O-1",
+        "description": "Devenir le raccourcisseur souverain EU de référence",
+        "krs": [
+          {
+            "id": "KR-1.1",
+            "description": "Atteindre 10k utilisateurs actifs mensuels",
+            "nbIntents": 1,
+            "totalSpecs": 0,
+            "livreesSpecs": 0,
+            "pct": null,
+            "etat": "sans-data"
+          },
+          {
+            "id": "KR-1.2",
+            "description": "Conversion checkout > 70 %",
+            "nbIntents": 1,
+            "totalSpecs": 2,
+            "livreesSpecs": 1,
+            "pct": 50,
+            "etat": "risque"
+          },
+          {
+            "id": "KR-1.3",
+            "description": "Rétention J+30 stabilisée à 55 %",
+            "nbIntents": 2,
+            "totalSpecs": 1,
+            "livreesSpecs": 0,
+            "pct": 0,
+            "etat": "en-peril"
+          }
+        ],
+        "pctMoyen": 25
+      },
+      {
+        "id": "O-2",
+        "description": "Solidifier la promesse de conformité",
+        "krs": [
+          {
+            "id": "KR-2.1",
+            "description": "100 % hébergement EU vérifié par audit CNIL",
+            "nbIntents": 0,
+            "totalSpecs": 0,
+            "livreesSpecs": 0,
+            "pct": null,
+            "etat": "sans-data"
+          },
+          {
+            "id": "KR-2.2",
+            "description": "Réduire la latence p95 redirect sous 50 ms",
+            "nbIntents": 0,
+            "totalSpecs": 0,
+            "livreesSpecs": 0,
+            "pct": null,
+            "etat": "sans-data"
+          }
+        ],
+        "pctMoyen": null
+      }
+    ],
+    "totaux": {
+      "nbObjectifs": 2,
+      "nbKr": 5,
+      "krAtteints": 0,
+      "krEnPeril": 1
+    },
+    "message": null
   },
   "edgeCases": {
     "totalItems": 0,
@@ -7441,5 +7534,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T18:40:12.426Z"
+  "generatedAt": "2026-05-15T18:55:52.310Z"
 }
