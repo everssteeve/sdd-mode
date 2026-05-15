@@ -9,6 +9,27 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit rituels (#429-#431, loop 4)
+
+4ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues rituelles/
+tactiques qui complètent les 3 vues stratégiques de la loop 3.
+
+- **Préparer la démo** (#429) — nouveau `lib/dashboard/demo-readiness.js`
+  qui lit la dernière démo (`/aiad demo` → `.aiad/metrics/demo/`) et rend
+  une checklist Intents + SPECs livrés depuis + un script Markdown
+  copy-paste prêt-à-coller dans la session démo (titre + sections livrées
+  + bullet par item).
+- **Drill-down par persona** (#430) — nouveau
+  `lib/dashboard/persona-drill.js` qui group les Intents par statut
+  (draft/active/done/archived) pour chaque persona PRD et calcule un état
+  agrégé `orphelin/sous-servi/couvert/saturé` (≥3 actifs = WIP excessif).
+  Cartes responsive sur pm.html avec border-left colorée.
+- **Échéances Intent** (#431) — nouveau `lib/dashboard/deadlines.js` qui
+  calcule `joursRestants` depuis `target_date` (ISO) ou fallback fin de
+  quarter (`target: Q3-2026`). 6 buckets (retard/urgent/proche/planifié/
+  sans-cible/livré). Sections actionnables sur pm.html avec format
+  `J-N` ou `J+N en retard`.
+
 ### Ajouté — Dashboard PM cockpit stratégique (#426-#428, loop 3)
 
 3ᵉ boucle d'audit PM (2026-05-15) — le cockpit passe de tactique
