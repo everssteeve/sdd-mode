@@ -9,6 +9,34 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM section-visibility/quarterly-decisions/spec-quality-score (#552-#554, loop 45)
+
+**45ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 125 sections h2,
+gagne un gestionnaire de visibilité par section, un audit log
+trimestriel des décisions et un score qualité SPEC composite.
+
+- **Visibilité des sections** (#552) —
+  `lib/dashboard/section-visibility.js` injecte une barre sticky avec
+  mode édition (bouton "masquer" sur chaque section) + persistance
+  `localStorage.aiad-pm-sections-hidden`. Permet au PM de personnaliser
+  son cockpit (125 sections).
+- **Décisions & facts par trimestre** (#553) —
+  `lib/dashboard/quarterly-decisions.js` scan `pm-journal/*.md` (bullets
+  sous `## Décisions`) + `facts/*.md`, groupe par trimestre. Cards par
+  trimestre avec listes décisions + facts.
+- **Score qualité SPEC** (#554) —
+  `lib/dashboard/spec-quality-score.js` score composite /5 sur 5
+  dimensions (SQS ≥ 4, taille ≤ M, ≥ 1 AC, ≥ 1 annotation v1.10,
+  stable). 4 états excellent/bon/partiel/faible. Identifie SPECs à
+  raffiner avant `/sdd exec`.
+
+`.aiad-size-budget.json` étendu pour `lib/dashboard/pm.js`
+(orchestrateur PM cockpit qui importe 130+ modules — marge 800 LOC
+justifiée).
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**45 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM newcomer-checklist/pending-decisions/stakeholder-map (#549-#551, loop 44)
 
 **44ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 123 sections h2,
