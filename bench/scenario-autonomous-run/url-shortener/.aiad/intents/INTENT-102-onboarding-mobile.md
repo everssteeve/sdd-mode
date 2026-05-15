@@ -17,6 +17,14 @@ okrs: [KR-1.1, KR-1.3]
 kind: experiment
 confidence_level: low
 tags: [mobile, onboarding, q3, growth]
+experiment:
+  hypothesis: "Si on simplifie l'onboarding mobile à 3 écrans (vs 5), le drop-off baisse de 38% à <20%"
+  metric: "Drop-off onboarding mobile"
+  variant_a: "5 écrans actuels (control)"
+  variant_b: "3 écrans simplifiés (challenger)"
+  status: running
+  started_at: "2026-05-01"
+  sample_size: 1200
 ---
 
 # INTENT-102-onboarding-mobile

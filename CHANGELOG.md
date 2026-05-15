@@ -9,6 +9,29 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit goal-tree/ab-test/risk-burndown (#474-#476, loop 19)
+
+19ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues axées
+stratégie + expérimentation + évolution temporelle des risques.
+
+- **Goal tree** (#474) — `lib/dashboard/goal-tree.js` extrait la North
+  Star (PRD §2) et rend l'arbre hiérarchique North Star → Outcomes
+  (PRD §4) → Intents (#428) → SPECs (#421) avec connecteurs ASCII
+  `├─ └─`. Bannière orange pour Intents orphelins (sans outcome).
+- **A/B test tracker** (#475) — `lib/dashboard/ab-test-tracker.js`
+  détecte les Intents avec `kind: experiment` ou frontmatter
+  `experiment:` (hypothesis/metric/variants/status/sample_size/winner/
+  result_summary). Statuts FR/EN. Cards triées par actionnabilité
+  (running > validés > inconcluants > invalidés). Variant gagnant
+  mis en évidence en vert.
+- **Risk burndown** (#476) — `lib/dashboard/risk-burndown.js` consomme
+  les snapshots PM (#433) pour tracer une sparkline du nombre de
+  risques (#439) encore ouverts à chaque date. Tendance up/down/flat
+  comparant moitié récente à moitié ancienne.
+
+Zéro modification de `render.js` (toujours 849/850 LOC). pm.html monte
+à **53 sections** maintenant.
+
 ### Ajouté — Dashboard PM cockpit freshness/standup/retro (#471-#473, loop 18)
 
 18ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues axées
