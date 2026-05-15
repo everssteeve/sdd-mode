@@ -9,6 +9,35 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM intent-compare/sponsor-prep/backlog-hygiene (#501-#503, loop 28)
+
+**28ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 75 sections h2,
+gagne une comparaison Intent side-by-side, une prep 1:1 sponsor et un
+détecteur d'hygiène backlog.
+
+- **Compare Intents** (#501) —
+  `lib/dashboard/intent-compare.js` rend une grille CSS 11 critères ×
+  N colonnes (priorité, sponsor, échéance, SQS readiness, avancement,
+  hypothèse, risque, dépendances…). Sélection par défaut : top 3
+  priorité. Override via URL `#compare=INTENT-101,INTENT-103` avec
+  écoute `hashchange` — pas de regen serveur nécessaire.
+- **Prep 1:1 sponsor** (#502) —
+  `lib/dashboard/sponsor-prep.js` agrège par sponsor unique : Intents
+  portés (counts), SPECs livrées (dernier livrable), risques élevés,
+  échéances proches, dernier contact tracé. Brief 30s pour préparer
+  un 1:1 sans pivoter entre 5 sections.
+- **Hygiène backlog** (#503) —
+  `lib/dashboard/backlog-hygiene.js` détecte 4 anti-patterns :
+  drafts > 90j, active > 60j sans SPEC, done > 180j non-archivés,
+  doublons potentiels (Jaccard ≥ 0.6 sur tokens titre normalisés
+  NFD). Chaque suggestion porte une action explicite ("descoper",
+  "décomposer via /sdd spec", "archiver", "fusionner").
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**28 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM hypothesis-lifecycle/roadmap-timeline/pm-scorecard (#498-#500, loop 27)
 
 **27ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 72 sections h2,
