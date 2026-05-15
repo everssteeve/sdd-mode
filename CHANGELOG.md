@@ -9,6 +9,32 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM discovery-to-delivery/owner-workload/reading-time (#522-#524, loop 35)
+
+**35ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 96 sections h2,
+gagne un cycle-time discovery→delivery, une heatmap workload par owner
+et un estimateur de temps de lecture.
+
+- **Discovery → Delivery cycle time** (#522) —
+  `lib/dashboard/discovery-to-delivery.js` mesure le délai entre
+  création Intent `kind: discovery|experiment` et sa première SPEC
+  livrée. 5 buckets (très-court ≤ 14j → très-long > 120j) + cycle
+  moyen + médian.
+- **Charge par owner** (#523) —
+  `lib/dashboard/owner-workload.js` distribue les Intents actifs par
+  owner, compare à `capacity:` frontmatter (défaut 3). 5 états
+  (libre / léger / optimal / limite / surcharge). Barre colorée +
+  sample d'IDs.
+- **Temps de lecture artefacts** (#524) —
+  `lib/dashboard/reading-time.js` estime mots+minutes pour chaque
+  Intent et SPEC (vitesse 220 mots/min). Marque `trop_long` si > 8
+  min. Aide à planifier les revues.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**35 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM persona-outcome-matrix/throughput-trend/risk-concentration (#519-#521, loop 34)
 
 **34ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 93 sections h2,
