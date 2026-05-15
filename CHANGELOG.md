@@ -9,6 +9,32 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM newcomer-checklist/pending-decisions/stakeholder-map (#549-#551, loop 44)
+
+**44ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 123 sections h2,
+gagne une reading list onboarding, une queue de décisions PM et une
+carte stakeholder.
+
+- **Onboarding nouveau membre** (#549) —
+  `lib/dashboard/newcomer-checklist.js` génère reading list ordonnée :
+  cadrage PRD/ARCHITECTURE/AGENT-GUIDE, top 5 Intents P0-P1, SPECs
+  en cours, gouvernance Tier 1, cheatsheet. Marque incontournable /
+  recommandé avec temps estimé.
+- **Décisions en attente** (#550) —
+  `lib/dashboard/pending-decisions.js` agrège 4 types de décisions PM
+  en attente : SPECs review/validation, Intents draft > 14j,
+  hypothèses untested > 30j, risques élevés non-couverts. Tri urgent
+  d'abord.
+- **Carte stakeholder × Intent** (#551) —
+  `lib/dashboard/stakeholder-map.js` vue compacte par stakeholder
+  unique (sponsor + owner) avec Intents associés par rôle. Détecte
+  doubles rôles (signal conflit/surcharge).
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**44 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM bus-factor/sentiment-trend/rituals-calendar (#546-#548, loop 43)
 
 **43ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 120 sections h2,

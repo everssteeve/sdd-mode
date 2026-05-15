@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T19:10:43.077Z",
+    "generated": "2026-05-15T19:25:40.200Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T19:10:43.077Z"
+    "genere": "2026-05-15T19:25:40.200Z"
   },
   "fondamentaux": [
     {
@@ -368,7 +368,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T19:10:43.084Z",
+    "generatedAt": "2026-05-15T19:25:40.205Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -541,7 +541,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778872243085,
+        "ts": 1778873140207,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2125,7 +2125,7 @@
           }
         ]
       },
-      "mtime": 1778872243101.9019
+      "mtime": 1778873140224.0642
     },
     "totalChangements": 6
   },
@@ -2615,8 +2615,8 @@
         "statut": "done",
         "mtime": 1778860461845.796,
         "parentIntent": "INTENT-101",
-        "ageMs": 11781257.204101562,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 12678379.204101562,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "Intent",
@@ -2625,8 +2625,8 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778860455699.9673,
-        "ageMs": 11787403.032714844,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 12684525.032714844,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "SPEC",
@@ -2636,8 +2636,8 @@
         "statut": "review",
         "mtime": 1778860446713.6975,
         "parentIntent": "INTENT-101",
-        "ageMs": 11796389.302490234,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 12693511.302490234,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "Intent",
@@ -2646,8 +2646,8 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 19650958.184570312,
-        "ageHumain": "il y a 5 h"
+        "ageMs": 20548080.184570312,
+        "ageHumain": "il y a 6 h"
       },
       {
         "type": "Intent",
@@ -2656,8 +2656,8 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 22503860.052490234,
-        "ageHumain": "il y a 6 h"
+        "ageMs": 23400982.052490234,
+        "ageHumain": "il y a 7 h"
       },
       {
         "type": "SPEC",
@@ -2667,7 +2667,7 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 38682276.73364258,
+        "ageMs": 39579398.73364258,
         "ageHumain": "il y a 11 h"
       }
     ],
@@ -4159,7 +4159,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778872233546.6526
+        "mtime": 1778873131930.9607
       }
     ],
     "tendance": {
@@ -4647,57 +4647,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1774033843108,
-        "fin": 1774638643108,
+        "debut": 1774034740229,
+        "fin": 1774639540229,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1774638643108,
-        "fin": 1775243443108,
+        "debut": 1774639540229,
+        "fin": 1775244340229,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1775243443108,
-        "fin": 1775848243108,
+        "debut": 1775244340229,
+        "fin": 1775849140229,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1775848243108,
-        "fin": 1776453043108,
+        "debut": 1775849140229,
+        "fin": 1776453940229,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1776453043108,
-        "fin": 1777057843108,
+        "debut": 1776453940229,
+        "fin": 1777058740229,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1777057843108,
-        "fin": 1777662643108,
+        "debut": 1777058740229,
+        "fin": 1777663540229,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1777662643108,
-        "fin": 1778267443108,
+        "debut": 1777663540229,
+        "fin": 1778268340229,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1778267443108,
-        "fin": 1778872243108,
+        "debut": 1778268340229,
+        "fin": 1778873140229,
         "count": 5,
         "decisions": [
           {
@@ -5080,7 +5080,7 @@
         "statut": "ready"
       }
     ],
-    "nowMs": 1778872243109
+    "nowMs": 1778873140230
   },
   "hypothesisLifecycle": {
     "items": [
@@ -5159,10 +5159,10 @@
       }
     ],
     "plage": {
-      "min": 1776280243109,
+      "min": 1776281140230,
       "max": 1790812740000
     },
-    "now": 1778872243109,
+    "now": 1778873140230,
     "totaux": {
       "total": 3,
       "retard": 0,
@@ -5229,12 +5229,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1776280243109,
-      "fin": 1778872243109
+      "debut": 1776281140231,
+      "fin": 1778873140231
     },
     "fenetrePrecedente": {
-      "debut": 1773688243109,
-      "fin": 1776280243109
+      "debut": 1773689140231,
+      "fin": 1776281140231
     },
     "totalActivite": 7,
     "totalPrecedent": 0,
@@ -5705,7 +5705,7 @@
       "total": 1,
       "specs": 1,
       "intents": 0,
-      "now": 1778872243110
+      "now": 1778873140231
     }
   },
   "stateTransitions": {
@@ -6148,42 +6148,42 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1775848243111,
+        "finSem": 1775849140232,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1776453043111,
+        "finSem": 1776453940232,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1777057843111,
+        "finSem": 1777058740232,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1777662643111,
+        "finSem": 1777663540232,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1778267443111,
+        "finSem": 1778268340232,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 5,
-        "finSem": 1778872243111,
+        "finSem": 1778873140232,
         "intake": 3,
         "delivery": 0,
         "delta": 3
@@ -7147,8 +7147,8 @@
     "enCoursAuDebutSample": [],
     "totaux": {
       "duree": 14,
-      "debutSprint": 1777662643113,
-      "finSprint": 1778872243113,
+      "debutSprint": 1777663540234,
+      "finSprint": 1778873140234,
       "livrees": 1,
       "enCoursAuDebut": 0,
       "ajoutees": 2,
@@ -7287,7 +7287,7 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1774638643113,
+        "finSem": 1774639540235,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7296,7 +7296,7 @@
       },
       {
         "idx": 1,
-        "finSem": 1775243443113,
+        "finSem": 1775244340235,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7305,7 +7305,7 @@
       },
       {
         "idx": 2,
-        "finSem": 1775848243113,
+        "finSem": 1775849140235,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7314,7 +7314,7 @@
       },
       {
         "idx": 3,
-        "finSem": 1776453043113,
+        "finSem": 1776453940235,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7323,7 +7323,7 @@
       },
       {
         "idx": 4,
-        "finSem": 1777057843113,
+        "finSem": 1777058740235,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7332,7 +7332,7 @@
       },
       {
         "idx": 5,
-        "finSem": 1777662643113,
+        "finSem": 1777663540235,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7341,7 +7341,7 @@
       },
       {
         "idx": 6,
-        "finSem": 1778267443113,
+        "finSem": 1778268340235,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -7350,7 +7350,7 @@
       },
       {
         "idx": 7,
-        "finSem": 1778872243113,
+        "finSem": 1778873140235,
         "total": 3,
         "positif": 1,
         "negatif": 1,
@@ -7449,6 +7449,188 @@
       "retard": 0,
       "imminent": 0,
       "jamais": 6
+    }
+  },
+  "newcomerChecklist": {
+    "items": [
+      {
+        "ordre": 1,
+        "type": "cadrage",
+        "label": "Lire le PRD complet",
+        "cible": ".aiad/PRD.md",
+        "minutes": 15,
+        "priorite": "incontournable"
+      },
+      {
+        "ordre": 2,
+        "type": "cadrage",
+        "label": "Lire ARCHITECTURE.md",
+        "cible": ".aiad/ARCHITECTURE.md",
+        "minutes": 10,
+        "priorite": "incontournable"
+      },
+      {
+        "ordre": 3,
+        "type": "cadrage",
+        "label": "Lire AGENT-GUIDE.md",
+        "cible": ".aiad/AGENT-GUIDE.md",
+        "minutes": 5,
+        "priorite": "incontournable"
+      },
+      {
+        "ordre": 4,
+        "type": "intent",
+        "label": "INTENT-101-conversion-checkout — Améliorer la conversion du checkout",
+        "cible": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "minutes": 5,
+        "priorite": "incontournable",
+        "meta": "[P0]"
+      },
+      {
+        "ordre": 5,
+        "type": "intent",
+        "label": "INTENT-103-retention-30j — Rétention J+30 stabilisée à 55 %",
+        "cible": ".aiad/intents/INTENT-103-retention-30j.md",
+        "minutes": 5,
+        "priorite": "recommande",
+        "meta": "[P2]"
+      },
+      {
+        "ordre": 6,
+        "type": "spec",
+        "label": "SPEC-101-2-relance-panier — Relance panier abandonné",
+        "cible": ".aiad/specs/SPEC-101-2-relance-panier.md",
+        "minutes": 4,
+        "priorite": "recommande",
+        "meta": "[review]"
+      },
+      {
+        "ordre": 7,
+        "type": "gouvernance",
+        "label": "Lire les 4 agents Tier 1 (AI-ACT / RGPD / RGAA / RGESN)",
+        "cible": ".aiad/gouvernance/",
+        "minutes": 15,
+        "priorite": "incontournable"
+      },
+      {
+        "ordre": 8,
+        "type": "reference",
+        "label": "Mémo commandes /sdd et /aiad",
+        "cible": "#commandes-pm-copy-paste",
+        "minutes": 3,
+        "priorite": "recommande"
+      }
+    ],
+    "totalMinutes": 62,
+    "totaux": {
+      "total": 8,
+      "incontournables": 5
+    }
+  },
+  "pendingDecisions": {
+    "items": [
+      {
+        "type": "risque-decouvert",
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "action": "Mitiger ou accepter risque high",
+        "ageJours": null,
+        "urgence": "normal"
+      },
+      {
+        "type": "spec-review",
+        "id": "SPEC-101-2-relance-panier",
+        "titre": "Relance panier abandonné",
+        "file": ".aiad/specs/SPEC-101-2-relance-panier.md",
+        "action": "Valider ou refuser SPEC en review (0j)",
+        "ageJours": 0,
+        "urgence": "frais"
+      }
+    ],
+    "totaux": {
+      "total": 2,
+      "specReview": 1,
+      "intentDraft": 0,
+      "hypoUntested": 0,
+      "risqueDecouvert": 1,
+      "urgent": 0
+    }
+  },
+  "stakeholderMap": {
+    "items": [
+      {
+        "nom": "Steeve",
+        "asSponsor": [],
+        "asOwner": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "statut": "active",
+            "priority": "P0"
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "statut": "active",
+            "priority": "P2"
+          }
+        ],
+        "asPersona": [],
+        "nbTotal": 2
+      },
+      {
+        "nom": "Direction Marketing",
+        "asSponsor": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "statut": "running",
+            "priority": "P1"
+          },
+          {
+            "id": "INTENT-103-retention-30j",
+            "titre": "Rétention J+30 stabilisée à 55 %",
+            "statut": "active",
+            "priority": "P2"
+          }
+        ],
+        "asOwner": [],
+        "asPersona": [],
+        "nbTotal": 2
+      },
+      {
+        "nom": "Direction Sales",
+        "asSponsor": [
+          {
+            "id": "INTENT-101-conversion-checkout",
+            "titre": "Améliorer la conversion du checkout",
+            "statut": "active",
+            "priority": "P0"
+          }
+        ],
+        "asOwner": [],
+        "asPersona": [],
+        "nbTotal": 1
+      },
+      {
+        "nom": "Alice",
+        "asSponsor": [],
+        "asOwner": [
+          {
+            "id": "INTENT-102-onboarding-mobile",
+            "titre": "Onboarding mobile en moins de 30 secondes",
+            "statut": "running",
+            "priority": "P1"
+          }
+        ],
+        "asPersona": [],
+        "nbTotal": 1
+      }
+    ],
+    "totaux": {
+      "stakeholders": 4,
+      "doubleRole": 0
     }
   },
   "edgeCases": {
@@ -7736,5 +7918,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T19:10:43.077Z"
+  "generatedAt": "2026-05-15T19:25:40.200Z"
 }
