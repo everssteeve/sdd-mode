@@ -9,6 +9,38 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM stakeholder-comms/decision-velocity/weekly-checklist (#489-#491, loop 24)
+
+**24ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 63 sections h2,
+gagne un tracker de silence stakeholder, une vélocité décisionnelle, et
+une checklist hebdomadaire SDD-Mode-aware.
+
+- **Stakeholder communication tracker** (#489) —
+  `lib/dashboard/stakeholder-comms.js` calcule pour chaque Intent
+  actif la dernière trace de communication (mtime demo / sync-strat,
+  scan mentions `INTENT-NNN` dans `pm-journal/`). Classe en
+  recent ≤ 7j / tiède ≤ 30j / silencieux > 30j. Identifie les
+  Intents où sponsor n'a pas été informé.
+- **Vélocité décisionnelle** (#490) —
+  `lib/dashboard/decision-velocity.js` compte les décisions
+  documentées par semaine (sections `## Décisions` dans
+  `pm-journal/` + fichiers dans `.aiad/facts/`). Bars chart SVG
+  520×160 sur 8 semaines, régression linéaire pour tendance
+  (accélération / décélération / stable), détection inertie
+  (0 décision sur 2 dernières semaines = warning rouge).
+- **Checklist hebdomadaire PM** (#491) —
+  `lib/dashboard/pm-weekly-checklist.js` rend 9 tâches récurrentes
+  SDD-Mode-aware (5 hebdo + 2 mensuel + 1 trimestriel + 1 cross-day)
+  avec persistance `localStorage.aiad-pm-checklist-{YYYY-Www}` —
+  reset auto chaque lundi (semaine ISO nouvelle). Boutons "Tout
+  cocher" et "Reset semaine". Caché à l'impression.
+
+`SECTION_TO_TABS` (#480) étendu : les 3 nouvelles sections sont
+rattachées aux axes communication/tactique/rituels/stratégique.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**24 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM maturity/narrative/sprint-planner (#486-#488, loop 23)
 
 **23ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 60 sections h2,

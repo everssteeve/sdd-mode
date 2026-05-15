@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.14.0",
-    "generated": "2026-05-15T14:11:00.359Z",
+    "generated": "2026-05-15T14:26:45.228Z",
     "slim": true
   },
   "projet": {
     "nom": "url-shortener-bench",
     "version": "0.1.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd/bench/scenario-autonomous-run/url-shortener",
-    "genere": "2026-05-15T14:11:00.359Z"
+    "genere": "2026-05-15T14:26:45.228Z"
   },
   "fondamentaux": [
     {
@@ -364,7 +364,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-05-15T14:11:00.364Z",
+    "generatedAt": "2026-05-15T14:26:45.233Z",
     "summary": {
       "intents": 3,
       "specs": 3,
@@ -551,7 +551,7 @@
     "leadershipHistory": [
       {
         "mois": "2026-05",
-        "ts": 1778854260366,
+        "ts": 1778855205234,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": null,
         "traceCompleteness": 0,
@@ -2066,7 +2066,7 @@
           }
         ]
       },
-      "mtime": 1778854260381.6892
+      "mtime": 1778855205250.5808
     },
     "totalChangements": 6
   },
@@ -2555,8 +2555,8 @@
         "file": ".aiad/intents/INTENT-103-retention-30j.md",
         "statut": "active",
         "mtime": 1778852592144.8154,
-        "ageMs": 1668238.1845703125,
-        "ageHumain": "il y a 28 min"
+        "ageMs": 2613107.1845703125,
+        "ageHumain": "il y a 44 min"
       },
       {
         "type": "Intent",
@@ -2565,8 +2565,8 @@
         "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
         "statut": "running",
         "mtime": 1778849739242.9475,
-        "ageMs": 4521140.052490234,
-        "ageHumain": "il y a 1 h"
+        "ageMs": 5466009.052490234,
+        "ageHumain": "il y a 2 h"
       },
       {
         "type": "Intent",
@@ -2575,7 +2575,7 @@
         "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
         "statut": "active",
         "mtime": 1778845222031.1401,
-        "ageMs": 9038351.859863281,
+        "ageMs": 9983220.859863281,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -2586,7 +2586,7 @@
         "statut": "ready",
         "mtime": 1778833560826.2664,
         "parentIntent": "INTENT-103",
-        "ageMs": 20699556.733642578,
+        "ageMs": 21644425.733642578,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2597,7 +2597,7 @@
         "statut": "in-progress",
         "mtime": 1778833557808.8782,
         "parentIntent": "INTENT-101",
-        "ageMs": 20702574.121826172,
+        "ageMs": 21647443.121826172,
         "ageHumain": "il y a 6 h"
       },
       {
@@ -2608,7 +2608,7 @@
         "statut": "done",
         "mtime": 1778833555394.2512,
         "parentIntent": "INTENT-101",
-        "ageMs": 20704988.748779297,
+        "ageMs": 21649857.748779297,
         "ageHumain": "il y a 6 h"
       }
     ],
@@ -4100,7 +4100,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1778854253579.8843
+        "mtime": 1778855198438.1501
       }
     ],
     "tendance": {
@@ -4527,6 +4527,219 @@
       "veloMoyen": 0.2
     }
   },
+  "stakeholderComms": {
+    "items": [
+      {
+        "id": "INTENT-101-conversion-checkout",
+        "titre": "Améliorer la conversion du checkout",
+        "file": ".aiad/intents/INTENT-101-conversion-checkout.md",
+        "statut": "active",
+        "sponsor": "Direction Sales",
+        "lastDemo": null,
+        "lastSync": null,
+        "lastJournal": 1778803200000,
+        "derniereComm": 1778803200000,
+        "etat": "recent",
+        "jours": 0
+      },
+      {
+        "id": "INTENT-102-onboarding-mobile",
+        "titre": "Onboarding mobile en moins de 30 secondes",
+        "file": ".aiad/intents/INTENT-102-onboarding-mobile.md",
+        "statut": "running",
+        "sponsor": "Direction Marketing",
+        "lastDemo": null,
+        "lastSync": null,
+        "lastJournal": 1778716800000,
+        "derniereComm": 1778716800000,
+        "etat": "recent",
+        "jours": 1
+      },
+      {
+        "id": "INTENT-103-retention-30j",
+        "titre": "Rétention J+30 stabilisée à 55 %",
+        "file": ".aiad/intents/INTENT-103-retention-30j.md",
+        "statut": "active",
+        "sponsor": "Direction Marketing",
+        "lastDemo": null,
+        "lastSync": null,
+        "lastJournal": 1778716800000,
+        "derniereComm": 1778716800000,
+        "etat": "recent",
+        "jours": 1
+      }
+    ],
+    "totaux": {
+      "total": 3,
+      "recent": 3,
+      "tiede": 0,
+      "silencieux": 0
+    },
+    "lastDemo": null,
+    "lastSync": null,
+    "mentions": 3
+  },
+  "decisionVelocity": {
+    "total": 5,
+    "buckets": [
+      {
+        "idx": 0,
+        "debut": 1774016805256,
+        "fin": 1774621605256,
+        "count": 0,
+        "decisions": []
+      },
+      {
+        "idx": 1,
+        "debut": 1774621605256,
+        "fin": 1775226405256,
+        "count": 0,
+        "decisions": []
+      },
+      {
+        "idx": 2,
+        "debut": 1775226405256,
+        "fin": 1775831205256,
+        "count": 0,
+        "decisions": []
+      },
+      {
+        "idx": 3,
+        "debut": 1775831205256,
+        "fin": 1776436005256,
+        "count": 0,
+        "decisions": []
+      },
+      {
+        "idx": 4,
+        "debut": 1776436005256,
+        "fin": 1777040805256,
+        "count": 0,
+        "decisions": []
+      },
+      {
+        "idx": 5,
+        "debut": 1777040805256,
+        "fin": 1777645605256,
+        "count": 0,
+        "decisions": []
+      },
+      {
+        "idx": 6,
+        "debut": 1777645605256,
+        "fin": 1778250405256,
+        "count": 0,
+        "decisions": []
+      },
+      {
+        "idx": 7,
+        "debut": 1778250405256,
+        "fin": 1778855205256,
+        "count": 5,
+        "decisions": [
+          {
+            "source": "journal",
+            "ts": 1778716800000,
+            "fichier": "2026-05-14.md"
+          },
+          {
+            "source": "journal",
+            "ts": 1778716800000,
+            "fichier": "2026-05-14.md"
+          },
+          {
+            "source": "journal",
+            "ts": 1778803200000,
+            "fichier": "2026-05-15.md"
+          },
+          {
+            "source": "journal",
+            "ts": 1778803200000,
+            "fichier": "2026-05-15.md"
+          },
+          {
+            "source": "fact",
+            "ts": 1778839809046.5867,
+            "fichier": "FACT-001-cnil-retention.md"
+          }
+        ]
+      }
+    ],
+    "moyenne": 0.6,
+    "slope": 0.42,
+    "tendance": "stable",
+    "inertie": false,
+    "nbJournal": 4,
+    "nbFacts": 1
+  },
+  "weeklyChecklist": {
+    "semaine": "2026-W20",
+    "taches": [
+      {
+        "id": "lundi-standup",
+        "titre": "Standup AIAD (état + blockers + intentions)",
+        "jour": "Lundi",
+        "cadence": "hebdo",
+        "anchor": "#stand-up-timer"
+      },
+      {
+        "id": "mardi-zombies",
+        "titre": "Nettoyer les Intents zombies",
+        "jour": "Mardi",
+        "cadence": "hebdo",
+        "anchor": "#a-valider-cette-semaine"
+      },
+      {
+        "id": "mercredi-refinement",
+        "titre": "Raffiner les SPECs faibles (SQS < 4)",
+        "jour": "Mercredi",
+        "cadence": "hebdo",
+        "anchor": "#sqs-readiness-scorecard"
+      },
+      {
+        "id": "jeudi-demo",
+        "titre": "Préparer la demo (revoir SPECs done)",
+        "jour": "Jeudi",
+        "cadence": "hebdo",
+        "anchor": "#preparer-la-prochaine-demo"
+      },
+      {
+        "id": "vendredi-newsletter",
+        "titre": "Envoyer la newsletter PM hebdo",
+        "jour": "Vendredi",
+        "cadence": "hebdo",
+        "anchor": "#newsletter-pm-hebdo"
+      },
+      {
+        "id": "audit-narratif",
+        "titre": "Copier le narratif stratégique pour exec sync",
+        "jour": "Tout",
+        "cadence": "hebdo",
+        "anchor": "#narratif-strategique"
+      },
+      {
+        "id": "mensuel-intention",
+        "titre": "Atelier d'Intention (rituel mensuel humain pur)",
+        "jour": "1ᵉʳ du mois",
+        "cadence": "mensuel",
+        "anchor": null
+      },
+      {
+        "id": "mensuel-sync-strat",
+        "titre": "Synchronisation alignement stratégique",
+        "jour": "Mi-mois",
+        "cadence": "mensuel",
+        "anchor": null
+      },
+      {
+        "id": "trimestriel-retro",
+        "titre": "Rétrospective trimestrielle (signaux d'évolution)",
+        "jour": "Fin trimestre",
+        "cadence": "trimestriel",
+        "anchor": "#retrospective-trimestrielle"
+      }
+    ]
+  },
   "edgeCases": {
     "totalItems": 0,
     "totalCovered": 0,
@@ -4812,5 +5025,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-05-15T14:11:00.359Z"
+  "generatedAt": "2026-05-15T14:26:45.228Z"
 }
