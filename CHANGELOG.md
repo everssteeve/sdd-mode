@@ -9,6 +9,33 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit deep-dive/progression (#453-#455, loop 12)
+
+12ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues qui
+complètent le deep-dive et la mesure de progression.
+
+- **Pages individuelles par Intent** (#453) —
+  `lib/dashboard/intent-page.js` génère 1 fichier HTML autonome par
+  Intent (`intent-INTENT-XXX-slug.html`) avec body 2 colonnes (sections
+  canoniques + SPECs + risques + hypothèse + dépendances à gauche,
+  sidebar méta complète à droite). Section sur pm.html avec grille de
+  liens. Échec non-bloquant pour la génération du dashboard.
+- **Burnup chart cumulatif** (#454) —
+  `lib/dashboard/burnup-chart.js` consomme les snapshots PM (#433) pour
+  tracer 2 polylines (scope total bleu + complete vert) sur SVG 640×240
+  avec extrapolation linéaire ETA. Vue burnup canonique Lean/Agile,
+  complémentaire au CFD (#449).
+- **Backlog refinement detector** (#455) —
+  `lib/dashboard/refinement.js` applique 5 heuristiques actionnables
+  (spec-missing ≥ 7j, objectif > 200 chars, bloqué actif, no-target,
+  no-owner) et propose **l'action concrète** copy-paste pour chaque
+  signal. Cards triées par gravité.
+
+`dashboard.js` orchestre désormais aussi `genererPagesIntents()` après
+la boucle PAGES (best-effort). Zéro modification de `render.js`
+(toujours 849/850 LOC). pm.html monte à **35 sections** maintenant +
+**N fichiers HTML individuels** (1 par Intent).
+
 ### Ajouté — Dashboard PM cockpit OKR/discovery/tags (#450-#452, loop 11)
 
 11ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues qui
