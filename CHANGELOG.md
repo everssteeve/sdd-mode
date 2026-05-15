@@ -9,6 +9,30 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit export/notifs/activité (#444-#446, loop 9)
+
+9ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues axées
+partage stakeholders + signaux temps réel.
+
+- **Export CSV des Intents** (#444) — `lib/dashboard/intents-csv.js`
+  génère un CSV RFC 4180 inline 15 colonnes (id/titre/statut/priority/
+  owner/sponsor/target/avancement/risk_level/…) avec escape strict +
+  bouton "⬇ Télécharger" qui déclenche un download Blob côté client.
+  Pour partager le catalogue avec stakeholders non-tech.
+- **Sticky alert bar** (#445) — `lib/dashboard/sticky-alerts.js` agrège
+  6 sources critiques (cycles deps + facts critiques + retards + urgents
+  + zombies + drafts vieux) en un bandeau `position: sticky; top: 0`
+  avec backdrop-filter. Préfixe `document.title` avec `(N)` quand N
+  critiques > 0 pour faciliter le pinning d'onglet.
+- **Activité récente** (#446) — `lib/dashboard/recent-activity.js`
+  fusionne Intents+SPECs+facts par mtime desc avec format humain
+  ("il y a 5 min" / "il y a 2 h" / "il y a 3 j"). Vue temporelle
+  continue complémentaire au diff hebdo #433.
+
+Zéro modification de `render.js` (toujours 849/850 LOC). pm.html monte à
+**25 sections** maintenant (avec le bandeau sticky + activité récente +
+export CSV ajoutés à l'orchestration de pagePm).
+
 ### Ajouté — Dashboard PM cockpit ergonomie/décision (#441-#443, loop 8)
 
 8ᵉ boucle d'audit PM (2026-05-15) — pm.html ayant atteint 21 sections,
