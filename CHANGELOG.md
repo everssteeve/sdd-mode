@@ -9,6 +9,37 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit tabs/md-export/ai-act (#480-#482, loop 21)
+
+**21ᵉ boucle d'audit PM** (2026-05-15) — pm.html à 54 sections gagne
+un filtre cognitif, un export complet et une classification réglementaire.
+
+- **Cockpit tabs** (#480) — `lib/dashboard/cockpit-tabs.js` ajoute une
+  barre sticky 5 onglets (Tout / Tactique / Stratégique / Communication
+  / Rituels) qui masque ou affiche les sections selon l'axe choisi.
+  Mapping de 60+ slugs h2 vers 1..n axes. Persisté dans
+  `localStorage.aiad-pm-tab`. Caché en recherche globale (#449) et
+  en `@media print`. Vérifié Playwright : tab `tactique` → 21 sections
+  visibles / 33 masquées.
+- **Export Markdown complet** (#481) —
+  `lib/dashboard/pm-md-export.js` génère un snapshot Markdown
+  structuré (9 sections : état général, échéances, top 5 priorités,
+  capacity, leaderboard #478, forecast #479, OKR #444, hypothèses
+  #438, risques #439). Bouton `⬇ Télécharger pm-cockpit-YYYY-MM-DD.md`
+  via `Blob`. Pour archivage Notion / PR description / wiki.
+- **Conformité EU AI Act** (#482) —
+  `lib/dashboard/ai-act-compliance.js` classe chaque Intent selon le
+  Règlement (UE) 2024/1689 : interdit / élevé Annexe III / transparence
+  / minimal. Frontmatter `ai_risk:` prioritaire, sinon heuristique sur
+  19 keywords (chatbot/llm/gpt/biométrie/recrutement/credit scoring/
+  recommandation/…). Warning rouge si pratique interdite ou risque
+  élevé détecté : "solliciter le DPO et l'agent gouvernance
+  AIAD-AI-ACT, documentation Annexe IV obligatoire avant mise sur le
+  marché EU".
+
+Zéro modification de `render.js` (toujours 849/850 LOC) — **21 boucles
+consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM cockpit theme/leaderboard/forecast (#477-#479, loop 20)
 
 **20ᵉ boucle d'audit PM** (2026-05-15) — le cockpit gagne 3 vues
