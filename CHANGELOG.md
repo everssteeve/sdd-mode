@@ -9,6 +9,32 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM spec-stuck/tag-clusters/cost-of-delay (#513-#515, loop 32)
+
+**32ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 87 sections h2,
+gagne un détecteur SPECs stagnantes (large), des clusters tags et un
+cost-of-delay scorer.
+
+- **SPECs bloquées** (#513) —
+  `lib/dashboard/spec-stuck.js` étend #507 review-queue à TOUS les
+  statuts non-terminaux avec seuils configurables (draft 45j, ready
+  30j, in-progress 21j, review/validation 14j). Tri par dépassement
+  desc.
+- **Clusters thématiques** (#514) —
+  `lib/dashboard/tag-clusters.js` détecte les paires de tags
+  co-occurentes sur ≥ 2 Intents pour identifier les vrais thèmes
+  produit (paiement+sepa, onboarding+mobile…). Top tags + clusters.
+- **Cost-of-delay scorer** (#515) —
+  `lib/dashboard/cost-of-delay.js` score chaque Intent par
+  CoD = poidsPrio (P0=50…P4=2) × urgenceMult (retard×3 / urgent×2 /
+  proche×1.3 / distant×1) × statutMult (active×1.2 / draft×0.6). Tri
+  CoD desc avec tiers critical/élevé/standard. Informe les arbitrages.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**32 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM state-transitions/orphan-deps/demo-agenda (#510-#512, loop 31)
 
 **31ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 84 sections h2,
