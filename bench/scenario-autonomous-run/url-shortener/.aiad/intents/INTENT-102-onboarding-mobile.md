@@ -4,6 +4,12 @@ title: Onboarding mobile en moins de 30 secondes
 status: draft
 author: Steeve
 date: 2026-03-15
+priority: P1
+target: Q3-2026
+user_stories:
+  - US-003
+outcomes:
+  - Drop-off onboarding mobile
 ---
 
 # INTENT-102-onboarding-mobile

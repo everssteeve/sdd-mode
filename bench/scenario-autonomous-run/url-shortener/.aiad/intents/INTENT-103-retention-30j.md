@@ -5,6 +5,15 @@ status: active
 author: Steeve
 date: 2026-04-20
 activated_at: 2026-04-20
+priority: P2
+rice: 38
+target: Q3-2026
+personas:
+  - Marketing EU
+user_stories:
+  - US-004
+outcomes:
+  - Rétention J+30
 ---
 
 # INTENT-103-retention-30j

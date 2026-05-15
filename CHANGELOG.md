@@ -9,6 +9,30 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit stratégique (#426-#428, loop 3)
+
+3ᵉ boucle d'audit PM (2026-05-15) — le cockpit passe de tactique
+(loop 1+2) à stratégique : un PM peut prioriser, planifier la roadmap et
+vérifier l'alignement Intent ↔ Outcome PRD entièrement depuis pm.html.
+
+- **Priorisation Intent** (#426) — `lib/dashboard/intent-priority.js` avec
+  4 schémas supportés (priority P0..P4, RICE, WSJF, wave) et comparateur
+  canonique. Nouvelle section "Top priorités à travailler" sur pm.html +
+  colonne "Prio" sortable sur intents.html. `lireIntents` étendu pour
+  exposer le frontmatter pertinent (priority/target/personas/etc.) sur
+  l'objet Intent.
+- **Roadmap par trimestre** (#427) — `lib/dashboard/roadmap.js` parse
+  `target` / `target_date` (formats `Q3-2026`, `2026-09-30`, etc.),
+  bucketise sur 5 trimestres (1 passé / actuel / 3 à venir), rend une
+  grille CSS responsive avec colonne actuelle mise en évidence + bannière
+  "Intents sans cible".
+- **Intent → Outcome mapping** (#428) — extension de `prd-coverage.js`
+  avec une 3ᵉ dimension PRD : heuristique frontmatter `outcomes:` explicite
+  + tokens significatifs (≥ 4 chars) + valeur cible numérique. Bug latent
+  corrigé en chemin : la regex `PATTERN_SECTION` de `outcomes.js` ne
+  tolérait pas le suffixe `(Mesurables)` du template officiel — étendue
+  pour accepter parenthèses optionnelles.
+
 ### Ajouté — Dashboard PM cockpit étendu (#423-#425, loop 2)
 
 Trio livré dans la 2ᵉ boucle d'audit PM (2026-05-15) — le cockpit PM gagne

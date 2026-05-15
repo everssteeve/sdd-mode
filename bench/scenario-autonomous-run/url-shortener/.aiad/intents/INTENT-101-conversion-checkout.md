@@ -5,6 +5,14 @@ status: active
 author: Steeve
 date: 2026-04-01
 activated_at: 2026-04-01
+priority: P0
+target: Q2-2026
+personas:
+  - Acheteur SMB
+user_stories:
+  - US-002
+outcomes:
+  - Conversion checkout
 ---
 
 # INTENT-101-conversion-checkout
