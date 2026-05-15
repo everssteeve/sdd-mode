@@ -9,6 +9,32 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit print/capture/flow (#447-#449, loop 10)
+
+10ᵉ boucle d'audit PM (2026-05-15) — le cockpit ferme la boucle entrée
+(capture) → suivi (CFD) → sortie (print PDF). Le PM peut désormais
+travailler 100 % via le dashboard.
+
+- **Mode impression / PDF COMEX** (#447) — `lib/dashboard/print-mode.js`
+  injecte `@media print` qui masque TOC + sticky + boutons + couleurs,
+  resserre typo 11pt, force `page-break-inside: avoid`. Query string
+  `?print=1` déclenche `window.print()` côté client, `?pdf=1` preview
+  sans dialog. Bouton "🖨 Imprimer / Exporter en PDF — {projet}".
+- **Wizard de capture d'Intent** (#448) —
+  `lib/dashboard/quick-capture.js` rend un formulaire 12 champs (id
+  suggéré auto + titre + 5 sections canoniques + meta priority/owner/
+  target) qui génère **live** un Markdown valide + une commande shell
+  `cat > … <<EOF` prête à coller dans le terminal. Boutons "Copier
+  Markdown" / "Copier commande shell" via `navigator.clipboard`.
+- **Cumulative Flow Diagram** (#449) —
+  `lib/dashboard/cumulative-flow.js` consomme les snapshots PM (#433)
+  pour rendre un SVG empilé 720×280 par statut + table 5 dernières
+  mesures. Vue Kanban classique : WIP qui gonfle / plateau done /
+  backpressure draft.
+
+Zéro modification de `render.js` (toujours 849/850 LOC). pm.html monte
+à **28 sections** maintenant — couvre l'intégralité du workflow PM SDD.
+
 ### Ajouté — Dashboard PM cockpit export/notifs/activité (#444-#446, loop 9)
 
 9ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues axées
