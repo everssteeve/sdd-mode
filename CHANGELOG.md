@@ -9,6 +9,28 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit newsletter/velocity/wip (#468-#470, loop 17)
+
+17ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues : partage
+hebdo automatique, mesure delta, protection contre surcharge.
+
+- **Newsletter PM hebdo** (#468) — `lib/dashboard/weekly-newsletter.js`
+  compose un Markdown ~40 lignes (livré / décisions / risques / top 3
+  priorités) prêt à coller dans Slack / email / Notion. Réutilise les
+  données de pmDiff (#433), decisionLog (#443), intentDeps (#434),
+  confidenceTracker (#459).
+- **Velocity comparison** (#469) — `lib/dashboard/velocity-comparison.js`
+  compare semaine courante (lundi UTC → dimanche UTC) à la précédente.
+  Grille 2 cards avec sparkline 3 semaines + delta coloré ↗/↘/→.
+- **WIP limit detection** (#470) — `lib/dashboard/wip-limit.js` lit
+  `wip_limit:` du frontmatter PRD (uniforme ou {intents, specs}),
+  fallback `team_capacity_per_quarter / 4` ou défaut 5/8. Compte les
+  items WIP simultanés, classifie en 4 états (critique/dépassée/
+  proche/sain). Message d'alerte si dépassée.
+
+Zéro modification de `render.js` (toujours 849/850 LOC). pm.html monte
+à **47 sections** maintenant.
+
 ### Ajouté — Dashboard PM cockpit focus/filters/links (#465-#467, loop 16)
 
 16ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues d'usage
