@@ -9,6 +9,30 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM velocity-by-tag/auto-archive-candidates/sprint-recap (#540-#542, loop 41)
+
+**41ᵉ boucle d'audit PM** (2026-05-15) — pm.html monte à 114 sections h2,
+gagne une vélocité par tag, un détecteur de candidats à l'archivage et
+un recap sprint.
+
+- **Vélocité par tag** (#540) —
+  `lib/dashboard/velocity-by-tag.js` compte SPECs livrées (done/
+  archived) groupées par tag d'Intent parent. Identifie les thèmes
+  productifs vs stagnants.
+- **Candidats archivage automatique** (#541) —
+  `lib/dashboard/auto-archive-candidates.js` détecte 3 anti-patterns :
+  done > 60j, draft > 120j sans bascule, active > 365j sans SPEC done.
+  Empty-clean si backlog propre.
+- **Recap sprint 14j** (#542) —
+  `lib/dashboard/sprint-recap.js` partitionne SPECs : existantes au
+  début / livrées pendant / ajoutées en cours. Taux complétion =
+  livrées / engagées. Banner narratif + 3 buckets.
+
+`SECTION_TO_TABS` (#480) étendu pour les 3 nouveaux slugs.
+
+Zéro modification de `render.js` (toujours 849/850 LOC) —
+**41 boucles consécutives** sans toucher au cœur du rendu.
+
 ### Ajouté — Dashboard PM portfolio-diversity/dow-heatmap/pr-template (#537-#539, loop 40 🎉 MILESTONE 40 boucles)
 
 **40ᵉ boucle d'audit PM** (2026-05-15) — MILESTONE 40 itérations
