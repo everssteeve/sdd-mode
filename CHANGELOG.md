@@ -9,6 +9,31 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit communication/temps (#432-#434, loop 5)
+
+5ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues qui le
+rendent **communicant** (brief export) et **temporel** (diff hebdo + deps).
+
+- **Brief PM exportable** (#432) — `lib/dashboard/brief-pm.js` compose
+  un Markdown ~30 lignes (état + alertes + top 3 + échéances + démo)
+  rendu dans un `<pre user-select:all>` sur pm.html — 1 clic + Cmd+C
+  copie dans Slack/email/Notion.
+- **Diff "what changed this week"** (#433) — `lib/dashboard/pm-diff.js`
+  persiste un snapshot `{intents/specs avec statut}` dans
+  `.aiad/metrics/pm-snapshots/YYYY-MM-DD.json` à chaque génération du
+  dashboard, puis compare avec celui d'il y a ~7 jours (tolérance ±2j).
+  Sections "Intents capturés / Transitions Intent / SPECs créées /
+  Transitions SPEC" avec badges `de → vers`.
+- **Dépendances Intent** (#434) — `lib/dashboard/intent-deps.js` lit
+  `depends_on:` / `blocked_by:` du frontmatter, construit le graphe
+  inverse `bloque/bloquePar`, détecte les cycles A→B→A. Cartes
+  Intents avec border-left coloré rouge cycle / orange bloqué actif
+  (≥ 1 dépendance non livrée).
+
+`lireIntents` étendu pour spread `depends_on/dependsOn/depends/
+blocked_by/blockedBy` du frontmatter (cohérent avec extension #426/#427/
+#428 de loop 3). Zéro modification de `render.js` (toujours 849/850 LOC).
+
 ### Ajouté — Dashboard PM cockpit rituels (#429-#431, loop 4)
 
 4ᵉ boucle d'audit PM (2026-05-15) — le cockpit gagne 3 vues rituelles/

@@ -1,0 +1,10 @@
+{
+  "date": "2026-05-08",
+  "intents": [
+    { "id": "INTENT-101-conversion-checkout", "statut": "draft" },
+    { "id": "INTENT-102-onboarding-mobile", "statut": "draft" }
+  ],
+  "specs": [
+    { "id": "SPEC-101-1-formulaire-paiement", "statut": "in-progress", "parentIntent": "INTENT-101" }
+  ]
+}
