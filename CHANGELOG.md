@@ -9,6 +9,26 @@
 
 ## [Unreleased]
 
+### Ajouté — Dashboard PM cockpit étendu (#423-#425, loop 2)
+
+Trio livré dans la 2ᵉ boucle d'audit PM (2026-05-15) — le cockpit PM gagne
+3 vues qui rendent le dashboard utilisable comme **outil PM standalone**.
+
+- **Couverture PRD** (#423) — nouveau parser `lib/dashboard/prd-coverage.js`
+  qui lit `## Personas` et `## User Stories` du PRD et croise avec les
+  Intents (frontmatter `personas:` / `user_stories:` explicite + heuristique
+  multi-token sur le corpus Intent). Rendu : 2 tables sur `pm.html` montrant
+  quelle promesse PRD est servie vs. orpheline.
+- **Vélocité** (#424) — nouveau module `lib/dashboard/velocity.js` avec
+  buckets Intents done par mois (6) et SPECs done par semaine (12), tendance
+  up/down/flat calculée par split moitié récente / moitié ancienne, rendu
+  2 mini bar charts SVG sur `pm.html`. Source : mtime filesystem (pas de
+  snapshot historique nécessaire).
+- **Recherche full-text Intent body** (#425) — la barre `qIntents` scanne
+  désormais aussi le corpus des 5 sections (POURQUOI / POUR QUI / OBJECTIF /
+  CONTRAINTES / CRITÈRE DE DRIFT) via un `data-search-blob` ajouté côté
+  serveur + extension de `bindFilter` côté client.
+
 ### Ajouté — Dashboard PM cockpit (#420-#422)
 
 Trio livré dans la boucle d'audit PM (2026-05-15) — un Product Manager peut
