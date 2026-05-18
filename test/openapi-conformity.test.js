@@ -102,6 +102,160 @@ const SAFE_INVOCATIONS = {
   'badge': ['badge', '--dry-run', '--json'],
   // (#412) tutorial — liste des 4 tutoriels spécialisés.
   'tutorial': ['tutorial', '--json'],
+  // (#413) spec-version check — besoin d'une SPEC en .aiad/specs/ → fixture tmpdir.
+  'spec-version check': null,
+  // (#414) spec-version bump --dry-run — besoin d'une SPEC en .aiad/specs/ → fixture.
+  'spec-version bump': null,
+  // (#415) backup --dry-run — pas d'écriture, exige --password ≥ 8 chars.
+  'backup': ['backup', '--password', 'aiad-conformity-test-password', '--dry-run', '--json'],
+  // (#416) restore — fixture (créé backup d'abord, puis dry-run restore).
+  'restore': null,
+  // (#417) webhooks emit — émet événement réel avec --dry-run.
+  'webhooks emit': ['webhooks', 'emit', '--type', 'spec.validated', '--dry-run', '--json'],
+  // (#419) provenance generate — exige AIAD_PROVENANCE_SECRET + package.json → fixture.
+  'provenance generate': null,
+  // (#420) provenance verify — exige attestation pré-générée → fixture.
+  'provenance verify': null,
+  // (#421) cert badge — exige AIAD_CERT_SECRET env + --candidat → fixture.
+  'cert badge': null,
+  // (#422) cert verify — chain badge→verify dans même tmpdir + secret env.
+  'cert verify': null,
+  // (#423) refactor-spec — exige SPEC en .aiad/specs/ → fixture tmpdir.
+  'refactor-spec': null,
+  // (#424) obsidian --dry-run — pas d'écriture, exige .aiad/ → fixture bench.
+  'obsidian': ['obsidian', '--dry-run', '--json'],
+  // (#425) verify-reproducibility — content hash sha256 (lecture seule).
+  'verify-reproducibility': ['verify-reproducibility', '--json'],
+  // (#426) storybook — catalog commandes slash (lecture seule).
+  'storybook': ['storybook', '--json'],
+  // (#427) export openapi --dry-run — exporte OpenAPI depuis SPECs api:true.
+  'export openapi': ['export', 'openapi', '--dry-run', '--json'],
+  // (#429) export confluence --dry-run — preview publication Confluence.
+  'export confluence': ['export', 'confluence', '--dry-run', '--json'],
+  // (#430) anonymize — exige fichier records JSON → fixture tmpdir.
+  'anonymize': null,
+  // (#431) rbac init --dry-run — pas d'écriture (template), retourne path+dryRun.
+  'rbac init': ['rbac', 'init', '--dry-run', '--json'],
+  // (#432) review — exige git repo + .aiad/ → fixture chain (git init + commit + invoke).
+  'review': null,
+  // (#433) gitlab review / bitbucket pr / azure pr — fixtures git (3 sous-routes review-poster).
+  'gitlab review': null,
+  'bitbucket pr': null,
+  'azure pr': null,
+  // (#434) bench compare — historique vide → suffisant=false safe.
+  'bench compare': ['bench', 'compare', '--since', '7', '--threshold', '0.1', '--json'],
+  // (#435) ci-template install --dry-run — pose template forge github (pas d'écriture).
+  'ci-template': ['ci-template', 'github', '--dry-run', '--json'],
+  // (#436) dinum publiccode / franceconnect — DryRunPathResult partagé.
+  'dinum publiccode': ['dinum', 'publiccode', '--dry-run', '--json'],
+  'dinum franceconnect': ['dinum', 'franceconnect', '--dry-run', '--json'],
+  // (#437) archive — exige .aiad/intents/ avec Intent → fixture tmpdir.
+  'archive': null,
+  // (#439) github-app setup + install (dry-run) — lecture seule + writer.
+  'github-app setup': ['github-app', 'setup', '--json'],
+  'github-app install': ['github-app', 'install', 'workflow', '--dry-run', '--json'],
+  // (#440) archive --restore — exige Intent pré-archivé → fixture chain.
+  'archive --restore': null,
+  // (#441) marketplace list — catalogue packs (lecture seule, statique).
+  'marketplace list': ['marketplace', 'list', '--json'],
+  // (#442) marketplace info — détails pack aerospace (catalogue statique).
+  'marketplace info': ['marketplace', 'info', 'aerospace', '--json'],
+  // (#443) gouvernance --list — catalogue packs gouvernance (statique).
+  'gouvernance --list': ['gouvernance', '--list', '--json'],
+  // (#444) template --list — catalogue templates SPEC (statique).
+  'template --list': ['template', '--list', '--json'],
+  // (#445) new --list — catalogue templates projets (statique).
+  'new --list': ['new', '--list', '--json'],
+  // (#446) hooks-init --dry-run — pas d'écriture, retourne DryRunPathResult.
+  'hooks-init': ['hooks-init', '--dry-run', '--json'],
+  // (#447) dora --list — liste déploiements (lecture seule .aiad/metrics/deployments/).
+  'dora --list': ['dora', '--list', '--json'],
+  // (#449) bench history — historique cold-start persisté (lecture seule).
+  'bench history': ['bench', 'history', '--json'],
+  // (#450) offline log — tentatives HTTP bloquées (lecture seule .aiad/audit/offline-attempts.jsonl).
+  'offline log': ['offline', 'log', '--json'],
+  // (#451) plugin info — variant not-found (nom inconnu), found=false + available list.
+  'plugin info': ['plugin', 'info', 'aiad-conformity-no-such-plugin', '--json'],
+  // (#452) emit-rules --check — parité multi-runtime (lecture seule).
+  'emit-rules --check': ['emit-rules', '--check', '--json'],
+  // (#453) docs --check — drift DOCUMENTATION.md (lecture seule).
+  'docs --check': ['docs', '--check', '--json'],
+  // (#454) update --check — parité projet vs package (lecture seule).
+  'update --check': ['update', '--check', '--json'],
+  // (#455) migrate --dry-run — plan migrations sans écriture.
+  'migrate': ['migrate', '--dry-run', '--json'],
+  // (#456) completion --list — shells supportés (lecture statique).
+  'completion --list': ['completion', '--list', '--json'],
+  // (#457) provenance sigstore — commandes cosign (lecture statique).
+  'provenance sigstore': ['provenance', 'sigstore', '--json'],
+  // (#458) gitlab issue --dry-run — preview Issue depuis Intent bench INTENT-101.
+  'gitlab issue --dry-run': ['gitlab', 'issue', '--intent', 'INTENT-101', '--dry-run', '--json'],
+  // (#459) gitlab wiki --dry-run — preview Wiki depuis Intent bench INTENT-101.
+  'gitlab wiki --dry-run': ['gitlab', 'wiki', '--intent', 'INTENT-101', '--dry-run', '--json'],
+  // (#460) bitbucket issue --dry-run — miroir GitLab depuis Intent bench INTENT-101.
+  'bitbucket issue --dry-run': ['bitbucket', 'issue', '--intent', 'INTENT-101', '--dry-run', '--json'],
+  // (#461) azure work-item --dry-run — miroir multi-forge depuis Intent bench INTENT-101.
+  'azure work-item --dry-run': ['azure', 'work-item', '--intent', 'INTENT-101', '--dry-run', '--json'],
+  // (#462) azure wiki --dry-run — preview Azure Wiki depuis Intent bench INTENT-101.
+  'azure wiki --dry-run': ['azure', 'wiki', '--intent', 'INTENT-101', '--dry-run', '--json'],
+  // (#463) cert exam — sujet d'examen Praticien (génération statique pure).
+  'cert exam': ['cert', 'exam', 'Praticien', '--json'],
+  // (#464) cert matrix — matrice 5 niveaux × 6 axes (statique).
+  'cert matrix': ['cert', 'matrix', '--json'],
+  // (#465) org init --dry-run — preview création .aiad/org.yml (writer en mode preview).
+  'org init --dry-run': ['org', 'init', '--dry-run', '--json'],
+  // (#466) hooks status — état installation hooks (lecture seule).
+  'hooks status': ['hooks', 'status', '--json'],
+  // (#467) pii-scan --rules — catalogue règles détection PII (statique).
+  'pii-scan --rules': ['pii-scan', '--rules', '--json'],
+  // (#468) gouvernance info — détails d'un pack (variant found via fr-anssi).
+  'gouvernance info': ['gouvernance', 'info', 'fr-anssi', '--json'],
+  // (#469) template info — détails d'un template SPEC (variant found via auth-oidc).
+  'template info': ['template', 'info', 'auth-oidc', '--json'],
+  // (#470) new info — détails d'un template projet (variant found via fastapi-aiad).
+  'new info': ['new', 'info', 'fastapi-aiad', '--json'],
+  // (#471) ci-template info — détails d'une forge (variant found via github).
+  'ci-template info': ['ci-template', 'info', 'github', '--json'],
+  // (#472) tutorial info — détails d'un tutoriel (variant found via auth-oidc).
+  'tutorial info': ['tutorial', 'info', 'auth-oidc', '--json'],
+  // (#473) github-app info — détails d'un artefact GitHub App (variant found via workflow).
+  'github-app info': ['github-app', 'info', 'workflow', '--json'],
+  // (#474) webhooks types — catalogue des 10 types d'événements (statique).
+  'webhooks types': ['webhooks', 'types', '--json'],
+  // (#475) audit types — catalogue des 5 actions audit log (statique).
+  'audit types': ['audit', 'types', '--json'],
+  // (#476) dora types — catalogue des 3 statuts DORA (statique).
+  'dora types': ['dora', 'types', '--json'],
+  // (#477) cert axes — catalogue des 6 axes de certification AIAD (statique).
+  'cert axes': ['cert', 'axes', '--json'],
+  // (#478) score verdicts — catalogue des 4 verdicts scoring (statique).
+  'score verdicts': ['score', 'verdicts', '--json'],
+  // (#479) archive types — catalogue des 2 types d'artefacts archivables (statique).
+  'archive types': ['archive', 'types', '--json'],
+  // (#480) cert niveaux — catalogue des 5 niveaux de certification (statique).
+  'cert niveaux': ['cert', 'niveaux', '--json'],
+  // (#481) dinum criteria — catalogue des 9 critères Commun Numérique FR (statique).
+  'dinum criteria': ['dinum', 'criteria', '--json'],
+  // (#482) emit-rules runtimes — catalogue des 6 runtimes IA supportés (statique).
+  'emit-rules runtimes': ['emit-rules', 'runtimes', '--json'],
+  // (#483) sla policy — politique SLA par défaut AIAD (statique).
+  'sla policy': ['sla', 'policy', '--json'],
+  // (#484) gouvernance lint rules — catalogue des 3 règles de détection (statique).
+  'gouvernance lint rules': ['gouvernance', 'lint', 'rules', '--json'],
+  // (#485) dora metrics — catalogue des 4 métriques DORA standard (statique).
+  'dora metrics': ['dora', 'metrics', '--json'],
+  // (#486) bench metrics — catalogue des 6 métriques bench cold-start (statique).
+  'bench metrics': ['bench', 'metrics', '--json'],
+  // (#487) bench flow — catalogue des 5 Flow Metrics standard (statique).
+  'bench flow': ['bench', 'flow', '--json'],
+  // (#488) cert valeurs — 🎉 boucle 300 — les 7 valeurs fondamentales AIAD (statique).
+  'cert valeurs': ['cert', 'valeurs', '--json'],
+  // (#489) import sources — catalogue des 3 sources d'import AIAD (statique).
+  'import sources': ['import', 'sources', '--json'],
+  // (#490) sovereignty dimensions — catalogue des 5 dimensions Sovereignty Score (statique).
+  'sovereignty dimensions': ['sovereignty', 'dimensions', '--json'],
+  // (#491) sovereignty niveaux — catalogue des 4 niveaux Sovereignty Bronze→Platinum (statique).
+  'sovereignty niveaux': ['sovereignty', 'niveaux', '--json'],
 };
 
 function execJson(args, cwd, env) {
@@ -295,6 +449,286 @@ test('#380 conformity — dora import-git : runtime keys ⊆ schema keys (tmpdir
     const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
     assert.deepEqual(reqAbsents, [], `dora import-git : required absents : ${JSON.stringify(reqAbsents)}`);
     assert.deepEqual(checkNested('dora import-git', payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+});
+
+// (#433) Cas particulier : gitlab review / bitbucket pr / azure pr partagent
+// le composant ReviewCommentPayload. Mêmes fixtures git (init + commit), 3 routes.
+function execReviewPoster(routeKey, args) {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-reviewp-'));
+  try {
+    mkdirSync(join(tmp, '.aiad', 'intents'), { recursive: true });
+    writeFileSync(join(tmp, '.aiad', 'intents', 'INT-001.md'), '---\nid: INT-001\ntitle: T\n---\n# T\n');
+    const gitEnv = { ...process.env, GIT_AUTHOR_NAME: 'Test', GIT_AUTHOR_EMAIL: 't@t.t',
+      GIT_COMMITTER_NAME: 'Test', GIT_COMMITTER_EMAIL: 't@t.t' };
+    spawnSync('git', ['init', '-q', '-b', 'main'], { cwd: tmp });
+    spawnSync('git', ['add', '.aiad'], { cwd: tmp });
+    spawnSync('git', ['commit', '-q', '-m', 'baseline'], { cwd: tmp, env: gitEnv });
+    const schemaKeys = schemaTopKeys(routeKey);
+    const payload = execJson(args, tmp);
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `${routeKey} émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired(routeKey);
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `${routeKey} : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested(routeKey, payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+}
+test('#433 conformity — gitlab review : runtime keys ⊆ schema keys (git fixture)', () => {
+  execReviewPoster('gitlab review', ['gitlab', 'review', '--mr', '1', '--dry-run', '--json']);
+});
+test('#433 conformity — bitbucket pr : runtime keys ⊆ schema keys (git fixture)', () => {
+  execReviewPoster('bitbucket pr', ['bitbucket', 'pr', '--id', '1', '--dry-run', '--json']);
+});
+test('#433 conformity — azure pr : runtime keys ⊆ schema keys (git fixture)', () => {
+  execReviewPoster('azure pr', ['azure', 'pr', '--id', '1', '--dry-run', '--json']);
+});
+
+// (#432) Cas particulier : review exige git repo + .aiad/ → fixture chain
+// (git init + commit baseline + invoke review HEAD).
+test('#432 conformity — review : runtime keys ⊆ schema keys (git fixture)', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-review-'));
+  try {
+    mkdirSync(join(tmp, '.aiad', 'intents'), { recursive: true });
+    writeFileSync(join(tmp, '.aiad', 'intents', 'INT-001.md'), '---\nid: INT-001\ntitle: Test\n---\n\n# Test\n');
+    const gitEnv = { ...process.env, GIT_AUTHOR_NAME: 'Test', GIT_AUTHOR_EMAIL: 't@t.t',
+      GIT_COMMITTER_NAME: 'Test', GIT_COMMITTER_EMAIL: 't@t.t' };
+    spawnSync('git', ['init', '-q', '-b', 'main'], { cwd: tmp });
+    spawnSync('git', ['add', '.aiad'], { cwd: tmp });
+    spawnSync('git', ['commit', '-q', '-m', 'baseline'], { cwd: tmp, env: gitEnv });
+    const schemaKeys = schemaTopKeys('review');
+    const payload = execJson(['review', 'main', '--json'], tmp);
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `review émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('review');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `review : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('review', payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+});
+
+// (#440) Cas particulier : archive --restore exige artefact archivé → fixture chain.
+test('#440 conformity — archive --restore : runtime keys ⊆ schema keys (chain archive→restore)', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-restore-arch-'));
+  try {
+    mkdirSync(join(tmp, '.aiad', 'intents'), { recursive: true });
+    writeFileSync(join(tmp, '.aiad', 'intents', 'INT-001-test.md'), '---\nid: INT-001\ntitle: Test\n---\n\n# Test\n');
+    execJson(['archive', 'INT-001', '--json'], tmp); // archive d'abord
+    const schemaKeys = schemaTopKeys('archive --restore');
+    const payload = execJson(['archive', '--restore', 'INT-001', '--dry-run', '--json'], tmp);
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `archive --restore émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('archive --restore');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `archive --restore : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('archive --restore', payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+});
+
+// (#437) Cas particulier : archive exige .aiad/intents/INT-XXX.md → fixture tmpdir.
+test('#437 conformity — archive : runtime keys ⊆ schema keys (tmpdir + Intent)', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-archive-'));
+  try {
+    mkdirSync(join(tmp, '.aiad', 'intents'), { recursive: true });
+    writeFileSync(join(tmp, '.aiad', 'intents', 'INT-001-test.md'), '---\nid: INT-001\ntitle: Test\n---\n\n# Test\n');
+    const schemaKeys = schemaTopKeys('archive');
+    const payload = execJson(['archive', 'INT-001', '--dry-run', '--json'], tmp);
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `archive émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('archive');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `archive : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('archive', payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+});
+
+// (#430) Cas particulier : anonymize exige fichier records JSON en --input → fixture.
+test('#430 conformity — anonymize : runtime keys ⊆ schema keys (tmpdir + records.json)', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-anon-'));
+  try {
+    writeFileSync(join(tmp, 'records.json'), JSON.stringify([{ name: 'Alice', email: 'a@b.com', age: 30 }]) + '\n');
+    const schemaKeys = schemaTopKeys('anonymize');
+    const payload = execJson(['anonymize', '--input', 'records.json', '--json'], tmp);
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `anonymize émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('anonymize');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `anonymize : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('anonymize', payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+});
+
+// (#423) Cas particulier : refactor-spec exige .aiad/specs/SPEC-*.md → tmpdir fixture.
+test('#423 conformity — refactor-spec : runtime keys ⊆ schema keys (tmpdir + SPEC)', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-refspec-'));
+  try {
+    mkdirSync(join(tmp, '.aiad', 'specs'), { recursive: true });
+    writeFileSync(join(tmp, '.aiad', 'specs', 'SPEC-001-1-foo.md'),
+      `---\nid: SPEC-001-1-foo\ntitle: Foo\nversion: 1.0.0\nstatus: draft\nparent_intent: INTENT-001\n---\n\n# Foo\n## Critères\n- AC-1\n`);
+    const schemaKeys = schemaTopKeys('refactor-spec');
+    const payload = execJson(['refactor-spec', 'SPEC-001-1-foo', '--dry-run', '--json'], tmp);
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `refactor-spec émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('refactor-spec');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `refactor-spec : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('refactor-spec', payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+});
+
+// (#422) Cas particulier : cert verify exige JWS pré-émis + AIAD_CERT_SECRET env.
+// Chain badge→verify avec même secret.
+test('#422 conformity — cert verify : runtime keys ⊆ schema keys (chain badge→verify)', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-certverify-'));
+  try {
+    const env = { AIAD_CERT_SECRET: 'this-is-cert-secret-32chars-min' };
+    const badge = execJson(['cert', 'badge', '--niveau', 'Découvreur', '--candidat', 'Conformity', '--json'], tmp, env);
+    const schemaKeys = schemaTopKeys('cert verify');
+    const payload = execJson(['cert', 'verify', badge.jws, '--json'], tmp, env);
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `cert verify émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('cert verify');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `cert verify : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('cert verify', payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+});
+
+// (#421) Cas particulier : cert badge exige AIAD_CERT_SECRET env + --candidat.
+// Pas de fixture FS (badge calcule depuis args + env, n'écrit pas).
+test('#421 conformity — cert badge : runtime keys ⊆ schema keys (env override)', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-cert-'));
+  try {
+    const schemaKeys = schemaTopKeys('cert badge');
+    const payload = execJson(
+      ['cert', 'badge', '--niveau', 'Découvreur', '--candidat', 'Conformity Test', '--json'],
+      tmp,
+      { AIAD_CERT_SECRET: 'this-is-cert-secret-32chars-min' }
+    );
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `cert badge émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('cert badge');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `cert badge : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('cert badge', payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+});
+
+// (#420) Cas particulier : provenance verify exige attestation pré-générée.
+// Fixture chain : generate puis verify dans le même tmpdir avec même secret.
+test('#420 conformity — provenance verify : runtime keys ⊆ schema keys (chain generate→verify)', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-provverify-'));
+  try {
+    writeFileSync(join(tmp, 'package.json'), JSON.stringify({ name: 'test-pkg', version: '0.1.0' }) + '\n');
+    const env = { AIAD_PROVENANCE_SECRET: 'this-is-a-test-secret-16chars' };
+    execJson(['provenance', 'generate', '--json'], tmp, env); // génère attestation
+    const schemaKeys = schemaTopKeys('provenance verify');
+    const payload = execJson(['provenance', 'verify', '--json'], tmp, env);
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `provenance verify émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('provenance verify');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `provenance verify : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('provenance verify', payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+});
+
+// (#419) Cas particulier : provenance generate exige AIAD_PROVENANCE_SECRET env
+// + package.json à la racine. Fixture tmpdir + env override + --dry-run.
+test('#419 conformity — provenance generate : runtime keys ⊆ schema keys (tmpdir + env + pkg.json)', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-prov-'));
+  try {
+    writeFileSync(join(tmp, 'package.json'), JSON.stringify({ name: 'test-pkg', version: '0.1.0' }) + '\n');
+    const schemaKeys = schemaTopKeys('provenance generate');
+    const payload = execJson(
+      ['provenance', 'generate', '--dry-run', '--json'],
+      tmp,
+      { AIAD_PROVENANCE_SECRET: 'this-is-a-test-secret-16chars' }
+    );
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `provenance generate émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('provenance generate');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `provenance generate : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('provenance generate', payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+});
+
+// (#416) Cas particulier : restore exige une archive .aiad-backup pré-créée.
+// Fixture : créer backup réel puis dry-run restore depuis tmpdir vide.
+test('#416 conformity — restore : runtime keys ⊆ schema keys (backup réel + dry-run restore)', () => {
+  const src = mkdtempSync(join(tmpdir(), 'aiad-conformity-restore-src-'));
+  const dst = mkdtempSync(join(tmpdir(), 'aiad-conformity-restore-dst-'));
+  try {
+    // Setup : copie .aiad du bench dans le source dir + créé backup réel.
+    cpSync(join(BENCH, '.aiad'), join(src, '.aiad'), { recursive: true });
+    const backupRes = execJson(['backup', '--password', 'aiad-conformity-test-password', '--json'], src);
+    // backup retourne path relatif (e.g. "aiad-backup-2026-...aiad-backup")
+    const archivePath = join(src, backupRes.path);
+    cpSync(archivePath, join(dst, 'archive.aiad-backup'));
+    // Restore dry-run dans dst (vide).
+    const schemaKeys = schemaTopKeys('restore');
+    const payload = execJson(['restore', '--archive', 'archive.aiad-backup', '--password', 'aiad-conformity-test-password', '--dry-run', '--json'], dst);
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `restore émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('restore');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `restore : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('restore', payload), []);
+  } finally {
+    rmSync(src, { recursive: true, force: true });
+    rmSync(dst, { recursive: true, force: true });
+  }
+});
+
+// (#414) Cas particulier : spec-version bump exige .aiad/specs/SPEC-*.md
+// → tmpdir + SPEC frontmatter + invoke en --dry-run (pas de réécriture).
+test('#414 conformity — spec-version bump : runtime keys ⊆ schema keys (tmpdir + SPEC)', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-specbump-'));
+  try {
+    mkdirSync(join(tmp, '.aiad', 'specs'), { recursive: true });
+    writeFileSync(join(tmp, '.aiad', 'specs', 'SPEC-001-1-foo.md'),
+      `---\nid: SPEC-001-1-foo\ntitle: Foo\nversion: 1.0.0\nstatus: draft\nparent_intent: INTENT-001\n---\n\n# Foo\n`);
+    const schemaKeys = schemaTopKeys('spec-version bump');
+    const payload = execJson(['spec-version', 'bump', 'SPEC-001-1-foo', 'patch', '--dry-run', '--json'], tmp);
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `spec-version bump émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('spec-version bump');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `spec-version bump : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('spec-version bump', payload), []);
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
+});
+
+// (#413) Cas particulier : spec-version check exige .aiad/specs/SPEC-*.md
+// → tmpdir + SPEC frontmatter + invoke en `neuf` (sans git history).
+test('#413 conformity — spec-version check : runtime keys ⊆ schema keys (tmpdir + SPEC)', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'aiad-conformity-specver-'));
+  try {
+    mkdirSync(join(tmp, '.aiad', 'specs'), { recursive: true });
+    writeFileSync(join(tmp, '.aiad', 'specs', 'SPEC-001-1-foo.md'),
+      `---\nid: SPEC-001-1-foo\ntitle: Foo\nversion: 1.0.0\nstatus: draft\nparent_intent: INTENT-001\n---\n\n# Foo\n`);
+    const schemaKeys = schemaTopKeys('spec-version check');
+    const payload = execJson(['spec-version', 'check', 'SPEC-001-1-foo', '--json'], tmp);
+    const runtimeKeys = topLevelKeys(payload);
+    const missing = runtimeKeys.filter((k) => !schemaKeys.includes(k));
+    assert.deepEqual(missing, [], `spec-version check émet keys non-doc : ${JSON.stringify(missing)}`);
+    const required = schemaRequired('spec-version check');
+    const reqAbsents = required.filter((k) => !runtimeKeys.includes(k));
+    assert.deepEqual(reqAbsents, [], `spec-version check : required absents : ${JSON.stringify(reqAbsents)}`);
+    assert.deepEqual(checkNested('spec-version check', payload), []);
   } finally { rmSync(tmp, { recursive: true, force: true }); }
 });
 

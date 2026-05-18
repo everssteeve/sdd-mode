@@ -400,12 +400,20 @@ test('afficherListe — projet sans plugins → message d\'aide', silent(() => {
   } finally { rmSync(d, { recursive: true, force: true }); }
 }));
 
-test('afficherInfo — plugin inconnu → throw', () => {
+test('afficherInfo — plugin inconnu (texte) → throw', () => {
   const d = tmp();
   try {
-    assert.throws(() => afficherInfo(d, 'inconnu', { json: true }), /introuvable/);
+    assert.throws(() => afficherInfo(d, 'inconnu'), /introuvable/);
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
+
+test('#451 afficherInfo — plugin inconnu (json) → variant found=false (pas de throw)', silent(() => {
+  const d = tmp();
+  try {
+    const r = afficherInfo(d, 'inconnu', { json: true });
+    assert.equal(r, null);
+  } finally { rmSync(d, { recursive: true, force: true }); }
+}));
 
 // ─── alias EN ──────────────────────────────────────────────────────────────
 

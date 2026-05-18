@@ -1421,6 +1421,299 @@ publication** projet → README + GitHub Pages + Slack/Teams previews :
   (#383). Pattern bench-driven validation : audits manuels #355-#372
   désormais auto-testés. Drift forward/backward/nested/meta impossible
   à introduire sans casser au moins 1 assertion.
+- **🎉🎉 MILESTONE 300 boucles + 14 types-catalog convergent + 124 routes**
+  (#479-#488, milestone boucle **300**) — Bond progressif **114 → 124
+  routes** en 10 boucles + cap LOC 850 maintenu intégralement. **Types
+  catalog 14× convergent** (devient un meta-pattern stable et reproductible-
+  à-l'échelle) : archive types (#479), cert niveaux (#480), dinum
+  criteria (#481), emit-rules runtimes (#482), sla policy (#483),
+  gouvernance lint rules (#484), dora metrics (#485), bench metrics
+  (#486), bench flow (#487), **cert valeurs (#488 — boucle 300, les 7
+  valeurs fondamentales AIAD)**. Observabilité Dev complète sous
+  OpenAPI : DORA (4 métriques) + Flow (5 métriques) + bench cold-start
+  (6 métriques). Stack `cert` étendue à 7 routes : matrix + exam +
+  badge + verify + axes + niveaux + valeurs — couvre 100% de
+  l'enseignable AIAD (5 niveaux × 6 axes + 7 valeurs). Stack `bench`
+  étendue à 5 routes. Stack `dora` étendue à 5 routes. Stack `dinum`
+  étendue à 4 routes. **60+ boucles consécutives à 1 route/boucle
+  sans rupture** depuis boucle 240. Bug-fix collatéral 4ᵉ source
+  archive `detecterSousDossier` (INTENT-NNN). Refactorings DRY libs :
+  archive.js TYPES_ARTEFACTS exportée, dinum.js COMMUN_NUMERIQUE_
+  CRITERES exportée, emit-rules.js RUNTIMES_VALIDES exportée.
+  Compactages systématiques : workspace doctor, refactor-spec,
+  marketplace list, archive, ci-template, bench compare, cert badge,
+  ai-act audit, rbac whoami, migrate-v2, dinum check — file maintenue
+  842-849 LOC.
+- **Pattern discovery-info convergé + types-catalog convergé — 10 routes
+  ajoutées en 10 boucles** (#469-#478, milestone boucle **290**) — Deux
+  patterns systémiques apparaissent et convergent simultanément : (a)
+  **discovery info** (sous-verbe positionnel `info <id>` retournant
+  `{ id, found, available[], <entity>: {...} }`) appliqué à **8 routes
+  consécutives** : plugin info, marketplace info, gouvernance info,
+  template info, new info, ci-template info, tutorial info, github-app
+  info ; (b) **types catalog** (sous-verbe positionnel `types`
+  retournant un enum strict + total) appliqué à **4 routes** :
+  webhooks types (10 events), audit types (5 actions), dora types (3
+  statuses), cert axes (6 axes). Une 14ᵉ route conserve la forme types
+  via `--list` legacy (`completion --list`). Stack `cert` étendue à 5
+  routes (matrix/exam/badge/verify/axes), stack `audit` complète à 4
+  (log/verify/append/types), stack `dora` complète à 4
+  (list/record/import-git/types). LOC effective 842-849 sur 114 routes
+  vs 850 cap = **×9.5 garanties** depuis baseline 175. Refactorings
+  lib mineurs (DRY) : `audit.js` extrait `ACTIONS_VALIDES`, `dora-
+  record.js` extrait `STATUTS_VALIDES`, `score.js` extrait `VERDICTS`.
+  **Aucune rupture de cadence depuis boucle 240** (50+ boucles
+  consécutives à 1 route/boucle).
+- **🎉 MILESTONE 100 ROUTES CATALOGUE + multi-forge complet + bug-fix
+  INTENT-NNN tri-source** (#458-#468, milestone boucle **280**) — Bond
+  spectaculaire de 94 → 104 routes en 10 boucles consécutives. **3
+  stacks multi-forge entièrement sous OpenAPI** : (a) **GitLab** review
+  + issue --dry-run + wiki --dry-run (3 routes) ; (b) **Bitbucket** pr
+  + issue --dry-run (2 routes) ; (c) **Azure DevOps** pr + work-item
+  --dry-run + wiki --dry-run (3 routes). **Bug-fix tri-source** :
+  `intentVersIssue` / `intentVersWorkItem` rejetaient le format AIAD
+  canonique `INTENT-NNN` (3 emplacements distincts : gitlab.js,
+  bitbucket.js, azure-devops.js) — regex unifiée à
+  `/^(INTENT|INT)-\d+/i` partout, débloque l'export depuis les fichiers
+  bench standards. **Stack `cert` complète** : exam + matrix + badge +
+  verify = 4 routes. **Stack `org` complète** : show + check + init
+  --dry-run = 3 routes. **🎯 MILESTONE 100 atteinte boucle 276** (route
+  #464 cert matrix). **2 nouveaux patterns ad-hoc** : (d) **collision
+  flag → sous-verbe positionnel** (#466 hooks status — `--status`
+  collidait avec flag dora) ; (e) **discovery avec variant
+  found/not-found + agents** (#468 gouvernance info — pattern réutilisé
+  de plugin info/marketplace info). Compactages systématiques : ~12
+  schemas (workspace doctor, badge, dpia, adrs, audit log, audit
+  verify, standup all, archive --list, sla update, spec-version
+  check/bump, restore, pii-scan, ci-template list, standup, plugin
+  list, telemetry status, dora record/import-git, backup, marketplace
+  info, github-app setup/install, workspace analytics ×12→3 — biggest
+  win). LOC effective 841-849 sur 104 routes vs 850 cap = ×8.7
+  garanties depuis baseline 175.
+- **Pattern feature-then-route — 14 applications consécutives**
+  (#441-#458, milestones boucles 260 + **270**) — Le modèle inédit de la
+  boucle 260 (#441-#447, 7 applications) s'est étendu sans rupture sur
+  les boucles 261-270 : **+7 nouvelles applications consécutives** —
+  #448 bench history, #449 offline log, #450 plugin info, #451 emit-
+  rules --check, #452 docs --check, #453 update --check, #454 migrate,
+  #455 completion --list, #456 provenance sigstore, #457 gitlab issue
+  --dry-run. Total **14 applications consécutives** sans exception du
+  modèle "ajoute la feature `--json` manquante + documente la même
+  boucle". 3 sous-patterns émergent : (a) **monkey-patch console.log**
+  pour wrappers à 10+ console.log internes non-refactorables (emit-
+  rules, docs, update — 3 occurrences) ; (b) **filtrage sérialisation**
+  pour fonctions retournant des objets avec callbacks (migrate, #454) ;
+  (c) **mode list ad-hoc** pour commandes générant des artefacts non-
+  JSON (completion --list, provenance sigstore avec script-as-JSON).
+  **Modèle reproductible-à-l'échelle confirmé sur 14 itérations** : la
+  cadence reste à 1 route/boucle ininterrompue depuis la boucle 240.
+- **Pattern feature-then-route inédit — 7 applications consécutives**
+  (#441-#447, milestone boucle 260) — Évolution majeure du modèle boucle
+  agentic : au lieu de simplement documenter des features `--json`
+  existantes, la boucle **ajoute la feature `--json` manquante** puis la
+  documente immédiatement (modif `lib/` + `bin/` + CATALOGUE + test
+  conformity dans la même boucle). 7 applications consécutives sans
+  exception : #441 marketplace list, #442 marketplace info, #443
+  gouvernance --list, #444 template --list, #445 new --list, #446
+  hooks-init (4ᵉ utilisateur DryRunPathResult), #447 dora --list
+  (création d'une nouvelle sous-action). **9 catalogues de discovery**
+  désormais sous contrat OpenAPI : marketplace list/info, gouvernance
+  --list (15 packs), template --list (9 templates SPEC), new --list
+  (2 templates projets), tutorial (4 tutoriels), plugin list, skills
+  validate, ci-template list, storybook (32 commandes slash). **Modèle
+  reproductible-à-l'échelle validé** : tant qu'il existe une commande
+  CLI sans `--json`, elle peut être ajoutée + documentée en 1 boucle.
+- **Élargissement CATALOGUE — github-app + archive lifecycle complet +
+  pattern feature-then-route systémique** (#439-#447, milestone boucle
+  260) — 9 items numérotés, **+10 routes effectifs** (#439 ajoute 2
+  routes) : (a) **#439 GitHub App** — github-app setup (discovery) +
+  install (writer idempotent) avec double enum strict (artefact ×2 +
+  action ×3) ; (b) **#440 archive --restore** — complète la stack
+  archive (archive --list reader + archive writer + archive --restore
+  un-archive), 4ᵉ chain test crypto round-trip ; (c) **#441-#447
+  pattern feature-then-route** (cf. puce précédente) — 7 nouvelles
+  features `--json` ajoutées au CLI et documentées en 7 boucles
+  consécutives. **Couverture CATALOGUE** : 74 → **84 routes** (+14% en
+  10 boucles, +163% depuis boucle 200 où on était à ~32 routes).
+- **MILESTONE 90 ROUTES franchie** (#454 boucle 266, **94 routes**
+  boucle 270) — Surface protectrice à 90 × 4 = 360 garanties (boucle
+  266), puis 94 × 4 = **376 garanties** anti-drift (boucle 270). Facteur
+  ×7.8 depuis boucle 175 (48 garanties initiales). Bug-fix collatéral
+  boucle 270 (#458) : `intentVersIssue` (gitlab.js + bitbucket.js)
+  acceptait uniquement `INT-NNN` alors que la convention AIAD canonique
+  est `INTENT-NNN` — regex élargie à `/^(INTENT|INT)-\d+/i`, débloque
+  l'export Issue/PR depuis Intents au format standard. Compactage
+  parallèle systématique poursuivi sur ~6 schemas supplémentaires
+  (workspace doctor, badge, dpia, adrs, audit log, standup all, archive
+  --list, sla update, spec-version check, restore, plugin info). File
+  maintenue 847-849 LOC effectives au cap exact malgré +10 routes.
+- **MILESTONE 80 ROUTES franchie** (#443 boucle 255) — Surface
+  protectrice à 80 × 4 = 320 garanties (boucle 255), puis 84 × 4 =
+  **336 garanties** anti-drift (boucle 259). Facteur ×7.0 depuis boucle
+  175 (48 garanties initiales). Compactage parallèle systématique
+  poursuivi sur ~10 schemas supplémentaires (storybook, verify-
+  reproducibility, obsidian, restore, plugin list, dora ×2, status,
+  doctor, dpia, adrs, reflect, dashboard check, bench, ci-template list,
+  marketplace list/info, gouvernance --list, template --list, new --list,
+  webhooks list, offline status, archive --restore, etc.). File maintenue
+  ~845-850 LOC effectives au cap exact.
+- **DryRunPathResult composant le plus partagé** (#446) — 4 routes
+  utilisent désormais ce composant via `$ref` : rbac init (#431),
+  dinum publiccode (#436), dinum franceconnect (#436), **hooks-init
+  (#446)**. Pattern factorisation $ref optimal — 1 drift composant = 4
+  fails simultanés (signal univoque, économie ~12 LOC vs 4 schemas
+  inline). Le composant le plus partagé désormais après ReviewCommentPayload
+  (#433, 3 routes) et FileDiff (#432, 2 routes).
+- **Stacks complètes sous contrat OpenAPI** (#447) — Plusieurs stacks
+  ont franchi la complétude 100% sous contrat : **DORA** (record +
+  import-git + list), **marketplace** (list + info), **gouvernance**
+  (--list + lint), **archive** (--list + writer + --restore), **github-
+  app** (setup + install). Stack toolkit AIAD désormais quasi-exhaustive
+  sous OpenAPI.
+- **Élargissement CATALOGUE — interop multi-cible + PR-bot multi-forge +
+  CI/CD + DINUM FR + lifecycle artefact + factorisation $ref systémique**
+  (#429-#437, milestone boucle 250) — **+10 routes effectifs en 9 boucles**
+  (certaines #IDs ajoutent plusieurs routes — pattern multi-add inédit) :
+  (a) **interop multi-cible export** (#429 export confluence, ajout du
+  2ᵉ format export après openapi #427) — couvre désormais OpenAPI 3.1
+  (machine codegen) + Confluence (wiki entreprise) + Obsidian (knowledge-
+  base personal) + GitHub Pages (publication HTML) ; (b) **PR-bot
+  multi-forge complet** (#432 review source + #433 gitlab review +
+  bitbucket pr + azure pr posters) — pattern factorisation $ref appliqué
+  rétroactivement avec composant **ReviewCommentPayload** (16ᵉ schema
+  réutilisable partagé par 3 routes — 1 drift = 3 fails simultanés) ;
+  (c) **CI/CD complet** (#434 bench compare régression perf + #435
+  ci-template install workflow forge avec enum 6×3) ; (d) **stack DINUM
+  FR complète** (#436 dinum publiccode + dinum franceconnect rejoignent
+  dinum check #393) — composant **DryRunPathResult** (17ᵉ) factorisé
+  rétroactivement avec rbac init #431 → 3 routes partagent le même
+  payload `{path, dryRun}` ; (e) **lifecycle artefact** (#437 archive
+  writer rejoint archive --list #372 reader) ; (f) **RGPD complète**
+  (#430 anonymize k-anonymity/Laplace DP rejoint dpia + pii-scan +
+  ai-act audit + dinum check). **Couverture CATALOGUE** : 64 → **74
+  routes** (+16% en 10 boucles, +131% depuis boucle 200 où on était à
+  ~32 routes). **Composants réutilisables** : 14 → **17 schemas** (+3
+  components en 10 boucles : FileDiff #432, ReviewCommentPayload #433,
+  DryRunPathResult #436).
+- **Pattern factorisation $ref systémique** (#432/#433/#436) — 3
+  nouveaux composants partagés en 10 boucles, dont **3 routes** chacun
+  pour ReviewCommentPayload et DryRunPathResult. Le pattern devient
+  systémique : dès que ≥ 2 routes ont la même shape, extraction
+  immédiate. **Refactor rétroactif rbac init** (#436) prouve que les
+  routes inline peuvent être migrées au pattern $ref sans casser le
+  contract (drift assertion détecte la régression si shape diverge).
+  Pattern multi-ajout boucle (#433 ajoute 3 routes en 1 boucle, #436
+  ajoute 2 routes + 1 refactor) — efficacité boucle agentic ×3.
+- **MILESTONE 70 ROUTES franchie** (#434 boucle 246) — Surface
+  protectrice à 70 × 4 = 280 garanties (boucle 246), puis 74 × 4 =
+  **296 garanties** anti-drift (boucle 249). Facteur ×6.2 depuis boucle
+  175 (48 garanties initiales). Compactage parallèle systématique
+  poursuivi sur ~15 schemas supplémentaires cette période (status,
+  doctor, dpia, adrs, sla×3, audit ×3, webhooks list, offline status,
+  dashboard check, bench, ci-template list, standup ×2, dora ×2,
+  Leadership-Metrics, JnspVerdict, WebhooksEmission, etc.) — file
+  maintenue ~846-850 LOC effectives au cap exact malgré +10 routes
+  ajoutées.
+- **Fixture pattern étendu — 18 routes** (#430, #432, #437 entre
+  autres) — workspace doctor/trace/analytics, dora record/import-git,
+  tour, audit append, spec-version check/bump, restore, provenance
+  generate/verify, cert badge/verify, refactor-spec, anonymize, review,
+  gitlab review, bitbucket pr, azure pr, **archive**. **3 chain tests
+  crypto round-trip** (backup→restore #416, provenance generate→verify
+  #420, cert badge→verify #422) + **2 chain tests git fixture** (dora
+  import-git #380, review #432, gitlab/bitbucket/azure review #433).
+- **Élargissement CATALOGUE — supply chain + certification +
+  qualité SPEC + knowledge-base interop + dual OpenAPI** (#419-#427,
+  milestone boucle 240) — 9 nouvelles routes en 9 boucles, élargissement
+  thématique 5 piliers : (a) **stack supply chain security complète
+  100% sous contrat OpenAPI** — #419 provenance generate (SLSA Provenance
+  v1.0 signée HMAC-SHA256, AIAD_PROVENANCE_SECRET env), #420 provenance
+  verify (chain test #2 generate→verify, signature + digests sha256),
+  #425 verify-reproducibility (content hash sha256 déterministe
+  cross-Node/cross-OS pour npm pack reproductible) — combinée avec
+  `sbom` (#383 CycloneDx) + `audit append/log/verify` = supply chain
+  niveau SLSA Level 3 attestable bout-en-bout ; (b) **stack certification
+  écosystème ouvert** — #421 cert badge (JWS HMAC-SHA256, enum 5 niveaux
+  Découvreur/Praticien/Confirmé/Expert/Architecte, 6 axes, valide 3 ans),
+  #422 cert verify (chain test #3 badge→verify, vérifiable hors-ligne
+  par tout HR/marketplace) — pattern verifiable credentials sans
+  blockchain ; (c) **stack qualité SPEC complète** — #423 refactor-spec
+  (détection oversize + propose découpage structurel/sémantique) +
+  spec-version check/bump (déjà livrés #413/#414) = qualité SPEC 100%
+  automatisable ; (d) **interop knowledge-base** — #424 obsidian
+  (export `.aiad/` vers Obsidian Vault avec wiki-links + MOC + README,
+  multi-variant dry-run/apply/aiad-absent) ; (e) **dual OpenAPI** —
+  #427 export openapi (export OpenAPI 3.1 depuis SPECs marquées api:true)
+  rejoint #404 schema (méta-route OpenAPI du CLI lui-même) = 2 facettes
+  OpenAPI complémentaires sous contrat. **Bonus** : #426 storybook
+  (inventaire 32 commandes slash sdd+aiad) complète la stack discovery
+  écosystème. **Couverture CATALOGUE** : 53 → **62 routes** (+17% en
+  10 boucles, +91% depuis boucle 200 où on était à ~32 routes).
+- **MILESTONE 60 ROUTES franchie** (#425 boucle 237) — Surface protectrice
+  passée de 50 × 4 = 200 garanties (boucle 226) à 60 × 4 = 240 garanties
+  anti-drift (boucle 237), puis 62 × 4 = **248 garanties** (boucle 239).
+  Facteur ×5.2 depuis boucle 175 (48 garanties initiales). Compactage
+  parallèle systématique poursuivi sur ~10+ schemas supplémentaires
+  cette période (adrs, plugin list, restore, badge, sla update, tour,
+  doctor --fix, ai-act audit, self-update, migrate-v2, dinum check) —
+  file maintenue ~850 LOC effectives au cap exact malgré +9 routes
+  ajoutées.
+- **3 chain tests crypto round-trip** (#416/#420/#422) — pattern
+  fixture chain `writer → reader` validé sur 3 stacks indépendants :
+  **backup→restore** (#416, 1ʳᵉ), **provenance generate→verify** (#420),
+  **cert badge→verify** (#422). Chaque test orchestre 2 commandes
+  successives dans le même tmpdir avec env override (ou même secret)
+  pour valider qu'un payload émis par le writer est correctement
+  consommé par le reader (round-trip cryptographique testable
+  bout-en-bout — preuve concrète que la paire signée tient).
+- **Fixture pattern étendu — 15 routes** (#421, #422, #423 entre
+  autres) — workspace doctor/trace/analytics, dora record/import-git,
+  tour, audit append, spec-version check/bump, restore, provenance
+  generate/verify, cert badge/verify, refactor-spec. **4 routes
+  utilisent env override** (offline status, provenance generate/verify,
+  cert badge) — pattern stable pour les routes nécessitant un secret
+  partagé entre commandes successives.
+- **Élargissement CATALOGUE — release-lifecycle + disaster recovery +
+  écosystème pédagogique + factorisation components** (#409-#417,
+  milestone boucle 230) — 9 nouvelles routes en 9 boucles, élargissement
+  thématique 4 piliers : (a) **stack release-lifecycle complète** —
+  #409 sla check (validation matrice SLA, $ref SlaMatrix), #410 sla update
+  (writer SECURITY.md, enum action created/updated/appended), #413
+  spec-version check (semver validation multi-variant neuf/existant),
+  #414 spec-version bump (writer frontmatter avec enum kind major/minor/
+  patch) — versioning sémantique 100% automatisable du gate CI au commit
+  auto ; (b) **stack disaster recovery testable round-trip** — #415 backup
+  (archive .aiad-backup chiffrée AES-256-GCM, 5 props), #416 restore
+  (decrypt + extract, fixture chain backup→restore — **1ʳᵉ chain test
+  orchestrant 2 commandes**) ; (c) **écosystème pédagogique + branding** —
+  #411 badge (SVG README santé/maturité/violations, type enum 3 valeurs),
+  #412 tutorial (catalogue 4 tutoriels auth-oidc/payment-pci/rag-llm/
+  gdpr-data-export) ; (d) **factorisation $ref components** — #417
+  webhooks emit nouveau + extraction component **WebhooksEmission (14ᵉ
+  composant réutilisable)** partagé avec webhooks test — 1 drift dans le
+  shape webhook = 2 fails simultanés (signal univoque). **Couverture
+  CATALOGUE** : 44 → **53 routes** (+20% en 10 boucles, +51% depuis
+  boucle 210). **Composants réutilisables** : 13 → **14 schemas** (1ʳᵉ
+  nouveau component depuis #383 CycloneDxSbom).
+- **MILESTONE 50 ROUTES franchie** (#414 boucle 226) — Surface protectrice
+  passée de 16 routes × 3 = 48 garanties (boucle 175) à 50 × 4 = 200
+  garanties anti-drift (boucle 226) — **facteur ×4.2 en 50 boucles**.
+  Compactage parallèle systématique sur 10+ schemas (status, doctor,
+  workspace ×3, AuditEvent, ArchivedArtifact, ReflectAxis,
+  WebhookSubscription, PublicationContext, TraceabilityMatrix, SlaMatrix,
+  SovereigntyScore, JnspVerdict, LeadershipMetrics, AiadMeta, brief,
+  reflect, webhooks list, offline status, dashboard check, bench,
+  ci-template list, dpia, ai-act audit, schema, doctor --fix, dinum check,
+  rbac whoami/check, skills validate, gouvernance lint, org show/check,
+  standup, dora ×2, telemetry status, plugin list, tutorial — **~40
+  schemas compactés**) — file maintenue ~822-850 LOC effectives malgré
+  +18 routes ajoutées.
+- **Fixture pattern systématisé — 10 routes** (#413, #414, #416 entre
+  autres) — workspace doctor/trace/analytics, dora record/import-git,
+  tour, audit append, spec-version check, spec-version bump, restore. La
+  fixture chain `backup → restore` (#416) est **inédite** : 1ʳᵉ fois
+  qu'un test conformity orchestre 2 commandes successives dans 2
+  tmpdirs distincts pour valider un round-trip bout-en-bout.
 - **Drift réel détecté par la boucle conformity** (#407, milestone boucle
   220) — l'ancienne déclaration `AuditEvent.properties.sig = { type:
   'string' }` (commentée "absent si non signé") était fausse :

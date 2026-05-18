@@ -14,7 +14,7 @@ import { showStatus } from '../lib/status.js';
 import { installerHooks, desinstallerHooks } from '../lib/hooks.js';
 import { bench } from '../lib/coldstart.js';
 import { trace } from '../lib/sdd-trace.js';
-import { emitRules } from '../lib/emit-rules.js';
+import { emitRules, RUNTIMES_VALIDES as EMIT_RUNTIMES } from '../lib/emit-rules.js';
 import { dashboard, serveDashboard, watcher } from '../lib/dashboard.js';
 import { doctor } from '../lib/doctor.js';
 import { uninstall } from '../lib/uninstall.js';
@@ -36,7 +36,7 @@ import { listerTemplates, templateExiste, creerProjet } from '../lib/templates.j
 import { lancerTui } from '../lib/init-tui.js';
 import { indiceVoulaisTuDire } from '../lib/suggest.js';
 import { importer as importerExterne } from '../lib/import.js';
-import { scorerArtefact } from '../lib/score.js';
+import { scorerArtefact, VERDICTS as SCORE_VERDICTS } from '../lib/score.js';
 import { listerTemplatesSpec, templateSpecExiste, creerSpecDepuisTemplate } from '../lib/specs-library.js';
 import { lintGouvernance } from '../lib/governance-lint.js';
 import { review } from '../lib/review.js';
@@ -46,23 +46,24 @@ import { genererStorybook } from '../lib/storybook.js';
 import {
   NIVEAUX as CERT_NIVEAUX,
   AXES as CERT_AXES,
+  MATRICE as CERT_MATRICE,
   construirePayload, signerBadge, verifierBadge,
   genererSujetExam, rendreMatriceMarkdown,
 } from '../lib/cert.js';
 import { afficherListe as marketplaceListe, afficherInfo as marketplaceInfo } from '../lib/marketplace.js';
 import {
-  appendEvenement, afficherLog as auditLog, verifier as auditVerifier, hashFichier,
+  appendEvenement, afficherLog as auditLog, verifier as auditVerifier, hashFichier, ACTIONS_VALIDES as AUDIT_ACTIONS,
 } from '../lib/audit.js';
 import {
   genererAttestation, verifierFichier as verifierProvenance, bundleSigstoreCommande,
 } from '../lib/provenance.js';
 import { afficherStats as hookStats } from '../lib/hook-sandbox.js';
 import {
-  genererPublicCode, genererFranceConnect, checkCommunNumerique,
+  genererPublicCode, genererFranceConnect, checkCommunNumerique, COMMUN_NUMERIQUE_CRITERES as DINUM_CRITERES,
 } from '../lib/dinum.js';
-import { afficherScore as sovereigntyScore } from '../lib/sovereignty-score.js';
+import { afficherScore as sovereigntyScore, DIMENSIONS as SOVEREIGNTY_DIMENSIONS, NIVEAUX as SOVEREIGNTY_NIVEAUX } from '../lib/sovereignty-score.js';
 import { extraireAdrs } from '../lib/dashboard/adrs.js';
-import { recordDeployment, importDeploysFromGit } from '../lib/dora-record.js';
+import { recordDeployment, importDeploysFromGit, listerDeploys, STATUTS_VALIDES as DORA_STATUS } from '../lib/dora-record.js';
 import { checkUpdate, estAutorise as updateAutorise } from '../lib/self-update.js';
 import { buildStandupUrl, tousLesLiens, normaliserLens, dashboardEstStale } from '../lib/standup-url.js';
 import { brief } from '../lib/brief.js';
@@ -79,17 +80,17 @@ import {
 } from '../lib/azure-devops.js';
 import { exporterArborescence as exporterConfluence } from '../lib/confluence.js';
 import {
-  emettreTest as webhookTest, listerSouscriptions, emettre as webhookEmettre,
+  emettreTest as webhookTest, listerSouscriptions, emettre as webhookEmettre, CONSTANTS as WEBHOOKS_CONSTANTS,
 } from '../lib/webhooks.js';
 import { reflect } from '../lib/reflect.js';
 import { negotiate } from '../lib/negotiate.js';
 import { refactorSpec, refactorAll } from '../lib/refactor-spec.js';
 import { bumpSpec, verifierVersion } from '../lib/spec-version.js';
-import { archiver, restaurer, afficherListe as afficherArchives } from '../lib/archive.js';
-import { show as slaShow, check as slaCheck, update as slaUpdate } from '../lib/sla.js';
-import { emettre as completionEmettre } from '../lib/completion.js';
+import { archiver, restaurer, afficherListe as afficherArchives, TYPES_ARTEFACTS as ARCHIVE_TYPES } from '../lib/archive.js';
+import { show as slaShow, check as slaCheck, update as slaUpdate, POLITIQUE_DEFAUT as SLA_POLITIQUE } from '../lib/sla.js';
+import { emettre as completionEmettre, CONSTANTS as COMPLETION_CONSTANTS } from '../lib/completion.js';
 import { tour as guidedTour } from '../lib/tour.js';
-import { piiScan } from '../lib/pii-scan.js';
+import { piiScan, DETECTEURS as PII_DETECTEURS } from '../lib/pii-scan.js';
 import { backup as backupArchive, restore as restoreArchive, inspecter as inspecterArchive } from '../lib/backup.js';
 import { installerGarde as installerOffline, status as offlineStatus, afficherLog as offlineLog } from '../lib/offline.js';
 import {
@@ -97,10 +98,10 @@ import {
   intentVersIssue as bitbucketIntentVersIssue, chargerConfig as bitbucketConfig,
 } from '../lib/bitbucket.js';
 import {
-  afficherListe as ciTemplatesListe, installerTemplate as ciInstaller,
+  afficherListe as ciTemplatesListe, installerTemplate as ciInstaller, listerForges as ciListerForges,
 } from '../lib/ci-templates.js';
 import {
-  installerArtefact as ghAppInstaller, setup as ghAppSetup,
+  installerArtefact as ghAppInstaller, setup as ghAppSetup, listerArtefacts as ghAppListerArtefacts,
 } from '../lib/github-app.js';
 import { anonymiserBatch, kAnonymity as kAnonymityCheck } from '../lib/anonymize.js';
 import {
@@ -119,7 +120,7 @@ import {
   whoami as rbacWhoami, init as rbacInit, check as rbacCheck,
 } from '../lib/rbac.js';
 import {
-  executerTutoriel, afficherListe as tutorielsListe,
+  executerTutoriel, afficherListe as tutorielsListe, TUTORIELS as TUTORIELS_REG,
 } from '../lib/tutorial.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -199,6 +200,7 @@ const OPTIONS_SCHEMA = {
   persist: { type: 'boolean' },
   threshold: { type: 'string' },
   staged: { type: 'boolean' },
+  rules: { type: 'boolean' },
   password: { type: 'string' },
   'key-file': { type: 'string' },
   archive: { type: 'string' },
@@ -576,12 +578,25 @@ async function main() {
     }
 
     case 'update': {
-      const stats = await update(cwd(), {
-        sansGouvernance: Boolean(values['sans-gouvernance']),
-        dryRun: Boolean(values['dry-run']),
-        check: Boolean(values.check),
-      });
-      // Mode --check : exit 1 si divergence (consommable CI).
+      const json = Boolean(values.json);
+      const savedLog = console.log;
+      if (json) console.log = () => {};
+      let stats;
+      try {
+        stats = await update(cwd(), {
+          sansGouvernance: Boolean(values['sans-gouvernance']),
+          dryRun: Boolean(values['dry-run']),
+          check: Boolean(values.check),
+        });
+      } finally {
+        if (json) console.log = savedLog;
+      }
+      if (json) {
+        process.stdout.write(JSON.stringify({
+          check: Boolean(values.check), dryRun: Boolean(values['dry-run']),
+          created: stats.created, updated: stats.updated, unchanged: stats.unchanged, preserved: stats.preserved, drifts: stats.drifts,
+        }, null, 2) + '\n');
+      }
       if (values.check && stats && stats.drifts && stats.drifts.length > 0) {
         exit(1);
       }
@@ -590,14 +605,60 @@ async function main() {
 
     case 'gouvernance': {
       // Sous-commande `lint` : détection de contradictions inter-agents.
+      if (positionals[1] === 'lint' && positionals[2] === 'rules') {
+        const rules = [
+          { id: 'conflit', label: 'Conflit TOUJOURS↔JAMAIS inter-agents (Jaccard ≥ 0.6, ≥ 3 tokens communs)' },
+          { id: 'doublon', label: 'Doublon de règle dans un même agent (TOUJOURS ou JAMAIS)' },
+          { id: 'agent-manquant', label: 'Agent Tier 1 baseline manquant (AI-ACT, RGPD, RGAA, RGESN)' },
+        ];
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ rules, total: rules.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Règles de détection gouvernance lint (${rules.length}) :\n`);
+          for (const r of rules) console.log(`    • ${r.id} — ${r.label}`);
+          console.log('');
+        }
+        break;
+      }
       if (positionals[1] === 'lint') {
         const r = await lintGouvernance(cwd(), { json: Boolean(values.json) });
         if (!r.ok) exit(1);
         break;
       }
+      // Sous-commande `info <id>` : détails d'un pack (variant found/not-found).
+      if (positionals[1] === 'info') {
+        const id = positionals[2];
+        const packs = listerPacks();
+        const p = id ? packs.find((x) => x.id === id) : null;
+        if (!p) {
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({
+              id: id || null, found: false, available: packs.map((x) => x.id),
+            }, null, 2) + '\n');
+          } else {
+            console.error(`\n  Pack inconnu : "${id || ''}". Disponibles : ${packs.map((x) => x.id).join(', ')}.\n`);
+            exit(1);
+          }
+          break;
+        }
+        const { existsSync, readdirSync } = await import('node:fs');
+        const agents = existsSync(p.sourceDir) ? readdirSync(p.sourceDir).filter((f) => f.endsWith('.md')).map((f) => f.replace(/\.md$/, '')) : [];
+        const { sourceDir, ...packMeta } = p;
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ id: p.id, found: true, pack: packMeta, agents, total: agents.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  ${packMeta.titre} (${p.id})\n  ${packMeta.description}\n  Juridiction : ${packMeta.juridiction}\n  Agents (${agents.length}) : ${agents.join(', ')}\n`);
+        }
+        break;
+      }
       if (values.list) {
+        const packs = listerPacks().map(({ sourceDir, ...rest }) => rest);
+        if (values.json) {
+          process.stdout.write(JSON.stringify({ packs, total: packs.length }, null, 2) + '\n');
+          break;
+        }
         console.log(`\n${VERSION ? '' : ''}  Packs de gouvernance disponibles :\n`);
-        for (const p of listerPacks()) {
+        for (const p of packs) {
           const tag = p.defaut ? ' (défaut)' : '';
           console.log(`    • ${p.id}${tag}`);
           console.log(`      ${p.titre}`);
@@ -631,7 +692,33 @@ async function main() {
     }
 
     case 'hooks':
-      if (values.uninstall) {
+      if (positionals[1] === 'status') {
+        const { existsSync } = await import('node:fs');
+        const projetDir = cwd();
+        const hookScript = join(projetDir, '.aiad', 'hooks', 'pre-commit.sh');
+        const huskyDir = join(projetDir, '.husky');
+        const gitHook = join(projetDir, '.git', 'hooks', 'pre-commit');
+        const configFile = join(projetDir, '.aiad', 'config.yml');
+        const bypassFile = join(projetDir, '.aiad', 'hook-bypass.yml');
+        const status = {
+          hookScript: existsSync(hookScript),
+          husky: existsSync(huskyDir),
+          gitHook: existsSync(gitHook),
+          config: existsSync(configFile),
+          bypass: existsSync(bypassFile),
+          mode: existsSync(huskyDir) ? 'husky' : (existsSync(gitHook) ? 'git' : 'none'),
+          installed: existsSync(hookScript) && (existsSync(huskyDir) || existsSync(gitHook)),
+        };
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify(status, null, 2) + '\n');
+        } else {
+          console.log(`\n  Hooks AIAD ${status.installed ? 'installés' : 'non installés'} (mode=${status.mode})\n`);
+          for (const [k, v] of Object.entries(status)) {
+            if (typeof v === 'boolean') console.log(`    ${v ? '✓' : '✗'} ${k}`);
+          }
+          console.log('');
+        }
+      } else if (values.uninstall) {
         await desinstallerHooks(cwd());
       } else {
         await installerHooks(cwd(), { force: Boolean(values.force) });
@@ -675,12 +762,28 @@ async function main() {
       await ouvrirRepl(cwd());
       break;
 
-    case 'migrate':
-      await migrer(cwd(), {
-        force: Boolean(values.force),
-        dryRun: Boolean(values['dry-run']),
-      });
+    case 'migrate': {
+      const json = Boolean(values.json);
+      const savedLog = console.log;
+      if (json) console.log = () => {};
+      let r;
+      try {
+        r = await migrer(cwd(), {
+          force: Boolean(values.force),
+          dryRun: Boolean(values['dry-run']),
+        });
+      } finally {
+        if (json) console.log = savedLog;
+      }
+      if (json) {
+        process.stdout.write(JSON.stringify({
+          ok: r.ok,
+          planned: (r.planned || []).map((p) => ({ id: p.id, description: p.description })),
+          appliquees: r.appliquees || [],
+        }, null, 2) + '\n');
+      }
       break;
+    }
 
     case 'migrate-v2': {
       // (#129) Squelette migration v1 → v2. Dry-run par défaut, --apply
@@ -818,10 +921,19 @@ async function main() {
     }
 
     case 'docs': {
-      const r = await docs(cwd(), {
-        check: Boolean(values.check),
-        out: values.out,
-      });
+      const json = Boolean(values.json);
+      const savedLog = console.log;
+      if (json) console.log = () => {};
+      let r;
+      try {
+        r = await docs(cwd(), {
+          check: Boolean(values.check),
+          out: values.out,
+        });
+      } finally {
+        if (json) console.log = savedLog;
+      }
+      if (json) process.stdout.write(JSON.stringify(r, null, 2) + '\n');
       if (values.check && r.drift) exit(1);
       break;
     }
@@ -855,6 +967,55 @@ async function main() {
           json: Boolean(values.json),
         });
         if (r.suffisant && r.regression) exit(1);
+        break;
+      }
+      if (sub === 'history') {
+        // (#449) Liste l'historique persisté des runs cold-start.
+        const { lireHistorique } = await import('../lib/bench-history.js');
+        const runs = lireHistorique(cwd());
+        if (values.json) {
+          process.stdout.write(JSON.stringify({ runs, total: runs.length }, null, 2) + '\n');
+        } else if (runs.length === 0) {
+          console.log('Aucun historique cold-start persisté. Utilise `aiad-sdd bench --persist` pour logger un run.');
+        } else {
+          console.log(`${runs.length} run(s) historisé(s) :`);
+          for (const r of runs.slice(-10)) console.log(`  - ${r.ts}: ${r.apresTokens || '?'} tokens`);
+        }
+        break;
+      }
+      if (sub === 'metrics') {
+        const metrics = [
+          { id: 'apresTokens', label: 'Tokens system prompt à froid (après routers v1.7)' },
+          { id: 'apresBytes', label: 'Bytes system prompt à froid (chargement initial)' },
+          { id: 'avantTokens', label: 'Tokens system prompt baseline (avant routers, référence)' },
+          { id: 'transitionTokens', label: 'Tokens chargés par appel router (sous-commande activée)' },
+          { id: 'routersCount', label: 'Nombre de routers de commandes (3 — sdd, aiad, aiad-help)' },
+          { id: 'aliasCount', label: 'Nombre d\'alias rétro-compatibles plats (legacy)' },
+        ];
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ metrics, total: metrics.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Métriques bench cold-start AIAD (${metrics.length}) :\n`);
+          for (const m of metrics) console.log(`    • ${m.id} — ${m.label}`);
+          console.log('');
+        }
+        break;
+      }
+      if (sub === 'flow') {
+        const metrics = [
+          { id: 'cycle-time', label: 'Cycle Time', desc: 'Temps actif sur un Intent/SPEC (début implémentation → done)' },
+          { id: 'lead-time', label: 'Lead Time', desc: 'Temps total dans le système (création Intent → done)' },
+          { id: 'throughput', label: 'Throughput', desc: 'Nombre d\'Intents/SPECs livrés par période (semaine/mois)' },
+          { id: 'wip', label: 'WIP (Work in Progress)', desc: 'Nombre d\'Intents/SPECs actifs en parallèle' },
+          { id: 'flow-efficiency', label: 'Flow Efficiency', desc: 'Ratio temps actif / temps total (vise > 40%)' },
+        ];
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ metrics, total: metrics.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Métriques Flow standard (${metrics.length}) :\n`);
+          for (const m of metrics) console.log(`    • ${m.id} — ${m.label}\n      ${m.desc}`);
+          console.log('');
+        }
         break;
       }
       const resultat = bench(cwd(), { json: Boolean(values.json) });
@@ -963,6 +1124,21 @@ async function main() {
     }
 
     case 'import': {
+      if (positionals[1] === 'sources') {
+        const sources = [
+          { id: 'spec-kit', label: 'Spec Kit (GitHub .specify/ ou frontmatter spec-kit)' },
+          { id: 'kiro', label: 'Kiro (.kiro/ steering + specs)' },
+          { id: 'auto', label: 'Auto-détection (priorité kiro > spec-kit)' },
+        ];
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ sources, total: sources.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Sources d'import AIAD (${sources.length}) :\n`);
+          for (const s of sources) console.log(`    • ${s.id} — ${s.label}`);
+          console.log('');
+        }
+        break;
+      }
       await importerExterne(cwd(), {
         from: values.from || 'auto',
         force: Boolean(values.force),
@@ -977,6 +1153,7 @@ async function main() {
         marketplaceListe({
           secteur: values.from,
           juridiction: values.runtime, // réutilise le flag --runtime pour filtre juridiction (pragmatique)
+          json: Boolean(values.json),
         });
       } else if (sub === 'info') {
         const id = positionals[2];
@@ -984,7 +1161,7 @@ async function main() {
           console.error(`\n  Usage : aiad-sdd marketplace info <id>\n  Exemple : aiad-sdd marketplace info eu-health\n`);
           exit(1);
         }
-        const pack = marketplaceInfo(id);
+        const pack = marketplaceInfo(id, { json: Boolean(values.json) });
         if (!pack) exit(1);
       } else {
         console.error(`\n  Usage : aiad-sdd marketplace <sub>\n  Sous-commandes : list, info <id>\n`);
@@ -997,7 +1174,48 @@ async function main() {
       const sub = positionals[1];
       const arg = positionals[2];
       if (sub === 'matrix') {
-        console.log(rendreMatriceMarkdown());
+        if (values.json) {
+          process.stdout.write(JSON.stringify({
+            niveaux: CERT_NIVEAUX, axes: CERT_AXES.map((a) => ({ id: a.id, label: a.label })),
+            matrice: CERT_MATRICE,
+          }, null, 2) + '\n');
+        } else {
+          console.log(rendreMatriceMarkdown());
+        }
+      } else if (sub === 'axes') {
+        const axes = CERT_AXES.map((a) => ({ id: a.id, label: a.label }));
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ axes, total: axes.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Axes de compétences certification AIAD (${axes.length}) :\n`);
+          for (const a of axes) console.log(`    • ${a.id} — ${a.label}`);
+          console.log('');
+        }
+      } else if (sub === 'niveaux') {
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ niveaux: CERT_NIVEAUX, total: CERT_NIVEAUX.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Niveaux de certification AIAD (${CERT_NIVEAUX.length}, ordre croissant) :\n`);
+          for (const n of CERT_NIVEAUX) console.log(`    • ${n}`);
+          console.log('');
+        }
+      } else if (sub === 'valeurs') {
+        const valeurs = [
+          { id: 'primaute-intention', label: 'Primauté de l\'Intention Humaine' },
+          { id: 'honnetete-contradictions', label: 'Honnêteté sur les Contradictions' },
+          { id: 'sobriete-intentionnelle', label: 'Sobriété Intentionnelle' },
+          { id: 'ouverture-radicale', label: 'Ouverture Radicale' },
+          { id: 'empirisme-sans-concession', label: 'Empirisme sans Concession' },
+          { id: 'responsabilite-partagee', label: 'Responsabilité Partagée' },
+          { id: 'human-authorship', label: 'Human Authorship — La paternité de l\'intention ne se délègue pas' },
+        ];
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ valeurs, total: valeurs.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Les 7 valeurs fondamentales AIAD (${valeurs.length}) :\n`);
+          for (const v of valeurs) console.log(`    • ${v.id} — ${v.label}`);
+          console.log('');
+        }
       } else if (sub === 'exam') {
         const niveau = arg || 'Praticien';
         const niveauNorm = CERT_NIVEAUX.find((n) => n.toLowerCase() === niveau.toLowerCase());
@@ -1006,7 +1224,8 @@ async function main() {
           exit(1);
         }
         const r = genererSujetExam(niveauNorm);
-        console.log(r.sujet);
+        if (values.json) process.stdout.write(JSON.stringify(r, null, 2) + '\n');
+        else console.log(r.sujet);
       } else if (sub === 'badge') {
         const niveau = values.niveau || arg || 'Praticien';
         const candidat = values.candidat || values.candidate;
@@ -1161,7 +1380,11 @@ async function main() {
 
     case 'template': {
       if (values.list || positionals[1] === 'list') {
-        const liste = listerTemplatesSpec();
+        const liste = listerTemplatesSpec().map(({ frontmatter, path, ...rest }) => rest);
+        if (values.json) {
+          process.stdout.write(JSON.stringify({ templates: liste, total: liste.length }, null, 2) + '\n');
+          break;
+        }
         console.log(`\n  Templates de SPEC disponibles :\n`);
         for (const t of liste) {
           console.log(`    • ${t.id}`);
@@ -1169,6 +1392,26 @@ async function main() {
           console.log('');
         }
         console.log(`  Usage : npx aiad-sdd template <domain> [--out path] [--dry-run]\n`);
+        break;
+      }
+      if (positionals[1] === 'info') {
+        const id = positionals[2];
+        const liste = listerTemplatesSpec();
+        const t = id ? liste.find((x) => x.id === id) : null;
+        if (!t) {
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ id: id || null, found: false, available: liste.map((x) => x.id) }, null, 2) + '\n');
+          } else {
+            console.error(`\n  Template inconnu : "${id || ''}". Disponibles : ${liste.map((x) => x.id).join(', ')}.\n`);
+            exit(1);
+          }
+          break;
+        }
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ id: t.id, found: true, template: { id: t.id, title: t.title, governance: t.governance } }, null, 2) + '\n');
+        } else {
+          console.log(`\n  ${t.title} (${t.id})\n  Gouvernance : ${t.governance.join(' · ') || '—'}\n`);
+        }
         break;
       }
       const domain = positionals[1];
@@ -1192,6 +1435,17 @@ async function main() {
     case 'score': {
       const type = positionals[1];
       const id = positionals[2];
+      if (type === 'verdicts') {
+        const verdicts = SCORE_VERDICTS.map((v) => ({ label: v.label, seuil: v.seuil }));
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ verdicts, total: verdicts.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Verdicts scoring AIAD (${verdicts.length}) :\n`);
+          for (const v of verdicts) console.log(`    • ${v.label} (pct ≥ ${(v.seuil * 100).toFixed(0)}%)`);
+          console.log('');
+        }
+        break;
+      }
       if (!type || !id) {
         console.error(`\n  Usage : aiad-sdd score <intent|spec> <id>\n  Exemples : aiad-sdd score spec SPEC-001-1-auth\n            aiad-sdd score intent INTENT-001\n`);
         exit(1);
@@ -1215,7 +1469,13 @@ async function main() {
 
     case 'new': {
       if (values.list || positionals[1] === 'list') {
-        const liste = listerTemplates();
+        const liste = listerTemplates().map(({ id, title, description, target, language, framework, license }) => ({
+          id, title, description, target, language, framework, license,
+        }));
+        if (values.json) {
+          process.stdout.write(JSON.stringify({ templates: liste, total: liste.length }, null, 2) + '\n');
+          break;
+        }
         console.log(`\n  Templates de projets disponibles :\n`);
         for (const t of liste) {
           console.log(`    • ${t.id}`);
@@ -1223,6 +1483,27 @@ async function main() {
           console.log(`      ${t.description}\n`);
         }
         console.log(`  Usage : npx aiad-sdd new <template> [<dir>] [--force] [--dry-run]\n`);
+        break;
+      }
+      if (positionals[1] === 'info') {
+        const id = positionals[2];
+        const liste = listerTemplates();
+        const t = id ? liste.find((x) => x.id === id) : null;
+        if (!t) {
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ id: id || null, found: false, available: liste.map((x) => x.id) }, null, 2) + '\n');
+          } else {
+            console.error(`\n  Template inconnu : "${id || ''}". Disponibles : ${liste.map((x) => x.id).join(', ')}.\n`);
+            exit(1);
+          }
+          break;
+        }
+        const template = { id: t.id, title: t.title, description: t.description, target: t.target, language: t.language, framework: t.framework, license: t.license };
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ id: t.id, found: true, template }, null, 2) + '\n');
+        } else {
+          console.log(`\n  ${t.title} (${t.id})\n  ${t.description}\n  Target: ${t.target} · Lang: ${t.language}${t.framework ? ' · Framework: ' + t.framework : ''} · License: ${t.license}\n`);
+        }
         break;
       }
       const templateId = positionals[1];
@@ -1245,12 +1526,38 @@ async function main() {
     }
 
     case 'emit-rules': {
-      const stats = await emitRules(cwd(), {
-        runtimes: liste(values.runtime, ['all']),
-        check: Boolean(values.check),
-        force: Boolean(values.force),
-        dryRun: Boolean(values['dry-run']),
-      });
+      if (positionals[1] === 'runtimes') {
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ runtimes: EMIT_RUNTIMES, total: EMIT_RUNTIMES.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Runtimes IA supportés par emit-rules (${EMIT_RUNTIMES.length}) :\n`);
+          for (const r of EMIT_RUNTIMES) console.log(`    • ${r}`);
+          console.log('');
+        }
+        break;
+      }
+      const json = Boolean(values.json);
+      const savedLog = console.log;
+      if (json) console.log = () => {};
+      let stats;
+      try {
+        stats = await emitRules(cwd(), {
+          runtimes: liste(values.runtime, ['all']),
+          check: Boolean(values.check),
+          force: Boolean(values.force),
+          dryRun: Boolean(values['dry-run']),
+        });
+      } finally {
+        if (json) console.log = savedLog;
+      }
+      if (json) {
+        process.stdout.write(JSON.stringify({
+          runtimes: liste(values.runtime, ['all']),
+          check: Boolean(values.check),
+          dryRun: Boolean(values['dry-run']),
+          created: stats.created, updated: stats.updated, unchanged: stats.unchanged, drifts: stats.drifts,
+        }, null, 2) + '\n');
+      }
       if (values.check && stats && stats.drifts && stats.drifts.length > 0) {
         exit(1);
       }
@@ -1284,7 +1591,11 @@ async function main() {
           }
           const payload = intentVersIssue(cwd(), values.intent);
           if (values['dry-run']) {
-            console.log('\n  (dry-run) — payload Issue :\n\n' + JSON.stringify(payload, null, 2) + '\n');
+            if (values.json) {
+              process.stdout.write(JSON.stringify({ dryRun: true, payload }, null, 2) + '\n');
+            } else {
+              console.log('\n  (dry-run) — payload Issue :\n\n' + JSON.stringify(payload, null, 2) + '\n');
+            }
           } else {
             const r = await creerIssue(config, payload);
             if (values.json) process.stdout.write(JSON.stringify(r, null, 2) + '\n');
@@ -1299,10 +1610,15 @@ async function main() {
           }
           const payload = artefactVersWiki(cwd(), { kind, id });
           if (values['dry-run']) {
-            console.log('\n  (dry-run) — page wiki :\n\n' + JSON.stringify(payload, null, 2) + '\n');
+            if (values.json) {
+              process.stdout.write(JSON.stringify({ dryRun: true, kind, payload }, null, 2) + '\n');
+            } else {
+              console.log('\n  (dry-run) — page wiki :\n\n' + JSON.stringify(payload, null, 2) + '\n');
+            }
           } else {
             const r = await publierWiki(config, payload);
-            console.log(`\n  ✓ Page wiki ${r.action} : ${payload.slug}\n`);
+            if (values.json) process.stdout.write(JSON.stringify(r, null, 2) + '\n');
+            else console.log(`\n  ✓ Page wiki ${r.action} : ${payload.slug}\n`);
           }
         } else {
           console.error('\n  Usage : aiad-sdd gitlab <sub>\n  Sous-commandes : review, issue, wiki\n');
@@ -1320,6 +1636,25 @@ async function main() {
         const id = positionals[1];
         if (!id || values.list) {
           tutorielsListe({ json: Boolean(values.json) });
+        } else if (id === 'info') {
+          const tutId = positionals[2];
+          const available = Object.keys(TUTORIELS_REG);
+          const t = tutId && TUTORIELS_REG[tutId];
+          if (!t) {
+            if (Boolean(values.json)) {
+              process.stdout.write(JSON.stringify({ id: tutId || null, found: false, available }, null, 2) + '\n');
+            } else {
+              console.error(`\n  Tutoriel inconnu : "${tutId || ''}". Disponibles : ${available.join(', ')}.\n`);
+              exit(1);
+            }
+            break;
+          }
+          const tutorial = { id: tutId, title: t.title, specDomain: t.specDomain, intentTitle: t.intent.title, workflow: t.workflow };
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ id: tutId, found: true, tutorial }, null, 2) + '\n');
+          } else {
+            console.log(`\n  ${t.title} (${tutId})\n  SpecDomain : ${t.specDomain}\n  Intent     : ${t.intent.title}\n  Workflow (${t.workflow.length}) :\n${t.workflow.map((w) => '    ' + w).join('\n')}\n`);
+          }
         } else {
           executerTutoriel(cwd(), id, {
             out: values.out,
@@ -1365,13 +1700,22 @@ async function main() {
         } else if (sub === 'init') {
           const { writeFileSync, mkdirSync, existsSync: existsLocal } = await import('node:fs');
           const path = join(cwd(), '.aiad', 'org.yml');
-          if (existsLocal(path) && !values.force) {
+          const existsBefore = existsLocal(path);
+          const dryRun = Boolean(values['dry-run']);
+          if (existsBefore && !values.force && !dryRun) {
             console.error(`\n  ${path} existe déjà. --force pour écraser.\n`);
             exit(1);
           }
-          if (!existsLocal(join(cwd(), '.aiad'))) mkdirSync(join(cwd(), '.aiad'), { recursive: true });
-          writeFileSync(path, orgTemplate(), 'utf-8');
-          console.log(`\n  ✓ Template org config créé : ${path}\n  Édite ce fichier pour définir les politiques organisationnelles.\n`);
+          if (!dryRun) {
+            if (!existsLocal(join(cwd(), '.aiad'))) mkdirSync(join(cwd(), '.aiad'), { recursive: true });
+            writeFileSync(path, orgTemplate(), 'utf-8');
+          }
+          const action = dryRun ? 'preview' : (existsBefore ? 'overwritten' : 'created');
+          if (values.json) {
+            process.stdout.write(JSON.stringify({ path, exists: existsBefore, action, dryRun }, null, 2) + '\n');
+          } else {
+            console.log(`\n  ✓ Template org config ${action} : ${path}${dryRun ? ' (dry-run)' : ''}\n  Édite ce fichier pour définir les politiques organisationnelles.\n`);
+          }
         } else if (sub === 'check') {
           // Construit un état projet minimal pour la vérification
           const { readdirSync, existsSync: existsLocal } = await import('node:fs');
@@ -1417,13 +1761,25 @@ async function main() {
         const { writeFileSync, mkdirSync, existsSync: existsLocal } = await import('node:fs');
         const dir = join(cwd(), '.aiad', 'hooks');
         const path = join(dir, 'aiad-hooks.js');
-        if (existsLocal(path) && !values.force) {
-          console.error(`\n  ${path} existe déjà. Utilise --force pour écraser.\n`);
+        const relPath = '.aiad/hooks/aiad-hooks.js';
+        const dryRun = Boolean(values['dry-run']);
+        if (existsLocal(path) && !values.force && !dryRun) {
+          if (values.json) {
+            process.stdout.write(JSON.stringify({ path: relPath, dryRun: false, exists: true }, null, 2) + '\n');
+          } else {
+            console.error(`\n  ${path} existe déjà. Utilise --force pour écraser.\n`);
+          }
           exit(1);
         }
-        if (!existsLocal(dir)) mkdirSync(dir, { recursive: true });
-        writeFileSync(path, commandHookTemplate(), 'utf-8');
-        console.log(`\n  ✓ Template hook créé : ${path}\n  Édite ce fichier pour ajouter tes policies before/after.\n`);
+        if (!dryRun) {
+          if (!existsLocal(dir)) mkdirSync(dir, { recursive: true });
+          writeFileSync(path, commandHookTemplate(), 'utf-8');
+        }
+        if (values.json) {
+          process.stdout.write(JSON.stringify({ path: relPath, dryRun }, null, 2) + '\n');
+        } else {
+          console.log(`\n  ✓ Template hook ${dryRun ? '(dry-run, non écrit)' : `créé : ${path}`}\n  Édite ce fichier pour ajouter tes policies before/after.\n`);
+        }
       } catch (err) {
         console.error(`\n  ${err.message}\n`);
         exit(1);
@@ -1519,6 +1875,25 @@ async function main() {
       try {
         if (sub === 'setup') {
           ghAppSetup({ json: Boolean(values.json) });
+        } else if (sub === 'info') {
+          const id = positionals[2];
+          const artefacts = ghAppListerArtefacts();
+          const a = id ? artefacts.find((x) => x.id === id) : null;
+          if (!a) {
+            if (Boolean(values.json)) {
+              process.stdout.write(JSON.stringify({ id: id || null, found: false, available: artefacts.map((x) => x.id) }, null, 2) + '\n');
+            } else {
+              console.error(`\n  Artefact inconnu : "${id || ''}". Disponibles : ${artefacts.map((x) => x.id).join(', ')}.\n`);
+              exit(1);
+            }
+            break;
+          }
+          const artefact = { id: a.id, label: a.label, source: a.source, cible: a.cible, description: a.description };
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ id: a.id, found: true, artefact }, null, 2) + '\n');
+          } else {
+            console.log(`\n  ${a.label} (${a.id})\n  ${a.description}\n  Source: ${a.source}\n  Cible : ${a.cible}\n`);
+          }
         } else if (sub === 'install') {
           const id = positionals[2];
           if (!id) {
@@ -1547,6 +1922,25 @@ async function main() {
         const forgeId = positionals[1];
         if (!forgeId || values.list) {
           ciTemplatesListe({ json: Boolean(values.json) });
+        } else if (forgeId === 'info') {
+          const id = positionals[2];
+          const forges = ciListerForges();
+          const f = id ? forges.find((x) => x.id === id) : null;
+          if (!f) {
+            if (Boolean(values.json)) {
+              process.stdout.write(JSON.stringify({ id: id || null, found: false, available: forges.map((x) => x.id) }, null, 2) + '\n');
+            } else {
+              console.error(`\n  Forge inconnue : "${id || ''}". Disponibles : ${forges.map((x) => x.id).join(', ')}.\n`);
+              exit(1);
+            }
+            break;
+          }
+          const forge = { id: f.id, label: f.label, source: f.source, cible: f.cible, description: f.description };
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ id: f.id, found: true, forge }, null, 2) + '\n');
+          } else {
+            console.log(`\n  ${f.label} (${f.id})\n  ${f.description}\n  Source: ${f.source}\n  Cible:  ${f.cible}\n`);
+          }
         } else {
           ciInstaller(cwd(), forgeId, {
             out: values.out,
@@ -1585,7 +1979,11 @@ async function main() {
           }
           const payload = bitbucketIntentVersIssue(cwd(), values.intent);
           if (values['dry-run']) {
-            console.log('\n  (dry-run) — payload Issue Bitbucket :\n\n' + JSON.stringify(payload, null, 2) + '\n');
+            if (values.json) {
+              process.stdout.write(JSON.stringify({ dryRun: true, payload }, null, 2) + '\n');
+            } else {
+              console.log('\n  (dry-run) — payload Issue Bitbucket :\n\n' + JSON.stringify(payload, null, 2) + '\n');
+            }
           } else {
             const config = bitbucketConfig({
               workspace: values.org,
@@ -1684,6 +2082,17 @@ async function main() {
 
     case 'pii-scan': {
       const arg = positionals[1];
+      if (values.rules) {
+        const rules = PII_DETECTEURS.map((d) => ({ id: d.id, label: d.label, severity: d.severity, hasVerify: typeof d.verify === 'function' }));
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ rules, total: rules.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  ${rules.length} règles de détection PII :\n`);
+          for (const r of rules) console.log(`    [${r.severity}] ${r.id} — ${r.label}${r.hasVerify ? ' (vérification)' : ''}`);
+          console.log('');
+        }
+        break;
+      }
       const r = piiScan(cwd(), {
         path: arg,
         staged: Boolean(values.staged) && !arg,
@@ -1706,6 +2115,16 @@ async function main() {
       try {
         if (values.complete !== undefined) {
           completionEmettre(cwd(), { complete: values.complete });
+        } else if (values.list) {
+          const shells = COMPLETION_CONSTANTS.SHELLS_VALIDES;
+          const install = { bash: '~/.bashrc', zsh: '~/.zshrc', fish: '~/.config/fish/completions/aiad-sdd.fish' };
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ shells, install, total: shells.length }, null, 2) + '\n');
+          } else {
+            console.log('\n  Shells supportés : ' + shells.join(', ') + '\n');
+            for (const s of shells) console.log(`  ${s}\t→ ${install[s]}`);
+            console.log('');
+          }
         } else {
           const shell = positionals[1];
           completionEmettre(cwd(), { shell });
@@ -1720,6 +2139,21 @@ async function main() {
     case 'sla': {
       const sub = positionals[1] || 'show';
       try {
+        if (sub === 'policy') {
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify(SLA_POLITIQUE, null, 2) + '\n');
+          } else {
+            console.log(`\n  Politique SLA par défaut AIAD :\n`);
+            for (const [k, v] of Object.entries(SLA_POLITIQUE)) {
+              if (typeof v === 'object') {
+                console.log(`    ${k} :`);
+                for (const [sk, sv] of Object.entries(v)) console.log(`      ${sk} : ${sv}`);
+              } else console.log(`    ${k} : ${v}`);
+            }
+            console.log('');
+          }
+          break;
+        }
         if (sub === 'show') {
           slaShow(cwd(), { json: Boolean(values.json) });
         } else if (sub === 'check') {
@@ -1743,6 +2177,17 @@ async function main() {
 
     case 'archive': {
       try {
+        if (positionals[1] === 'types') {
+          const types = ARCHIVE_TYPES.map((t) => ({ kind: t.kind, prefixes: t.prefixes, format: t.format }));
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ types, total: types.length }, null, 2) + '\n');
+          } else {
+            console.log(`\n  Types d'artefacts archivables (${types.length}) :\n`);
+            for (const t of types) console.log(`    • ${t.kind} (préfixes : ${t.prefixes.join(', ')}, format : ${t.format})`);
+            console.log('');
+          }
+          break;
+        }
         if (values.list || (positionals[1] === 'list')) {
           afficherArchives(cwd(), { json: Boolean(values.json) });
         } else if (values.restore) {
@@ -1861,6 +2306,15 @@ async function main() {
       try {
         if (sub === 'list') {
           listerSouscriptions(cwd(), { json: Boolean(values.json) });
+        } else if (sub === 'types') {
+          const events = WEBHOOKS_CONSTANTS.EVENTS_VALIDES;
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ events, total: events.length }, null, 2) + '\n');
+          } else {
+            console.log(`\n  Types d'événements webhooks supportés (${events.length}) :\n`);
+            for (const e of events) console.log(`    • ${e}`);
+            console.log('');
+          }
         } else if (sub === 'test') {
           const r = await webhookTest(cwd(), { type: values.type, dryRun: Boolean(values['dry-run']) });
           if (values.json) process.stdout.write(JSON.stringify(r, null, 2) + '\n');
@@ -1918,7 +2372,11 @@ async function main() {
           }
           const payload = intentVersWorkItem(cwd(), values.intent);
           if (values['dry-run']) {
-            console.log('\n  (dry-run) — Work Item à créer :\n\n' + JSON.stringify(payload, null, 2) + '\n');
+            if (values.json) {
+              process.stdout.write(JSON.stringify({ dryRun: true, payload }, null, 2) + '\n');
+            } else {
+              console.log('\n  (dry-run) — Work Item à créer :\n\n' + JSON.stringify(payload, null, 2) + '\n');
+            }
           } else {
             const r = await creerWorkItem(config, payload);
             if (values.json) process.stdout.write(JSON.stringify(r, null, 2) + '\n');
@@ -1933,10 +2391,15 @@ async function main() {
           }
           const payload = azureArtefactVersWiki(cwd(), { kind, id });
           if (values['dry-run']) {
-            console.log('\n  (dry-run) — page wiki Azure :\n\n' + JSON.stringify(payload, null, 2) + '\n');
+            if (values.json) {
+              process.stdout.write(JSON.stringify({ dryRun: true, kind, payload }, null, 2) + '\n');
+            } else {
+              console.log('\n  (dry-run) — page wiki Azure :\n\n' + JSON.stringify(payload, null, 2) + '\n');
+            }
           } else {
             const r = await azurePublierWiki(config, payload);
-            console.log(`\n  ✓ Page wiki ${r.action} : ${payload.path}\n`);
+            if (values.json) process.stdout.write(JSON.stringify(r, null, 2) + '\n');
+            else console.log(`\n  ✓ Page wiki ${r.action} : ${payload.path}\n`);
           }
         } else {
           console.error('\n  Usage : aiad-sdd azure <sub>\n  Sous-commandes : pr, work-item, wiki\n');
@@ -1950,6 +2413,27 @@ async function main() {
     }
 
     case 'sovereignty': {
+      if (positionals[1] === 'dimensions') {
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ dimensions: SOVEREIGNTY_DIMENSIONS, total: SOVEREIGNTY_DIMENSIONS.length, scoreMax: SOVEREIGNTY_DIMENSIONS.reduce((s, d) => s + d.max, 0) }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Dimensions Sovereignty Score AIAD (${SOVEREIGNTY_DIMENSIONS.length}) :\n`);
+          for (const d of SOVEREIGNTY_DIMENSIONS) console.log(`    • ${d.id} (${d.max} pts) — ${d.label}\n      ${d.desc}`);
+          console.log('');
+        }
+        break;
+      }
+      if (positionals[1] === 'niveaux') {
+        const niveaux = SOVEREIGNTY_NIVEAUX.map((n) => ({ label: n.label, min: n.min }));
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ niveaux, total: niveaux.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Niveaux Sovereignty Score AIAD (${niveaux.length}) :\n`);
+          for (const n of niveaux) console.log(`    • ${n.label} — score ≥ ${n.min}`);
+          console.log('');
+        }
+        break;
+      }
       const r = sovereigntyScore(cwd(), { json: Boolean(values.json) });
       if (values.check && r.score < 60) exit(1);
       break;
@@ -2265,7 +2749,47 @@ async function main() {
       // NB : `--release` plutôt que `--version` car ce dernier est réservé
       // au flag global qui affiche la version d'aiad-sdd.
       try {
-        if (values['import-git']) {
+        if (positionals[1] === 'types') {
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ statuses: DORA_STATUS, total: DORA_STATUS.length }, null, 2) + '\n');
+          } else {
+            console.log(`\n  Statuts de déploiement DORA (${DORA_STATUS.length}) :\n`);
+            for (const s of DORA_STATUS) console.log(`    • ${s}`);
+            console.log('');
+          }
+          break;
+        }
+        if (positionals[1] === 'metrics') {
+          const metrics = [
+            { id: 'deployment-frequency', label: 'Deployment Frequency', desc: 'Fréquence de déploiements production (par jour/semaine/mois)' },
+            { id: 'lead-time-changes', label: 'Lead Time for Changes', desc: 'Délai entre commit et mise en production' },
+            { id: 'change-failure-rate', label: 'Change Failure Rate', desc: 'Pourcentage de déploiements provoquant un incident' },
+            { id: 'mttr', label: 'Mean Time to Recovery', desc: 'Temps moyen de remise en service après incident' },
+          ];
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ metrics, total: metrics.length }, null, 2) + '\n');
+          } else {
+            console.log(`\n  Métriques DORA standard (${metrics.length}) :\n`);
+            for (const m of metrics) console.log(`    • ${m.id} — ${m.label}\n      ${m.desc}`);
+            console.log('');
+          }
+          break;
+        }
+        if (values.list) {
+          // (#447) Liste les déploiements existants depuis .aiad/metrics/deployments/
+          const deployments = listerDeploys(cwd());
+          if (values.json) {
+            process.stdout.write(JSON.stringify({
+              _meta: buildMeta({ schema: 'aiad-sdd-dora', action: 'list' }),
+              deployments, total: deployments.length,
+            }, null, 2) + '\n');
+          } else if (deployments.length === 0) {
+            console.log('Aucun déploiement enregistré dans .aiad/metrics/deployments/.');
+          } else {
+            console.log(`${deployments.length} déploiement(s) :`);
+            for (const d of deployments) console.log(`  - ${d.nom} (${d.status}${d.version ? ', ' + d.version : ''})`);
+          }
+        } else if (values['import-git']) {
           // (#185) Génère un fichier deploy par tag Git
           const imported = importDeploysFromGit(cwd(), { since: values.since });
           if (values.json) {
@@ -2313,6 +2837,17 @@ async function main() {
     case 'dinum': {
       const sub = positionals[1] || 'check';
       try {
+        if (sub === 'criteria') {
+          const criteria = DINUM_CRITERES.map((c) => ({ id: c.id, label: c.label }));
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ criteria, total: criteria.length }, null, 2) + '\n');
+          } else {
+            console.log(`\n  Critères Commun Numérique de l'État FR (${criteria.length}) :\n`);
+            for (const c of criteria) console.log(`    • ${c.id} — ${c.label}`);
+            console.log('');
+          }
+          break;
+        }
         if (sub === 'publiccode') {
           genererPublicCode(cwd(), {
             out: values.out,
@@ -2359,7 +2894,20 @@ async function main() {
         const r = verifierProvenance(cwd(), { json: Boolean(values.json) });
         if (!r.valid) exit(1);
       } else if (sub === 'sigstore') {
-        console.log(bundleSigstoreCommande(cwd()));
+        if (Boolean(values.json)) {
+          const predicate = '.aiad/provenance/attestation.json';
+          const bundle = predicate + '.sigstore-bundle';
+          process.stdout.write(JSON.stringify({
+            predicate, bundle, predicateType: 'slsaprovenance1',
+            docsUrl: 'https://docs.sigstore.dev/cosign/signing/signing_with_blobs/',
+            commands: {
+              sign: `cosign attest-blob --predicate ${predicate} --type slsaprovenance1 --bundle ${bundle} <tarball.tgz>`,
+              verify: `cosign verify-blob-attestation --bundle ${bundle} --type slsaprovenance1 --certificate-identity-regexp '.*' --certificate-oidc-issuer-regexp '.*' <tarball.tgz>`,
+            },
+          }, null, 2) + '\n');
+        } else {
+          console.log(bundleSigstoreCommande(cwd()));
+        }
       } else {
         console.error(`\n  Usage : aiad-sdd provenance <sub>\n  Sous-commandes : generate, verify, sigstore (commande cosign à coller en CI)\n`);
         exit(1);
@@ -2371,6 +2919,14 @@ async function main() {
       const sub = positionals[1] || 'log';
       if (sub === 'log') {
         auditLog(cwd(), { json: Boolean(values.json) });
+      } else if (sub === 'types') {
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ actions: AUDIT_ACTIONS, total: AUDIT_ACTIONS.length }, null, 2) + '\n');
+        } else {
+          console.log(`\n  Actions audit log AIAD (${AUDIT_ACTIONS.length}) :\n`);
+          for (const a of AUDIT_ACTIONS) console.log(`    • ${a}`);
+          console.log('');
+        }
       } else if (sub === 'verify') {
         const r = auditVerifier(cwd(), { json: Boolean(values.json) });
         if (!r.valid) exit(1);
