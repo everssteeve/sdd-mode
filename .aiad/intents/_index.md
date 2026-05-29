@@ -6,7 +6,7 @@
 
 | ID | Titre | Auteur | Date | SPECs liées | Statut |
 |----|-------|--------|------|-------------|--------|
-| | | | | | |
+| INTENT-001 | Feedback qualitatif utilisateurs SDD Mode | Steeve Evers | 2026-05-29 | SPEC-001-1 | done |
 
 ## Cycle de vie d'un Intent Statement
 

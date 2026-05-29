@@ -21,6 +21,7 @@ import { uninstall } from '../lib/uninstall.js';
 import { validerSkills } from '../lib/skills.js';
 import { docs } from '../lib/docs.js';
 import { optIn as telemetryOptIn, optOut as telemetryOptOut, showStatus as telemetryStatus, track as telemetryTrack } from '../lib/telemetry.js';
+import { incrementSession as feedbackIncrementSession, tryInvite as feedbackTryInvite, runFeedbackCommand } from '../lib/feedback.js';
 import { ouvrirRepl } from '../lib/repl.js';
 import { migrer } from '../lib/migrate.js';
 import { migrate as migrateV2 } from '../lib/migrate-v2.js';
@@ -347,6 +348,7 @@ const AIDE = `
     verify-reproducibility  Calcule le content hash déterministe du tarball (CRA, SLSA, NIST SSDF)
     docs [--check]        Régénère DOCUMENTATION.md depuis les sources (CI parity)
     telemetry <sub>       Télémétrie opt-in (opt-in / opt-out / status [--json])
+    feedback [<sub>]      Feedback qualitatif (opt-in / opt-out / status) — invitation auto toutes les 15 sessions
     uninstall [options]   Retire aiad-sdd du projet (mode aperçu sauf --force)
     bench [compare]       Mesure cold-start ; --persist log historique ; compare --since N --threshold T
     trace [options]       Génère la matrice Intent ↔ SPEC ↔ Code ↔ Tests
@@ -536,6 +538,9 @@ async function main() {
       version: VERSION,
       runtimes: values.runtime ? values.runtime.split(',').map((s) => s.trim()) : [],
     });
+  }
+  if (command !== 'feedback') {
+    feedbackIncrementSession();
   }
 
   switch (command) {
@@ -917,6 +922,16 @@ async function main() {
         console.error(`\n  Sous-commande inconnue : "${sub}". Disponibles : opt-in, opt-out, status.\n`);
         exit(1);
       }
+      break;
+    }
+
+    case 'feedback': {
+      const sub = positionals[1];
+      if (sub !== undefined && !['opt-in', 'opt-out', 'status'].includes(sub)) {
+        console.error(`\n  Sous-commande inconnue : "${sub}". Disponibles : opt-in, opt-out, status.\n`);
+        exit(1);
+      }
+      await runFeedbackCommand(sub, VERSION);
       break;
     }
 
@@ -2960,7 +2975,7 @@ async function main() {
       const COMMANDES_VALIDES = [
         'init', 'update', 'gouvernance', 'hooks', 'status', 'doctor', 'repl',
         'migrate', 'migrate-v2', 'obsidian', 'workspace', 'ai-act', 'sbom', 'verify-reproducibility',
-        'dpia', 'docs', 'telemetry', 'skills', 'uninstall', 'bench', 'trace',
+        'dpia', 'docs', 'telemetry', 'feedback', 'skills', 'uninstall', 'bench', 'trace',
         'dashboard', 'emit-rules', 'new', 'import', 'score', 'template',
         'review', 'suggest-annotations', 'export', 'storybook', 'cert',
         'marketplace', 'audit', 'provenance', 'hook-stats', 'dinum', 'sovereignty', 'adrs', 'dora', 'self-update', 'standup', 'brief', 'badge', 'gitlab', 'azure', 'webhooks', 'reflect', 'negotiate', 'refactor-spec', 'spec-version', 'archive', 'sla', 'completion', 'tour', 'pii-scan', 'backup', 'restore', 'offline', 'bitbucket', 'ci-template', 'github-app', 'anonymize', 'plugin', 'hooks-init', 'schema', 'org', 'rbac', 'tutorial', 'help', 'version',
@@ -2981,6 +2996,10 @@ main()
       await commandHookAfter(cwd(), {
         command, args: values, exitCode: 0, durationMs: Date.now() - _aiadStart,
       });
+    }
+    // Invitation feedback périodique (toutes les 15 sessions, TTY uniquement, fail-safe)
+    if (command !== 'feedback') {
+      await feedbackTryInvite(VERSION);
     }
   })
   .catch(async (err) => {
