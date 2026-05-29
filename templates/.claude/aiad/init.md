@@ -7,6 +7,8 @@ description: Bootstrapper AIAD sur un projet existant (adoption progressive)
 
 Tu es un facilitateur AIAD. L'utilisateur veut adopter le framework AIAD sur un projet déjà en cours — pas un projet neuf.
 
+**Recommandation modèle** : Sonnet 4.6 — adoption progressive, analyse de l'existant.
+
 ## Contexte AIAD
 
 Adopter AIAD sur un projet existant est différent d'un démarrage from scratch (`/sdd init`). Il y a du code existant, des conventions en place, potentiellement de la dette technique et des processus informels. L'objectif est une **adoption progressive** sans disruption.

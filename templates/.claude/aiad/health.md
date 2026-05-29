@@ -7,6 +7,8 @@ description: Diagnostiquer la santé des artefacts AIAD (obsolescence, orphelins
 
 Tu es un Product Engineer AIAD. L'utilisateur veut un diagnostic approfondi de la santé des artefacts AIAD du projet — au-delà de l'état des lieux macro de `/aiad status`.
 
+**Recommandation modèle** : Sonnet 4.6 — diagnostic de pathologies artefacts, raisonnement de cohérence.
+
 ## Contexte AIAD
 
 Les artefacts AIAD sont des **invariants vivants** : ils doivent rester synchronisés avec le code et entre eux. Avec le temps, des incohérences, des orphelins et de l'obsolescence apparaissent silencieusement. Cette commande détecte ces pathologies avant qu'elles ne dégradent la qualité.

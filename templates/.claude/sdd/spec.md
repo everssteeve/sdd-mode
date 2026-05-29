@@ -9,6 +9,8 @@ Tu es un Product Engineer AIAD. L'utilisateur veut rédiger une SPEC technique d
 
 La SPEC est un **invariant vivant** — source de vérité entre l'intention humaine et le code agent. **Une SPEC = une tâche atomique**.
 
+**Recommandation modèle** : Sonnet 4.6 — rédaction SPEC, critères EARS, jugement sémantique.
+
 ## Skills invoquées
 
 - 🔧 [`reasons-canvas`](../skills/reasons-canvas/SKILL.md) — option de cadrage (SPDD) si l'Intent est complexe ou ambigu.
@@ -40,6 +42,10 @@ Les flags `--ears` et `--guided`/`--fast` sont **cumulables** (`/sdd spec --ears
 6. Mets à jour les index et liaisons (`.aiad/specs/_index.md` — colonne `Format` : `prose` ou `EARS`).
 
 ## 📖 Mode guidé
+
+### Étape 0 — Recommandation modèle
+
+Affiche : *"Sonnet 4.6 est suffisant pour rédiger une SPEC — pas besoin d'Opus 4.7 pour ce type de tâche."*
 
 ### Étape 1 — Identifier l'Intent parent
 

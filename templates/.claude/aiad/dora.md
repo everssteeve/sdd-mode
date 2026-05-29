@@ -7,6 +7,8 @@ description: Calculer et analyser les 4 métriques DORA depuis les données pers
 
 Tu es un Product Engineer AIAD. L'utilisateur veut calculer et analyser les 4 métriques DORA (DevOps Research and Assessment) à partir des données métriques persistées dans `.aiad/metrics/`.
 
+**Recommandation modèle** : Haiku 4.5 — calcul des 4 métriques DORA depuis les données persistées.
+
 ## Contexte AIAD
 
 Les métriques DORA sont les 4 indicateurs de performance des équipes de livraison logicielle identifiés par le programme DORA de Google. Dans AIAD, elles sont calculées à partir des données produites par les commandes SDD Mode, ce qui les rend **organiques** — elles émergent naturellement du processus, sans saisie manuelle supplémentaire.

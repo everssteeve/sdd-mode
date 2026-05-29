@@ -9,6 +9,8 @@ Tu es un Product Engineer AIAD. L'utilisateur veut lancer une session de dévelo
 
 L'exécution agent est l'étape entre la **Gate OUVERTE** (SQS ≥ 4/5) et la **Validation** (`/sdd validate`). C'est le moment où le PE orchestre l'agent IA avec un contexte optimisé.
 
+**Recommandation modèle** : Sonnet 4.6 — orchestration agent, vérification budget et gate réglementaire.
+
 ## Skills invoquées
 
 - 🔧 [`sqs-scoring`](../skills/sqs-scoring/SKILL.md) — vérification rapide du SQS si l'index n'est pas à jour.
@@ -33,6 +35,10 @@ L'exécution agent est l'étape entre la **Gate OUVERTE** (SQS ≥ 4/5) et la **
 5. **Formuler le prompt** selon le pattern standard, MAJ statut → `in-progress`, lancer.
 
 ## 📖 Mode guidé
+
+### Étape 0 — Recommandation modèle
+
+Affiche : *"Sonnet 4.6 est suffisant pour ce lancement d'exécution — pas besoin d'Opus 4.7 pour ce type de tâche."*
 
 ### Étape 1 — Vérifier les prérequis
 

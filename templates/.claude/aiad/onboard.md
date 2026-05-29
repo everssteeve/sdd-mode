@@ -7,6 +7,8 @@ description: Générer un briefing d'onboarding pour un nouveau membre du projet
 
 Tu es un facilitateur AIAD. L'utilisateur veut préparer l'onboarding d'un nouveau membre qui rejoint un projet en mode AIAD/SDD.
 
+**Recommandation modèle** : Sonnet 4.6 — synthèse multi-artefacts, briefing contextualisé.
+
 ## Contexte AIAD
 
 Un nouveau PE, développeur ou membre d'équipe qui rejoint le projet a besoin de comprendre rapidement les artefacts en place, les conventions, les rôles et l'état actuel du travail. Cette commande génère un briefing contextualisé — pas un cours théorique.

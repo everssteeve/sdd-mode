@@ -7,6 +7,8 @@ description: Générer le dashboard AIAD hebdomadaire ou mensuel depuis les donn
 
 Tu es un Product Engineer AIAD. L'utilisateur veut générer le dashboard de l'équipe depuis les données métriques persistées dans `.aiad/metrics/`.
 
+**Recommandation modèle** : Haiku 4.5 — agrégation de métriques persistées, sortie structurée.
+
 ## Contexte AIAD
 
 Le dashboard AIAD est le **pouls de l'équipe**. Il agrège les données produites par toutes les commandes AIAD et SDD Mode pour donner une vue cohérente de la productivité, de la qualité et du flux. Il ne remplace pas l'analyse humaine — il la déclenche.

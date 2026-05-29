@@ -13,6 +13,8 @@ Depuis la v1.10, le Drift Lock combine deux contrôles :
 1. **Heuristique git** (skill `drift-detection`) — code modifié sans SPEC mise à jour dans la même PR.
 2. **Mesure machine-vérifiable** (skill `traceability`) — annotations `@intent` / `@spec` / `@verified-by` / `@governance` cohérentes avec `.aiad/intents/` et `.aiad/specs/`.
 
+**Recommandation modèle** : Haiku 4.5 — vérification git et scan d'annotations, tâche algorithmique.
+
 ## Skills invoquées
 
 - 🔧 [`drift-detection`](../skills/drift-detection/SKILL.md) — détection homogène, output structuré.

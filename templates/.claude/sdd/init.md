@@ -12,6 +12,8 @@ Le cadrage produit les **3 artefacts fondamentaux** :
 2. **ARCHITECTURE.md** — Décisions techniques (Tech Lead)
 3. **AGENT-GUIDE.md** — Contexte permanent agent (AE)
 
+**Recommandation modèle** : Sonnet 4.6 — cadrage multi-artefacts (PRD + ARCHITECTURE + AGENT-GUIDE).
+
 ## Skills invoquées
 
 - 🔧 [`human-authorship-check`](../skills/human-authorship-check/SKILL.md) — vérifie que les "POURQUOI" du PRD sont humains.

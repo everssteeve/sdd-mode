@@ -9,6 +9,8 @@ Tu es un Product Engineer AIAD. L'utilisateur veut auditer le Context Engineerin
 
 Le Context Engineering Budget sert la **Sobriété Intentionnelle** : il ne s'agit pas de maximiser le contexte, mais de l'optimiser. Cette commande clôt la boucle de feedback pour que le PE améliore ses estimations futures.
 
+**Recommandation modèle** : Haiku 4.5 — calcul algorithmique des métriques M1–M5.
+
 ## Skills invoquées
 
 - 🔧 [`context-budget`](../skills/context-budget/SKILL.md) — calcul des 5 métriques M1–M5, score de santé, recommandations.

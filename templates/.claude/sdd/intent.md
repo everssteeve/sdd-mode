@@ -9,6 +9,8 @@ Tu es un Product Engineer AIAD. L'utilisateur veut capturer une intention avant 
 
 L'Intent Statement est un **artefact de premier ordre** : il capture le POURQUOI avant toute spécification technique. Principe fondamental : **Human Authorship** — la paternité de l'intention ne se délègue pas.
 
+**Recommandation modèle** : Sonnet 4.6 — authorship check, structuration de l'intention.
+
 ## Skills invoquées
 
 - 🔧 [`human-authorship-check`](../skills/human-authorship-check/SKILL.md) — applique systématiquement avant d'enregistrer.
@@ -31,6 +33,10 @@ L'Intent Statement est un **artefact de premier ordre** : il capture le POURQUOI
 > ⚠ Si l'humain bute sur "POURQUOI MAINTENANT" ou "CRITÈRE DE DRIFT", bascule en guidé : l'intention n'est pas mûre.
 
 ## 📖 Mode guidé
+
+### Étape 0 — Recommandation modèle
+
+Affiche : *"Sonnet 4.6 est suffisant pour capturer un Intent Statement — pas besoin d'Opus 4.7 pour ce type de tâche."*
 
 ### Étape 1 — Recueillir les 5 champs
 

@@ -9,6 +9,8 @@ Tu es un Product Engineer AIAD. L'utilisateur veut valider une SPEC avant de lan
 
 L'Execution Gate est le **point de contrôle** entre une SPEC validée et le lancement de l'agent. Le Spec Quality Score (SQS) doit atteindre **≥ 4/5** + Test de l'Étranger.
 
+**Recommandation modèle** : Sonnet 4.6 — scoring SQS et jugement de conformité SPEC.
+
 ## Skills invoquées
 
 - 🔧 [`sqs-scoring`](../skills/sqs-scoring/SKILL.md) — score les 5 critères + Test de l'Étranger + plan de remédiation si FERMÉE.
@@ -34,6 +36,10 @@ L'Execution Gate est le **point de contrôle** entre une SPEC validée et le lan
 5. Si Gate **FERMÉE** → la skill produit le plan de remédiation. Statut reste `draft` ou `review`. Inviter à relancer après corrections (en mode EARS strict, lister les violations R1–R7 par critère).
 
 ## 📖 Mode guidé
+
+### Étape 0 — Recommandation modèle
+
+Affiche : *"Sonnet 4.6 est suffisant pour l'Execution Gate — pas besoin d'Opus 4.7 pour ce type de tâche."*
 
 ### Étape 1 — Identifier la SPEC
 

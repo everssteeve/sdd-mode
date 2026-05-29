@@ -7,6 +7,8 @@ description: Calculer et analyser les métriques de flux depuis les données per
 
 Tu es un Product Engineer AIAD. L'utilisateur veut calculer et analyser les métriques de flux (Flow Metrics) à partir des données métriques persistées dans `.aiad/metrics/`.
 
+**Recommandation modèle** : Haiku 4.5 — calcul des 5 métriques de flux depuis les données persistées.
+
 ## Contexte AIAD
 
 Les Flow Metrics mesurent la **fluidité du flux de valeur** — de l'idée au déploiement. Là où les métriques DORA évaluent la performance de livraison, les Flow Metrics évaluent la santé du flux de travail. Dans AIAD, elles sont issues du cycle SDD Mode complet : Intent → SPEC → Gate → Exec → Validation → Drift Lock.
