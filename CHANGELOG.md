@@ -7,6 +7,98 @@
 > Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
 > Versionnage : [SemVer 2.0.0](https://semver.org/lang/fr/).
 
+## [1.15.0] — 2026-06-01
+
+### Ajouté
+
+- **guide** : practical SDD-Mode guide + backlog health score module
+- **feedback** : qualitative feedback command with periodic opt-in invitations
+- **openapi** : +43 routes — discovery-info, types-catalog, multi-forge stacks (#447-#491)
+- **dashboard** : PM initiative-cards/spec-lifecycle-time/quick-filters — cartes thèmes + lifecycle SPEC + filtres rapides (#558-#560)
+- **dashboard** : PM sponsor-scorecard/outcome-north-star/activity-feed — scorecard 5D + outcome alignment + feed 7j (#555-#557)
+- **dashboard** : PM section-visibility/quarterly-decisions/spec-quality-score — toggle sections + audit trim + score 5D (#552-#554)
+- **dashboard** : PM newcomer-checklist/pending-decisions/stakeholder-map — onboarding + queue décisions + carte stakeholder (#549-#551)
+- **dashboard** : PM bus-factor/sentiment-trend/rituals-calendar — single-owner risk + sentiment trend + rituels (#546-#548)
+- **dashboard** : PM acceptance-criteria/action-items/okr-progress — extracteur AC + tracker checkboxes + % OKR (#543-#545)
+- **dashboard** : PM velocity-by-tag/auto-archive-candidates/sprint-recap — productivité par thème + candidats archive + recap 14j (#540-#542)
+- **dashboard** : PM portfolio-diversity/dow-heatmap/pr-template — entropie Shannon + jour semaine + template PR Markdown (#537-#539)
+- **dashboard** : PM quarterly-retro-draft/prd-coverage-gaps/spec-annotation-coverage — rétro Markdown + trous PRD + annotations v1.10 (#534-#536)
+- **dashboard** : PM risk-transparency/cumulative-achievements/standup-script — transparence risque + compteur cumulé + script daily (#531-#533)
+- **dashboard** : PM done-timeline/prd-sections-coverage/outcome-completion — timeline mensuelle + couverture PRD + % outcomes (#528-#530)
+- **dashboard** : PM spec-scope/goal-alignment/velocity-sla — T-shirt size + alignement North Star + SLA vélocité (#525-#527)
+- **dashboard** : PM discovery-to-delivery/owner-workload/reading-time — cycle pipeline + WIP par owner + estimateur lecture (#522-#524)
+- **dashboard** : PM persona-outcome-matrix/throughput-trend/risk-concentration — heatmap couverture + intake vs delivery + hotspots risque (#519-#521)
+- **dashboard** : PM backlog-pyramid/spec-cross-intent/blocker-reminders — histogramme âge + SPECs transverses + snippets relance (#516-#518)
+- **dashboard** : PM spec-stuck/tag-clusters/cost-of-delay — SPECs stagnantes large + clusters thèmes + CoD scorer (#513-#515)
+- **dashboard** : PM state-transitions/orphan-deps/demo-agenda — timeline transitions + deps cassées + agenda demo (#510-#512)
+- **dashboard** : PM review-queue/accepted-risks/wins-wall — file revue + risques acceptés + mur des wins 30j (#507-#509)
+- **dashboard** : PM ttfs/customer-voice-wall/quarterly-delivery — discovery velocity + mur voix client + planifié-vs-livré (#504-#506)
+- **dashboard** : PM intent-compare/sponsor-prep/backlog-hygiene — comparaison side-by-side + brief 1:1 + détecteur anti-patterns (#501-#503)
+- **dashboard** : PM hypothesis-lifecycle/roadmap-timeline/pm-scorecard — dynamique hypothèses + Gantt-light + scorecard 6 KPIs (#498-#500)
+- **dashboard** : PM prd-freshness/customer-feedback/whats-new — surveillance vision + voix client + diff dernière visite (#495-#497)
+- **dashboard** : PM outcome-attribution/dd-balance/velocity-by-sponsor — rollup PRD outcome + équilibre discovery/delivery + vélocité sponsor (#492-#494)
+- **dashboard** : PM stakeholder-comms/decision-velocity/weekly-checklist — silence stakeholder + cadence décisions + checklist hebdo (#489-#491)
+- **dashboard** : PM intent-maturity/narrative/sprint-planner — complétude doc + narratif factuel + auto-priorisation (#486-#488)
+- **dashboard** : PM notif-center/sqs-readiness/health-timeline — agrégateur urgence + rollup SQS + sparkline santé (#483-#485)
+- **dashboard** : PM cockpit tabs/md-export/ai-act — onglets + export complet + conformité AI Act (#480-#482)
+- **dashboard** : PM cockpit theme/leaderboard/forecast — palette + classement + prédiction (#477-#479)
+- **dashboard** : PM cockpit goal-tree/ab-test/risk-burndown — arbre + expérimentations + évolution risques (#474-#476)
+- **dashboard** : PM cockpit freshness/standup/retro — backlog + timer + rétro (#471-#473)
+- **dashboard** : PM cockpit newsletter/velocity/wip — partage + delta + protection (#468-#470)
+- **dashboard** : PM cockpit focus/filters/links — daily focus + saved filters + quick links (#465-#467)
+- **dashboard** : PM cockpit onboarding/suggestions/heatmap — tour + clusters + rythme (#462-#464)
+- **dashboard** : PM cockpit confidence/journal/markdown — paris + journal + md léger (#459-#461)
+- **dashboard** : PM cockpit search/permalink/capacity — recherche + 🔗 + trimestres (#456-#458)
+- **dashboard** : PM cockpit deep-dive/progression — intent pages + burnup + refinement (#453-#455)
+- **dashboard** : PM cockpit OKR/discovery/tags — alignement + dual-track + slicing (#450-#452)
+- **dashboard** : PM cockpit print/capture/flow — print PDF + wizard + CFD (#447-#449)
+- **dashboard** : PM cockpit export/notifs/activité — CSV + sticky alerts + activité (#444-#446)
+- **dashboard** : PM cockpit ergonomie/décision — TOC + RICE matrix + decision log (#441-#443)
+- **dashboard** : PM cockpit lean product — cycle time + risques + hypothèses (#438-#440)
+- **dashboard** : PM cockpit ownership/bottlenecks — owner + goulots + sponsors (#435-#437)
+- **dashboard** : PM cockpit communication/temps — brief + diff + deps (#432-#434)
+- **dashboard** : PM cockpit rituels — demo readiness + persona drill + échéances (#429-#431)
+- **dashboard** : PM cockpit stratégique — priorités + roadmap + Outcome mapping (#426-#428)
+- **dashboard** : PM cockpit — couverture PRD + vélocité + recherche full-text (#423-#425)
+- **dashboard** : PM cockpit — sections Intent + intents.html enrichi + pm.html (#420-#422)
+- **dashboard** : add Kanban view with role-aware lens
+- **trace** : v1.14 — frontmatter parsing, cache, worker threads, watch mode, multi-language
+- /sdd prd and /sdd arch assistants + SPEC parallelism plan
+- HTML dashboard, --serve mode and GitHub Pages workflow (v1.13.0)
+- multi-runtime emit-rules generates AGENTS.md, Cursor MDC, Codex, Gemini (v1.12.0)
+- optional EARS variant with strict R1-R7 linter (v1.11.0)
+- machine-verifiable traceability matrix and /sdd trace (v1.10.0)
+- 7 reusable skills factor SDD command logic (v1.9.0)
+- --minimal profile and incremental upgrade path (v1.8.0)
+- namespace 27 commands into 3 routers (v1.7.0)
+- pre-commit hook enforces Drift Lock (code without SPEC)
+- SessionStart hook injects active Intent + Gate status
+- AIAD SDD Mode v1.6.0
+
+### Corrigé
+
+- **release** : guard stdout.trim() when stdio is inherit (null stdout)
+- **lint** : strip template literals before relative-import check
+- **hooks** : éviter les faux positifs JNSP sur la documentation du pattern
+- **trace** : accept short-form IDs and intent: frontmatter alias
+
+### Documentation
+
+- Batch A + Batch D + HYP-05-06-001 + HYP-05-20-003 (briefing ALIS 2026-05-31)
+- relier le cycle SDD au dossier de légitimation (Batch B, renvois croisés)
+- **legitimation** : dossier de légitimation empirique (Batch B / briefing ALIS)
+- ancrer Human Authorship sur Fowler (vibe coding / cognitive debt)
+- **commands** : add model recommendations to all 30 command templates
+- **changelog** : boucle 47 entries #558-#560 (rattrapage)
+- **changelog** : boucle 45 entries #552-#554 (rattrapage)
+- **backlog** : boucle 44 entries #549-#551 (rattrapage)
+- **changelog** : boucle 21 — Dashboard PM cockpit tabs/md-export/ai-act (#480-#482)
+- **backlog** : add productbacklog.md with audit additions and execution plan
+
+### Tests
+
+- **pii-scan** : construire les fixtures Stripe à l'exécution
+
 ## [Unreleased]
 
 ### Documentation — Ancrage Human Authorship sur le vocabulaire Fowler 2026 (Batch C / briefing ALIS 2026-05-31)

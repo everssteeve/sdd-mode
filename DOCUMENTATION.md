@@ -2,11 +2,11 @@
 ---
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
-version: 1.14.0
-source-hash: ceeff26b91b015af
+version: 1.15.0
+source-hash: 7725770dac65580f
 ---
 
-# aiad-sdd — Documentation utilisateur (v1.14.0)
+# aiad-sdd — Documentation utilisateur (v1.15.0)
 
 > Cette documentation est **régénérée à chaque changement** des sources de vérité (CLI, commandes slash, skills, gouvernance, conventions d'annotations). Toute édition manuelle sera écrasée. Pour modifier le contenu : édite la source puis relance `npx aiad-sdd docs`. Le mode `npx aiad-sdd docs --check` est utilisable en CI pour bloquer les PR qui désynchronisent la doc.
 
@@ -24,7 +24,7 @@ source-hash: ceeff26b91b015af
 Sortie de `aiad-sdd help` (extraite du bin pour rester à jour) :
 
 ```
-aiad-sdd v1.14.0 — Spec Driven Development pour Claude Code
+aiad-sdd v1.15.0 — Spec Driven Development pour Claude Code
   https://aiad.ovh
 
   Commandes :
@@ -94,6 +94,7 @@ aiad-sdd v1.14.0 — Spec Driven Development pour Claude Code
     verify-reproducibility  Calcule le content hash déterministe du tarball (CRA, SLSA, NIST SSDF)
     docs [--check]        Régénère DOCUMENTATION.md depuis les sources (CI parity)
     telemetry <sub>       Télémétrie opt-in (opt-in / opt-out / status [--json])
+    feedback [<sub>]      Feedback qualitatif (opt-in / opt-out / status) — invitation auto toutes les 15 sessions
     uninstall [options]   Retire aiad-sdd du projet (mode aperçu sauf --force)
     bench [compare]       Mesure cold-start ; --persist log historique ; compare --since N --threshold T
     trace [options]       Génère la matrice Intent ↔ SPEC ↔ Code ↔ Tests
@@ -282,4 +283,4 @@ Conventions reconnues par `aiad-sdd trace` (regex stables exportées par `lib/sd
 
 ---
 
-*Document régénéré automatiquement — source-hash `ceeff26b91b015af`, package v1.14.0.*
+*Document régénéré automatiquement — source-hash `7725770dac65580f`, package v1.15.0.*
