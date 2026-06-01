@@ -18,6 +18,9 @@ patterns:
   - "CHANGELOG.md"
   - "LICENSE"
 
+  # Documents de légitimation (argumentaires publiés — pas de code, pas de SPEC)
+  - "docs/legitimation/**"
+
   # Manifestes et lockfiles (mises à jour de dépendances)
   - "package.json"
   - "package-lock.json"
