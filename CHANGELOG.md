@@ -7,6 +7,10 @@
 > Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
 > Versionnage : [SemVer 2.0.0](https://semver.org/lang/fr/).
 
+## [1.17.0] — 2026-06-01
+
+_Pas de commits conventionnels détectés depuis la dernière release._
+
 ## [1.16.0] — 2026-06-01
 
 ### Ajouté
