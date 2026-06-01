@@ -152,7 +152,7 @@ function exec(cmd, args, opts = {}) {
   if (r.status !== 0) {
     throw new Error(`Échec ${cmd} ${args.join(' ')} (code ${r.status})\n${r.stderr || r.stdout}`);
   }
-  return r.stdout.trim();
+  return (r.stdout ?? '').trim();
 }
 
 function gitWorkingTreeClean() {
@@ -163,7 +163,7 @@ function gitWorkingTreeClean() {
 function dernierTag() {
   const r = spawnSync('git', ['describe', '--tags', '--abbrev=0'], { cwd: RACINE, encoding: 'utf-8' });
   if (r.status !== 0) return null;
-  return r.stdout.trim();
+  return (r.stdout ?? '').trim();
 }
 
 function commitsDepuis(tag) {
