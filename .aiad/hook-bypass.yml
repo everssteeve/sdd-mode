@@ -18,6 +18,11 @@ patterns:
   - "CHANGELOG.md"
   - "LICENSE"
 
+  # Documents narratifs du framework (prose, pas de code — racine + copies templates/)
+  # Le Drift Lock (sync code↔SPEC) ne s'applique pas à de la documentation.
+  - "frameworkAIAD.md"
+  - "SDDMode.md"
+
   # Documents de légitimation (argumentaires publiés — pas de code, pas de SPEC)
   - "docs/legitimation/**"
 

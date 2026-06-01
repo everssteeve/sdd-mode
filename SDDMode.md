@@ -167,6 +167,7 @@ Le Product Engineer est responsable du budget de contexte de chaque session agen
 **Ce que ça fait** : Évalue les 5 critères SQS (atomicité, précision, testabilité, non-ambiguïté, scope défini) + le Critère 6 non-scorable "Test de l'Étranger". Score ≥ 4/5 : gate ouverte. Score < 4/5 : retour en révision. Si gate ouverte, prépare le Context Engineering Budget.
 **Sortie** : Score SQS + décision gate ouverte/fermée + contexte d'injection préparé.
 **Révision graduée outillée** : l'outil `/code-review` de Claude Code (niveaux d'effort `low`/`medium`/`high`) peut servir de révision alignée sur le SQS — SQS 3/5 → `low`, 4/5 → `medium`, 5/5 → `high`. C'est un outillage **compatible et externe** au framework : il n'ajoute aucun critère au SQS, qui reste à 5 critères + le Critère 6.
+**Validation empirique externe** : l'Execution Gate répond au biais d'action de 35-65 % mesuré sur les agents SOTA — synthèse des preuves dans `docs/legitimation/execution-gate-evidence.md`.
 
 ---
 
@@ -175,6 +176,7 @@ Le Product Engineer est responsable du budget de contexte de chaque session agen
 **Quand** : Gate ouverte, SPEC committée, contexte préparé.
 **Ce que ça fait** : Structure le prompt de lancement avec le bon contexte (AGENT-GUIDE + ARCHITECTURE condensée + SPEC active uniquement). Exige un plan d'implémentation avant le code. Maintient l'agent dans le scope de la SPEC.
 **Sortie** : Plan d'implémentation validé puis code + tests conformes à la SPEC.
+**Légitimation** : l'autorité de lancement et de fusion reste humaine — pratique observée sur 29 585 PR (voir `docs/legitimation/execution-gate-evidence.md`).
 
 ---
 
