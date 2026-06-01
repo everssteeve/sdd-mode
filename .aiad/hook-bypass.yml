@@ -16,6 +16,7 @@ patterns:
   # Documentation racine
   - "README.md"
   - "CHANGELOG.md"
+  - "DOCUMENTATION.md"
   - "LICENSE"
 
   # Documents narratifs du framework (prose, pas de code — racine + copies templates/)
