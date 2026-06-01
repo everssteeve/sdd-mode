@@ -1,0 +1,21 @@
+# Index des SPECs
+
+> Chaque SPEC est une spécification technique atomique liée à un Intent Statement.
+> Nommage : `SPEC-NNN-[nom-court].md`
+> Commande : `/sdd spec` (ajouter `--ears` pour la variante EARS) dans Claude Code
+
+| ID | Titre | Intent parent | Format | SQS | Statut | PR |
+|----|-------|---------------|--------|-----|--------|----|
+| SPEC-001-1 | Feedback qualitatif opt-in — commande CLI et invitation périodique | INTENT-001 | prose | 4.4 | done | — |
+
+> Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
+
+## Statuts possibles
+
+- **draft** — SPEC en cours de rédaction
+- **review** — En attente de validation SQS (Execution Gate)
+- **ready** — SQS >= 4/5, prête pour développement agent
+- **in-progress** — Agent en cours de développement
+- **validation** — Code produit, en validation QA
+- **done** — Code + SPEC synchronisés, PR mergée (Drift Lock)
+- **archived** — Déplacée dans `archive/`

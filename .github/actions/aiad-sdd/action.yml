@@ -1,0 +1,117 @@
+name: 'AIAD SDD'
+description: 'Vérifie la cohérence Spec Driven Development (parité commandes/gouvernance, multi-runtime, doc auto-synchrone, traçabilité). Leader EU/FR.'
+author: 'Steeve Evers <evers.steeve@gmail.com>'
+branding:
+  icon: 'check-circle'
+  color: 'blue'
+
+inputs:
+  command:
+    description: |
+      Mode d'exécution :
+        - 'checks' (défaut) : enchaîne `update --check` + `emit-rules --check` + `docs --check` + `trace --fail-on-gap`
+        - 'trace' : matrice de traçabilité avec gaps bloquants
+        - 'docs' : régénération + parity check de DOCUMENTATION.md
+        - 'doctor' : diagnostic unifié (--json sur stdout)
+        - 'doctor-json' : alias de `doctor` avec sortie JSON dans `aiad-doctor.json`
+        - 'all' : enchaîne checks + génère SARIF + dashboard pour artefacts
+    required: false
+    default: 'checks'
+
+  version:
+    description: 'Version de aiad-sdd à utiliser (npm tag, défaut "latest").'
+    required: false
+    default: 'latest'
+
+  working-directory:
+    description: 'Dossier où la commande est exécutée.'
+    required: false
+    default: '.'
+
+  fail-on-warn:
+    description: 'Considère les warnings (non-implementé, untraced) comme bloquants.'
+    required: false
+    default: 'false'
+
+  upload-sarif:
+    description: 'Upload trace.sarif vers GitHub Code Scanning. Requiert `security-events: write`.'
+    required: false
+    default: 'false'
+
+outputs:
+  sarif-path:
+    description: 'Chemin du trace.sarif généré (pour réutilisation par d''autres steps).'
+    value: ${{ steps.run.outputs.sarif-path }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Node 22
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    - name: Run aiad-sdd
+      id: run
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      env:
+        AIAD_NO_COLOR: '1'
+      run: |
+        set -e
+        VERSION="${{ inputs.version }}"
+        CMD="${{ inputs.command }}"
+
+        echo "::group::aiad-sdd@$VERSION — mode: $CMD"
+
+        case "$CMD" in
+          checks)
+            echo "→ update --check"
+            npx -y "aiad-sdd@$VERSION" update --check
+            echo "→ emit-rules --check"
+            npx -y "aiad-sdd@$VERSION" emit-rules --check
+            echo "→ docs --check"
+            npx -y "aiad-sdd@$VERSION" docs --check
+            echo "→ trace --fail-on-gap"
+            npx -y "aiad-sdd@$VERSION" trace --fail-on-gap
+            ;;
+          trace)
+            npx -y "aiad-sdd@$VERSION" trace --fail-on-gap
+            ;;
+          docs)
+            npx -y "aiad-sdd@$VERSION" docs --check
+            ;;
+          doctor)
+            npx -y "aiad-sdd@$VERSION" doctor
+            ;;
+          doctor-json)
+            npx -y "aiad-sdd@$VERSION" doctor --json > aiad-doctor.json
+            echo "doctor JSON sauvé dans aiad-doctor.json"
+            ;;
+          all)
+            npx -y "aiad-sdd@$VERSION" update --check
+            npx -y "aiad-sdd@$VERSION" emit-rules --check
+            npx -y "aiad-sdd@$VERSION" docs --check
+            npx -y "aiad-sdd@$VERSION" trace --fail-on-gap
+            npx -y "aiad-sdd@$VERSION" dashboard --quiet
+            ;;
+          *)
+            echo "::error::Mode inconnu : $CMD. Disponibles : checks, trace, docs, doctor, doctor-json, all."
+            exit 1
+            ;;
+        esac
+
+        # Expose le chemin du SARIF si présent
+        SARIF=".aiad/metrics/traceability/trace.sarif"
+        if [ -f "$SARIF" ]; then
+          echo "sarif-path=$SARIF" >> "$GITHUB_OUTPUT"
+        fi
+
+        echo "::endgroup::"
+
+    - name: Upload SARIF to GitHub Code Scanning
+      if: ${{ inputs.upload-sarif == 'true' && steps.run.outputs.sarif-path != '' }}
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ${{ steps.run.outputs.sarif-path }}
+        category: aiad-sdd-trace

@@ -1,0 +1,73 @@
+# AIAD SDD — Template Drone CI (.drone.yml).
+#
+# Documentation : https://aiad.ovh
+
+kind: pipeline
+type: docker
+name: aiad-sdd
+
+trigger:
+  event:
+    - pull_request
+    - push
+
+steps:
+  - name: aiad-update-check
+    image: node:22
+    environment:
+      AIAD_NO_COLOR: "1"
+    commands:
+      - npx -y aiad-sdd update --check
+
+  - name: aiad-emit-rules-check
+    image: node:22
+    environment:
+      AIAD_NO_COLOR: "1"
+    commands:
+      - npx -y aiad-sdd emit-rules --check
+
+  - name: aiad-docs-check
+    image: node:22
+    environment:
+      AIAD_NO_COLOR: "1"
+    commands:
+      - npx -y aiad-sdd docs --check
+
+  - name: aiad-trace
+    image: node:22
+    environment:
+      AIAD_NO_COLOR: "1"
+    commands:
+      - npx -y aiad-sdd trace --fail-on-gap
+
+  - name: aiad-sovereignty
+    image: node:22
+    environment:
+      AIAD_NO_COLOR: "1"
+    commands:
+      # exit 1 si score souveraineté EU < 60
+      - npx -y aiad-sdd sovereignty --check
+
+  - name: aiad-sla-check
+    image: node:22
+    environment:
+      AIAD_NO_COLOR: "1"
+    commands:
+      - npx -y aiad-sdd sla check
+
+  - name: aiad-audit-verify
+    image: node:22
+    environment:
+      AIAD_NO_COLOR: "1"
+    commands:
+      - npx -y aiad-sdd audit verify
+
+  - name: aiad-dashboard
+    image: node:22
+    environment:
+      AIAD_NO_COLOR: "1"
+    commands:
+      - npx -y aiad-sdd dashboard --quiet
+    when:
+      branch:
+        - main

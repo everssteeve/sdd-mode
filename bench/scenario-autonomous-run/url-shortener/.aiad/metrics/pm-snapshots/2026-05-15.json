@@ -1,0 +1,34 @@
+{
+  "date": "2026-05-15",
+  "intents": [
+    {
+      "id": "INTENT-101-conversion-checkout",
+      "statut": "active"
+    },
+    {
+      "id": "INTENT-102-onboarding-mobile",
+      "statut": "running"
+    },
+    {
+      "id": "INTENT-103-retention-30j",
+      "statut": "active"
+    }
+  ],
+  "specs": [
+    {
+      "id": "SPEC-101-1-formulaire-paiement",
+      "statut": "done",
+      "parentIntent": "INTENT-101"
+    },
+    {
+      "id": "SPEC-101-2-relance-panier",
+      "statut": "review",
+      "parentIntent": "INTENT-101"
+    },
+    {
+      "id": "SPEC-103-1-relance-email",
+      "statut": "ready",
+      "parentIntent": "INTENT-103"
+    }
+  ]
+}

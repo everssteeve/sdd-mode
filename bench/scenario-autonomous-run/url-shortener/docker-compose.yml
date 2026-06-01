@@ -1,0 +1,12 @@
+services:
+  api:
+    image: node:20-alpine
+    working_dir: /app
+    command: ["npx", "tsx", "--watch", "src/server.ts"]
+    volumes:
+      - .:/app
+    ports:
+      - "3091:3091"
+    environment:
+      NODE_ENV: development
+      PORT: "3091"

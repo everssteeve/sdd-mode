@@ -1,0 +1,15 @@
+{
+  "_doc": "Module size budget — exceptions justifiées par module. Format : { \"lib/<file>.js\": <max LOC effectives> }. Toute exception doit être documentée par une note de justification ci-dessous.",
+  "_notes": {
+    "lib/dashboard/render.js": "Helpers de rendu HTML pour 14 pages du dashboard. L'éclatement complet en N fichiers a été évalué et écarté en #11 phase 3 (DRY autour des helpers visuels). Les nouvelles pages (qa/adrs/legal/onboarding/kanban) ont leur logique de rendu dans leur propre module ; seules les `PAGES` (nav) sont ici. Marge 860 LOC tolérée.",
+    "lib/sdd-trace.js": "Module pivot de la traçabilité (parser annotations + git ls-files + matrice + watch + helpers). L'éclatement est planifié si le module dépasse 1000 LOC — limite stricte 850.",
+    "lib/dashboard/assets.js": "Bundle CSS + JS frontend du dashboard (CSS ~250 LOC + APP_JS ~450 LOC). Le bundle est servi tel quel au browser, l'éclatement nécessiterait un build step (pas zero-dep). Marge 800 LOC tolérée.",
+    "lib/cli-schema.js": "Catalogue OpenAPI 3.1 documentant 18 routes CLI --json + 13 composants réutilisables (TraceabilityMatrix, AuditEvent, SovereigntyScore, etc.). La croissance vient des audits #355-#362 qui ont détaillé les sub-shapes (auparavant `{ type: 'object' }` génériques). L'éclatement en N fichiers casserait l'import unique côté codegen TypeScript. Marge 800 LOC tolérée.",
+    "lib/dashboard/pm.js": "Orchestrateur PM cockpit qui importe 130+ modules `bloc{X}` et compose `pagePm()`. La croissance vient des 45 boucles d'audit PM (#420 → #554) — chaque feature ajoute 1 import + 1 ligne dans le template. L'éclatement nécessiterait un système de plugins runtime, non aligné avec le cap zero-dep. Marge 800 LOC tolérée."
+  },
+  "lib/dashboard/render.js": 860,
+  "lib/sdd-trace.js": 850,
+  "lib/dashboard/assets.js": 800,
+  "lib/cli-schema.js": 900,
+  "lib/dashboard/pm.js": 800
+}

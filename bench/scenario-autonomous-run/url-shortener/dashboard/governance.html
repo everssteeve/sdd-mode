@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-15T23:04:42.431Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Gouvernance Tier 1 — url-shortener-bench</title>
+<meta name="description" content="Gouvernance Tier 1 — AI-ACT · RGPD · RGAA · RGESN — droit de veto · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Gouvernance Tier 1 — url-shortener-bench"/>
+<meta property="og:description" content="Gouvernance Tier 1 — AI-ACT · RGPD · RGAA · RGESN — droit de veto · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta property="og:url" content="governance.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gouvernance Tier 1 — url-shortener-bench"/>
+<meta name="twitter:description" content="Gouvernance Tier 1 — AI-ACT · RGPD · RGAA · RGESN — droit de veto · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">url-shortener-bench</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v0.1.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="active">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 16/05/2026 01:04:42<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>Gouvernance Tier 1</h1>
+      <div class="subtitle">AI-ACT · RGPD · RGAA · RGESN — droit de veto</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 16/05/2026 01:04:42. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">url-shortener-bench · v0.1.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  
+<div class="kpis">
+  <div class="kpi ok">
+    <div class="label">Couverture Tier 1</div>
+    <div class="value">5/5</div>
+    <div class="delta">tous les agents installés</div>
+  </div>
+</div>
+
+<section>
+  <h2>Agents de gouvernance</h2>
+  <div class="card">
+    <p class="muted">Les agents de gouvernance ont un <strong>droit de veto</strong>. En cas de conflit entre une SPEC et un agent de gouvernance, l'agent de gouvernance prévaut.</p>
+  </div>
+  <div class="filter"><input type="search" id="qGov" data-filter-target="tGov" placeholder="Filtrer par agent, référentiel, déclencheur…" autocomplete="off"/></div>
+  <table id="tGov" data-sortable="true">
+    <thead><tr><th>Agent</th><th>État</th><th>Référentiel</th><th>Déclenché quand…</th><th>Taille</th></tr></thead>
+    <tbody><tr>
+    <td><strong><a class="src-link" href="../.aiad/gouvernance/AIAD-AI-ACT.md" target="_blank" rel="noopener" title="Ouvrir .aiad/gouvernance/AIAD-AI-ACT.md">AIAD-AI-ACT</a></strong></td>
+    <td><span class="badge badge-muted">présent</span></td>
+    <td>Règlement (UE) 2024/1689 — EU AI Act</td>
+    <td>Composant IA (ML, LLM, scoring, recommandation)</td>
+    <td class="muted">53.3 Ko</td>
+  </tr><tr>
+    <td><strong><a class="src-link" href="../.aiad/gouvernance/AIAD-RGPD.md" target="_blank" rel="noopener" title="Ouvrir .aiad/gouvernance/AIAD-RGPD.md">AIAD-RGPD</a></strong></td>
+    <td><span class="badge badge-muted">présent</span></td>
+    <td>RGPD (UE) 2016/679</td>
+    <td>Traitement de données personnelles</td>
+    <td class="muted">47.9 Ko</td>
+  </tr><tr>
+    <td><strong><a class="src-link" href="../.aiad/gouvernance/AIAD-RGAA.md" target="_blank" rel="noopener" title="Ouvrir .aiad/gouvernance/AIAD-RGAA.md">AIAD-RGAA</a></strong></td>
+    <td><span class="badge badge-muted">présent</span></td>
+    <td>RGAA 4.1 / WCAG 2.1</td>
+    <td>Production d&#39;une interface utilisateur</td>
+    <td class="muted">36.2 Ko</td>
+  </tr><tr>
+    <td><strong><a class="src-link" href="../.aiad/gouvernance/AIAD-RGESN.md" target="_blank" rel="noopener" title="Ouvrir .aiad/gouvernance/AIAD-RGESN.md">AIAD-RGESN</a></strong></td>
+    <td><span class="badge badge-muted">présent</span></td>
+    <td>RGESN v2 — Référentiel Général Écoconception</td>
+    <td>Toute décision technique (perf, ressources, dépendances)</td>
+    <td class="muted">29.4 Ko</td>
+  </tr><tr>
+    <td><strong><a class="src-link" href="../.aiad/gouvernance/AIAD-CRA.md" target="_blank" rel="noopener" title="Ouvrir .aiad/gouvernance/AIAD-CRA.md">AIAD-CRA</a></strong></td>
+    <td><span class="badge badge-muted">présent</span></td>
+    <td>Règlement (UE) 2024/2847 — Cyber Resilience Act</td>
+    <td>Produit logiciel commercialisable en UE (SBOM, vulnérabilités, mises à jour)</td>
+    <td class="muted">21.9 Ko</td>
+  </tr></tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Hiérarchie de priorité</h2>
+  <div class="card">
+    <ol>
+      <li><strong>Art. 5 AI Act</strong> (interdictions) — priorité absolue</li>
+      <li><strong>RGPD + Art. 9</strong> — base légale requise si données sensibles</li>
+      <li><strong>AI Act haut risque</strong> — obligations procédurales</li>
+      <li><strong>RGAA</strong> — accessibilité des interfaces (y compris AI Act : divulgation, supervision, recours)</li>
+      <li><strong>RGESN</strong> — optimisation énergétique dans le respect des quatre ci-dessus</li>
+    </ol>
+  </div>
+</section>
+<section>
+    <h2>Violations Tier 1 <span class="count">3</span></h2>
+    <div class="kpis">
+      <div class="kpi"><div class="label">Annotations orphelines</div><div class="value">0</div><div class="delta">code dit X · SPEC ne le déclare pas</div></div>
+      <div class="kpi"><div class="label">SPECs non implémentées</div><div class="value">3</div><div class="delta">SPEC promet X · code ne le matérialise pas</div></div>
+    </div>
+    <p class="muted" style="font-size:.85rem">Par agent : <ul style="display:inline-flex;gap:.6rem;padding:0;margin:0;list-style:none"><li><span class="badge badge-info" style="font-size:.7rem">AIAD-RGPD</span> <strong>2</strong></li><li><span class="badge badge-info" style="font-size:.7rem">AIAD-RGAA</span> <strong>1</strong></li></ul></p>
+    
+    <details open>
+      <summary><strong>SPECs non implémentées (Type B)</strong> — 3</summary>
+      <p class="muted" style="font-size:.85rem">La SPEC déclare une obligation Tier 1 mais aucun fichier code lié n'est annoté <code>@governance</code> pour cet agent. Ajoute <code>@governance AIAD-XXX</code> dans le code applicable.</p>
+      <table>
+        <thead><tr><th>Agent</th><th>SPEC</th><th>Statut</th></tr></thead>
+        <tbody>
+    <tr>
+      <td><span class="badge badge-info" style="font-size:.7rem">AIAD-RGAA</span></td>
+      <td><code>SPEC-101-1-formulaire-paiement</code></td>
+      <td class="muted">done</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-info" style="font-size:.7rem">AIAD-RGPD</span></td>
+      <td><code>SPEC-101-1-formulaire-paiement</code></td>
+      <td class="muted">done</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-info" style="font-size:.7rem">AIAD-RGPD</span></td>
+      <td><code>SPEC-101-2-relance-panier</code></td>
+      <td class="muted">review</td>
+    </tr></tbody>
+      </table>
+    </details>
+  </section>
+<section>
+    <h2>Lessons Learned & Human Learnings <span class="count">0</span></h2>
+    <div class="kpis">
+      <div class="kpi"><div class="label">Lessons Learned</div><div class="value">0</div><div class="delta">alimentées par <code>/aiad retro</code></div></div>
+      <div class="kpi"><div class="label">Human Learnings</div><div class="value">0</div><div class="delta">alimentées par <code>/aiad intention</code></div></div>
+    </div>
+    <p class="muted" style="font-size:.85rem">Source : <a class="src-link" href="../.aiad/AGENT-GUIDE.md" target="_blank" rel="noopener" title="Ouvrir .aiad/AGENT-GUIDE.md">.aiad/AGENT-GUIDE.md</a></p>
+    <details >
+      <summary><strong>Lessons Learned</strong> (0)</summary>
+      <p class="muted" style="font-size:.85rem">Aucune entrée capturée.</p>
+    </details>
+    <details >
+      <summary><strong>Human Learnings</strong> (0)</summary>
+      <p class="muted" style="font-size:.85rem">Aucune entrée capturée.</p>
+    </details>
+  </section>
+
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

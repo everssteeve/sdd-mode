@@ -1,0 +1,32 @@
+# PM quick links — outils externes accessibles depuis pm.html
+# Lu par lib/dashboard/quick-links.js (#467). URLs limitées à http/https/mailto.
+
+- label: Notion — Roadmap produit
+  url: https://www.notion.so/tinr-ly/roadmap
+  icone: 📒
+  description: Vision long terme, OKR Q3-Q4
+
+- label: Slack #product
+  url: https://tinr-ly.slack.com/archives/CPRODUCT
+  icone: 💬
+  description: Canal feedback équipe
+
+- label: Calendar — rituels PM
+  url: https://calendar.google.com/calendar/r
+  icone: 📅
+  description: Standup / demo / retro
+
+- label: Linear — bugs ouverts
+  url: https://linear.app/tinr-ly/team/PRODUCT
+  icone: 🐛
+  description: Suivi tickets QA
+
+- label: Figma — prototypes mobile
+  url: https://www.figma.com/files/team/tinr-ly
+  icone: 🎨
+  description: Maquettes INTENT-102
+
+- label: CNIL audit access
+  url: mailto:dpo@tinr.ly
+  icone: 📜
+  description: Contact DPO conformité RGPD

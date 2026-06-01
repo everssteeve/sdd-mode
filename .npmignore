@@ -1,9 +1,39 @@
-# Fichiers de développement
+# AIAD SDD Mode — Stricte exclusion du tarball npm.
+#
+# Le `package.json#files` whitelist déjà bin/, lib/, templates/, README.md,
+# LICENSE — ce .npmignore est un filet de sécurité supplémentaire au cas où
+# `files` est élargi par erreur.
+
+# Git / OS / éditeurs
 .git
 .gitignore
 .DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Runtime / build
 node_modules
 *.log
-
-# Build artifacts
 *.tgz
+
+# Dev / contributeurs (réservés au repo, pas au tarball)
+CONTRIBUTING.md
+CHANGELOG.md
+SECURITY.md
+bench/
+docs/
+scripts/
+test/
+.aiad-size-budget.json
+.aiad-mutation.json
+.github/
+.playwright-mcp/
+vscode-extension/
+productbacklog.md
+SDDMode.md
+frameworkAIAD.md
+
+# Local config
+.claude/settings.local.json
+.cursor/

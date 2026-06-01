@@ -1,0 +1,65 @@
+name: Release
+
+# Publication sur npm déclenchée par un tag `v*`. Provenance signée
+# (https://docs.npmjs.com/generating-provenance-statements) pour permettre
+# la vérification supply chain depuis les projets clients.
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    name: npm publish (provenance signée)
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # requis pour `npm publish --provenance`
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Verify package.json version matches tag
+        run: |
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          TAG_VERSION=${GITHUB_REF#refs/tags/v}
+          if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
+            echo "Tag $TAG_VERSION ≠ package.json $PKG_VERSION" >&2
+            exit 1
+          fi
+
+      - name: Lint + Tests
+        run: |
+          npm run lint
+          npm test
+
+      - name: Publish (avec provenance npm SLSA L3)
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Double signature : npm provenance (SLSA L3 via Sigstore Rekor automatique)
+      # + attestation AIAD interne signée HMAC vérifiable hors-ligne.
+      # https://aiad.ovh/provenance — item backlog #90
+      - name: Generate AIAD provenance attestation (SLSA v1.0 signed HMAC)
+        if: env.AIAD_PROVENANCE_SECRET != ''
+        run: node bin/aiad-sdd.js provenance generate --json
+        env:
+          AIAD_PROVENANCE_SECRET: ${{ secrets.AIAD_PROVENANCE_SECRET }}
+
+      - name: Upload AIAD attestation as release artifact
+        if: env.AIAD_PROVENANCE_SECRET != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: aiad-attestation-${{ github.ref_name }}
+          path: .aiad/provenance/attestation.json
+          if-no-files-found: error
+          retention-days: 90
+        env:
+          AIAD_PROVENANCE_SECRET: ${{ secrets.AIAD_PROVENANCE_SECRET }}

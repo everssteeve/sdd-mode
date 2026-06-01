@@ -1,0 +1,103 @@
+# AIAD SDD — Template GitLab CI.
+#
+# À inclure dans ton .gitlab-ci.yml principal :
+#
+#   include:
+#     - local: '.gitlab-ci.aiad.yml'
+#
+# … ou en remote depuis un projet :
+#
+#   include:
+#     - project: 'mon-groupe/aiad-templates'
+#       file: '.gitlab-ci.aiad.yml'
+#
+# Couvre 4 jobs équivalents aux 4 GitHub Actions livrées : sdd-trace,
+# aiad-emit-rules-check, aiad-docs-check, aiad-dashboard.
+#
+# Documentation : https://aiad.ovh
+
+variables:
+  AIAD_NO_COLOR: "1"
+  NODE_VERSION: "22"
+
+.aiad-base:
+  image: node:${NODE_VERSION}
+  before_script:
+    - node --version
+
+aiad:trace:
+  extends: .aiad-base
+  stage: test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - npx -y aiad-sdd trace --fail-on-gap
+  artifacts:
+    when: always
+    paths:
+      - .aiad/metrics/traceability/trace.sarif
+      - .aiad/metrics/traceability/trace.md
+    reports:
+      # GitLab Security Dashboard ingère le SARIF si configuré
+      sast: .aiad/metrics/traceability/trace.sarif
+
+aiad:emit-rules-check:
+  extends: .aiad-base
+  stage: test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+      changes:
+        - .aiad/AGENT-GUIDE.md
+        - .aiad/gouvernance/**/*
+        - AGENTS.md
+        - CLAUDE.md
+        - .cursor/rules/**/*
+        - .codex/AGENT.md
+        - GEMINI.md
+  script:
+    - npx -y aiad-sdd emit-rules --check
+
+aiad:docs-check:
+  extends: .aiad-base
+  stage: test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+      changes:
+        - DOCUMENTATION.md
+        - bin/**/*
+        - lib/**/*
+        - templates/.claude/**/*
+        - templates/.aiad/gouvernance/**/*
+  script:
+    - npx -y aiad-sdd docs --check
+
+aiad:update-check:
+  extends: .aiad-base
+  stage: test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+  script:
+    - npx -y aiad-sdd update --check
+
+# (#250 + #251) Valide collect+render des 16 pages dashboard sans écrire,
+# en CI MR (rapide, pas d'artifacts générés).
+aiad:dashboard-check:
+  extends: .aiad-base
+  stage: test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+  script:
+    - npx -y aiad-sdd dashboard --check
+
+aiad:dashboard:
+  extends: .aiad-base
+  stage: build
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - npx -y aiad-sdd dashboard --quiet
+  artifacts:
+    paths:
+      - dashboard/
+    expire_in: 30 days

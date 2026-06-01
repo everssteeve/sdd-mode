@@ -1,0 +1,67 @@
+# AIAD SDD Mode — Whitelist du hook pre-commit
+#
+# Liste des fichiers ignorés par le check Drift Lock (un pattern par ligne,
+# préfixé par "- "). À utiliser avec parcimonie : chaque exception affaiblit
+# le Drift Lock.
+#
+# Convention de matching (style gitignore) :
+#   - pattern sans "/"  → match sur le basename       (ex. "*.md", "package.json")
+#   - pattern avec "/"  → match sur le chemin complet (ex. "docs/**/*.md")
+#
+# Note : les artefacts AIAD (.aiad/specs/*, .aiad/intents/*, etc.) sont
+# classés AVANT la whitelist, donc un pattern large comme "*.md" ne masque
+# jamais une SPEC.
+
+patterns:
+  # Documentation racine
+  - "README.md"
+  - "CHANGELOG.md"
+  - "LICENSE"
+
+  # Documents narratifs du framework (prose, pas de code — racine + copies templates/)
+  # Le Drift Lock (sync code↔SPEC) ne s'applique pas à de la documentation.
+  - "frameworkAIAD.md"
+  - "SDDMode.md"
+
+  # Documents de légitimation (argumentaires publiés — pas de code, pas de SPEC)
+  - "docs/legitimation/**"
+
+  # Argumentaires commerciaux (prose, pas de code)
+  - "argumentaires/**"
+
+  # Agents de gouvernance réglementaire (templates Tier 1 + fixtures bench)
+  - "templates/.aiad/gouvernance/**"
+  - "bench/**/.aiad/gouvernance/**"
+
+  # Manifestes et lockfiles (mises à jour de dépendances)
+  - "package.json"
+  - "package-lock.json"
+  - "pnpm-lock.yaml"
+  - "yarn.lock"
+  - "uv.lock"
+  - "poetry.lock"
+  - "Cargo.lock"
+  - "go.sum"
+
+  # Fichiers d'environnement de référence (jamais de secrets)
+  - ".env.example"
+  - ".gitignore"
+  - ".npmignore"
+  - ".editorconfig"
+
+  # Métriques générées automatiquement par les commandes /sdd-*
+  - ".aiad/metrics/**"
+  - ".aiad/facts/**"
+
+  # GitHub Actions (CI traceability v1.10)
+  - ".github/workflows/sdd-trace.yml"
+
+  # Infrastructure du hook pre-commit (le mécanisme du Drift Lock lui-même
+  # et ses tests — pas une fonctionnalité applicative régie par une SPEC)
+  - "templates/.aiad/hooks/**"
+  - "bench/**/.aiad/hooks/**"
+  - "test/pre-commit.test.js"
+
+  # Tests de l'outillage sécurité — contiennent des fixtures volontairement
+  # en forme de secrets/PII (sk_live_, ghp_, NIR…) pour vérifier la détection
+  - "test/pii-scan.test.js"

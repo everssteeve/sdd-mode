@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-14T03:07:31.407Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Traçabilité — aiad-sdd</title>
+<meta name="description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Traçabilité — aiad-sdd"/>
+<meta property="og:description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta property="og:url" content="traceability.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Traçabilité — aiad-sdd"/>
+<meta name="twitter:description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.14.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="active">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 14/05/2026 05:07:31<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>Traçabilité</h1>
+      <div class="subtitle">Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 14/05/2026 05:07:31. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.14.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  
+<div class="kpis">
+  <div class="kpi"><div class="label">Intents</div><div class="value">0</div></div>
+  <div class="kpi"><div class="label">SPECs</div><div class="value">0</div></div>
+  <div class="kpi"><div class="label">Code annoté</div><div class="value small">20 / 144</div></div>
+  <div class="kpi"><div class="label">Tests annotés</div><div class="value small">20 / 176</div></div>
+  <div class="kpi warn"><div class="label">Gaps détectés</div><div class="value">160</div></div>
+</div>
+
+<section class="matrix-tab">
+  <h2>Matrice Forward · Intent → SPEC → Code → Tests</h2>
+  <div class="empty"><strong>Aucun intent à tracer.</strong>Lance <code>/sdd intent</code> puis annote ton code avec <code>@spec SPEC-NNN-...</code>.</div>
+</section>
+
+<section class="matrix-tab">
+  <h2>Matrice Backward · Tests → Code → SPEC → Intent</h2>
+  <div class="filter"><input type="search" id="qBwd" data-filter-target="tBwd" placeholder="Filtrer la matrice backward…"/></div>
+       <table id="tBwd">
+         <thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead>
+         <tbody><tr>
+      <td><a class="src-link" href="../templates/projects/fastapi-aiad/tests/test_main.py#L3" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/tests/test_main.py à la ligne 3">templates/projects/fastapi-aiad/tests/test_main.py</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../templates/projects/node-aiad/test/index.test.js#L0" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/test/index.test.js à la ligne 0">templates/projects/node-aiad/test/index.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/ai-act-audit.test.js#L94" target="_blank" rel="noopener" title="Ouvrir test/ai-act-audit.test.js à la ligne 94">test/ai-act-audit.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/ai-act-audit.test.js#L96" target="_blank" rel="noopener" title="Ouvrir test/ai-act-audit.test.js à la ligne 96">test/ai-act-audit.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/annotations.test.js#L13" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 13">test/annotations.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/sdd-trace.js#L44" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 44">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L46" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 46">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L47" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 47">lib/sdd-trace.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/annotations.test.js#L26" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 26">test/annotations.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/annotations.test.js#L27" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 27">test/annotations.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/annotations.test.js#L36" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 36">test/annotations.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/annotations.test.js#L65" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 65">test/annotations.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/anonymize.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/anonymize.test.js à la ligne 0">test/anonymize.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/archive.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/archive.test.js à la ligne 0">test/archive.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/audit.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/audit.test.js à la ligne 0">test/audit.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/azure-devops.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/azure-devops.test.js à la ligne 0">test/azure-devops.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/backup.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/backup.test.js à la ligne 0">test/backup.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/badge.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/badge.test.js à la ligne 0">test/badge.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/badges-block.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/badges-block.test.js à la ligne 0">test/badges-block.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/bench-comparison.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/bench-comparison.test.js à la ligne 0">test/bench-comparison.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/bench-compose-prod.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/bench-compose-prod.test.js à la ligne 0">test/bench-compose-prod.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/bench-dockerfile.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/bench-dockerfile.test.js à la ligne 0">test/bench-dockerfile.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/bench-history.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/bench-history.test.js à la ligne 0">test/bench-history.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/bench-start-script.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/bench-start-script.test.js à la ligne 0">test/bench-start-script.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/bench.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/bench.test.js à la ligne 0">test/bench.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/bitbucket.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/bitbucket.test.js à la ligne 0">test/bitbucket.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/brief.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/brief.test.js à la ligne 0">test/brief.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/bun-compat.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/bun-compat.test.js à la ligne 0">test/bun-compat.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/bun-parity.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/bun-parity.test.js à la ligne 0">test/bun-parity.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/cert.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/cert.test.js à la ligne 0">test/cert.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/ci-templates.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/ci-templates.test.js à la ligne 0">test/ci-templates.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/cli-adrs.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/cli-adrs.test.js à la ligne 0">test/cli-adrs.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/cli-parsing.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/cli-parsing.test.js à la ligne 0">test/cli-parsing.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/cli-schema.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/cli-schema.test.js à la ligne 0">test/cli-schema.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/command-hooks.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/command-hooks.test.js à la ligne 0">test/command-hooks.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/completion.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/completion.test.js à la ligne 0">test/completion.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/confluence.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/confluence.test.js à la ligne 0">test/confluence.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/csp.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/csp.test.js à la ligne 0">test/csp.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-_history-utils.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-_history-utils.test.js à la ligne 0">test/dashboard-_history-utils.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-adrs.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-adrs.test.js à la ligne 0">test/dashboard-adrs.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-assets-autotag.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-assets-autotag.test.js à la ligne 0">test/dashboard-assets-autotag.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-audit-trail.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-audit-trail.test.js à la ligne 0">test/dashboard-audit-trail.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-collect-supplementary.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-collect-supplementary.test.js à la ligne 0">test/dashboard-collect-supplementary.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-collect.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-collect.test.js à la ligne 0">test/dashboard-collect.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-dpo.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-dpo.test.js à la ligne 0">test/dashboard-dpo.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-edge-cases.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-edge-cases.test.js à la ligne 0">test/dashboard-edge-cases.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-glossaire.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-glossaire.test.js à la ligne 0">test/dashboard-glossaire.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-graph.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-graph.test.js à la ligne 0">test/dashboard-graph.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-learnings.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-learnings.test.js à la ligne 0">test/dashboard-learnings.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-legal.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-legal.test.js à la ligne 0">test/dashboard-legal.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-onboarding.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-onboarding.test.js à la ligne 0">test/dashboard-onboarding.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-outcomes-history.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-outcomes-history.test.js à la ligne 0">test/dashboard-outcomes-history.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-outcomes.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-outcomes.test.js à la ligne 0">test/dashboard-outcomes.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-perf-budgets.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-perf-budgets.test.js à la ligne 0">test/dashboard-perf-budgets.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm.test.js à la ligne 0">test/dashboard-pm.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-qa.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-qa.test.js à la ligne 0">test/dashboard-qa.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-render.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-render.test.js à la ligne 0">test/dashboard-render.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-rituels.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-rituels.test.js à la ligne 0">test/dashboard-rituels.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-sante-globale-history.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-sante-globale-history.test.js à la ligne 0">test/dashboard-sante-globale-history.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-sante-globale.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-sante-globale.test.js à la ligne 0">test/dashboard-sante-globale.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-source-base.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-source-base.test.js à la ligne 0">test/dashboard-source-base.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-sre.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-sre.test.js à la ligne 0">test/dashboard-sre.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-tech-debt-history.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt-history.test.js à la ligne 0">test/dashboard-tech-debt-history.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 0">test/dashboard-tech-debt.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-violations.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-violations.test.js à la ligne 0">test/dashboard-violations.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-watch.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-watch.test.js à la ligne 0">test/dashboard-watch.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js à la ligne 0">test/dashboard.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dinum.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dinum.test.js à la ligne 0">test/dinum.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/docs-dora-flow.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/docs-dora-flow.test.js à la ligne 0">test/docs-dora-flow.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/docs.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/docs.test.js à la ligne 0">test/docs.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/doctor-fix.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/doctor-fix.test.js à la ligne 0">test/doctor-fix.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/doctor-supplementaire.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/doctor-supplementaire.test.js à la ligne 0">test/doctor-supplementaire.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/doctor.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/doctor.test.js à la ligne 0">test/doctor.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dora-record.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dora-record.test.js à la ligne 0">test/dora-record.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dpia.test.js#L113" target="_blank" rel="noopener" title="Ouvrir test/dpia.test.js à la ligne 113">test/dpia.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dpia.test.js#L114" target="_blank" rel="noopener" title="Ouvrir test/dpia.test.js à la ligne 114">test/dpia.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dry-run.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dry-run.test.js à la ligne 0">test/dry-run.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/emit-rules-concurrent.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/emit-rules-concurrent.test.js à la ligne 0">test/emit-rules-concurrent.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/emit-rules.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/emit-rules.test.js à la ligne 0">test/emit-rules.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/en-aliases.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/en-aliases.test.js à la ligne 0">test/en-aliases.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/favicon.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/favicon.test.js à la ligne 0">test/favicon.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/forges-ci.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/forges-ci.test.js à la ligne 0">test/forges-ci.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/frontmatter-integration.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/frontmatter-integration.test.js à la ligne 0">test/frontmatter-integration.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/frontmatter.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/frontmatter.test.js à la ligne 0">test/frontmatter.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/fs-ops-errors.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/fs-ops-errors.test.js à la ligne 0">test/fs-ops-errors.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/fs-ops.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/fs-ops.test.js à la ligne 0">test/fs-ops.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/github-action.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/github-action.test.js à la ligne 0">test/github-action.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/github-app.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/github-app.test.js à la ligne 0">test/github-app.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/gitlab.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/gitlab.test.js à la ligne 0">test/gitlab.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-apac.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-apac.test.js à la ligne 0">test/governance-apac.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-ch-fadp.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-ch-fadp.test.js à la ligne 0">test/governance-ch-fadp.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-cra.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-cra.test.js à la ligne 0">test/governance-cra.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-eu-extended-vague2.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-eu-extended-vague2.test.js à la ligne 0">test/governance-eu-extended-vague2.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-eu-extended.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-eu-extended.test.js à la ligne 0">test/governance-eu-extended.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-eu-financial.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-eu-financial.test.js à la ligne 0">test/governance-eu-financial.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-eu-platforms.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-eu-platforms.test.js à la ligne 0">test/governance-eu-platforms.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-fr-anssi.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-fr-anssi.test.js à la ligne 0">test/governance-fr-anssi.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-iso-standards.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-iso-standards.test.js à la ligne 0">test/governance-iso-standards.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-latam.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-latam.test.js à la ligne 0">test/governance-latam.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-lint.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-lint.test.js à la ligne 0">test/governance-lint.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-marketplace.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-marketplace.test.js à la ligne 0">test/governance-marketplace.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/governance-packs.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/governance-packs.test.js à la ligne 0">test/governance-packs.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/hook-sandbox.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/hook-sandbox.test.js à la ligne 0">test/hook-sandbox.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/i18n-coverage.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/i18n-coverage.test.js à la ligne 0">test/i18n-coverage.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/i18n.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/i18n.test.js à la ligne 0">test/i18n.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/import.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/import.test.js à la ligne 0">test/import.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/init-parallel.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/init-parallel.test.js à la ligne 0">test/init-parallel.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/init-snapshot.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/init-snapshot.test.js à la ligne 0">test/init-snapshot.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/init-tui.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/init-tui.test.js à la ligne 0">test/init-tui.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/init.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/init.test.js à la ligne 0">test/init.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/json-output.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/json-output.test.js à la ligne 0">test/json-output.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/leadership-metrics.test.js#L60" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 60">test/leadership-metrics.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/leadership-metrics.test.js#L63" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 63">test/leadership-metrics.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/leadership-metrics.test.js#L66" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 66">test/leadership-metrics.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/leadership-metrics.test.js#L103" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 103">test/leadership-metrics.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/leadership-metrics.test.js#L104" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 104">test/leadership-metrics.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/leadership-metrics.test.js#L105" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 105">test/leadership-metrics.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/lint-deps.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/lint-deps.test.js à la ligne 0">test/lint-deps.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/lint-esm.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/lint-esm.test.js à la ligne 0">test/lint-esm.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/lint-size.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/lint-size.test.js à la ligne 0">test/lint-size.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/lockfile.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/lockfile.test.js à la ligne 0">test/lockfile.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/manifest.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/manifest.test.js à la ligne 0">test/manifest.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/marketplace.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/marketplace.test.js à la ligne 0">test/marketplace.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/meta-share.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/meta-share.test.js à la ligne 0">test/meta-share.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/meta.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/meta.test.js à la ligne 0">test/meta.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/migrate-v2.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/migrate-v2.test.js à la ligne 0">test/migrate-v2.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/migrate.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/migrate.test.js à la ligne 0">test/migrate.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L23" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 23">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L24" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 24">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L25" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 25">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L26" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 26">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L27" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 27">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L28" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 28">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L29" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 29">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L30" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 30">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L31" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 31">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L32" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 32">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L44" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 44">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/sdd-trace.js#L44" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 44">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L46" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 46">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L47" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 47">lib/sdd-trace.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L65" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 65">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L66" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 66">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L67" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 67">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L90" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 90">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L92" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 92">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L94" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 94">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L96" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 96">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L98" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 98">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L118" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 118">test/multi-language.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/mutation-batch.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/mutation-batch.test.js à la ligne 0">test/mutation-batch.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/mutation-test.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/mutation-test.test.js à la ligne 0">test/mutation-test.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/negotiate.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/negotiate.test.js à la ligne 0">test/negotiate.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/notfound.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/notfound.test.js à la ligne 0">test/notfound.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/obsidian-export.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/obsidian-export.test.js à la ligne 0">test/obsidian-export.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/offline.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/offline.test.js à la ligne 0">test/offline.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/openapi-export.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/openapi-export.test.js à la ligne 0">test/openapi-export.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/org-config.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/org-config.test.js à la ligne 0">test/org-config.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/pii-scan.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/pii-scan.test.js à la ligne 0">test/pii-scan.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/plugins.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/plugins.test.js à la ligne 0">test/plugins.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/pre-commit.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/pre-commit.test.js à la ligne 0">test/pre-commit.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/provenance.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/provenance.test.js à la ligne 0">test/provenance.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/rbac.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/rbac.test.js à la ligne 0">test/rbac.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/refactor-spec.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/refactor-spec.test.js à la ligne 0">test/refactor-spec.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/reflect.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/reflect.test.js à la ligne 0">test/reflect.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/release.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/release.test.js à la ligne 0">test/release.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/repl.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/repl.test.js à la ligne 0">test/repl.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/reproducibility.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/reproducibility.test.js à la ligne 0">test/reproducibility.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/review.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/review.test.js à la ligne 0">test/review.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/sarif.test.js#L68" target="_blank" rel="noopener" title="Ouvrir test/sarif.test.js à la ligne 68">test/sarif.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/sarif.test.js#L111" target="_blank" rel="noopener" title="Ouvrir test/sarif.test.js à la ligne 111">test/sarif.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/sbom.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/sbom.test.js à la ligne 0">test/sbom.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/score.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/score.test.js à la ligne 0">test/score.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/security-md.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/security-md.test.js à la ligne 0">test/security-md.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/self-update.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/self-update.test.js à la ligne 0">test/self-update.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/server-mime.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/server-mime.test.js à la ligne 0">test/server-mime.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/sitemap.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/sitemap.test.js à la ligne 0">test/sitemap.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/skills.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/skills.test.js à la ligne 0">test/skills.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/sla.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/sla.test.js à la ligne 0">test/sla.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/sovereignty-score.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/sovereignty-score.test.js à la ligne 0">test/sovereignty-score.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/spec-suggester.test.js#L36" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 36">test/spec-suggester.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/sdd-trace.js#L44" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 44">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L46" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 46">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L47" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 47">lib/sdd-trace.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/spec-suggester.test.js#L63" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 63">test/spec-suggester.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/spec-suggester.test.js#L93" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 93">test/spec-suggester.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/spec-suggester.test.js#L110" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 110">test/spec-suggester.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/spec-suggester.test.js#L125" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 125">test/spec-suggester.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/spec-suggester.test.js#L140" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 140">test/spec-suggester.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/spec-suggester.test.js#L152" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 152">test/spec-suggester.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/sdd-trace.js#L44" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 44">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L46" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 46">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L47" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 47">lib/sdd-trace.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/spec-version.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/spec-version.test.js à la ligne 0">test/spec-version.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/specs-library-vague2.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/specs-library-vague2.test.js à la ligne 0">test/specs-library-vague2.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/specs-library-vague3.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/specs-library-vague3.test.js à la ligne 0">test/specs-library-vague3.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/specs-library.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/specs-library.test.js à la ligne 0">test/specs-library.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/standup-url.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/standup-url.test.js à la ligne 0">test/standup-url.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/status.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/status.test.js à la ligne 0">test/status.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/storybook.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/storybook.test.js à la ligne 0">test/storybook.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/suggest-annotations.test.js#L197" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 197">test/suggest-annotations.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/suggest-annotations.test.js#L198" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 198">test/suggest-annotations.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/suggest-annotations.test.js#L210" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 210">test/suggest-annotations.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/suggest-annotations.test.js#L261" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 261">test/suggest-annotations.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/suggest.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/suggest.test.js à la ligne 0">test/suggest.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/tarball-hygiene.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/tarball-hygiene.test.js à la ligne 0">test/tarball-hygiene.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/telemetry.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/telemetry.test.js à la ligne 0">test/telemetry.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/templates.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/templates.test.js à la ligne 0">test/templates.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/term.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/term.test.js à la ligne 0">test/term.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/tour.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/tour.test.js à la ligne 0">test/tour.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace-cache.test.js#L110" target="_blank" rel="noopener" title="Ouvrir test/trace-cache.test.js à la ligne 110">test/trace-cache.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace-cache.test.js#L111" target="_blank" rel="noopener" title="Ouvrir test/trace-cache.test.js à la ligne 111">test/trace-cache.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace-cache.test.js#L150" target="_blank" rel="noopener" title="Ouvrir test/trace-cache.test.js à la ligne 150">test/trace-cache.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace-git.test.js#L96" target="_blank" rel="noopener" title="Ouvrir test/trace-git.test.js à la ligne 96">test/trace-git.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace-git.test.js#L102" target="_blank" rel="noopener" title="Ouvrir test/trace-git.test.js à la ligne 102">test/trace-git.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace-git.test.js#L128" target="_blank" rel="noopener" title="Ouvrir test/trace-git.test.js à la ligne 128">test/trace-git.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace-perf.test.js#L35" target="_blank" rel="noopener" title="Ouvrir test/trace-perf.test.js à la ligne 35">test/trace-perf.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace-watch.test.js#L74" target="_blank" rel="noopener" title="Ouvrir test/trace-watch.test.js à la ligne 74">test/trace-watch.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace-worker.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/trace-worker.test.js à la ligne 0">test/trace-worker.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace.test.js#L33" target="_blank" rel="noopener" title="Ouvrir test/trace.test.js à la ligne 33">test/trace.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace.test.js#L37" target="_blank" rel="noopener" title="Ouvrir test/trace.test.js à la ligne 37">test/trace.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace.test.js#L59" target="_blank" rel="noopener" title="Ouvrir test/trace.test.js à la ligne 59">test/trace.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/tutorial.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/tutorial.test.js à la ligne 0">test/tutorial.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/uninstall.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/uninstall.test.js à la ligne 0">test/uninstall.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/update-check.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/update-check.test.js à la ligne 0">test/update-check.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/update.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/update.test.js à la ligne 0">test/update.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/upgrade.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/upgrade.test.js à la ligne 0">test/upgrade.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/vscode-extension.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/vscode-extension.test.js à la ligne 0">test/vscode-extension.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/vscode-snippets.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/vscode-snippets.test.js à la ligne 0">test/vscode-snippets.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/webhooks.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/webhooks.test.js à la ligne 0">test/webhooks.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/workspace-analytics.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/workspace-analytics.test.js à la ligne 0">test/workspace-analytics.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/workspace.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/workspace.test.js à la ligne 0">test/workspace.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-kanban.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-kanban.test.js à la ligne 0">test/dashboard-kanban.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/sdd-trace-aliases.test.js#L60" target="_blank" rel="noopener" title="Ouvrir test/sdd-trace-aliases.test.js à la ligne 60">test/sdd-trace-aliases.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><a class="src-link" href="../lib/sdd-trace.js#L44" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 44">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L46" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 46">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L47" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 47">lib/sdd-trace.js</a></td>
+    </tr></tbody>
+       </table>
+</section>
+
+<section>
+  <h2>Gaps détectés</h2>
+  <div class="split">
+    <div class="card">
+      <h3>Orphelins</h3>
+      <ul class="compact">
+        <li><strong>0</strong> intent(s) sans SPEC</li>
+        <li><strong>0</strong> SPEC(s) sans code (hors draft/review)</li>
+        <li><strong>17</strong> SPEC(s) référencé(s) dans le code mais absent(s) des artefacts</li>
+        <li><strong>7</strong> Intent(s) référencé(s) dans le code mais absent(s) des artefacts</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Non-implémentés / non-tracés</h3>
+      <ul class="compact">
+        <li><strong>0</strong> SPEC(s) validée(s) sans code</li>
+        <li><strong>133</strong> fichier(s) code sans <code>@spec</code></li>
+        <li><strong>3</strong> fichier(s) annoté(s) sans test lié</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

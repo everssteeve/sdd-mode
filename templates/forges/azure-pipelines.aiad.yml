@@ -1,0 +1,99 @@
+# AIAD SDD — Template Azure Pipelines.
+#
+# 2 stages : PR-validation parallèle (4 checks) + main-build (dashboard +
+# brief --strict + publish artifact + commit badges).
+#
+# À copier dans `azure-pipelines.yml` à la racine du repo.
+# Documentation : https://aiad.ovh
+
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+variables:
+  AIAD_NO_COLOR: '1'
+  NODE_VERSION: '22'
+
+stages:
+  # ─── PR validation — 4 checks en parallèle ───────────────────────────────
+  - stage: AiadChecks
+    displayName: 'AIAD : checks PR'
+    condition: eq(variables['Build.Reason'], 'PullRequest')
+    jobs:
+      - job: AiadParallelChecks
+        displayName: 'AIAD : parité ${{ '$' }}{{ matrix.check }}'
+        pool:
+          vmImage: 'ubuntu-latest'
+        strategy:
+          matrix:
+            trace:
+              check: 'trace'
+              cmd: 'aiad-sdd trace --fail-on-gap'
+            emit-rules:
+              check: 'emit-rules'
+              cmd: 'aiad-sdd emit-rules --check'
+            docs:
+              check: 'docs'
+              cmd: 'aiad-sdd docs --check'
+            update:
+              check: 'update'
+              cmd: 'aiad-sdd update --check'
+            dashboard:
+              check: 'dashboard'
+              cmd: 'aiad-sdd dashboard --check'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(NODE_VERSION)
+            displayName: 'Setup Node $(NODE_VERSION)'
+          - script: npx -y $(cmd)
+            displayName: '$(cmd)'
+
+  # ─── Main build — quality gate + dashboard + badges ──────────────────────
+  - stage: AiadQualityGate
+    displayName: 'AIAD : santé projet (brief --strict)'
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - job: BuildDashboard
+        displayName: 'Dashboard + brief --strict + artefacts'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - checkout: self
+            persistCredentials: true
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: $(NODE_VERSION)
+            displayName: 'Setup Node $(NODE_VERSION)'
+
+          - script: npx -y aiad-sdd dashboard --quiet
+            displayName: 'aiad-sdd dashboard (génère data.json + 3 badges SVG)'
+
+          - script: npx -y aiad-sdd brief --strict=70
+            displayName: 'aiad-sdd brief --strict=70 (exit 1 si santé < 70)'
+
+          - task: PublishPipelineArtifact@1
+            displayName: 'Upload artifacts dashboard'
+            inputs:
+              targetPath: 'dashboard/'
+              artifact: 'aiad-dashboard'
+              publishLocation: 'pipeline'
+
+          - script: |
+              git config user.name "aiad-bot"
+              git config user.email "aiad-bot@users.noreply.azure.com"
+              git add dashboard/badge*.svg dashboard/shields-endpoints.json 2>/dev/null || true
+              if ! git diff --cached --quiet; then
+                git commit -m "chore(aiad): refresh README badges + shields endpoints [skip ci]"
+                git push origin HEAD:main
+              else
+                echo "Aucun changement de badge/endpoint."
+              fi
+            displayName: 'Commit badges + shields endpoints (si changement)'

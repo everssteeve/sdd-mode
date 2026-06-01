@@ -1,0 +1,35 @@
+# Configuration Jekyll pour GitHub Pages.
+# Activation : Settings → Pages → Source = "Deploy from a branch" → Branch = "main" / "/docs"
+
+title: aiad-sdd — Spec Driven Development pour Claude Code
+description: Framework leader européen de développement basé sur l'intention. Multi-runtime IA, gouvernance EU Tier 1 native, traçabilité machine-vérifiable, documentation auto-synchrone, zero runtime dependency.
+url: https://aiad.ovh
+baseurl: ""
+lang: fr-FR
+
+# Thème minimal officiel GitHub (Cayman ou minima — minima est plus sobre)
+theme: jekyll-theme-minima
+
+# Métadonnées
+author: Steeve Evers
+twitter:
+  username: aiad_ovh
+  card: summary
+
+# Liens header
+header_pages:
+  - index.md
+  - DOCUMENTATION.md
+  - comparaison.md
+  - marketplace-packs.md
+  - architecture.md
+  - telemetrie.md
+
+# SEO / Open Graph
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclure les sources non rendues
+exclude:
+  - README.md

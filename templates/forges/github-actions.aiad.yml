@@ -1,0 +1,147 @@
+# AIAD SDD — Template GitHub Actions.
+#
+# Workflow CI/CD complet : parité gouvernance/runtime/docs sur les PR,
+# dashboard + brief --strict gate + badges SVG + deploy GitHub Pages sur main.
+#
+# Pré-requis pour Pages : activer GitHub Pages dans Settings → Pages →
+# Source = "GitHub Actions" (une fois). Le déploiement Pages est skipé si
+# Pages n'est pas activé (job échoue mais n'impacte pas le quality gate).
+#
+# À copier dans `.github/workflows/aiad.yml`.
+# Documentation : https://aiad.ovh
+
+name: AIAD SDD Quality Gate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Permissions minimales (principe de moindre privilège).
+# `contents: write` requis sur main pour commit les badges SVG régénérés.
+permissions:
+  contents: read
+
+env:
+  AIAD_NO_COLOR: '1'
+
+jobs:
+  # ─── Parité PR — 5 checks en parallèle ─────────────────────────────────────
+  # `dashboard --check` valide collect + render des 16 pages sans écrire
+  # de fichier (rapide, pas de bloat artifacts). Cf. #250.
+  aiad-checks:
+    if: github.event_name == 'pull_request'
+    name: 'AIAD : parité ${{ matrix.check }}'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        check:
+          - trace
+          - emit-rules
+          - docs
+          - update
+          - dashboard
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 'aiad-sdd ${{ matrix.check }} --check / --fail-on-gap'
+        run: |
+          case "${{ matrix.check }}" in
+            trace)       npx -y aiad-sdd trace --fail-on-gap ;;
+            emit-rules)  npx -y aiad-sdd emit-rules --check ;;
+            docs)        npx -y aiad-sdd docs --check ;;
+            update)      npx -y aiad-sdd update --check ;;
+            dashboard)   npx -y aiad-sdd dashboard --check ;;
+          esac
+
+  # ─── Quality gate sur main — santé projet ──────────────────────────────────
+  aiad-quality-gate:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    name: 'AIAD : santé projet (brief --strict)'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Token avec write pour pouvoir committer les badges
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 'aiad-sdd dashboard (génère data.json + 3 badges SVG)'
+        run: npx -y aiad-sdd dashboard --quiet
+
+      - name: 'aiad-sdd brief --strict=70 (exit 1 si santé < 70)'
+        run: npx -y aiad-sdd brief --strict=70
+
+      - name: 'Upload artifacts dashboard'
+        uses: actions/upload-artifact@v4
+        with:
+          name: aiad-dashboard
+          path: dashboard/
+          retention-days: 30
+
+      - name: 'Commit badges + shields endpoints régénérés (si changement)'
+        run: |
+          git config user.name "aiad-bot"
+          git config user.email "aiad-bot@users.noreply.github.com"
+          git add dashboard/badge*.svg dashboard/shields-endpoints.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(aiad): refresh README badges + shields endpoints [skip ci]"
+            git push
+          else
+            echo "Aucun changement de badge/endpoint."
+          fi
+
+  # ─── Déploiement GitHub Pages — dashboard public ──────────────────────────
+  # Activer une fois dans Settings → Pages → Source = "GitHub Actions".
+  # Le `pages_url` calculé automatiquement est injecté dans AIAD_PUBLIC_URL
+  # pour que og:url/og:image/sitemap.xml/manifest soient absolus (#240).
+  aiad-deploy-pages:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: aiad-quality-gate
+    name: 'AIAD : déploiement Pages'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 'Calcule AIAD_PUBLIC_URL depuis github.pages_url'
+        id: pages-url
+        run: |
+          # Format Pages : https://<owner>.github.io/<repo>
+          echo "url=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}" >> $GITHUB_OUTPUT
+
+      - name: 'aiad-sdd dashboard --public-url (URLs absolues)'
+        env:
+          AIAD_PUBLIC_URL: ${{ steps.pages-url.outputs.url }}
+          # (#317) Liens vers les fichiers sources .md (PRD/ARCHITECTURE/SPEC/ADR)
+          # pointent vers le blob GitHub à la révision en cours (vs lien
+          # relatif ../ qui retourne 404 sur Pages). Format compatible
+          # avec `https://github.com/<owner>/<repo>/blob/<ref>/<path>#L<line>`.
+          AIAD_SOURCE_BASE: https://github.com/${{ github.repository }}/blob/${{ github.sha }}
+        run: npx -y aiad-sdd dashboard --quiet
+
+      - name: 'Upload Pages artifact'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard/
+
+      - name: 'Deploy to GitHub Pages'
+        id: deployment
+        uses: actions/deploy-pages@v4

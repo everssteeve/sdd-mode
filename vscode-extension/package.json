@@ -1,0 +1,189 @@
+{
+  "name": "aiad-sdd-vscode",
+  "displayName": "AIAD SDD",
+  "description": "Découverte Intent/SPEC + navigation @spec → .aiad/specs/. Leader européen du Spec Driven Development pour Claude Code, Cursor, Codex et autres agents IA.",
+  "version": "1.14.0",
+  "publisher": "everssteeve",
+  "author": "Steeve Evers <evers.steeve@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://aiad.ovh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/everssteeve/sdd-mode.git",
+    "directory": "vscode-extension"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Linters"
+  ],
+  "keywords": [
+    "aiad",
+    "sdd",
+    "spec-driven-development",
+    "intent",
+    "traceability",
+    "claude-code"
+  ],
+  "main": "./src/extension.js",
+  "type": "commonjs",
+  "activationEvents": [
+    "workspaceContains:.aiad"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "aiad-sdd",
+          "title": "AIAD SDD",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "aiad-sdd": [
+        {
+          "id": "aiad.intents",
+          "name": "Intent Statements",
+          "icon": "resources/icon.svg",
+          "contextualTitle": "AIAD — Intents"
+        },
+        {
+          "id": "aiad.specs",
+          "name": "SPECs",
+          "icon": "resources/icon.svg",
+          "contextualTitle": "AIAD — SPECs"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "aiad.refresh",
+        "title": "AIAD : Rafraîchir Intents et SPECs",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "aiad.openTrace",
+        "title": "AIAD : Ouvrir la matrice de traçabilité",
+        "icon": "$(graph)"
+      },
+      {
+        "command": "aiad.runDoctor",
+        "title": "AIAD : Lancer doctor"
+      },
+      {
+        "command": "aiad.gotoSpec",
+        "title": "AIAD : Aller à la SPEC"
+      },
+      {
+        "command": "aiad.runStatus",
+        "title": "AIAD : Afficher status"
+      },
+      {
+        "command": "aiad.runTrace",
+        "title": "AIAD : Régénérer la matrice de traçabilité"
+      },
+      {
+        "command": "aiad.runDashboard",
+        "title": "AIAD : Lancer dashboard --serve"
+      },
+      {
+        "command": "aiad.runSbom",
+        "title": "AIAD : Générer SBOM CycloneDX"
+      },
+      {
+        "command": "aiad.runDpia",
+        "title": "AIAD : Générer AIPD (Article 35 RGPD)"
+      },
+      {
+        "command": "aiad.runAiActAudit",
+        "title": "AIAD : Audit IA Act (Annexe IV)"
+      },
+      {
+        "command": "aiad.runGouvernanceLint",
+        "title": "AIAD : Lint gouvernance (contradictions inter-agents)"
+      },
+      {
+        "command": "aiad.openRepl",
+        "title": "AIAD : Ouvrir le REPL interactif"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "markdown",
+        "path": "./snippets/aiad.code-snippets"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/aiad.code-snippets"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/aiad.code-snippets"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/aiad.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/aiad.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/aiad.code-snippets"
+      },
+      {
+        "language": "rust",
+        "path": "./snippets/aiad.code-snippets"
+      },
+      {
+        "language": "go",
+        "path": "./snippets/aiad.code-snippets"
+      },
+      {
+        "language": "java",
+        "path": "./snippets/aiad.code-snippets"
+      },
+      {
+        "language": "csharp",
+        "path": "./snippets/aiad.code-snippets"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "aiad.refresh",
+          "when": "view == aiad.intents || view == aiad.specs",
+          "group": "navigation"
+        },
+        {
+          "command": "aiad.openTrace",
+          "when": "view == aiad.specs",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "AIAD SDD",
+      "properties": {
+        "aiad-sdd.aiadSddPath": {
+          "type": "string",
+          "default": "",
+          "description": "Chemin vers le binaire `aiad-sdd` (défaut : utilise `npx aiad-sdd`)."
+        },
+        "aiad-sdd.autoTraceOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Lance `aiad-sdd trace --json` automatiquement à la sauvegarde d'une SPEC ou d'un Intent."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test test/"
+  }
+}

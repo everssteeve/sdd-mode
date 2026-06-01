@@ -1,0 +1,118 @@
+name: Bun runtime feature parity
+
+# **Cap stratégique** (item #111) : `aiad-sdd` doit fonctionner sans
+# modification sous Bun (runtime alternatif populaire EU) ET sur Node 18,
+# 20, 22. Le test smoke historique a été étendu en **matrice exhaustive
+# de feature parity** via `scripts/bun-parity.js` qui compare ~23
+# commandes entre Node et Bun (exit code + signature de sortie).
+#
+# Les tests `node:test` restent exécutés côté Node (Bun a son propre
+# runner `bun test` non strictement équivalent).
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  node-matrix:
+    name: Node ${{ matrix.node }} smoke + tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: node --version
+        run: node --version
+      - name: aiad-sdd --version
+        run: node bin/aiad-sdd.js --version
+      - name: aiad-sdd help
+        run: node bin/aiad-sdd.js help
+      - name: npm test (suite complète)
+        run: npm test
+
+  bun-smoke:
+    name: Bun smoke (init / doctor / trace / sbom)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: bun --version
+        run: bun --version
+
+      - name: aiad-sdd --version (sous Bun)
+        run: bun bin/aiad-sdd.js --version
+
+      - name: aiad-sdd --help (sous Bun)
+        run: bun bin/aiad-sdd.js --help
+
+      - name: aiad-sdd init dans un projet vierge (sous Bun)
+        run: |
+          mkdir /tmp/bun-test
+          cd /tmp/bun-test
+          bun ${{ github.workspace }}/bin/aiad-sdd.js init
+
+      - name: aiad-sdd status (sous Bun)
+        run: |
+          cd /tmp/bun-test
+          bun ${{ github.workspace }}/bin/aiad-sdd.js status
+
+      - name: aiad-sdd doctor --json (sous Bun, tolère exit 1)
+        run: |
+          cd /tmp/bun-test
+          bun ${{ github.workspace }}/bin/aiad-sdd.js doctor --json || true
+
+      - name: aiad-sdd trace --json (sous Bun)
+        run: |
+          cd /tmp/bun-test
+          bun ${{ github.workspace }}/bin/aiad-sdd.js trace --json --quiet
+
+      - name: aiad-sdd sbom (sous Bun)
+        run: |
+          cd /tmp/bun-test
+          bun ${{ github.workspace }}/bin/aiad-sdd.js sbom --json
+
+      - name: aiad-sdd verify-reproducibility --json (sous Bun)
+        run: |
+          cd ${{ github.workspace }}
+          bun bin/aiad-sdd.js verify-reproducibility --json
+
+  bun-parity:
+    name: Bun feature parity matrix (~23 commandes)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [bun-smoke]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Run parity matrix (exit 1 si divergence)
+        run: node scripts/bun-parity.js --check
+
+      - name: Generate parity report markdown
+        if: always()
+        run: node scripts/bun-parity.js --out docs/bun-parity.md
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bun-parity-report
+          path: docs/bun-parity.md
+          retention-days: 30

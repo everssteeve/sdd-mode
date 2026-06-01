@@ -1,0 +1,13 @@
+# AIAD SDD Mode — Configuration locale
+#
+# Ce fichier configure le comportement local de SDD Mode (hooks, seuils, etc.).
+# Il est versionné — chaque membre de l'équipe partage la même configuration.
+#
+# Documentation : https://aiad.ovh
+
+hooks:
+  # Hook pre-commit : vérifie le Drift Lock (code modifié sans SPEC mise à jour).
+  #   block : refuse le commit en cas de drift potentiel (défaut, recommandé)
+  #   warn  : affiche un avertissement, n'empêche pas le commit
+  #   off   : désactive complètement le hook
+  pre_commit: block

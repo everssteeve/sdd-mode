@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-15T23:04:42.431Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>DPO / RGPD — url-shortener-bench</title>
+<meta name="description" content="DPO / RGPD — DPIA · SPECs RGPD · Coverage · Angles morts · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="DPO / RGPD — url-shortener-bench"/>
+<meta property="og:description" content="DPO / RGPD — DPIA · SPECs RGPD · Coverage · Angles morts · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta property="og:url" content="dpo.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DPO / RGPD — url-shortener-bench"/>
+<meta name="twitter:description" content="DPO / RGPD — DPIA · SPECs RGPD · Coverage · Angles morts · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">url-shortener-bench</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v0.1.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="active">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 16/05/2026 01:04:42<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>DPO / RGPD</h1>
+      <div class="subtitle">DPIA · SPECs RGPD · Coverage · Angles morts</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 16/05/2026 01:04:42. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">url-shortener-bench · v0.1.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <section>
+        <h2>DPIA (Data Protection Impact Assessment)</h2>
+        <div class="empty">
+          <strong>Aucune DPIA générée.</strong>
+          Lance <code>aiad-sdd dpia</code> pour générer un squelette Article 35 RGPD (méthode CNIL, 9 sections).
+        </div>
+      </section>
+<section>
+    <h2>Inventaire RGPD <span class="count">2 SPEC(s) · 0 fichier(s) code</span></h2>
+    <div class="kpis">
+      <div class="kpi"><div class="label">SPECs <code>AIAD-RGPD</code></div><div class="value">2</div><div class="delta">déclarent gouvernance RGPD</div></div>
+      <div class="kpi"><div class="label">Fichiers annotés</div><div class="value">0</div><div class="delta"><code>@governance AIAD-RGPD</code></div></div>
+      <div class="kpi"><div class="label">Coverage</div><div class="value" style="font-size:1.5rem"><span class="badge badge-bad">0%</span></div><div class="delta">SPECs couvertes / actives</div></div>
+    </div>
+    
+      <details>
+        <summary><strong>SPECs déclarant <code>AIAD-RGPD</code></strong> (2)</summary>
+        <table>
+          <thead><tr><th>SPEC</th><th>Fichier</th><th>Statut</th></tr></thead>
+          <tbody><tr>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-101-1-formulaire-paiement.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-1-formulaire-paiement.md">SPEC-101-1-formulaire-paiement</a></td>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-101-1-formulaire-paiement.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-1-formulaire-paiement.md">.aiad/specs/SPEC-101-1-formulaire-paiement.md</a></td>
+            <td class="muted">done</td>
+          </tr><tr>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-101-2-relance-panier.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-2-relance-panier.md">SPEC-101-2-relance-panier</a></td>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-101-2-relance-panier.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-2-relance-panier.md">.aiad/specs/SPEC-101-2-relance-panier.md</a></td>
+            <td class="muted">review</td>
+          </tr></tbody>
+        </table>
+      </details>
+    
+  </section>
+<section>
+        <h2>Angles morts RGPD <span class="count">2</span></h2>
+        <p class="muted">SPECs <strong>actives</strong> (ready/in-progress/review/validation/done) qui déclarent <code>governance: AIAD-RGPD</code> mais dont aucun fichier code lié n'est annoté <code>@governance AIAD-RGPD</code>. Signal : promesse de conformité sans matérialisation.</p>
+        <div class="alerte alerte-warn" style="margin-bottom:.5rem">
+          <div class="alerte-titre">2 SPEC(s) RGPD non couverte(s) par du code annoté</div>
+          <div class="alerte-action">→ Ajoute <code>@governance AIAD-RGPD</code> sur les fichiers code qui implémentent ces SPECs.</div>
+        </div>
+        <table>
+          <thead><tr><th>SPEC</th><th>Fichier source</th><th>Statut</th></tr></thead>
+          <tbody><tr>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-101-1-formulaire-paiement.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-1-formulaire-paiement.md">SPEC-101-1-formulaire-paiement</a></td>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-101-1-formulaire-paiement.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-1-formulaire-paiement.md">.aiad/specs/SPEC-101-1-formulaire-paiement.md</a></td>
+            <td class="muted">done</td>
+          </tr><tr>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-101-2-relance-panier.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-2-relance-panier.md">SPEC-101-2-relance-panier</a></td>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-101-2-relance-panier.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-2-relance-panier.md">.aiad/specs/SPEC-101-2-relance-panier.md</a></td>
+            <td class="muted">review</td>
+          </tr></tbody>
+        </table>
+      </section>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

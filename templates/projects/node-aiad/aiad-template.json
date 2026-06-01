@@ -1,0 +1,16 @@
+{
+  "id": "node-aiad",
+  "title": "Node.js + AIAD SDD (zero-dep ESM)",
+  "description": "Projet Node.js 18+ ESM zero-dep avec AIAD SDD préinstallé : agents Tier 1 EU, Drift Lock, traçabilité, multi-runtime AGENTS.md.",
+  "target": "node",
+  "language": "javascript",
+  "framework": null,
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test 'test/**/*.test.js'"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

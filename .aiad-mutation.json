@@ -1,0 +1,11 @@
+{
+  "_doc": "Configuration mutation testing batch (#62 + #70). Cible 5 modules cœur de logique avec tests dédiés robustes. Score moyen pondéré ≥ threshold global.",
+  "threshold": 70,
+  "modules": [
+    { "source": "lib/suggest.js", "test": "test/suggest.test.js" },
+    { "source": "lib/governance-lint.js", "test": "test/governance-lint.test.js" },
+    { "source": "lib/sbom.js", "test": "test/sbom.test.js" },
+    { "source": "lib/specs-library.js", "test": "test/specs-library.test.js" },
+    { "source": "scripts/release.js", "test": "test/release.test.js" }
+  ]
+}
