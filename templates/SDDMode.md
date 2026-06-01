@@ -200,6 +200,7 @@ Le Product Engineer est responsable du budget de contexte de chaque session agen
 
 **Quand** : Après une session agent, pour améliorer le Context Engineering Budget.
 **Ce que ça fait** : Boucle de feedback post-session. Compare l'estimation de contexte avec la réalité (tokens consommés, dégradation observée, durée effective). Produit des recommandations pour la prochaine session.
+**Argument économique étendu** : deux données convergentes valident l'intent-based design comme optimisation technique mesurable — R2Code (arXiv, avril 2026) : −41,7 % de tokens sur code spec-anchored ; AWS Strands (2026) : −96 % de tokens sur workflows intent-based. L'Intent Statement n'est pas seulement un artefact organisationnel — c'est une décision d'optimisation de coût mesurable.
 **Sortie** : Rapport d'audit contexte avec recommandations d'optimisation pour le PE.
 
 ---

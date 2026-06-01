@@ -26,6 +26,13 @@ patterns:
   # Documents de légitimation (argumentaires publiés — pas de code, pas de SPEC)
   - "docs/legitimation/**"
 
+  # Argumentaires commerciaux (prose, pas de code)
+  - "argumentaires/**"
+
+  # Agents de gouvernance réglementaire (templates Tier 1 + fixtures bench)
+  - "templates/.aiad/gouvernance/**"
+  - "bench/**/.aiad/gouvernance/**"
+
   # Manifestes et lockfiles (mises à jour de dépendances)
   - "package.json"
   - "package-lock.json"

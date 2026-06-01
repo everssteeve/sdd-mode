@@ -155,6 +155,47 @@ Un système IA au sens de l'AI Act est un système basé sur du machine learning
 
 ---
 
+## CATÉGORIE 1bis — AGENTS À AUTONOMIE FINANCIÈRE ET OPÉRATIONNELLE
+### Profil émergent — non encore codifié en EU AI Act, applicable dès la mise en production
+
+> **Contexte (2026) :** Des agents disposant de moyens de paiement réels (Cloudflare/Stripe,
+> protocole en production avec plafond $100/mois) effectuent des achats autonomes. L'incident
+> Cloudflare (achat de `superseal.cc` au lieu de `superseal.club`) illustre les effets
+> irréversibles possibles. L'AIAD-AI-ACT couvre ce profil en anticipation de sa formalisation
+> réglementaire.
+
+### Classification de risque AIAD (en attendant la codification EU AI Act)
+
+Un agent est classé **autonomie financière/opérationnelle** si :
+- Il dispose d'un accès à un moyen de paiement (carte, token API Stripe, budget cloud) ; **ET/OU**
+- Il peut déclencher des effets opérationnels irréversibles (achat de domaine, envoi d'e-mail en
+  masse, suppression de données, déploiement en production, modification de contrat).
+
+### Points de contrôle humains obligatoires (AIAD)
+
+- **TOUJOURS** valider explicitement la délégation initiale : quel humain identifiable a autorisé
+  cet agent à agir avec autonomie financière/opérationnelle, et dans quel périmètre.
+- **TOUJOURS** documenter un plafond de budget explicite (ex. $100/mois) **avant** la mise en
+  production de l'agent.
+- **TOUJOURS** maintenir un journal d'audit des actions financières/opérationnelles (montant,
+  cible, timestamp, décision humaine ou automatique).
+- **TOUJOURS** prévoir une procédure de rollback documentée pour les effets réversibles.
+- **JAMAIS** déléguer la décision finale sur un achat ou un effet irréversible au-delà du
+  plafond sans validation humaine explicite.
+
+### Format de signalement
+
+```
+⚠️ AIAD — AUTONOMIE FINANCIÈRE/OPÉRATIONNELLE
+Action demandée : [description]
+Effet irréversible : [oui/non] — [détail]
+Plafond documenté : [montant/périmètre ou ABSENT]
+Validation humaine : [identifié / non identifié]
+Action requise : [BLOQUER si plafond absent ou effet irréversible non validé]
+```
+
+---
+
 ## CATÉGORIE 1 — PRATIQUES INTERDITES (Art. 5)
 ### Application immédiate — Février 2025
 
