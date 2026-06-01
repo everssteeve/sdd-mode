@@ -115,7 +115,9 @@ test('scannerContenu — détecte email', () => {
 });
 
 test('scannerContenu — détecte token Stripe live', () => {
-  const r = scannerContenu('Secret: sk_live_abcdefghijklmnopqrstuvwxyz');
+  // Token de test construit à l'exécution : évite un littéral sk_live_ scannable
+  // en source (sinon faux positif GitHub push protection sur cette fixture).
+  const r = scannerContenu('Secret: sk_live_' + 'a'.repeat(26));
   assert.equal(r.length, 1);
   assert.equal(r[0].kind, 'token_stripe_live');
   assert.equal(r[0].severity, 'critique');
@@ -295,7 +297,7 @@ test('piiScan --json sans cible → 0 findings', () => {
 test('piiScan path → scanne un fichier ciblé', silent(() => {
   const d = tmp();
   try {
-    writeFileSync(join(d, 'spec.md'), 'Token sk_live_abcdefghijklmnopqrstuvwxyz');
+    writeFileSync(join(d, 'spec.md'), 'Token sk_live_' + 'a'.repeat(26));
     const r = piiScan(d, { path: 'spec.md', mode: 'warn' });
     assert.equal(r.findings, 1);
     assert.equal(r.mode, 'warn');
