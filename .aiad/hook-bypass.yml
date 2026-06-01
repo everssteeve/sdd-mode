@@ -40,3 +40,9 @@ patterns:
 
   # GitHub Actions (CI traceability v1.10)
   - ".github/workflows/sdd-trace.yml"
+
+  # Infrastructure du hook pre-commit (le mécanisme du Drift Lock lui-même
+  # et ses tests — pas une fonctionnalité applicative régie par une SPEC)
+  - "templates/.aiad/hooks/**"
+  - "bench/**/.aiad/hooks/**"
+  - "test/pre-commit.test.js"

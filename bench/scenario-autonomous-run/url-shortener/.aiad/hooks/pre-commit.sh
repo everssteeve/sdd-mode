@@ -233,7 +233,27 @@ fi
 # Tant qu'il subsiste, le commit doit attendre la décision humaine, même
 # si une SPEC est mise à jour en parallèle. Le check précède donc le
 # Drift Lock pour bloquer plus tôt.
-JNSP_HITS=$(git grep --cached -nE 'TODO-JNSP:' -- "${CODE_CHANGED[@]}" 2>/dev/null || true)
+#
+# Le marqueur est un *commentaire de code*. On écarte deux familles de faux
+# positifs (cf. test/pre-commit.test.js) :
+#   1. la documentation Markdown (.md/.markdown/.mdx) qui décrit le pattern et
+#      en montre des exemples — jamais un marqueur réel ;
+#   2. les mentions hors commentaire (chaînes, backticks, ce hook lui-même),
+#      écartées par une regex ancrée sur un délimiteur de commentaire qui
+#      n'est pas précédé d'un backtick. Le token est écrit TODO-JNSP[:] pour
+#      que ce script ne se déclenche pas sur sa propre source.
+JNSP_SCAN=()
+for f in "${CODE_CHANGED[@]}"; do
+  case "$f" in
+    *.md|*.markdown|*.mdx) continue ;;
+  esac
+  JNSP_SCAN+=("$f")
+done
+
+JNSP_HITS=""
+if [ "${#JNSP_SCAN[@]}" -gt 0 ]; then
+  JNSP_HITS=$(git grep --cached -nE '(^|[^`])[[:space:]]*(//|/\*|<!--|--|#|;|%|\*)[[:space:]]*TODO-JNSP[:]' -- "${JNSP_SCAN[@]}" 2>/dev/null || true)
+fi
 if [ -n "$JNSP_HITS" ]; then
   echo ""
   echo "  ⚠️  AIAD SDD Mode — Garde-fou JNSP (Je Ne Sais Pas)"

@@ -21,6 +21,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const HOOK_TEMPLATE = join(__dirname, '..', 'templates', '.aiad', 'hooks', 'pre-commit.sh');
 
+// Marqueur construit par morceaux : CE fichier de test ne doit jamais contenir
+// la séquence « <délimiteur de commentaire> TODO-JNSP: » en clair, sinon le hook
+// réel bloquerait son propre commit. Les fixtures reconstruisent le marqueur à
+// l'exécution, de sorte que le hook *sous test* voit bien un vrai marqueur.
+const JNSP = 'TODO-' + 'JNSP:';
+
 function git(dir, ...args) {
   return spawnSync('git', args, { cwd: dir, encoding: 'utf-8' });
 }
@@ -211,7 +217,7 @@ test('hook — aucun fichier stagé → exit 0', () => {
 test('hook — TODO-JNSP dans le code stagé + mode block → exit 1', () => {
   const dir = setupRepo({ mode: 'block' });
   try {
-    stageNew(dir, 'src/login.ts', 'export function login(){\n  // TODO-JNSP: quel comportement si le user est verrouillé ?\n  return null;\n}');
+    stageNew(dir, 'src/login.ts', 'export function login(){\n  // ' + JNSP + ' quel comportement si le user est verrouillé ?\n  return null;\n}');
     stageNew(dir, '.aiad/specs/SPEC-001-1-login.md', '# Login\nSPEC à jour');
     const r = runHook(dir);
     assert.equal(r.status, 1, `stdout: ${r.stdout}`);
@@ -226,7 +232,7 @@ test('hook — TODO-JNSP dans le code stagé + mode block → exit 1', () => {
 test('hook — TODO-JNSP en mode warn → exit 0 + message', () => {
   const dir = setupRepo({ mode: 'warn' });
   try {
-    stageNew(dir, 'src/x.ts', '// TODO-JNSP: à clarifier\nexport const x = 1;\n');
+    stageNew(dir, 'src/x.ts', '// ' + JNSP + ' à clarifier\nexport const x = 1;\n');
     const r = runHook(dir);
     assert.equal(r.status, 0);
     assert.match(r.stdout, /JNSP/);
@@ -245,6 +251,70 @@ test('hook — code sans TODO-JNSP + SPEC stagée → exit 0 (pas de faux positi
     stageNew(dir, '.aiad/specs/SPEC-002-1-x.md', '# X');
     const r = runHook(dir);
     assert.equal(r.status, 0, `stdout: ${r.stdout}`);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// ─── Faux positifs JNSP — documentation & mentions hors commentaire ──────
+// Le marqueur est un commentaire de code. La documentation qui le décrit et
+// les mentions en chaîne / backticks ne doivent jamais bloquer.
+
+test('hook — doc Markdown décrivant le marqueur (backticks) + SPEC → exit 0', () => {
+  const dir = setupRepo({ mode: 'block' });
+  try {
+    // Reproduit le faux positif réel sur .aiad/AGENT-GUIDE.md (ligne en backticks).
+    stageNew(
+      dir,
+      'docs/AGENT-GUIDE.md',
+      '- Dans le code : poser `// ' + JNSP + ' <question pour l\'humain>` ; le hook bloque.\n',
+    );
+    stageNew(dir, '.aiad/specs/SPEC-010-1-doc.md', '# Doc');
+    const r = runHook(dir);
+    assert.equal(r.status, 0, `stdout: ${r.stdout}`);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('hook — doc Markdown avec bloc de code clôturé montrant le marqueur + SPEC → exit 0', () => {
+  const dir = setupRepo({ mode: 'block' });
+  try {
+    stageNew(
+      dir,
+      'docs/guide.md',
+      'Exemple :\n\n```js\n// ' + JNSP + ' question illustrative\n```\n',
+    );
+    stageNew(dir, '.aiad/specs/SPEC-011-1-guide.md', '# Guide');
+    const r = runHook(dir);
+    assert.equal(r.status, 0, `stdout: ${r.stdout}`);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('hook — mention TODO-JNSP en chaîne (hors commentaire) + SPEC → exit 0', () => {
+  const dir = setupRepo({ mode: 'block' });
+  try {
+    // Le token apparaît dans un littéral chaîne, pas en position de commentaire.
+    stageNew(dir, 'src/scan.js', 'const MARKER = "' + JNSP + '"; // motif recherché\nexport { MARKER };\n');
+    stageNew(dir, '.aiad/specs/SPEC-012-1-scan.md', '# Scan');
+    const r = runHook(dir);
+    assert.equal(r.status, 0, `stdout: ${r.stdout}`);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('hook — vrai marqueur en commentaire trailing (Python #) → exit 1', () => {
+  const dir = setupRepo({ mode: 'block' });
+  try {
+    stageNew(dir, 'src/svc.py', 'def f():\n    return 1  # ' + JNSP + ' confirmer le comportement par défaut\n');
+    stageNew(dir, '.aiad/specs/SPEC-013-1-svc.md', '# Svc');
+    const r = runHook(dir);
+    assert.equal(r.status, 1, `stdout: ${r.stdout}`);
+    assert.match(r.stdout, /TODO-JNSP/);
+    assert.match(r.stdout, /confirmer le comportement/);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
