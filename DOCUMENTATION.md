@@ -2,11 +2,11 @@
 ---
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
-version: 1.15.0
-source-hash: 7725770dac65580f
+version: 1.16.0
+source-hash: faf12141b15e4b4c
 ---
 
-# aiad-sdd — Documentation utilisateur (v1.15.0)
+# aiad-sdd — Documentation utilisateur (v1.16.0)
 
 > Cette documentation est **régénérée à chaque changement** des sources de vérité (CLI, commandes slash, skills, gouvernance, conventions d'annotations). Toute édition manuelle sera écrasée. Pour modifier le contenu : édite la source puis relance `npx aiad-sdd docs`. Le mode `npx aiad-sdd docs --check` est utilisable en CI pour bloquer les PR qui désynchronisent la doc.
 
@@ -24,7 +24,7 @@ source-hash: 7725770dac65580f
 Sortie de `aiad-sdd help` (extraite du bin pour rester à jour) :
 
 ```
-aiad-sdd v1.15.0 — Spec Driven Development pour Claude Code
+aiad-sdd v1.16.0 — Spec Driven Development pour Claude Code
   https://aiad.ovh
 
   Commandes :
@@ -283,4 +283,4 @@ Conventions reconnues par `aiad-sdd trace` (regex stables exportées par `lib/sd
 
 ---
 
-*Document régénéré automatiquement — source-hash `7725770dac65580f`, package v1.15.0.*
+*Document régénéré automatiquement — source-hash `faf12141b15e4b4c`, package v1.16.0.*
