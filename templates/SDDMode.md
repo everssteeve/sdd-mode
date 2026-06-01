@@ -148,6 +148,7 @@ Le Product Engineer est responsable du budget de contexte de chaque session agen
 
 **Quand** : Avant de rédiger une SPEC, pour chaque user story à implémenter.
 **Ce que ça fait** : Guide la rédaction de l'Intent Statement en 5 champs (POURQUOI MAINTENANT, POUR QUI, OBJECTIF, CONTRAINTES, CRITÈRE DE DRIFT). Vérifie la complétude et crée le fichier dans `.aiad/intents/`. Le champ *Auteur humain* est obligatoire — principe Human Authorship.
+**Pattern Interrogatory LLM (Fowler, 2026)** : `/sdd-intent` construit le contexte par questions ciblées plutôt que passivement — l'agent interroge l'humain pour révéler l'intention, il ne la devine pas.
 **Sortie** : Fichier `INTENT-XXX-[nom].md` dans `.aiad/intents/` + mise à jour `_index.md`.
 
 ---
@@ -165,6 +166,7 @@ Le Product Engineer est responsable du budget de contexte de chaque session agen
 **Quand** : Avant tout lancement d'agent de code, pour valider la SPEC.
 **Ce que ça fait** : Évalue les 5 critères SQS (atomicité, précision, testabilité, non-ambiguïté, scope défini) + le Critère 6 non-scorable "Test de l'Étranger". Score ≥ 4/5 : gate ouverte. Score < 4/5 : retour en révision. Si gate ouverte, prépare le Context Engineering Budget.
 **Sortie** : Score SQS + décision gate ouverte/fermée + contexte d'injection préparé.
+**Révision graduée outillée** : l'outil `/code-review` de Claude Code (niveaux d'effort `low`/`medium`/`high`) peut servir de révision alignée sur le SQS — SQS 3/5 → `low`, 4/5 → `medium`, 5/5 → `high`. C'est un outillage **compatible et externe** au framework : il n'ajoute aucun critère au SQS, qui reste à 5 critères + le Critère 6.
 
 ---
 

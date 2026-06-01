@@ -87,6 +87,8 @@ AIAD repose sur sept valeurs fondatrices, immuables et non-négociables. Elles n
 
 **7. Human Authorship.** La paternité de l'intention ne se délègue pas à l'agent. Tout **Intent Statement** doit être rédigé en première personne par un humain. L'agent peut enrichir, questionner, affiner. Il ne peut pas initier. Si un agent a rédigé l'Intent Statement, la session est invalidée. L'Execution Gate ne peut pas être passé sans un Intent Statement dont l'auteur est humain et identifiable.
 
+*Légitimation externe (mai 2026).* La valeur Human Authorship correspond précisément à ce que Martin Fowler (2026) nomme « programmation agentique sérieuse » — le développeur examine et valide le code généré — par opposition au « vibe coding » (Karpathy/Fowler) où l'auteur délègue sans validation. Elle prévient aussi la *cognitive debt* (Fowler/Joshi, 2026) : l'accumulation de code dont on accepte l'implémentation sans comprendre le modèle conceptuel sous-jacent.
+
 *Ancrage constitutionnel : Valeur 1 de l'Article II de la Constitution AIAD v1.0.*
 
 Ces sept valeurs forment un système. En retirer une fait s'effondrer l'ensemble.

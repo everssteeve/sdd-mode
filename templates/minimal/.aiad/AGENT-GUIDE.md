@@ -78,6 +78,7 @@
 ## HUMAN LEARNINGS
 
 > Écarts entre l'intention exprimée et la livraison — ce ne sont pas des bugs, ce sont des défaillances d'expression.
+> Les documenter prévient la *cognitive debt* (Fowler/Joshi, 2026) : ce qui n'a pas été compris une fois se répète.
 
 | Date | Intention exprimée | Résultat obtenu | Apprentissage |
 |------|--------------------|-----------------|---------------|

@@ -9,6 +9,23 @@
 
 ## [Unreleased]
 
+### Documentation — Ancrage Human Authorship sur le vocabulaire Fowler 2026 (Batch C / briefing ALIS 2026-05-31)
+
+Légitimation externe de la valeur 7 (Human Authorship) et du cycle SDD via le
+vocabulaire désormais partagé par la communauté (Martin Fowler, 2026). Purement
+documentaire — aucune commande, aucun critère SQS modifié.
+
+- **Valeur 7 — légitimation externe** — `frameworkAIAD.md` (+ template) :
+  note rattachant Human Authorship à la « programmation agentique sérieuse »
+  (vs *vibe coding*) et à la prévention de la *cognitive debt*.
+- **`/sdd-intent` — pattern Interrogatory LLM** — `SDDMode.md` (+ template) :
+  l'agent construit le contexte par questions ciblées, il ne devine pas l'intention.
+- **`/sdd-gate` — révision graduée outillée** — `SDDMode.md` (+ template) :
+  mapping `/code-review` Claude Code (`low`/`medium`/`high`) ↔ SQS, présenté
+  comme outillage compatible et externe (n'ajoute aucun critère au SQS).
+- **HUMAN LEARNINGS — cognitive debt** — `AGENT-GUIDE.md` (complet, template, minimal) :
+  documenter les écarts d'expression prévient la *cognitive debt*.
+
 ### Ajouté — Dashboard PM initiative-cards/spec-lifecycle-time/quick-filters (#558-#560, loop 47)
 
 **47ᵉ boucle d'audit PM** (2026-05-16) — pm.html monte à 131 sections h2,

@@ -120,6 +120,7 @@
 
 > Section v1.1 — Documentez ici les écarts entre l'intention humaine et la livraison.
 > Ces learnings ne sont PAS des erreurs de l'agent — ce sont des défaillances de l'expression humaine.
+> Documenter ces écarts prévient la *cognitive debt* (Fowler/Joshi, 2026) : ce qui n'a pas été compris une fois se répète.
 
 | Date | Intention exprimée | Résultat obtenu | Apprentissage |
 |------|--------------------|-----------------|---------------|
