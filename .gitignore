@@ -25,3 +25,6 @@ Thumbs.db
 
 # Playwright MCP debug artifacts (snapshots / console logs)
 .playwright-mcp/
+
+# Generated metrics files in bench scenarios
+bench/**/.aiad/metrics/
