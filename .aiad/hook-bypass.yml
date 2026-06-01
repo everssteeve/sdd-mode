@@ -63,6 +63,9 @@ patterns:
   - "bench/**/.aiad/hooks/**"
   - "test/pre-commit.test.js"
 
+  # Outillage interne (scripts de release, lint, CI) — correctifs de faux positifs
+  - "scripts/lint.js"
+
   # Tests de l'outillage sécurité — contiennent des fixtures volontairement
   # en forme de secrets/PII (sk_live_, ghp_, NIR…) pour vérifier la détection
   - "test/pii-scan.test.js"

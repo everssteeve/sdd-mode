@@ -36,7 +36,9 @@ function checkSyntax(fichier) {
 }
 
 function checkImportsRelatifs(fichier) {
-  const contenu = readFileSync(fichier, 'utf-8');
+  // Strip template literal content to avoid false positives on test fixtures
+  // (e.g. sample = `import { local } from './local.js';` in unit tests).
+  const contenu = readFileSync(fichier, 'utf-8').replace(/`(?:[^`\\]|\\.)*`/gs, '``');
   const re = /from\s+['"](\.\/[^'"]+|\.\.\/[^'"]+)['"]/g;
   const erreurs = [];
   let m;
