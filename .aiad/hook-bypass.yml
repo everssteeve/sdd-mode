@@ -72,6 +72,10 @@ patterns:
   # en forme de secrets/PII (sk_live_, ghp_, NIR…) pour vérifier la détection
   - "test/pii-scan.test.js"
 
+  # Correctifs de fiabilité CI (mtime, timing, platform differences) — pas de
+  # changement de comportement applicatif, pas de SPEC à mettre à jour
+  - "test/dashboard-sre.test.js"
+
   # Module d'agrégation dashboard (#561) — orchestre des modules existants,
   # pas de logique métier nouvelle propre à une SPEC dédiée
   - "lib/dashboard/backlog-health-score.js"

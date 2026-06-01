@@ -2,7 +2,7 @@
 
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
-import { mkdirSync, mkdtempSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, writeFileSync, rmSync, utimesSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
@@ -100,11 +100,15 @@ test('calculerSre — derniers rapports triés desc par mtime', () => {
   try {
     const dir = join(racine, '.aiad', 'metrics', 'security');
     mkdirSync(dir, { recursive: true });
-    writeFileSync(join(dir, 'a.md'), '# old');
-    // Petit délai pour différencier les mtime sur APFS
-    const before = Date.now();
-    while (Date.now() === before) { /* spin */ }
-    writeFileSync(join(dir, 'b.md'), '# new');
+    const pathA = join(dir, 'a.md');
+    const pathB = join(dir, 'b.md');
+    writeFileSync(pathA, '# old');
+    writeFileSync(pathB, '# new');
+    // Force explicit mtimes so the test is deterministic regardless of FS resolution
+    const old = new Date(Date.now() - 2000);
+    const recent = new Date(Date.now());
+    utimesSync(pathA, old, old);
+    utimesSync(pathB, recent, recent);
     const r = calculerSre(racine, {});
     assert.equal(r.security.total, 2);
     assert.equal(r.security.derniers[0].name, 'b.md', 'le plus récent en tête');
