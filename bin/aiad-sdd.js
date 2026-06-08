@@ -128,6 +128,27 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const VERSION = JSON.parse(readFileSync(join(__dirname, '..', 'package.json'), 'utf-8')).version;
 
+/**
+ * Charge un schéma de verdict versionné (§3.4). Priorité : chemin explicite
+ * `--json-schema`, puis `.aiad/schema/verdicts/` du projet, puis celui livré
+ * par le package. Retourne `null` si introuvable (validation alors sautée).
+ *
+ * @param {string} nom — gate | trace | validate | security
+ * @param {string} [cheminExplicite]
+ * @returns {object|null}
+ */
+function chargerSchemaVerdict(nom, cheminExplicite) {
+  const candidats = [
+    cheminExplicite ? join(cwd(), cheminExplicite) : null,
+    join(cwd(), '.aiad', 'schema', 'verdicts', `${nom}.schema.json`),
+    join(__dirname, '..', '.aiad', 'schema', 'verdicts', `${nom}.schema.json`),
+  ].filter(Boolean);
+  for (const p of candidats) {
+    try { return JSON.parse(readFileSync(p, 'utf-8')); } catch { /* suivant */ }
+  }
+  return null;
+}
+
 // Active le garde air-gapped (item #112) si AIAD_OFFLINE est positionné
 // ou si .aiad/config.yml déclare `offline: true`. Idempotent.
 try { installerOffline(cwd()); } catch { /* never break CLI startup */ }
@@ -153,6 +174,9 @@ const OPTIONS_SCHEMA = {
   list: { type: 'boolean' },
   lang: { type: 'string' },
   json: { type: 'boolean' },
+  'output-format': { type: 'string' },
+  'json-schema': { type: 'string' },
+  diff: { type: 'string' },
   'fail-on-gap': { type: 'boolean' },
   quiet: { type: 'boolean' },
   serve: { type: 'boolean' },
@@ -1043,6 +1067,14 @@ async function main() {
     }
 
     case 'trace':
+      // Mode verdict machine (§3.3/§3.4) : enveloppe canonique + exit 0/1/2.
+      // Distinct du `--json` historique (matrice complète, inchangé).
+      if (values['output-format'] === 'verdict') {
+        const { emitDriftVerdict } = await import('../lib/drift-verdict.js');
+        const schema = chargerSchemaVerdict('trace', values['json-schema']);
+        const r = emitDriftVerdict(cwd(), { json: true, schema });
+        exit(r.code);
+      }
       await trace(cwd(), {
         out: values.out,
         formats: liste(values.format, ['md', 'json', 'html', 'sarif']),
@@ -1054,6 +1086,28 @@ async function main() {
         dryRun: Boolean(values['dry-run']),
       });
       break;
+
+    case 'veto': {
+      // Veto Tier 1 déterministe par diff (§3.1 levier 3) : exit 0/1/2.
+      const { emitVeto } = await import('../lib/veto.js');
+      const schema = chargerSchemaVerdict('veto', values['json-schema']);
+      const r = emitVeto(cwd(), {
+        diff: values.diff || (positionals[1] && positionals[1] !== 'verdict' ? positionals[1] : undefined),
+        json: values['output-format'] === 'verdict' || Boolean(values.json),
+        schema,
+      });
+      if (!(values['output-format'] === 'verdict' || values.json)) {
+        if (r.verdict === 'PASS') {
+          console.log(`\n  ${r.enveloppe.triggered.length ? `Zones Tier 1 touchées : ${r.enveloppe.triggered.join(', ')} — toutes annotées @governance.` : 'Aucune zone Tier 1 touchée.'}\n  Verdict : PASS\n`);
+        } else {
+          console.error(`\n  ⚠️  Veto Tier 1 — ${r.enveloppe.violations.length} zone(s) réglementée(s) sans annotation @governance :`);
+          for (const v of r.enveloppe.violations) console.error(`      • ${v.file} → manque @governance ${v.agent}`);
+          console.error(`\n  Verdict : JNSP (UNKNOWN = VETO, fail-closed). Pose l'annotation @governance ou tranche avec le subagent.\n`);
+        }
+      }
+      exit(r.code);
+      break;
+    }
 
     case 'dashboard': {
       const dashboardOpts = {

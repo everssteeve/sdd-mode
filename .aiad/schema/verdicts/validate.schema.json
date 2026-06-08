@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiad.ovh/schema/verdicts/validate.schema.json",
+  "title": "AIAD SDD — Verdict Validation du code produit",
+  "type": "object",
+  "required": ["verdict", "exitCode"],
+  "properties": {
+    "verdict": { "type": "string", "enum": ["PASS", "CONDITIONAL", "FAIL", "JNSP"] },
+    "exitCode": { "type": "integer", "enum": [0, 1, 2] },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "message"],
+        "properties": {
+          "severity": { "type": "string", "enum": ["info", "warn", "high", "critical"] },
+          "message": { "type": "string" },
+          "file": { "type": "string" },
+          "line": { "type": "integer" },
+          "reviewer": { "type": "string" }
+        }
+      }
+    },
+    "conditions": { "type": "array", "items": { "type": "string" } }
+  }
+}

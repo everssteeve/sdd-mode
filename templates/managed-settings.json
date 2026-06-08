@@ -1,0 +1,19 @@
+{
+  "//": "AIAD SDD Mode — Managed settings (org) — §3.1 levier 1. OPT-IN organisation. À déployer via le mécanisme managed de Claude Code (precedence absolue, non-overridable depuis un settings projet). Rend le droit de veto Tier 1 et le garde-fou anti-bypass mécaniquement inviolables. Ne pas committer dans un projet applicatif — c'est une politique d'entreprise.",
+  "permissions": {
+    "deny": [
+      "Edit(.aiad/gouvernance/**)",
+      "Write(.aiad/gouvernance/**)",
+      "Edit(.claude/agents/AIAD-**)",
+      "Write(.claude/agents/AIAD-**)"
+    ]
+  },
+  "autoMode": {
+    "hard_deny": [
+      "Bash(git commit * --no-verify*)",
+      "Bash(git commit --no-verify*)",
+      "Bash(git push * --force*)",
+      "Bash(git push --force*)"
+    ]
+  }
+}

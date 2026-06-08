@@ -7,6 +7,7 @@
 | ID | Titre | Intent parent | Format | SQS | Statut | PR |
 |----|-------|---------------|--------|-----|--------|----|
 | SPEC-001-1 | Feedback qualitatif opt-in — commande CLI et invitation périodique | INTENT-001 | prose | 4.4 | done | — |
+| SPEC-002-1 | Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1) | INTENT-002 | prose | 4.4 | in-progress | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

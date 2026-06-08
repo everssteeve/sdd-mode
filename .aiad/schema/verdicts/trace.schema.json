@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiad.ovh/schema/verdicts/trace.schema.json",
+  "title": "AIAD SDD — Verdict Traçabilité (Drift Lock)",
+  "type": "object",
+  "required": ["verdict", "exitCode", "gaps"],
+  "properties": {
+    "verdict": { "type": "string", "enum": ["PASS", "FAIL", "JNSP"] },
+    "exitCode": { "type": "integer", "enum": [0, 1, 2] },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "ref"],
+        "properties": {
+          "kind": { "type": "string" },
+          "ref": { "type": "string" },
+          "file": { "type": "string" },
+          "blocking": { "type": "boolean" }
+        }
+      }
+    },
+    "coverage": { "type": "number" }
+  }
+}

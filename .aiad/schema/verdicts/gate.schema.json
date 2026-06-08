@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiad.ovh/schema/verdicts/gate.schema.json",
+  "title": "AIAD SDD — Verdict Execution Gate (SQS)",
+  "type": "object",
+  "required": ["verdict", "exitCode", "sqs"],
+  "properties": {
+    "verdict": { "type": "string", "enum": ["PASS", "CONDITIONAL", "FAIL", "JNSP"] },
+    "exitCode": { "type": "integer", "enum": [0, 1, 2] },
+    "sqs": {
+      "type": "object",
+      "required": ["total", "max", "criteres"],
+      "properties": {
+        "total": { "type": "integer" },
+        "max": { "type": "integer" },
+        "criteres": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "score"],
+            "properties": {
+              "id": { "type": "string" },
+              "score": { "type": "integer" },
+              "evidence": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "conditions": { "type": "array", "items": { "type": "string" } },
+    "remediation": { "type": "array", "items": { "type": "string" } }
+  }
+}

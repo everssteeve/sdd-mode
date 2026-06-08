@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiad.ovh/schema/verdicts/security.schema.json",
+  "title": "AIAD SDD — Verdict Audit sécurité",
+  "type": "object",
+  "required": ["verdict", "exitCode"],
+  "properties": {
+    "verdict": { "type": "string", "enum": ["PASS", "FAIL", "JNSP"] },
+    "exitCode": { "type": "integer", "enum": [0, 1, 2] },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "title"],
+        "properties": {
+          "severity": { "type": "string", "enum": ["info", "low", "medium", "high", "critical"] },
+          "title": { "type": "string" },
+          "category": { "type": "string" },
+          "file": { "type": "string" }
+        }
+      }
+    }
+  }
+}
