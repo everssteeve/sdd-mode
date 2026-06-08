@@ -55,14 +55,21 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
 - Tests : `exec-status.test.js` (11 ✓) + `mini-gate.test.js` (13 ✓). Suite **3686 pass / 0 fail / 1 skip**.
 - *Reste (ultérieur)* : scoring dimensionnel 0-10, hook `PostToolBatch` (warning tranche sans tests verts), toggle `config.yml exec.phased`.
 
-### Reste à faire (P1 → P3 + garde-fous) — non démarré
-- **P1** : §3.7 (contexte pull)
+### ✅ Jalon : §3.7 livré (budget push → pull — SPEC-A + cœur SPEC-B)
+- **SPEC-A** — gouvernance en pull : `lib/emit-rules.js` génère `.claude/rules/{rgpd,rgaa,ai-act,rgesn}.md` à frontmatter `paths:` (primitive native, chargement à la demande) depuis la source unique `.aiad/gouvernance/` ; `GLOBS_RULES` (RGESN resserré sur ressources/deps, pas `**/*`) + `nomRule`. Réglages de budget dans `templates/.claude/settings.json` : `env.CLAUDE_AUTOCOMPACT_PCT_OVERRIDE: "65"`, `skillListingMaxDescChars: 1536`, `skillListingBudgetFraction: 0.01`.
+- **SPEC-B (cœur)** — garde-fou `MAX_DESCRIPTION = 1536` dans `lib/skills.js` (`validerSkill`). Les skills sont déjà en progressive disclosure native (corps chargé à l'invocation). *Minimalisation complète de `CLAUDE.md` + `references/` = itération ultérieure (risque de régression sur un doc très asserté).*
+- Vérif clé : le `paths:` des **subagents** n'est pas honoré par Claude Code → les `.claude/rules/` sont la **vraie** primitive de path-scoping. Couche enforced (§3.1) intacte ; les règles pull sont additives + advisory.
+- Tests : `emit-rules-pull.test.js` (5 ✓) + garde-fou skills. Suite **3692 pass / 0 fail / 1 skip**.
+
+## ✅ P1 COMPLET (§3.5 + §3.6 + §3.7)
+
+### Reste à faire (P2 → P3 + garde-fous) — non démarré
 - **P2** : §3.8 (memory native), §3.9 (graphe Tasks), §3.10 (canary + alignement modèles)
 - **P3** : §3.11 (OTel/statusLine), §3.12 (cross-model), §3.13 (plugin/goal)
 - **§4** : garde-fous (doctrine + grill-me + proportionnalité + sunset)
 | 3.5 | Research + GO/NO-GO + Discovery | ✅ Fait (SPEC-A + SPEC-B) | `lib/research.js`, `bin/aiad-sdd.js` (cases `research` + `discovery-check`), schémas `research`/`discovery`, `.aiad/hooks/discovery-gate.js` (+template, `UserPromptSubmit`), `templates/.claude/sdd/{research,spec,exec}.md`, `templates/.claude/settings.json`, `templates/.aiad/research-template.md` + `_index.md`, cycle (`emit-rules.js` + 2× `CLAUDE.md`), `lib/init.js` | `research.test.js` (20 ✓) + `discovery-gate.test.js` (10 ✓) |
 | 3.6 | Exécution phasée + mini-gates + CONDITIONAL | ✅ Fait (SPEC-A + SPEC-B ; dimensions 0-10 + PostToolBatch ultérieurs) | `lib/exec-status.js`, `lib/mini-gate.js`, `bin/aiad-sdd.js` (cases `mini-gate` + `exec-status`), `minigate.schema.json`, `templates/.aiad/exec-plan-template.md` + `exec/_index.md`, `templates/.claude/sdd/{exec,resume}.md`, skill `sqs-scoring`, `lib/init.js` | `exec-status.test.js` (11 ✓) + `mini-gate.test.js` (13 ✓) |
-| 3.7 | Budget instructions push→pull | ⏳ À faire | — | — |
+| 3.7 | Budget instructions push→pull | ✅ Fait (SPEC-A + cœur SPEC-B ; CLAUDE.md minimal ultérieur) | `lib/emit-rules.js` (`genererClaudeRule` + `GLOBS_RULES` + `nomRule`), `templates/.claude/settings.json` (budget), `lib/skills.js` (`MAX_DESCRIPTION`) | `emit-rules-pull.test.js` (5 ✓) + `skills.test.js` |
 | 3.8 | Memory native | ⏳ À faire | — | — |
 | 3.9 | Cycle graphe Tasks | ⏳ À faire | — | — |
 | 3.10 | Canary + alignement modèles | ⏳ À faire | — | — |

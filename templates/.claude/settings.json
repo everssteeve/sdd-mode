@@ -1,4 +1,9 @@
 {
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "65"
+  },
+  "skillListingMaxDescChars": 1536,
+  "skillListingBudgetFraction": 0.01,
   "hooks": {
     "SessionStart": [
       {

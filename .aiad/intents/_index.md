@@ -10,6 +10,7 @@
 | INTENT-002 | Gouvernance SDD enforced par le harness (advisory → enforced) | Steeve Evers | 2026-06-08 | SPEC-002-1 | active |
 | INTENT-003 | Phase Research + Discovery obligatoire avant la SPEC (§3.5) | Steeve Evers | 2026-06-08 | SPEC-003-1 | active |
 | INTENT-004 | Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6) | Steeve Evers | 2026-06-08 | SPEC-004-1 | active |
+| INTENT-005 | Budget d'instructions push → pull (gouvernance par paths, §3.7) | Steeve Evers | 2026-06-08 | SPEC-005-1 | active |
 
 ## Cycle de vie d'un Intent Statement
 

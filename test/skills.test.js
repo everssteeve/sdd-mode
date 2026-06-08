@@ -127,6 +127,37 @@ Corps long pour ne pas faire échouer la règle 50-caractères du body : suffisa
   }
 });
 
+test('validerSkill — description > 1536 caractères → invalide (§3.7)', () => {
+  const d = tmp();
+  try {
+    const longue = 'Use when '.padEnd(1600, 'x');
+    ecrireSkill(d, 'long-desc', `---
+name: foo
+description: ${longue}
+---
+
+# Foo
+
+Corps long pour ne pas faire échouer la règle 50-caractères du body : suffisant ici.
+`);
+    const r = validerSkill(join(d, '.claude', 'skills', 'long-desc', 'SKILL.md'));
+    assert.equal(r.ok, false);
+    assert.ok(r.raisons.some((m) => /trop longue|plafond/i.test(m)));
+  } finally {
+    rmSync(d, { recursive: true, force: true });
+  }
+});
+
+test('skills réelles — toutes les descriptions ≤ 1536 (budget §3.7)', () => {
+  const racine = join(import.meta.dirname, '..', 'templates');
+  const skills = listerSkills(racine);
+  assert.ok(skills.length > 0, 'des skills doivent exister dans templates/.claude/skills/');
+  for (const s of skills) {
+    const r = validerSkill(s);
+    assert.ok(!r.raisons.some((m) => /trop longue/i.test(m)), `${r.name} : description ≤ 1536`);
+  }
+});
+
 test('validerSkill — name manquant → invalide', () => {
   const d = tmp();
   try {
