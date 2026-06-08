@@ -53,6 +53,19 @@ PASS / FAIL — sévère par design, échoue souvent.
 | ≤ 2/5 | **FERMÉE** | Réécriture complète |
 | `?/5` (≥ 1 critère non scorable) | **INCONNUE** (fail-closed) | Décision humaine requise — voir « État JNSP » |
 
+## Verdict d'exécution `CONDITIONAL` (§3.6 — pendant `/sdd exec`)
+
+L'Execution Gate (ci-dessus) est binaire **avant** l'exécution : OUVERTE / FERMÉE / INCONNUE. **Pendant** l'exécution phasée, chaque tranche verticale est validée par un **mini-gate** qui, lui, expose un 3ᵉ verdict gradué :
+
+| Verdict mini-gate | Sens | Exit |
+|-------------------|------|------|
+| `PASS` | Tranche livrée : tests présents, aucune dette | 0 |
+| `CONDITIONAL` | Tranche acceptable avec **dette explicitée** (conditions non vides à lever avant la gate finale) | 0 |
+| `FAIL` | Tranche bloquée, sans test (code horizontal) ou tests non livrés/rouges | 1 |
+| `JNSP` | Tranche indécidable | 2 |
+
+`UNKNOWN = VETO` reste : un critère non scorable force `JNSP`, **jamais** `CONDITIONAL`. Commande : `npx aiad-sdd mini-gate <SPEC-id> --phase N`. Le verdict est déterministe (`lib/mini-gate.js`), pas un jugement libre.
+
 ## État JNSP — critère non scorable
 
 Un critère est `JNSP` (pas 0, pas 1, pas `?`) quand son scoring est

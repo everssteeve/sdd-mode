@@ -44,6 +44,16 @@ Les sessions agent sont interrompues en pratique. Le risque : recommencer de zé
 | Tests existants | passent ? |
 | Dernière action réussie | [description] |
 
+### Étape 1b — Reprendre à la bonne tranche (si plan phasé §3.6)
+
+Si un plan d'exécution phasé existe (`.aiad/exec/EXEC-<SPEC-id>-plan.md`), n'inventorie pas tout à la main : demande la prochaine tranche au plan.
+
+```bash
+npx aiad-sdd exec-status <SPEC-id>     # avancement + prochaine tranche [~]/[!]/[ ]
+```
+
+La reprise repart à la tranche **en cours `[~]`** (sinon la première **bloquée `[!]`**, sinon la première **à faire `[ ]`**). Re-valide cette tranche avec `npx aiad-sdd mini-gate <SPEC-id> --phase N` avant de poursuivre. Une tranche `[!]` bloquée signale une décision en attente — souvent un `JNSP` à trancher d'abord.
+
 ### Étape 2 — Inventorier le travail fait
 
 ```bash

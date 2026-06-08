@@ -95,20 +95,37 @@ Applique la skill `regulatory-veto` sur le scope de la SPEC. Si VETO → corrige
 [Liste]
 ```
 
-### Étape 6 — Lancer et monitorer
+### Étape 5b — Plan d'exécution phasé (§3.6)
 
-1. Statut SPEC → `in-progress`, MAJ `_index.md`
-2. Lancer l'agent
-3. Observer : suit-il la SPEC ? Signes de drift ?
+Avant de lancer, découpe la SPEC en **tranches verticales testables** plutôt que de coder horizontalement (le piège : ~1200 lignes avant le moindre test). Génère un plan `.aiad/exec/EXEC-<SPEC-id>-plan.md` à partir de `.aiad/exec-plan-template.md` : chaque tranche déclare **Objectif / Fichiers / Tests (obligatoire) / Done / Conditions**.
+
+- Statuts machine dans le plan : `[ ]` à faire · `[~]` en cours · `[x]` validé · `[!]` bloqué · `[-]` hors-scope.
+- **Proportionnalité** : pour une SPEC triviale, **une seule tranche** est admise. Mode désactivable via `.aiad/config.yml` → `exec.phased: false`.
+
+### Étape 6 — Lancer et monitorer par tranche
+
+1. Statut SPEC → `in-progress`, MAJ `_index.md`.
+2. Pour **chaque tranche** : implémente l'incrément **avec ses tests**, passe la tranche en `[~]`, puis lance le **mini-gate** :
+   ```
+   npx aiad-sdd mini-gate <SPEC-id> --phase N    # PASS | CONDITIONAL | FAIL | JNSP (exit 0/1/2)
+   ```
+   - `PASS` → marque la tranche `[x]`, passe à la suivante.
+   - `CONDITIONAL` → `[x]` mais reporte la **dette** (conditions) à lever avant la gate finale.
+   - `FAIL` → la tranche n'a pas livré ses tests (ou ils sont rouges) : ne passe pas à la suivante.
+   - `JNSP` → plan/tranche indécidable : renvoie vers l'humain.
+3. Avancement à tout moment : `npx aiad-sdd exec-status <SPEC-id>`.
+4. Observer : l'agent suit-il la SPEC ? Signes de drift ?
 
 ### Étape 7 — Post-exécution
 
 | Résultat | Action |
 |----------|--------|
-| Code produit, tests passent | `/sdd validate` |
+| Toutes les tranches `[x]`, tests passent | `/sdd validate` |
+| Tranche `FAIL` (tests non livrés/rouges) | Compléter la tranche avant la suivante |
+| Tranche `CONDITIONAL` | Lever la dette listée avant la gate finale |
 | Code partiel / erreurs | Évaluer SPEC vs agent. Relancer ou corriger |
 | Drift agent | Documenter, vérifier Critère de Drift Intent. Relancer avec contraintes renforcées |
-| Session interrompue | `/sdd resume` |
+| Session interrompue | `/sdd resume` (reprend à la tranche `[~]`/`[!]`) |
 
 ## Règles
 

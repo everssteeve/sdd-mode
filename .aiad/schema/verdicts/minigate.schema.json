@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiad.ovh/schema/verdicts/minigate.schema.json",
+  "title": "AIAD SDD — Verdict Mini-gate (tranche d'exécution §3.6)",
+  "type": "object",
+  "required": ["verdict", "exitCode", "phase", "conditions", "evidence", "raisons"],
+  "properties": {
+    "verdict": { "type": "string", "enum": ["PASS", "CONDITIONAL", "FAIL", "JNSP"] },
+    "exitCode": { "type": "integer", "enum": [0, 1, 2] },
+    "phase": { "type": ["integer", "null"] },
+    "titre": { "type": ["string", "null"] },
+    "conditions": { "type": "array", "items": { "type": "string" } },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["test", "present"],
+        "properties": {
+          "test": { "type": "string" },
+          "present": { "type": "boolean" }
+        }
+      }
+    },
+    "raisons": { "type": "array", "items": { "type": "string" } }
+  }
+}

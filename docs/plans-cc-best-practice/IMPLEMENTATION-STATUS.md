@@ -44,13 +44,24 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
   - **Cycle documenté** mis à jour `Intent → Research (GO/NO-GO) → SPEC → Gate → … → Drift Lock` (générateur `lib/emit-rules.js` × 4 + `CLAUDE.md` + `templates/CLAUDE.md`).
 - Tests : `test/research.test.js` (20 ✓) + `test/discovery-gate.test.js` (10 ✓). Suite complète **3662 pass / 0 fail / 1 skip**.
 
+### ✅ Jalon : §3.6 livré (exécution phasée + mini-gates + CONDITIONAL — SPEC-A + SPEC-B)
+- **SPEC-A** — 3ᵉ verdict `CONDITIONAL` (déjà au contrat `lib/verdict.js`) surfacé par le mini-gate. *(Reste opt-in : scoring dimensionnel 0-10 + evidence sur `gate`/`validate`.)*
+- **SPEC-B** — exécution phasée :
+  - `lib/exec-status.js` — parser de plan phasé + marqueurs `[ ][~][x][!][-]`, progression, prochaine tranche (reprise).
+  - `lib/mini-gate.js` — verdict par tranche `PASS|CONDITIONAL|FAIL|JNSP` (runner injectable) + agrégat de plan, schéma `minigate.schema.json`.
+  - CLI `aiad-sdd mini-gate <spec> --phase N|--all` + `exec-status <spec>` (flag `--phase`).
+  - Artefacts `templates/.aiad/exec-plan-template.md` + `.aiad/exec/_index.md` ; dossier créé par `init`.
+  - Corps `/sdd exec` (plan phasé + mini-gates), `/sdd resume` (reprise à `[~]`/`[!]`), skill `sqs-scoring` (3ᵉ verdict).
+- Tests : `exec-status.test.js` (11 ✓) + `mini-gate.test.js` (13 ✓). Suite **3686 pass / 0 fail / 1 skip**.
+- *Reste (ultérieur)* : scoring dimensionnel 0-10, hook `PostToolBatch` (warning tranche sans tests verts), toggle `config.yml exec.phased`.
+
 ### Reste à faire (P1 → P3 + garde-fous) — non démarré
-- **P1** : §3.6 (exécution phasée — `CONDITIONAL` déjà dans `verdict.js`), §3.7 (contexte pull)
+- **P1** : §3.7 (contexte pull)
 - **P2** : §3.8 (memory native), §3.9 (graphe Tasks), §3.10 (canary + alignement modèles)
 - **P3** : §3.11 (OTel/statusLine), §3.12 (cross-model), §3.13 (plugin/goal)
 - **§4** : garde-fous (doctrine + grill-me + proportionnalité + sunset)
 | 3.5 | Research + GO/NO-GO + Discovery | ✅ Fait (SPEC-A + SPEC-B) | `lib/research.js`, `bin/aiad-sdd.js` (cases `research` + `discovery-check`), schémas `research`/`discovery`, `.aiad/hooks/discovery-gate.js` (+template, `UserPromptSubmit`), `templates/.claude/sdd/{research,spec,exec}.md`, `templates/.claude/settings.json`, `templates/.aiad/research-template.md` + `_index.md`, cycle (`emit-rules.js` + 2× `CLAUDE.md`), `lib/init.js` | `research.test.js` (20 ✓) + `discovery-gate.test.js` (10 ✓) |
-| 3.6 | Exécution phasée + mini-gates + CONDITIONAL | ⏳ Partiel (CONDITIONAL déjà dans `verdict.js`) | — | — |
+| 3.6 | Exécution phasée + mini-gates + CONDITIONAL | ✅ Fait (SPEC-A + SPEC-B ; dimensions 0-10 + PostToolBatch ultérieurs) | `lib/exec-status.js`, `lib/mini-gate.js`, `bin/aiad-sdd.js` (cases `mini-gate` + `exec-status`), `minigate.schema.json`, `templates/.aiad/exec-plan-template.md` + `exec/_index.md`, `templates/.claude/sdd/{exec,resume}.md`, skill `sqs-scoring`, `lib/init.js` | `exec-status.test.js` (11 ✓) + `mini-gate.test.js` (13 ✓) |
 | 3.7 | Budget instructions push→pull | ⏳ À faire | — | — |
 | 3.8 | Memory native | ⏳ À faire | — | — |
 | 3.9 | Cycle graphe Tasks | ⏳ À faire | — | — |

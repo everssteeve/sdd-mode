@@ -269,6 +269,8 @@ const OPTIONS_SCHEMA = {
   diff: { type: 'string' },
   // (#299) `aiad-sdd brief --strict-tests=N` → exit 1 si counts.tests < N.
   'strict-tests': { type: 'string' },
+  // (§3.6) `aiad-sdd mini-gate <spec> --phase N` → verdict de tranche.
+  phase: { type: 'string' },
 };
 
 let parsed;
@@ -377,6 +379,8 @@ const AIDE = `
     bench [compare]       Mesure cold-start ; --persist log historique ; compare --since N --threshold T
     research <id>         Gate Research GO/NO-GO déterministe (§3.5) — verdict gradué ancré Discovery (exit 0/1/2)
     discovery-check [id]   Prérequis Discovery (§3.5) — Research liée prête pour /sdd spec|exec (exit 0/1/2)
+    mini-gate <spec>       Mini-gate par tranche (§3.6) — --phase N (ou --all) → PASS|CONDITIONAL|FAIL|JNSP (exit 0/1/2)
+    exec-status <spec>     Avancement d'un plan d'exécution phasé (§3.6) — marqueurs [ ][~][x][!][-] (--json)
     trace [options]       Génère la matrice Intent ↔ SPEC ↔ Code ↔ Tests
     dashboard [options]   Génère le dashboard HTML multi-pages dans dashboard/
     emit-rules [options]  Régénère AGENTS.md, CLAUDE.md, .cursor/rules/, .codex/, GEMINI.md
@@ -1172,6 +1176,85 @@ async function main() {
         }
       }
       exit(r.code);
+      break;
+    }
+
+    case 'mini-gate': {
+      // Mini-gate par tranche d'exécution (§3.6) : verdict PASS|CONDITIONAL|
+      // FAIL|JNSP, exit 0/0/1/2. `--all` agrège le plan complet.
+      const specId = positionals[1];
+      if (!specId) {
+        console.error('\n  Usage : aiad-sdd mini-gate <SPEC-id> --phase N  (ou --all)\n  Valide une tranche d\'exécution (tests livrés + dette).\n');
+        exit(1);
+      }
+      const machine = values['output-format'] === 'verdict' || Boolean(values.json);
+      if (values.all) {
+        const { chargerPlan, parserPlan } = await import('../lib/exec-status.js');
+        const { calculerMiniGatePlan } = await import('../lib/mini-gate.js');
+        const { codeSortie } = await import('../lib/verdict.js');
+        const plan = chargerPlan(cwd(), specId);
+        if (!plan) {
+          console.error(`\n  ⚠️  Plan d'exécution introuvable pour « ${specId} » — lance d'abord /sdd exec.\n  Verdict : JNSP\n`);
+          exit(2);
+        }
+        const r = calculerMiniGatePlan(parserPlan(plan.contenu), cwd());
+        if (machine) {
+          process.stdout.write(JSON.stringify({ verdict: r.verdict, exitCode: codeSortie(r.verdict), conditions: r.conditions, parTranche: r.parTranche }) + '\n');
+        } else {
+          console.log(`\n  Mini-gate (plan ${specId}) :`);
+          for (const t of r.parTranche) console.log(`    ${t.verdict === 'PASS' ? '✓' : t.verdict === 'CONDITIONAL' ? '~' : '✗'} Phase ${t.num} — ${t.titre} : ${t.verdict}`);
+          if (r.conditions.length) { console.log('  Dette à lever :'); for (const c of r.conditions) console.log(`      • ${c}`); }
+          console.log(`  Verdict global : ${r.verdict}\n`);
+        }
+        exit(codeSortie(r.verdict));
+      }
+      if (!values.phase) {
+        console.error('\n  Précise la tranche : aiad-sdd mini-gate <SPEC-id> --phase N\n');
+        exit(1);
+      }
+      const { emitMiniGate } = await import('../lib/mini-gate.js');
+      const schema = chargerSchemaVerdict('minigate', values['json-schema']);
+      const r = emitMiniGate(cwd(), specId, Number(values.phase), { json: machine, schema });
+      if (!machine) {
+        const e = r.enveloppe;
+        const tete = `Phase ${e.phase}${e.titre ? ` — ${e.titre}` : ''}`;
+        if (r.verdict === 'PASS' || r.verdict === 'CONDITIONAL') {
+          console.log(`\n  Mini-gate ${tete} : ${r.verdict}`);
+          if (e.conditions.length) { console.log('  Dette à lever avant la gate finale :'); for (const c of e.conditions) console.log(`      • ${c}`); }
+          console.log('');
+        } else {
+          console.error(`\n  ✗ Mini-gate ${tete} : ${r.verdict}`);
+          for (const raison of e.raisons) console.error(`      • ${raison}`);
+          console.error('');
+        }
+      }
+      exit(r.code);
+      break;
+    }
+
+    case 'exec-status': {
+      // Affiche l'avancement d'un plan d'exécution phasé (§3.6).
+      const { chargerPlan, parserPlan, rendreStatut, prochaineTranche } = await import('../lib/exec-status.js');
+      const specId = positionals[1];
+      if (!specId) {
+        console.error('\n  Usage : aiad-sdd exec-status <SPEC-id>\n');
+        exit(1);
+      }
+      const plan = chargerPlan(cwd(), specId);
+      if (!plan) {
+        console.error(`\n  Plan d'exécution introuvable pour « ${specId} » — lance d'abord /sdd exec.\n`);
+        exit(1);
+      }
+      const modele = parserPlan(plan.contenu);
+      if (values.json) {
+        const suivante = prochaineTranche(modele);
+        process.stdout.write(JSON.stringify({ phases: modele.phases.map((p) => ({ num: p.num, titre: p.titre, statut: p.statut.key })), summary: modele.summary, next: suivante ? suivante.num : null }, null, 2) + '\n');
+      } else {
+        console.log(`\n  Plan d'exécution ${specId}\n`);
+        console.log(rendreStatut(modele));
+        const suivante = prochaineTranche(modele);
+        console.log(suivante ? `\n  Prochaine tranche : Phase ${suivante.num} — ${suivante.titre}\n` : '\n  Toutes les tranches sont validées.\n');
+      }
       break;
     }
 

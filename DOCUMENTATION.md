@@ -3,7 +3,7 @@
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
 version: 1.17.0
-source-hash: 10899916db8ba84c
+source-hash: e516d3d082f9c325
 ---
 
 # aiad-sdd — Documentation utilisateur (v1.17.0)
@@ -99,6 +99,8 @@ aiad-sdd v1.17.0 — Spec Driven Development pour Claude Code
     bench [compare]       Mesure cold-start ; --persist log historique ; compare --since N --threshold T
     research <id>         Gate Research GO/NO-GO déterministe (§3.5) — verdict gradué ancré Discovery (exit 0/1/2)
     discovery-check [id]   Prérequis Discovery (§3.5) — Research liée prête pour /sdd spec|exec (exit 0/1/2)
+    mini-gate <spec>       Mini-gate par tranche (§3.6) — --phase N (ou --all) → PASS|CONDITIONAL|FAIL|JNSP (exit 0/1/2)
+    exec-status <spec>     Avancement d'un plan d'exécution phasé (§3.6) — marqueurs [ ][~][x][!][-] (--json)
     trace [options]       Génère la matrice Intent ↔ SPEC ↔ Code ↔ Tests
     dashboard [options]   Génère le dashboard HTML multi-pages dans dashboard/
     emit-rules [options]  Régénère AGENTS.md, CLAUDE.md, .cursor/rules/, .codex/, GEMINI.md
@@ -286,4 +288,4 @@ Conventions reconnues par `aiad-sdd trace` (regex stables exportées par `lib/sd
 
 ---
 
-*Document régénéré automatiquement — source-hash `10899916db8ba84c`, package v1.17.0.*
+*Document régénéré automatiquement — source-hash `e516d3d082f9c325`, package v1.17.0.*
