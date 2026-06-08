@@ -56,8 +56,10 @@ Constitution AIAD (valeurs immuables)
 Le développement suit ce cycle — ne jamais sauter d'étape :
 
 ```
-Intent Statement → SPEC → Execution Gate (SQS ≥ 4/5) → Exécution Agent → Validation → Drift Lock
+Intent Statement → Research (GO/NO-GO) → SPEC → Execution Gate (SQS ≥ 4/5) → Exécution Agent → Validation → Drift Lock
 ```
+
+> **Phase Research (v1.18 — §3.5)** : `/sdd research` s'intercale entre l'Intent et la SPEC. Elle valide la **viabilité de l'intention** ancrée dans le code (Discovery obligatoire), pas la qualité de la SPEC. Verdict gradué `GO | CONDITIONAL GO | DEFER | NO-GO` tranché par l'humain. `/sdd spec` et `/sdd exec` vérifient ce prérequis (hook `discovery-gate.js`). Proportionnalité : pour une intention triviale, le PE peut court-circuiter explicitement en le traçant.
 
 ### Skills réutilisables (v1.9)
 

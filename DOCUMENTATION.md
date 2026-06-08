@@ -3,7 +3,7 @@
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
 version: 1.17.0
-source-hash: 5e19dfe5abe199c6
+source-hash: 10899916db8ba84c
 ---
 
 # aiad-sdd — Documentation utilisateur (v1.17.0)
@@ -97,6 +97,8 @@ aiad-sdd v1.17.0 — Spec Driven Development pour Claude Code
     feedback [<sub>]      Feedback qualitatif (opt-in / opt-out / status) — invitation auto toutes les 15 sessions
     uninstall [options]   Retire aiad-sdd du projet (mode aperçu sauf --force)
     bench [compare]       Mesure cold-start ; --persist log historique ; compare --since N --threshold T
+    research <id>         Gate Research GO/NO-GO déterministe (§3.5) — verdict gradué ancré Discovery (exit 0/1/2)
+    discovery-check [id]   Prérequis Discovery (§3.5) — Research liée prête pour /sdd spec|exec (exit 0/1/2)
     trace [options]       Génère la matrice Intent ↔ SPEC ↔ Code ↔ Tests
     dashboard [options]   Génère le dashboard HTML multi-pages dans dashboard/
     emit-rules [options]  Régénère AGENTS.md, CLAUDE.md, .cursor/rules/, .codex/, GEMINI.md
@@ -213,6 +215,7 @@ Disponibles via `/sdd <sub>` dans Claude Code après `aiad-sdd init`.
 | `/sdd init` ([`init.md`](./templates/.claude/sdd/init.md)) | Cadrage initial d'un projet SDD Mode (PRD + ARCHITECTURE + AGENT-GUIDE) |
 | `/sdd intent` ([`intent.md`](./templates/.claude/sdd/intent.md)) | Capturer une intention humaine sous forme d'Intent Statement |
 | `/sdd prd` ([`prd.md`](./templates/.claude/sdd/prd.md)) | Assistant PRD — discovery produit guidé par un PM expérimenté pour renseigner .aiad/PRD.md |
+| `/sdd research` ([`research.md`](./templates/.claude/sdd/research.md)) | Phase Research — Discovery codebase + gate GO/NO-GO avant la SPEC |
 | `/sdd resume` ([`resume.md`](./templates/.claude/sdd/resume.md)) | Reprendre une session agent interrompue sans perdre le travail déjà fait |
 | `/sdd security` ([`security.md`](./templates/.claude/sdd/security.md)) | Audit sécurité du code (OWASP Top 10, secrets, permissions agents, conformité réglementaire) |
 | `/sdd spec` ([`spec.md`](./templates/.claude/sdd/spec.md)) | Rédiger une SPEC technique depuis un Intent Statement |
@@ -283,4 +286,4 @@ Conventions reconnues par `aiad-sdd trace` (regex stables exportées par `lib/sd
 
 ---
 
-*Document régénéré automatiquement — source-hash `5e19dfe5abe199c6`, package v1.17.0.*
+*Document régénéré automatiquement — source-hash `10899916db8ba84c`, package v1.17.0.*

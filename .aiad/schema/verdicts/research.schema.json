@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiad.ovh/schema/verdicts/research.schema.json",
+  "title": "AIAD SDD — Verdict Research (gate GO/NO-GO + Discovery)",
+  "type": "object",
+  "required": ["verdict", "exitCode", "decision", "confidence", "conditions", "unknowns", "discovery", "reasons"],
+  "properties": {
+    "verdict": { "type": "string", "enum": ["PASS", "CONDITIONAL", "FAIL", "JNSP"] },
+    "exitCode": { "type": "integer", "enum": [0, 1, 2] },
+    "decision": { "type": ["string", "null"], "enum": ["GO", "CONDITIONAL GO", "DEFER", "NO-GO", null] },
+    "confidence": { "type": "integer" },
+    "conditions": { "type": "array", "items": { "type": "string" } },
+    "unknowns": { "type": "array", "items": { "type": "string" } },
+    "discovery": {
+      "type": "object",
+      "required": ["populated", "anchors"],
+      "properties": {
+        "populated": { "type": "boolean" },
+        "anchors": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "reasons": { "type": "array", "items": { "type": "string" } }
+  }
+}

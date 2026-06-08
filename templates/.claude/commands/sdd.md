@@ -1,6 +1,6 @@
 ---
 name: sdd
-description: Cycle SDD — prd arch init intent spec gate exec validate drift trace fact security audit context resume split
+description: Cycle SDD — prd arch init intent research spec gate exec validate drift trace fact security audit context resume split
 ---
 
 # SDD Router
@@ -15,6 +15,7 @@ Tu es un Product Engineer AIAD. L'utilisateur a invoqué `/sdd` avec des argumen
 | `arch`          | Assistant ARCHITECTURE — discovery technique guidé (architecte) |
 | `init`          | Cadrage initial (PRD + ARCHITECTURE + AGENT-GUIDE)            |
 | `intent`        | Capturer une intention humaine (Intent Statement)             |
+| `research`      | Phase Research — Discovery codebase + gate GO/NO-GO avant la SPEC |
 | `spec`          | Rédiger une SPEC depuis un Intent                             |
 | `gate`          | Valider une SPEC via l'Execution Gate (SQS ≥ 4/5)             |
 | `exec`          | Lancer l'exécution agent post-Gate                            |

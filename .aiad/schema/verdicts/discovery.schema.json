@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiad.ovh/schema/verdicts/discovery.schema.json",
+  "title": "AIAD SDD — Verdict Prérequis Discovery (§3.5 SPEC-B)",
+  "type": "object",
+  "required": ["verdict", "exitCode", "ready", "intent", "research", "raison"],
+  "properties": {
+    "verdict": { "type": "string", "enum": ["PASS", "FAIL", "JNSP"] },
+    "exitCode": { "type": "integer", "enum": [0, 1, 2] },
+    "ready": { "type": "boolean" },
+    "intent": { "type": ["string", "null"] },
+    "research": { "type": ["string", "null"] },
+    "raison": { "type": "string" }
+  }
+}

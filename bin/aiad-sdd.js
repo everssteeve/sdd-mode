@@ -375,6 +375,8 @@ const AIDE = `
     feedback [<sub>]      Feedback qualitatif (opt-in / opt-out / status) — invitation auto toutes les 15 sessions
     uninstall [options]   Retire aiad-sdd du projet (mode aperçu sauf --force)
     bench [compare]       Mesure cold-start ; --persist log historique ; compare --since N --threshold T
+    research <id>         Gate Research GO/NO-GO déterministe (§3.5) — verdict gradué ancré Discovery (exit 0/1/2)
+    discovery-check [id]   Prérequis Discovery (§3.5) — Research liée prête pour /sdd spec|exec (exit 0/1/2)
     trace [options]       Génère la matrice Intent ↔ SPEC ↔ Code ↔ Tests
     dashboard [options]   Génère le dashboard HTML multi-pages dans dashboard/
     emit-rules [options]  Régénère AGENTS.md, CLAUDE.md, .cursor/rules/, .codex/, GEMINI.md
@@ -1103,6 +1105,70 @@ async function main() {
           console.error(`\n  ⚠️  Veto Tier 1 — ${r.enveloppe.violations.length} zone(s) réglementée(s) sans annotation @governance :`);
           for (const v of r.enveloppe.violations) console.error(`      • ${v.file} → manque @governance ${v.agent}`);
           console.error(`\n  Verdict : JNSP (UNKNOWN = VETO, fail-closed). Pose l'annotation @governance ou tranche avec le subagent.\n`);
+        }
+      }
+      exit(r.code);
+      break;
+    }
+
+    case 'research':
+    case 'research-score': {
+      // Gate Research GO/NO-GO déterministe (§3.5) : exit 0/1/2.
+      // `aiad-sdd research <RESEARCH-id|NNN>` — verdict gradué ancré Discovery.
+      const { emitResearchVerdict } = await import('../lib/research.js');
+      const id = positionals[1];
+      if (!id) {
+        console.error('\n  Usage : aiad-sdd research <RESEARCH-NNN|NNN>\n  Score la viabilité d\'une Research (GO | CONDITIONAL GO | DEFER | NO-GO).\n');
+        exit(1);
+      }
+      const schema = chargerSchemaVerdict('research', values['json-schema']);
+      const machine = values['output-format'] === 'verdict' || Boolean(values.json);
+      const r = emitResearchVerdict(cwd(), id, { json: machine, schema });
+      if (!machine) {
+        const e = r.enveloppe;
+        if (r.verdict === 'PASS' || r.verdict === 'CONDITIONAL') {
+          console.log(`\n  Research ${id} — décision : ${e.decision} (confiance ${e.confidence} %)`);
+          if (e.conditions.length) {
+            console.log('  Conditions à lever :');
+            for (const c of e.conditions) console.log(`      • ${c}`);
+          }
+          console.log(`  Verdict : ${r.verdict}\n`);
+        } else if (r.verdict === 'FAIL') {
+          console.error(`\n  Research ${id} — décision : ${e.decision} (confiance ${e.confidence} %)`);
+          console.error(`  ${e.reasons.join(' ')}`);
+          console.error('  Verdict : FAIL — pas de passage en SPEC sans nouvelle Research.\n');
+        } else {
+          console.error(`\n  ⚠️  Research ${id} — indécidable (JNSP) :`);
+          for (const raison of e.reasons) console.error(`      • ${raison}`);
+          console.error('\n  Verdict : JNSP (décision humaine requise). Complète le Discovery, lève les inconnues ou tranche le GO/NO-GO.\n');
+        }
+      }
+      exit(r.code);
+      break;
+    }
+
+    case 'discovery-check': {
+      // Prérequis Discovery (§3.5 SPEC-B) : une Research liée GO/CONDITIONAL GO
+      // avec Discovery ancré est-elle prête pour `/sdd spec` / `/sdd exec` ?
+      // Consommé par le hook UserPromptSubmit `discovery-gate.js`. Exit 0/1/2.
+      const { discoveryPrete } = await import('../lib/research.js');
+      const { emitVerdict } = await import('../lib/verdict.js');
+      const intentId = positionals[1] || null;
+      const d = discoveryPrete(cwd(), intentId);
+      const verdict = d.ready ? 'PASS' : (d.verdict === 'FAIL' ? 'FAIL' : 'JNSP');
+      const schema = chargerSchemaVerdict('discovery', values['json-schema']);
+      const machine = values['output-format'] === 'verdict' || Boolean(values.json);
+      const r = emitVerdict({
+        verdict,
+        payload: { ready: d.ready, intent: intentId, research: d.research, raison: d.raison },
+        schema, json: machine,
+      });
+      if (!machine) {
+        if (d.ready) {
+          console.log(`\n  Discovery prêt pour ${intentId || 'cet Intent'} — Research ${d.research} (${d.raison})\n  Verdict : PASS\n`);
+        } else {
+          console.error(`\n  ⚠️  Discovery non prêt${intentId ? ` pour ${intentId}` : ''} : ${d.raison}`);
+          console.error(`  Lance \`/sdd research\` avant \`/sdd spec\` / \`/sdd exec\`.\n  Verdict : ${verdict}\n`);
         }
       }
       exit(r.code);

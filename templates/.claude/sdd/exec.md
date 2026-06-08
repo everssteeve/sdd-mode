@@ -48,7 +48,10 @@ Affiche : *"Sonnet 4.6 est suffisant pour ce lancement d'exécution — pas beso
 | Statut `ready` | A passé l'Execution Gate |
 | SQS ≥ 4/5 | Score enregistré dans `_index.md` |
 | Intent parent actif | Pas annulé |
+| **Discovery (§3.5)** | Research liée `GO`/`CONDITIONAL GO`, Discovery ancré — `npx aiad-sdd research <id>` (exit 0) |
 | Dépendances satisfaites | SPECs pré-requises `done` |
+
+Si le prérequis Discovery échoue (pas de Research, Discovery vide, verdict `DEFER`/`NO-GO`/`JNSP`) → ne pas lancer : renvoie vers `/sdd research` puis vers l'humain (verdict JNSP). Proportionnalité : court-circuit explicite admis pour une tâche triviale, tracé dans la SPEC.
 
 Si échec → indiquer la commande corrective (`/sdd gate`, `/sdd spec`, …) et **ne pas lancer**.
 

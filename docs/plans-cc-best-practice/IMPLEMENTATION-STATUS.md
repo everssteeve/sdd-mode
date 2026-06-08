@@ -35,12 +35,21 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
 - lint · esm · size : verts
 - 7 schémas/verdicts versionnés, 3 hooks harness (PreToolUse JNSP+veto, Stop drift-lock), 4 subagents Tier 1, managed-settings org
 
+### ✅ Jalon : §3.5 COMPLET (research/Discovery — SPEC-A + SPEC-B)
+- **SPEC-A** — gate Research GO/NO-GO déterministe + Discovery ancré : `lib/research.js`, schéma `research.schema.json`, CLI `aiad-sdd research <id>` (exit 0/1/2), commande `/sdd research` dual-mode, template d'artefact + `.aiad/research/_index.md`, dossier créé par `init`.
+- **SPEC-B** — prérequis Discovery enforced :
+  - CLI `aiad-sdd discovery-check [INTENT-NNN]` (réutilise `discoveryPrete()`, exit 0/1/2) + schéma `discovery.schema.json`.
+  - Hook **`UserPromptSubmit`** `discovery-gate.js` (self-contained, shell-out CLI comme `veto.js`) : rappel `additionalContext` sur `/sdd spec|exec`, mode strict opt-in `AIAD_DISCOVERY_STRICT=1` → `decision: block`, bypass `AIAD_HOOK_SILENT=1`. Enregistré dans `templates/.claude/settings.json`.
+  - Prérequis Discovery écrit dans les corps `/sdd spec` + `/sdd exec` (proportionné : court-circuit tracé admis).
+  - **Cycle documenté** mis à jour `Intent → Research (GO/NO-GO) → SPEC → Gate → … → Drift Lock` (générateur `lib/emit-rules.js` × 4 + `CLAUDE.md` + `templates/CLAUDE.md`).
+- Tests : `test/research.test.js` (20 ✓) + `test/discovery-gate.test.js` (10 ✓). Suite complète **3662 pass / 0 fail / 1 skip**.
+
 ### Reste à faire (P1 → P3 + garde-fous) — non démarré
-- **P1** : §3.5 (research/Discovery), §3.6 (exécution phasée — `CONDITIONAL` déjà dans `verdict.js`), §3.7 (contexte pull)
+- **P1** : §3.6 (exécution phasée — `CONDITIONAL` déjà dans `verdict.js`), §3.7 (contexte pull)
 - **P2** : §3.8 (memory native), §3.9 (graphe Tasks), §3.10 (canary + alignement modèles)
 - **P3** : §3.11 (OTel/statusLine), §3.12 (cross-model), §3.13 (plugin/goal)
 - **§4** : garde-fous (doctrine + grill-me + proportionnalité + sunset)
-| 3.5 | Research + GO/NO-GO + Discovery | ⏳ À faire | — | — |
+| 3.5 | Research + GO/NO-GO + Discovery | ✅ Fait (SPEC-A + SPEC-B) | `lib/research.js`, `bin/aiad-sdd.js` (cases `research` + `discovery-check`), schémas `research`/`discovery`, `.aiad/hooks/discovery-gate.js` (+template, `UserPromptSubmit`), `templates/.claude/sdd/{research,spec,exec}.md`, `templates/.claude/settings.json`, `templates/.aiad/research-template.md` + `_index.md`, cycle (`emit-rules.js` + 2× `CLAUDE.md`), `lib/init.js` | `research.test.js` (20 ✓) + `discovery-gate.test.js` (10 ✓) |
 | 3.6 | Exécution phasée + mini-gates + CONDITIONAL | ⏳ Partiel (CONDITIONAL déjà dans `verdict.js`) | — | — |
 | 3.7 | Budget instructions push→pull | ⏳ À faire | — | — |
 | 3.8 | Memory native | ⏳ À faire | — | — |

@@ -8,6 +8,7 @@
 |----|-------|--------|------|-------------|--------|
 | INTENT-001 | Feedback qualitatif utilisateurs SDD Mode | Steeve Evers | 2026-05-29 | SPEC-001-1 | done |
 | INTENT-002 | Gouvernance SDD enforced par le harness (advisory → enforced) | Steeve Evers | 2026-06-08 | SPEC-002-1 | active |
+| INTENT-003 | Phase Research + Discovery obligatoire avant la SPEC (§3.5) | Steeve Evers | 2026-06-08 | SPEC-003-1 | active |
 
 ## Cycle de vie d'un Intent Statement
 

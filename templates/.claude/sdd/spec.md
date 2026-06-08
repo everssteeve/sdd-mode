@@ -51,6 +51,22 @@ Affiche : *"Sonnet 4.6 est suffisant pour rédiger une SPEC — pas besoin d'Opu
 
 Vérifie qu'un Intent Statement existe dans `.aiad/intents/`. Si non → `/sdd intent`.
 
+#### Prérequis Discovery (§3.5)
+
+Avant de rédiger, vérifie qu'une **Research liée** à l'Intent existe avec un Discovery ancré dans le code et un verdict `GO` / `CONDITIONAL GO` :
+
+```
+npx aiad-sdd research <RESEARCH-id>     # exit 0 → OK, 1 → DEFER/NO-GO, 2 → JNSP
+```
+
+- **Pas de Research / Discovery vide / verdict `DEFER`·`NO-GO`·`JNSP`** → ne rédige pas la SPEC. Renvoie vers `/sdd research` et sors :
+  ```
+  JNSP — Discovery manquant pour <INTENT-NNN>
+  Ce qui manque : une Research liée avec Discovery ancré (chemin:ligne) et verdict GO/CONDITIONAL GO.
+  Question à l'humain : lance d'abord `/sdd research <INTENT-NNN>`.
+  ```
+- **Proportionnalité** : pour une intention triviale et sans risque, le PE peut court-circuiter explicitement (le prérequis est un garde-fou, pas une bureaucratie). Trace alors la décision dans la SPEC.
+
 ### Étape 2 — Cadrage optionnel via REASONS Canvas
 
 Si l'Intent est complexe ou ambigu, propose la skill `reasons-canvas` avant de basculer au format AIAD standard.
