@@ -73,6 +73,7 @@ patterns:
   - "scripts/lint.js"
   - "scripts/release.js"
   - "scripts/coverage-threshold.js"
+  - "scripts/bun-parity.js"
 
   # Tests de l'outillage sécurité — contiennent des fixtures volontairement
   # en forme de secrets/PII (sk_live_, ghp_, NIR…) pour vérifier la détection

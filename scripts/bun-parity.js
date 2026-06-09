@@ -53,7 +53,7 @@ export const COMMANDES = [
   { id: 'trace-json', args: ['trace', '--json', '--quiet'], expect: 'any', signature: (o) => o.startsWith('{') || o.includes('intents') },
   { id: 'sbom-json', args: ['sbom', '--json'], expect: 'success', signature: (o) => o.startsWith('{') },
   { id: 'dpia-json', args: ['dpia', '--json'], expect: 'success' },
-  { id: 'verify-reproducibility', args: ['verify-reproducibility', '--json'], expect: 'success', signature: (o) => o.includes('sha256') },
+  { id: 'verify-reproducibility', args: ['verify-reproducibility', '--json'], expect: 'success', signature: (o) => o.includes('"hash"') },
   { id: 'skills-validate', args: ['skills', 'validate'], expect: 'any' },
   { id: 'telemetry-status-json', args: ['telemetry', 'status', '--json'], expect: 'success', signature: (o) => o.startsWith('{') },
   { id: 'hook-stats-json', args: ['hook-stats', '--json'], expect: 'success', signature: (o) => o.includes('stats') },
@@ -68,7 +68,10 @@ export const COMMANDES = [
   { id: 'completion-zsh', args: ['completion', 'zsh'], expect: 'success', signature: (o) => o.includes('compdef') },
   { id: 'completion-fish', args: ['completion', 'fish'], expect: 'success', signature: (o) => o.includes('complete -c aiad-sdd') },
   { id: 'pii-scan-json', args: ['pii-scan', '--json'], expect: 'success', signature: (o) => o.includes('findings') },
-  { id: 'bench', args: ['bench'], expect: 'success' },
+  // `bench` exige `.claude/commands/` (présent après `aiad-sdd init`, absent
+  // d'un checkout CI du dépôt) ; il peut donc légitimement sortir en exit 1.
+  // La parité reste vérifiée via l'égalité des exit codes Node/Bun.
+  { id: 'bench', args: ['bench'], expect: 'any' },
 ];
 
 // ─── Exécution d'une commande sous un runtime donné ───────────────────────
