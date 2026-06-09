@@ -7,6 +7,37 @@
 > Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
 > Versionnage : [SemVer 2.0.0](https://semver.org/lang/fr/).
 
+## [1.18.0] — 2026-06-09
+
+> **Release majeure : « advisory → enforced ».** Chaque règle critique de SDD
+> devient une primitive vérifiée par le harness, et chaque verdict est calculé
+> par un script déterministe (exit `0/1/2` + JSON validé), jamais par le
+> jugement libre du modèle. **Aucune rupture** : tout est additif et opt-in.
+> 📖 Note de release complète et pédagogique : [`docs/release-notes/v1.18.0.md`](docs/release-notes/v1.18.0.md).
+
+### Ajouté
+
+- **governance (P0, §3.1–§3.4)** : contrat de verdict déterministe (`lib/verdict.js`, exit 0/1/2 + schémas), hooks enforced `PreToolUse` (JNSP, veto Tier 1 fail-closed) et `Stop` (Drift Lock), subagents de gouvernance read-only générés par `emit-rules`, `managed-settings.json` org.
+- **research (P1, §3.5)** : phase Research + verdict gradué `GO | CONDITIONAL GO | DEFER | NO-GO` ancré Discovery ; commandes `research` + `discovery-check` ; hook `UserPromptSubmit`.
+- **exec (P1, §3.6)** : exécution phasée + mini-gates par tranche + 3ᵉ verdict `CONDITIONAL` ; commandes `exec-status` + `mini-gate`.
+- **context (P1, §3.7)** : gouvernance en pull via `.claude/rules` à frontmatter `paths:` + réglages de budget natifs.
+- **memory (P2, §3.8)** : mémoire « from logs » (récurrence + auteur humain), auto-curation, cycle anti dock rot ; commandes `memory` + `archive --delivered`.
+- **cycle (P2, §3.9)** : cycle SDD matérialisé en graphe de Tasks `blockedBy`, crash-recoverable ; commande `cycle`.
+- **canary (P2, §3.10)** : suite figée distinguant régression réelle et bruit de serving (±8-14 %) ; commande `canary` ; alignement des références **Opus 4.7 → Opus 4.8**.
+- **observability (P3, §3.11)** : `statusLine` live, mesure d'usage des skills, `includeCoAuthoredBy`, scaffolding OTel opt-in ; commande `statusline`.
+- **cross-model (P3, §3.12)** : review additive-only par un modèle tiers en contexte frais ; commande `cross-model` ; flag `/sdd validate --cross-model`.
+- **distribution (P3, §3.13)** : plugin Claude Code (`.claude-plugin/`), recettes `/goal` déterministes, toggles de hooks par environnement ; commande `hooks-config`.
+- **garde-fous (§4)** : doctrine *agentic engineering* (README/CONTRIBUTING), proportionnalité (`proportionality`), skill `grill-me` (gate interactif), métadonnée d'obsolescence (`sunset` + check `doctor`).
+
+### Modifié
+
+- Cycle SDD documenté : `Intent → Research (GO/NO-GO) → SPEC → Gate → Exécution → Validation → Drift Lock`.
+- `init` provisionne les nouveaux dossiers (`research`, `exec`, `canary`, `memory`, `cycle`, `reviews`, `metrics/canary`), hooks, settings et toggles.
+
+### Sécurité
+
+- Veto de gouvernance Tier 1 **non désactivable** par un simple toggle d'environnement (fail-closed ; `managed-settings.json` peut verrouiller jusqu'à l'échappatoire).
+
 ## [1.17.0] — 2026-06-01
 
 _Pas de commits conventionnels détectés depuis la dernière release._

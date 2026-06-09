@@ -28,6 +28,9 @@ patterns:
   # Documents de légitimation (argumentaires publiés — pas de code, pas de SPEC)
   - "docs/legitimation/**"
 
+  # Notes de release (prose pédagogique — pas de code, pas de SPEC)
+  - "docs/release-notes/**"
+
   # Argumentaires commerciaux (prose, pas de code)
   - "argumentaires/**"
 
