@@ -254,3 +254,115 @@ test('buildSbom — purl conforme spec npm (pkg:npm/<name>@<version>)', () => {
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+// ─── Mutation kills ciblés : composantsDepuisLockfile + normaliseLicense ─────
+
+function avecLockfile(dir, packages) {
+  projetSimple(dir, { dependencies: { 'left-pad': '1.3.0' } });
+  writeFileSync(
+    join(dir, 'package-lock.json'),
+    JSON.stringify({ name: 'mon-projet', version: '1.2.3', lockfileVersion: 3, packages }, null, 2),
+  );
+}
+
+test('buildSbom — bom-ref/purl d\'un composant lockfile portent la version exacte (kill ||→&&)', () => {
+  const dir = tmp();
+  try {
+    avecLockfile(dir, {
+      '': { name: 'mon-projet', version: '1.2.3', dependencies: { 'left-pad': '1.3.0' } },
+      'node_modules/left-pad': { version: '1.3.0' },
+    });
+    const lp = buildSbom(dir).components.find((c) => c.name === 'left-pad');
+    assert.equal(lp['bom-ref'], 'pkg:npm/left-pad@1.3.0');
+    assert.equal(lp.purl, 'pkg:npm/left-pad@1.3.0');
+    assert.equal(lp.version, '1.3.0');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('buildSbom — version absente d\'un composant lockfile → "unknown" (kill ||→&&)', () => {
+  const dir = tmp();
+  try {
+    avecLockfile(dir, {
+      '': { name: 'mon-projet', version: '1.2.3' },
+      'node_modules/sans-version': {},
+    });
+    const c = buildSbom(dir).components.find((x) => x.name === 'sans-version');
+    assert.equal(c.version, 'unknown');
+    assert.equal(c['bom-ref'], 'pkg:npm/sans-version@unknown');
+    assert.equal(c.purl, 'pkg:npm/sans-version@unknown');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('buildSbom — entrées node_modules cachées (.bin, .cache) exclues (kill !nom || startsWith)', () => {
+  const dir = tmp();
+  try {
+    avecLockfile(dir, {
+      '': { name: 'mon-projet', version: '1.2.3' },
+      'node_modules/.package-lock.json': { version: '0.0.0' },
+      'node_modules/.bin': { version: '0.0.0' },
+      'node_modules/real-dep': { version: '2.0.0' },
+    });
+    const noms = buildSbom(dir).components.map((c) => c.name);
+    assert.ok(noms.includes('real-dep'));
+    assert.ok(!noms.some((n) => n.startsWith('.')), `composant caché présent : ${noms}`);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('buildSbom — licence objet {type} normalisée en id (kill === / &&)', () => {
+  const dir = tmp();
+  try {
+    avecLockfile(dir, {
+      '': { name: 'mon-projet', version: '1.2.3' },
+      'node_modules/obj-license': { version: '1.0.0', license: { type: 'Apache-2.0' } },
+    });
+    const c = buildSbom(dir).components.find((x) => x.name === 'obj-license');
+    assert.equal(c.licenses[0].license.id, 'Apache-2.0');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('buildSbom — licence objet sans type → "unknown" (kill &&→||)', () => {
+  const dir = tmp();
+  try {
+    avecLockfile(dir, {
+      '': { name: 'mon-projet', version: '1.2.3' },
+      'node_modules/obj-vide': { version: '1.0.0', license: {} },
+    });
+    const c = buildSbom(dir).components.find((x) => x.name === 'obj-vide');
+    assert.equal(c.licenses[0].license.name, 'unknown');
+    assert.equal(c.licenses[0].license.id, undefined);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('buildSbom — description projet présente reportée dans metadata (kill ||→&&)', () => {
+  const dir = tmp();
+  try {
+    projetSimple(dir, { description: 'Une description bien précise' });
+    const sbom = buildSbom(dir);
+    assert.equal(sbom.metadata.component.description, 'Une description bien précise');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('buildSbom — lockfile sans racine ("" absent) → dependencies vide sans crash (kill &&→||)', () => {
+  const dir = tmp();
+  try {
+    avecLockfile(dir, {
+      'node_modules/orphan': { version: '1.0.0' },
+    });
+    const sbom = buildSbom(dir);
+    assert.deepEqual(sbom.dependencies, []);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

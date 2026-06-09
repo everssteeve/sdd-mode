@@ -10,6 +10,7 @@ import {
   parseCommit,
   genererSectionChangelog,
   insererSectionChangelog,
+  parseFlags,
 } from '../scripts/release.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -171,4 +172,63 @@ test('release.js — type de bump invalide → exit 1', () => {
   const r = spawnSync('node', [SCRIPT, 'wat', '--dry-run', '--skip-tests', '--allow-dirty'], { encoding: 'utf-8' });
   assert.equal(r.status, 1);
   assert.match(r.stderr, /bump inconnu|wat/);
+});
+
+// ─── parseFlags (mutation kill : L176-L182) ─────────────────────────────────
+
+test('parseFlags — sans argument → tous les flags à false, kind null', () => {
+  const f = parseFlags([]);
+  assert.equal(f.kind, null);
+  assert.equal(f.dryRun, false);
+  assert.equal(f.push, false);
+  assert.equal(f.allowDirty, false);
+  assert.equal(f.skipTests, false);
+});
+
+test('parseFlags — premier positionnel non-flag → kind', () => {
+  assert.equal(parseFlags(['patch']).kind, 'patch');
+  // un second positionnel ne réécrit pas kind
+  assert.equal(parseFlags(['minor', 'major']).kind, 'minor');
+});
+
+test('parseFlags — --dry-run active uniquement dryRun', () => {
+  const f = parseFlags(['--dry-run']);
+  assert.equal(f.dryRun, true);
+  assert.equal(f.push, false);
+  assert.equal(f.allowDirty, false);
+  assert.equal(f.skipTests, false);
+  assert.equal(f.kind, null);
+});
+
+test('parseFlags — --push active uniquement push', () => {
+  const f = parseFlags(['--push']);
+  assert.equal(f.push, true);
+  assert.equal(f.dryRun, false);
+  assert.equal(f.allowDirty, false);
+  assert.equal(f.skipTests, false);
+});
+
+test('parseFlags — --allow-dirty active uniquement allowDirty', () => {
+  const f = parseFlags(['--allow-dirty']);
+  assert.equal(f.allowDirty, true);
+  assert.equal(f.dryRun, false);
+  assert.equal(f.push, false);
+  assert.equal(f.skipTests, false);
+});
+
+test('parseFlags — --skip-tests active uniquement skipTests', () => {
+  const f = parseFlags(['--skip-tests']);
+  assert.equal(f.skipTests, true);
+  assert.equal(f.dryRun, false);
+  assert.equal(f.push, false);
+  assert.equal(f.allowDirty, false);
+});
+
+test('parseFlags — combinaison kind + tous les flags', () => {
+  const f = parseFlags(['major', '--dry-run', '--push', '--allow-dirty', '--skip-tests']);
+  assert.equal(f.kind, 'major');
+  assert.equal(f.dryRun, true);
+  assert.equal(f.push, true);
+  assert.equal(f.allowDirty, true);
+  assert.equal(f.skipTests, true);
 });

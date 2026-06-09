@@ -172,7 +172,7 @@ function commitsDepuis(tag) {
   return out.split('\n').map((l) => l.trim()).filter(Boolean);
 }
 
-function parseFlags(args) {
+export function parseFlags(args) {
   const out = { kind: null, dryRun: false, push: false, allowDirty: false, skipTests: false };
   for (const a of args) {
     if (a === '--dry-run') out.dryRun = true;

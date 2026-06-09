@@ -79,6 +79,12 @@ patterns:
   # changement de comportement applicatif, pas de SPEC à mettre à jour
   - "test/dashboard-sre.test.js"
 
+  # Renforcement de la couverture mutation (workflow « Mutation testing ») —
+  # ajout de tests tuant des mutants survivants, aucun comportement applicatif
+  # nouveau, pas de SPEC à mettre à jour
+  - "test/release.test.js"
+  - "test/sbom.test.js"
+
   # Module d'agrégation dashboard (#561) — orchestre des modules existants,
   # pas de logique métier nouvelle propre à une SPEC dédiée
   - "lib/dashboard/backlog-health-score.js"
