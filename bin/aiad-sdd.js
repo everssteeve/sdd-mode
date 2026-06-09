@@ -2535,6 +2535,63 @@ async function main() {
       break;
     }
 
+    case 'cycle': {
+      // Cycle SDD comme graphe de Tasks (§3.9) : Intent → … → Drift-Lock, une
+      // étape bloquée par la précédente non terminée ne peut pas démarrer.
+      const {
+        construireGraphe, chargerGraphe, sauverGraphe, appliquerVerdict,
+        prochaineEtape, rendreGraphe, cycleComplet,
+      } = await import('../lib/cycle-graph.js');
+      const sub = positionals[1];
+      const idArg = positionals[2] || (sub && /^INT/i.test(sub) ? sub : null);
+
+      if (sub === 'init') {
+        if (!idArg) { console.error('\n  Usage : aiad-sdd cycle init <INTENT-id>\n'); exit(1); }
+        const g = construireGraphe(idArg);
+        const p = sauverGraphe(cwd(), g);
+        console.log(`\n  ✓ Graphe de cycle créé pour ${g.intent} → ${p}\n`);
+        console.log(rendreGraphe(g) + '\n');
+        break;
+      }
+
+      if (sub === 'step') {
+        const etape = positionals[3];
+        const verdict = positionals[4];
+        if (!idArg || !etape || !verdict) {
+          console.error('\n  Usage : aiad-sdd cycle step <INTENT-id> <ETAPE> <PASS|CONDITIONAL|FAIL|JNSP>\n');
+          exit(1);
+        }
+        const g = chargerGraphe(cwd(), idArg);
+        if (!g) { console.error(`\n  Graphe introuvable pour ${idArg} — lance d'abord \`aiad-sdd cycle init ${idArg}\`.\n`); exit(1); }
+        const r = appliquerVerdict(g, etape, verdict);
+        sauverGraphe(cwd(), r.graphe);
+        if (r.applique) console.log(`\n  ✓ ${r.raison}\n`);
+        else console.error(`\n  ⚠ ${r.raison}\n`);
+        console.log(rendreGraphe(r.graphe) + '\n');
+        exit(r.applique ? 0 : 1);
+      }
+
+      // show / next / (id seul)
+      const id = idArg || (sub && !['show', 'next'].includes(sub) ? sub : positionals[2]);
+      if (!id) { console.error('\n  Usage : aiad-sdd cycle <init|show|step|next> <INTENT-id>\n'); exit(1); }
+      const g = chargerGraphe(cwd(), id);
+      if (!g) { console.error(`\n  Graphe introuvable pour ${id} — lance \`aiad-sdd cycle init ${id}\`.\n`); exit(1); }
+
+      if (sub === 'next') {
+        const n = prochaineEtape(g);
+        if (Boolean(values.json)) { process.stdout.write(JSON.stringify({ intent: g.intent, next: n }) + '\n'); break; }
+        if (!n) console.log(cycleComplet(g) ? `\n  ✓ Cycle ${g.intent} complet.\n` : `\n  ⚠ Cycle ${g.intent} bloqué en amont — voir \`cycle show\`.\n`);
+        else console.log(`\n  Prochaine étape ${g.intent} : ${n.name} [${n.status}]${n.note ? ` — ${n.note}` : ''}\n`);
+        break;
+      }
+
+      if (Boolean(values.json)) { process.stdout.write(JSON.stringify(g) + '\n'); break; }
+      console.log('\n' + rendreGraphe(g));
+      const n = prochaineEtape(g);
+      console.log(n ? `\n  → Prochaine : ${n.name} [${n.status}]\n` : (cycleComplet(g) ? '\n  ✓ Cycle complet.\n' : '\n  ⚠ Bloqué en amont.\n'));
+      break;
+    }
+
     case 'memory': {
       // Memory native (§3.8) : propose des Lessons « from logs » (récurrence ≥
       // seuil sur plusieurs sources) ; la promotion exige un auteur humain.

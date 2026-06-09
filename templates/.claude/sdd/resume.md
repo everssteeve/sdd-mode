@@ -44,6 +44,17 @@ Les sessions agent sont interrompues en pratique. Le risque : recommencer de zé
 | Tests existants | passent ? |
 | Dernière action réussie | [description] |
 
+### Étape 1a — Lire l'état réel du cycle (graphe §3.9)
+
+Si un graphe de cycle existe (`.aiad/cycle/INTENT-NNN.json`), ne devine pas l'avancement : lis-le. Il est **crash-recoverable** — il survit à la mort de la session.
+
+```bash
+npx aiad-sdd cycle show INTENT-NNN     # graphe complet [x]/[~]/[ ]/[!]
+npx aiad-sdd cycle next INTENT-NNN     # première étape actionnable (ou la bloquée + sa raison)
+```
+
+Reprends à l'étape signalée par `cycle next` : si elle est `blocked`, traite d'abord sa raison (verdict FAIL/JNSP) avant de relancer.
+
 ### Étape 1b — Reprendre à la bonne tranche (si plan phasé §3.6)
 
 Si un plan d'exécution phasé existe (`.aiad/exec/EXEC-<SPEC-id>-plan.md`), n'inventorie pas tout à la main : demande la prochaine tranche au plan.

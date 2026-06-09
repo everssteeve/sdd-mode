@@ -13,6 +13,7 @@
 | INTENT-005 | Budget d'instructions push → pull (gouvernance par paths, §3.7) | Steeve Evers | 2026-06-08 | SPEC-005-1 | active |
 | INTENT-006 | Canary suite + alignement des références modèles (§3.10) | Steeve Evers | 2026-06-09 | SPEC-006-1 | active |
 | INTENT-007 | Memory native — promotion from logs + anti dock rot (§3.8) | Steeve Evers | 2026-06-09 | SPEC-007-1 | active |
+| INTENT-008 | Cycle SDD comme graphe de Tasks (§3.9) | Steeve Evers | 2026-06-09 | SPEC-008-1 | active |
 
 ## Cycle de vie d'un Intent Statement
 

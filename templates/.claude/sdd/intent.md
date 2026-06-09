@@ -79,6 +79,10 @@ Crée `.aiad/intents/INTENT-NNN-[nom].md` :
 
 Ajoute l'entrée dans `.aiad/intents/_index.md`.
 
+### Étape 5 — Matérialiser le cycle en graphe (§3.9)
+
+Crée le graphe de cycle de l'Intent : `npx aiad-sdd cycle init INTENT-NNN`. Il matérialise `Intent → Research → SPEC → Gate → Exec → Validate → Drift-Lock` comme un graphe `blockedBy` (une étape bloquée par la précédente non terminée ne peut pas démarrer — « ne jamais sauter d'étape » devient exécutoire). Les transitions sont pilotées par les **verdicts déterministes** : `npx aiad-sdd cycle step INTENT-NNN GATE PASS` ne fait avancer GATE que si le verdict est PASS/CONDITIONAL. Le fichier `.aiad/cycle/INTENT-NNN.json` est **crash-recoverable** — lu par `/sdd resume`. Dans Claude Code, le même graphe se projette sur les Tasks natives (`TaskCreate` + `addBlockedBy`).
+
 ## Verdict JNSP (Je Ne Sais Pas)
 
 Cette commande peut sortir un verdict `JNSP` au lieu d'un Intent — c'est un

@@ -13,6 +13,7 @@
 | SPEC-005-1 | Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7) | INTENT-005 | prose | 4.2 | in-progress | — |
 | SPEC-006-1 | Canary suite + alignement des références modèles (§3.10) | INTENT-006 | prose | 4.2 | in-progress | — |
 | SPEC-007-1 | Memory native — promotion from logs + anti dock rot (§3.8) | INTENT-007 | prose | 4.2 | in-progress | — |
+| SPEC-008-1 | Cycle SDD comme graphe de Tasks (§3.9) | INTENT-008 | prose | 4.2 | in-progress | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

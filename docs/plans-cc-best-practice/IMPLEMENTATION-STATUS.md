@@ -73,15 +73,21 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
 - **SPEC-B** — anti dock rot : `lib/archive.js` `listerLivrables` (status `done` ; `safe: false` si une SPEC est encore référencée par `@spec` dans `lib/`) + CLI `aiad-sdd archive --delivered [--apply]` (dry-run par défaut). Rappels dans `/aiad health` (dock rot) + `/aiad retro` (memory propose).
 - Artefacts INTENT-007 + SPEC-007-1 (+ index), dossier `.aiad/memory/` (+ template `_index.md`, `init`). Tests : `test/memory.test.js` (16 ✓) + `archive.test.js` (+2 ✓). Suite **3731 pass / 0 fail / 1 skip**. lint · esm · size verts.
 
-### Reste à faire (P2 restant → P3 + garde-fous)
-- **P2** : §3.9 (graphe Tasks)
+### ✅ Jalon : §3.9 livré (cycle SDD comme graphe de Tasks)
+- `lib/cycle-graph.js` : `construireGraphe` (7 étapes, INTENT done, chaînage `blockedBy`), `peutDemarrer` (N exige N-1 done), `appliquerVerdict` (PASS/CONDITIONAL → done ; FAIL/JNSP → blocked ; **refuse de sauter une étape**), `prochaineEtape` (resume — signale la `blocked`), `cycleComplet`, `rendreGraphe` (`[x]/[~]/[ ]/[!]`), persistance fallback `.aiad/cycle/<intent>.json` (crash-recoverable, encapsule l'API Tasks native).
+- CLI `aiad-sdd cycle <init|show|step|next>`. Branchements `/sdd intent` (création) + `/sdd resume` (lecture). Dossier créé par `init`.
+- Artefacts INTENT-008 + SPEC-008-1 (+ index). Tests : `test/cycle-graph.test.js` (14 ✓). Suite **3745 pass / 0 fail / 1 skip**. lint · esm · size verts.
+
+## ✅ P2 COMPLET (§3.8 + §3.9 + §3.10)
+
+### Reste à faire (P3 + garde-fous) — non démarré
 - **P3** : §3.11 (OTel/statusLine), §3.12 (cross-model), §3.13 (plugin/goal)
 - **§4** : garde-fous (doctrine + grill-me + proportionnalité + sunset)
 | 3.5 | Research + GO/NO-GO + Discovery | ✅ Fait (SPEC-A + SPEC-B) | `lib/research.js`, `bin/aiad-sdd.js` (cases `research` + `discovery-check`), schémas `research`/`discovery`, `.aiad/hooks/discovery-gate.js` (+template, `UserPromptSubmit`), `templates/.claude/sdd/{research,spec,exec}.md`, `templates/.claude/settings.json`, `templates/.aiad/research-template.md` + `_index.md`, cycle (`emit-rules.js` + 2× `CLAUDE.md`), `lib/init.js` | `research.test.js` (20 ✓) + `discovery-gate.test.js` (10 ✓) |
 | 3.6 | Exécution phasée + mini-gates + CONDITIONAL | ✅ Fait (SPEC-A + SPEC-B ; dimensions 0-10 + PostToolBatch ultérieurs) | `lib/exec-status.js`, `lib/mini-gate.js`, `bin/aiad-sdd.js` (cases `mini-gate` + `exec-status`), `minigate.schema.json`, `templates/.aiad/exec-plan-template.md` + `exec/_index.md`, `templates/.claude/sdd/{exec,resume}.md`, skill `sqs-scoring`, `lib/init.js` | `exec-status.test.js` (11 ✓) + `mini-gate.test.js` (13 ✓) |
 | 3.7 | Budget instructions push→pull | ✅ Fait (SPEC-A + cœur SPEC-B ; CLAUDE.md minimal ultérieur) | `lib/emit-rules.js` (`genererClaudeRule` + `GLOBS_RULES` + `nomRule`), `templates/.claude/settings.json` (budget), `lib/skills.js` (`MAX_DESCRIPTION`) | `emit-rules-pull.test.js` (5 ✓) + `skills.test.js` |
 | 3.8 | Memory native | ✅ Fait (SPEC-A + SPEC-B) | `lib/memory.js`, `lib/archive.js` (`listerLivrables`), `bin/aiad-sdd.js` (case `memory` + `archive --delivered` + flags), `.aiad/memory/` + template `_index.md` + `init`, `/aiad health` + `/aiad retro`, INTENT/SPEC-007 | `memory.test.js` (16 ✓) + `archive.test.js` (+2 ✓) |
-| 3.9 | Cycle graphe Tasks | ⏳ À faire | — | — |
+| 3.9 | Cycle graphe Tasks | ✅ Fait | `lib/cycle-graph.js`, `bin/aiad-sdd.js` (case `cycle`), `.aiad/cycle/` + `init`, `templates/.claude/sdd/{intent,resume}.md`, INTENT/SPEC-008 | `cycle-graph.test.js` (14 ✓) |
 | 3.10 | Canary + alignement modèles | ✅ Fait (SPEC-A + SPEC-B) | `lib/canary.js`, `bin/aiad-sdd.js` (case `canary` + flag `--runs`), `canary.schema.json`, `.aiad/canary/cases/*` + template + `init`, `config.yml` (snapshot), `templates/.github/workflows/canary.yml`, `templates/.claude/aiad/retro.md`, alignement `Opus 4.8` ×16 fichiers, INTENT/SPEC-006 | `canary.test.js` (22 ✓) |
 | 3.11 | Observabilité OTel/statusLine | ⏳ À faire | — | — |
 | 3.12 | Cross-model additive | ⏳ À faire | — | — |
