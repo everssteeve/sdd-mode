@@ -278,6 +278,9 @@ const OPTIONS_SCHEMA = {
   author: { type: 'string' },
   seuil: { type: 'string' },
   lecon: { type: 'string' },
+  reviewer: { type: 'string' },
+  diff: { type: 'string' },
+  base: { type: 'string' },
 };
 
 let parsed;
@@ -2532,6 +2535,66 @@ async function main() {
         console.error(`\n  ${err.message}\n`);
         exit(1);
       }
+      break;
+    }
+
+    case 'cross-model': {
+      // Cross-model review additive-only (§3.12). `prompt` émet le prompt
+      // contexte-frais ; `merge` agrège les sorties reviewer (dédup) + calcule
+      // l'influence sur le verdict (au plus CONDITIONAL). Aucun appel modèle ici.
+      const {
+        construirePromptReviewer, mergerRapports, influenceVerdict, rendreReview, chargerRapports,
+      } = await import('../lib/cross-model.js');
+      const sub = positionals[1];
+      const spec = positionals[2];
+      if (!sub || !spec) {
+        console.error('\n  Usage : aiad-sdd cross-model <prompt|merge> <SPEC-id> [--reviewer X] [--diff f] [--base PASS]\n');
+        exit(1);
+      }
+
+      if (sub === 'prompt') {
+        const { existsSync: ex, readFileSync: rd } = await import('node:fs');
+        const reviewer = values.reviewer || 'reviewer';
+        let diff = '';
+        if (values.diff && ex(values.diff)) { try { diff = rd(values.diff, 'utf-8'); } catch { /* ignore */ } }
+        // Corps de SPEC (contexte frais minimal — pas le raisonnement de l'auteur).
+        let specBody = '';
+        const specDir = join(cwd(), '.aiad', 'specs');
+        if (ex(specDir)) {
+          const f = (await import('node:fs')).readdirSync(specDir).find((x) => x.toUpperCase().startsWith(spec.toUpperCase()) && x.endsWith('.md'));
+          if (f) { try { specBody = rd(join(specDir, f), 'utf-8'); } catch { /* ignore */ } }
+        }
+        process.stdout.write(construirePromptReviewer({ spec, diff, reviewer, specBody }) + '\n');
+        break;
+      }
+
+      if (sub === 'merge') {
+        const rapports = chargerRapports(cwd(), spec);
+        const merge = mergerRapports(rapports);
+        const base = (values.base || 'PASS').toUpperCase();
+        const infl = influenceVerdict(base, merge.findings);
+        const machine = values['output-format'] === 'verdict' || Boolean(values.json);
+        if (machine) {
+          process.stdout.write(JSON.stringify({ spec, reviewers: merge.reviewers, parSeverite: merge.parSeverite, verdict: infl.verdict, conditions: infl.conditions, findings: merge.findings }) + '\n');
+        } else {
+          console.log(`\n  Cross-model review ${spec} — reviewers : ${merge.reviewers.join(', ') || '—'}`);
+          const resume = Object.entries(merge.parSeverite).filter(([, n]) => n > 0).map(([s, n]) => `${s}:${n}`).join(' ') || '0';
+          console.log(`  Findings : ${merge.findings.length} (${resume})`);
+          if (infl.conditions.length) { console.log('  À lever :'); for (const c of infl.conditions) console.log(`      • ${c}`); }
+          console.log(`  Verdict (base ${base}) → ${infl.verdict} — ${infl.raison}\n`);
+        }
+        // Écrit l'artefact additif.
+        if (!Boolean(values['dry-run'])) {
+          const { mkdirSync: mk, writeFileSync: wr } = await import('node:fs');
+          const dir = join(cwd(), '.aiad', 'reviews');
+          mk(dir, { recursive: true });
+          wr(join(dir, `REVIEW-${spec}.md`), rendreReview(spec, merge), 'utf-8');
+        }
+        exit(infl.verdict === 'FAIL' ? 1 : infl.verdict === 'JNSP' ? 2 : 0);
+      }
+
+      console.error(`\n  Sous-commande inconnue : ${sub} (prompt|merge).\n`);
+      exit(1);
       break;
     }
 

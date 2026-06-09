@@ -77,6 +77,20 @@ Applique la skill `regulatory-veto`. Si VETO → bloquer ; si WARN → plan de r
 
 Relire le Critère de Drift de l'Intent Statement parent. Le signal observable est-il absent ?
 
+### Étape 6b — Review cross-model (option `--cross-model`, §3.12)
+
+Sur `/sdd validate --cross-model <reviewer>` (ex. `codex`, `gemini`), fais reviewer le diff par un **modèle tiers en contexte frais** — *uncorrelated context windows* : un autre modèle attrape les bugs que l'auteur ne voit pas. Contrat **additive-only** : le reviewer **n'écrit ni code ni SPEC**, il ne produit que des Findings cités.
+
+```bash
+# 1. Prompt contexte-frais (diff + SPEC, jamais le raisonnement de l'auteur) → reviewer tiers :
+git diff main... > /tmp/diff.patch
+npx aiad-sdd cross-model prompt <SPEC-id> --reviewer codex --diff /tmp/diff.patch | codex exec > .aiad/reviews/REVIEW-<SPEC-id>-codex.json
+# 2. Agréger (dédup) + influence sur le verdict (au plus CONDITIONAL) :
+npx aiad-sdd cross-model merge <SPEC-id> --base <verdict-de-base> --output-format verdict
+```
+
+**Dégradation propre** : si le runtime tiers est indisponible (headless/CI), saute cette étape avec une note — ne jamais bloquer. Le verdict final reste **déterministe** ; des Findings hauts non résolus forcent au plus `CONDITIONAL` (§3.6), jamais un FAIL inventé.
+
 ### Étape 7 — Décision
 
 | Résultat | Action |

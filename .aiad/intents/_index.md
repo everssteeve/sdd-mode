@@ -15,6 +15,7 @@
 | INTENT-007 | Memory native — promotion from logs + anti dock rot (§3.8) | Steeve Evers | 2026-06-09 | SPEC-007-1 | active |
 | INTENT-008 | Cycle SDD comme graphe de Tasks (§3.9) | Steeve Evers | 2026-06-09 | SPEC-008-1 | active |
 | INTENT-009 | Observabilité native — statusLine + OTel + usage skills (§3.11) | Steeve Evers | 2026-06-09 | SPEC-009-1 | active |
+| INTENT-010 | Cross-model review additive-only (§3.12) | Steeve Evers | 2026-06-09 | SPEC-010-1 | active |
 
 ## Cycle de vie d'un Intent Statement
 

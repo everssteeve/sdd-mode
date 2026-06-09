@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiad.ovh/schema/verdicts/review.schema.json",
+  "title": "AIAD SDD — Sortie reviewer cross-model (Findings additifs §3.12)",
+  "type": "object",
+  "required": ["reviewer", "findings"],
+  "properties": {
+    "reviewer": { "type": "string" },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "description"],
+        "properties": {
+          "severity": { "type": "string", "enum": ["critical", "high", "medium", "low", "info"] },
+          "file": { "type": "string" },
+          "line": { "type": ["integer", "null"] },
+          "description": { "type": "string" },
+          "suggestion": { "type": "string" }
+        }
+      }
+    }
+  }
+}

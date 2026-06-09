@@ -15,6 +15,7 @@
 | SPEC-007-1 | Memory native — promotion from logs + anti dock rot (§3.8) | INTENT-007 | prose | 4.2 | in-progress | — |
 | SPEC-008-1 | Cycle SDD comme graphe de Tasks (§3.9) | INTENT-008 | prose | 4.2 | in-progress | — |
 | SPEC-009-1 | Observabilité native — statusLine + OTel + usage skills (§3.11) | INTENT-009 | prose | 4.1 | in-progress | — |
+| SPEC-010-1 | Cross-model review additive-only (§3.12) | INTENT-010 | prose | 4.1 | in-progress | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 
