@@ -43,7 +43,10 @@ const child = spawn('node', [
   '--experimental-test-coverage',
   '--test-reporter=spec',
   "--test-coverage-include=lib/**/*.js",
-  'test/**/*.test.js',
+  // Glob simple expansé par le shell (shell:true) : compatible Node 18,
+  // dont `node --test` n'expanse pas les globs (support ajouté en Node 21).
+  // Tous les fichiers de tests sont à plat dans test/.
+  'test/*.test.js',
 ], { cwd: ROOT, shell: true });
 
 let stdout = '';
