@@ -53,6 +53,16 @@ Le `prepublishOnly` enchaîne les deux : impossible de publier un tarball cassé
 
 Tests d'intégration : ils créent des projets temporaires dans `os.tmpdir()`, donc rien ne pollue ton repo local. La suite tourne en moins de 2 secondes.
 
+## Garde-fous de conception (§4) — checklist de revue
+
+Avant d'ouvrir une PR qui ajoute/modifie une commande ou une règle SDD, vérifie ces garde-fous transverses (ils **bornent** la roadmap : empêcher la sur-ingénierie et garder SDD aligné sur l'évolution des modèles) :
+
+- [ ] **GF1 — Agentic engineering** : la fonctionnalité sert l'intention humaine + la vérifiabilité (pas un échafaudage que le prochain modèle rendra inutile).
+- [ ] **GF2 — Code en boucle** : aucune commande ne produit de code sans **ancrage codebase préalable** (Discovery `Explore`, §3.5). Spécifier sans regarder le code réel = specs-to-code naïf, interdit.
+- [ ] **GF3 — Léger par défaut** : le chemin est **proportionné** au risque (`aiad-sdd proportionality`). On n'impose le lourd (EARS + Research complète) que si l'ambiguïté coûte cher.
+- [ ] **GF4 — Gate interactif** : les modes `--guided` suivent le pattern `grill-me` (une question à la fois + recommandation), jamais un formulaire statique.
+- [ ] **GF5 — Durée de vie limitée** : une règle/skill qui pallie une lacune du modèle porte `sunset_when:` ou `review_at:` (vérifié par `aiad-sdd sunset` / `doctor`). À relire à chaque montée de version majeure de Claude Code.
+
 ## Conventions de code
 
 ### Style

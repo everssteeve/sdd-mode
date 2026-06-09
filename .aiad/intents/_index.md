@@ -17,6 +17,7 @@
 | INTENT-009 | Observabilité native — statusLine + OTel + usage skills (§3.11) | Steeve Evers | 2026-06-09 | SPEC-009-1 | active |
 | INTENT-010 | Cross-model review additive-only (§3.12) | Steeve Evers | 2026-06-09 | SPEC-010-1 | active |
 | INTENT-011 | Distribution plugin + /goal + toggles de hooks (§3.13) | Steeve Evers | 2026-06-09 | SPEC-011-1 | active |
+| INTENT-012 | Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4) | Steeve Evers | 2026-06-09 | SPEC-012-1 | active |
 
 ## Cycle de vie d'un Intent Statement
 

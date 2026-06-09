@@ -15,6 +15,7 @@ L'Execution Gate est le **point de contrôle** entre une SPEC validée et le lan
 
 - 🔧 [`sqs-scoring`](../skills/sqs-scoring/SKILL.md) — score les 5 critères + Test de l'Étranger + plan de remédiation si FERMÉE.
 - 🔧 [`ears-validator`](../skills/ears-validator/SKILL.md) — alimente le critère SQS Testabilité. **Mode strict si la SPEC déclare `Format : EARS`** — bonus +1 sur le critère 2 si 0 violation, score 0 forcé sinon.
+- 🔧 [`grill-me`](../skills/grill-me/SKILL.md) — en mode `--guided` (garde-fou GF4) : une question à la fois + réponse recommandée, l'humain tranche (Human Authorship). Jamais un formulaire statique.
 
 ## Modes
 

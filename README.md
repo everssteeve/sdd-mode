@@ -18,6 +18,15 @@ SDD Mode (Spec Driven Development Mode) est le framework de développement d'[AI
 2. **Drift = Échec de processus** — Code et SPEC toujours synchronisés
 3. **Context Engineering Budget** — Le PE gère le budget de contexte de chaque session agent
 
+### SDD = l'« agentic engineering » formalisé (garde-fou GF1)
+
+Le *vibe coding* (Karpathy) **remonte le plancher** : tout le monde peut produire du code avec un LLM. SDD ne s'y oppose pas — il **préserve la barre**. Là où le specs-to-code naïf génère du code déconnecté du réel, SDD ancre l'intention dans deux invariants que les modèles ne garantissent pas seuls :
+
+- **Human Authorship** — la paternité de l'intention ne se délègue pas. L'agent exécute ; l'humain tranche (le GO/NO-GO, le verdict de Gate, la promotion en mémoire).
+- **Verifiability** — ce que les LLM automatisent vite (Karpathy) doit rester *vérifiable* : verdicts déterministes (exit codes + JSON), annotations `@spec`, matrice de traçabilité, Drift Lock enforced par hook.
+
+Autrement dit : SDD est l'**agentic engineering** — l'ingénierie qui orchestre des agents sans abandonner ni l'intention ni la preuve. Léger par défaut, lourd seulement quand l'ambiguïté coûte cher (sécurité, paiement, conformité). Voir les garde-fous de conception (§4) : proportionnalité (`aiad-sdd proportionality`), gate interactif `grill-me`, règles à durée de vie limitée (`aiad-sdd sunset`).
+
 ## Installation
 
 **Démarre minimal, évolue progressivement** — choisis ton profil selon le besoin.

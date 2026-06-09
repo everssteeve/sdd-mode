@@ -17,6 +17,7 @@ La Research s'intercale entre `/sdd intent` et `/sdd spec`. Elle ne score PAS la
 
 - 🔧 [`human-authorship-check`](../skills/human-authorship-check/SKILL.md) — la ligne `Verdict :` doit venir d'un humain identifiable.
 - 🔧 [`regulatory-veto`](../skills/regulatory-veto/SKILL.md) — qualification gouvernance des zones touchées identifiées au Discovery.
+- 🔧 [`grill-me`](../skills/grill-me/SKILL.md) — en mode `--guided` (garde-fou GF4) : interroge le GO/NO-GO une question à la fois + recommandation, l'humain tranche. Proportionnalité (GF3) : `aiad-sdd proportionality <INTENT-id>` recommande chemin court (léger) ou lourd (Research complète) selon le risque.
 
 ## Modes
 

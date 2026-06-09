@@ -97,8 +97,16 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
 
 ## ✅ P3 COMPLET (§3.11 + §3.12 + §3.13)
 
-### Reste à faire
-- **§4** : garde-fous (doctrine + grill-me + proportionnalité + sunset)
+### ✅ Jalon : §4 livré (garde-fous de conception — SPEC-A + SPEC-B)
+- **GF1/GF2 (doctrine)** — section « SDD = agentic engineering formalisé » (Human Authorship + Verifiability) dans `README.md` ; checklist de revue GF1–GF5 dans `CONTRIBUTING.md` (GF2 : aucun code sans Discovery préalable).
+- **GF3 (proportionnalité)** — `lib/proportionality.js` (`evaluerPoids` : light par défaut, heavy sur risque sécurité/paiement/RGPD/conformité ; `weight:` humain prime) + CLI `aiad-sdd proportionality`. Référencé dans `/sdd research`.
+- **GF4 (grill-me)** — skill `templates/.claude/skills/grill-me/SKILL.md` + helper pur `lib/grill.js` (1 question/tour + recommandation). Référencé dans `/sdd gate --guided` + `/sdd research --guided`.
+- **GF5 (sunset)** — `lib/sunset.js` (`comparerVersions`, `estCandidate`, `scannerSunset`) + CLI `aiad-sdd sunset [--at]` + check `info` dans `lib/doctor.js`. La skill grill-me porte elle-même `review_at`/`sunset_when`.
+- Artefacts INTENT-012 + SPEC-012-1 (+ index). Tests : `proportionality` (9) + `sunset` (8) + `grill` (8) = 25 ✓. Suite **3803 pass / 0 fail / 1 skip**. lint · esm · size verts.
+
+## 🏁 ROADMAP COMPLÈTE — P0 + P1 + P2 + P3 + §4
+
+Tous les items §3.1→§3.13 + garde-fous §4 sont livrés et vérifiés. « À relire à chaque montée de version majeure de Claude Code » (GF5).
 | 3.5 | Research + GO/NO-GO + Discovery | ✅ Fait (SPEC-A + SPEC-B) | `lib/research.js`, `bin/aiad-sdd.js` (cases `research` + `discovery-check`), schémas `research`/`discovery`, `.aiad/hooks/discovery-gate.js` (+template, `UserPromptSubmit`), `templates/.claude/sdd/{research,spec,exec}.md`, `templates/.claude/settings.json`, `templates/.aiad/research-template.md` + `_index.md`, cycle (`emit-rules.js` + 2× `CLAUDE.md`), `lib/init.js` | `research.test.js` (20 ✓) + `discovery-gate.test.js` (10 ✓) |
 | 3.6 | Exécution phasée + mini-gates + CONDITIONAL | ✅ Fait (SPEC-A + SPEC-B ; dimensions 0-10 + PostToolBatch ultérieurs) | `lib/exec-status.js`, `lib/mini-gate.js`, `bin/aiad-sdd.js` (cases `mini-gate` + `exec-status`), `minigate.schema.json`, `templates/.aiad/exec-plan-template.md` + `exec/_index.md`, `templates/.claude/sdd/{exec,resume}.md`, skill `sqs-scoring`, `lib/init.js` | `exec-status.test.js` (11 ✓) + `mini-gate.test.js` (13 ✓) |
 | 3.7 | Budget instructions push→pull | ✅ Fait (SPEC-A + cœur SPEC-B ; CLAUDE.md minimal ultérieur) | `lib/emit-rules.js` (`genererClaudeRule` + `GLOBS_RULES` + `nomRule`), `templates/.claude/settings.json` (budget), `lib/skills.js` (`MAX_DESCRIPTION`) | `emit-rules-pull.test.js` (5 ✓) + `skills.test.js` |
@@ -108,7 +116,7 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
 | 3.11 | Observabilité OTel/statusLine | ✅ Fait (SPEC-A + SPEC-B) | `lib/statusline.js`, `bin/aiad-sdd.js` (case `statusline`), `.aiad/hooks/{statusline,skill-usage}.js` (+template), `settings.json` (statusLine + includeCoAuthoredBy + OTel opt-in + hook Skill), `docs/telemetrie.md`, INTENT/SPEC-009 | `statusline.test.js` (12 ✓) |
 | 3.12 | Cross-model additive | ✅ Fait | `lib/cross-model.js`, `bin/aiad-sdd.js` (case `cross-model`), `review.schema.json`, `.aiad/reviews/` + template + `init`, `templates/.claude/sdd/validate.md` (Étape 6b), INTENT/SPEC-010 | `cross-model.test.js` (12 ✓) |
 | 3.13 | Distribution plugin + goal | ✅ Fait (SPEC-A + SPEC-B) | `lib/hooks-config.js`, `bin/aiad-sdd.js` (case `hooks-config`), `.aiad/hooks/{drift-lock,skill-usage}.js` (toggle), `.aiad/hooks-config.json` + template + `.gitignore`/`init`, `.claude-plugin/{plugin,marketplace}.json`, `docs/goal-recipes.md`, README, INTENT/SPEC-011 | `hooks-config.test.js` (10 ✓) |
-| 4 | Garde-fous | ⏳ À faire | — | — |
+| 4 | Garde-fous | ✅ Fait (GF1–GF5) | `lib/{proportionality,sunset,grill}.js`, `bin/aiad-sdd.js` (cases `proportionality` + `sunset`), `templates/.claude/skills/grill-me/SKILL.md`, `lib/doctor.js` (check sunset), `README.md` + `CONTRIBUTING.md` (doctrine + checklist), `/sdd {gate,research}` (grill-me), INTENT/SPEC-012 | `proportionality` (9) + `sunset` (8) + `grill` (8 ✓) |
 
 ## Invariants respectés
 

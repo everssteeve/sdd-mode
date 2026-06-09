@@ -281,6 +281,7 @@ const OPTIONS_SCHEMA = {
   reviewer: { type: 'string' },
   diff: { type: 'string' },
   base: { type: 'string' },
+  at: { type: 'string' },
 };
 
 let parsed;
@@ -2538,6 +2539,47 @@ async function main() {
       break;
     }
 
+    case 'proportionality': {
+      // Proportionnalité « léger par défaut » (garde-fou GF3, §4) : évalue le
+      // poids d'un Intent et recommande le chemin (court vs lourd).
+      const { evaluerIntent } = await import('../lib/proportionality.js');
+      const id = positionals[1];
+      if (!id) { console.error('\n  Usage : aiad-sdd proportionality <INTENT-id>\n'); exit(1); }
+      const r = evaluerIntent(cwd(), id);
+      if (!r) { console.error(`\n  Intent introuvable : ${id}\n`); exit(1); }
+      if (Boolean(values.json)) {
+        process.stdout.write(JSON.stringify(r) + '\n');
+      } else {
+        console.log(`\n  ${r.intent} — poids : ${r.weight} (${r.source})`);
+        console.log(`  ${r.raison}`);
+        if (r.signaux.length) console.log(`  Signaux : ${r.signaux.join(', ')}`);
+        console.log(`  → ${r.cheminRecommande}\n`);
+      }
+      break;
+    }
+
+    case 'sunset': {
+      // Règles à durée de vie limitée (garde-fou GF5, §4) : signale les
+      // skills/rules/gouvernance candidates au retrait/réexamen.
+      const { scannerSunset } = await import('../lib/sunset.js');
+      const versionCourante = values.at || VERSION;
+      const liste = scannerSunset(cwd(), { versionCourante });
+      const candidates = liste.filter((e) => e.candidate);
+      if (Boolean(values.json)) {
+        process.stdout.write(JSON.stringify({ versionCourante, total: liste.length, candidates: candidates.length, entrees: liste }, null, 2) + '\n');
+      } else if (liste.length === 0) {
+        console.log('\n  ~ Aucune règle/skill ne porte de métadonnée d\'obsolescence (sunset_when / review_at).\n');
+      } else {
+        console.log(`\n  Métadonnées d'obsolescence (version courante ${versionCourante}) :\n`);
+        for (const e of liste) {
+          const icone = e.candidate ? '⚠' : '·';
+          console.log(`    ${icone} [${e.kind}] ${e.nom}${e.candidate ? ` — ${e.raison}` : ''}`);
+        }
+        console.log(`\n  ${candidates.length} candidate(s) au réexamen. À relire à chaque montée de version majeure.\n`);
+      }
+      exit(candidates.length > 0 ? 1 : 0);
+    }
+
     case 'hooks-config': {
       // Toggles de hooks par environnement (§3.13 SPEC-A). `show` liste l'état ;
       // `check <hook>` exit 0 (actif) / 1 (désactivé) — consommable par script.
@@ -3527,6 +3569,7 @@ async function main() {
         'dashboard', 'emit-rules', 'new', 'import', 'score', 'template',
         'review', 'suggest-annotations', 'export', 'storybook', 'cert',
         'marketplace', 'audit', 'provenance', 'hook-stats', 'dinum', 'sovereignty', 'adrs', 'dora', 'self-update', 'standup', 'brief', 'badge', 'gitlab', 'azure', 'webhooks', 'reflect', 'negotiate', 'refactor-spec', 'spec-version', 'archive', 'sla', 'completion', 'tour', 'pii-scan', 'backup', 'restore', 'offline', 'bitbucket', 'ci-template', 'github-app', 'anonymize', 'plugin', 'hooks-init', 'schema', 'org', 'rbac', 'tutorial', 'help', 'version',
+        'canary', 'memory', 'cycle', 'statusline', 'cross-model', 'hooks-config', 'proportionality', 'sunset',
       ];
       const indice = indiceVoulaisTuDire(command, COMMANDES_VALIDES, { max: 2 });
       const ligneIndice = indice ? `  ${indice}\n\n` : '';

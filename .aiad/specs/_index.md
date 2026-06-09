@@ -17,6 +17,7 @@
 | SPEC-009-1 | Observabilité native — statusLine + OTel + usage skills (§3.11) | INTENT-009 | prose | 4.1 | in-progress | — |
 | SPEC-010-1 | Cross-model review additive-only (§3.12) | INTENT-010 | prose | 4.1 | in-progress | — |
 | SPEC-011-1 | Toggles de hooks + /goal + packaging plugin (§3.13) | INTENT-011 | prose | 4.1 | in-progress | — |
+| SPEC-012-1 | Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4) | INTENT-012 | prose | 4.0 | in-progress | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 
