@@ -102,12 +102,14 @@ patterns:
   - "lib/command-hooks.js"
   - "lib/plugins.js"
   - "lib/sdd-trace.js"
+  - "lib/dashboard/watch.js"
   # Tests rendus déterministes/portables (import.meta.dirname → idiome Node 18,
   # locale forcée, couverture du fallback polling) — pas de comportement applicatif
   - "test/i18n.test.js"
   - "test/templates.test.js"
   - "test/import.test.js"
   - "test/trace-watch.test.js"
+  - "test/dashboard-watch.test.js"
   - "test/migrate-v2.test.js"
   - "test/brief.test.js"
   - "test/skills.test.js"

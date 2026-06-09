@@ -99,3 +99,26 @@ test('watcher — close arrête de surveiller', async () => {
   assert.equal(appels, 0, 'callback déclenché après close()');
   rmSync(d, { recursive: true, force: true });
 });
+
+test('watcher — fallback polling (AIAD_WATCH_POLL=1) détecte une écriture nichée', async () => {
+  // Couvre le chemin polling — utilisé en prod sur Linux + Node < 20 où
+  // fs.watch({recursive:true}) ne propage pas les sous-dossiers (.aiad/specs/).
+  const d = tmp();
+  const prev = process.env.AIAD_WATCH_POLL;
+  process.env.AIAD_WATCH_POLL = '1';
+  let appels = 0;
+  let dernier = null;
+  const w = watcher(d, (filename) => { appels++; dernier = filename; }, { debounceMs: 50, pollMs: 30 });
+  try {
+    await pause(50);
+    writeFileSync(join(d, '.aiad', 'specs', 'SPEC-POLL-1.md'), '# spec\n');
+    await pause(400);
+    assert.equal(appels, 1, `appels=${appels}`);
+    assert.ok(dernier && dernier.includes('SPEC-POLL-1.md'), `dernier=${dernier}`);
+  } finally {
+    w.close();
+    if (prev === undefined) delete process.env.AIAD_WATCH_POLL;
+    else process.env.AIAD_WATCH_POLL = prev;
+    rmSync(d, { recursive: true, force: true });
+  }
+});
