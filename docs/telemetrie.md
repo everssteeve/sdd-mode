@@ -85,6 +85,53 @@ aiad-sdd telemetry opt-out
 # → supprime ~/.aiad-sdd/telemetry.json + events.jsonl
 ```
 
+## Observabilité native (OpenTelemetry + statusLine + usage skills) — §3.11
+
+SDD se branche sur les **primitives natives** de Claude Code plutôt que sur des
+collecteurs maison.
+
+### Export OpenTelemetry (opt-in)
+
+Les clés sont livrées **désactivées** (préfixe `_`) dans `templates/.claude/settings.json` →
+renomme `_OTEL_*` en `OTEL_*` et pointe vers ton collecteur :
+
+```jsonc
+"env": {
+  "OTEL_METRICS_EXPORTER": "otlp",
+  "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4318",
+  "OTEL_RESOURCE_ATTRIBUTES": "service.name=aiad-sdd"   // jamais de PII
+}
+```
+
+Claude Code exporte alors ses métriques (sessions, coût, tokens) vers n'importe
+quel backend OTLP. **Consentement** : n'active OTel que si ta politique de
+confidentialité le permet ; `OTEL_RESOURCE_ATTRIBUTES` ne doit pas contenir de
+données personnelles.
+
+### statusLine live
+
+`settings.statusLine.command` appelle `aiad-sdd statusline` (via le hook
+`.aiad/hooks/statusline.js`) à chaque rafraîchissement. La ligne affiche la SPEC
+active, l'état de Gate (déduit du SQS), l'étape de cycle (§3.9), le % de contexte
+(alerte ≥ 70 %), l'effort et le coût :
+
+```
+SPEC-042-1 │ Gate ✅ │ étape EXEC │ ctx 58% │ effort max │ Opus 4.8 │ $0.42
+```
+
+### Mesure d'usage des skills
+
+Le hook `PreToolUse(Skill)` (`.aiad/hooks/skill-usage.js`) journalise chaque
+invocation dans `.aiad/metrics/skill-usage.jsonl` — pour savoir **lesquelles
+servent vraiment** (Sobriété Intentionnelle : retirer les inutilisées). Jamais
+bloquant, bypass `AIAD_HOOK_SILENT=1`.
+
+### Attribution garantie
+
+`settings.includeCoAuthoredBy: true` impose le trailer `Co-Authored-By` sur les
+commits **indépendamment du modèle** — la paternité de l'outil est tracée par le
+harness, pas par le bon vouloir de l'agent.
+
 ---
 
-*Dernière mise à jour : 2026-05-10. Pour toute question, [issue GitHub](https://github.com/everssteeve/sdd-mode/issues).*
+*Dernière mise à jour : 2026-06-09. Pour toute question, [issue GitHub](https://github.com/everssteeve/sdd-mode/issues).*

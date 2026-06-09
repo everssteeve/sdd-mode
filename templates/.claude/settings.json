@@ -1,9 +1,18 @@
 {
   "env": {
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "65"
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "65",
+    "_comment_otel": "Observabilité OTel (§3.11, opt-in) : renomme les clés _OTEL_* en OTEL_* et pointe vers ton collecteur. service.name sans PII.",
+    "_OTEL_METRICS_EXPORTER": "otlp",
+    "_OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4318",
+    "_OTEL_RESOURCE_ATTRIBUTES": "service.name=aiad-sdd"
   },
   "skillListingMaxDescChars": 1536,
   "skillListingBudgetFraction": 0.01,
+  "includeCoAuthoredBy": true,
+  "statusLine": {
+    "type": "command",
+    "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/statusline.js"
+  },
   "hooks": {
     "SessionStart": [
       {
@@ -42,6 +51,15 @@
             "type": "command",
             "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/veto.js",
             "statusMessage": "Veto Tier 1 — zones réglementées…"
+          }
+        ]
+      },
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/skill-usage.js"
           }
         ]
       }

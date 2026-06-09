@@ -80,8 +80,13 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
 
 ## ✅ P2 COMPLET (§3.8 + §3.9 + §3.10)
 
-### Reste à faire (P3 + garde-fous) — non démarré
-- **P3** : §3.11 (OTel/statusLine), §3.12 (cross-model), §3.13 (plugin/goal)
+### ✅ Jalon : §3.11 livré (observabilité native — SPEC-A + SPEC-B)
+- **SPEC-A** — `lib/statusline.js` (`etatSdd` SPEC active+SQS, `prochaineEtapeCycle` §3.9, `construireStatusline` pur, `parserStdin`), CLI `aiad-sdd statusline` (stdin JSON Claude Code), hook `.aiad/hooks/statusline.js` (shell-out, jamais bloquant) + `settings.statusLine.command`. Attribution : `settings.includeCoAuthoredBy: true`.
+- **SPEC-B** — mesure d'usage skills : hook `.aiad/hooks/skill-usage.js` (`PreToolUse(Skill)` → `.aiad/metrics/skill-usage.jsonl`) + déclaration settings. Scaffolding OTel opt-in (`_OTEL_*` dans `settings.env`) + section `docs/telemetrie.md`.
+- Artefacts INTENT-009 + SPEC-009-1 (+ index). Tests : `test/statusline.test.js` (12 ✓). Suite **3757 pass / 0 fail / 1 skip**. lint · esm · size verts.
+
+### Reste à faire (P3 restant + garde-fous)
+- **P3** : §3.12 (cross-model), §3.13 (plugin/goal)
 - **§4** : garde-fous (doctrine + grill-me + proportionnalité + sunset)
 | 3.5 | Research + GO/NO-GO + Discovery | ✅ Fait (SPEC-A + SPEC-B) | `lib/research.js`, `bin/aiad-sdd.js` (cases `research` + `discovery-check`), schémas `research`/`discovery`, `.aiad/hooks/discovery-gate.js` (+template, `UserPromptSubmit`), `templates/.claude/sdd/{research,spec,exec}.md`, `templates/.claude/settings.json`, `templates/.aiad/research-template.md` + `_index.md`, cycle (`emit-rules.js` + 2× `CLAUDE.md`), `lib/init.js` | `research.test.js` (20 ✓) + `discovery-gate.test.js` (10 ✓) |
 | 3.6 | Exécution phasée + mini-gates + CONDITIONAL | ✅ Fait (SPEC-A + SPEC-B ; dimensions 0-10 + PostToolBatch ultérieurs) | `lib/exec-status.js`, `lib/mini-gate.js`, `bin/aiad-sdd.js` (cases `mini-gate` + `exec-status`), `minigate.schema.json`, `templates/.aiad/exec-plan-template.md` + `exec/_index.md`, `templates/.claude/sdd/{exec,resume}.md`, skill `sqs-scoring`, `lib/init.js` | `exec-status.test.js` (11 ✓) + `mini-gate.test.js` (13 ✓) |
@@ -89,7 +94,7 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
 | 3.8 | Memory native | ✅ Fait (SPEC-A + SPEC-B) | `lib/memory.js`, `lib/archive.js` (`listerLivrables`), `bin/aiad-sdd.js` (case `memory` + `archive --delivered` + flags), `.aiad/memory/` + template `_index.md` + `init`, `/aiad health` + `/aiad retro`, INTENT/SPEC-007 | `memory.test.js` (16 ✓) + `archive.test.js` (+2 ✓) |
 | 3.9 | Cycle graphe Tasks | ✅ Fait | `lib/cycle-graph.js`, `bin/aiad-sdd.js` (case `cycle`), `.aiad/cycle/` + `init`, `templates/.claude/sdd/{intent,resume}.md`, INTENT/SPEC-008 | `cycle-graph.test.js` (14 ✓) |
 | 3.10 | Canary + alignement modèles | ✅ Fait (SPEC-A + SPEC-B) | `lib/canary.js`, `bin/aiad-sdd.js` (case `canary` + flag `--runs`), `canary.schema.json`, `.aiad/canary/cases/*` + template + `init`, `config.yml` (snapshot), `templates/.github/workflows/canary.yml`, `templates/.claude/aiad/retro.md`, alignement `Opus 4.8` ×16 fichiers, INTENT/SPEC-006 | `canary.test.js` (22 ✓) |
-| 3.11 | Observabilité OTel/statusLine | ⏳ À faire | — | — |
+| 3.11 | Observabilité OTel/statusLine | ✅ Fait (SPEC-A + SPEC-B) | `lib/statusline.js`, `bin/aiad-sdd.js` (case `statusline`), `.aiad/hooks/{statusline,skill-usage}.js` (+template), `settings.json` (statusLine + includeCoAuthoredBy + OTel opt-in + hook Skill), `docs/telemetrie.md`, INTENT/SPEC-009 | `statusline.test.js` (12 ✓) |
 | 3.12 | Cross-model additive | ⏳ À faire | — | — |
 | 3.13 | Distribution plugin + goal | ⏳ À faire | — | — |
 | 4 | Garde-fous | ⏳ À faire | — | — |

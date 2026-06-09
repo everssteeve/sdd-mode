@@ -2535,6 +2535,24 @@ async function main() {
       break;
     }
 
+    case 'statusline': {
+      // statusLine native (§3.11) : lit le JSON Claude Code sur stdin, enrichit
+      // d'un état SDD (SPEC active, Gate, étape de cycle) → une ligne. Jamais
+      // d'échec : une statusLine ne doit pas casser l'UI.
+      const { etatSdd, prochaineEtapeCycle, construireStatusline, parserStdin } = await import('../lib/statusline.js');
+      let brut = '';
+      try { brut = readFileSync(0, 'utf-8'); } catch { /* pas de stdin */ }
+      try {
+        const cc = parserStdin(brut);
+        const sdd = etatSdd(cwd());
+        sdd.etape = prochaineEtapeCycle(cwd(), sdd.spec);
+        process.stdout.write(construireStatusline(cc, sdd) + '\n');
+      } catch {
+        process.stdout.write('SDD\n');
+      }
+      break;
+    }
+
     case 'cycle': {
       // Cycle SDD comme graphe de Tasks (§3.9) : Intent → … → Drift-Lock, une
       // étape bloquée par la précédente non terminée ne peut pas démarrer.
