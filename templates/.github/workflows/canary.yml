@@ -1,0 +1,58 @@
+# AIAD SDD Mode — Canary suite (§3.10)
+#
+# « Frozen weights ≠ frozen behavior » : rejoue quotidiennement un set figé de
+# cas pour distinguer une régression réelle d'un bruit de serving (±8-14 %).
+#   - cas deterministic → verdict CLI 100 % reproductible ; tout écart = bug code.
+#   - cas generative    → dispersion dans la bande de tolérance ; au-delà = DRIFT.
+#
+# Cadence nocturne (cron) pour limiter le coût ; déclenchable à la main.
+# Exit codes : 0 PASS · 1 régression (FAIL) · 2 indécidable (JNSP).
+# CONDITIONAL (DRIFT génératif) n'échoue PAS la pipeline mais publie le rapport.
+#
+# Documentation : https://aiad.ovh
+
+name: AIAD Canary (frozen behavior)
+
+on:
+  schedule:
+    - cron: '17 3 * * *' # tous les jours à 03:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canary:
+    name: Canary suite — régression vs bruit de serving
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install aiad-sdd
+        run: |
+          if [ -f package.json ]; then
+            npm install --no-audit --no-fund --omit=optional || true
+          fi
+          npm install --no-save --no-audit --no-fund aiad-sdd@latest
+
+      - name: Run canary suite
+        run: npx aiad-sdd canary --output-format verdict | tee canary-report.json
+        # exit 1 (FAIL) fait échouer le job ; exit 2 (JNSP) aussi → à compléter.
+
+      - name: Upload canary report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aiad-canary
+          path: |
+            canary-report.json
+            .aiad/metrics/canary/
+          if-no-files-found: warn

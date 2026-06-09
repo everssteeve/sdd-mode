@@ -38,7 +38,7 @@ L'exécution agent est l'étape entre la **Gate OUVERTE** (SQS ≥ 4/5) et la **
 
 ### Étape 0 — Recommandation modèle
 
-Affiche : *"Sonnet 4.6 est suffisant pour ce lancement d'exécution — pas besoin d'Opus 4.7 pour ce type de tâche."*
+Affiche : *"Sonnet 4.6 est suffisant pour ce lancement d'exécution — pas besoin d'Opus 4.8 pour ce type de tâche."*
 
 ### Étape 1 — Vérifier les prérequis
 

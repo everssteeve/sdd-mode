@@ -63,8 +63,13 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
 
 ## ✅ P1 COMPLET (§3.5 + §3.6 + §3.7)
 
-### Reste à faire (P2 → P3 + garde-fous) — non démarré
-- **P2** : §3.8 (memory native), §3.9 (graphe Tasks), §3.10 (canary + alignement modèles)
+### ✅ Jalon : §3.10 livré (canary suite + alignement modèles — SPEC-A + SPEC-B)
+- **SPEC-A** — canary suite déterministe : `lib/canary.js` (parsing cas figés, `evaluerDeterministe` 100 % reproductible/= baseline, `evaluerGeneratif` bande ±tolérance, `executerCanary` agrégat verdict, `lireSnapshotCanary`), schéma `canary.schema.json`, CLI `aiad-sdd canary [--runs N]` (runner réel : spawn deterministic + échantillons figés generative ; absent → JNSP non mesuré), cas figés `.aiad/canary/cases/{CANARY-001,CANARY-010}` (+ template + `init`), snapshot épinglé `config.yml` (`model: claude-opus-4-8`, `effort: max`, `claude_code_version: v2.1.168`, `tolerance_pct: 14`), workflow CI `canary.yml` (cron nocturne), lien `/aiad retro` (garde-fou anti-bruit : conclure régression sur FAIL ou DRIFT hors bande).
+- **SPEC-B** — alignement des références : `Opus 4.7` → `Opus 4.8` dans CLAUDE.md, SDDMode.md, GUIDE.md, `templates/CLAUDE.md`, `templates/SDDMode.md`, 11 corps de commandes `templates/.claude/`. Plus aucune occurrence `Opus 4.7` hors `docs/plans-cc` / `docs/analyse`.
+- Artefacts : INTENT-006 + SPEC-006-1 (+ index). Tests : `test/canary.test.js` (22 ✓). Suite **3713 pass / 0 fail / 1 skip**. lint · esm · size verts.
+
+### Reste à faire (P2 restant → P3 + garde-fous)
+- **P2** : §3.8 (memory native), §3.9 (graphe Tasks)
 - **P3** : §3.11 (OTel/statusLine), §3.12 (cross-model), §3.13 (plugin/goal)
 - **§4** : garde-fous (doctrine + grill-me + proportionnalité + sunset)
 | 3.5 | Research + GO/NO-GO + Discovery | ✅ Fait (SPEC-A + SPEC-B) | `lib/research.js`, `bin/aiad-sdd.js` (cases `research` + `discovery-check`), schémas `research`/`discovery`, `.aiad/hooks/discovery-gate.js` (+template, `UserPromptSubmit`), `templates/.claude/sdd/{research,spec,exec}.md`, `templates/.claude/settings.json`, `templates/.aiad/research-template.md` + `_index.md`, cycle (`emit-rules.js` + 2× `CLAUDE.md`), `lib/init.js` | `research.test.js` (20 ✓) + `discovery-gate.test.js` (10 ✓) |
@@ -72,7 +77,7 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
 | 3.7 | Budget instructions push→pull | ✅ Fait (SPEC-A + cœur SPEC-B ; CLAUDE.md minimal ultérieur) | `lib/emit-rules.js` (`genererClaudeRule` + `GLOBS_RULES` + `nomRule`), `templates/.claude/settings.json` (budget), `lib/skills.js` (`MAX_DESCRIPTION`) | `emit-rules-pull.test.js` (5 ✓) + `skills.test.js` |
 | 3.8 | Memory native | ⏳ À faire | — | — |
 | 3.9 | Cycle graphe Tasks | ⏳ À faire | — | — |
-| 3.10 | Canary + alignement modèles | ⏳ À faire | — | — |
+| 3.10 | Canary + alignement modèles | ✅ Fait (SPEC-A + SPEC-B) | `lib/canary.js`, `bin/aiad-sdd.js` (case `canary` + flag `--runs`), `canary.schema.json`, `.aiad/canary/cases/*` + template + `init`, `config.yml` (snapshot), `templates/.github/workflows/canary.yml`, `templates/.claude/aiad/retro.md`, alignement `Opus 4.8` ×16 fichiers, INTENT/SPEC-006 | `canary.test.js` (22 ✓) |
 | 3.11 | Observabilité OTel/statusLine | ⏳ À faire | — | — |
 | 3.12 | Cross-model additive | ⏳ À faire | — | — |
 | 3.13 | Distribution plugin + goal | ⏳ À faire | — | — |

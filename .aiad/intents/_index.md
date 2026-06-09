@@ -11,6 +11,7 @@
 | INTENT-003 | Phase Research + Discovery obligatoire avant la SPEC (§3.5) | Steeve Evers | 2026-06-08 | SPEC-003-1 | active |
 | INTENT-004 | Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6) | Steeve Evers | 2026-06-08 | SPEC-004-1 | active |
 | INTENT-005 | Budget d'instructions push → pull (gouvernance par paths, §3.7) | Steeve Evers | 2026-06-08 | SPEC-005-1 | active |
+| INTENT-006 | Canary suite + alignement des références modèles (§3.10) | Steeve Evers | 2026-06-09 | SPEC-006-1 | active |
 
 ## Cycle de vie d'un Intent Statement
 

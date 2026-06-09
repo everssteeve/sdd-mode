@@ -9,7 +9,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut un audit de sécurité du cod
 
 `/sdd security` est un audit structuré sur 4 axes — recommandé après toute implémentation impliquant des accès, des données utilisateur, des secrets ou un composant IA, et avant toute PR critique. Le rapport est persisté dans `.aiad/metrics/security/`.
 
-**Recommandation modèle** : Opus 4.7 ou équivalent frontier pour maximiser la détection.
+**Recommandation modèle** : Opus 4.8 ou équivalent frontier pour maximiser la détection.
 
 ## Skills invoquées
 
@@ -26,7 +26,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut un audit de sécurité du cod
 **Input** : SPEC-NNN concernée + fichiers implémentés.
 **Output** : rapport persisté dans `.aiad/metrics/security/YYYY-MM-DD-SPEC-NNN.md`.
 
-1. Recommander Opus 4.7 si pas déjà actif.
+1. Recommander Opus 4.8 si pas déjà actif.
 2. Parcourir les **4 axes** : OWASP / secrets / permissions agents / conformité.
 3. Pour l'axe 4 (conformité), appliquer la skill `regulatory-veto`.
 4. Produire le rapport : risques critiques / moyens / bonnes pratiques confirmées.
@@ -35,7 +35,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut un audit de sécurité du cod
 
 ### Étape 0 — Recommandation modèle
 
-Affiche : *"Cet audit est plus efficace avec Opus 4.7. Si tu n'es pas sur Opus 4.7, considère de basculer (`/fast` dans Claude Code)."*
+Affiche : *"Cet audit est plus efficace avec Opus 4.8. Si tu n'es pas sur Opus 4.8, considère de basculer (`/fast` dans Claude Code)."*
 
 ### Étape 1 — Axe OWASP Top 10
 

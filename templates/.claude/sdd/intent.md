@@ -36,7 +36,7 @@ L'Intent Statement est un **artefact de premier ordre** : il capture le POURQUOI
 
 ### Étape 0 — Recommandation modèle
 
-Affiche : *"Sonnet 4.6 est suffisant pour capturer un Intent Statement — pas besoin d'Opus 4.7 pour ce type de tâche."*
+Affiche : *"Sonnet 4.6 est suffisant pour capturer un Intent Statement — pas besoin d'Opus 4.8 pour ce type de tâche."*
 
 ### Étape 1 — Recueillir les 5 champs
 

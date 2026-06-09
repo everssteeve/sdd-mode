@@ -193,7 +193,7 @@ Tu es responsable du Context Engineering Budget de chaque session agent. Règles
 3. **Seuil opérationnel (v1.6)** : utiliser 60-70 % du contexte disponible comme maximum effectif — au-delà, les symptômes de dégradation (context rot) apparaissent avant la limite théorique
 4. **Le PRD complet** n'est injecté qu'en phase de cadrage, pas en développement
 5. **Règle de placement** : toujours placer l'Intent Statement et la SPEC active en tête de contexte (contre le "lost in the middle effect")
-6. **Référence modèles (v1.6)** : Opus 4.7 (1M tokens effectifs) ; Sonnet 4.6 (200k) ; Haiku 4.5 (200k) — la fenêtre disponible ne change pas le seuil de 60-70 %, elle le déplace vers le haut
+6. **Référence modèles (v1.6)** : Opus 4.8 (1M tokens effectifs) ; Sonnet 4.6 (200k) ; Haiku 4.5 (200k) — la fenêtre disponible ne change pas le seuil de 60-70 %, elle le déplace vers le haut
 
 ## Règles absolues
 

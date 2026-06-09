@@ -11,3 +11,13 @@ hooks:
   #   warn  : affiche un avertissement, n'empêche pas le commit
   #   off   : désactive complètement le hook
   pre_commit: block
+
+# Canary suite (§3.10) — snapshot modèle figé.
+# Sert de point de référence stable pour comparer toujours « à modèle constant »
+# et distinguer une régression réelle d'un bruit de serving (±8-14 %).
+# Enregistré tel quel dans chaque rapport .aiad/metrics/canary/<date>.json.
+canary:
+  model: claude-opus-4-8
+  effort: max
+  claude_code_version: v2.1.168
+  tolerance_pct: 14

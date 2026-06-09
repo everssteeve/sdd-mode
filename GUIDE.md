@@ -713,7 +713,7 @@ Avant de déployer une fonctionnalité qui touche des données utilisateur ou de
 /sdd security
 ```
 
-La commande parcourt le code sur les axes OWASP Top 10, gestion des secrets, permissions des agents, et conformité réglementaire. Elle recommande d'utiliser un modèle frontier (Opus 4.7) pour cet audit.
+La commande parcourt le code sur les axes OWASP Top 10, gestion des secrets, permissions des agents, et conformité réglementaire. Elle recommande d'utiliser un modèle frontier (Opus 4.8) pour cet audit.
 
 Pour notre Expense Tracker :
 

@@ -7,7 +7,7 @@ description: Vérifier la conformité d'un livrable aux 5 agents de gouvernance 
 
 Tu es un Product Engineer AIAD. L'utilisateur veut vérifier qu'un livrable (SPEC, PR, code) respecte les exigences des 5 agents de gouvernance Tier 1.
 
-**Recommandation modèle** : Opus 4.7 ou Sonnet 4.6 — analyse réglementaire Tier 1 (AI-ACT, RGPD, RGAA, RGESN, CRA).
+**Recommandation modèle** : Opus 4.8 ou Sonnet 4.6 — analyse réglementaire Tier 1 (AI-ACT, RGPD, RGAA, RGESN, CRA).
 
 ## Contexte AIAD
 
@@ -50,7 +50,7 @@ Si tout est clair, saute directement à **Règles**. Sinon, suis le **Mode guid�
 
 ### Étape 0 — Recommandation modèle
 
-Affiche : *"Cette vérification réglementaire Tier 1 est plus efficace avec Opus 4.7 ou Sonnet 4.6. Si tu n'es pas sur l'un de ces modèles, considère de basculer (`/fast` pour Opus dans Claude Code)."*
+Affiche : *"Cette vérification réglementaire Tier 1 est plus efficace avec Opus 4.8 ou Sonnet 4.6. Si tu n'es pas sur l'un de ces modèles, considère de basculer (`/fast` pour Opus dans Claude Code)."*
 
 ### Étape 1 — Identifier le périmètre à vérifier
 

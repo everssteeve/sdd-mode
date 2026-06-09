@@ -48,7 +48,7 @@ Conduis l'entretien en **7 étapes**. Pose une seule question à la fois. Après
 
 ### Étape 0 — Recommandation modèle
 
-Affiche : *"Sonnet 4.6 est suffisant pour cette discovery produit — pas besoin d'Opus 4.7 pour ce type de tâche."*
+Affiche : *"Sonnet 4.6 est suffisant pour cette discovery produit — pas besoin d'Opus 4.8 pour ce type de tâche."*
 
 ### Étape 1 — Le Problème (POURQUOI)
 

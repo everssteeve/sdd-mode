@@ -11,6 +11,7 @@
 | SPEC-003-1 | Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5) | INTENT-003 | prose | 4.4 | in-progress | — |
 | SPEC-004-1 | Exécution phasée + mini-gates + statut visuel (§3.6) | INTENT-004 | prose | 4.4 | in-progress | — |
 | SPEC-005-1 | Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7) | INTENT-005 | prose | 4.2 | in-progress | — |
+| SPEC-006-1 | Canary suite + alignement des références modèles (§3.10) | INTENT-006 | prose | 4.2 | in-progress | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

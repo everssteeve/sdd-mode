@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiad.ovh/schema/verdicts/canary.schema.json",
+  "title": "AIAD SDD — Verdict Canary suite (§3.10)",
+  "type": "object",
+  "required": ["verdict", "exitCode", "summary", "cases", "conditions"],
+  "properties": {
+    "verdict": { "type": "string", "enum": ["PASS", "CONDITIONAL", "FAIL", "JNSP"] },
+    "exitCode": { "type": "integer", "enum": [0, 1, 2] },
+    "date": { "type": ["string", "null"] },
+    "snapshot": {
+      "type": ["object", "null"],
+      "properties": {
+        "model": { "type": ["string", "null"] },
+        "effort": { "type": ["string", "null"] },
+        "claude_code_version": { "type": ["string", "null"] },
+        "tolerance_pct": { "type": "number" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["total", "pass", "drift", "fail", "unknown"],
+      "properties": {
+        "total": { "type": "integer" },
+        "pass": { "type": "integer" },
+        "drift": { "type": "integer" },
+        "fail": { "type": "integer" },
+        "unknown": { "type": "integer" }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "verdict"],
+        "properties": {
+          "id": { "type": ["string", "null"] },
+          "kind": { "type": ["string", "null"] },
+          "verdict": { "type": "string", "enum": ["PASS", "CONDITIONAL", "FAIL", "JNSP"] },
+          "observed": { "type": ["string", "number", "null"] },
+          "expected": { "type": ["string", "number", "null"] },
+          "stable": { "type": "boolean" },
+          "drift": { "type": "boolean" },
+          "dispersion": { "type": "number" },
+          "reasons": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "conditions": { "type": "array", "items": { "type": "string" } }
+  }
+}

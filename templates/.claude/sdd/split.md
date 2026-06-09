@@ -37,7 +37,7 @@ Une SPEC doit être **atomique** (1 SPEC = 1 PR = 1 tâche livrable). Quand l'Ex
 
 ### Étape 0 — Recommandation modèle
 
-Affiche : *"Sonnet 4.6 est suffisant pour découper une SPEC — pas besoin d'Opus 4.7 pour ce type de tâche."*
+Affiche : *"Sonnet 4.6 est suffisant pour découper une SPEC — pas besoin d'Opus 4.8 pour ce type de tâche."*
 
 ### Étape 1 — Diagnostiquer pourquoi découper
 

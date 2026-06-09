@@ -9,7 +9,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut un audit de qualité du code 
 
 `/sdd audit` couvre **4 dimensions** : conformité SPEC, qualité du code, dette technique, cohérence AGENT-GUIDE. Recommandé avant ou pendant la validation. Le rapport est persisté dans `.aiad/metrics/audit/`.
 
-**Recommandation modèle** : Opus 4.7 ou Sonnet 4.6.
+**Recommandation modèle** : Opus 4.8 ou Sonnet 4.6.
 
 ## Skills invoquées
 
@@ -35,7 +35,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut un audit de qualité du code 
 
 ### Étape 0 — Recommandation modèle
 
-Affiche : *"Audit plus efficace avec Opus 4.7 ou Sonnet 4.6 pour l'analyse de conformité."*
+Affiche : *"Audit plus efficace avec Opus 4.8 ou Sonnet 4.6 pour l'analyse de conformité."*
 
 ### Étape 1 — Conformité code ↔ SPEC
 

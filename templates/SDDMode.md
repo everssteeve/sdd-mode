@@ -45,7 +45,7 @@ Le Product Engineer est responsable du budget de contexte de chaque session agen
 
 **Seuil opérationnel recommandé (v1.6) :** utiliser 60-70 % du contexte disponible comme maximum effectif (ex. : 200k tokens disponibles → budget max = 130k). Au-delà, les symptômes de dégradation (context rot) apparaissent avant la limite théorique : réponses moins précises, oublis de contraintes de spec, comportements répétitifs. **Règle de placement :** toujours placer l'Intent Statement et la SPEC active en tête de contexte pour contrer le "lost in the middle effect".
 
-**Référence modèles (v1.6) :** Opus 4.7 (1M tokens effectifs — multiplicateur 2.2x vs Opus 3.5) ; Sonnet 4.6 (200k tokens) ; Haiku 4.5 (200k tokens). La fenêtre disponible ne change pas le seuil opérationnel de 60-70 % — elle le déplace vers le haut.
+**Référence modèles (v1.6) :** Opus 4.8 (1M tokens effectifs — multiplicateur 2.2x vs Opus 3.5) ; Sonnet 4.6 (200k tokens) ; Haiku 4.5 (200k tokens). La fenêtre disponible ne change pas le seuil opérationnel de 60-70 % — elle le déplace vers le haut.
 
 **Argument économique :** une session spec-anchored consomme en moyenne 41,7 % de tokens en moins qu'une session sans spécification (R2Code, arXiv avril 2026). Sur des projets intensifs en génération de code, l'économie est mesurable. AIAD étant model-agnostic, cet avantage s'applique quelle que soit la plateforme — contrairement aux limites de tokens des outils propriétaires à abonnement fixe. La commande `/sdd-context` fournit une estimation du coût évité par session.
 
@@ -232,7 +232,7 @@ Le Product Engineer est responsable du budget de contexte de chaque session agen
 ### /sdd-security
 
 **Quand** : Après implémentation d'une fonctionnalité impliquant des accès, des données utilisateur, des secrets, ou un composant IA. Recommandé avant toute PR critique.
-**Ce que ça fait** : (1) Recommande explicitement d'utiliser un modèle frontier (Opus 4.7 ou équivalent) pour cet audit. (2) Parcourt le code sur les axes OWASP Top 10, gestion des secrets, permissions des agents (Harness Engineering — minimal necessary permissions), exposition des données. (3) Vérifie la conformité avec AIAD-AI-ACT et AIAD-RGPD si le contexte le justifie. (4) Produit un rapport structuré : risques critiques / risques moyens / bonnes pratiques confirmées. (5) Persiste dans `.aiad/metrics/security/`.
+**Ce que ça fait** : (1) Recommande explicitement d'utiliser un modèle frontier (Opus 4.8 ou équivalent) pour cet audit. (2) Parcourt le code sur les axes OWASP Top 10, gestion des secrets, permissions des agents (Harness Engineering — minimal necessary permissions), exposition des données. (3) Vérifie la conformité avec AIAD-AI-ACT et AIAD-RGPD si le contexte le justifie. (4) Produit un rapport structuré : risques critiques / risques moyens / bonnes pratiques confirmées. (5) Persiste dans `.aiad/metrics/security/`.
 **Sortie** : Rapport sécurité structuré persisté dans `.aiad/metrics/security/YYYY-MM-DD-SPEC-NNN.md`.
 
 ---
@@ -240,7 +240,7 @@ Le Product Engineer est responsable du budget de contexte de chaque session agen
 ### /sdd-audit
 
 **Quand** : Après implémentation, avant ou pendant la validation — notamment pour les fonctionnalités à fort enjeu technique ou après plusieurs itérations d'un même composant.
-**Ce que ça fait** : (1) Recommande un modèle performant pour l'analyse (Opus 4.7 ou Sonnet 4.6). (2) Vérifie la conformité code ↔ SPEC : couverture des critères d'acceptance, drift détecté. (3) Évalue la dette technique introduite : complexité, couplage, lisibilité. (4) Vérifie la cohérence avec les conventions du projet (AGENT-GUIDE). (5) Produit un rapport : conformité SPEC / qualité / dette / recommandations. (6) Persiste dans `.aiad/metrics/audit/`.
+**Ce que ça fait** : (1) Recommande un modèle performant pour l'analyse (Opus 4.8 ou Sonnet 4.6). (2) Vérifie la conformité code ↔ SPEC : couverture des critères d'acceptance, drift détecté. (3) Évalue la dette technique introduite : complexité, couplage, lisibilité. (4) Vérifie la cohérence avec les conventions du projet (AGENT-GUIDE). (5) Produit un rapport : conformité SPEC / qualité / dette / recommandations. (6) Persiste dans `.aiad/metrics/audit/`.
 **Sortie** : Rapport audit structuré persisté dans `.aiad/metrics/audit/YYYY-MM-DD-SPEC-NNN.md`.
 
 ---

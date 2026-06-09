@@ -45,7 +45,7 @@ Les flags `--ears` et `--guided`/`--fast` sont **cumulables** (`/sdd spec --ears
 
 ### Étape 0 — Recommandation modèle
 
-Affiche : *"Sonnet 4.6 est suffisant pour rédiger une SPEC — pas besoin d'Opus 4.7 pour ce type de tâche."*
+Affiche : *"Sonnet 4.6 est suffisant pour rédiger une SPEC — pas besoin d'Opus 4.8 pour ce type de tâche."*
 
 ### Étape 1 — Identifier l'Intent parent
 

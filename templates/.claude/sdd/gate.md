@@ -39,7 +39,7 @@ L'Execution Gate est le **point de contrôle** entre une SPEC validée et le lan
 
 ### Étape 0 — Recommandation modèle
 
-Affiche : *"Sonnet 4.6 est suffisant pour l'Execution Gate — pas besoin d'Opus 4.7 pour ce type de tâche."*
+Affiche : *"Sonnet 4.6 est suffisant pour l'Execution Gate — pas besoin d'Opus 4.8 pour ce type de tâche."*
 
 ### Étape 1 — Identifier la SPEC
 

@@ -271,6 +271,7 @@ const OPTIONS_SCHEMA = {
   'strict-tests': { type: 'string' },
   // (§3.6) `aiad-sdd mini-gate <spec> --phase N` → verdict de tranche.
   phase: { type: 'string' },
+  runs: { type: 'string' },
 };
 
 let parsed;
@@ -1255,6 +1256,77 @@ async function main() {
         const suivante = prochaineTranche(modele);
         console.log(suivante ? `\n  Prochaine tranche : Phase ${suivante.num} — ${suivante.titre}\n` : '\n  Toutes les tranches sont validées.\n');
       }
+      break;
+    }
+
+    case 'canary': {
+      // Canary suite (§3.10) : rejoue les cas figés contre une baseline pour
+      // séparer régression réelle (FAIL/DRIFT) et bruit de serving. Exit 0/1/2.
+      const {
+        chargerCasCanary, executerCanary, lireSnapshotCanary,
+      } = await import('../lib/canary.js');
+      const { codeSortie } = await import('../lib/verdict.js');
+      const { spawnSync } = await import('node:child_process');
+      const { existsSync: existe, readFileSync: lire } = await import('node:fs');
+
+      const cas = chargerCasCanary(cwd());
+      if (cas.length === 0) {
+        console.error('\n  Aucun cas canary dans .aiad/canary/cases/ — `aiad-sdd init` en fournit un set figé.\n  Verdict : JNSP\n');
+        exit(2);
+      }
+      const runs = Number(values.runs) > 0 ? Number(values.runs) : 1;
+
+      // Runner réel : deterministic → spawn `aiad-sdd <command>` K fois et lit
+      // le verdict ; generative → lit les échantillons collectés.
+      const runner = (c) => {
+        if (c.kind === 'deterministic') {
+          const args = c.command.split(/\s+/).filter(Boolean);
+          if (!args.includes('--output-format')) args.push('--output-format', 'verdict');
+          const observations = [];
+          for (let i = 0; i < runs; i++) {
+            const res = spawnSync(process.execPath, [__filename, ...args], { encoding: 'utf-8' });
+            let verdict = null;
+            try {
+              const ligne = (res.stdout || '').trim().split('\n').filter(Boolean).pop();
+              verdict = ligne ? JSON.parse(ligne).verdict : null;
+            } catch { /* sortie non-JSON */ }
+            // Fallback : exit code → verdict canonique (0 PASS / 1 FAIL / 2 JNSP).
+            if (!verdict) verdict = res.status === 0 ? 'PASS' : res.status === 2 ? 'JNSP' : 'FAIL';
+            observations.push(verdict);
+          }
+          return { observations };
+        }
+        // generative : échantillons figés sur disque.
+        const p = join(cwd(), '.aiad', 'metrics', 'canary', 'samples', `${c.id}.json`);
+        if (!existe(p)) return { observations: [] };
+        try {
+          const arr = JSON.parse(lire(p, 'utf-8'));
+          return { observations: Array.isArray(arr) ? arr : [] };
+        } catch { return { observations: [] }; }
+      };
+
+      const snapshot = lireSnapshotCanary(cwd());
+      const rapport = executerCanary(cas, runner, { snapshot });
+      const machine = values['output-format'] === 'verdict' || Boolean(values.json);
+      const date = new Date().toISOString().slice(0, 10);
+      const payload = { ...rapport, date, exitCode: codeSortie(rapport.verdict) };
+
+      if (machine) {
+        process.stdout.write(JSON.stringify(payload) + '\n');
+      } else {
+        console.log(`\n  Canary suite — ${date}`);
+        if (snapshot.model) console.log(`  Snapshot : ${snapshot.model}${snapshot.effort ? ` · effort ${snapshot.effort}` : ''}${snapshot.claude_code_version ? ` · ${snapshot.claude_code_version}` : ''}\n`);
+        for (const r of rapport.cases) {
+          const icone = r.verdict === 'PASS' ? '✓' : r.verdict === 'CONDITIONAL' ? '~' : r.verdict === 'FAIL' ? '✗' : '?';
+          const det = r.kind === 'generative' && r.dispersion != null ? ` (dispersion ${r.dispersion} %)` : r.observed != null ? ` (${r.observed})` : '';
+          console.log(`    ${icone} ${r.id} [${r.kind}] : ${r.verdict}${det}`);
+          for (const raison of r.reasons || []) console.log(`        ${raison}`);
+        }
+        const s = rapport.summary;
+        console.log(`\n  ${s.pass}/${s.total} stables · ${s.drift} DRIFT · ${s.fail} régression(s) · ${s.unknown} indécidable(s)`);
+        console.log(`  Verdict : ${rapport.verdict}\n`);
+      }
+      exit(codeSortie(rapport.verdict));
       break;
     }
 

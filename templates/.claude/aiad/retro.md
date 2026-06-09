@@ -55,6 +55,10 @@ Demande à l'utilisateur :
 3. **Y a-t-il eu des drifts détectés ?**
    - Si oui, quelle en était la cause ?
 
+4. **Le canary suite signale-t-il une régression ou du bruit ? (§3.10)**
+   - Lance `npx aiad-sdd canary --output-format verdict` et lis le dernier rapport `.aiad/metrics/canary/`.
+   - **Garde-fou anti-bruit** : ne tire une conclusion de régression que si le verdict est `FAIL` (écart déterministe = bug code) ou `CONDITIONAL` avec un DRIFT **hors bande** (dispersion > `tolerance_pct`). Une dispersion *dans* la bande (±8-14 %) est du **bruit de serving** — ne pas en faire une Lesson Learned (« frozen weights ≠ frozen behavior »).
+
 ### Étape 2 — Identifier les Lessons Learned (agent)
 
 Pour chaque itération agent qui a nécessité des corrections :

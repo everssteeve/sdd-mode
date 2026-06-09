@@ -38,7 +38,7 @@ La validation est **triple** : technique, fonctionnelle, gouvernance. Le code n'
 
 ### Étape 0 — Recommandation modèle
 
-Affiche : *"Sonnet 4.6 est suffisant pour cette validation — pas besoin d'Opus 4.7 pour ce type de tâche."*
+Affiche : *"Sonnet 4.6 est suffisant pour cette validation — pas besoin d'Opus 4.8 pour ce type de tâche."*
 
 ### Étape 1 — Identifier la SPEC et le code
 
