@@ -60,6 +60,8 @@ patterns:
 
   # GitHub Actions (CI traceability v1.10)
   - ".github/workflows/sdd-trace.yml"
+  # Workflows CI (infra de build/test — pas de logique applicative régie par SPEC)
+  - ".github/workflows/bun-smoke.yml"
 
   # Infrastructure du hook pre-commit (le mécanisme du Drift Lock lui-même
   # et ses tests — pas une fonctionnalité applicative régie par une SPEC)
@@ -89,3 +91,24 @@ patterns:
   # Module d'agrégation dashboard (#561) — orchestre des modules existants,
   # pas de logique métier nouvelle propre à une SPEC dédiée
   - "lib/dashboard/backlog-health-score.js"
+
+  # Correctifs de portabilité cross-runtime (Node 18 / macOS / Bun) débloquant
+  # les workflows CI — internes d'outillage sans SPEC dédiée :
+  #   - esm-import : repli data: URL pour charger un hook ESM sous Node 18 / CommonJS
+  #   - command-hooks / plugins : utilisent ce loader robuste
+  #   - sdd-trace : fallback polling quand fs.watch(recursive) est indisponible (Linux < Node 20)
+  - "lib/esm-import.js"
+  - "lib/command-hooks.js"
+  - "lib/plugins.js"
+  - "lib/sdd-trace.js"
+  # Tests rendus déterministes/portables (import.meta.dirname → idiome Node 18,
+  # locale forcée, couverture du fallback polling) — pas de comportement applicatif
+  - "test/i18n.test.js"
+  - "test/templates.test.js"
+  - "test/import.test.js"
+  - "test/trace-watch.test.js"
+  - "test/migrate-v2.test.js"
+  - "test/brief.test.js"
+  - "test/skills.test.js"
+  - "test/standup-url.test.js"
+  - "test/obsidian-export.test.js"

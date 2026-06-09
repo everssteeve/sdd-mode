@@ -4,7 +4,8 @@ import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import { mkdirSync, mkdtempSync, writeFileSync, readFileSync, existsSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import {
   exporterObsidian, transformerPourObsidian, indexerFichiers, shortId, parserFrontmatter,
@@ -195,7 +196,7 @@ test('Alias EN canoniques', () => {
 
 // ─── CLI E2E ────────────────────────────────────────────────────────────────
 
-const BIN = join(import.meta.dirname, '..', 'bin', 'aiad-sdd.js');
+const BIN = join(dirname(fileURLToPath(import.meta.url)), '..', 'bin', 'aiad-sdd.js');
 
 test('CLI aiad-sdd obsidian --json produit un JSON valide', () => {
   const racine = tmpProjet();

@@ -61,6 +61,9 @@ jobs:
         run: |
           mkdir /tmp/bun-test
           cd /tmp/bun-test
+          # aiad-sdd cible des projets existants : un package.json minimal
+          # simule un vrai projet (requis notamment par `sbom`).
+          echo '{"name":"bun-test","version":"0.1.0"}' > package.json
           bun ${{ github.workspace }}/bin/aiad-sdd.js init
 
       - name: aiad-sdd status (sous Bun)

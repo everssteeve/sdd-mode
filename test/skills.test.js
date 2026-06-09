@@ -4,7 +4,8 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { listerSkills, validerSkill, validerSkills } from '../lib/skills.js';
 import { init } from '../lib/init.js';
@@ -149,7 +150,7 @@ Corps long pour ne pas faire échouer la règle 50-caractères du body : suffisa
 });
 
 test('skills réelles — toutes les descriptions ≤ 1536 (budget §3.7)', () => {
-  const racine = join(import.meta.dirname, '..', 'templates');
+  const racine = join(dirname(fileURLToPath(import.meta.url)), '..', 'templates');
   const skills = listerSkills(racine);
   assert.ok(skills.length > 0, 'des skills doivent exister dans templates/.claude/skills/');
   for (const s of skills) {

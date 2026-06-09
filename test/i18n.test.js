@@ -84,7 +84,11 @@ test('détection AIAD_LANG — env var prioritaire', () => {
 test('détection LANG=fr_FR — auto FR', () => {
   const origAiad = process.env.AIAD_LANG;
   const origLang = process.env.LANG;
+  // LC_ALL est prioritaire sur LANG dans detectAuto() ; sans le neutraliser,
+  // un runner où LC_ALL=en_US.UTF-8 (ex. macOS GitHub Actions) détecte EN.
+  const origLcAll = process.env.LC_ALL;
   delete process.env.AIAD_LANG;
+  delete process.env.LC_ALL;
   process.env.LANG = 'fr_FR.UTF-8';
   try {
     setLang(null);
@@ -93,6 +97,7 @@ test('détection LANG=fr_FR — auto FR', () => {
     if (origAiad !== undefined) process.env.AIAD_LANG = origAiad;
     if (origLang !== undefined) process.env.LANG = origLang;
     else delete process.env.LANG;
+    if (origLcAll !== undefined) process.env.LC_ALL = origLcAll;
     setLang('fr');
   }
 });

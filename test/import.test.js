@@ -9,6 +9,12 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { detecter, importer, detect, importFromExternal } from '../lib/import.js';
 import { init } from '../lib/init.js';
+import { setLang } from '../lib/i18n.js';
+
+// Les messages d'erreur d'`importer` sont localisés (t()). On force FR pour
+// que les assertions de message soient déterministes quelle que soit la locale
+// du runner (ex. LC_ALL=en_US sur macOS GitHub Actions → détection EN).
+setLang('fr');
 
 function tmp() { return mkdtempSync(join(tmpdir(), 'aiad-import-')); }
 

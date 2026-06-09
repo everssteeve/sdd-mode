@@ -6,6 +6,7 @@ import { mkdtempSync, readFileSync, existsSync, rmSync, readdirSync, mkdirSync, 
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { listerTemplates, templateExiste, creerProjet, listTemplates, createProject } from '../lib/templates.js';
+import { setLang } from '../lib/i18n.js';
 
 function tmp() { return mkdtempSync(join(tmpdir(), 'aiad-tpl-')); }
 
@@ -131,6 +132,9 @@ test('creerProjet fastapi-aiad — crée pyproject.toml + app/main.py + tests/',
 
 test('creerProjet — template inconnu lève une erreur explicite', async () => {
   const d = tmp();
+  // Force FR : le message d'erreur est localisé (t()), et la locale ambiante
+  // du runner (ex. LC_ALL=en_US sur macOS CI) ne doit pas rendre le test flaky.
+  setLang('fr');
   try {
     await assert.rejects(
       creerProjet('non-existant', join(d, 'x')),
@@ -143,6 +147,8 @@ test('creerProjet — template inconnu lève une erreur explicite', async () => 
 
 test('creerProjet — refuse un dossier non vide sans --force', silencer(async () => {
   const d = tmp();
+  // Force FR : message localisé (cf. test précédent).
+  setLang('fr');
   try {
     const dest = join(d, 'plein');
     mkdirSync(dest, { recursive: true });

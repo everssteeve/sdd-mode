@@ -80,6 +80,48 @@ test('demarrerWatch — déclenche aussi sur fichier code (extension reconnue)',
   }
 });
 
+test('demarrerWatch — fallback polling (AIAD_WATCH_POLL=1) détecte une écriture SPEC', async () => {
+  // Couvre le chemin polling — utilisé en prod sur Linux + Node < 20 où
+  // fs.watch({recursive:true}) lève ERR_FEATURE_UNAVAILABLE_ON_PLATFORM.
+  const d = fixture();
+  const prev = process.env.AIAD_WATCH_POLL;
+  process.env.AIAD_WATCH_POLL = '1';
+  let appels = 0;
+  const stop = demarrerWatch(d, () => { appels++; }, { debounceMs: 50, pollMs: 40 });
+  try {
+    await pause(50);
+    writeFileSync(join(d, '.aiad', 'specs', 'SPEC-001-9-poll.md'),
+      '---\nstatus: ready\n---\n# Poll\n');
+    await pause(400);
+    assert.ok(appels >= 1, `attendu ≥ 1 appel via polling, eu ${appels}`);
+  } finally {
+    stop();
+    if (prev === undefined) delete process.env.AIAD_WATCH_POLL;
+    else process.env.AIAD_WATCH_POLL = prev;
+    rmSync(d, { recursive: true, force: true });
+  }
+});
+
+test('demarrerWatch — fallback polling détecte une modification de code', async () => {
+  const d = fixture();
+  mkdirSync(join(d, 'src'), { recursive: true });
+  const prev = process.env.AIAD_WATCH_POLL;
+  process.env.AIAD_WATCH_POLL = '1';
+  let appels = 0;
+  const stop = demarrerWatch(d, () => { appels++; }, { debounceMs: 50, pollMs: 40 });
+  try {
+    await pause(50);
+    writeFileSync(join(d, 'src', 'lib.rs'), '// @spec SPEC-001-1\npub fn x() {}\n');
+    await pause(400);
+    assert.ok(appels >= 1, `attendu ≥ 1 appel via polling, eu ${appels}`);
+  } finally {
+    stop();
+    if (prev === undefined) delete process.env.AIAD_WATCH_POLL;
+    else process.env.AIAD_WATCH_POLL = prev;
+    rmSync(d, { recursive: true, force: true });
+  }
+});
+
 test('demarrerWatch — close() arrête le déclenchement', async () => {
   const d = fixture();
   let appels = 0;
