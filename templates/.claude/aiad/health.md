@@ -99,6 +99,8 @@ Scanne `.aiad/specs/` et vérifie :
 | **SPEC draft oubliée** | Statut `draft` depuis > 14 jours | À compléter ou à archiver |
 | **SPEC done non archivée** | Statut `done` mais pas dans `/archive/` | Index encombré |
 
+**Anti dock rot (§3.8)** : lance `npx aiad-sdd archive --delivered` pour lister les artefacts livrés et clos (`status: done`) à sortir du contexte chaud. La commande marque ✓ ceux qu'on peut archiver sans risque et ⚠ les SPECs encore référencées par du code vivant (`@spec`) — les archiver creuserait un gap de traçabilité. `--apply` archive les ✓.
+
 ### Étape 4 — Vérifier la cohérence croisée
 
 | Vérification | Résultat |

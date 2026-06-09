@@ -272,6 +272,12 @@ const OPTIONS_SCHEMA = {
   // (§3.6) `aiad-sdd mini-gate <spec> --phase N` → verdict de tranche.
   phase: { type: 'string' },
   runs: { type: 'string' },
+  delivered: { type: 'boolean' },
+  apply: { type: 'boolean' },
+  auteur: { type: 'string' },
+  author: { type: 'string' },
+  seuil: { type: 'string' },
+  lecon: { type: 'string' },
 };
 
 let parsed;
@@ -2478,7 +2484,32 @@ async function main() {
           }
           break;
         }
-        if (values.list || (positionals[1] === 'list')) {
+        if (values.delivered || (positionals[1] === 'delivered')) {
+          // Cycle anti dock rot (§3.8 SPEC-B) : liste les artefacts livrés/clos.
+          // Par défaut → liste seule (dry-run) ; `--apply` archive les `safe`.
+          const { listerLivrables } = await import('../lib/archive.js');
+          const livrables = listerLivrables(cwd());
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ total: livrables.length, delivered: livrables }, null, 2) + '\n');
+          } else if (livrables.length === 0) {
+            console.log('\n  ~ Aucun artefact livré et clos (status: done) à sortir du contexte chaud.\n');
+          } else {
+            console.log(`\n  Artefacts livrés et clos (${livrables.length}) — anti dock rot :\n`);
+            for (const a of livrables) {
+              const icone = a.safe ? '✓' : '⚠';
+              console.log(`    ${icone} ${a.fichier} [${a.kind}] — ${a.title}`);
+              if (!a.safe) console.log(`        ${a.raison}`);
+            }
+            if (values.apply) {
+              console.log('');
+              for (const a of livrables.filter((x) => x.safe)) {
+                await archiver(cwd(), a.id, { raison: 'Anti dock rot — livré et clos (§3.8)', dryRun: Boolean(values['dry-run']), json: false });
+              }
+            } else {
+              console.log('\n  Relance avec --apply pour archiver les artefacts ✓ (les ⚠ restent en place).\n');
+            }
+          }
+        } else if (values.list || (positionals[1] === 'list')) {
           afficherArchives(cwd(), { json: Boolean(values.json) });
         } else if (values.restore) {
           await restaurer(cwd(), values.restore, {
@@ -2501,6 +2532,83 @@ async function main() {
         console.error(`\n  ${err.message}\n`);
         exit(1);
       }
+      break;
+    }
+
+    case 'memory': {
+      // Memory native (§3.8) : propose des Lessons « from logs » (récurrence ≥
+      // seuil sur plusieurs sources) ; la promotion exige un auteur humain.
+      const {
+        collecterObservations, proposerPromotions, promouvoir, cheminStore, curer,
+        SEUIL_PROMOTION_DEFAUT,
+      } = await import('../lib/memory.js');
+      const sub = positionals[1] || 'propose';
+      const seuil = Number(values.seuil) > 0 ? Number(values.seuil) : SEUIL_PROMOTION_DEFAUT;
+
+      if (sub === 'propose' || sub === 'promote') {
+        const candidats = proposerPromotions(collecterObservations(cwd()), { seuil });
+        if (sub === 'propose') {
+          if (Boolean(values.json)) {
+            process.stdout.write(JSON.stringify({ seuil, total: candidats.length, candidats }, null, 2) + '\n');
+          } else if (candidats.length === 0) {
+            console.log(`\n  ~ Aucun pattern récurrent (≥ ${seuil} sources) à promouvoir. La mémoire ne s'invente pas sur un cas isolé.\n`);
+          } else {
+            console.log(`\n  Candidats à la promotion en mémoire (≥ ${seuil} sources) :\n`);
+            for (const c of candidats) {
+              console.log(`    • ${c.exemples[0] || c.signature} — ${c.occurrences}× (${c.kinds.join('/')})`);
+              console.log(`        sources : ${c.sources.slice(0, 6).join(', ')}`);
+            }
+            console.log(`\n  Promouvoir : aiad-sdd memory promote --auteur "Nom" [--seuil N] [--lecon "…"]\n  (Human Authorship — aucune promotion sans auteur humain.)\n`);
+          }
+          break;
+        }
+        // promote : exige un auteur, promeut le 1er candidat (ou tous si --apply).
+        const auteur = values.auteur || values.author;
+        if (!auteur) {
+          console.error('\n  ✗ Promotion refusée : --auteur "Nom" requis (Human Authorship).\n  Verdict : JNSP\n');
+          exit(2);
+        }
+        if (candidats.length === 0) {
+          console.error(`\n  ~ Aucun candidat (≥ ${seuil} sources) à promouvoir.\n`);
+          exit(1);
+        }
+        const { existsSync: existe, readFileSync: lire, writeFileSync: ecrire, mkdirSync: mkd } = await import('node:fs');
+        const { dirname: dn } = await import('node:path');
+        const store = cheminStore(cwd());
+        let contenu = existe(store) ? lire(store, 'utf-8') : '';
+        const aPromouvoir = values.apply ? candidats : [candidats[0]];
+        for (const c of aPromouvoir) {
+          const r = promouvoir(contenu, c, { auteur, lecon: values.lecon });
+          contenu = r.contenu;
+        }
+        if (!Boolean(values['dry-run'])) {
+          mkd(dn(store), { recursive: true });
+          ecrire(store, contenu, 'utf-8');
+        }
+        console.log(`\n  ✓ ${aPromouvoir.length} entrée(s) promue(s) par ${auteur} → ${store}${values['dry-run'] ? ' (dry-run)' : ''}\n`);
+        break;
+      }
+
+      if (sub === 'curate') {
+        const { existsSync: existe, readFileSync: lire } = await import('node:fs');
+        const store = cheminStore(cwd());
+        if (!existe(store)) {
+          console.log('\n  ~ Aucun store mémoire (.aiad/memory/MEMORY.md) à curer.\n');
+          break;
+        }
+        const r = curer(lire(store, 'utf-8'));
+        if (Boolean(values.json)) {
+          process.stdout.write(JSON.stringify({ besoinSplit: r.besoinSplit, lignes: r.lignes, themes: r.themes.map((t) => t.slug) }, null, 2) + '\n');
+        } else if (!r.besoinSplit) {
+          console.log(`\n  ✓ Store sous le plafond (${r.lignes} lignes) — aucun éclatement nécessaire.\n`);
+        } else {
+          console.log(`\n  ⚠ Store à ${r.lignes} lignes → éclatement proposé en ${r.themes.length} thème(s) : ${r.themes.map((t) => t.slug).join(', ')}\n`);
+        }
+        break;
+      }
+
+      console.error('\n  Usage : aiad-sdd memory <propose|promote|curate> [--auteur "Nom"] [--seuil N] [--apply]\n');
+      exit(1);
       break;
     }
 

@@ -292,6 +292,38 @@ test('afficherListe --json — format exploitable', () => {
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 
+// ─── Cycle anti dock rot — listerLivrables (§3.8 SPEC-B) ────────────────────
+
+test('listerLivrables — ne retient que les artefacts status done', async () => {
+  const { listerLivrables } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    mkdirSync(join(d, '.aiad', 'intents'), { recursive: true });
+    mkdirSync(join(d, '.aiad', 'specs'), { recursive: true });
+    writeFileSync(join(d, '.aiad', 'intents', 'INTENT-001-x.md'), '---\nstatus: done\ntitle: Fini\n---\n');
+    writeFileSync(join(d, '.aiad', 'intents', 'INTENT-002-y.md'), '---\nstatus: active\ntitle: Encore chaud\n---\n');
+    const liste = listerLivrables(d);
+    assert.equal(liste.length, 1);
+    assert.equal(liste[0].id, 'INTENT-001-x');
+    assert.equal(liste[0].safe, true);
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('listerLivrables — une SPEC done encore référencée par du code est unsafe', async () => {
+  const { listerLivrables } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    mkdirSync(join(d, '.aiad', 'specs'), { recursive: true });
+    mkdirSync(join(d, 'lib'), { recursive: true });
+    writeFileSync(join(d, '.aiad', 'specs', 'SPEC-009-1-live.md'), '---\nstatus: done\ntitle: Live\n---\n');
+    writeFileSync(join(d, 'lib', 'live.js'), '// @spec SPEC-009-1-live\nexport const x = 1;\n');
+    const liste = listerLivrables(d);
+    assert.equal(liste.length, 1);
+    assert.equal(liste[0].safe, false);
+    assert.ok(/référencée/.test(liste[0].raison));
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
 // ─── alias EN ──────────────────────────────────────────────────────────────
 
 test('alias EN — exports canoniques', () => {

@@ -68,6 +68,8 @@ Pour chaque itération agent qui a nécessité des corrections :
 
 Ajoute les nouvelles entrées dans la section **Lessons Learned** de `.aiad/AGENT-GUIDE.md`.
 
+**Memory native (§3.8)** : pour les apprentissages **récurrents** (pas un cas isolé), lance `npx aiad-sdd memory propose` — il remonte les patterns vus sur ≥ N sources (facts + drifts). Promeus ceux qui méritent de durer avec `npx aiad-sdd memory promote --auteur "<ton nom>"` (la promotion exige un auteur humain — la mémoire ne se fabrique pas seule). Principe : *from logs, pas from one transcript* (« make the button pink » ≠ « tous les boutons roses »).
+
 ### Étape 3 — Identifier les Human Learnings
 
 Pour chaque écart entre intention et livraison :
