@@ -90,8 +90,14 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
 - Schéma `review.schema.json`, dossier `.aiad/reviews/` (+ template `_index.md`, `init`). CLI `aiad-sdd cross-model <prompt|merge>`. Flag `/sdd validate --cross-model` (Étape 6b, dégradation propre si runtime absent).
 - Artefacts INTENT-010 + SPEC-010-1 (+ index). Tests : `test/cross-model.test.js` (12 ✓). Suite **3769 pass / 0 fail / 1 skip**. lint · esm · size verts.
 
-### Reste à faire (P3 restant + garde-fous)
-- **P3** : §3.13 (plugin/goal)
+### ✅ Jalon : §3.13 livré (distribution plugin + /goal + toggles — SPEC-A + SPEC-B)
+- **SPEC-A** — toggles : `lib/hooks-config.js` (`chargerConfig` local-prioritaire, `hookDesactive` fail-safe + **veto protégé** sauf `allowDisableGovernance`, `etatHooks`), CLI `aiad-sdd hooks-config <show|check>`, lecture inline par `drift-lock.js` + `skill-usage.js` (vérifié : disableStopHook → drift-lock exit 0 sans trace), `.aiad/hooks-config.json` (+ template, init récursif), `.local.json` gitignored (repo + init). Recettes `/goal` déterministes : `docs/goal-recipes.md`.
+- **SPEC-B** — packaging : `.claude-plugin/plugin.json` + `.claude-plugin/marketplace.json` (commandes/skills/hooks ; agents notés comme générés par emit-rules), doc `/plugin install` dans README.
+- Artefacts INTENT-011 + SPEC-011-1 (+ index). Tests : `test/hooks-config.test.js` (10 ✓). Suite **3779 pass / 0 fail / 1 skip**. lint · esm · size verts.
+
+## ✅ P3 COMPLET (§3.11 + §3.12 + §3.13)
+
+### Reste à faire
 - **§4** : garde-fous (doctrine + grill-me + proportionnalité + sunset)
 | 3.5 | Research + GO/NO-GO + Discovery | ✅ Fait (SPEC-A + SPEC-B) | `lib/research.js`, `bin/aiad-sdd.js` (cases `research` + `discovery-check`), schémas `research`/`discovery`, `.aiad/hooks/discovery-gate.js` (+template, `UserPromptSubmit`), `templates/.claude/sdd/{research,spec,exec}.md`, `templates/.claude/settings.json`, `templates/.aiad/research-template.md` + `_index.md`, cycle (`emit-rules.js` + 2× `CLAUDE.md`), `lib/init.js` | `research.test.js` (20 ✓) + `discovery-gate.test.js` (10 ✓) |
 | 3.6 | Exécution phasée + mini-gates + CONDITIONAL | ✅ Fait (SPEC-A + SPEC-B ; dimensions 0-10 + PostToolBatch ultérieurs) | `lib/exec-status.js`, `lib/mini-gate.js`, `bin/aiad-sdd.js` (cases `mini-gate` + `exec-status`), `minigate.schema.json`, `templates/.aiad/exec-plan-template.md` + `exec/_index.md`, `templates/.claude/sdd/{exec,resume}.md`, skill `sqs-scoring`, `lib/init.js` | `exec-status.test.js` (11 ✓) + `mini-gate.test.js` (13 ✓) |
@@ -101,7 +107,7 @@ Toute la fondation « advisory → enforced » est livrée et vérifiée :
 | 3.10 | Canary + alignement modèles | ✅ Fait (SPEC-A + SPEC-B) | `lib/canary.js`, `bin/aiad-sdd.js` (case `canary` + flag `--runs`), `canary.schema.json`, `.aiad/canary/cases/*` + template + `init`, `config.yml` (snapshot), `templates/.github/workflows/canary.yml`, `templates/.claude/aiad/retro.md`, alignement `Opus 4.8` ×16 fichiers, INTENT/SPEC-006 | `canary.test.js` (22 ✓) |
 | 3.11 | Observabilité OTel/statusLine | ✅ Fait (SPEC-A + SPEC-B) | `lib/statusline.js`, `bin/aiad-sdd.js` (case `statusline`), `.aiad/hooks/{statusline,skill-usage}.js` (+template), `settings.json` (statusLine + includeCoAuthoredBy + OTel opt-in + hook Skill), `docs/telemetrie.md`, INTENT/SPEC-009 | `statusline.test.js` (12 ✓) |
 | 3.12 | Cross-model additive | ✅ Fait | `lib/cross-model.js`, `bin/aiad-sdd.js` (case `cross-model`), `review.schema.json`, `.aiad/reviews/` + template + `init`, `templates/.claude/sdd/validate.md` (Étape 6b), INTENT/SPEC-010 | `cross-model.test.js` (12 ✓) |
-| 3.13 | Distribution plugin + goal | ⏳ À faire | — | — |
+| 3.13 | Distribution plugin + goal | ✅ Fait (SPEC-A + SPEC-B) | `lib/hooks-config.js`, `bin/aiad-sdd.js` (case `hooks-config`), `.aiad/hooks/{drift-lock,skill-usage}.js` (toggle), `.aiad/hooks-config.json` + template + `.gitignore`/`init`, `.claude-plugin/{plugin,marketplace}.json`, `docs/goal-recipes.md`, README, INTENT/SPEC-011 | `hooks-config.test.js` (10 ✓) |
 | 4 | Garde-fous | ⏳ À faire | — | — |
 
 ## Invariants respectés

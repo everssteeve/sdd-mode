@@ -28,3 +28,6 @@ Thumbs.db
 
 # Generated metrics files in bench scenarios
 bench/**/.aiad/metrics/
+
+# Override local des toggles de hooks (§3.13) — par machine, non versionné
+.aiad/hooks-config.local.json

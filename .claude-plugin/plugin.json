@@ -1,0 +1,14 @@
+{
+  "name": "aiad-sdd",
+  "description": "AIAD SDD Mode — Spec Driven Development pour Claude Code : cycle Intent → Research → SPEC → Gate → Exec → Validate → Drift-Lock, gouvernance Tier 1 enforced, verdicts déterministes.",
+  "version": "1.17.0",
+  "author": { "name": "Steeve Evers" },
+  "homepage": "https://aiad.ovh",
+  "repository": "https://github.com/everssteeve/sdd-mode",
+  "license": "MIT",
+  "keywords": ["sdd", "spec-driven", "aiad", "governance", "drift-lock"],
+  "commands": "./templates/.claude/commands",
+  "skills": "./templates/.claude/skills",
+  "hooks": "./templates/.claude/settings.json",
+  "_comment_agents": "Les agents de gouvernance Tier 1 (AIAD-*) sont générés par `aiad-sdd emit-rules` dans .claude/agents/ (read-only, veto) — non packagés en statique."
+}

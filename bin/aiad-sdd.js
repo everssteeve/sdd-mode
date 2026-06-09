@@ -2538,6 +2538,33 @@ async function main() {
       break;
     }
 
+    case 'hooks-config': {
+      // Toggles de hooks par environnement (§3.13 SPEC-A). `show` liste l'état ;
+      // `check <hook>` exit 0 (actif) / 1 (désactivé) — consommable par script.
+      const { etatHooks, hookDesactive } = await import('../lib/hooks-config.js');
+      const sub = positionals[1] || 'show';
+      if (sub === 'check') {
+        const hook = positionals[2];
+        if (!hook) { console.error('\n  Usage : aiad-sdd hooks-config check <hook>\n'); exit(1); }
+        const off = hookDesactive(cwd(), hook);
+        if (Boolean(values.json)) process.stdout.write(JSON.stringify({ hook, desactive: off }) + '\n');
+        else console.log(`\n  ${hook} : ${off ? 'désactivé' : 'actif'}\n`);
+        exit(off ? 1 : 0);
+      }
+      const etat = etatHooks(cwd());
+      if (Boolean(values.json)) {
+        process.stdout.write(JSON.stringify({ hooks: etat }, null, 2) + '\n');
+      } else {
+        console.log('\n  État des hooks (§3.13) :\n');
+        for (const e of etat) {
+          const icone = e.desactive ? '⏸' : '▶';
+          console.log(`    ${icone} ${e.hook}${e.protege ? ' 🔒 (gouvernance — protégé)' : ''}${e.desactive ? ' — désactivé' : ''}`);
+        }
+        console.log('\n  Toggles : .aiad/hooks-config.json (partagé) + .aiad/hooks-config.local.json (override, gitignored).\n');
+      }
+      break;
+    }
+
     case 'cross-model': {
       // Cross-model review additive-only (§3.12). `prompt` émet le prompt
       // contexte-frais ; `merge` agrège les sorties reviewer (dédup) + calcule

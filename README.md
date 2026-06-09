@@ -46,6 +46,17 @@ npx aiad-sdd emit-rules
 npx aiad-sdd status
 ```
 
+### Installation comme plugin Claude Code (§3.13)
+
+En plus de la voie npm, SDD Mode est packagé comme **plugin Claude Code** (manifeste `.claude-plugin/plugin.json` + marketplace `.claude-plugin/marketplace.json`) — commandes `/sdd`+`/aiad`, skills auto-déclenchées, agents de gouvernance Tier 1 et hooks enforced :
+
+```
+/plugin marketplace add everssteeve/sdd-mode
+/plugin install aiad-sdd
+```
+
+La distribution npm reste la voie par défaut ; le plugin est **additif**.
+
 ### Profil minimal — 3 différenciateurs essentiels
 
 Le profil `--minimal` installe uniquement les 3 fondations qui distinguent AIAD : **Intent Statement**, **SQS** (Spec Quality Score), **Drift Lock**.

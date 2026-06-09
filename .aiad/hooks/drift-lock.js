@@ -13,9 +13,27 @@
 // Documentation : https://aiad.ovh
 
 import process from 'node:process';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+
+// Toggle par environnement (§3.13) : hooks-config.json + .local.json (override).
+// Fail-safe : en cas de doute, le hook tourne. La gouvernance (veto) n'est pas
+// togglable ici (cf. lib/hooks-config.js).
+function hookDesactive(projectDir, nom) {
+  const TOG = {
+    disablePreToolUseHook: ['jnsp-scan', 'skill-usage'], disableStopHook: ['drift-lock'],
+    disableUserPromptSubmitHook: ['discovery-gate'], disableSessionStartHook: ['session-start'],
+    disableDriftLockHook: ['drift-lock'], disableJnspHook: ['jnsp-scan'],
+    disableDiscoveryGateHook: ['discovery-gate'], disableSkillUsageHook: ['skill-usage'],
+  };
+  let c = {};
+  for (const f of ['hooks-config.json', 'hooks-config.local.json']) {
+    try { const p = join(projectDir, '.aiad', f); if (existsSync(p)) c = { ...c, ...JSON.parse(readFileSync(p, 'utf-8')) }; } catch { /* ignore */ }
+  }
+  for (const [k, hooks] of Object.entries(TOG)) if (c[k] === true && hooks.includes(nom)) return true;
+  return false;
+}
 
 function resoudreCli(projectDir) {
   const devBin = join(projectDir, 'bin', 'aiad-sdd.js');
@@ -30,6 +48,7 @@ function main() {
 
   const projectDir = process.env.CLAUDE_PROJECT_DIR || process.cwd();
   if (!existsSync(join(projectDir, '.aiad'))) return 0;
+  if (hookDesactive(projectDir, 'drift-lock')) return 0;
 
   const { cmd, base } = resoudreCli(projectDir);
   const args = [...base, 'trace', '--output-format', 'verdict'];

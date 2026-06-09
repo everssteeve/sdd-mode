@@ -1,0 +1,11 @@
+{
+  "_comment": "Toggles de hooks SDD par environnement (§3.13). true = hook désactivé. Le veto de gouvernance Tier 1 n'est PAS désactivable ici (sauf allowDisableGovernance, qu'un managed-settings org peut interdire). Override local : hooks-config.local.json (gitignored).",
+  "disableSessionStartHook": false,
+  "disableUserPromptSubmitHook": false,
+  "disablePreToolUseHook": false,
+  "disableStopHook": false,
+  "disableDiscoveryGateHook": false,
+  "disableJnspHook": false,
+  "disableDriftLockHook": false,
+  "disableSkillUsageHook": false
+}

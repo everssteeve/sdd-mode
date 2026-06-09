@@ -1,0 +1,17 @@
+{
+  "name": "aiad-sdd",
+  "owner": { "name": "Steeve Evers", "url": "https://github.com/everssteeve" },
+  "metadata": {
+    "description": "Marketplace AIAD SDD Mode — Spec Driven Development pour Claude Code.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "aiad-sdd",
+      "source": ".",
+      "description": "Cycle SDD complet (commandes /sdd + /aiad), skills auto-déclenchées, agents de gouvernance Tier 1 (read-only, veto), hooks enforced (JNSP, Drift Lock, veto).",
+      "category": "workflow",
+      "strict": false
+    }
+  ]
+}
