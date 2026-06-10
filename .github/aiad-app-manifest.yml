@@ -1,0 +1,36 @@
+# AIAD SDD — Manifeste GitHub App officiel
+#
+# **Usage** : ce manifeste permet de créer rapidement une GitHub App via
+# le flux "Create from manifest" GitHub :
+#   1. Aller sur https://github.com/settings/apps/new
+#   2. Coller ce manifeste dans le formulaire (Convert app manifest)
+#   3. GitHub crée l'App avec les permissions/événements pré-remplis
+#
+# **Alternative déployée** : `templates/.github/workflows/aiad-pr-review.yml`
+# fournit les mêmes fonctionnalités via GitHub Actions natifs, sans nécessiter
+# d'héberger un serveur App distinct.
+#
+# Documentation : https://aiad.ovh/github-app
+
+name: AIAD SDD
+description: |
+  Spec Driven Development pour agents IA — revues automatisées de PR, score
+  EU Sovereignty, traçabilité Intent ↔ SPEC ↔ Code ↔ Tests, audit trail
+  signé HMAC. Zero-dep, souverain, conforme RGPD + AI Act + CRA.
+url: https://aiad.ovh
+hook_attributes:
+  url: https://aiad.ovh/api/webhooks
+public: true
+redirect_url: https://aiad.ovh/oauth/callback
+default_events:
+  - pull_request
+  - push
+  - issue_comment
+  - check_run
+  - check_suite
+default_permissions:
+  pull_requests: write
+  contents: read
+  checks: write
+  issues: write
+  metadata: read

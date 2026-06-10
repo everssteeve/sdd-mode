@@ -58,10 +58,17 @@ patterns:
   - ".aiad/metrics/**"
   - ".aiad/facts/**"
 
-  # GitHub Actions (CI traceability v1.10)
+  # GitHub Actions (CI traceability v1.10 + workflows AIAD v1.18)
   - ".github/workflows/sdd-trace.yml"
   # Workflows CI (infra de build/test — pas de logique applicative régie par SPEC)
   - ".github/workflows/bun-smoke.yml"
+  - ".github/workflows/aiad-dashboard.yml"
+  - ".github/workflows/aiad-docs-check.yml"
+  - ".github/workflows/aiad-emit-rules-check.yml"
+  - ".github/workflows/aiad-pr-review.yml"
+  - ".github/workflows/canary.yml"
+  # Manifeste GitHub App (configuration marketplace — pas de logique applicative)
+  - ".github/aiad-app-manifest.yml"
 
   # Infrastructure du hook pre-commit (le mécanisme du Drift Lock lui-même
   # et ses tests — pas une fonctionnalité applicative régie par une SPEC)
