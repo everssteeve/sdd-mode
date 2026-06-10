@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JNSP — saying "I don't know" is a valid signal | SDD Mode</title>
+<meta name="description" content="The uncertainty policy of SDD Mode: prefer an honest JNSP answer to a confident but invented one. Fail-closed verdicts, TODO-JNSP blocked by the pre-commit hook, exit code 2 for human decision required.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../../fr/concepts/jnsp.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html">2. Research Phase</a></li>
+            <li><a href="spec.html">3. SPEC</a></li>
+            <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html">5. Agent Execution</a></li>
+            <li><a href="validation.html">6. Validation</a></li>
+            <li><a href="drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html" aria-current="page">JNSP — uncertainty policy</a></li>
+            <li><a href="traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="../artifacts.html">The artifacts</a></li>
+            <li><a href="../values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="../commands/sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="../governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="../search.html">Search</a></li>
+            <li><a href="../whats-new.html">What's New</a></li>
+            <li><a href="../spec-library.html">SPEC Library</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../../fr/concepts/jnsp.html" hreflang="fr" lang="fr">FR</a>
+          <a href="jnsp.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="research.html">2. Research Phase</a></li>
+          <li><a href="spec.html">3. SPEC</a></li>
+          <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html">5. Agent Execution</a></li>
+          <li><a href="validation.html">6. Validation</a></li>
+          <li><a href="drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html" aria-current="page">JNSP — uncertainty</a></li>
+          <li><a href="traceability.html">Traceability</a></li>
+          <li><a href="../artifacts.html">The artifacts</a></li>
+          <li><a href="../values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="../commands/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../governance/index.html">Tier 1 governance</a></li>
+          <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../get-started.html">Get Started</a></li>
+          <li><a href="../metrics.html">Metrics</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+          <li><a href="../search.html">Search</a></li>
+          <li><a href="../whats-new.html">What's New</a></li>
+          <li><a href="../spec-library.html">SPEC Library</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li>Concepts</li>
+          <li aria-current="page">JNSP — uncertainty policy</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Uncertainty policy · fail-closed</p>
+      <h1>JNSP — saying "I don't know" is a valid signal</h1>
+      <p class="doc-lede">Saying "I don't know how" is a <strong>valid signal, not a failure</strong>. SDD Mode always prefers an honest <code>JNSP</code> answer to a confident but invented one — and it tools this preference end to end: verdicts, pre-commit hook, exit codes.</p>
+
+      <h2 id="principe">Why inventing costs more than doubting</h2>
+      <p>An AI agent is trained to produce a plausible answer — including when it lacks the information to decide. This default confidence has a <strong>hidden cost</strong>: what is invented today reappears tomorrow as <a href="drift-lock.html">drift</a>, as a production bug or as a regulatory violation. The JNSP policy (<em>Je Ne Sais Pas</em> — "I don't know") reverses the slope: when the agent cannot decide, it says so, structures what it is missing, and hands the decision back to the human. It is the natural extension of <a href="human-authorship.html">Human Authorship</a>: when in doubt about the intent, the agent ASKS — it does not invent.</p>
+
+      <h2 id="situations">The situations that mandate a JNSP verdict</h2>
+      <p>The agent MUST emit a <code>JNSP</code> verdict (<code>UNKNOWN</code> for English-language outputs) in the following cases:</p>
+      <table>
+        <caption class="visually-hidden">Situations mandating a JNSP verdict</caption>
+        <thead><tr><th scope="col">Situation</th><th scope="col">Verdict</th><th scope="col">Skill / Command</th></tr></thead>
+        <tbody>
+          <tr><td>Intent not formulated by an identifiable human</td><td><code>JNSP</code></td><td><code>human-authorship-check</code></td></tr>
+          <tr><td>Acceptance criterion not unambiguously testable</td><td><code>JNSP</code></td><td><code>ears-validator</code>, <code>/sdd spec</code></td></tr>
+          <tr><td>Tier 1 governance not decidable</td><td><code>UNKNOWN</code> = <strong>VETO</strong> (fail-closed)</td><td><code>regulatory-veto</code></td></tr>
+          <tr><td>SQS partially unscorable</td><td><code>?/5</code> → Gate <strong>UNKNOWN</strong></td><td><code>sqs-scoring</code>, <code>/sdd gate</code></td></tr>
+          <tr><td>Missing <code>@spec</code> annotations during a drift-check</td><td><code>UNKNOWN</code> (≠ OK)</td><td><code>drift-detection</code>, <code>traceability</code></td></tr>
+          <tr><td>Context file not fully readable</td><td><code>JNSP</code></td><td><code>context-budget</code>, <code>/sdd resume</code></td></tr>
+        </tbody>
+      </table>
+      <p>The common pattern: no absence of information ever scores "OK". A <a href="execution-gate.html">Gate</a> that cannot be computed comes out <em>UNKNOWN</em>, not open; code without <code>@spec</code> annotations comes out <em>UNKNOWN</em>, not "no drift".</p>
+
+      <h2 id="code">The form in code: <code>TODO-JNSP</code></h2>
+      <p>When uncertainty arises mid-implementation, it materialises as a marker in the diff:</p>
+      <pre><code>// TODO-&#74;NSP: &lt;precise question for the human&gt;</code></pre>
+      <div class="callout warn">
+        <span class="callout-title">Blocking at commit time</span>
+        <p>The pre-commit hook (<code>.aiad/hooks/pre-commit.sh</code>) <strong>blocks any diff containing an unresolved <code>TODO-JNSP:</code></strong>. The <code>git commit --no-verify</code> bypass exists but is discouraged: it amounts to committing a question without an answer.</p>
+      </div>
+      <p>This mechanism guarantees that areas of uncertainty do not silently sediment into the code: either the human answers and the marker disappears, or the commit waits.</p>
+
+      <h2 id="reponse">The form in a text answer</h2>
+      <p>A JNSP is not a shrug — it is a structured three-line answer that makes the question actionable:</p>
+      <pre><code>JNSP — &lt;short title&gt;
+What is known: &lt;verified facts, files read&gt;
+What is missing: &lt;information needed to decide&gt;
+Question for the human: &lt;actionable rephrasing, finite choice if possible&gt;</code></pre>
+      <p>The discipline of form matters: "what is known" proves the agent did the research work; "what is missing" circumscribes the uncertainty; the final question, as a finite choice where possible, minimises the human decision effort.</p>
+
+      <h2 id="exit-codes">CLI exit codes: 2 is not an error</h2>
+      <p>The policy goes all the way up to the <code>npx aiad-sdd</code> CLI and CI pipelines:</p>
+      <table>
+        <caption class="visually-hidden">CLI exit code semantics</caption>
+        <thead><tr><th scope="col">Code</th><th scope="col">Semantics</th></tr></thead>
+        <tbody>
+          <tr><td><code>0</code></td><td>Success / PASS verdict</td></tr>
+          <tr><td><code>1</code></td><td>Failure, error or FAIL verdict</td></tr>
+          <tr><td><code>2</code></td><td>JNSP verdict — <strong>human decision required</strong> (not an error)</td></tr>
+        </tbody>
+      </table>
+      <p>Distinguishing code 2 from code 1 is essential: a FAIL has a known correction; a JNSP is an open question that must be escalated to the human. Downgrading a JNSP into a FAIL "to keep things moving" is explicitly forbidden — as is downgrading it into a PASS.</p>
+
+      <h2 id="fail-closed">Fail-closed: protection against self-clearance</h2>
+      <p>The uncertainty policy is above all a protection against <strong>silent self-clearance</strong>: an agent that, facing a check it cannot perform, would conclude "nothing to report". In SDD Mode, doubt is <em>fail-closed</em>: an undecidable <a href="../governance/index.html">Tier 1</a> governance check equals VETO; an incomplete <a href="traceability.html">traceability matrix</a> equals GAP and blocks the CI (<code>--fail-on-gap</code> treats <code>UNKNOWN</code> as a failure). We prefer a false positive that demands human clarification to a silent false negative — that is the price, deliberately accepted, of a verifiable chain of trust.</p>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="context-budget.html"><span class="dir">← Previous</span>Context Engineering Budget</a>
+        <a class="next" href="traceability.html"><span class="dir">Next →</span>Machine-verifiable traceability</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li><a href="../values.html">Values &amp; pillars</a></li>
+        <li><a href="../artifacts.html">The artifacts</a></li>
+        <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="../commands/sdd.html">/sdd commands</a></li>
+        <li><a href="../commands/aiad.html">/aiad commands</a></li>
+        <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="../governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

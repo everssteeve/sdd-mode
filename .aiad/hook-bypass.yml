@@ -115,3 +115,8 @@ patterns:
   - "test/skills.test.js"
   - "test/standup-url.test.js"
   - "test/obsidian-export.test.js"
+
+  # Site statique de documentation — contient des exemples littéraux de
+  # marqueurs TODO-JNSP dans des blocs <pre><code> et <p> de documentation.
+  # Ce sont des exemples pédagogiques, pas des marqueurs non résolus.
+  - "site/**"

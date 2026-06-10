@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What's New — the evolution of SDD Mode | SDD Mode</title>
+<meta name="description" content="Version-by-version evolution of SDD Mode: enforced governance verdicts (v1.18), the European compliance toolchain (v1.14), multi-runtime rules (v1.12), EARS SPECs (v1.11), machine-verifiable traceability (v1.10) and the command routers (v1.7).">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../fr/nouveautes.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="concepts/research.html">2. Research Phase</a></li>
+            <li><a href="concepts/spec.html">3. SPEC</a></li>
+            <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="concepts/execution.html">5. Agent Execution</a></li>
+            <li><a href="concepts/validation.html">6. Validation</a></li>
+            <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="concepts/jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="concepts/traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="artifacts.html">The artifacts</a></li>
+            <li><a href="values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="commands/sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="search.html">Search</a></li>
+            <li><a href="whats-new.html" aria-current="page">What's New</a></li>
+            <li><a href="spec-library.html">SPEC Library</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../fr/nouveautes.html" hreflang="fr" lang="fr">FR</a>
+          <a href="whats-new.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="concepts/research.html">2. Research Phase</a></li>
+          <li><a href="concepts/spec.html">3. SPEC</a></li>
+          <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="concepts/execution.html">5. Agent Execution</a></li>
+          <li><a href="concepts/validation.html">6. Validation</a></li>
+          <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="concepts/traceability.html">Traceability</a></li>
+          <li><a href="artifacts.html">The artifacts</a></li>
+          <li><a href="values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="commands/sdd.html">/sdd (16)</a></li>
+          <li><a href="commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="governance/index.html">Tier 1 governance</a></li>
+          <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="get-started.html">Get Started</a></li>
+          <li><a href="metrics.html">Metrics</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="whats-new.html" aria-current="page">What's New</a></li>
+          <li><a href="spec-library.html">SPEC Library</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">What's New</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Resources · versions</p>
+      <h1>What's New — the evolution of SDD Mode</h1>
+      <p class="doc-lede">Version by version, how the framework moved from a documented method to an enforced toolchain — newest first, summarised from the official <code>aiad-sdd</code> changelog. Releases follow Keep a Changelog and SemVer.</p>
+
+      <h2 id="v1-18">v1.18 — advisory becomes enforced (June 2026)</h2>
+      <p>The major shift: every critical SDD rule becomes a primitive <strong>verified by the harness</strong>, and every verdict is computed by a deterministic script (exit codes <code>0/1/2</code> plus validated JSON) — never by the model's free judgement. Entirely additive and opt-in. Highlights:</p>
+      <ul>
+        <li><strong>Enforced governance</strong> — <code>PreToolUse</code> hooks for <a href="concepts/jnsp.html">JNSP</a> and the fail-closed Tier 1 veto, a <code>Stop</code> hook for the <a href="concepts/drift-lock.html">Drift Lock</a>, read-only governance subagents. The Tier 1 veto cannot be disabled by an environment toggle.</li>
+        <li><strong>Research Phase</strong> — <code>/sdd research</code> with the graduated <code>GO | CONDITIONAL GO | DEFER | NO-GO</code> verdict, anchored in mandatory Discovery. See <a href="concepts/research.html">Research Phase</a>.</li>
+        <li><strong>Phased execution</strong> — mini-gates per slice and a third <code>CONDITIONAL</code> verdict; crash-recoverable cycle as a task graph; memory "from logs" with human-authored curation.</li>
+        <li><strong>Design guardrails</strong> — proportionality, the interactive <code>grill-me</code> gate, sunset metadata, and a canary suite separating real regressions from model-serving noise.</li>
+      </ul>
+
+      <h2 id="v1-16">v1.16 / v1.15 — the PM cockpit (June 2026)</h2>
+      <p>Two consecutive releases (v1.17 shipped no user-visible changes) massively expanded the HTML dashboard into a <strong>Product Manager cockpit</strong>: Kanban with role-aware lenses, OKR alignment, DORA/flow views, risk burndown, stakeholder maps, sprint planning, AI-Act compliance views and dozens of focused widgets. Also added: a practical SDD-Mode guide, a qualitative feedback command, and 43 new OpenAPI routes.</p>
+
+      <h2 id="v1-14">v1.14 — the European compliance toolchain (May 2026)</h2>
+      <p>46 items across two phases, 323 automated tests, zero runtime dependencies preserved. Key additions:</p>
+      <ul>
+        <li><code>aiad-sdd ai-act audit</code> — pre-fills the <strong>Annex IV</strong> documentation of EU Regulation 2024/1689 across its 8 required sections.</li>
+        <li>Jurisdiction governance packs (<code>eu-baseline</code>, <code>us-baseline</code>, <code>uk-baseline</code>) and a community pack marketplace with SHA-256 validation.</li>
+        <li><code>doctor</code>, <code>uninstall</code>, <code>migrate</code>, <code>workspace</code>, <code>repl</code>, opt-in GDPR-compliant telemetry, and a SARIF output for <a href="concepts/traceability.html">trace</a> consumable by GitHub Code Scanning.</li>
+        <li>Multi-language annotations (Rust, Go, Java, Kotlin, C#, Ruby, PHP, Swift, Scala, Elixir), <code>--watch</code> and <code>--suggest</code> modes, and Git-aware scanning (~1.8&nbsp;s on 100k files).</li>
+      </ul>
+
+      <h2 id="v1-13">v1.13 — HTML dashboard (May 2026)</h2>
+      <p>First HTML dashboard, the <code>--serve</code> mode and a GitHub Pages workflow.</p>
+
+      <h2 id="v1-12">v1.12 — multi-runtime (May 2026)</h2>
+      <p><code>aiad-sdd emit-rules</code> generates <code>AGENTS.md</code>, <code>.cursor/rules/</code>, <code>.codex/AGENT.md</code> and <code>GEMINI.md</code> from a single source — the AGENT-GUIDE — so Claude Code, Cursor, Copilot, Codex and Gemini all follow the same rules. A CI check blocks any divergence in PRs.</p>
+
+      <h2 id="v1-11">v1.11 — optional EARS variant (May 2026)</h2>
+      <p>SPECs can be written in <strong>EARS</strong> (Easy Approach to Requirements Syntax) with a strict R1–R7 linter at the Gate: zero violations earns a guaranteed +1 on the SQS Testability criterion. Reserved for SPECs where ambiguity is expensive. See <a href="concepts/spec.html#ears">SPEC — EARS variant</a>.</p>
+
+      <h2 id="v1-10">v1.10 — machine-verifiable traceability (April 2026)</h2>
+      <p>The Intent ↔ SPEC ↔ Code ↔ Tests matrix built from <code>@intent</code> / <code>@spec</code> / <code>@verified-by</code> / <code>@governance</code> annotations, generated by <code>aiad-sdd trace</code> and enforced in CI with <code>--fail-on-gap</code>. See <a href="concepts/traceability.html">Traceability</a>.</p>
+
+      <h2 id="earlier">Earlier versions</h2>
+      <table>
+        <thead><tr><th scope="col">Version</th><th scope="col">Headline change</th></tr></thead>
+        <tbody>
+          <tr><td>v1.9 (April 2026)</td><td>7 reusable skills extract the recurring logic from the SDD commands (DRY composition).</td></tr>
+          <tr><td>v1.8</td><td><code>--minimal</code> profile (4 commands, &lt; 1k cold-start tokens) and incremental upgrade path.</td></tr>
+          <tr><td>v1.7</td><td>27 commands namespaced into 3 <a href="commands/sdd.html">routers</a> — sub-command bodies loaded on demand.</td></tr>
+          <tr><td>v1.6</td><td>First npm release of AIAD SDD Mode: pre-commit hook enforcing the Drift Lock, SessionStart hook injecting the active Intent and Gate status.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout info">
+        <span class="callout-title">Full details</span>
+        <p>The complete changelog ships with the package: <code>CHANGELOG.md</code> in the <a href="https://github.com/everssteeve/sdd-mode">sdd-mode repository</a>. Run <code>npx aiad-sdd update --check</code> to verify whether your installed commands diverge from the latest release.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="search.html"><span class="dir">← Previous</span>Search</a>
+        <a class="next" href="spec-library.html"><span class="dir">Next →</span>SPEC Library</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li><a href="values.html">Values &amp; pillars</a></li>
+        <li><a href="artifacts.html">The artifacts</a></li>
+        <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="concepts/spec.html">SPEC</a></li>
+        <li><a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="commands/sdd.html">/sdd commands</a></li>
+        <li><a href="commands/aiad.html">/aiad commands</a></li>
+        <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

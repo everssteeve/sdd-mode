@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intent Statement — capturer le POURQUOI humain | SDD Mode</title>
+<meta name="description" content="L'Intent Statement est l'artefact de premier ordre du SDD Mode : cinq champs obligatoires (pourquoi maintenant, pour qui, objectif, contraintes, critère de drift) rédigés par un humain identifiable. Il précède et transcende la SPEC.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../../en/concepts/intent-statement.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html">2. Phase Research</a></li>
+            <li><a href="spec.html">3. SPEC</a></li>
+            <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html">5. Exécution agent</a></li>
+            <li><a href="validation.html">6. Validation</a></li>
+            <li><a href="drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="../artefacts.html">Les artefacts</a></li>
+            <li><a href="../valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="../gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="../recherche.html">Recherche</a></li>
+            <li><a href="../nouveautes.html">Nouveautés</a></li>
+            <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="intent-statement.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../../en/concepts/intent-statement.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="intent-statement.html" aria-current="page">1. Intent Statement</a></li>
+          <li><a href="research.html">2. Phase Research</a></li>
+          <li><a href="spec.html">3. SPEC</a></li>
+          <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html">5. Exécution agent</a></li>
+          <li><a href="validation.html">6. Validation</a></li>
+          <li><a href="drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="traceability.html">Traçabilité</a></li>
+          <li><a href="../artefacts.html">Les artefacts</a></li>
+          <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../gouvernance/index.html">Gouvernance Tier 1</a></li>
+          <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="../demarrer.html">Démarrer</a></li>
+          <li><a href="../metriques.html">Métriques</a></li>
+          <li><a href="../glossaire.html">Glossaire</a></li>
+          <li><a href="../recherche.html">Recherche</a></li>
+          <li><a href="../nouveautes.html">Nouveautés</a></li>
+          <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../big-picture.html">Cycle SDD</a></li>
+          <li aria-current="page">Intent Statement</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Étape 1 du cycle · <code>/sdd intent</code></p>
+      <h1>Intent Statement — capturer le POURQUOI humain</h1>
+      <p class="doc-lede">L'Intent Statement capture et archive l'intention humaine derrière chaque fonctionnalité, indépendamment de la spécification qui en découle. C'est un <strong>artefact de premier ordre</strong> : il précède et transcende la SPEC.</p>
+
+      <h2 id="pourquoi">Pourquoi cet artefact existe</h2>
+      <p>Dans six mois, quand une fonctionnalité est contestée ou doit être révisée, la question essentielle n'est pas « qu'est-ce que la SPEC dit ? » mais « qu'est-ce que l'équipe voulait accomplir, et pourquoi ? ». La SPEC répond à la première question. L'Intent Statement archivé répond à la seconde.</p>
+      <p>Sans cet archivage, l'intention se perd dans le bruit des itérations — c'est l'une des causes profondes de la <em>dette intentionnelle</em>. L'Intent Statement est aussi une décision d'optimisation mesurable : les sessions ancrées sur une intention explicite consomment significativement moins de tokens (R2Code, arXiv 2026 : −41,7 % ; AWS Strands, 2026 : −96 % sur workflows intent-based).</p>
+
+      <h2 id="format">Les cinq champs obligatoires</h2>
+      <pre><code>## Intent Statement — [ID] — [Titre]
+
+**Auteur humain :** [Prénom Nom] — [Date]
+
+**POURQUOI MAINTENANT**
+Qu'est-ce qui a changé dans le monde, dans le produit, ou dans la
+compréhension de l'équipe pour que cette fonctionnalité soit
+nécessaire aujourd'hui ?
+
+**POUR QUI**
+Quel humain va voir sa vie changer, et comment ? Soyez précis sur
+la personne, pas sur le persona.
+
+**OBJECTIF**
+Ce qu'on cherche à accomplir — formulé en termes d'impact, pas de
+fonctionnalité.
+
+**CONTRAINTES**
+Ce qu'on ne sacrifiera pas — valeurs, qualité, éthique, ressources.
+
+**CRITERE DE DRIFT**
+Comment saura-t-on, dans 3 mois, si l'implémentation a trahi
+l'intention initiale ?</code></pre>
+      <p>Le cinquième champ — le <strong>CRITÈRE DE DRIFT</strong> — ancre la vérification de fin d'itération non plus uniquement sur une vérification technique (le code correspond-il à la SPEC ?) mais sur une vérification d'intention : l'implémentation reflète-t-elle ce que l'humain voulait vraiment ? Il est revérifié à chaque <a href="drift-lock.html">Drift Lock</a>.</p>
+
+      <h2 id="human-authorship">La règle Human Authorship</h2>
+      <div class="callout danger">
+        <span class="callout-title">Non négociable</span>
+        <p>Le champ <em>Auteur humain</em> est obligatoire et rempli délibérément — jamais automatiquement. Si un agent a rédigé l'Intent Statement, <strong>la session est invalidée</strong>. L'Execution Gate ne peut pas être passée sans un Intent Statement dont l'auteur est humain et identifiable.</p>
+      </div>
+      <p>Cette friction minuscule est intentionnelle : elle marque le moment de l'appropriation. L'agent peut enrichir, questionner, affiner — il ne peut pas initier. La skill <code>human-authorship-check</code> vérifie ce principe à chaque <code>/sdd intent</code> et <code>/sdd init</code>. Voir l'article <a href="human-authorship.html">Human Authorship</a>.</p>
+
+      <h2 id="commande">La commande <code>/sdd intent</code></h2>
+      <p>La commande guide la rédaction des cinq champs, vérifie la complétude, puis crée le fichier <code>INTENT-NNN-[nom].md</code> dans <code>.aiad/intents/</code> et met à jour l'index <code>_index.md</code>.</p>
+      <p>Elle applique le <strong>pattern Interrogatory LLM</strong> (Fowler, 2026) : l'agent construit le contexte par questions ciblées plutôt que passivement — il interroge l'humain pour révéler l'intention, il ne la devine pas. En cas de doute, il répond <a href="jnsp.html"><code>JNSP</code></a> plutôt que d'inventer.</p>
+      <table>
+        <caption class="visually-hidden">Modes d'exécution de /sdd intent</caption>
+        <thead><tr><th scope="col">Mode</th><th scope="col">Comportement</th></tr></thead>
+        <tbody>
+          <tr><td><code>--guided</code></td><td>Questions une par une, concepts expliqués, exemples proposés — pour une première utilisation.</td></tr>
+          <tr><td><code>--fast</code></td><td>Inputs attendus en bloc, rendu direct — mode expert.</td></tr>
+          <tr><td><em>(aucun flag)</em></td><td>Auto-détection selon la maturité de la structure <code>.aiad/</code>.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="indicateurs">Indicateurs de succès</h2>
+      <ul>
+        <li>Intent Statements archivés pour <strong>100 %</strong> des fonctionnalités majeures ;</li>
+        <li>taux d'alignement intention/livraison supérieur à <strong>80 %</strong> (mesuré lors de l'<a href="../equipe/rituels.html#atelier-intention">Atelier d'Intention</a>) ;</li>
+        <li>auteur humain identifiable sur chaque Intent Statement à <strong>100 %</strong>.</li>
+      </ul>
+
+      <h2 id="anti-patterns">Anti-patterns</h2>
+      <div class="callout warn">
+        <span class="callout-title">« Propose-moi un Intent Statement pour gagner du temps »</span>
+        <p>Demander à l'agent de rédiger l'Intent invalide la session. La paternité de l'intention ne se délègue pas — c'est la valeur 7 du framework, et la réponse directe aux exigences de supervision humaine de l'AI Act (art. 14) pour les systèmes à haut risque.</p>
+      </div>
+
+      <h2 id="suite">Dans le code et la traçabilité</h2>
+      <p>Chaque Intent est référencé par l'annotation <code>@intent INTENT-NNN</code> dans le code applicatif, croisée par la <a href="traceability.html">matrice de traçabilité</a> (<code>/sdd trace</code>) avec les annotations <code>@spec</code> et <code>@verified-by</code> : la chaîne Intent ↔ SPEC ↔ Code ↔ Tests devient machine-vérifiable.</p>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="../big-picture.html"><span class="dir">← Précédent</span>Big Picture</a>
+        <a class="next" href="research.html"><span class="dir">Suivant →</span>2. Phase Research</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="../artefacts.html">Les artefacts</a></li>
+        <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="../commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="../commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="../gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

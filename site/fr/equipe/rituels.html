@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boucles itératives et rituels — le rythme sans cadence artificielle | SDD Mode</title>
+<meta name="description" content="Les boucles AIAD (Planifier, Implémenter, Valider, Intégrer) calquent le rythme sur la complexité réelle du travail. Les synchronisations intentionnelles — standup, demo, tech-review, retro, Atelier d'Intention, sync stratégique — remplacent les cérémonies prescrites.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../../en/team/rituals.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="../concepts/research.html">2. Phase Research</a></li>
+            <li><a href="../concepts/spec.html">3. SPEC</a></li>
+            <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="../concepts/execution.html">5. Exécution agent</a></li>
+            <li><a href="../concepts/validation.html">6. Validation</a></li>
+            <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="../concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="../concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="../artefacts.html">Les artefacts</a></li>
+            <li><a href="../valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="../gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="rituels.html" aria-current="page">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="../recherche.html">Recherche</a></li>
+            <li><a href="../nouveautes.html">Nouveautés</a></li>
+            <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="rituels.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../../en/team/rituals.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="../concepts/research.html">2. Phase Research</a></li>
+          <li><a href="../concepts/spec.html">3. SPEC</a></li>
+          <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="../concepts/execution.html">5. Exécution agent</a></li>
+          <li><a href="../concepts/validation.html">6. Validation</a></li>
+          <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="../concepts/jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="../concepts/traceability.html">Traçabilité</a></li>
+          <li><a href="../artefacts.html">Les artefacts</a></li>
+          <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../gouvernance/index.html">Gouvernance Tier 1</a></li>
+          <li><a href="responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="rituels.html" aria-current="page">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="../demarrer.html">Démarrer</a></li>
+          <li><a href="../metriques.html">Métriques</a></li>
+          <li><a href="../glossaire.html">Glossaire</a></li>
+          <li><a href="../recherche.html">Recherche</a></li>
+          <li><a href="../nouveautes.html">Nouveautés</a></li>
+          <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="../index.html">Accueil</a></li>
+          <li aria-current="page">Boucles &amp; rituels</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Flux continu</p>
+      <h1>Boucles itératives et rituels — le rythme sans cadence artificielle</h1>
+      <p class="doc-lede">Les boucles AIAD ne sont pas des cycles prescrits à durée fixe : leur durée est dictée par la <strong>complexité réelle du travail</strong>. Une correction de bug : deux heures. Une nouvelle fonctionnalité : trois jours. Une exploration de domaine : une semaine. Chaque tâche trouve sa cadence naturelle.</p>
+
+      <p>Les cycles de durée fixe créent une friction artificielle avec la vélocité du développement assisté par IA : ils produisent soit du surengagement, soit du rembourrage. Quatre caractéristiques définissent une boucle AIAD : <strong>flux continu</strong> (dès qu'une fonctionnalité est intégrée, la suivante démarre), <strong>durée variable</strong> (la complexité dicte la durée, pas le calendrier), <strong>priorité dynamique</strong> (le feedback peut réorienter la prochaine fonctionnalité) et <strong>focus absolu</strong> (une seule fonctionnalité à la fois par <a href="responsabilites.html#pe">PE</a>). L'important n'est pas de suivre un calendrier — c'est de livrer de la valeur en continu.</p>
+
+      <h2 id="initialisation">La phase d'initialisation</h2>
+      <p>Avant la première boucle, une phase d'initialisation pose les fondations — une fois par produit, ou à chaque pivot majeur. Sans elle, les agents génèrent du code sans contexte et la dette s'accumule dès le premier jour. Elle produit <strong>sept livrables</strong> : la vision produit et le Product Goal (PM), le PRD initial (PM), le document ARCHITECTURE (Tech Lead), l'AGENT-GUIDE (AE + PE), les Definitions of Done (équipe), le repository avec CI/CD (PE) et la première SPEC prête (PM + PE). L'équipe doit pouvoir démarrer l'implémentation <strong>entre le cinquième et le septième jour</strong>. Anti-pattern symétrique : l'initialisation qui s'éternise des semaines — aucun artefact n'est parfait au départ — ou le démarrage précipité sans artefacts, dont les premières semaines coûtent des mois de dette.</p>
+
+      <h2 id="planifier">Boucle 1 — Planifier</h2>
+      <p>La boucle Planifier transforme une intention métier en spécification que les agents peuvent implémenter. Sans planification explicite, le PE interprète l'intention du PM, l'interprétation diverge, et le code livré ne correspond pas au besoin. Cinq étapes : le PM présente la prochaine priorité, le PE questionne et clarifie, l'équipe décide de la décomposition, rédige la <a href="../concepts/spec.html">SPEC</a> collaborativement, puis la valide. Elle produit une SPEC prête pour l'implémentation, des Outcome Criteria définis et une compréhension partagée PM/PE. Indicateurs : l'agent peut implémenter <strong>sans clarification</strong>, les tests attendus sont explicites à 100 %, tous les cas limites sont documentés. Anti-patterns : la planification marathon de quatre heures comme la SPEC de trois lignes type « Ajouter le login » — deux anti-investissements.</p>
+
+      <h2 id="implementer">Boucle 2 — Implémenter</h2>
+      <p>C'est là que la valeur se matérialise : un PE qui orchestre bien produit plus qu'une équipe traditionnelle de cinq développeurs. La boucle se déroule en <strong>sept étapes</strong> : préparer le contexte (SPEC + ARCHITECTURE + AGENT-GUIDE, dans le respect du <a href="../concepts/context-budget.html">Context Engineering Budget</a>), demander le plan à l'agent avant de coder, valider en continu (compilation, linting, types), générer les tests, itérer si nécessaire — trois fois maximum —, finaliser (tests verts, commit local), puis réaliser la micro-phase Sync des artefacts.</p>
+      <div class="callout danger">
+        <span class="callout-title">Micro-phase Sync des artefacts — 15 minutes, non négociable</span>
+        <p>Sous la responsabilité du PE, quatre questions : la SPEC reflète-t-elle le comportement implémenté ? Le Critère de Drift est-il toujours valide ? Une erreur agent notable a-t-elle été corrigée manuellement (→ Lessons Learned) ? Une nouvelle convention a-t-elle émergé (→ patterns de l'AGENT-GUIDE) ?</p>
+      </div>
+      <p>Indicateurs : code correct du premier coup &gt; 70 %, ratio code généré/manuel &gt; 80/20, couverture &gt; 80 % backend et 70 % frontend. Anti-pattern : le PE qui corrige 80 % du code généré — signal d'une SPEC ou d'un AGENT-GUIDE déficient, pas d'un mauvais agent.</p>
+
+      <h2 id="valider">Boucle 3 — Valider</h2>
+      <p>Le code qui compile n'est pas forcément le code qui fonctionne ; le code qui fonctionne n'est pas forcément le code qui apporte de la valeur. La validation se déroule en <strong>cinq étapes</strong> aux responsables distincts :</p>
+      <table>
+        <caption class="visually-hidden">Les cinq étapes de la boucle Valider</caption>
+        <thead><tr><th scope="col">Étape</th><th scope="col">Responsable</th><th scope="col">Contenu</th></tr></thead>
+        <tbody>
+          <tr><td>Validation technique</td><td>PE</td><td>CI, couverture, linting, DoOD</td></tr>
+          <tr><td>Validation fonctionnelle</td><td>QA</td><td>Tests, acceptance criteria</td></tr>
+          <tr><td>Validation utilisabilité</td><td>QA + PM</td><td>UX, accessibilité, performance</td></tr>
+          <tr><td>Validation métier</td><td>PM</td><td>Intention respectée, outcomes</td></tr>
+          <tr><td>Décision</td><td>Équipe</td><td><strong>VALIDÉ</strong>, <strong>CORRECTIONS</strong> ou <strong>REJET</strong></td></tr>
+        </tbody>
+      </table>
+      <p>Elle produit un rapport de validation, une liste de corrections mineures si applicable, et le feu vert pour l'intégration. Indicateurs : validation au premier essai &gt; 70 %, zéro bug critique, moins de trois bugs mineurs par fonctionnalité. Anti-patterns : la validation bâclée « ça a l'air de marcher » (dette cachée) et le ping-pong interminable QA/PE (friction inutile).</p>
+
+      <h2 id="integrer">Boucle 4 — Intégrer</h2>
+      <p>Le code non déployé n'a aucune valeur. La boucle se déroule en <strong>huit étapes</strong> : revue de code (self ou peer selon criticité), pull main et résolution de conflits, push, PR et CI/CD, déploiement staging puis production, vérification post-déploiement, mise à jour du CHANGELOG et de l'AGENT-GUIDE, <strong>Anti-Drift Check</strong>, et nettoyage du contexte avec fermeture du ticket.</p>
+      <div class="callout danger">
+        <span class="callout-title">Anti-Drift Check — 10 minutes, trois questions</span>
+        <p>Avant de fermer le ticket, le PE répond pour chaque SPEC utilisée : le comportement livré correspond-il exactement à ce que décrit la SPEC ? Les fichiers impactés listés sont-ils toujours exhaustifs ? Le CRITÈRE DE DRIFT de l'<a href="../concepts/intent-statement.html">Intent Statement</a> parent signale-t-il un écart ? Si une réponse est non, on met à jour la SPEC — committée dans la <em>même PR</em> que le code : c'est le <a href="../concepts/drift-lock.html">Drift Lock</a>.</p>
+      </div>
+      <p>Quatre stratégies de déploiement sont disponibles : Continuous Deployment (fonctionnalités non critiques), Staged Rollout (fonctionnalités majeures), Feature Flags (expérimentations, A/B tests) et Manual Release (critiques, conformité). Recommandation AIAD : Continuous Deployment avec Feature Flags. Indicateurs : merge → production en moins d'une heure (idéal quinze minutes), rollback &lt; 5 %, zéro downtime.</p>
+
+      <h2 id="rituels">Les synchronisations intentionnelles</h2>
+      <p>Les synchronisations ne sont pas des cérémonies : ce sont des moments de décision collective déclenchés par un besoin réel, timeboxés, actionnables et documentés. Chacune est outillée par une commande <a href="../commandes/aiad.html"><code>/aiad</code></a> qui prépare les données — jamais ne remplace la conversation.</p>
+      <ul>
+        <li><strong>Standup quotidien</strong> (optionnel, 15 min max — <code>/aiad standup</code>) : structuré autour de trois questions SDD — quelle SPEC aujourd'hui ? quel Context Engineering Budget ? y a-t-il un drift à signaler ? Blocages résolus dans la journée à plus de 80 %.</li>
+        <li><strong>Demo &amp; Feedback</strong> (bi-hebdomadaire, 30-60 min — <code>/aiad demo</code>) : la démonstration est <strong>structurée par les Intent Statements</strong> — d'abord le pourquoi d'origine, puis ce qui a été livré — avant le feedback qualitatif des utilisateurs et l'adaptation du backlog. Cible : plus de trois insights actionnables par session.</li>
+        <li><strong>Tech Review</strong> (bi-hebdomadaire à mensuelle, 1-2 h — <code>/aiad tech-review</code>) : vérifie la cohérence entre ARCHITECTURE.md et le code réel — dérives de patterns, dépendances non documentées, ADR à rédiger, dette technique, revue de l'écosystème d'agents.</li>
+        <li><strong>Rétrospective</strong> (hebdo ou bi-hebdo, 45-60 min — <code>/aiad retro</code>) : rétrospective classique, puis rétrospective IA — collecte des <strong>Lessons Learned</strong> (erreurs récurrentes de l'agent) et des <strong>Human Learnings</strong> (écarts intention/livraison) versés à l'AGENT-GUIDE, avec les métriques d'itération (SQS moyen, drifts détectés, first-time success rate). Une à trois actions maximum, avec owners.</li>
+      </ul>
+
+      <h3 id="atelier-intention">L'Atelier d'Intention — espace humain pur</h3>
+      <p>L'Atelier d'Intention est la synchronisation fondamentale d'AIAD : mensuel, <strong>60 minutes</strong>, toute l'équipe. Les autres synchronisations demandent « qu'a-t-on livré ? », « est-ce que ça marche ? » ; lui seul pose la question que l'agent ne peut pas poser à notre place : <em>« Sommes-nous toujours en train de construire ce que nous voulions vraiment construire ? »</em> Quatre temps : lecture des Intent Statements à voix haute (10 min), confrontation avec le réel (20 min), hypothèses d'écart (20 min), décision d'alignement ou de révision (10 min).</p>
+      <div class="callout danger">
+        <span class="callout-title">Règle non négociable : aucune IA</span>
+        <p>Les agents n'ont <strong>aucun rôle</strong> dans cet atelier — pas de résumé automatique, pas d'analyse IA des écarts. La commande <code>/aiad intention</code> sert uniquement à <em>préparer</em> le dossier (Intent Statements du mois, métriques d'alignement, Human Learnings) — jamais à intervenir pendant. C'est un espace humain pur, y compris en mode <code>--fast</code>.</p>
+      </div>
+      <p>Cible : taux d'alignement intention/livraison &gt; 80 %, deux à cinq hypothèses d'écart documentées, participation à 100 %. Anti-pattern : l'atelier qui dérive en revue technique ou en post-mortem de bugs — les questions restent au niveau de l'intention.</p>
+
+      <h3 id="sync-strat">Synchronisation Alignement Stratégique</h3>
+      <p>Mensuelle, <strong>1 h 30</strong> à 2 h (<code>/aiad sync-strat</code>), avec PM, PE, Tech Lead, QA, stakeholders et Supporters : review des outcomes, review du Product Goal, priorisation du backlog — y compris ce qu'on décide de <em>ne pas</em> faire —, feedback des Supporters sur les obstacles organisationnels, décisions documentées. Elle s'appuie sur les <a href="../metriques.html">métriques DORA et Flow</a> pour ajuster les priorités.</p>
+
+      <h2 id="anti-patterns">Anti-patterns des boucles et des synchronisations</h2>
+      <ul>
+        <li><strong>« On planifie tout en début de semaine. »</strong> Retour au mode batch : les priorités changent mais le plan est figé. Planifier juste avant d'implémenter, quand le contexte est frais.</li>
+        <li><strong>« L'implémentation prend toujours plus longtemps que prévu. »</strong> SPECs insuffisantes ou contexte agent mal préparé : trente minutes de planification en plus économisent des heures d'implémentation.</li>
+        <li><strong>« On valide à la fin, juste avant la release. »</strong> Les bugs s'accumulent, la validation devient un goulot. Valider chaque fonctionnalité immédiatement.</li>
+        <li><strong>« On fait toutes les syncs chaque semaine. »</strong> Surcharge de réunions : adapter la fréquence au besoin réel, espacer quand l'équipe est mature.</li>
+        <li><strong>« Personne ne prépare les syncs. »</strong> Sessions d'improvisation inefficaces : chaque synchronisation a un owner qui prépare l'agenda et les inputs.</li>
+      </ul>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="responsabilites.html"><span class="dir">← Précédent</span>Les 5 responsabilités</a>
+        <a class="next" href="../metriques.html"><span class="dir">Suivant →</span>Métriques</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="../artefacts.html">Les artefacts</a></li>
+        <li><a href="responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="../concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="../concepts/spec.html">SPEC</a></li>
+        <li><a href="../concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="../concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="../concepts/jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="../commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="../commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="../gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

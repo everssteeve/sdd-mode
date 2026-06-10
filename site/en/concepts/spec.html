@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPEC — the living specification | SDD Mode</title>
+<meta name="description" content="The SPEC bridges human intent and implementation by AI agents. Spec as Living Invariant, 12 standardized sections, 4 quality criteria, optional EARS variant (v1.11) and atomic splitting via /sdd split.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../../fr/concepts/spec.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html">2. Research Phase</a></li>
+            <li><a href="spec.html" aria-current="page">3. SPEC</a></li>
+            <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html">5. Agent Execution</a></li>
+            <li><a href="validation.html">6. Validation</a></li>
+            <li><a href="drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="../artifacts.html">The artifacts</a></li>
+            <li><a href="../values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="../commands/sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="../governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="../search.html">Search</a></li>
+            <li><a href="../whats-new.html">What's New</a></li>
+            <li><a href="../spec-library.html">SPEC Library</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../../fr/concepts/spec.html" hreflang="fr" lang="fr">FR</a>
+          <a href="spec.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="research.html">2. Research Phase</a></li>
+          <li><a href="spec.html" aria-current="page">3. SPEC</a></li>
+          <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html">5. Agent Execution</a></li>
+          <li><a href="validation.html">6. Validation</a></li>
+          <li><a href="drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="traceability.html">Traceability</a></li>
+          <li><a href="../artifacts.html">The artifacts</a></li>
+          <li><a href="../values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="../commands/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../governance/index.html">Tier 1 governance</a></li>
+          <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../get-started.html">Get Started</a></li>
+          <li><a href="../metrics.html">Metrics</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+          <li><a href="../search.html">Search</a></li>
+          <li><a href="../whats-new.html">What's New</a></li>
+          <li><a href="../spec-library.html">SPEC Library</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../big-picture.html">SDD Cycle</a></li>
+          <li aria-current="page">SPEC</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Cycle step 3 · <code>/sdd spec</code></p>
+      <h1>SPEC — the living specification</h1>
+      <p class="doc-lede">The SPEC bridges business intent and concrete implementation by AI agents. It is the agent's work instruction for a given feature — and <strong>the framework's best-ROI investment</strong>: a quality SPEC lets an agent generate more than 80% of the correct code on the first pass.</p>
+
+      <h2 id="invariant">Spec as Living Invariant</h2>
+      <p>SDD Mode's first founding principle positions the SPEC as a <strong>living invariant</strong>: it is not a transient document — it remains the source of truth between human intent and agent code, before, during and after implementation. Three stances exist in the spec-driven ecosystem:</p>
+      <table>
+        <caption class="visually-hidden">Comparison of the three spec-driven stances</caption>
+        <thead><tr><th scope="col">Stance</th><th scope="col">Fate of the spec</th><th scope="col">Limitation</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Spec-first</strong></td><td>Written, then abandoned once the task is done</td><td>Obsolete by the second iteration</td></tr>
+          <tr><td><strong>Spec-as-source</strong></td><td>The spec <em>generates</em> the code</td><td>Rigid coupling; the real code diverges from the generator</td></tr>
+          <tr><td><strong>Spec-anchored (AIAD)</strong></td><td>Permanent anchor, synchronized with the code at every PR</td><td>Requires <a href="drift-lock.html">Drift Lock</a> discipline</td></tr>
+        </tbody>
+      </table>
+      <p>The argument is not merely documentary: a session anchored on a SPEC consumes on average <strong>41.7% fewer tokens</strong> than a session without a specification (R2Code, arXiv 2026). The SPEC is a stable anchor point against <em>context rot</em>.</p>
+
+      <h2 id="sections">The twelve sections of a SPEC</h2>
+      <p>An AIAD SPEC is standardized. It contains:</p>
+      <ol>
+        <li>the <strong>activation scope</strong> — injected alone (default) or combined with other SPECs (cross-cutting features);</li>
+        <li>the <strong>context</strong> — reference to the parent <a href="intent-statement.html">Intent Statement</a>, objective, expected outcome;</li>
+        <li>the <strong>scope</strong> — explicit in scope and out of scope;</li>
+        <li>the <strong>impacted files</strong> — to create or modify, exhaustive list;</li>
+        <li>the <strong>technical interface</strong> — endpoints, types, database schemas;</li>
+        <li>the <strong>detailed behaviour</strong> — nominal flow and edge cases (at least 3 explicit edge cases);</li>
+        <li>the <strong>validation rules</strong> — with schemas;</li>
+        <li>the <strong>business rules</strong> to apply;</li>
+        <li>the <strong>expected tests</strong> — scenarios to implement;</li>
+        <li>the <strong>usage examples</strong> — concrete, request/response;</li>
+        <li>the <strong>Definition of Done</strong> (DoOD) — the "Done" criteria;</li>
+        <li>the <strong>Drift Criterion</strong> — the concrete rule for detecting that the SPEC has become obsolete.</li>
+      </ol>
+      <pre><code>**Drift Criterion**: this SPEC is in drift if the file
+`auth/validator.ts` is modified without updating the
+Technical Interface section.</code></pre>
+      <div class="callout warn">
+        <span class="callout-title">Anti-pattern</span>
+        <p>The sprawling twenty-feature SPEC, or the vague "Improve performance" SPEC. Both are unusable — and cost hours of fixing the generated code, where fixing the SPEC would have taken ten minutes.</p>
+      </div>
+
+      <h2 id="criteres">The four quality criteria</h2>
+      <table>
+        <caption class="visually-hidden">The four criteria of a quality SPEC</caption>
+        <thead><tr><th scope="col">Criterion</th><th scope="col">Good example</th><th scope="col">Bad example</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Atomicity</strong></td><td>A single functional responsibility (1 SPEC = 1 PR)</td><td>An entire module</td></tr>
+          <tr><td><strong>Precision</strong></td><td>"Return 400 if <code>title</code> is empty or &gt; 200 characters"</td><td>"Handle errors"</td></tr>
+          <tr><td><strong>Testability</strong></td><td>"Accept <code>test@example.com</code>, reject <code>invalid</code>"</td><td>"Test validation"</td></tr>
+          <tr><td><strong>Completeness</strong></td><td>Types, validation, edge cases and tests included</td><td>The happy path alone</td></tr>
+        </tbody>
+      </table>
+      <p>These four criteria feed directly into the <a href="execution-gate.html">Spec Quality Score</a> evaluated at <code>/sdd gate</code>. A SPEC that does not satisfy them must never be handed to an agent. Beyond <strong>200 lines</strong>, the SPEC is too large: head for <a href="#split"><code>/sdd split</code></a>.</p>
+
+      <h2 id="ears">The EARS variant (v1.11) — the anti-ambiguity option</h2>
+      <p>Since v1.11, acceptance criteria can be written in the <strong>EARS</strong> format (Easy Approach to Requirements Syntax) via <code>/sdd spec --ears</code>. The SPEC is then based on the <code>.aiad/specs/spec-ears-template.md</code> template and declares <code>Format : EARS</code> in its header — that signal is what activates the strict <code>ears-validator</code> linter at the Gate. Each criterion follows one of five patterns:</p>
+      <pre><code>Ubiquitous          The &lt;system&gt; SHALL &lt;response&gt;.
+Event-driven        WHEN &lt;trigger&gt;, the &lt;system&gt; SHALL &lt;response&gt;.
+State-driven        WHILE &lt;state&gt;, the &lt;system&gt; SHALL &lt;response&gt;.
+Optional feature    WHERE &lt;feature&gt;, the &lt;system&gt; SHALL &lt;response&gt;.
+Unwanted behaviour  IF &lt;condition&gt;, THEN the &lt;system&gt; SHALL &lt;response&gt;.</code></pre>
+      <p>The linter applies rules <strong>R1–R7</strong>: forbidden words (<code>should</code>, <code>might</code>, <code>fast</code>, <code>user-friendly</code>, <code>intuitive</code>…), a single SHALL per criterion, an explicit trigger (WHEN/WHILE/IF/WHERE), an explicit subject, an observable verb (<code>return</code>, <code>log</code>, <code>reject</code> — never <code>understand</code>), numeric quantification ("within 200ms p95", not "quickly") and no compound conjunctions.</p>
+      <div class="callout success">
+        <span class="callout-title">Effect at the Gate</span>
+        <p>0 EARS violations → guaranteed bonus of <strong>+1 on SQS criterion 2 (Testability)</strong>. A single violation → criterion 2 forced to 0 and the Gate closed, with a criterion-by-criterion R1–R7 remediation plan.</p>
+      </div>
+      <p>EARS remains <strong>optional</strong>: the prose and EARS formats coexist, and no migration is imposed. Reserve it for SPECs where ambiguity would be costly: <strong>security, payments, regulatory compliance, public API contracts</strong>. The trade-off: roughly +30% verbosity and a learning curve.</p>
+
+      <h2 id="reasons">The REASONS Canvas option (SPDD)</h2>
+      <p>When the parent Intent is complex or ambiguous, <code>/sdd spec</code> offers the <strong>REASONS Canvas</strong> — Kevlin Henney's SPDD tool — as a framing step: it structures the <em>justification</em> of the intent before switching to the standard AIAD SPEC format. The two approaches are compatible: the Canvas enriches the WHY, it does not replace the SPEC format.</p>
+
+      <h2 id="split">Splitting with <code>/sdd split</code></h2>
+      <p>When the Gate fails on atomicity, when the SPEC exceeds 200 lines, when the agent needs more than two re-prompts or when the context budget explodes, you split. Three patterns guide the split:</p>
+      <table>
+        <caption class="visually-hidden">SPEC splitting patterns</caption>
+        <thead><tr><th scope="col">Pattern</th><th scope="col">Split axis</th><th scope="col">Example</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Vertical</strong></td><td>By technical layer</td><td>042a Backend · 042b Frontend · 042c Integration</td></tr>
+          <tr><td><strong>Flow</strong></td><td>By use case</td><td>042a Happy path · 042b Edge cases · 042c Error handling</td></tr>
+          <tr><td><strong>Contract</strong></td><td>Interface first, then dependencies</td><td>042a Setup/contract · 042b Logic · 042c Wiring</td></tr>
+        </tbody>
+      </table>
+      <p>Each sub-SPEC must be able to pass the Gate independently, and the sub-SPECs together must cover 100% of the parent. When the split yields several SPECs, <code>/sdd spec</code> produces a <strong>parallelism plan</strong> (waves and a dependency graph) validated by the PE before writing begins.</p>
+      <div class="callout info">
+        <span class="callout-title">Warning sign</span>
+        <p>More than 5 sub-SPECs after splitting? The Intent is too ambitious: go back to <code>/sdd intent</code> rather than specifying a monster. Splitting is not a failure — it is a sign of Product Engineer maturity.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="research.html"><span class="dir">← Previous</span>2. Research Phase</a>
+        <a class="next" href="execution-gate.html"><span class="dir">Next →</span>4. Execution Gate &amp; SQS</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li><a href="../values.html">Values &amp; pillars</a></li>
+        <li><a href="../artifacts.html">The artifacts</a></li>
+        <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="../commands/sdd.html">/sdd commands</a></li>
+        <li><a href="../commands/aiad.html">/aiad commands</a></li>
+        <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="../governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

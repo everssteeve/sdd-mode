@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>/sdd — les 16 commandes du cycle | SDD Mode</title>
+<meta name="description" content="Référence complète du router /sdd : init, prd, arch, intent, research, spec, gate, exec, resume, split, context, validate, drift-check, trace, fact, security, audit. Pour chaque commande : quand l'utiliser, ce qu'elle fait, sa sortie et les skills invoquées.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../../en/commands/sdd.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="../concepts/research.html">2. Phase Research</a></li>
+            <li><a href="../concepts/spec.html">3. SPEC</a></li>
+            <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="../concepts/execution.html">5. Exécution agent</a></li>
+            <li><a href="../concepts/validation.html">6. Validation</a></li>
+            <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="../concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="../concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="../artefacts.html">Les artefacts</a></li>
+            <li><a href="../valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="sdd.html" aria-current="page">/sdd — cycle SDD (16)</a></li>
+            <li><a href="aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="../gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="../recherche.html">Recherche</a></li>
+            <li><a href="../nouveautes.html">Nouveautés</a></li>
+            <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="sdd.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../../en/commands/sdd.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="../concepts/research.html">2. Phase Research</a></li>
+          <li><a href="../concepts/spec.html">3. SPEC</a></li>
+          <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="../concepts/execution.html">5. Exécution agent</a></li>
+          <li><a href="../concepts/validation.html">6. Validation</a></li>
+          <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="../concepts/jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="../concepts/traceability.html">Traçabilité</a></li>
+          <li><a href="../artefacts.html">Les artefacts</a></li>
+          <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="sdd.html" aria-current="page">/sdd (16)</a></li>
+          <li><a href="aiad.html">/aiad (15)</a></li>
+          <li><a href="cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../gouvernance/index.html">Gouvernance Tier 1</a></li>
+          <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="../demarrer.html">Démarrer</a></li>
+          <li><a href="../metriques.html">Métriques</a></li>
+          <li><a href="../glossaire.html">Glossaire</a></li>
+          <li><a href="../recherche.html">Recherche</a></li>
+          <li><a href="../nouveautes.html">Nouveautés</a></li>
+          <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="../index.html">Accueil</a></li>
+          <li>Commandes</li>
+          <li aria-current="page">/sdd</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Router <code>/sdd &lt;sub&gt;</code></p>
+      <h1>/sdd — les 16 commandes du cycle</h1>
+      <p class="doc-lede">Le router <code>/sdd</code> regroupe toutes les commandes du cycle Spec Driven Development : du cadrage initial jusqu'aux audits, en passant par l'Intent Statement, la phase Research, la SPEC, l'Execution Gate et le Drift Lock.</p>
+
+      <h2 id="routers">Les routers v1.7</h2>
+      <p>Depuis la v1.7, les 27 commandes du framework sont regroupées en <strong>3 routers</strong> — <code>/sdd</code>, <code>/aiad</code> et <code>/aiad-help</code> — pour réduire le poids du system prompt à froid (<strong>−94&nbsp;% de frontmatter</strong> chargé une fois les alias rétro-compatibles retirés). Les corps des sous-commandes sont stockés dans <code>.claude/sdd/</code> et <code>.claude/aiad/</code>, chargés <strong>uniquement à la demande</strong> par le router via <code>Read</code> : seul le contenu de la commande invoquée occupe le contexte.</p>
+
+      <h2 id="dual-mode">Dual-mode : <code>--guided</code> / <code>--fast</code></h2>
+      <p>Chaque commande accepte deux modes d'exécution, plus une auto-détection :</p>
+      <table>
+        <caption class="visually-hidden">Modes d'exécution des commandes /sdd</caption>
+        <thead><tr><th scope="col">Mode</th><th scope="col">Comportement</th></tr></thead>
+        <tbody>
+          <tr><td><code>--guided</code></td><td>Questions une par une, concepts expliqués (SQS, Drift Lock…), exemples — pour une première utilisation.</td></tr>
+          <tr><td><code>--fast</code></td><td>Inputs attendus en bloc, livrable direct — mode expert.</td></tr>
+          <tr><td><em>(aucun flag)</em></td><td>Auto-détection : <code>--guided</code> si <code>.aiad/</code> est absente ou quasi vide, <code>--fast</code> sinon.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="recap">Vue d'ensemble</h2>
+      <table>
+        <caption class="visually-hidden">Récapitulatif des commandes /sdd</caption>
+        <thead><tr><th scope="col">Commande</th><th scope="col">Phase</th><th scope="col">Description</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#init"><code>/sdd init</code></a></td><td>Cadrage</td><td>Initialiser PRD + ARCHITECTURE + AGENT-GUIDE</td></tr>
+          <tr><td><a href="#prd"><code>/sdd prd</code></a></td><td>Cadrage</td><td>Assistant PRD — discovery produit guidé (questions PM)</td></tr>
+          <tr><td><a href="#arch"><code>/sdd arch</code></a></td><td>Cadrage</td><td>Assistant ARCHITECTURE — discovery technique guidé</td></tr>
+          <tr><td><a href="#intent"><code>/sdd intent</code></a></td><td>Intention</td><td>Capturer un Intent Statement</td></tr>
+          <tr><td><a href="#research"><code>/sdd research</code></a></td><td>Research</td><td>Discovery codebase + gate GO/NO-GO avant la SPEC</td></tr>
+          <tr><td><a href="#spec"><code>/sdd spec</code></a></td><td>Spécification</td><td>Rédiger une ou plusieurs SPECs + plan de parallélisme</td></tr>
+          <tr><td><a href="#gate"><code>/sdd gate</code></a></td><td>Validation</td><td>Execution Gate + SQS + plan de remédiation</td></tr>
+          <tr><td><a href="#exec"><code>/sdd exec</code></a></td><td>Exécution</td><td>Lancer l'agent avec contexte optimisé (post-Gate)</td></tr>
+          <tr><td><a href="#resume"><code>/sdd resume</code></a></td><td>Exécution</td><td>Reprendre une session agent interrompue</td></tr>
+          <tr><td><a href="#split"><code>/sdd split</code></a></td><td>Spécification</td><td>Découper une SPEC trop volumineuse</td></tr>
+          <tr><td><a href="#context"><code>/sdd context</code></a></td><td>Amélioration</td><td>Auditer le budget de contexte (estimation vs réel)</td></tr>
+          <tr><td><a href="#validate"><code>/sdd validate</code></a></td><td>Validation</td><td>Valider le code produit (triple validation)</td></tr>
+          <tr><td><a href="#drift-check"><code>/sdd drift-check</code></a></td><td>Intégration</td><td>Vérifier la synchronisation artefacts/code</td></tr>
+          <tr><td><a href="#trace"><code>/sdd trace</code></a></td><td>Intégration</td><td>Matrice Intent ↔ SPEC ↔ Code ↔ Tests (v1.10)</td></tr>
+          <tr><td><a href="#fact"><code>/sdd fact</code></a></td><td>Correction</td><td>Capturer et qualifier un écart livré/désiré</td></tr>
+          <tr><td><a href="#security"><code>/sdd security</code></a></td><td>Audit</td><td>Audit sécurité (OWASP, secrets, permissions agents)</td></tr>
+          <tr><td><a href="#audit"><code>/sdd audit</code></a></td><td>Audit</td><td>Audit qualité (conformité SPEC, dette technique)</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="init"><code>/sdd init</code> — cadrage initial</h2>
+      <p><strong>Quand.</strong> Au démarrage d'un projet, juste après <code>npx aiad-sdd init</code>.</p>
+      <p><strong>Ce que ça fait.</strong> Affiche d'abord le message de redémarrage (recharger les 27 commandes en session), puis guide la rédaction des 3 artefacts fondamentaux. Pour le PRD et l'ARCHITECTURE, la commande propose deux voies : déléguer aux assistants <code>/sdd prd</code> et <code>/sdd arch</code>, ou compléter les templates manuellement. Skill invoquée : <code>human-authorship-check</code> — les « POURQUOI » du PRD appartiennent à l'humain.</p>
+      <p><strong>Sortie.</strong> <code>PRD.md</code>, <code>ARCHITECTURE.md</code> et <code>AGENT-GUIDE.md</code> complétés, prêts à être committés dans <code>.aiad/</code>.</p>
+
+      <h2 id="prd"><code>/sdd prd</code> — assistant PRD</h2>
+      <p><strong>Quand.</strong> Pour renseigner <code>.aiad/PRD.md</code> avec un discovery produit structuré.</p>
+      <p><strong>Ce que ça fait.</strong> L'agent joue un PM expérimenté : 7 étapes guidées (problème, personas, North Star, Outcome Criteria avec baseline → cible, périmètre v1, risques, roadmap v2) ou, en fast path, 6 questions posées en un seul bloc. Le PRD ne contient jamais de « comment » technique. Skill invoquée : <code>human-authorship-check</code>.</p>
+      <p><strong>Sortie.</strong> <code>.aiad/PRD.md</code> complet + résumé de validation (North Star, personas, top 3 critères).</p>
+
+      <h2 id="arch"><code>/sdd arch</code> — assistant ARCHITECTURE</h2>
+      <p><strong>Quand.</strong> Une fois le PRD renseigné — c'est un prérequis vérifié par la commande.</p>
+      <p><strong>Ce que ça fait.</strong> L'agent joue un architecte : NFRs chiffrées (p95, disponibilité, RPS), stack justifiée par le PRD, découpage en composants, diagramme ASCII de la request-path réelle, sécurité, principes et ADRs. Génère systématiquement le <strong>résumé condensé ≤ 500 tokens</strong> destiné au Context Engineering Budget.</p>
+      <p><strong>Sortie.</strong> <code>.aiad/ARCHITECTURE.md</code> complet + ADRs dans <code>.aiad/adrs/</code> le cas échéant.</p>
+
+      <h2 id="intent"><code>/sdd intent</code> — capture d'intention</h2>
+      <p><strong>Quand.</strong> Avant de rédiger une SPEC, pour chaque user story à implémenter.</p>
+      <p><strong>Ce que ça fait.</strong> Guide la rédaction des 5 champs (POURQUOI MAINTENANT, POUR QUI, OBJECTIF, CONTRAINTES, CRITÈRE DE DRIFT), vérifie la paternité humaine via la skill <code>human-authorship-check</code> (si FAIL, le fichier n'est pas créé), puis matérialise le cycle en graphe crash-recoverable (<code>npx aiad-sdd cycle init INTENT-NNN</code>). Peut sortir un verdict <code>JNSP</code> si l'intention n'est pas mûre — c'est un résultat valide.</p>
+      <p><strong>Sortie.</strong> <code>.aiad/intents/INTENT-NNN-[nom].md</code> + mise à jour de <code>_index.md</code>.</p>
+
+      <h2 id="research"><code>/sdd research</code> — gate GO/NO-GO</h2>
+      <p><strong>Quand.</strong> Entre l'Intent et la SPEC, pour évaluer la <em>viabilité de l'intention</em> vue du code réel.</p>
+      <p><strong>Ce que ça fait.</strong> Lance un <strong>Discovery obligatoire</strong> (agent Explore read-only) qui ancre chaque constat dans le code (<code>chemin:ligne</code> — sans ancrage, le verdict reste <code>JNSP</code>), synthétise faisabilité et risques, puis fait trancher l'humain : <code>GO | CONDITIONAL GO | DEFER | NO-GO</code>. Le verdict est durci par le scorer déterministe <code>npx aiad-sdd research</code> (exit 0/1/2). Skills invoquées : <code>human-authorship-check</code>, <code>regulatory-veto</code>, <code>grill-me</code> (en <code>--guided</code>).</p>
+      <p><strong>Sortie.</strong> <code>.aiad/research/RESEARCH-NNN-&lt;slug&gt;.md</code> + verdict machine. <code>DEFER</code>/<code>NO-GO</code> ferment la porte de <code>/sdd spec</code>.</p>
+
+      <h2 id="spec"><code>/sdd spec</code> — rédaction de SPEC</h2>
+      <p><strong>Quand.</strong> Une fois l'Intent validé et la Research en <code>GO</code> / <code>CONDITIONAL GO</code> (prérequis Discovery vérifié — court-circuit explicite admis pour une intention triviale, tracé dans la SPEC).</p>
+      <p><strong>Ce que ça fait.</strong> Décompose en tâches atomiques (1 SPEC = 1 PR), affiche un <strong>plan de parallélisme en waves</strong> dès que 2 SPECs ou plus sont identifiées, puis rédige chaque SPEC au format complet (comportement, cas limites, critères, interface, budget contexte, DoOD). Le flag <code>--ears</code> active la variante EARS (v1.11) et le linter strict. Skills invoquées : <code>reasons-canvas</code> (option si l'Intent est complexe), <code>ears-validator</code> (strict en EARS, indicatif en prose).</p>
+      <p><strong>Sortie.</strong> Fichier(s) <code>SPEC-NNN-[nom].md</code> dans <code>.aiad/specs/</code> + mise à jour des index et de l'Intent parent.</p>
+
+      <h2 id="gate"><code>/sdd gate</code> — Execution Gate</h2>
+      <p><strong>Quand.</strong> Avant tout lancement d'agent de code, pour valider la SPEC.</p>
+      <p><strong>Ce que ça fait.</strong> Score les 5 critères SQS + le Test de l'Étranger. SQS ≥ 4/5 → Gate OUVERTE et préparation du Context Engineering Budget ; sinon plan de remédiation. Si la SPEC déclare <code>Format : EARS</code> : 0 violation → bonus +1 sur la Testabilité ; ≥ 1 violation → critère 2 forcé à 0. Un critère non scorable produit une Gate <code>INCONNUE</code> (verdict JNSP, fail-closed). Skills invoquées : <code>sqs-scoring</code>, <code>ears-validator</code>, <code>grill-me</code> (en <code>--guided</code>).</p>
+      <p><strong>Sortie.</strong> Score SQS + décision OUVERTE / OUVERTE avec réserve / FERMÉE / INCONNUE + plan de remédiation si fermée.</p>
+
+      <h2 id="exec"><code>/sdd exec</code> — lancement d'exécution agent</h2>
+      <p><strong>Quand.</strong> Gate ouverte, SPEC en statut <code>ready</code>, contexte préparé.</p>
+      <p><strong>Ce que ça fait.</strong> Vérifie les prérequis (SPEC <code>ready</code>, SQS ≥ 4/5, Intent actif, Discovery, dépendances), assemble le contexte minimal (AGENT-GUIDE condensé + ARCHITECTURE résumée + SPEC active), vérifie le budget (&lt; 50K tokens), qualifie la gouvernance, puis découpe l'exécution en <strong>tranches verticales testables</strong> validées par mini-gates (<code>npx aiad-sdd mini-gate</code>). Le prompt inclut le contrat JNSP (<code>TODO-JNSP:</code> plutôt qu'inventer). Skills invoquées : <code>sqs-scoring</code>, <code>context-budget</code>, <code>regulatory-veto</code> (un VETO empêche le lancement).</p>
+      <p><strong>Sortie.</strong> Prompt agent assemblé + plan phasé <code>.aiad/exec/EXEC-&lt;SPEC&gt;-plan.md</code> + statut SPEC → <code>in-progress</code>, puis code + tests conformes.</p>
+
+      <h2 id="resume"><code>/sdd resume</code> — reprise de session</h2>
+      <p><strong>Quand.</strong> Session agent interrompue (timeout, erreur, limite de contexte, choix volontaire).</p>
+      <p><strong>Ce que ça fait.</strong> Reconstruit un contexte <em>plus léger</em> que le contexte initial : lit l'état réel du cycle (<code>npx aiad-sdd cycle next</code>) et du plan phasé (<code>npx aiad-sdd exec-status</code>), inventorie le travail fait via git, puis formule un prompt de reprise minimal. Si l'état n'est pas reconstructible à 100 %, verdict <code>JNSP</code> — jamais de relance en aveugle. Skills invoquées : <code>context-budget</code>, <code>drift-detection</code>.</p>
+      <p><strong>Sortie.</strong> Résumé d'état structuré + nouvelle session opérationnelle reprenant à l'étape exacte.</p>
+
+      <h2 id="split"><code>/sdd split</code> — découpage de SPEC</h2>
+      <p><strong>Quand.</strong> SPEC trop volumineuse (&gt; 200 lignes), échec d'atomicité à la Gate, &gt; 2 relances agent ou budget &gt; 50K tokens.</p>
+      <p><strong>Ce que ça fait.</strong> Propose un pattern de découpage — par couche technique, par cas d'usage (happy path / edge cases / erreurs), par dépendance ou par domaine métier — puis pré-valide chaque sous-SPEC avec la skill <code>sqs-scoring</code> : chacune doit pouvoir passer la Gate indépendamment. Au-delà de 5 sous-SPECs, l'Intent est trop ambitieux → retour à <code>/sdd intent</code>.</p>
+      <p><strong>Sortie.</strong> 2 à N sous-SPECs avec dépendances explicites et ordre d'exécution, SPEC parente en statut <code>split</code>.</p>
+
+      <h2 id="context"><code>/sdd context</code> — audit du budget de contexte</h2>
+      <p><strong>Quand.</strong> Après une session agent, pour boucler le feedback du Context Engineering Budget.</p>
+      <p><strong>Ce que ça fait.</strong> Compare l'estimation de la SPEC §6 avec le contexte réellement injecté, puis applique la skill <code>context-budget</code> : 5 métriques de santé M1–M5 (taux utile, relances, ratio, cohérence, durée) et un score 0–5/5. Le context rot (M4 + M5) est le signal le plus dangereux : il dégrade silencieusement.</p>
+      <p><strong>Sortie.</strong> Rapport d'audit avec recommandations + mise à jour de la SPEC §6 et des Lessons / Human Learnings si un pattern est détecté.</p>
+
+      <h2 id="validate"><code>/sdd validate</code> — validation du code agent</h2>
+      <p><strong>Quand.</strong> À la fin de chaque session d'implémentation, avant le Drift Lock.</p>
+      <p><strong>Ce que ça fait.</strong> Validation <strong>triple</strong> : technique (lint, types, tests, build), fonctionnelle (chaque critère §3 coché contre le code), gouvernance (agents Tier 1). Vérifie aussi le Critère de Drift de l'Intent parent, et propose en option une review <code>--cross-model</code> par un modèle tiers en contexte frais (additive-only). Skills composées : <code>ears-validator</code> + <code>drift-detection</code> + <code>regulatory-veto</code>. Un <code>UNKNOWN</code> Tier 1 vaut VETO (fail-closed) ; des <code>TODO-JNSP:</code> non résolus produisent un verdict <code>JNSP</code>.</p>
+      <p><strong>Sortie.</strong> Verdict VALIDÉ / CORRECTIONS MINEURES / ÉCHEC / JNSP avec rapport actionnable.</p>
+
+      <h2 id="drift-check"><code>/sdd drift-check</code> — Anti-Drift Check</h2>
+      <p><strong>Quand.</strong> Avant chaque PR, et en rituel de fin d'itération.</p>
+      <p><strong>Ce que ça fait.</strong> Combine deux contrôles depuis la v1.10 : l'heuristique git (skill <code>drift-detection</code> — code modifié sans SPEC mise à jour dans la même PR) et la mesure machine-vérifiable (skill <code>traceability</code>, via <code>npx aiad-sdd trace --fail-on-gap</code>). Des annotations <code>@spec</code> absentes donnent un verdict <code>INCONNU</code> — jamais OK par défaut, et traité comme un DRIFT par les hooks et la CI.</p>
+      <p><strong>Sortie.</strong> Verdict OK / DRIFT / INCONNU + mises à jour proposées + entrée <code>CHANGELOG-ARTEFACTS.md</code>. Ne jamais merger en état de drift.</p>
+
+      <h2 id="trace"><code>/sdd trace</code> — matrice de traçabilité</h2>
+      <p><strong>Quand.</strong> Pour mesurer la chaîne Intent ↔ SPEC ↔ Code ↔ Tests, à la demande ou en CI.</p>
+      <p><strong>Ce que ça fait.</strong> Scanne les annotations <code>@intent</code> / <code>@spec</code> / <code>@verified-by</code> / <code>@governance</code>, croise avec <code>.aiad/intents/</code> et <code>.aiad/specs/</code>, et produit les matrices Forward et Backward. Les gaps sont classés (orphelins, SPECs validées sans code — bloquants ; code non tracé, code sans tests) avec plan de remédiation. Skill invoquée : <code>traceability</code>.</p>
+      <p><strong>Sortie.</strong> Snapshots <code>.aiad/metrics/traceability/trace.{md,json,html}</code> + verdict OK / GAP.</p>
+
+      <h2 id="fact"><code>/sdd fact</code> — capture de fait technique</h2>
+      <p><strong>Quand.</strong> Un écart est constaté entre comportement livré et désiré, sans justifier un cycle Intent complet (bug mineur, comportement inattendu, drift partiel).</p>
+      <p><strong>Ce que ça fait.</strong> Capture l'écart précis (livré vs désiré), qualifie l'impact (fonctionnel / sécurité / performance / conformité spec) et décide l'action parmi quatre options : patch immédiat, nouveau Intent, ajustement de SPEC, ou dette technique documentée. Skills invoquées : <code>drift-detection</code>, <code>regulatory-veto</code> si dimension sécurité/conformité.</p>
+      <p><strong>Sortie.</strong> <code>.aiad/facts/FACT-NNN.md</code> avec décision tracée et lien vers la SPEC concernée.</p>
+
+      <h2 id="security"><code>/sdd security</code> — audit sécurité</h2>
+      <p><strong>Quand.</strong> Après toute implémentation impliquant des accès, des données utilisateur, des secrets ou un composant IA — recommandé avant toute PR critique.</p>
+      <p><strong>Ce que ça fait.</strong> Audit sur 4 axes : OWASP Top 10 (y compris injection de prompt), gestion des secrets, permissions des agents (Harness Engineering — minimal necessary permissions) et conformité réglementaire via la skill <code>regulatory-veto</code>. Un pattern non classifiable sort en <code>JNSP</code> et est traité <em>comme un risque</em> (fail-closed) — jamais « safe » par absence de preuve.</p>
+      <p><strong>Sortie.</strong> Rapport structuré (risques critiques / moyens / bonnes pratiques / zones JNSP) persisté dans <code>.aiad/metrics/security/YYYY-MM-DD-SPEC-NNN.md</code>.</p>
+
+      <h2 id="audit"><code>/sdd audit</code> — audit qualité</h2>
+      <p><strong>Quand.</strong> Avant ou pendant la validation, notamment pour les fonctionnalités à fort enjeu technique ou après plusieurs itérations d'un même composant.</p>
+      <p><strong>Ce que ça fait.</strong> Couvre 4 dimensions : conformité code ↔ SPEC critère par critère, qualité du code (complexité, couplage, lisibilité), dette technique (délibérée / accidentelle / bit rot), cohérence avec les conventions de l'AGENT-GUIDE. Tout drift détecté déclenche une proposition de mise à jour de SPEC (Drift Lock). Skills invoquées : <code>drift-detection</code>, <code>ears-validator</code>.</p>
+      <p><strong>Sortie.</strong> Rapport persisté dans <code>.aiad/metrics/audit/YYYY-MM-DD-SPEC-NNN.md</code> avec recommandations BLOQUANT / IMPORTANT / SUGGESTION.</p>
+
+      <div class="callout warn">
+        <span class="callout-title">Alias plats dépréciés</span>
+        <p>Les anciens alias (<code>/sdd-spec</code>, <code>/sdd-gate</code>, …) restent fonctionnels pendant une version et seront <strong>retirés à la v2</strong>. Ils affichent un message de migration vers la forme <code>/sdd &lt;sub&gt;</code>.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="../valeurs.html"><span class="dir">← Précédent</span>Valeurs &amp; piliers</a>
+        <a class="next" href="aiad.html"><span class="dir">Suivant →</span>Commandes /aiad</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="../artefacts.html">Les artefacts</a></li>
+        <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="../concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="../concepts/spec.html">SPEC</a></li>
+        <li><a href="../concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="../concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="../concepts/jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="sdd.html">Commandes /sdd</a></li>
+        <li><a href="aiad.html">Commandes /aiad</a></li>
+        <li><a href="cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="../gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The artifacts — the team's collective memory | SDD Mode</title>
+<meta name="description" content="AIAD artifacts are not bureaucracy: the Intent Statement, PRD, ARCHITECTURE, AGENT-GUIDE, SPECs and Definitions of Done form a strict documentation hierarchy — the team's collective memory and the fuel of AI agents.">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../fr/artefacts.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="concepts/research.html">2. Research Phase</a></li>
+            <li><a href="concepts/spec.html">3. SPEC</a></li>
+            <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="concepts/execution.html">5. Agent Execution</a></li>
+            <li><a href="concepts/validation.html">6. Validation</a></li>
+            <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="concepts/jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="concepts/traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="artifacts.html" aria-current="page">The artifacts</a></li>
+            <li><a href="values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="commands/sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="search.html">Search</a></li>
+            <li><a href="whats-new.html">What's New</a></li>
+            <li><a href="spec-library.html">SPEC Library</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../fr/artefacts.html" hreflang="fr" lang="fr">FR</a>
+          <a href="artifacts.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="concepts/research.html">2. Research Phase</a></li>
+          <li><a href="concepts/spec.html">3. SPEC</a></li>
+          <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="concepts/execution.html">5. Agent Execution</a></li>
+          <li><a href="concepts/validation.html">6. Validation</a></li>
+          <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="concepts/traceability.html">Traceability</a></li>
+          <li><a href="artifacts.html" aria-current="page">The artifacts</a></li>
+          <li><a href="values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="commands/sdd.html">/sdd (16)</a></li>
+          <li><a href="commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="governance/index.html">Tier 1 governance</a></li>
+          <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="get-started.html">Get Started</a></li>
+          <li><a href="metrics.html">Metrics</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="whats-new.html">What's New</a></li>
+          <li><a href="spec-library.html">SPEC Library</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">The artifacts</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Documentation hierarchy</p>
+      <h1>The artifacts — the team's collective memory</h1>
+      <p class="doc-lede">AIAD artifacts are not bureaucracy: they are <strong>tools for thinking and communicating</strong>. They make visible what would otherwise stay implicit, align the team on a shared understanding, and give AI agents the context they need to perform. Without them, the context is lost at every session.</p>
+
+      <h2 id="outils-de-pensee">Thinking tools, not paperwork</h2>
+      <p>A good artifact is recognised by four qualities: it is <strong>actionable</strong> (can we act from this document?), <strong>living</strong> (does it evolve with understanding?), <strong>minimal</strong> (does it contain just enough, no more?) and <strong>collaborative</strong> (was it co-created, not dictated?). What matters is not having perfect documents — it is having useful documents. Without an AGENT-GUIDE, agents produce generic code; without ARCHITECTURE, inconsistent code; without a SPEC, incorrect code.</p>
+
+      <h2 id="hierarchie">The documentation hierarchy</h2>
+      <p>The artifacts are organised in a strict hierarchy. The rule is absolute: <strong>never contradict a higher level</strong>.</p>
+      <pre><code>AIAD Constitution (immutable values)
+  └── Tier 1 Governance Agents (veto power)
+       └── PRD (product vision)
+            └── ARCHITECTURE (technical standards)
+                 └── AGENT-GUIDE (permanent context)
+                      └── SPEC (per-task activation)</code></pre>
+      <p>This hierarchy is also the management tool of the <a href="concepts/context-budget.html">Context Engineering Budget</a>: strategic context at the top (injected during framing), permanent context in the middle (condensed), task context at the bottom (one SPEC at a time). In a conflict between a SPEC and a <a href="governance/index.html">governance</a> agent, governance prevails — always.</p>
+
+      <h2 id="intent">Intent Statement — the archived WHY</h2>
+      <p>The <a href="concepts/intent-statement.html">Intent Statement</a> is the first-order artifact: it captures the human intent behind each feature in five fields (WHY NOW, FOR WHOM, OBJECTIVE, CONSTRAINTS, DRIFT CRITERION), with a mandatory human author — the <a href="concepts/human-authorship.html">Human Authorship</a> principle. It precedes and transcends the SPEC, and it is archived in <code>.aiad/intents/</code>. Six months from now, it is the one that will answer the question "what did we want to accomplish, and why?".</p>
+
+      <h2 id="prd">PRD — the expected value</h2>
+      <p>The <strong>Product Requirement Document</strong> clarifies why and what to build before the how. It contains the context and the problem, the measurable <strong>Outcome Criteria</strong>, the personas and use cases, the deliberate out-of-scope, the trade-offs and the risks. Five practices are non-negotiable: start from the problem (not the solution), define the success criteria before building, write it <em>with</em> the team, keep it living, and illustrate it (wireframes, flows).</p>
+      <div class="callout warn">
+        <span class="callout-title">Anti-pattern</span>
+        <p>The fifty-page river of a PRD that nobody reads, or the vague PRD along the lines of "Improve the user experience". Both are useless. And on the agent side: the full PRD is only injected during the <strong>framing phase</strong>, never during development.</p>
+      </div>
+
+      <h2 id="architecture">ARCHITECTURE — the coherence reference</h2>
+      <p>The ARCHITECTURE document defines the technical standards that agents and PEs must respect, in <strong>nine sections</strong>: architectural principles, overview, justified tech stack, project structure, code conventions, patterns and best practices, security, performance, and <strong>ADRs</strong> (Architecture Decision Records). It is evolutive, justified, pragmatic (YAGNI), visual and actionable. In an agent session, it is never injected in full: a <strong>permanent condensed version of 500 tokens maximum</strong> is enough — the rest is consulted on demand.</p>
+
+      <h2 id="agent-guide">AGENT-GUIDE — the agent's permanent context</h2>
+      <p>The AGENT-GUIDE is the most operational document of the framework: injected into every session, it turns a generic agent into a project agent. It contains the project identity, the <strong>absolute ALWAYS / NEVER rules</strong> (e.g.: always synchronise SPEC + code in the same PR; never push secrets), the code conventions, the <strong>domain vocabulary</strong>, the patterns and anti-patterns — and two complementary learning sections:</p>
+      <table>
+        <caption class="visually-hidden">Lessons Learned vs Human Learnings</caption>
+        <thead><tr><th scope="col">Section</th><th scope="col">Question asked</th><th scope="col">Updated</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Lessons Learned</strong></td><td>"What did the <em>agent</em> get wrong?" — recurring agent errors and corrections applied</td><td>End of each iteration (5 min, not optional)</td></tr>
+          <tr><td><strong>Human Learnings</strong></td><td>"What did the <em>human</em> express poorly?" — failures in expressing the intent</td><td>Reviewed at the monthly Intent Workshop</td></tr>
+        </tbody>
+      </table>
+      <p>A guide with a hundred rules is less effective than a guide with ten well-chosen ones: the AGENT-GUIDE is bounded by the Context Budget (condensed ≤ 500 tokens per session).</p>
+
+      <h2 id="spec">SPECs — the agent's work instruction</h2>
+      <p>A <a href="concepts/spec.html">SPEC</a> bridges the intent (PRD, Intent) and the agent's implementation. A quality SPEC makes it possible to generate 80%+ of correct code on the first pass — it is the framework's best-ROI investment. Four criteria define it: atomicity, precision, testability, completeness — scored by the SQS at the <a href="concepts/execution-gate.html">Execution Gate</a> (≥ 4/5 required). Each SPEC carries its own <strong>Drift Criterion</strong> and stays synchronised with the code on every PR.</p>
+
+      <h2 id="dod">The Definitions of Done</h2>
+      <p>The <strong>Definition of Output Done (DoOD)</strong> sets the standard for an increment to be shippable, in six categories: technical, security, performance, functional, deployment, review. The principle is non-negotiable: all criteria or nothing — <strong>"90% Done is not Done"</strong>.</p>
+      <p>The <strong>Definition of Outcome Done (DoOuD)</strong> measures whether the expected value was realised: <strong>User Outcomes</strong> (NPS, adoption, retention), <strong>Business Outcomes</strong> (MRR, conversions, efficiency) and <strong>Learning Outcomes</strong> (hypotheses validated or invalidated, insights). The output is the means; the outcome is the goal — a feature shipped but not adopted is not a success.</p>
+
+      <h2 id="arborescence">The <code>.aiad/</code> tree</h2>
+      <pre><code>.aiad/
+├── PRD.md                  ← Product vision (injection: framing only)
+├── ARCHITECTURE.md         ← Technical standards (permanent condensed version)
+├── AGENT-GUIDE.md          ← Permanent context + Lessons Learned + Human Learnings
+├── gouvernance/            ← Tier 1 agents with veto power
+│   ├── _index.md
+│   ├── AIAD-AI-ACT.md
+│   ├── AIAD-RGPD.md
+│   ├── AIAD-RGAA.md
+│   └── AIAD-RGESN.md
+├── intents/                ← Intent Statements (WHY)
+│   └── _index.md
+├── specs/                  ← Technical SPECs (HOW)
+│   └── _index.md
+├── facts/                  ← /sdd fact traces
+├── metrics/
+│   ├── security/           ← /sdd security reports
+│   ├── audit/              ← /sdd audit reports
+│   └── traceability/       ← /sdd trace snapshots (Markdown + JSON + HTML)
+└── CHANGELOG-ARTEFACTS.md  ← Update history</code></pre>
+
+      <h2 id="anti-patterns">Artifact anti-patterns</h2>
+      <div class="callout danger">
+        <span class="callout-title">Three ways to kill your artifacts</span>
+        <p><strong>The hundred-page guide</strong> — Context Budget exceeded, the agent ignores most of the rules. <strong>The frozen SPEC</strong> — "validated, we don't touch it anymore": five iterations later, that's spec drift and the agent works on a wrong basis. <strong>Injecting everything at once</strong> — the agent receives everything, understands little: that's context rot. AGENT-GUIDE for the permanent, SPEC for the task — never mix the two.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="concepts/traceability.html"><span class="dir">← Previous</span>Traceability</a>
+        <a class="next" href="values.html"><span class="dir">Next →</span>AIAD values &amp; pillars</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li><a href="values.html">Values &amp; pillars</a></li>
+        <li><a href="artifacts.html">The artifacts</a></li>
+        <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="concepts/spec.html">SPEC</a></li>
+        <li><a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="commands/sdd.html">/sdd commands</a></li>
+        <li><a href="commands/aiad.html">/aiad commands</a></li>
+        <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

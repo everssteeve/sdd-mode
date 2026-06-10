@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Traçabilité machine-vérifiable — Intent ↔ SPEC ↔ Code ↔ Tests | SDD Mode</title>
+<meta name="description" content="Depuis la v1.10, le Drift Lock est mesuré algorithmiquement : annotations @intent, @spec, @verified-by, @governance dans le code, matrice générée par npx aiad-sdd trace, GitHub Action sdd-trace.yml avec --fail-on-gap sur chaque PR.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../../en/concepts/traceability.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html">2. Phase Research</a></li>
+            <li><a href="spec.html">3. SPEC</a></li>
+            <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html">5. Exécution agent</a></li>
+            <li><a href="validation.html">6. Validation</a></li>
+            <li><a href="drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="traceability.html" aria-current="page">Traçabilité machine-vérifiable</a></li>
+            <li><a href="../artefacts.html">Les artefacts</a></li>
+            <li><a href="../valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="../gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="../recherche.html">Recherche</a></li>
+            <li><a href="../nouveautes.html">Nouveautés</a></li>
+            <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="traceability.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../../en/concepts/traceability.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="research.html">2. Phase Research</a></li>
+          <li><a href="spec.html">3. SPEC</a></li>
+          <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html">5. Exécution agent</a></li>
+          <li><a href="validation.html">6. Validation</a></li>
+          <li><a href="drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="traceability.html" aria-current="page">Traçabilité</a></li>
+          <li><a href="../artefacts.html">Les artefacts</a></li>
+          <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../gouvernance/index.html">Gouvernance Tier 1</a></li>
+          <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="../demarrer.html">Démarrer</a></li>
+          <li><a href="../metriques.html">Métriques</a></li>
+          <li><a href="../glossaire.html">Glossaire</a></li>
+          <li><a href="../recherche.html">Recherche</a></li>
+          <li><a href="../nouveautes.html">Nouveautés</a></li>
+          <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="../index.html">Accueil</a></li>
+          <li>Concepts</li>
+          <li aria-current="page">Traçabilité machine-vérifiable</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">v1.10 · <code>/sdd trace</code></p>
+      <h1>Traçabilité machine-vérifiable — Intent ↔ SPEC ↔ Code ↔ Tests</h1>
+      <p class="doc-lede">Depuis la v1.10, le <a href="drift-lock.html">Drift Lock</a> n'est plus seulement un rituel humain : il est <strong>mesuré algorithmiquement</strong>. Quatre annotations dans le code, une matrice générée par <code>npx aiad-sdd trace</code>, et une GitHub Action qui bloque toute PR présentant un gap — la chaîne Intent ↔ SPEC ↔ Code ↔ Tests devient vérifiable par une machine.</p>
+
+      <h2 id="drift-mesure">Du rituel humain à la mesure algorithmique</h2>
+      <p>Le Drift Lock exigeait déjà que code et SPEC soient synchronisés dans la même PR — mais cette vérification reposait sur la rigueur du Product Engineer. La traçabilité machine-vérifiable la rend objectivable : chaque fichier de code applicatif déclare la SPEC qu'il sert, chaque SPEC pointe son Intent parent, chaque test couvre une SPEC identifiée. L'absence d'annotation n'est pas un détail cosmétique — c'est un <strong>drift latent</strong> qui se détecte au commit, pas en production.</p>
+
+      <h2 id="annotations">Les quatre annotations</h2>
+      <table>
+        <caption class="visually-hidden">Les 4 annotations machine-vérifiables</caption>
+        <thead><tr><th scope="col">Tag</th><th scope="col">Format</th><th scope="col">Cardinalité</th></tr></thead>
+        <tbody>
+          <tr><td><code>@intent</code></td><td><code>INTENT-NNN</code></td><td>0..1</td></tr>
+          <tr><td><code>@spec</code></td><td><code>SPEC-NNN-N-slug</code></td><td><strong>1..n — obligatoire sur tout code applicatif</strong></td></tr>
+          <tr><td><code>@verified-by</code></td><td>chemin relatif vers un test</td><td>0..n</td></tr>
+          <tr><td><code>@governance</code></td><td><code>AIAD-RGPD,AIAD-AI-ACT,…</code></td><td>0..1</td></tr>
+        </tbody>
+      </table>
+      <p>L'exemple canonique en JSDoc :</p>
+      <pre><code>/**
+ * @intent INTENT-042
+ * @spec SPEC-042-1-flow-auth
+ * @verified-by tests/auth/oidc.test.ts
+ * @governance AIAD-RGPD
+ */</code></pre>
+      <p>Les annotations sont acceptées dans les <strong>JSDoc</strong>, les commentaires <code>//</code> et <code>#</code>, et les docstrings Python <code>"""…"""</code> — le scanner est agnostique du langage. Seul <code>@spec</code> est obligatoire : 100 % des fichiers de code applicatif doivent en porter au moins un (les fichiers d'infrastructure pure peuvent être whitelistés explicitement). Un test peut être lié à une SPEC par deux mécanismes au choix : annotation <code>@spec</code> côté test, ou <code>@verified-by</code> côté code.</p>
+
+      <h2 id="matrice">Générer la matrice : <code>npx aiad-sdd trace</code></h2>
+      <pre><code>npx aiad-sdd trace                  # Markdown + JSON + HTML dans .aiad/metrics/traceability/
+npx aiad-sdd trace --json           # JSON brut sur stdout (CI)
+npx aiad-sdd trace --fail-on-gap    # Exit 1 si gap bloquant détecté (CI)</code></pre>
+      <p>Le scan croise les annotations du code avec <code>.aiad/intents/</code> et <code>.aiad/specs/</code> et produit deux matrices. La matrice <strong>Forward</strong> (Intent → SPEC → Code → Tests, une ligne par SPEC) vérifie que chaque intention validée est implémentée et testée. La matrice <strong>Backward</strong> (Tests → Code → SPEC → Intent, une ligne par test) débusque les tests sans SPEC parent — qu'on annote, ou dont on documente la nature (exploratoire, benchmark). Chaque snapshot est persisté dans <code>.aiad/metrics/traceability/</code>, ce qui permet de mesurer l'adoption dans le temps.</p>
+
+      <h2 id="gaps">Les trois familles de gaps</h2>
+      <table>
+        <caption class="visually-hidden">Classification des gaps de traçabilité</caption>
+        <thead><tr><th scope="col">Famille</th><th scope="col">Gap</th><th scope="col">Sévérité par défaut</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="3"><strong>Orphan</strong></td><td>Intent sans aucune SPEC liée</td><td>Haute</td></tr>
+          <tr><td>SPEC référencée par le code mais absente de <code>.aiad/specs/</code></td><td><strong>Bloquante</strong></td></tr>
+          <tr><td>Intent référencé par le code mais absent de <code>.aiad/intents/</code></td><td><strong>Bloquante</strong></td></tr>
+          <tr><td><strong>Unimplemented</strong></td><td>SPEC ready/in-progress/done sans aucun code annoté</td><td><strong>Bloquante</strong></td></tr>
+          <tr><td rowspan="2"><strong>Untraced</strong></td><td>Code applicatif sans <code>@spec</code></td><td>Moyenne (selon périmètre)</td></tr>
+          <tr><td>Code annoté sans aucun test</td><td>Haute</td></tr>
+        </tbody>
+      </table>
+      <p>Quand le scan ne peut pas conclure — fichier illisible, annotation pointant vers une SPEC inexistante, index corrompu — le verdict est <code>UNKNOWN</code>, jamais un OK silencieux : c'est la politique <a href="jnsp.html">JNSP fail-closed</a>, et <code>--fail-on-gap</code> traite UNKNOWN comme un GAP.</p>
+
+      <h2 id="ci">La GitHub Action <code>sdd-trace.yml</code></h2>
+      <div class="callout warn">
+        <span class="callout-title">Bloquant en PR</span>
+        <p>La GitHub Action <code>.github/workflows/sdd-trace.yml</code> invoque <code>aiad-sdd trace --fail-on-gap</code> sur <strong>chaque pull request</strong>. Un gap bloquant — SPEC fantôme, Intent fantôme, SPEC validée sans code — fait échouer la pipeline. Le drift ne se merge pas.</p>
+      </div>
+      <p>La remédiation est toujours actionnable : Intent sans SPEC → <code>/sdd spec</code> ou archiver l'Intent ; SPEC validée sans code → implémenter (et annoter) ou repasser la SPEC en <code>draft</code> ; code orphelin → créer la SPEC manquante ou corriger l'ID ; code annoté sans test → ajouter un test annoté <code>@spec</code> ou un <code>@verified-by</code>.</p>
+
+      <h2 id="skill">La skill <code>traceability</code></h2>
+      <p>La logique est portée par la skill <code>traceability</code>, invoquée par <code>/sdd trace</code>, <code>/sdd drift-check</code>, <code>/sdd validate</code>, <code>/sdd audit</code> et le hook pre-commit — en plus de la GitHub Action. La skill <code>drift-detection</code> la compose sans dupliquer sa logique : un gap détecté par la matrice fait échouer le drift-check. C'est l'aboutissement de la composition de skills du SDD Mode : une seule convention d'annotations, lue partout, de l'éditeur à la CI.</p>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="jnsp.html"><span class="dir">← Précédent</span>JNSP — politique d'incertitude</a>
+        <a class="next" href="../artefacts.html"><span class="dir">Suivant →</span>Les artefacts</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="../artefacts.html">Les artefacts</a></li>
+        <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="../commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="../commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="../gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

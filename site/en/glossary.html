@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary — the vocabulary of SDD Mode | SDD Mode</title>
+<meta name="description" content="The complete vocabulary of SDD Mode (AIAD framework): Intent Statement, SPEC, SQS, Execution Gate, Drift Lock, JNSP, EARS, traceability, Research Phase, Tier 1 governance and every framework term, sorted alphabetically.">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../fr/glossaire.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="concepts/research.html">2. Research Phase</a></li>
+            <li><a href="concepts/spec.html">3. SPEC</a></li>
+            <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="concepts/execution.html">5. Agent Execution</a></li>
+            <li><a href="concepts/validation.html">6. Validation</a></li>
+            <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="concepts/jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="concepts/traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="artifacts.html">The artifacts</a></li>
+            <li><a href="values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="commands/sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="glossary.html" aria-current="page">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="search.html">Search</a></li>
+            <li><a href="whats-new.html">What's New</a></li>
+            <li><a href="spec-library.html">SPEC Library</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../fr/glossaire.html" hreflang="fr" lang="fr">FR</a>
+          <a href="glossary.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="concepts/research.html">2. Research Phase</a></li>
+          <li><a href="concepts/spec.html">3. SPEC</a></li>
+          <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="concepts/execution.html">5. Agent Execution</a></li>
+          <li><a href="concepts/validation.html">6. Validation</a></li>
+          <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="concepts/traceability.html">Traceability</a></li>
+          <li><a href="artifacts.html">The artifacts</a></li>
+          <li><a href="values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="commands/sdd.html">/sdd (16)</a></li>
+          <li><a href="commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="governance/index.html">Tier 1 governance</a></li>
+          <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="get-started.html">Get Started</a></li>
+          <li><a href="metrics.html">Metrics</a></li>
+          <li><a href="glossary.html" aria-current="page">Glossary</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="whats-new.html">What's New</a></li>
+          <li><a href="spec-library.html">SPEC Library</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Glossary</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Reference</p>
+      <h1>Glossary — the vocabulary of SDD Mode</h1>
+      <p class="doc-lede">Every term of the framework, sorted alphabetically — from the founding vocabulary (Intent Statement, SPEC, Drift Lock) to the notions introduced by versions 1.7 through 1.12 (routers, skills, JNSP, EARS, machine-verifiable traceability, Research Phase).</p>
+
+      <h2 id="letter-a">A</h2>
+      <dl>
+        <dt id="agent-guide">AGENT-GUIDE</dt>
+        <dd>The agent's permanent context: absolute rules, project conventions, Lessons Learned, Human Learnings and governance cross-references. Injected in condensed form (max 500 tokens) into every session. Since v1.12, it is the <strong>upstream source</strong> of the multi-runtime rules emitted by <code>emit-rules</code>. See <a href="artifacts.html">the artifacts</a>.</dd>
+        <dt id="anti-drift-check">Anti-Drift Check</dt>
+        <dd>End-of-iteration ritual verifying artifact / code synchronisation across the whole project — the periodic application of the <a href="#drift-lock">Drift Lock</a>. Command: <code>/sdd drift-check</code>.</dd>
+        <dt id="architecture">ARCHITECTURE</dt>
+        <dd>The technical-standards document: stack, patterns, structural decisions. Injected <em>condensed</em> (~500 tokens) into every agent session — never in full. Written with the <code>/sdd arch</code> assistant.</dd>
+      </dl>
+
+      <h2 id="letter-c">C</h2>
+      <dl>
+        <dt id="context-engineering-budget">Context Engineering Budget</dt>
+        <dd>The context-absorption capacity of an agent session, owned by the Product Engineer. Rules: one session = one objective, a single active SPEC, 60-70% of the window as the effective maximum, Intent and SPEC at the top of the context. Audited by <code>/sdd context</code>. See the <a href="concepts/context-budget.html">Context Engineering Budget</a> article.</dd>
+        <dt id="context-rot">Context Rot</dt>
+        <dd>Quality degradation of an LLM before the theoretical limit of its context window: less precise answers, forgotten SPEC constraints, repetitive behaviour. Justifies the 60-70% operational threshold and the SPEC as a stable anchor point.</dd>
+      </dl>
+
+      <h2 id="letter-d">D</h2>
+      <dl>
+        <dt id="discovery">Discovery</dt>
+        <dd><strong>Mandatory</strong> exploration of the real code during the <a href="#phase-research">Research Phase</a>: the viability of an intent is verified in the repository, not in an abstract discussion. The <code>discovery-gate.js</code> hook checks this prerequisite before <code>/sdd spec</code> and <code>/sdd exec</code>.</dd>
+        <dt id="dood">DoOD — Definition of Output Done</dt>
+        <dd>The completion criteria of a task, defined in the SPEC: code, tests, synchronised artifacts. Updating the SPEC is part of it — merged code with an out-of-sync SPEC is not done.</dd>
+        <dt id="dooud">DoOuD — Definition of Outcome Done</dt>
+        <dd>The value-oriented counterpart of the DoOD: a feature is only truly "done" when the outcome targeted by the Intent is observed among users — not merely when the code ships.</dd>
+        <dt id="dora-metrics">DORA Metrics</dt>
+        <dd>The 4 delivery-performance indicators from the DORA programme: Deployment Frequency, Lead Time for Changes, Change Failure Rate, MTTR. Computed organically by <code>/aiad dora</code> with an Elite / High / Medium / Low rating. See <a href="metrics.html#dora">Metrics — DORA</a>.</dd>
+        <dt id="drift-lock">Drift Lock</dt>
+        <dd>PR policy: code and SPEC synchronised in the same commit. Step 7 of the cycle, enforced by the pre-commit hook and by the traceability matrix in CI. See the <a href="concepts/drift-lock.html">Drift Lock</a> article.</dd>
+      </dl>
+
+      <h2 id="letter-e">E</h2>
+      <dl>
+        <dt id="ears">EARS — Easy Approach to Requirements Syntax</dt>
+        <dd>Optional SPEC-writing variant (v1.11): SHALL requirements with WHEN / WHILE / IF / WHERE triggers. Enabled by <code>/sdd spec --ears</code>, strictly linted (rules R1-R7) at the Gate: 0 violations → guaranteed +1 on the SQS Testability criterion; ≥ 1 violation → criterion forced to 0. Reserve it for SPECs where ambiguity is expensive — security, payments, compliance, API contracts.</dd>
+        <dt id="execution-gate">Execution Gate</dt>
+        <dd>Checkpoint between the SPEC and the agent launch: no code before the Gate opens, that is <a href="#sqs">SQS</a> ≥ 4/5. Command: <code>/sdd gate</code>. See the <a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a> article.</dd>
+      </dl>
+
+      <h2 id="letter-f">F</h2>
+      <dl>
+        <dt id="fail-closed">Fail-closed</dt>
+        <dd>The governance uncertainty policy: when a Tier 1 agent cannot decide, the <code>UNKNOWN</code> verdict counts as a <strong>VETO</strong>. Block by default rather than let things through — never any silent self-clearance. See <a href="governance/index.html">Governance</a>.</dd>
+        <dt id="flow-metrics">Flow Metrics</dt>
+        <dd>The 5 value-stream health indicators: Cycle Time, Lead Time, Throughput, WIP, Flow Efficiency. Computed by <code>/aiad flow</code>, with a Lead Time breakdown to locate the bottlenecks. See <a href="metrics.html#flow">Metrics — Flow</a>.</dd>
+      </dl>
+
+      <h2 id="letter-g">G</h2>
+      <dl>
+        <dt id="go-conditional-go-defer-no-go">GO / CONDITIONAL GO / DEFER / NO-GO</dt>
+        <dd>The graduated verdict of the <a href="#phase-research">Research Phase</a> on the viability of an intent: viable (GO), viable under explicit conditions (CONDITIONAL GO), to be postponed (DEFER), not viable (NO-GO). The verdict is <strong>decided by the human</strong> — the agent prepares the case, it does not rule. See <a href="concepts/research.html">Research Phase</a>.</dd>
+        <dt id="agent-guide-gouvernance">Governance AGENT-GUIDEs</dt>
+        <dd>The 4 <a href="#tier-1">Tier 1</a> regulatory guides holding veto power: AIAD-AI-ACT, AIAD-RGPD, AIAD-RGAA, AIAD-RGESN. Details on the <a href="governance/index.html">Governance</a> page.</dd>
+      </dl>
+
+      <h2 id="letter-h">H</h2>
+      <dl>
+        <dt id="harness-engineering">Harness Engineering</dt>
+        <dd>The Agents Engineer's core practice: configuring, supervising and governing the agents under the <em>minimal necessary permissions</em> principle. Audited by <code>/sdd security</code>.</dd>
+        <dt id="human-authorship">Human Authorship</dt>
+        <dd>Value 7 of the framework: authorship of intent cannot be delegated. Every Intent Statement is written by an identifiable human — if an agent wrote it, the session is invalidated. Checked by the <code>human-authorship-check</code> skill. See the <a href="concepts/human-authorship.html">Human Authorship</a> article.</dd>
+        <dt id="human-learnings">Human Learnings</dt>
+        <dd>The AGENT-GUIDE section documenting the gaps between human intent and delivery — fed by the <a href="#atelier-intention">Intent Workshop</a>. Not to be confused with <a href="#lessons-learned">Lessons Learned</a>, which document the agent's errors.</dd>
+      </dl>
+
+      <h2 id="letter-i">I</h2>
+      <dl>
+        <dt id="intent-statement">Intent Statement</dt>
+        <dd>First-order artifact capturing the human WHY in 5 fields: WHY NOW, FOR WHOM, OBJECTIVE, CONSTRAINTS, DRIFT CRITERION. Human author mandatory, archived in <code>.aiad/intents/</code>. See the <a href="concepts/intent-statement.html">Intent Statement</a> article.</dd>
+        <dt id="atelier-intention">Intent Workshop</dt>
+        <dd>Monthly ritual (60 min max) asking the question: "are we still building what we wanted?". A <strong>purely human space</strong> — AI agents play no role in it, not even an automatic summary. Prepared by <code>/aiad intention</code>, never facilitated by it. See <a href="team/rituals.html">Loops &amp; rituals</a>.</dd>
+      </dl>
+
+      <h2 id="letter-j">J</h2>
+      <dl>
+        <dt id="jnsp">JNSP — "Je Ne Sais Pas — I don't know"</dt>
+        <dd>Uncertainty verdict (EN equivalent: <code>UNKNOWN</code>): a valid signal, not a failure. The agent issues it when an area is undecidable — intent with no identifiable human, untestable criterion, ambiguous governance, missing <code>@spec</code> annotation. In code: <code>TODO-JNSP:</code>, blocked by the pre-commit hook until resolved. CLI exit code: <code>2</code>. See the <a href="concepts/jnsp.html">JNSP</a> article.</dd>
+      </dl>
+
+      <h2 id="letter-l">L</h2>
+      <dl>
+        <dt id="lessons-learned">Lessons Learned</dt>
+        <dd>The AGENT-GUIDE section documenting the agent's recurring errors (at least 2 occurrences on different tasks), collected at the retrospective. Not to be confused with <a href="#human-learnings">Human Learnings</a>.</dd>
+      </dl>
+
+      <h2 id="letter-p">P</h2>
+      <dl>
+        <dt id="prd">PRD — Product Requirement Document</dt>
+        <dd>The product source of truth: vision, users, outcomes. Injected <strong>only during the framing phase</strong>, never during development. Written with the <code>/sdd prd</code> assistant.</dd>
+        <dt id="product-engineer">Product Engineer (PE)</dt>
+        <dd>Guardian of intent throughout the cycle: orchestrates AI agents to realise the intent without betraying it, and owns the Context Engineering Budget of every session. See <a href="team/responsibilities.html#pe">The 5 responsibilities</a>.</dd>
+      </dl>
+
+      <h2 id="letter-r">R</h2>
+      <dl>
+        <dt id="reasons-canvas">REASONS Canvas</dt>
+        <dd>Optional SPDD tool (Kevlin Henney) for structuring the justification of a SPEC before the standard AIAD format — offered by <code>/sdd spec</code> when the Intent is complex or ambiguous. Associated skill: <code>reasons-canvas</code>.</dd>
+        <dt id="phase-research">Research Phase</dt>
+        <dd>Step 2 of the cycle (<code>/sdd research</code>), inserted between the Intent and the SPEC: it validates the <strong>viability of the intent</strong> grounded in the code (mandatory <a href="#discovery">Discovery</a>), not the quality of the SPEC. Graduated verdict <a href="#go-conditional-go-defer-no-go">GO / CONDITIONAL GO / DEFER / NO-GO</a>. Proportionate: it can be explicitly short-circuited (and traced) for a trivial intent. See <a href="concepts/research.html">Research Phase</a>.</dd>
+        <dt id="router">Router</dt>
+        <dd>Command-namespacing mechanism (v1.7): the 27 commands are grouped under 3 routers — <code>/sdd &lt;sub&gt;</code>, <code>/aiad &lt;sub&gt;</code>, <code>/aiad-help</code>. Sub-command bodies are loaded on demand, cutting the cold-loaded frontmatter by 94%. See <a href="commands/sdd.html">/sdd commands</a>.</dd>
+      </dl>
+
+      <h2 id="letter-s">S</h2>
+      <dl>
+        <dt id="sdd-audit">/sdd audit</dt>
+        <dd>Code-quality audit command: SPEC conformance, technical debt introduced, consistency with the AGENT-GUIDE. Reports persisted in <code>.aiad/metrics/audit/</code>.</dd>
+        <dt id="sdd-fact">/sdd fact</dt>
+        <dd>Command for capturing and qualifying a delivered/desired gap without a full Intent cycle — produces a <a href="#fact-technique">Technical Fact</a> in <code>.aiad/facts/</code>.</dd>
+        <dt id="sdd-security">/sdd security</dt>
+        <dd>Security audit command: OWASP Top 10, secrets management, agent permissions (<a href="#harness-engineering">Harness Engineering</a>), AI-ACT / RGPD compliance. Reports persisted in <code>.aiad/metrics/security/</code>.</dd>
+        <dt id="skill">Skill</dt>
+        <dd>Reusable, auto-triggered block of logic (v1.9), stored in <code>.claude/skills/</code>: <code>human-authorship-check</code>, <code>regulatory-veto</code>, <code>drift-detection</code>, <code>sqs-scoring</code>, <code>context-budget</code>, <code>reasons-canvas</code>, <code>ears-validator</code>, <code>traceability</code>. Complex commands compose several skills without duplicating their logic.</dd>
+        <dt id="spec">SPEC</dt>
+        <dd>Detailed technical specification of an atomic task: scope, interface, behaviour, edge cases, tests, drift criterion. A single active SPEC per agent session. Prose or <a href="#ears">EARS</a> format. See the <a href="concepts/spec.html">SPEC</a> article.</dd>
+        <dt id="spec-anchored">Spec-Anchored</dt>
+        <dd>AIAD's positioning: the SPEC is maintained as a <em>permanent anchor</em>, synchronised with the code on every PR. Neither spec-first (spec discarded after the task), nor spec-as-source (spec that generates the code).</dd>
+        <dt id="spec-drift">Spec Drift</dt>
+        <dd>Gap between the state of a SPEC and the actual state of the code. Treated as a <strong>process failure</strong>, not an agent error — detected by the <code>drift-detection</code> skill and the <a href="#drift-lock">Drift Lock</a>.</dd>
+        <dt id="sqs">SQS — Spec Quality Score</dt>
+        <dd>Quality score of a SPEC on 5 criteria (atomicity, precision, testability, non-ambiguity, defined scope) completed by the <a href="#test-de-letranger">Stranger Test</a>. Gate threshold: ≥ 4/5; an unscorable criterion produces <code>?/5</code> and an UNKNOWN Gate. See <a href="metrics.html#sqs">Metrics — SQS</a>.</dd>
+        <dt id="test-de-letranger">Stranger Test</dt>
+        <dd>Criterion 6 of the SQS, non-scorable: would a person from outside the project, with no verbal context, understand the SPEC and be able to implement it? If the answer is no, the SPEC rests on implicit context — it is not ready for an agent.</dd>
+      </dl>
+
+      <h2 id="letter-t">T</h2>
+      <dl>
+        <dt id="fact-technique">Technical Fact</dt>
+        <dd>Artifact of <code>/sdd fact</code>: the capture of an observed gap between delivered and desired behaviour, with an impact qualification (functional / security / performance / compliance) and a corrective-action decision traced in <code>.aiad/facts/FACT-NNN.md</code>.</dd>
+        <dt id="tier-1">Tier 1</dt>
+        <dd>The highest level in the governance-agent hierarchy — just below the AIAD Constitution. The 4 Tier 1 agents (AI-ACT, RGPD, RGAA, RGESN) hold a <strong>veto right</strong> over any non-compliant SPEC or implementation, with a <a href="#fail-closed">fail-closed</a> policy. See <a href="governance/index.html">Governance</a>.</dd>
+        <dt id="tracabilite">Traceability — <code>@intent</code>, <code>@spec</code>, <code>@verified-by</code>, <code>@governance</code></dt>
+        <dd>Machine-verifiable Intent ↔ SPEC ↔ Code ↔ Tests matrix (v1.10), built from the annotations placed in the code: <code>@intent INTENT-NNN</code> (0..1), <code>@spec SPEC-NNN-N-slug</code> (1..n, mandatory on all application code), <code>@verified-by</code> (path to a test, 0..n), <code>@governance</code> (Tier 1 frameworks, 0..1). Generated by <code>/sdd trace</code> or <code>npx aiad-sdd trace</code>; the <code>sdd-trace.yml</code> GitHub Action fails the PR on a blocking gap (<code>--fail-on-gap</code>). See the <a href="concepts/traceability.html">Traceability</a> article.</dd>
+      </dl>
+
+      <div class="callout info">
+        <span class="callout-title">Missing a term?</span>
+        <p>The glossary tracks the framework's evolutions. <code>/aiad-help &lt;keyword&gt;</code> finds the related command or concept directly from your agent; the reference source remains <a href="https://aiad.ovh">aiad.ovh</a>.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="metrics.html"><span class="dir">← Previous</span>Metrics</a>
+        <a class="next" href="index.html"><span class="dir">Next →</span>Home</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li><a href="values.html">Values &amp; pillars</a></li>
+        <li><a href="artifacts.html">The artifacts</a></li>
+        <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="concepts/spec.html">SPEC</a></li>
+        <li><a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="commands/sdd.html">/sdd commands</a></li>
+        <li><a href="commands/aiad.html">/aiad commands</a></li>
+        <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

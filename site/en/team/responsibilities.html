@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The five responsibilities — no rigid roles | SDD Mode</title>
+<meta name="description" content="The AIAD human ecosystem rests on five fluid responsibilities — Product Manager, Product Engineer, Agents Engineer, QA Engineer, Tech Lead — plus the Supporters. Definitions, skills, indicators, the SDD Mode RACI and anti-patterns.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../../fr/equipe/responsabilites.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="../concepts/research.html">2. Research Phase</a></li>
+            <li><a href="../concepts/spec.html">3. SPEC</a></li>
+            <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="../concepts/execution.html">5. Agent Execution</a></li>
+            <li><a href="../concepts/validation.html">6. Validation</a></li>
+            <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="../concepts/jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="../concepts/traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="../artifacts.html">The artifacts</a></li>
+            <li><a href="../values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="../commands/sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="../governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="responsibilities.html" aria-current="page">The 5 responsibilities</a></li>
+            <li><a href="rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="../search.html">Search</a></li>
+            <li><a href="../whats-new.html">What's New</a></li>
+            <li><a href="../spec-library.html">SPEC Library</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../../fr/equipe/responsabilites.html" hreflang="fr" lang="fr">FR</a>
+          <a href="responsibilities.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="../concepts/research.html">2. Research Phase</a></li>
+          <li><a href="../concepts/spec.html">3. SPEC</a></li>
+          <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="../concepts/execution.html">5. Agent Execution</a></li>
+          <li><a href="../concepts/validation.html">6. Validation</a></li>
+          <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="../concepts/jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="../concepts/traceability.html">Traceability</a></li>
+          <li><a href="../artifacts.html">The artifacts</a></li>
+          <li><a href="../values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="../commands/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../governance/index.html">Tier 1 governance</a></li>
+          <li><a href="responsibilities.html" aria-current="page">The 5 responsibilities</a></li>
+          <li><a href="rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../get-started.html">Get Started</a></li>
+          <li><a href="../metrics.html">Metrics</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+          <li><a href="../search.html">Search</a></li>
+          <li><a href="../whats-new.html">What's New</a></li>
+          <li><a href="../spec-library.html">SPEC Library</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li aria-current="page">The 5 responsibilities</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">The human ecosystem</p>
+      <h1>The five responsibilities — no rigid roles</h1>
+      <p class="doc-lede">In AIAD there are no "roles" in the traditional sense — one person, one title, fixed boundaries. There are <strong>responsibilities</strong> that must be assumed: a responsibility is defined by what must be done, not by an org chart.</p>
+
+      <p>Rigid roles create three problems: they produce "that's not my job" attitudes that leave responsibilities orphaned, they create boundaries that slow down decisions, and they discourage the contextual adaptability that hybrid human/AI teams require. AIAD replaces boundaries with fluid, context-driven responsibility: on a team of three, one member carries two or three responsibilities; on a team of eight, each one can have a dedicated owner. What matters is not who holds which title — it is that every responsibility is clearly assumed by someone.</p>
+
+      <h2 id="pm">Product Manager — owner of value</h2>
+      <p>The PM makes sure the team builds the right things for the right people. Their central question: <em>are we building the right thing?</em> Without someone focused exclusively on value, teams build technically perfect features that nobody uses.</p>
+      <p>Concretely, they define the Product Goal (a four-to-twelve-week horizon), keep the backlog ordered by value, lead discovery (problem → solution → validation) and define the Outcome Criteria of each feature — then measure the actual impact after release. Four skills are non-negotiable: <strong>product strategy</strong>, <strong>discovery</strong>, <strong>analytics</strong> and mastery of <strong>trade-offs</strong>. Indicators: more than <strong>70% of features meet their Outcome Criteria</strong>, and less than two weeks between user insight and release.</p>
+      <div class="callout warn">
+        <span class="callout-title">Anti-pattern: the "pass-through" PM</span>
+        <p>Relaying stakeholder requests without challenging or prioritising them. The PM is not a secretary for leadership — they are accountable for value.</p>
+      </div>
+
+      <h2 id="pe">Product Engineer — guardian of intent</h2>
+      <p>The PE is the <strong>guardian of intent</strong> throughout the cycle: they orchestrate AI agents to realise the intent without betraying it, and their responsibility does not end at merge. Agents know how to generate code; they know neither how to define what should be built, nor how to validate whether it is correct. The PE's value lies not in their ability to orchestrate — which can be standardised — but in their ability to protect the intent, which cannot be delegated (the <a href="../concepts/human-authorship.html">Human Authorship</a> value).</p>
+      <p>They write the <a href="../concepts/spec.html">SPECs</a>, orchestrate the agents, validate the generated code, maintain the context (AGENT-GUIDE, patterns) and manage debt. Four skills: <strong>agent orchestration</strong>, <strong>architecture</strong>, <strong>quality thinking</strong> and <strong>product thinking</strong>. Indicators: <strong>first-time success rate &gt; 70%</strong>, <strong>generated/manual code ratio &gt; 80/20</strong>, test coverage &gt; 80% backend and 70% frontend, intent/delivery alignment &gt; 80%.</p>
+      <div class="callout warn">
+        <span class="callout-title">Anti-pattern: rewriting the code instead of improving the SPEC</span>
+        <p>A PE who systematically rewrites the agents' code is treating the symptom. The problem is upstream: a deficient SPEC or AGENT-GUIDE.</p>
+      </div>
+
+      <h2 id="ae">Agents Engineer — owner of the AI ecosystem</h2>
+      <p>The AE builds and optimises the agent ecosystem that multiplies the team's capabilities. Their central question: <em>is the ecosystem optimal?</em> A poorly configured agent produces generic code; a well-calibrated ecosystem produces code tailored to the context — the difference lies entirely in the configuration investment. The ecosystem is structured into authority levels:</p>
+      <table>
+        <caption class="visually-hidden">Authority levels of the agent ecosystem</caption>
+        <thead><tr><th scope="col">Level</th><th scope="col">Scope</th><th scope="col">Authority</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0</strong></td><td><a href="../governance/index.html">Regulatory governance</a> (AIAD-AI-ACT, RGPD, RGAA, RGESN)</td><td>Absolute veto over any non-compliant code</td></tr>
+          <tr><td><strong>1</strong></td><td>Governance (security, compliance, architecture)</td><td>Veto right over generated code</td></tr>
+          <tr><td><strong>2</strong></td><td>Quality (tests, code review, performance)</td><td>Warnings and recommendations</td></tr>
+          <tr><td><strong>3</strong></td><td>Productivity (documentation, refactoring, migration)</td><td>Improvement suggestions</td></tr>
+        </tbody>
+      </table>
+      <p>Their core practice is <strong>Harness Engineering</strong>: selecting and configuring agents, defining their authorisation scopes under the <strong>minimal necessary permissions</strong> principle — an agent only has access to the resources strictly necessary for its mission —, monitoring behaviour in production and adapting continuously. A code-generation agent does not need production access; a documentation agent does not need the secrets registry. Selection follows four principles: start minimal, add by pain, remove by obsolescence, optimise by measurement. Indicators: adoption &gt; 90%, false positives &lt; 20%, PE satisfaction &gt; 8/10.</p>
+      <div class="callout warn">
+        <span class="callout-title">Anti-pattern: agent hoarding</span>
+        <p>Stacking up agents "just in case" without measuring their actual usefulness, or granting them broad permissions "to keep things simple". More agents does not mean more effectiveness — and unrestricted permissions are a governance risk.</p>
+      </div>
+
+      <h2 id="qa">QA Engineer — owner of quality</h2>
+      <p>The QA ensures quality is <strong>built in from the start</strong>, not checked at the end. Their central question: <em>is the result reliable?</em> Agents generate tests, but they do not know how to think like a frustrated user or anticipate business edge cases. The QA defines the overall test strategy, contributes to the Definition of Done, validates the relevance of generated tests, conducts pre-release exploratory testing and communicates on quality every week. Validation is organised into four levels:</p>
+      <table>
+        <caption class="visually-hidden">The four test levels and their automation rate</caption>
+        <thead><tr><th scope="col">Level</th><th scope="col">Actors</th><th scope="col">Automation</th></tr></thead>
+        <tbody>
+          <tr><td>Unit tests</td><td>AI agents + PE</td><td>100%</td></tr>
+          <tr><td>Integration tests</td><td>PE + Quality Agent</td><td>90%</td></tr>
+          <tr><td>Functional tests</td><td>QA + Quality Agent</td><td>70%</td></tr>
+          <tr><td>Exploratory tests</td><td>Human QA</td><td><strong>0% — 100% human</strong></td></tr>
+        </tbody>
+      </table>
+      <p>The last level remains fully human for a simple reason: an agent follows scenarios, a human finds what is wrong <em>outside</em> the planned scenarios. Indicators: production bugs trending down, bug detection in under 24 hours, regression rate &lt; 5%. Anti-pattern: testing only at the end of the cycle — quality becomes a bottleneck.</p>
+
+      <h2 id="tl">Tech Lead — owner of technical coherence</h2>
+      <p>The Tech Lead ensures that today's technical decisions do not block tomorrow's evolutions. Their central question: <em>does the system remain coherent?</em> They maintain the ARCHITECTURE document, validate major architectural decisions, lead design reviews, set quality standards, keep technical debt visible and coach the PEs. Their decision scope is delimited in three tiers: on the <strong>strategic</strong> level (overall architecture, stack choices), they decide with input from the team; on the <strong>tactical</strong> level (patterns, libraries), they guide and the team decides; on the <strong>operational</strong> level (specific implementation), they do not intervene. Indicators: technical debt stable or decreasing, fewer than 10% of architectural decisions revisited per year, design review in under two hours.</p>
+      <div class="callout warn">
+        <span class="callout-title">Anti-pattern: the "super-developer"</span>
+        <p>A Tech Lead who codes more than they guide creates a bottleneck. Their role is to multiply the team's effectiveness, not to concentrate production on themselves.</p>
+      </div>
+
+      <h2 id="supporters">The Supporters</h2>
+      <p>Supporters are stakeholders who create the conditions for success <strong>without being part of the team's day-to-day</strong>: they create a psychologically safe environment for experimenting and failing, remove organisational obstacles that block the flow, and facilitate access to resources. What they do not do: define the backlog (that is the PM), validate technical decisions (that is the Tech Lead), or take part in daily synchronisations.</p>
+
+      <h2 id="combiner">Combining responsibilities by team size</h2>
+      <p>Team size determines how responsibilities are <em>distributed</em> — not how they are <em>exercised</em>.</p>
+      <table>
+        <caption class="visually-hidden">Distribution of responsibilities by team size</caption>
+        <thead><tr><th scope="col">Size</th><th scope="col">Typical distribution</th></tr></thead>
+        <tbody>
+          <tr><td>2-3 people</td><td>One person takes PM + Tech Lead; another PE + QA + AE</td></tr>
+          <tr><td>4-6 people</td><td>Distinct PM, QA and AE; PEs doubling up on Tech Lead and AE</td></tr>
+          <tr><td>7 and above</td><td>Each responsibility can have a dedicated owner</td></tr>
+        </tbody>
+      </table>
+      <div class="callout danger">
+        <span class="callout-title">The golden rule</span>
+        <p>Whatever the team size, <strong>every responsibility must have a clearly identified owner</strong>.</p>
+      </div>
+
+      <h2 id="raci">The SDD Mode RACI</h2>
+      <p><strong>R</strong> = Responsible · <strong>A</strong> = Accountable (approves) · <strong>C</strong> = Consulted · <strong>I</strong> = Informed</p>
+      <table>
+        <caption class="visually-hidden">RACI matrix of SDD Mode activities</caption>
+        <thead><tr><th scope="col">Activity</th><th scope="col">PM</th><th scope="col">PE</th><th scope="col">AE</th><th scope="col">QA</th><th scope="col">TL</th></tr></thead>
+        <tbody>
+          <tr><td>Intent Capture</td><td>A</td><td>R</td><td>I</td><td>C</td><td>I</td></tr>
+          <tr><td>SPEC writing</td><td>C</td><td>R/A</td><td>I</td><td>C</td><td>C</td></tr>
+          <tr><td>Spec Quality Score</td><td>I</td><td>R/A</td><td>I</td><td>C</td><td>C</td></tr>
+          <tr><td>Context Engineering Budget</td><td>I</td><td>R/A</td><td>C</td><td>I</td><td>I</td></tr>
+          <tr><td>AI agent orchestration</td><td>I</td><td>R/A</td><td>C</td><td>I</td><td>I</td></tr>
+          <tr><td>Technical validation</td><td>I</td><td>R/A</td><td>I</td><td>C</td><td>C</td></tr>
+          <tr><td>Functional validation</td><td>C</td><td>I</td><td>I</td><td>R/A</td><td>I</td></tr>
+          <tr><td>Business validation</td><td>R/A</td><td>C</td><td>I</td><td>C</td><td>I</td></tr>
+          <tr><td>Drift Lock (PR)</td><td>I</td><td>R/A</td><td>I</td><td>C</td><td>C</td></tr>
+          <tr><td>Anti-Drift Check</td><td>I</td><td>R/A</td><td>C</td><td>I</td><td>C</td></tr>
+          <tr><td>Lessons Learned</td><td>I</td><td>R</td><td>C</td><td>I</td><td>I</td></tr>
+          <tr><td>AGENT-GUIDE update</td><td>I</td><td>C</td><td>R/A</td><td>I</td><td>C</td></tr>
+        </tbody>
+      </table>
+      <p>This matrix reveals the centre of gravity of SDD Mode: the PE carries out and approves most of the technical cycle, the PM keeps authority over intent (Intent Capture, business validation), the QA owns functional validation, and the AE owns the AGENT-GUIDE.</p>
+
+      <h2 id="anti-patterns">Ecosystem anti-patterns</h2>
+      <ul>
+        <li><strong>"We don't need an Agents Engineer, everyone manages their own agents."</strong> Every PE configures things differently, the ecosystem becomes incoherent, best practices are not shared. Even part-time, someone must hold the global vision.</li>
+        <li><strong>"The Tech Lead decides everything technical."</strong> Bottleneck, disempowered PEs, general frustration. The Tech Lead guides the strategic level; the operational level belongs to the PEs.</li>
+        <li><strong>"The PM doesn't need to understand the technology."</strong> Poorly arbitrated trade-offs, impossible features promised, debt ignored. The PM does not need to code, but they must understand the technical implications of their decisions.</li>
+      </ul>
+      <p>These responsibilities are exercised over time through the <a href="rituals.html">iterative loops and intentional synchronisations</a> — the next page describes that rhythm.</p>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="../governance/index.html"><span class="dir">← Previous</span>Tier 1 governance</a>
+        <a class="next" href="rituals.html"><span class="dir">Next →</span>Loops &amp; rituals</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li><a href="../values.html">Values &amp; pillars</a></li>
+        <li><a href="../artifacts.html">The artifacts</a></li>
+        <li><a href="responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="../concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="../concepts/spec.html">SPEC</a></li>
+        <li><a href="../concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="../concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="../concepts/jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="../commands/sdd.html">/sdd commands</a></li>
+        <li><a href="../commands/aiad.html">/aiad commands</a></li>
+        <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="../governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

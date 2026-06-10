@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metrics — measuring value, not activity | SDD Mode</title>
+<meta name="description" content="SDD Mode metrics: SQS and the Stranger Test, drift rate, first-time success rate, DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR), Flow Metrics and dashboards — data-informed, never data-driven.">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../fr/metriques.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="concepts/research.html">2. Research Phase</a></li>
+            <li><a href="concepts/spec.html">3. SPEC</a></li>
+            <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="concepts/execution.html">5. Agent Execution</a></li>
+            <li><a href="concepts/validation.html">6. Validation</a></li>
+            <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="concepts/jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="concepts/traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="artifacts.html">The artifacts</a></li>
+            <li><a href="values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="commands/sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="metrics.html" aria-current="page">Metrics</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="search.html">Search</a></li>
+            <li><a href="whats-new.html">What's New</a></li>
+            <li><a href="spec-library.html">SPEC Library</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../fr/metriques.html" hreflang="fr" lang="fr">FR</a>
+          <a href="metrics.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="concepts/research.html">2. Research Phase</a></li>
+          <li><a href="concepts/spec.html">3. SPEC</a></li>
+          <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="concepts/execution.html">5. Agent Execution</a></li>
+          <li><a href="concepts/validation.html">6. Validation</a></li>
+          <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="concepts/traceability.html">Traceability</a></li>
+          <li><a href="artifacts.html">The artifacts</a></li>
+          <li><a href="values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="commands/sdd.html">/sdd (16)</a></li>
+          <li><a href="commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="governance/index.html">Tier 1 governance</a></li>
+          <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="get-started.html">Get Started</a></li>
+          <li><a href="metrics.html" aria-current="page">Metrics</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="whats-new.html">What's New</a></li>
+          <li><a href="spec-library.html">SPEC Library</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Metrics</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Uncompromising empiricism</p>
+      <h1>Metrics — measuring value, not activity</h1>
+      <p class="doc-lede">AIAD metrics <strong>inform</strong> decisions — they do not dictate them. Generated organically by the SDD cycle itself and persisted in <code>.aiad/metrics/</code>, they measure outcomes, never velocity.</p>
+
+      <h2 id="philosophie">Philosophy: outcome, not output</h2>
+      <p>In a data-driven approach, the numbers decide. In AIAD's <strong>data-informed</strong> approach, the numbers illuminate: you optimise the value, not the metric, and you read trends rather than react to fluctuations. It is the framework's fifth value — uncompromising empiricism — applied to measurement itself.</p>
+      <p>The direct consequence: <strong>velocity is not measured</strong>. Counting story points or lines of code is measuring activity. SDD Mode measures what matters: does the delivered feature solve the problem, does it reflect the intent, and is the flow that produced it healthy? A good metric is actionable, understandable, comparable and honest — hard to game without genuine improvement (Goodhart's law).</p>
+
+      <h2 id="sqs">The SQS — Spec Quality Score</h2>
+      <p>The SQS is the cycle's entry metric: it determines whether the <a href="concepts/execution-gate.html">Execution Gate</a> opens. Five scorable criteria — <strong>atomicity, precision, testability, non-ambiguity, defined scope</strong> — completed by a sixth, non-scorable criterion, the <strong>Stranger Test</strong>: would a person from outside the project understand the SPEC without any verbal context?</p>
+      <ul>
+        <li><strong>SQS ≥ 4/5</strong> → Gate open, the agent can start;</li>
+        <li><strong>SQS &lt; 4/5</strong> → back to revision, with a criterion-by-criterion remediation plan;</li>
+        <li><strong>SQS partially unscorable</strong> → score <code>?/5</code> and Gate <strong>UNKNOWN</strong> — JNSP verdict, human decision required. Never any self-clearance.</li>
+      </ul>
+      <div class="callout info">
+        <span class="callout-title">EARS bonus (v1.11)</span>
+        <p>An EARS-format SPEC whose strict lint (rules R1-R7) raises no violation earns a guaranteed +1 on the Testability criterion; a single violation forces that criterion to 0.</p>
+      </div>
+
+      <h2 id="sdd">The SDD metrics</h2>
+      <p>Specific to the cycle, they measure the health of the spec-anchored process. They are computed by <code>/aiad retro</code> and aggregated by the dashboards:</p>
+      <table>
+        <caption class="visually-hidden">SDD metrics and their targets</caption>
+        <thead><tr><th scope="col">Metric</th><th scope="col">What it measures</th><th scope="col">Target</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Average SQS</strong></td><td>Quality of the SPECs delivered over the period.</td><td>≥ 4/5 — alert below 3.5/5</td></tr>
+          <tr><td><strong>Drift rate</strong></td><td>SPECs out of sync with the code, detected by <code>/sdd drift-check</code>.</td><td>Downward trend</td></tr>
+          <tr><td><strong>First-time success rate</strong></td><td>Agent sessions that succeed on the first attempt, with no corrective iteration.</td><td>&gt; 70%</td></tr>
+          <tr><td><strong>Intent/delivery alignment rate</strong></td><td>Intent Statements whose DRIFT CRITERION is honoured — checked at the <a href="team/rituals.html#intent-workshop">Intent Workshop</a>.</td><td>&gt; 80%</td></tr>
+          <tr><td><strong>Generated / manual code ratio</strong></td><td>Share of code produced by agents vs written by hand.</td><td>&gt; 80/20</td></tr>
+        </tbody>
+      </table>
+      <p>A first-time success rate below 70% points to an outdated AGENT-GUIDE or poorly written SPECs; an alignment rate below 80% questions the quality of the Intent Statements themselves.</p>
+
+      <h2 id="dora">DORA Metrics</h2>
+      <p>The four indicators from the DORA programme (Google) measure delivery performance. AIAD generates them <strong>organically</strong> from <code>.aiad/metrics/deployments/</code> — no extra data entry. The command: <code>/aiad dora</code>.</p>
+      <table>
+        <caption class="visually-hidden">The 4 DORA metrics and the Elite-level threshold</caption>
+        <thead><tr><th scope="col">Metric</th><th scope="col">What it measures</th><th scope="col">Elite level</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Deployment Frequency</strong></td><td>How often code is deployed to production.</td><td>≥ 1/day</td></tr>
+          <tr><td><strong>Lead Time for Changes</strong></td><td>Commit → production delay (AIAD also measures the extended Lead Time, intent → production).</td><td>&lt; 1 hour</td></tr>
+          <tr><td><strong>Change Failure Rate</strong></td><td>Percentage of deployments causing an incident.</td><td>&lt; 5%</td></tr>
+          <tr><td><strong>MTTR</strong></td><td>Mean time to recovery after an incident.</td><td>&lt; 1 hour</td></tr>
+        </tbody>
+      </table>
+      <p>The report positions each metric on the <strong>Elite / High / Medium / Low</strong> scale, then traces back to verifiable AIAD causes: non-atomic SPECs, a Gate repeatedly closed, low SQS, governance skipped. Don't aim for Elite right away — one level per quarter is realistic progress, and an honest Change Failure Rate is worth more than an untraced hotfix.</p>
+
+      <h2 id="flow">Flow Metrics</h2>
+      <p>Where DORA evaluates delivery, Flow Metrics evaluate the <strong>health of the value stream</strong>, from idea to deployment. The command: <code>/aiad flow</code>.</p>
+      <table>
+        <caption class="visually-hidden">The 5 Flow Metrics</caption>
+        <thead><tr><th scope="col">Metric</th><th scope="col">What it measures</th><th scope="col">Benchmark</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cycle Time</strong></td><td>Execution → deployment duration (85th percentile, robust to outliers).</td><td>&lt; 3 days</td></tr>
+          <tr><td><strong>Lead Time</strong></td><td>Intent created → deployment duration, with a per-step breakdown.</td><td>&lt; 2 weeks</td></tr>
+          <tr><td><strong>Throughput</strong></td><td>SPECs delivered per week.</td><td>Stable or rising</td></tr>
+          <tr><td><strong>WIP</strong></td><td>SPECs in progress simultaneously.</td><td>Explicit limit per PE</td></tr>
+          <tr><td><strong>Flow Efficiency</strong></td><td>Active time / total time.</td><td>15-40% (normal)</td></tr>
+        </tbody>
+      </table>
+      <p>The most valuable analysis is the <strong>Lead Time breakdown</strong>, which locates the bottlenecks: a 15-day Lead Time with a 2-day Cycle Time reveals 13 days of hidden waiting — often between the Intent and the SPEC, or in Gate iterations. Little's law (<em>Lead Time = WIP / Throughput</em>) is the lever: to go faster, reduce WIP or increase Throughput.</p>
+
+      <h2 id="dashboards">The dashboards</h2>
+      <table>
+        <caption class="visually-hidden">The two AIAD dashboards</caption>
+        <thead><tr><th scope="col">Command</th><th scope="col">Format</th><th scope="col">Usage</th></tr></thead>
+        <tbody>
+          <tr><td><code>/aiad dashboard</code></td><td>ASCII, in the chat</td><td>Team ritual — weekly (operational, 15-20 min) or monthly (strategic, 30-45 min, with stakeholders).</td></tr>
+          <tr><td><code>/aiad dashboard-html</code></td><td>Static multi-page HTML in <code>dashboard/</code></td><td>Continuous steering — intents, SPECs, traceability, metrics, governance, drifts, changelog. Regenerated on demand, publishable (GitHub Pages).</td></tr>
+        </tbody>
+      </table>
+      <p>Both draw on the same <code>.aiad/metrics/</code> persistence (deployments, specs, standup, drift, retro…). Three signals on the weekly dashboard trigger immediate action: a Cycle Time that doubles, an average SQS below 3.5/5, a Change Failure Rate above 15%.</p>
+      <div class="callout warn">
+        <span class="callout-title">Missing data = process signal</span>
+        <p>An untraced deployment is not a hole to fill with an estimate — it is a signal that the process is leaking. The metrics commands alert explicitly rather than averaging over an incomplete sample.</p>
+      </div>
+
+      <h2 id="responsabilites">Success indicators by responsibility</h2>
+      <table>
+        <caption class="visually-hidden">Reference metrics for each of the 5 responsibilities</caption>
+        <thead><tr><th scope="col">Responsibility</th><th scope="col">Reference indicators</th></tr></thead>
+        <tbody>
+          <tr><td><a href="team/responsibilities.html#pm">Product Manager</a></td><td>Outcome Criteria achievement &gt; 70%, user satisfaction &gt; 8/10, feature adoption &gt; 60% within 1 month.</td></tr>
+          <tr><td><a href="team/responsibilities.html#pe">Product Engineer</a></td><td>Average SQS ≥ 4/5, intent/delivery alignment rate &gt; 80%, Cycle Time &lt; 3 days, drift trending down.</td></tr>
+          <tr><td><a href="team/responsibilities.html#ae">Agents Engineer</a></td><td>First-time success &gt; 70%, agent adoption &gt; 90%, generated/manual ratio &gt; 80/20, false positives &lt; 20%.</td></tr>
+          <tr><td><a href="team/responsibilities.html#qa">QA Engineer</a></td><td>Coverage &gt; 80% backend / &gt; 70% frontend, production bugs trending down (−20%/quarter), MTTD &lt; 24 h.</td></tr>
+          <tr><td><a href="team/responsibilities.html#tl">Tech Lead</a></td><td>DORA improving, MTTR &lt; 4 h, technical debt stable or shrinking.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="amelioration">The continuous improvement loop</h2>
+      <p>Metrics only make sense plugged into a PDCA loop: identify a problem through the metrics, formulate a hypothesis, change at small scale, measure before/after, standardise or retry. Two commands support it:</p>
+      <ul>
+        <li><code>/aiad retro</code> — the retrospective collects Lessons Learned and Human Learnings, computes the iteration's metrics and commits to 1 to 3 actions at most, checked at the next retrospective;</li>
+        <li><code>/sdd context</code> — the post-session feedback loop compares the estimated Context Engineering Budget to the actual one (tokens, degradation, duration) and recommends optimisations for the next session.</li>
+      </ul>
+      <p>Cadence: automatic daily monitoring, weekly team review (retrospective), monthly outcomes review (strategic sync), quarterly review of the framework itself. Start with five to seven essential metrics — measuring everything means steering nothing.</p>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="team/rituals.html"><span class="dir">← Previous</span>Loops &amp; rituals</a>
+        <a class="next" href="glossary.html"><span class="dir">Next →</span>Glossary</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li><a href="values.html">Values &amp; pillars</a></li>
+        <li><a href="artifacts.html">The artifacts</a></li>
+        <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="concepts/spec.html">SPEC</a></li>
+        <li><a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="commands/sdd.html">/sdd commands</a></li>
+        <li><a href="commands/aiad.html">/aiad commands</a></li>
+        <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

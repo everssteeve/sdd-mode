@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bibliothèque de SPECs — des gabarits éprouvés | SDD Mode</title>
+<meta name="description" content="La bibliothèque de SPECs du SDD Mode : neuf gabarits EARS prêts à adapter (auth OIDC, paiement PCI, export RGPD, multi-tenant, RAG/LLM…), livrés dans .aiad/specs-library/ avec leur gouvernance Tier 1 pré-câblée. L'équivalent SDD de l'Extended Guidance.">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../en/spec-library.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="concepts/research.html">2. Phase Research</a></li>
+            <li><a href="concepts/spec.html">3. SPEC</a></li>
+            <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="concepts/execution.html">5. Exécution agent</a></li>
+            <li><a href="concepts/validation.html">6. Validation</a></li>
+            <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="artefacts.html">Les artefacts</a></li>
+            <li><a href="valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="metriques.html">Métriques</a></li>
+        <li><a href="glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="recherche.html">Recherche</a></li>
+            <li><a href="nouveautes.html">Nouveautés</a></li>
+            <li><a href="bibliotheque-specs.html" aria-current="page">Bibliothèque de SPECs</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="bibliotheque-specs.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../en/spec-library.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="concepts/research.html">2. Phase Research</a></li>
+          <li><a href="concepts/spec.html">3. SPEC</a></li>
+          <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="concepts/execution.html">5. Exécution agent</a></li>
+          <li><a href="concepts/validation.html">6. Validation</a></li>
+          <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="concepts/jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="concepts/traceability.html">Traçabilité</a></li>
+          <li><a href="artefacts.html">Les artefacts</a></li>
+          <li><a href="valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="commandes/sdd.html">/sdd (16)</a></li>
+          <li><a href="commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="gouvernance/index.html">Gouvernance Tier 1</a></li>
+          <li><a href="equipe/responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="equipe/rituels.html">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="demarrer.html">Démarrer</a></li>
+          <li><a href="metriques.html">Métriques</a></li>
+          <li><a href="glossaire.html">Glossaire</a></li>
+          <li><a href="recherche.html">Recherche</a></li>
+          <li><a href="nouveautes.html">Nouveautés</a></li>
+          <li><a href="bibliotheque-specs.html" aria-current="page">Bibliothèque de SPECs</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="index.html">Accueil</a></li>
+          <li aria-current="page">Bibliothèque de SPECs</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Ressources · guidance étendue</p>
+      <h1>Bibliothèque de SPECs — des gabarits éprouvés</h1>
+      <p class="doc-lede">Neuf SPECs de référence pour les domaines techniques récurrents, livrées par <code>npx aiad-sdd init</code> dans <code>.aiad/specs-library/</code>. C'est l'équivalent SDD de l'« Extended Guidance » : un point de départ structuré, jamais un raccourci autour du cycle.</p>
+
+      <h2 id="principe">Ce que contient un gabarit</h2>
+      <p>Chaque gabarit est une SPEC au <a href="concepts/spec.html#ears">format EARS</a> (<code>Format&nbsp;: EARS</code> déclaré en entête) avec un frontmatter pré-rempli : domaine, statut <code>draft</code>, champs <code>title</code> et <code>parent_intent</code> à substituer, et surtout la <strong>gouvernance Tier&nbsp;1 pré-câblée</strong> — les agents réglementaires concernés sont déjà déclarés dans le champ <code>governance</code>. À la <a href="concepts/execution-gate.html">Gate</a>, le linter <code>ears-validator</code> passe donc d'office en mode strict.</p>
+      <div class="callout info">
+        <span class="callout-title">Un gabarit n'est pas une SPEC validée</span>
+        <p>Le statut est <code>draft</code> par construction : un gabarit n'a ni Intent parent, ni auteur humain, ni contexte projet. Il ne franchit jamais l'Execution Gate tel quel.</p>
+      </div>
+
+      <h2 id="catalogue">Le catalogue</h2>
+      <table>
+        <caption class="visually-hidden">Les neuf gabarits de la bibliothèque et leur gouvernance</caption>
+        <thead><tr><th scope="col">Gabarit</th><th scope="col">Domaine</th><th scope="col">Gouvernance pré-câblée</th></tr></thead>
+        <tbody>
+          <tr><td><code>auth-oidc</code></td><td>Authentification OpenID Connect / OAuth 2</td><td>AIAD-RGPD, AIAD-CRA</td></tr>
+          <tr><td><code>payment-pci</code></td><td>Paiement conforme PCI DSS</td><td>AIAD-RGPD, AIAD-CRA, AIAD-PSD2</td></tr>
+          <tr><td><code>billing-stripe-tax</code></td><td>Facturation et taxes (Stripe Tax)</td><td>AIAD-RGPD, AIAD-CRA</td></tr>
+          <tr><td><code>gdpr-data-export</code></td><td>Export de données personnelles (droit à la portabilité)</td><td>AIAD-RGPD</td></tr>
+          <tr><td><code>multi-tenant-saas</code></td><td>Isolation multi-tenant SaaS</td><td>AIAD-RGPD, AIAD-CRA, AIAD-AI-ACT</td></tr>
+          <tr><td><code>notifications-multi-channel</code></td><td>Notifications multi-canal (e-mail, push, in-app)</td><td>AIAD-RGPD, AIAD-CRA, AIAD-RGAA</td></tr>
+          <tr><td><code>observability-otel</code></td><td>Observabilité OpenTelemetry</td><td>AIAD-RGPD, AIAD-RGESN, AIAD-CRA</td></tr>
+          <tr><td><code>rag-llm</code></td><td>Pipeline RAG / composant LLM</td><td>AIAD-AI-ACT, AIAD-RGPD, AIAD-RGESN</td></tr>
+          <tr><td><code>search-elasticsearch</code></td><td>Recherche full-text Elasticsearch</td><td>AIAD-RGPD, AIAD-CRA, AIAD-RGESN</td></tr>
+        </tbody>
+      </table>
+      <p>Le câblage de gouvernance suit la logique des déclencheurs <a href="gouvernance/index.html">Tier&nbsp;1</a> : tout gabarit manipulant des données utilisateur embarque AIAD-RGPD ; <code>rag-llm</code> et <code>multi-tenant-saas</code> (scoring d'usage) déclenchent AIAD-AI-ACT ; <code>notifications-multi-channel</code> produit de l'interface, donc AIAD-RGAA ; les domaines gourmands en ressources (observabilité, recherche, inférence) embarquent AIAD-RGESN.</p>
+
+      <h2 id="quand">Quand partir d'un gabarit</h2>
+      <ul>
+        <li><strong>Domaine régulé ou contractuel</strong> — paiement, export RGPD, composant IA : le format EARS strict et la gouvernance pré-câblée évitent les angles morts coûteux.</li>
+        <li><strong>Pattern d'architecture connu</strong> — multi-tenant, OIDC, OTel : le gabarit encode les cas limites que l'on découvre d'habitude en production.</li>
+        <li><strong>Montée en compétence</strong> — un gabarit est aussi un exemple de SPEC bien structurée pour calibrer ses propres rédactions.</li>
+      </ul>
+
+      <h2 id="adapter">Comment adapter un gabarit</h2>
+      <ol>
+        <li><strong>Capturer l'intention d'abord</strong> : <code>/sdd intent</code> — le gabarit ne remplace ni le POURQUOI ni l'<a href="concepts/human-authorship.html">auteur humain</a> ; renseignez <code>parent_intent</code>.</li>
+        <li><strong>Vérifier la viabilité</strong> : <code>/sdd research</code> ancre le gabarit dans votre code réel — un gabarit générique peut être inadapté à votre architecture (verdict <a href="concepts/research.html">DEFER ou NO-GO</a> possible).</li>
+        <li><strong>Adapter la SPEC</strong> : copier le gabarit dans <code>.aiad/specs/</code>, substituer les champs, restreindre le périmètre à une tâche atomique (<code>/sdd split</code> si besoin).</li>
+        <li><strong>Repasser la Gate</strong> : <code>/sdd gate</code> — le <a href="metriques.html#sqs">SQS</a> s'applique au gabarit adapté comme à toute SPEC ; 0 violation EARS donne le bonus sur le critère Testabilité.</li>
+      </ol>
+      <div class="callout warn">
+        <span class="callout-title">Anti-pattern</span>
+        <p>Lancer <code>/sdd exec</code> directement sur un gabarit brut. Sans Intent parent ni adaptation au contexte, c'est précisément le code générique que le SDD Mode existe pour éviter — et la Gate le bloquera de toute façon (pas d'auteur humain identifiable).</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="nouveautes.html"><span class="dir">← Précédent</span>Nouveautés</a>
+        <a class="next" href="a-propos.html"><span class="dir">Suivant →</span>À propos</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="demarrer.html">Démarrer</a></li>
+        <li><a href="valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="artefacts.html">Les artefacts</a></li>
+        <li><a href="equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="concepts/spec.html">SPEC</a></li>
+        <li><a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="concepts/jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="metriques.html">Métriques</a></li>
+        <li><a href="glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

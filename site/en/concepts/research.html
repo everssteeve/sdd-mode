@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Phase — validating intent viability | SDD Mode</title>
+<meta name="description" content="The Research phase sits between the Intent Statement and the SPEC: a mandatory Discovery anchored in the real code, then a graduated GO / CONDITIONAL GO / DEFER / NO-GO verdict decided by the human. The discovery-gate.js hook blocks /sdd spec and /sdd exec without a valid Research.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../../fr/concepts/research.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html" aria-current="page">2. Research Phase</a></li>
+            <li><a href="spec.html">3. SPEC</a></li>
+            <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html">5. Agent Execution</a></li>
+            <li><a href="validation.html">6. Validation</a></li>
+            <li><a href="drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="../artifacts.html">The artifacts</a></li>
+            <li><a href="../values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="../commands/sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="../governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="../search.html">Search</a></li>
+            <li><a href="../whats-new.html">What's New</a></li>
+            <li><a href="../spec-library.html">SPEC Library</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../../fr/concepts/research.html" hreflang="fr" lang="fr">FR</a>
+          <a href="research.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="research.html" aria-current="page">2. Research Phase</a></li>
+          <li><a href="spec.html">3. SPEC</a></li>
+          <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html">5. Agent Execution</a></li>
+          <li><a href="validation.html">6. Validation</a></li>
+          <li><a href="drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="traceability.html">Traceability</a></li>
+          <li><a href="../artifacts.html">The artifacts</a></li>
+          <li><a href="../values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="../commands/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../governance/index.html">Tier 1 governance</a></li>
+          <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../get-started.html">Get Started</a></li>
+          <li><a href="../metrics.html">Metrics</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+          <li><a href="../search.html">Search</a></li>
+          <li><a href="../whats-new.html">What's New</a></li>
+          <li><a href="../spec-library.html">SPEC Library</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../big-picture.html">SDD Cycle</a></li>
+          <li aria-current="page">Research Phase</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Cycle step 2 · <code>/sdd research</code></p>
+      <h1>Research Phase — validating intent viability</h1>
+      <p class="doc-lede">The Research phase (v1.18, §3.5) sits between the <a href="intent-statement.html">Intent Statement</a> and the <a href="spec.html">SPEC</a>. It does not judge the quality of a specification — that is the <a href="execution-gate.html">SQS</a>'s role — but answers an earlier question: <strong>is this intent achievable, at what cost, with what risks, given the actual code?</strong></p>
+
+      <h2 id="pourquoi">Why a step between the Intent and the SPEC</h2>
+      <p>Without a Research phase, the cycle jumps straight from intent to specification: you describe <em>how</em> to build something without ever checking that the terrain allows it. That is the "specs-to-code" anti-pattern: SPECs written in a vacuum, disconnected from existing constraints — established patterns, accumulated debt, real dependencies. The agent discovers those constraints mid-execution, and the session drifts.</p>
+      <p>Research reverses the order of operations: before a single requirement is written, it maps the code involved, assesses feasibility against the current architecture, and lists the risks and unknowns. The result is archived in <code>.aiad/research/RESEARCH-NNN-&lt;slug&gt;.md</code>, always attached to a parent Intent — a Research is anchored to a human WHY, never to a free-floating idea.</p>
+      <div class="callout info">
+        <span class="callout-title">What Research is not</span>
+        <p>It does not score the SPEC (that is the Execution Gate's role), does not replace the Intent Statement (the WHY remains human), and does not decide in the human's place: <strong>Research informs, the human decides</strong>.</p>
+      </div>
+
+      <h2 id="discovery">The Discovery — mandatory anchoring in the code</h2>
+      <p>The heart of Research is the <strong>Discovery</strong>: a map of the impacted code, delegated to a read-only <code>Explore</code> agent to preserve the main session's <a href="context-budget.html">context budget</a>. Every identified area must be cited as <code>path:line</code> (or <code>evidence: …</code>), together with its existing constraints and the test surface already in place.</p>
+      <pre><code>## Discovery (code anchoring — Explore agent, read-only)
+
+- Impacted files / areas: src/auth/login.ts:42, evidence: …
+- Existing constraints: patterns, debt, dependencies in place
+- Existing test surface: test/auth/*.test.ts</code></pre>
+      <p>The rule is hard by design: <strong>without at least one real anchor in the code, the machine verdict stays <a href="jnsp.html"><code>JNSP</code></a></strong> (Je Ne Sais Pas — "I don't know"). A Research without a Discovery is an opinion, not an analysis. Any unknown that requires a human decision is recorded as <code>TODO-JNSP: &lt;question&gt;</code> — it never hides behind a confident GO.</p>
+
+      <h2 id="verdict">A graduated verdict, decided by the human</h2>
+      <p>Research concludes with a verdict line that <strong>only an identifiable human can set</strong> (<code>human-authorship-check</code> skill). The agent gathers the facts, presents the options, may even offer a recommendation — but never manufactures the decision. The verdict is then hardened by a deterministic scorer: <code>npx aiad-sdd research RESEARCH-NNN</code>.</p>
+      <table>
+        <caption class="visually-hidden">Semantics of the four Research verdicts</caption>
+        <thead><tr><th scope="col">Human decision</th><th scope="col">Machine verdict</th><th scope="col">Exit</th><th scope="col">Rest of the cycle</th></tr></thead>
+        <tbody>
+          <tr><td><strong>GO</strong></td><td>PASS</td><td>0</td><td><code>/sdd spec</code> allowed — no blocking unknowns</td></tr>
+          <tr><td><strong>CONDITIONAL GO</strong></td><td>CONDITIONAL</td><td>0</td><td><code>/sdd spec</code> allowed, explicit conditions to clear</td></tr>
+          <tr><td><strong>DEFER</strong></td><td>FAIL</td><td>1</td><td>Postponed (dependency, timing, missing info) — new Research required</td></tr>
+          <tr><td><strong>NO-GO</strong></td><td>FAIL</td><td>1</td><td>Abandoned (cost or risk too high) — new Research required</td></tr>
+          <tr><td><em>Empty Discovery · open TODO-JNSP · missing verdict</em></td><td>JNSP</td><td>2</td><td>Human decision required before continuing</td></tr>
+        </tbody>
+      </table>
+      <p>A <strong>CONDITIONAL GO</strong> with no conditions listed is rejected by the scorer (<code>JNSP</code> verdict): an implicit condition is an unknown in disguise. Every verdict comes with a confidence level expressed as a percentage — a GO at 60% confidence says something different from a GO at 95%.</p>
+      <div class="callout danger">
+        <span class="callout-title">Human Authorship — non-negotiable</span>
+        <p>If the <code>Verdict:</code> line has no identifiable human author, the agent does not set it and exits with <code>JNSP</code>. Manufacturing a GO/NO-GO in the human's place is exactly the kind of invention the framework forbids.</p>
+      </div>
+
+      <h2 id="gate">The <code>discovery-gate.js</code> hook — a verified prerequisite</h2>
+      <p>Research is not a polite recommendation: it is a <strong>mechanically verified prerequisite</strong>. The <code>.aiad/hooks/discovery-gate.js</code> hook is consulted by <code>/sdd spec</code> and <code>/sdd exec</code>: without a Research linked to the Intent, with an anchored Discovery and a <code>GO</code> or <code>CONDITIONAL GO</code> verdict, SPEC writing and agent launch are refused.</p>
+      <pre><code>npx aiad-sdd research &lt;RESEARCH-id&gt;   # exit 0 → OK · 1 → DEFER/NO-GO · 2 → JNSP
+
+JNSP — Missing Discovery for INTENT-NNN
+What is missing: a linked Research with an anchored Discovery (path:line)
+                 and a GO/CONDITIONAL GO verdict.
+Question for the human: run `/sdd research INTENT-NNN` first.</code></pre>
+      <p>A <code>DEFER</code> or a <code>NO-GO</code> closes the door to <code>/sdd spec</code> durably: it takes a <em>new</em> Research to reopen it. This is consistent with the framework's empiricism — if the context has changed, you demonstrate it again on evidence; you do not recycle a stale verdict.</p>
+
+      <h2 id="proportionnalite">Proportionality — a safeguard, not bureaucracy</h2>
+      <p>Not every intent deserves a full Research. For a trivial, risk-free intent, the Product Engineer may <strong>explicitly bypass</strong> the prerequisite — provided the decision is <strong>traced in the SPEC</strong>. A silent bypass, however, is forbidden: the trace is what distinguishes a deliberate choice from an oversight.</p>
+      <p>The <code>aiad-sdd proportionality &lt;INTENT-id&gt;</code> command recommends the short path (light Research) or the heavy path (full Research) depending on the risk level. In <code>--guided</code> mode, the <code>grill-me</code> skill probes the GO/NO-GO one question at a time, with a recommendation the human validates or corrects.</p>
+      <div class="callout success">
+        <span class="callout-title">In practice</span>
+        <p>A label fix does not justify an hour-long Research; an overhaul of the authentication flow does. The right reflex: <code>--fast</code> for clear, low-risk intents; guided mode and an in-depth Discovery as soon as the affected code is critical.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="intent-statement.html"><span class="dir">← Previous</span>1. Intent Statement</a>
+        <a class="next" href="spec.html"><span class="dir">Next →</span>3. SPEC</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li><a href="../values.html">Values &amp; pillars</a></li>
+        <li><a href="../artifacts.html">The artifacts</a></li>
+        <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="../commands/sdd.html">/sdd commands</a></li>
+        <li><a href="../commands/aiad.html">/aiad commands</a></li>
+        <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="../governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

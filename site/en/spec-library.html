@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPEC Library — battle-tested templates | SDD Mode</title>
+<meta name="description" content="Nine reference SPEC templates shipped with SDD Mode: OIDC authentication, Stripe Tax billing, GDPR data export, multi-tenant SaaS, multi-channel notifications, OpenTelemetry, PCI payments, RAG/LLM and Elasticsearch — all in strict EARS with Tier 1 governance mapped.">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../fr/bibliotheque-specs.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="concepts/research.html">2. Research Phase</a></li>
+            <li><a href="concepts/spec.html">3. SPEC</a></li>
+            <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="concepts/execution.html">5. Agent Execution</a></li>
+            <li><a href="concepts/validation.html">6. Validation</a></li>
+            <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="concepts/jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="concepts/traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="artifacts.html">The artifacts</a></li>
+            <li><a href="values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="commands/sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="search.html">Search</a></li>
+            <li><a href="whats-new.html">What's New</a></li>
+            <li><a href="spec-library.html" aria-current="page">SPEC Library</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../fr/bibliotheque-specs.html" hreflang="fr" lang="fr">FR</a>
+          <a href="spec-library.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="concepts/research.html">2. Research Phase</a></li>
+          <li><a href="concepts/spec.html">3. SPEC</a></li>
+          <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="concepts/execution.html">5. Agent Execution</a></li>
+          <li><a href="concepts/validation.html">6. Validation</a></li>
+          <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="concepts/traceability.html">Traceability</a></li>
+          <li><a href="artifacts.html">The artifacts</a></li>
+          <li><a href="values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="commands/sdd.html">/sdd (16)</a></li>
+          <li><a href="commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="governance/index.html">Tier 1 governance</a></li>
+          <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="get-started.html">Get Started</a></li>
+          <li><a href="metrics.html">Metrics</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="whats-new.html">What's New</a></li>
+          <li><a href="spec-library.html" aria-current="page">SPEC Library</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">SPEC Library</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Resources · extended guidance</p>
+      <h1>SPEC Library — battle-tested templates</h1>
+      <p class="doc-lede">SDD's equivalent of "Extended Guidance": nine reference SPECs covering domains where ambiguity is expensive — auth, payments, GDPR, multi-tenancy, AI. Shipped by <code>npx aiad-sdd init</code> into <code>.aiad/specs-library/</code>, ready to adapt rather than start from a blank page.</p>
+
+      <p>Every template is written in <strong>strict <a href="concepts/spec.html#ears">EARS</a></strong> (rules R1–R7), carries YAML frontmatter (<code>format: EARS</code>, <code>governance:</code>, <code>domain:</code>) and pre-maps the applicable <a href="governance/index.html">Tier 1 governance agents</a>. Placeholders such as <code>{{title}}</code> and <code>{{parent_intent}}</code> mark exactly what you must fill in from your own Intent.</p>
+
+      <h2 id="auth-oidc">auth-oidc — OIDC authentication</h2>
+      <p><strong>Domain:</strong> OpenID Connect 1.0 sign-in via Authorization Code Flow + PKCE. The SPEC covers flow initiation (state, nonce, S256 code challenge), callback validation, code-to-token exchange, full <code>id_token</code> verification against the IdP's JWKS, server-side session storage (HttpOnly cookies, never tokens in localStorage) and logout. <strong>Governance:</strong> AIAD-RGPD + AIAD-CRA. Use it whenever you delegate identity to an IdP — the security-critical steps are precisely where home-grown flows go wrong.</p>
+
+      <h2 id="billing-stripe-tax">billing-stripe-tax — billing with Stripe Tax</h2>
+      <p><strong>Domain:</strong> B2C/B2B invoicing with Stripe as PSP and Stripe Tax computing EU VAT under the OSS / IOSS regimes (Directive 2006/112/EC). <strong>Governance:</strong> AIAD-RGPD (customer fiscal data is personal data) + AIAD-CRA (billing-chain integrity). Use it for any European SaaS selling inside and outside the EU.</p>
+
+      <h2 id="gdpr-data-export">gdpr-data-export — right to portability</h2>
+      <p><strong>Domain:</strong> GDPR Article 20 (portability) and Article 15 (access): an authenticated export request, asynchronous processing and a structured, machine-readable download. <strong>Governance:</strong> AIAD-RGPD. Use it the moment your product stores personal data — these rights are not optional.</p>
+
+      <h2 id="multi-tenant-saas">multi-tenant-saas — tenant isolation</h2>
+      <p><strong>Domain:</strong> multi-tenant architecture — N customer organisations sharing infrastructure without ever seeing each other's data. The SPEC forces an explicit choice between the three isolation strategies (shared pool with <code>tenant_id</code>, schema per tenant, database per tenant) and covers per-tenant billing. <strong>Governance:</strong> AIAD-RGPD (each tenant may be a distinct data controller) + AIAD-CRA + AIAD-AI-ACT (shared AI features must not leak training data across tenants). Use it before writing the first line of a B2B SaaS — isolation is a one-way architectural door.</p>
+
+      <h2 id="notifications-multi-channel">notifications-multi-channel — email, SMS, push, in-app</h2>
+      <p><strong>Domain:</strong> multi-channel notifications with granular opt-in, one-click opt-out and per-channel consent rules (transactional email vs explicit SMS consent under ePrivacy, OS-level + app-level push consent). <strong>Governance:</strong> AIAD-RGPD + AIAD-CRA (webhook signatures) + AIAD-RGAA (accessible HTML and SMS content). Use it whenever you contact users outside the app.</p>
+
+      <h2 id="observability-otel">observability-otel — OpenTelemetry</h2>
+      <p><strong>Domain:</strong> traces, metrics and structured logs via the OTel SDK and collector, exportable to any backend. The critical concern: no PII or sensitive data may leak into observability signals, and retention obeys GDPR Article 5.1.e. <strong>Governance:</strong> AIAD-RGPD + AIAD-RGESN (storage and network cost) + AIAD-CRA. Use it when instrumenting a service — observability pipelines are a classic, silent PII exfiltration path.</p>
+
+      <h2 id="payment-pci">payment-pci — card payments, PCI-DSS &amp; PSD2</h2>
+      <p><strong>Domain:</strong> card payment flow that never touches the PAN: client-side tokenisation through PSP-hosted components (Stripe Elements, Adyen Components), keeping your scope at PCI-DSS SAQ A, plus PSD2 Strong Customer Authentication with Dynamic Linking on amount and beneficiary. <strong>Governance:</strong> AIAD-RGPD + AIAD-CRA + AIAD-PSD2 (eu-financial pack). Use it for any checkout — this is the template where EARS strictness pays for itself most directly.</p>
+
+      <h2 id="rag-llm">rag-llm — Retrieval-Augmented Generation</h2>
+      <p><strong>Domain:</strong> a RAG system answering user questions from a controlled corpus with <strong>verifiable citations</strong> — controlled chunked indexing, retrieval, LLM synthesis. <strong>Governance:</strong> AIAD-AI-ACT (it is an AI system), AIAD-RGPD (if personal data enters the corpus) and AIAD-RGESN (energy footprint). Use it for any LLM-backed feature: it operationalises the AI Act × GDPR × eco-design convergence that ad-hoc prompting ignores.</p>
+
+      <h2 id="search-elasticsearch">search-elasticsearch — full-text search</h2>
+      <p><strong>Domain:</strong> Elasticsearch / OpenSearch with field-level classification of indexed data, the <strong>right to erasure propagated to the index</strong> (an index keeps copies that survive source deletions), and sobriety settings (shards, refresh interval, retention). <strong>Governance:</strong> AIAD-RGPD + AIAD-CRA + AIAD-RGESN. Use it whenever you index user content — the forgotten-index GDPR failure mode is the whole point of this template.</p>
+
+      <h2 id="how-to-adapt">How to adapt a template</h2>
+      <ol>
+        <li><strong>Start with the intent, not the template.</strong> Run <a href="concepts/intent-statement.html"><code>/sdd intent</code></a> first — the template supplies the COMMENT, your Intent supplies the POURQUOI. Fill <code>{{parent_intent}}</code> with the resulting <code>INTENT-NNN</code>.</li>
+        <li><strong>Adapt, do not adopt.</strong> Replace placeholders, delete requirements that do not apply, and tighten the ones that do to your actual stack and constraints.</li>
+        <li><strong>Re-run the gate.</strong> A template is a head start, not a validated SPEC: pass <a href="concepts/execution-gate.html"><code>/sdd gate</code></a> again. Since the templates declare <code>Format : EARS</code>, the linter runs in strict mode — keep it at 0 violations to secure the +1 SQS Testability bonus.</li>
+      </ol>
+
+      <div class="callout warning">
+        <span class="callout-title">A template is not a shortcut around the cycle</span>
+        <p>The library accelerates the SPEC step — it never replaces the Intent Statement, the Research verdict or the Execution Gate. Code generated from an un-gated template is still code without a validated SPEC.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="whats-new.html"><span class="dir">← Previous</span>What's New</a>
+        <a class="next" href="about.html"><span class="dir">Next →</span>About</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li><a href="values.html">Values &amp; pillars</a></li>
+        <li><a href="artifacts.html">The artifacts</a></li>
+        <li><a href="team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="concepts/spec.html">SPEC</a></li>
+        <li><a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="commands/sdd.html">/sdd commands</a></li>
+        <li><a href="commands/aiad.html">/aiad commands</a></li>
+        <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="metrics.html">Metrics</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

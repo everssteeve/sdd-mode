@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Context Engineering Budget — the discipline of context | SDD Mode</title>
+<meta name="description" content="The Context Engineering Budget is principle #3 of SDD Mode: the Product Engineer owns the context budget of every agent session. 60-70% operational threshold, a single active SPEC, the Intent at the top of the context, 5 health metrics M1-M5.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../../fr/concepts/context-budget.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html">2. Research Phase</a></li>
+            <li><a href="spec.html">3. SPEC</a></li>
+            <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html">5. Agent Execution</a></li>
+            <li><a href="validation.html">6. Validation</a></li>
+            <li><a href="drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="context-budget.html" aria-current="page">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="../artifacts.html">The artifacts</a></li>
+            <li><a href="../values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="../commands/sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="../governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="../search.html">Search</a></li>
+            <li><a href="../whats-new.html">What's New</a></li>
+            <li><a href="../spec-library.html">SPEC Library</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../../fr/concepts/context-budget.html" hreflang="fr" lang="fr">FR</a>
+          <a href="context-budget.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="research.html">2. Research Phase</a></li>
+          <li><a href="spec.html">3. SPEC</a></li>
+          <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html">5. Agent Execution</a></li>
+          <li><a href="validation.html">6. Validation</a></li>
+          <li><a href="drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="context-budget.html" aria-current="page">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="traceability.html">Traceability</a></li>
+          <li><a href="../artifacts.html">The artifacts</a></li>
+          <li><a href="../values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="../commands/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../governance/index.html">Tier 1 governance</a></li>
+          <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../get-started.html">Get Started</a></li>
+          <li><a href="../metrics.html">Metrics</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+          <li><a href="../search.html">Search</a></li>
+          <li><a href="../whats-new.html">What's New</a></li>
+          <li><a href="../spec-library.html">SPEC Library</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li>Concepts</li>
+          <li aria-current="page">Context Engineering Budget</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Principle #3 · <code>/sdd context</code></p>
+      <h1>Context Engineering Budget — the discipline of context</h1>
+      <p class="doc-lede">The <strong>Product Engineer owns the context budget of every agent session</strong>. An agent does not degrade its quality at the theoretical limit of its window — it degrades it well before. The Context Engineering Budget is the discipline that turns this physical reality into operational rules.</p>
+
+      <h2 id="context-rot">Context rot — degradation before the limit</h2>
+      <p><strong>Context rot</strong> refers to the degradation of LLM quality well before the theoretical limit of the context window. The symptoms are recognisable: <strong>less accurate answers, forgotten spec constraints, repetitive behaviour</strong>. A hundred-page AGENT-GUIDE is not more effective — it is less effective: the agent receives everything, understands little. That is why injecting all artifacts at once is the framework's main anti-pattern.</p>
+      <p>In March 2026, Anthropic formalised Context Engineering as a discipline in its own right, distinct from prompt engineering — "the art and science of curating what enters the limited context window". The AIAD Context Budget is an operational implementation of it, present in the framework since v1.3.</p>
+
+      <h2 id="seuil">The operational threshold: 60-70% of the window</h2>
+      <div class="callout warn">
+        <span class="callout-title">Rule v1.6</span>
+        <p>Use <strong>60-70% of the available context</strong> as the effective maximum. Example: 200k tokens available → max budget ≈ 130k. Beyond that, context-rot symptoms appear before the theoretical limit.</p>
+      </div>
+      <table>
+        <caption class="visually-hidden">Model reference v1.6</caption>
+        <thead><tr><th scope="col">Model</th><th scope="col">Effective window</th><th scope="col">Operational threshold</th></tr></thead>
+        <tbody>
+          <tr><td>Opus 4.8</td><td>1M effective tokens</td><td>60-70% — shifted upwards</td></tr>
+          <tr><td>Sonnet 4.6</td><td>200k tokens</td><td>60-70%</td></tr>
+          <tr><td>Haiku 4.5</td><td>200k tokens</td><td>60-70%</td></tr>
+        </tbody>
+      </table>
+      <p>The key point: the available window <strong>does not change the 60-70% threshold</strong> — it shifts it upwards. A one-million-token window is no excuse to drop the discipline; it only widens the margin.</p>
+
+      <h2 id="regles">The session composition rules</h2>
+      <table>
+        <caption class="visually-hidden">Context Engineering Budget rules</caption>
+        <thead><tr><th scope="col">Rule</th><th scope="col">Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Permanent context</td><td>Condensed <a href="../artifacts.html#agent-guide">AGENT-GUIDE</a> + <a href="../artifacts.html#architecture">ARCHITECTURE</a> summary — max <strong>500 tokens each</strong></td></tr>
+          <tr><td>Per-task activation</td><td><strong>ONE active <a href="spec.html">SPEC</a></strong> at a time (unless an explicit combined activation scope is declared)</td></tr>
+          <tr><td>Strategic context</td><td>The full <a href="../artifacts.html#prd">PRD</a> is injected only during the <strong>framing</strong> phase, never during development</td></tr>
+          <tr><td>Placement rule</td><td><a href="intent-statement.html">Intent Statement</a> and active SPEC <strong>at the top of the context</strong>, against the "lost in the middle effect"</td></tr>
+        </tbody>
+      </table>
+      <p>The "lost in the middle effect" is documented: LLMs pay more attention to the beginning and end of their context than to the middle. Placing the intent and the SPEC at the top guarantees that what must not be betrayed stays in the zone of best adherence.</p>
+
+      <h2 id="economie">The economic argument</h2>
+      <p>The discipline of context is not just a quality matter — it is a measurable cost-optimisation decision. Two converging data points validate intent-based design: <strong>R2Code</strong> (arXiv, April 2026) measures <strong>−41.7% of tokens</strong> consumed on spec-anchored code, with +7.4% fidelity; <strong>AWS Strands</strong> (2026) observes <strong>−96% of tokens</strong> on intent-based workflows. On code-generation-intensive projects, the saving is directly measurable — and model-agnostic: it applies regardless of the platform. The <code>/sdd context</code> command provides an estimate of the cost avoided per session.</p>
+
+      <h2 id="skill">The <code>context-budget</code> skill and the 5 health metrics</h2>
+      <p>The post-session audit is tooled by the <code>context-budget</code> skill, invoked by <code>/sdd context</code>, <code>/sdd exec</code> (budget check) and <code>/sdd resume</code>. It computes five metrics and produces a health score out of 5:</p>
+      <table>
+        <caption class="visually-hidden">The 5 health metrics M1 to M5</caption>
+        <thead><tr><th scope="col">Metric</th><th scope="col">Definition</th><th scope="col">Target</th></tr></thead>
+        <tbody>
+          <tr><td><strong>M1</strong> — Useful-utilisation rate</td><td>% of context actually referenced by the agent / total injected context</td><td>≥ 70%</td></tr>
+          <tr><td><strong>M2</strong> — Restart frequency</td><td>Number of <code>/compact</code> or resumes</td><td>0 ideal, 1 acceptable</td></tr>
+          <tr><td><strong>M3</strong> — Estimate/actual ratio</td><td>Actual context / estimated</td><td>0.8 – 1.3</td></tr>
+          <tr><td><strong>M4</strong> — Coherence score</td><td>AGENT-GUIDE constraints respected / total</td><td>≥ 90%</td></tr>
+          <tr><td><strong>M5</strong> — Session duration</td><td>Active minutes</td><td>&lt; 35 min</td></tr>
+        </tbody>
+      </table>
+      <p>Each off-target metric points to a precise remediation: M1 &lt; 70% → too much context injected; M4 dropping → context rot, condense the AGENT-GUIDE; M5 &gt; 35 min → objective too broad, go through <code>/sdd split</code>. If a metric is not measurable, the score comes out as <code>?/5</code> — a <a href="jnsp.html">JNSP</a>, not a zero.</p>
+
+      <h2 id="session">A single session &lt; 35 minutes, then <code>/compact</code></h2>
+      <p>The practical rule that sums it all up: <strong>one session = one objective, lasting less than 35 minutes</strong>, context = AGENT-GUIDE + condensed ARCHITECTURE + active SPEC. Beyond 35 minutes, run <code>/compact</code> and restart on a clean session — a session that drags on is the signal of a SPEC that is too broad or a poorly prepared context, not of a slow agent. The <code>/sdd resume</code> command then rebuilds a minimal, precise context from the summary of the interrupted session, without re-injecting everything.</p>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="human-authorship.html"><span class="dir">← Previous</span>Human Authorship</a>
+        <a class="next" href="jnsp.html"><span class="dir">Next →</span>JNSP — uncertainty policy</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li><a href="../values.html">Values &amp; pillars</a></li>
+        <li><a href="../artifacts.html">The artifacts</a></li>
+        <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="../commands/sdd.html">/sdd commands</a></li>
+        <li><a href="../commands/aiad.html">/aiad commands</a></li>
+        <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="../governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>
