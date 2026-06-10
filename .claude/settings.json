@@ -1,0 +1,82 @@
+{
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "65",
+    "_comment_otel": "Observabilité OTel (§3.11, opt-in) : renomme les clés _OTEL_* en OTEL_* et pointe vers ton collecteur. service.name sans PII.",
+    "_OTEL_METRICS_EXPORTER": "otlp",
+    "_OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4318",
+    "_OTEL_RESOURCE_ATTRIBUTES": "service.name=aiad-sdd"
+  },
+  "skillListingMaxDescChars": 1536,
+  "skillListingBudgetFraction": 0.01,
+  "includeCoAuthoredBy": true,
+  "statusLine": {
+    "type": "command",
+    "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/statusline.js"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/session-start.js"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/discovery-gate.js",
+            "statusMessage": "Prérequis Discovery — phase Research…"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "if": "Bash(git commit *)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/jnsp-scan.js --effort ${CLAUDE_EFFORT}",
+            "statusMessage": "Garde-fou JNSP — scan TODO-JNSP…"
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/veto.js",
+            "statusMessage": "Veto Tier 1 — zones réglementées…"
+          }
+        ]
+      },
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/skill-usage.js"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/drift-lock.js",
+            "statusMessage": "Drift Lock — vérification traçabilité…",
+            "asyncRewake": true,
+            "timeout": 180
+          }
+        ]
+      }
+    ]
+  }
+}

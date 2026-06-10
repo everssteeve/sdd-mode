@@ -34,9 +34,16 @@ patterns:
   # Argumentaires commerciaux (prose, pas de code)
   - "argumentaires/**"
 
-  # Agents de gouvernance réglementaire (templates Tier 1 + fixtures bench)
+  # Agents de gouvernance réglementaire (templates Tier 1 + fixtures bench + agents Claude Code)
+  # Les agents sont eux-mêmes la source des annotations — l'annotation @governance serait circulaire
   - "templates/.aiad/gouvernance/**"
   - "bench/**/.aiad/gouvernance/**"
+  - ".claude/agents/**"
+
+  # Configuration Claude Code (emit-rules v1.18) — commandes, skills, règles, settings
+  # Ces fichiers sont générés par `npx aiad-sdd emit-rules`, pas du code applicatif
+  - ".claude/**"
+  - "AGENTS.md"
 
   # Manifestes et lockfiles (mises à jour de dépendances)
   - "package.json"
@@ -110,6 +117,8 @@ patterns:
   - "lib/plugins.js"
   - "lib/sdd-trace.js"
   - "lib/trace-cache.js"
+  # Exclusion des définitions d'agents de gouvernance du veto circulaire
+  - "lib/veto.js"
   - "lib/dashboard/watch.js"
   # Tests rendus déterministes/portables (import.meta.dirname → idiome Node 18,
   # locale forcée, couverture du fallback polling) — pas de comportement applicatif
