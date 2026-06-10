@@ -31,6 +31,9 @@ patterns:
   # Notes de release (prose pédagogique — pas de code, pas de SPEC)
   - "docs/release-notes/**"
 
+  # Veille produit (synthèse conférences — pas de code, pas de SPEC)
+  - "docs/veille-*"
+
   # Argumentaires commerciaux (prose, pas de code)
   - "argumentaires/**"
 
