@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Big Picture — Le cycle SDD Mode interactif | Framework AIAD</title>
+<meta name="description" content="Le Big Picture SDD Mode : schéma interactif du cycle complet — Intent, Research, SPEC, Execution Gate, exécution agent, validation, Drift Lock — avec la gouvernance Tier 1, les artefacts, les responsabilités et les métriques. Chaque élément est cliquable.">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../en/big-picture.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="big-picture.html" aria-current="page">Big Picture</a></li>
+        <li><a href="demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="concepts/research.html">2. Phase Research</a></li>
+            <li><a href="concepts/spec.html">3. SPEC</a></li>
+            <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="concepts/execution.html">5. Exécution agent</a></li>
+            <li><a href="concepts/validation.html">6. Validation</a></li>
+            <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="artefacts.html">Les artefacts</a></li>
+            <li><a href="valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="metriques.html">Métriques</a></li>
+        <li><a href="glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="recherche.html">Recherche</a></li>
+            <li><a href="nouveautes.html">Nouveautés</a></li>
+            <li><a href="bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="big-picture.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../en/big-picture.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="bigpicture-wrap">
+    <p class="kicker">Vue d'ensemble interactive</p>
+    <h1>Le Big Picture SDD Mode</h1>
+    <p class="section-lede">Tout le mode opératoire sur un seul schéma : le cycle en sept étapes, la gouvernance Tier 1 qui le surplombe, les artefacts qui l'alimentent, les responsabilités qui le portent et les métriques qui le mesurent. <strong>Cliquez sur n'importe quel élément</strong> pour ouvrir l'article correspondant.</p>
+
+    <svg class="bigpicture-svg" viewBox="0 0 1200 800" role="img" aria-labelledby="bp-title bp-desc">
+      <title id="bp-title">Big Picture du cycle SDD Mode</title>
+      <desc id="bp-desc">Schéma interactif : une bande de gouvernance Tier 1 avec droit de veto surplombe le cycle SDD en sept étapes (Intent Statement, Research, SPEC, Execution Gate, Exécution agent, Validation, Drift Lock), suivi du déploiement et de la consolidation qui rebouclent sur l'intention. En dessous : la hiérarchie des artefacts, les cinq responsabilités et les bandes rituels, métriques et traçabilité. Une alternative texte complète figure sous le schéma.</desc>
+
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#46546a"/>
+        </marker>
+        <marker id="arrow-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#e8a020"/>
+        </marker>
+      </defs>
+
+      <!-- ============ BANDE GOUVERNANCE TIER 1 ============ -->
+      <rect x="20" y="16" width="1160" height="104" rx="10" fill="#fcebe8" stroke="#eebbb3"/>
+      <text x="40" y="44" font-size="17" font-weight="700" fill="#7c2d22">GOUVERNANCE TIER 1 — droit de veto · fail-closed : UNKNOWN = VETO</text>
+      <a href="gouvernance/index.html#ai-act"><g class="bp-node"><title>AIAD-AI-ACT — EU AI Act</title>
+        <rect x="40" y="58" width="266" height="46" rx="8" fill="#8a2418"/>
+        <text x="173" y="79" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">AIAD-AI-ACT</text>
+        <text x="173" y="96" text-anchor="middle" font-size="11" fill="#f6cfc8">Règlement (UE) 2024/1689</text>
+      </g></a>
+      <a href="gouvernance/index.html#rgpd"><g class="bp-node"><title>AIAD-RGPD — Privacy by Design</title>
+        <rect x="326" y="58" width="266" height="46" rx="8" fill="#8a2418"/>
+        <text x="459" y="79" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">AIAD-RGPD</text>
+        <text x="459" y="96" text-anchor="middle" font-size="11" fill="#f6cfc8">RGPD (UE) 2016/679</text>
+      </g></a>
+      <a href="gouvernance/index.html#rgaa"><g class="bp-node"><title>AIAD-RGAA — Accessibilité</title>
+        <rect x="612" y="58" width="266" height="46" rx="8" fill="#8a2418"/>
+        <text x="745" y="79" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">AIAD-RGAA</text>
+        <text x="745" y="96" text-anchor="middle" font-size="11" fill="#f6cfc8">RGAA 4.1 / WCAG 2.1</text>
+      </g></a>
+      <a href="gouvernance/index.html#rgesn"><g class="bp-node"><title>AIAD-RGESN — Écoconception</title>
+        <rect x="898" y="58" width="262" height="46" rx="8" fill="#8a2418"/>
+        <text x="1029" y="79" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">AIAD-RGESN</text>
+        <text x="1029" y="96" text-anchor="middle" font-size="11" fill="#f6cfc8">Écoconception RGESN v2</text>
+      </g></a>
+
+      <!-- veto arrows down -->
+      <line x1="600" y1="120" x2="600" y2="150" stroke="#8a2418" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+
+      <!-- ============ CYCLE — RANGÉE 1 ============ -->
+      <text x="40" y="172" font-size="17" font-weight="700" fill="#0a1f3d">LE CYCLE SDD — aucune étape sautée</text>
+
+      <a href="concepts/intent-statement.html"><g class="bp-node"><title>1. Intent Statement — capturer le POURQUOI humain</title>
+        <rect x="40" y="190" width="190" height="84" rx="10" fill="#173a6b"/>
+        <text x="135" y="216" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 1</text>
+        <text x="135" y="238" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Intent Statement</text>
+        <text x="135" y="260" text-anchor="middle" font-size="12" fill="#b9c8e0">/sdd intent</text>
+      </g></a>
+      <line x1="230" y1="232" x2="268" y2="232" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+      <a href="concepts/research.html"><g class="bp-node"><title>2. Research — viabilité de l'intention, verdict GO / NO-GO</title>
+        <rect x="272" y="190" width="190" height="84" rx="10" fill="#173a6b"/>
+        <text x="367" y="216" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 2</text>
+        <text x="367" y="238" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Research</text>
+        <text x="367" y="260" text-anchor="middle" font-size="12" fill="#b9c8e0">/sdd research · GO/NO-GO</text>
+      </g></a>
+      <line x1="462" y1="232" x2="500" y2="232" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+      <a href="concepts/spec.html"><g class="bp-node"><title>3. SPEC — spécification vivante, prose ou EARS</title>
+        <rect x="504" y="190" width="190" height="84" rx="10" fill="#173a6b"/>
+        <text x="599" y="216" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 3</text>
+        <text x="599" y="238" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">SPEC</text>
+        <text x="599" y="260" text-anchor="middle" font-size="12" fill="#b9c8e0">/sdd spec · /sdd split</text>
+      </g></a>
+      <line x1="694" y1="232" x2="732" y2="232" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+      <a href="concepts/execution-gate.html"><g class="bp-node"><title>4. Execution Gate — SQS ≥ 4/5 requis pour ouvrir la gate</title>
+        <path class="shape" d="M831,186 L934,232 L831,278 L728,232 Z" fill="#c5860f"/>
+        <text x="831" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#0a1f3d">ÉTAPE 4 · GATE</text>
+        <text x="831" y="240" text-anchor="middle" font-size="15" font-weight="800" fill="#0a1f3d">SQS ≥ 4/5 ?</text>
+        <text x="831" y="258" text-anchor="middle" font-size="11" fill="#3d2a05">/sdd gate</text>
+      </g></a>
+      <line x1="934" y1="232" x2="972" y2="232" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
+      <!-- gate fermée : retour spec -->
+      <path d="M831,278 L831,300 L599,300 L599,278" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+      <text x="715" y="294" text-anchor="middle" font-size="11" fill="#c0392b">&lt; 4/5 : retour en révision</text>
+
+      <a href="concepts/execution.html"><g class="bp-node"><title>5. Exécution agent — contexte optimisé, plan avant code</title>
+        <rect x="976" y="190" width="184" height="84" rx="10" fill="#173a6b"/>
+        <text x="1068" y="216" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 5</text>
+        <text x="1068" y="238" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Exécution agent</text>
+        <text x="1068" y="260" text-anchor="middle" font-size="12" fill="#b9c8e0">/sdd exec · /sdd resume</text>
+      </g></a>
+
+      <!-- descente vers rangée 2 -->
+      <path d="M1068,274 L1068,330" fill="none" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+      <!-- ============ CYCLE — RANGÉE 2 (droite → gauche) ============ -->
+      <a href="concepts/validation.html"><g class="bp-node"><title>6. Validation — technique, fonctionnelle, gouvernance</title>
+        <rect x="976" y="334" width="184" height="84" rx="10" fill="#173a6b"/>
+        <text x="1068" y="360" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 6</text>
+        <text x="1068" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Validation</text>
+        <text x="1068" y="404" text-anchor="middle" font-size="12" fill="#b9c8e0">/sdd validate · veto Tier 1</text>
+      </g></a>
+      <line x1="976" y1="376" x2="938" y2="376" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+      <a href="concepts/drift-lock.html"><g class="bp-node"><title>7. Drift Lock — code et SPEC dans la même PR</title>
+        <rect x="744" y="334" width="190" height="84" rx="10" fill="#0e8a7d"/>
+        <text x="839" y="360" text-anchor="middle" font-size="12" font-weight="700" fill="#fbeecd">ÉTAPE 7</text>
+        <text x="839" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Drift Lock</text>
+        <text x="839" y="404" text-anchor="middle" font-size="12" fill="#cdebe7">/sdd drift-check · /sdd trace</text>
+      </g></a>
+      <line x1="744" y1="376" x2="706" y2="376" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+      <a href="equipe/rituels.html#integrer"><g class="bp-node"><title>8. Déploiement — staging puis production, monitoring</title>
+        <rect x="512" y="334" width="190" height="84" rx="10" fill="#1e4a87"/>
+        <text x="607" y="360" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 8</text>
+        <text x="607" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Déploiement</text>
+        <text x="607" y="404" text-anchor="middle" font-size="12" fill="#b9c8e0">staging → prod · rollback</text>
+      </g></a>
+      <line x1="512" y1="376" x2="474" y2="376" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+      <a href="equipe/rituels.html"><g class="bp-node"><title>9. Consolidation — rétro, Atelier d'Intention, statut</title>
+        <rect x="280" y="334" width="190" height="84" rx="10" fill="#1e4a87"/>
+        <text x="375" y="360" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 9</text>
+        <text x="375" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Consolidation</text>
+        <text x="375" y="404" text-anchor="middle" font-size="12" fill="#b9c8e0">/aiad retro · /aiad intention</text>
+      </g></a>
+
+      <!-- boucle retour vers Intent -->
+      <path d="M280,376 L135,376 L135,278" fill="none" stroke="#e8a020" stroke-width="3" marker-end="url(#arrow-gold)"/>
+      <text x="142" y="340" font-size="12" font-weight="600" fill="#c5860f">nouvelle itération</text>
+
+      <!-- JNSP chip -->
+      <a href="concepts/jnsp.html"><g class="bp-node"><title>JNSP — politique d'incertitude : dire « je ne sais pas » plutôt qu'inventer</title>
+        <rect x="40" y="430" width="430" height="40" rx="20" fill="#fdf3e0" stroke="#ecc97f"/>
+        <text x="255" y="455" text-anchor="middle" font-size="14" font-weight="700" fill="#6b4d09">JNSP — l'incertitude est un signal valide, pas un échec</text>
+      </g></a>
+      <a href="concepts/traceability.html"><g class="bp-node"><title>Traçabilité machine-vérifiable : @intent, @spec, @verified-by, @governance</title>
+        <rect x="490" y="430" width="430" height="40" rx="20" fill="#e3edfb" stroke="#b3cdf3"/>
+        <text x="705" y="455" text-anchor="middle" font-size="14" font-weight="700" fill="#173a6b">Traçabilité @intent · @spec · @verified-by · @governance</text>
+      </g></a>
+      <a href="concepts/context-budget.html"><g class="bp-node"><title>Context Engineering Budget — 60-70 % de la fenêtre maximum</title>
+        <rect x="940" y="430" width="220" height="40" rx="20" fill="#e3edfb" stroke="#b3cdf3"/>
+        <text x="1050" y="455" text-anchor="middle" font-size="14" font-weight="700" fill="#173a6b">Context Budget 60-70 %</text>
+      </g></a>
+
+      <!-- ============ ARTEFACTS ============ -->
+      <text x="40" y="516" font-size="17" font-weight="700" fill="#0a1f3d">LES ARTEFACTS — hiérarchie documentaire</text>
+      <a href="artefacts.html#prd"><g class="bp-node"><title>PRD — vision produit, injecté en cadrage uniquement</title>
+        <rect x="40" y="530" width="212" height="56" rx="8" fill="#0e8a7d"/>
+        <text x="146" y="554" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">PRD</text>
+        <text x="146" y="572" text-anchor="middle" font-size="11" fill="#cdebe7">cadrage uniquement</text>
+      </g></a>
+      <a href="artefacts.html#architecture"><g class="bp-node"><title>ARCHITECTURE — standards techniques, condensé permanent</title>
+        <rect x="268" y="530" width="212" height="56" rx="8" fill="#0e8a7d"/>
+        <text x="374" y="554" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">ARCHITECTURE</text>
+        <text x="374" y="572" text-anchor="middle" font-size="11" fill="#cdebe7">condensé permanent</text>
+      </g></a>
+      <a href="artefacts.html#agent-guide"><g class="bp-node"><title>AGENT-GUIDE — contexte permanent, Lessons Learned, Human Learnings</title>
+        <rect x="496" y="530" width="212" height="56" rx="8" fill="#0e8a7d"/>
+        <text x="602" y="554" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">AGENT-GUIDE</text>
+        <text x="602" y="572" text-anchor="middle" font-size="11" fill="#cdebe7">contexte permanent</text>
+      </g></a>
+      <a href="concepts/intent-statement.html"><g class="bp-node"><title>Intents — le POURQUOI archivé dans .aiad/intents/</title>
+        <rect x="724" y="530" width="212" height="56" rx="8" fill="#0e8a7d"/>
+        <text x="830" y="554" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Intents</text>
+        <text x="830" y="572" text-anchor="middle" font-size="11" fill="#cdebe7">.aiad/intents/</text>
+      </g></a>
+      <a href="concepts/spec.html"><g class="bp-node"><title>SPECs — le COMMENT, une seule active par session</title>
+        <rect x="952" y="530" width="208" height="56" rx="8" fill="#0e8a7d"/>
+        <text x="1056" y="554" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">SPECs</text>
+        <text x="1056" y="572" text-anchor="middle" font-size="11" fill="#cdebe7">une seule par tâche</text>
+      </g></a>
+
+      <!-- ============ RESPONSABILITÉS ============ -->
+      <text x="40" y="632" font-size="17" font-weight="700" fill="#0a1f3d">LES CINQ RESPONSABILITÉS</text>
+      <a href="equipe/responsabilites.html#pm"><g class="bp-node"><title>Product Manager — responsable de la valeur</title>
+        <rect x="40" y="646" width="212" height="56" rx="8" fill="#2d6cdf"/>
+        <text x="146" y="670" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Product Manager</text>
+        <text x="146" y="688" text-anchor="middle" font-size="11" fill="#dce9fb">la valeur</text>
+      </g></a>
+      <a href="equipe/responsabilites.html#pe"><g class="bp-node"><title>Product Engineer — gardien de l'intention</title>
+        <rect x="268" y="646" width="212" height="56" rx="8" fill="#2d6cdf"/>
+        <text x="374" y="670" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Product Engineer</text>
+        <text x="374" y="688" text-anchor="middle" font-size="11" fill="#dce9fb">gardien de l'intention</text>
+      </g></a>
+      <a href="equipe/responsabilites.html#ae"><g class="bp-node"><title>Agents Engineer — écosystème IA et Harness Engineering</title>
+        <rect x="496" y="646" width="212" height="56" rx="8" fill="#2d6cdf"/>
+        <text x="602" y="670" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Agents Engineer</text>
+        <text x="602" y="688" text-anchor="middle" font-size="11" fill="#dce9fb">l'écosystème IA</text>
+      </g></a>
+      <a href="equipe/responsabilites.html#qa"><g class="bp-node"><title>QA Engineer — qualité intégrée dès le départ</title>
+        <rect x="724" y="646" width="212" height="56" rx="8" fill="#2d6cdf"/>
+        <text x="830" y="670" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">QA Engineer</text>
+        <text x="830" y="688" text-anchor="middle" font-size="11" fill="#dce9fb">la qualité</text>
+      </g></a>
+      <a href="equipe/responsabilites.html#tl"><g class="bp-node"><title>Tech Lead — cohérence technique long terme</title>
+        <rect x="952" y="646" width="208" height="56" rx="8" fill="#2d6cdf"/>
+        <text x="1056" y="670" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Tech Lead</text>
+        <text x="1056" y="688" text-anchor="middle" font-size="11" fill="#dce9fb">la cohérence technique</text>
+      </g></a>
+
+      <!-- ============ BANDE RITUELS / MÉTRIQUES ============ -->
+      <a href="equipe/rituels.html"><g class="bp-node"><title>Rituels et synchronisations — standup, demo, tech review, rétro, Atelier d'Intention</title>
+        <rect x="40" y="726" width="430" height="52" rx="8" fill="#10294f"/>
+        <text x="255" y="748" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">RITUELS &amp; SYNCHRONISATIONS</text>
+        <text x="255" y="766" text-anchor="middle" font-size="11" fill="#b9c8e0">/aiad standup · demo · tech-review · retro · intention</text>
+      </g></a>
+      <a href="metriques.html"><g class="bp-node"><title>Métriques — SQS, DORA, Flow, dashboards</title>
+        <rect x="490" y="726" width="430" height="52" rx="8" fill="#10294f"/>
+        <text x="705" y="748" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">MÉTRIQUES</text>
+        <text x="705" y="766" text-anchor="middle" font-size="11" fill="#b9c8e0">SQS · DORA · Flow · /aiad dashboard</text>
+      </g></a>
+      <a href="concepts/human-authorship.html"><g class="bp-node"><title>Human Authorship — la paternité de l'intention ne se délègue pas</title>
+        <rect x="940" y="726" width="220" height="52" rx="8" fill="#c5860f"/>
+        <text x="1050" y="748" text-anchor="middle" font-size="13" font-weight="800" fill="#0a1f3d">HUMAN AUTHORSHIP</text>
+        <text x="1050" y="766" text-anchor="middle" font-size="10.5" fill="#3d2a05">valeur 7 — non négociable</text>
+      </g></a>
+    </svg>
+
+    <p class="bp-legend">
+      <span><span class="swatch" style="background:#8a2418"></span>Gouvernance Tier 1 (veto)</span>
+      <span><span class="swatch" style="background:#173a6b"></span>Étapes du cycle</span>
+      <span><span class="swatch" style="background:#c5860f"></span>Gates &amp; Human Authorship</span>
+      <span><span class="swatch" style="background:#0e8a7d"></span>Artefacts &amp; Drift Lock</span>
+      <span><span class="swatch" style="background:#2d6cdf"></span>Responsabilités</span>
+      <span><span class="swatch" style="background:#10294f"></span>Rituels &amp; métriques</span>
+    </p>
+
+    <section aria-labelledby="h-alt">
+      <h2 id="h-alt">Le cycle en texte</h2>
+      <p>Alternative complète au schéma ci-dessus :</p>
+      <ol>
+        <li><a href="concepts/intent-statement.html"><strong>Intent Statement</strong></a> (<code>/sdd intent</code>) — un humain identifiable capture le POURQUOI en cinq champs. Sans auteur humain, la session est invalidée (<a href="concepts/human-authorship.html">Human Authorship</a>).</li>
+        <li><a href="concepts/research.html"><strong>Phase Research</strong></a> (<code>/sdd research</code>) — discovery obligatoire ancrée dans le code, verdict gradué GO / CONDITIONAL GO / DEFER / NO-GO tranché par l'humain.</li>
+        <li><a href="concepts/spec.html"><strong>SPEC</strong></a> (<code>/sdd spec</code>, <code>/sdd split</code>) — spécification vivante : scope, interface, comportement, cas limites, tests, critère de drift. Format prose ou <a href="concepts/spec.html#ears">EARS</a>.</li>
+        <li><a href="concepts/execution-gate.html"><strong>Execution Gate</strong></a> (<code>/sdd gate</code>) — le SQS score 5 critères + le Test de l'Étranger. Sous 4/5, la gate ferme et la SPEC retourne en révision.</li>
+        <li><a href="concepts/execution.html"><strong>Exécution agent</strong></a> (<code>/sdd exec</code>, <code>/sdd resume</code>) — contexte optimisé dans le <a href="concepts/context-budget.html">Context Engineering Budget</a>, plan d'implémentation exigé avant le code.</li>
+        <li><a href="concepts/validation.html"><strong>Validation</strong></a> (<code>/sdd validate</code>) — trois axes : technique, fonctionnel, gouvernance. Les <a href="gouvernance/index.html">4 agents Tier 1</a> ont un droit de veto fail-closed.</li>
+        <li><a href="concepts/drift-lock.html"><strong>Drift Lock</strong></a> (<code>/sdd drift-check</code>, <code>/sdd trace</code>) — code et SPEC synchronisés dans la même PR, vérifié par la <a href="concepts/traceability.html">matrice de traçabilité</a>.</li>
+        <li><strong>Déploiement</strong> — staging puis production, monitoring, rollback si besoin (<a href="equipe/rituels.html#integrer">boucle Intégrer</a>).</li>
+        <li><strong>Consolidation</strong> (<code>/aiad retro</code>, <code>/aiad intention</code>, <code>/aiad status</code>) — Lessons Learned, Human Learnings, métriques. Puis nouvelle itération à partir de l'étape 1 (<a href="equipe/rituels.html">rituels</a>).</li>
+      </ol>
+      <p>En soutien permanent : les <a href="artefacts.html">artefacts</a> (PRD, ARCHITECTURE, AGENT-GUIDE, Intents, SPECs), les <a href="equipe/responsabilites.html">cinq responsabilités</a>, la politique d'incertitude <a href="concepts/jnsp.html">JNSP</a> et les <a href="metriques.html">métriques</a> SQS, DORA et Flow.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="demarrer.html">Démarrer</a></li>
+        <li><a href="valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="artefacts.html">Les artefacts</a></li>
+        <li><a href="equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="concepts/spec.html">SPEC</a></li>
+        <li><a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="concepts/jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="metriques.html">Métriques</a></li>
+        <li><a href="glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

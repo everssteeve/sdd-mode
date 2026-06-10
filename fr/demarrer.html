@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Démarrer — votre premier cycle SDD en une journée | SDD Mode</title>
+<meta name="description" content="Guide de démarrage SDD Mode : installation en 1 minute avec npx aiad-sdd init, cadrage des 3 artefacts fondamentaux, puis premier cycle complet — Intent, Research, SPEC, Gate, exécution agent, validation et Drift Lock.">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../en/get-started.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="demarrer.html" aria-current="page">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="concepts/research.html">2. Phase Research</a></li>
+            <li><a href="concepts/spec.html">3. SPEC</a></li>
+            <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="concepts/execution.html">5. Exécution agent</a></li>
+            <li><a href="concepts/validation.html">6. Validation</a></li>
+            <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="artefacts.html">Les artefacts</a></li>
+            <li><a href="valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="metriques.html">Métriques</a></li>
+        <li><a href="glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="recherche.html">Recherche</a></li>
+            <li><a href="nouveautes.html">Nouveautés</a></li>
+            <li><a href="bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="demarrer.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../en/get-started.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="concepts/research.html">2. Phase Research</a></li>
+          <li><a href="concepts/spec.html">3. SPEC</a></li>
+          <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="concepts/execution.html">5. Exécution agent</a></li>
+          <li><a href="concepts/validation.html">6. Validation</a></li>
+          <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="concepts/jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="concepts/traceability.html">Traçabilité</a></li>
+          <li><a href="artefacts.html">Les artefacts</a></li>
+          <li><a href="valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="commandes/sdd.html">/sdd (16)</a></li>
+          <li><a href="commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="gouvernance/index.html">Gouvernance Tier 1</a></li>
+          <li><a href="equipe/responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="equipe/rituels.html">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="demarrer.html" aria-current="page">Démarrer</a></li>
+          <li><a href="metriques.html">Métriques</a></li>
+          <li><a href="glossaire.html">Glossaire</a></li>
+          <li><a href="recherche.html">Recherche</a></li>
+          <li><a href="nouveautes.html">Nouveautés</a></li>
+          <li><a href="bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="index.html">Accueil</a></li>
+          <li aria-current="page">Démarrer</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Guide de démarrage</p>
+      <h1>Démarrer — votre premier cycle SDD en une journée</h1>
+      <p class="doc-lede">De l'installation à la première PR verrouillée par le Drift Lock : ce guide condense tout ce qu'il faut pour passer en SDD Mode. Une commande pour installer, une matinée pour cadrer, un après-midi pour livrer votre première fonctionnalité <strong>spec-anchored</strong>.</p>
+
+      <h2 id="prerequis">Prérequis</h2>
+      <ul>
+        <li><strong>Node.js 18+</strong> — la CLI <code>aiad-sdd</code> s'exécute via <code>npx</code>, sans installation globale ;</li>
+        <li><strong>un agent IA de développement</strong> — Claude Code en première intention, mais aussi Cursor, GitHub Copilot, Codex ou Gemini : depuis la v1.12, SDD Mode est <strong>multi-runtime</strong>, les règles sont émises pour chaque outil depuis une source unique (<code>npx aiad-sdd emit-rules</code>) ;</li>
+        <li>un dépôt Git — neuf ou existant, les deux chemins sont couverts ci-dessous.</li>
+      </ul>
+
+      <h2 id="installation">Installation en 1 minute</h2>
+      <pre><code>npx aiad-sdd init</code></pre>
+      <p>Cette unique commande installe dans votre projet : la structure <code>.aiad/</code> (templates PRD, ARCHITECTURE, AGENT-GUIDE, index des intents et des SPECs), les <strong>4 agents de gouvernance Tier 1</strong> (AI-ACT, RGPD, RGAA, RGESN), les <strong>31 commandes slash</strong> regroupées sous les routers <code>/sdd</code>, <code>/aiad</code> et <code>/aiad-help</code>, et un <code>CLAUDE.md</code> configuré avec le cycle, la hiérarchie documentaire et les règles absolues.</p>
+      <table>
+        <caption class="visually-hidden">Options d'installation de npx aiad-sdd init</caption>
+        <thead><tr><th scope="col">Option</th><th scope="col">Effet</th></tr></thead>
+        <tbody>
+          <tr><td><code>--sans-gouvernance</code></td><td>Installe le cycle SDD sans les 4 agents de gouvernance Tier 1.</td></tr>
+          <tr><td><code>--minimal</code></td><td>Profil AIAD-Lean : Intent Statement + SQS + Drift Lock, 4 commandes, &lt; 1&nbsp;000 tokens à froid. Évoluez ensuite avec <code>--upgrade gouvernance|rituals|metrics|all</code>.</td></tr>
+          <tr><td><code>--runtime cursor|codex|copilot|gemini|all</code></td><td>Émet les fichiers de règles pour le runtime ciblé (v1.12 — multi-runtime).</td></tr>
+        </tbody>
+      </table>
+      <p>Puis, dans votre agent, lancez <code>/sdd init</code>. La commande affiche d'abord un <strong>message de redémarrage recommandé</strong> : pour charger toutes les commandes fraîchement installées dans la session, relancez l'agent (<code>/exit</code> puis nouvelle session) avant de poursuivre. Vous pouvez continuer sans redémarrer, mais certaines skills pourraient ne pas être disponibles.</p>
+
+      <h2 id="cadrage">Le cadrage : trois artefacts fondamentaux</h2>
+      <p><code>/sdd init</code> guide la rédaction interactive des trois documents qui structurent tout le reste — et propose deux assistants de discovery dédiés :</p>
+      <ul>
+        <li><code>/sdd prd</code> — l'assistant <strong>PRD</strong> pose les questions d'un Product Manager : vision, utilisateurs, outcomes. Le PRD ne sera injecté qu'en phase de cadrage, jamais en développement ;</li>
+        <li><code>/sdd arch</code> — l'assistant <strong>ARCHITECTURE</strong> pose les questions d'un architecte : stack, patterns, contraintes. Le document sera injecté condensé (~500 tokens) dans chaque session agent ;</li>
+        <li>l'<strong>AGENT-GUIDE</strong> — contexte permanent de l'agent : règles absolues, conventions, puis au fil des itérations les Lessons Learned et Human Learnings.</li>
+      </ul>
+      <div class="callout info">
+        <span class="callout-title">Sur un projet neuf</span>
+        <p>Le cadrage complet prend de 3 à 7 jours pour une équipe — mais une version minimale viable des trois artefacts s'écrit en une matinée. Ne visez pas la perfection : ce sont des documents vivants.</p>
+      </div>
+
+      <h2 id="premier-cycle">Votre premier cycle pas à pas</h2>
+      <p>Le cycle SDD compte sept étapes — on n'en saute jamais aucune. Pour une fonctionnalité bien délimitée, l'ensemble tient dans une journée :</p>
+      <table>
+        <caption class="visually-hidden">Les 7 étapes du cycle SDD avec commande, durée et livrable</caption>
+        <thead><tr><th scope="col">Étape</th><th scope="col">Commande</th><th scope="col">Durée indicative</th><th scope="col">Livrable</th></tr></thead>
+        <tbody>
+          <tr><td><a href="concepts/intent-statement.html">1. Intent Statement</a></td><td><code>/sdd intent</code></td><td>15-30 min</td><td>Intent archivé dans <code>.aiad/intents/</code>, auteur humain identifiable.</td></tr>
+          <tr><td><a href="concepts/research.html">2. Research</a></td><td><code>/sdd research</code></td><td>Variable (proportionnée)</td><td>Discovery ancrée dans le code + verdict GO / CONDITIONAL GO / DEFER / NO-GO tranché par l'humain.</td></tr>
+          <tr><td><a href="concepts/spec.html">3. SPEC</a></td><td><code>/sdd spec</code></td><td>30-60 min</td><td>SPEC committée dans <code>.aiad/specs/</code> — format prose ou EARS.</td></tr>
+          <tr><td><a href="concepts/execution-gate.html">4. Execution Gate</a></td><td><code>/sdd gate</code></td><td>15-30 min</td><td>SQS ≥ 4/5, Gate ouverte, Context Engineering Budget préparé.</td></tr>
+          <tr><td><a href="concepts/execution.html">5. Exécution agent</a></td><td><code>/sdd exec</code></td><td>2 h - 3 jours</td><td>Plan d'implémentation validé, puis code + tests annotés <code>@spec</code>.</td></tr>
+          <tr><td><a href="concepts/validation.html">6. Validation</a></td><td><code>/sdd validate</code></td><td>1-4 h</td><td>Rapport technique + fonctionnel + gouvernance Tier 1.</td></tr>
+          <tr><td><a href="concepts/drift-lock.html">7. Drift Lock</a></td><td><code>/sdd drift-check</code></td><td>10 min</td><td>SPEC et code synchronisés dans la même PR — mergeable.</td></tr>
+        </tbody>
+      </table>
+      <div class="callout warn">
+        <span class="callout-title">Aucun code avant la Gate</span>
+        <p>La règle est absolue : tant que le SQS n'atteint pas 4/5, l'agent ne démarre pas. Si la SPEC est trop volumineuse pour être atomique, <code>/sdd split</code> la découpe ; si la session agent s'interrompt, <code>/sdd resume</code> la reprend avec un contexte minimal.</p>
+      </div>
+
+      <h2 id="projet-existant">Adoption sur un projet existant</h2>
+      <p>Vous n'avez pas besoin de repartir de zéro. <code>/aiad init</code> réalise un <strong>bootstrap progressif</strong> : il analyse le codebase réel et génère les artefacts initiaux depuis l'état du projet — l'ARCHITECTURE depuis les patterns observés, l'AGENT-GUIDE depuis les conventions en place. Aucune disruption : le cycle SDD s'applique d'abord aux nouvelles fonctionnalités, et la couverture en SPECs s'étend itération après itération.</p>
+      <p>Quand un nouveau membre rejoint l'équipe, <code>/aiad onboard</code> génère un briefing contextualisé depuis les artefacts (PRD, ARCHITECTURE, SPECs actives, Lessons Learned) avec une liste de lecture priorisée.</p>
+
+      <h2 id="dual-mode">Dual-mode : <code>--guided</code> et <code>--fast</code></h2>
+      <p>Chaque commande supporte deux modes. <code>--guided</code> est le mode débutant : questions une par une, concepts expliqués (SQS, Drift Lock…), exemples proposés — utilisez-le la première fois. <code>--fast</code> est le mode expert : inputs en bloc, rendu direct. Sans flag, l'agent auto-détecte : structure <code>.aiad/</code> vide ou quasi vide → guidé, sinon → fast. Pour votre première journée, restez en <code>--guided</code>.</p>
+
+      <h2 id="conseils">Conseils pour la première itération</h2>
+      <ul>
+        <li><strong>Commencez petit</strong> — choisissez une fonctionnalité bien délimitée, pas le chantier structurant du trimestre ;</li>
+        <li><strong>une seule SPEC atomique</strong> — une session agent = une SPEC. C'est la règle du Context Engineering Budget, et la meilleure protection contre le context rot ;</li>
+        <li><strong>mesurez dès la première itération</strong> — SQS, drifts détectés, first-time success : les <a href="metriques.html">métriques</a> n'ont de valeur qu'avec une tendance, et la tendance commence au premier point.</li>
+      </ul>
+
+      <h2 id="maturite">Vérifier sa maturité</h2>
+      <pre><code>npx aiad-sdd status</code></pre>
+      <p>La commande calcule un <strong>score de maturité SDD de 0 à 5</strong> : fraîcheur des artefacts, SPECs actives et leur SQS, gouvernance activée, recommandations immédiates. Lancez-la après chaque itération — la progression du score raconte l'adoption mieux que n'importe quel ressenti.</p>
+      <div class="callout success">
+        <span class="callout-title">Et ensuite ?</span>
+        <p>Votre premier cycle bouclé, explorez chaque étape en détail en commençant par l'<a href="concepts/intent-statement.html">Intent Statement</a>, puis installez les <a href="equipe/rituels.html">rituels d'équipe</a> — rétrospective, Atelier d'Intention — pour faire vivre la boucle d'amélioration.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="big-picture.html"><span class="dir">← Précédent</span>Big Picture</a>
+        <a class="next" href="concepts/intent-statement.html"><span class="dir">Suivant →</span>1. Intent Statement</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="demarrer.html">Démarrer</a></li>
+        <li><a href="valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="artefacts.html">Les artefacts</a></li>
+        <li><a href="equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="concepts/spec.html">SPEC</a></li>
+        <li><a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="concepts/jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="metriques.html">Métriques</a></li>
+        <li><a href="glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gouvernance Tier 1 — le droit de veto réglementaire | SDD Mode</title>
+<meta name="description" content="Les agents de gouvernance Tier 1 du SDD Mode (AI Act, RGPD, RGAA, RGESN, CRA) ont un droit de veto absolu sur tout livrable non conforme. Politique fail-closed : UNKNOWN = VETO, hiérarchie de priorité entre référentiels, packs régionaux et subagents Claude Code.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../../en/governance/index.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="../concepts/research.html">2. Phase Research</a></li>
+            <li><a href="../concepts/spec.html">3. SPEC</a></li>
+            <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="../concepts/execution.html">5. Exécution agent</a></li>
+            <li><a href="../concepts/validation.html">6. Validation</a></li>
+            <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="../concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="../concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="../artefacts.html">Les artefacts</a></li>
+            <li><a href="../valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html" aria-current="page">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="../recherche.html">Recherche</a></li>
+            <li><a href="../nouveautes.html">Nouveautés</a></li>
+            <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="index.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../../en/governance/index.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="../concepts/research.html">2. Phase Research</a></li>
+          <li><a href="../concepts/spec.html">3. SPEC</a></li>
+          <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="../concepts/execution.html">5. Exécution agent</a></li>
+          <li><a href="../concepts/validation.html">6. Validation</a></li>
+          <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="../concepts/jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="../concepts/traceability.html">Traçabilité</a></li>
+          <li><a href="../artefacts.html">Les artefacts</a></li>
+          <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="index.html" aria-current="page">Gouvernance Tier 1</a></li>
+          <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="../demarrer.html">Démarrer</a></li>
+          <li><a href="../metriques.html">Métriques</a></li>
+          <li><a href="../glossaire.html">Glossaire</a></li>
+          <li><a href="../recherche.html">Recherche</a></li>
+          <li><a href="../nouveautes.html">Nouveautés</a></li>
+          <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="../index.html">Accueil</a></li>
+          <li aria-current="page">Gouvernance Tier 1</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Niveau 0-1 · fail-closed</p>
+      <h1>Gouvernance Tier 1 — le droit de veto réglementaire</h1>
+      <p class="doc-lede">Les agents de gouvernance Tier 1 sont des AGENT-GUIDEs réglementaires injectés dans les sessions de développement <strong>selon le contexte</strong> : un projet traitant des données personnelles active AIAD-RGPD, un composant IA en contexte européen active AIAD-AI-ACT. Ils ont un <strong>droit de veto absolu</strong> sur tout livrable non conforme — en cas de conflit entre une SPEC et un agent de gouvernance, <strong>l'agent de gouvernance prévaut</strong>.</p>
+
+      <p>Dans la hiérarchie documentaire du SDD Mode, ces agents se situent juste sous la Constitution AIAD, au-dessus du PRD, de l'ARCHITECTURE et des SPECs. Aucun artefact de niveau inférieur ne peut les contredire, et aucun verdict de veto ne peut être ignoré — pas même par l'humain dans le flux normal du cycle : la levée d'un veto exige une décision documentée hors du cycle, jamais un contournement silencieux de l'agent.</p>
+
+      <h2 id="fail-closed">Politique d'incertitude — fail-closed</h2>
+      <p>Si l'agent ne peut pas trancher l'applicabilité d'un référentiel Tier 1 — module flou côté données, IA ou interface, scope non documenté, fichier source partiellement lisible — le verdict par défaut est <code>UNKNOWN</code>, <strong>assimilé à un VETO</strong> tant que la levée d'ambiguïté n'a pas eu lieu côté humain. L'agent ne conclut jamais « non applicable » par absence de preuve. C'est l'application au domaine réglementaire de la <a href="../concepts/jnsp.html">politique d'incertitude JNSP</a>.</p>
+      <p>La forme attendue dans la sortie de la skill <code>regulatory-veto</code> est structurée :</p>
+      <pre><code>verdict: UNKNOWN
+referential: &lt;AIAD-XXX&gt;
+motif: &lt;ce qui manque pour décider&gt;
+question: &lt;reformulation pour l'humain&gt;</code></pre>
+      <div class="callout danger">
+        <span class="callout-title">Contre l'auto-blanchiment silencieux</span>
+        <p>Cette règle protège contre un agent qui réécrit l'historique en disant « pas de problème » alors qu'il n'a pas pu lire la zone concernée. Une absence de preuve n'est jamais une preuve de conformité : le doute ferme la porte, il ne l'ouvre pas.</p>
+      </div>
+
+      <h2 id="hierarchie">Hiérarchie de priorité entre référentiels</h2>
+      <p>Plusieurs référentiels peuvent s'appliquer simultanément au même code — un chatbot traitant des données de santé cumule AI Act, RGPD et RGAA. En cas de conflit, l'ordre de priorité est fixe :</p>
+      <ol>
+        <li><strong>Art. 5 AI Act (interdictions)</strong> — priorité absolue, arrêt complet ;</li>
+        <li><strong>RGPD + Art. 9</strong> — base légale renforcée requise si données sensibles, avant toute implémentation ;</li>
+        <li><strong>AI Act haut risque</strong> — obligations procédurales : documentation, supervision humaine, enregistrement ;</li>
+        <li><strong>RGAA</strong> — les interfaces exigées par l'AI Act (divulgation, supervision, recours) doivent être accessibles ;</li>
+        <li><strong>RGESN</strong> — optimisation énergétique dans le respect des quatre niveaux ci-dessus.</li>
+      </ol>
+      <p>Une conséquence pratique : un site sobre mais inaccessible viole le RGAA — la sobriété ne justifie jamais de sacrifier l'accessibilité ni la protection des personnes.</p>
+
+      <h2 id="ai-act">AIAD-AI-ACT — Règlement (UE) 2024/1689</h2>
+      <p>Déclenché dès que le code implique un composant IA (ML, LLM, scoring, recommandation). L'agent impose une <strong>qualification du niveau de risque en début de session</strong> : risque inacceptable (Art. 5 — interdit, escalade direction), haut risque (Annexe III — régime complet : documentation Art. 11, qualité des données Art. 10, supervision humaine Art. 14, monitoring Art. 72), risque limité (Art. 50 — divulgation obligatoire des chatbots et contenus générés) ou risque minimal.</p>
+      <table>
+        <caption class="visually-hidden">Calendrier d'application de l'EU AI Act</caption>
+        <thead><tr><th scope="col">Échéance</th><th scope="col">Obligation</th><th scope="col">Statut</th></tr></thead>
+        <tbody>
+          <tr><td>Février 2025</td><td>Interdictions absolues (Art. 5)</td><td>En vigueur</td></tr>
+          <tr><td>Août 2025</td><td>Obligations GPAI (Art. 51-56)</td><td>En vigueur</td></tr>
+          <tr><td>2 août 2026</td><td>Transparence (Art. 50) — chatbots, deepfakes, contenus IA</td><td>Confirmée — non reportée</td></tr>
+          <tr><td>2 août 2026</td><td>Haut risque Annexe III (emploi, crédit, éducation…)</td><td>Report proposé (Omnibus VII, non adopté)</td></tr>
+        </tbody>
+      </table>
+      <p>Le principe <a href="../concepts/human-authorship.html">Human Authorship</a> constitue la réponse directe du framework aux exigences de supervision humaine de l'<strong>article 14</strong> : un système où l'humain est l'auteur de l'intention et conserve l'override est, par construction, aligné avec l'AI Act. Sanctions maximales : 35 M€ ou 7 % du CA mondial pour les pratiques interdites.</p>
+
+      <h2 id="rgpd">AIAD-RGPD — Privacy by Design</h2>
+      <p>Déclenché dès que le code traite des données personnelles. Le principe directeur tient en une phrase : <em>une donnée non collectée ne peut pas être violée</em>. L'agent applique le Privacy by Design &amp; by Default (Art. 25) de façon architecturale : <strong>base légale documentée</strong> avant toute collecte (consentement, contrat, obligation légale, intérêt légitime…), <strong>minimisation</strong> (Art. 5.1.c), limitation des finalités et de la conservation, et implémentation des <strong>droits des personnes</strong> (Art. 15-22) — accès, effacement, portabilité, rectification, opposition, avec réponse sous 30 jours. Les données sensibles (Art. 9 : santé, biométrie, opinions, orientation sexuelle…) déclenchent un blocage et une escalade systématique au DPO ou au PM avant implémentation.</p>
+
+      <h2 id="rgaa">AIAD-RGAA — accessibilité numérique</h2>
+      <p>Déclenché dès que le code produit une interface utilisateur. Référentiel : <strong>RGAA 4.1.2</strong> (arrêté du 20 septembre 2024, 106 critères répartis en 13 thématiques), bâti sur WCAG 2.1 niveaux A et AA. L'obligation légale française découle de l'article 47 de la loi 2005-102 pour le secteur public, et depuis le 28 juin 2025 de l'European Accessibility Act pour un large périmètre privé (banque, e-commerce, transport, téléphonie). L'agent impose l'accessibilité <em>built-in</em> — alt sur les images, contrastes 4.5:1, labels de formulaire, navigation clavier, focus visible, <code>aria-current</code>, lien d'évitement — car corriger après coup coûte dix fois plus cher. Autorité de contrôle : ARCOM ; sanctions jusqu'à 300 000 € pour le périmètre EAA.</p>
+
+      <h2 id="rgesn">AIAD-RGESN — écoconception numérique</h2>
+      <p>Déclenché par <strong>toute décision technique</strong> (performance, ressources, dépendances) — c'est l'agent au périmètre le plus large. Référentiel : <strong>RGESN v2</strong> (mai 2024, ARCEP / ARCOM / ADEME / DINUM, 79 critères, 9 thématiques). Il incarne la valeur AIAD de <em>Sobriété Intentionnelle</em> : chaque ligne de code a un coût énergétique réel. La thématique Algorithmie cible spécifiquement la <strong>sobriété computationnelle</strong> : une règle métier déterministe consomme 100 à 10 000 fois moins qu'une inférence LLM, le plus petit modèle suffisant doit être retenu, chaque appel LLM est plafonné en tokens et mis en cache. Le signalement chiffre l'impact (kWh, gCO2eq) avec une base méthodologique ADEME ou Ecoindex.</p>
+
+      <h2 id="cra">AIAD-CRA — Cyber Resilience Act</h2>
+      <p>Déclenché pour tout produit logiciel destiné au marché de l'UE. Référentiel : <strong>Règlement (UE) 2024/2847</strong>, entré en vigueur le 10 décembre 2024, application complète le 11 décembre 2027 — avec une obligation anticipée dès le 11 septembre 2026 : le signalement à l'ENISA, sous 24 heures, des vulnérabilités activement exploitées. L'agent vérifie les <strong>13 exigences essentielles</strong> (secure-by-design, configuration sécurisée par défaut, chiffrement, surface d'attaque minimale, mises à jour signées…) et les <strong>8 obligations de gestion des vulnérabilités</strong> : SBOM CycloneDX régénéré à chaque release, <code>SECURITY.md</code> avec SLA de réponse, correctifs gratuits, CHANGELOG mentionnant les CVE. Avant chaque tag de release, il bloque si le SBOM est absent ou si une vulnérabilité CVSS ≥ 7 n'est pas patchée. Sanctions : jusqu'à 15 M€ ou 2,5 % du CA mondial.</p>
+
+      <h2 id="packs">Packs de gouvernance régionaux</h2>
+      <p>Le socle Tier 1 (AI-ACT, RGPD, RGAA, RGESN, CRA) est centré UE/France. Pour les autres juridictions et les contextes sectoriels, des <strong>packs de gouvernance</strong> ajoutent des agents au même contrat : veto fail-closed, lecture seule, evidence obligatoire.</p>
+      <table>
+        <caption class="visually-hidden">Packs de gouvernance régionaux disponibles</caption>
+        <thead><tr><th scope="col">Pack</th><th scope="col">Agents</th><th scope="col">Contexte</th></tr></thead>
+        <tbody>
+          <tr><td><code>fr-anssi</code></td><td>SECNUMCLOUD, RGS, PASSI, HOMOLOGATION</td><td>Secteur public et cloud de confiance français (ANSSI)</td></tr>
+          <tr><td><code>apac-baseline</code></td><td>SG-PDPA, JP-APPI, AU-PRIVACY</td><td>Protection des données Singapour, Japon, Australie</td></tr>
+          <tr><td><code>de-bsi</code></td><td>BSI-C5, IT-Grundschutz, DE-BDSG, BFDI-Employee</td><td>Allemagne — cloud, sécurité, données salariés</td></tr>
+          <tr><td><code>es-aepd</code></td><td>AEPD, CCN-STIC, ENS, LOPDGDD</td><td>Espagne — données et schéma national de sécurité</td></tr>
+          <tr><td><code>eu-financial</code></td><td>DORA, MiCA, PSD2, SFDR</td><td>Services financiers européens</td></tr>
+          <tr><td><code>eu-platforms</code></td><td>DSA</td><td>Plateformes en ligne (Digital Services Act)</td></tr>
+          <tr><td><code>uk-baseline</code></td><td>UK-AI, UK-DPA, UK-EQA, UK-ESG</td><td>Royaume-Uni</td></tr>
+          <tr><td><code>us-baseline</code></td><td>ADA, HIPAA, NIST AI RMF, SOC2</td><td>États-Unis</td></tr>
+          <tr><td><code>latam-baseline</code></td><td>BR-LGPD, MX-LFPDPPP</td><td>Brésil, Mexique</td></tr>
+          <tr><td><code>be-apd</code> · <code>ch-fadp</code> · <code>nl-ap</code> · <code>it-agid</code></td><td>Agents nationaux dédiés</td><td>Belgique, Suisse, Pays-Bas, Italie</td></tr>
+          <tr><td><code>iso-standards</code></td><td>ISO 42001</td><td>Système de management de l'IA</td></tr>
+        </tbody>
+      </table>
+      <p>Un catalogue marketplace référence en complément des packs sectoriels premium distribués séparément (contenus sous licences restrictives) : santé EU (HDS, ISO 27799, MDR/IVDR), automobile (TISAX, UN R155, ISO/SAE 21434), aéronautique (DO-178C, DO-326A) et industriel (IEC 62443, NIS2). Ils s'installent via <code>aiad-sdd gouvernance --pack-from &lt;chemin&gt;</code>, en packs signés SHA-256.</p>
+
+      <h2 id="subagents">Subagents Claude Code</h2>
+      <p>Sous Claude Code, chaque agent Tier 1 existe aussi comme <strong>subagent</strong> dans <code>.claude/agents/</code> (AIAD-AI-ACT, AIAD-RGPD, AIAD-RGAA, AIAD-RGESN), généré depuis la source unique <code>.aiad/gouvernance/</code> par <code>npx aiad-sdd emit-rules</code>. Leur contrat d'exécution est non négociable :</p>
+      <ul>
+        <li><strong>lecture seule</strong> — outils limités à Read, Grep, Glob ; Edit, Write et Bash explicitement interdits ;</li>
+        <li><strong>déclenchement proactif</strong> — la description <em>PROACTIVELY review</em> et les patterns de chemins (<code>**/api/**</code>, <code>**/auth/**</code>, <code>**/gdpr/**</code>…) font que Claude Code les invoque sans qu'on le demande ;</li>
+        <li><strong>verdict tranché</strong> — <code>CONFORME</code>, <code>NON-CONFORME</code> ou <code>UNKNOWN</code> (= VETO), chaque verdict citant une evidence <code>fichier:ligne</code> ;</li>
+        <li><strong>veto bloquant</strong> — consultatif pour le modèle, mais imposé au niveau des hooks <code>PreToolUse</code>/<code>Stop</code>.</li>
+      </ul>
+
+      <h2 id="commandes">Commandes associées</h2>
+      <table>
+        <caption class="visually-hidden">Commandes liées à la gouvernance Tier 1</caption>
+        <thead><tr><th scope="col">Commande</th><th scope="col">Rôle</th></tr></thead>
+        <tbody>
+          <tr><td><a href="../commandes/aiad.html"><code>/aiad gouvernance</code></a></td><td>Vérifier la conformité Tier 1 d'une SPEC ou d'un code</td></tr>
+          <tr><td><a href="../commandes/sdd.html"><code>/sdd security</code></a></td><td>Audit sécurité incluant la conformité AI-ACT et RGPD si applicable</td></tr>
+          <tr><td><a href="../commandes/sdd.html"><code>/sdd validate</code></a></td><td>Validation du code produit, gouvernance comprise</td></tr>
+        </tbody>
+      </table>
+      <p>Les trois s'appuient sur la skill <code>regulatory-veto</code>, qui émet un verdict <strong>PASS / WARN / VETO</strong> assorti d'une remédiation structurée — et <code>UNKNOWN</code> = VETO quand elle ne peut pas trancher. Ignorer un veto Tier 1 fait partie des interdits absolus du SDD Mode, au même titre que coder sans SPEC validée.</p>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="../commandes/cli.html"><span class="dir">← Précédent</span>CLI npx aiad-sdd</a>
+        <a class="next" href="../equipe/responsabilites.html"><span class="dir">Suivant →</span>Les 5 responsabilités</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="../artefacts.html">Les artefacts</a></li>
+        <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="../concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="../concepts/spec.html">SPEC</a></li>
+        <li><a href="../concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="../concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="../concepts/jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="../commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="../commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

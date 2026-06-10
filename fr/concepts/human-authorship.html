@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Human Authorship — la paternité ne se délègue pas | SDD Mode</title>
+<meta name="description" content="Human Authorship est la valeur 7 du framework AIAD : la paternité de l'intention ne se délègue jamais à un agent IA. Auteur humain obligatoire, session invalidée si l'agent rédige l'Intent, skill human-authorship-check et réponse directe à l'article 14 de l'AI Act.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../../en/concepts/human-authorship.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html">2. Phase Research</a></li>
+            <li><a href="spec.html">3. SPEC</a></li>
+            <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html">5. Exécution agent</a></li>
+            <li><a href="validation.html">6. Validation</a></li>
+            <li><a href="drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html" aria-current="page">Human Authorship</a></li>
+            <li><a href="context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="../artefacts.html">Les artefacts</a></li>
+            <li><a href="../valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="../gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="../recherche.html">Recherche</a></li>
+            <li><a href="../nouveautes.html">Nouveautés</a></li>
+            <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="human-authorship.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../../en/concepts/human-authorship.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="research.html">2. Phase Research</a></li>
+          <li><a href="spec.html">3. SPEC</a></li>
+          <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html">5. Exécution agent</a></li>
+          <li><a href="validation.html">6. Validation</a></li>
+          <li><a href="drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html" aria-current="page">Human Authorship</a></li>
+          <li><a href="context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="traceability.html">Traçabilité</a></li>
+          <li><a href="../artefacts.html">Les artefacts</a></li>
+          <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../gouvernance/index.html">Gouvernance Tier 1</a></li>
+          <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="../demarrer.html">Démarrer</a></li>
+          <li><a href="../metriques.html">Métriques</a></li>
+          <li><a href="../glossaire.html">Glossaire</a></li>
+          <li><a href="../recherche.html">Recherche</a></li>
+          <li><a href="../nouveautes.html">Nouveautés</a></li>
+          <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="../index.html">Accueil</a></li>
+          <li>Concepts</li>
+          <li aria-current="page">Human Authorship</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Valeur 7 · principe fondamental</p>
+      <h1>Human Authorship — la paternité ne se délègue pas</h1>
+      <p class="doc-lede">La septième valeur du framework AIAD est aussi son principe le plus structurant : <strong>la paternité de l'intention ne se délègue pas à l'agent</strong>. L'agent peut enrichir, questionner, affiner — il ne peut pas initier. Tout <a href="intent-statement.html">Intent Statement</a> doit être rédigé en première personne par un humain identifiable.</p>
+
+      <h2 id="definition">Ce que la valeur dit exactement</h2>
+      <p>Human Authorship trace la frontière qui rend l'orchestration d'agents IA viable à long terme : l'agent exécute avec excellence, mais l'intention appartient toujours à l'humain. Cette frontière n'est pas une posture philosophique — elle est opérationnalisée par une règle mécanique : <strong>en cas de doute sur l'intention, l'agent DEMANDE, il n'invente pas</strong>. Une intention devinée est traitée comme une intention trahie. C'est la déclinaison de la valeur 7 dans le quotidien de chaque session : l'agent qui « complète » un POURQUOI manquant pour faire avancer la tâche commet l'erreur la plus grave du framework, même si le résultat semble plausible.</p>
+      <p>Quand l'agent ne peut pas trancher, il émet un verdict <a href="jnsp.html"><code>JNSP</code></a> (« je ne sais pas ») — un signal valide, jamais un échec.</p>
+
+      <h2 id="auteur-humain">Le champ Auteur humain — la friction qui marque l'appropriation</h2>
+      <div class="callout danger">
+        <span class="callout-title">Non négociable</span>
+        <p>Le champ <em>Auteur humain</em> de l'Intent Statement est obligatoire et rempli délibérément — jamais automatiquement. Si un agent a rédigé l'Intent Statement, <strong>la session est invalidée</strong>. L'<a href="execution-gate.html">Execution Gate</a> ne peut pas être passée sans un Intent Statement dont l'auteur est humain et identifiable.</p>
+      </div>
+      <p>Cette friction minuscule est intentionnelle : elle marque le moment de l'appropriation. Demander à l'agent de « proposer un Intent Statement pour gagner du temps » est l'anti-pattern canonique — le temps « gagné » se paie en dette intentionnelle, puis en drift. Les indicateurs de succès du framework exigent un auteur humain identifiable sur <strong>100 %</strong> des Intent Statements.</p>
+
+      <h2 id="fowler">Programmation agentique sérieuse vs vibe coding</h2>
+      <p>La légitimation externe est venue en mai 2026 : la valeur Human Authorship correspond précisément à ce que Martin Fowler nomme la <strong>« programmation agentique sérieuse »</strong> — le développeur examine et valide le code généré — par opposition au <strong>« vibe coding »</strong> (Karpathy/Fowler), où l'auteur délègue sans validation. Elle prévient aussi la <em>cognitive debt</em> (Fowler/Joshi, 2026) : l'accumulation de code dont on accepte l'implémentation sans comprendre le modèle conceptuel sous-jacent. Ce qui n'a pas été compris une fois se répète — c'est exactement ce que documente la section <a href="../artefacts.html#agent-guide">Human Learnings</a> de l'AGENT-GUIDE.</p>
+
+      <h2 id="preuve-terrain">La preuve terrain : 29 585 PR</h2>
+      <p>Le principe n'est pas seulement défendable en théorie — il décrit ce que l'industrie fait déjà à grande échelle. Sur <strong>29 585 pull requests impliquant des agents</strong>, l'autorité de fusion reste « presque exclusivement humaine ». L'humain garde le dernier mot sur ce qui entre dans le produit, même quand l'agent a produit l'essentiel du code. AIAD formalise ce checkpoint plutôt que de le laisser implicite : c'est l'Execution Gate en entrée, la validation et le merge humains en sortie.</p>
+
+      <h2 id="ai-act">Réponse directe à l'AI Act (article 14)</h2>
+      <p>Human Authorship constitue une réponse directe aux exigences de <strong>supervision humaine</strong> imposées par le règlement (UE) 2024/1689 — l'EU AI Act — pour les systèmes à haut risque (article 14). Là où le règlement exige qu'un humain puisse superviser, comprendre et corriger le système, AIAD garantit structurellement que l'intention d'origine est humaine, archivée et vérifiable. L'agent de gouvernance <a href="../gouvernance/index.html#ai-act">AIAD-AI-ACT</a> en fait un point de contrôle Tier 1, avec droit de veto.</p>
+
+      <h2 id="skill">La skill <code>human-authorship-check</code></h2>
+      <p>Le principe est appliqué mécaniquement par une skill dédiée, déclenchée par <code>/sdd intent</code>, <code>/sdd init</code> et <code>/aiad intention</code>. Elle vérifie cinq points avant tout enregistrement d'artefact stratégique :</p>
+      <table>
+        <caption class="visually-hidden">Les 5 vérifications de la skill human-authorship-check</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Vérification</th><th scope="col">Échec = signal</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Le champ <em>Auteur</em> est un nom humain identifiable (pas « Claude », « Agent », « AI », « TBD »)</td><td>Auteur non humain</td></tr>
+          <tr><td>2</td><td>Les 5 champs viennent de l'utilisateur, pas d'une paraphrase de l'agent</td><td>Intention dictée par l'agent</td></tr>
+          <tr><td>3</td><td>« POURQUOI MAINTENANT » cite un déclencheur concret (événement, métrique, échéance)</td><td>Intention non mûre</td></tr>
+          <tr><td>4</td><td>« OBJECTIF » contient au moins une métrique mesurable</td><td>Objectif vague</td></tr>
+          <tr><td>5</td><td>« CRITÈRE DE DRIFT » est un signal observable, pas une intention reformulée</td><td>Garde-fou inopérant</td></tr>
+        </tbody>
+      </table>
+      <p>Trois verdicts sont possibles : <strong>PASS</strong>, <strong>FAIL</strong> (erreur connue avec correction actionnable — ex. auteur « Claude » → demander le nom humain), ou <strong>JNSP</strong> (l'humain bute sur « POURQUOI MAINTENANT » : l'intention n'est pas mûre, on repousse la rédaction). Un JNSP est ici un <em>succès</em> de la skill — elle a détecté une zone qui doit rester humaine.</p>
+
+      <h2 id="atelier">L'Atelier d'Intention — espace humain pur</h2>
+      <p>Le pendant rituel de cette valeur est l'<a href="../equipe/rituels.html#atelier-intention">Atelier d'Intention</a> mensuel : 60 minutes, <strong>humain pur, pas d'IA</strong>. La commande <code>/aiad intention</code> ne sert qu'à le préparer (compilation des Intents du mois, métriques d'alignement, Human Learnings) — jamais à le tenir. Même en mode <code>--fast</code>, l'agent ne saute que les explications sur le rituel, jamais la facilitation humaine elle-même. La question de l'atelier résume toute la valeur : « construisons-nous toujours ce que nous voulions ? »</p>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="drift-lock.html"><span class="dir">← Précédent</span>7. Drift Lock</a>
+        <a class="next" href="context-budget.html"><span class="dir">Suivant →</span>Context Engineering Budget</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="../artefacts.html">Les artefacts</a></li>
+        <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="../commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="../commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="../gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

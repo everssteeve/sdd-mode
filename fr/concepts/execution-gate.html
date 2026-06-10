@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Execution Gate — SQS ≥ 4/5 ou rien | SDD Mode</title>
+<meta name="description" content="L'Execution Gate est le point de contrôle entre une SPEC et le lancement de l'agent : 5 critères SQS, Test de l'Étranger, mode EARS strict, Gate INCONNUE fail-closed (JNSP) et préparation du Context Engineering Budget. Aucun code avant Gate ouverte.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../../en/concepts/execution-gate.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html">2. Phase Research</a></li>
+            <li><a href="spec.html">3. SPEC</a></li>
+            <li><a href="execution-gate.html" aria-current="page">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html">5. Exécution agent</a></li>
+            <li><a href="validation.html">6. Validation</a></li>
+            <li><a href="drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="../artefacts.html">Les artefacts</a></li>
+            <li><a href="../valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="../gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="../recherche.html">Recherche</a></li>
+            <li><a href="../nouveautes.html">Nouveautés</a></li>
+            <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="execution-gate.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../../en/concepts/execution-gate.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="research.html">2. Phase Research</a></li>
+          <li><a href="spec.html">3. SPEC</a></li>
+          <li><a href="execution-gate.html" aria-current="page">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html">5. Exécution agent</a></li>
+          <li><a href="validation.html">6. Validation</a></li>
+          <li><a href="drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="traceability.html">Traçabilité</a></li>
+          <li><a href="../artefacts.html">Les artefacts</a></li>
+          <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../gouvernance/index.html">Gouvernance Tier 1</a></li>
+          <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="../demarrer.html">Démarrer</a></li>
+          <li><a href="../metriques.html">Métriques</a></li>
+          <li><a href="../glossaire.html">Glossaire</a></li>
+          <li><a href="../recherche.html">Recherche</a></li>
+          <li><a href="../nouveautes.html">Nouveautés</a></li>
+          <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../big-picture.html">Cycle SDD</a></li>
+          <li aria-current="page">Execution Gate &amp; SQS</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Étape 4 du cycle · <code>/sdd gate</code></p>
+      <h1>Execution Gate — SQS ≥ 4/5 ou rien</h1>
+      <p class="doc-lede">L'Execution Gate est le point de contrôle entre une <a href="spec.html">SPEC</a> rédigée et le lancement de l'agent. La règle est simple et sans exception : <strong>aucun code avant Gate ouverte</strong>. Le Spec Quality Score (SQS) doit atteindre 4/5, et le Test de l'Étranger doit être documenté.</p>
+
+      <h2 id="principe">Pourquoi une gate avant le code</h2>
+      <p>Soumettre une SPEC médiocre à un agent ne fait pas gagner de temps — cela en perd. Corriger une SPEC prend dix minutes ; corriger le code généré sur une mauvaise SPEC prend des heures. La Gate matérialise cet arbitrage économique : elle force l'investissement là où le ROI est maximal, <em>avant</em> que la première ligne ne soit générée.</p>
+      <p>La Gate est exécutée par la skill <code>sqs-scoring</code>, alimentée par <code>ears-validator</code>. Trois issues possibles : <strong>OUVERTE</strong>, <strong>FERMÉE</strong> (avec plan de remédiation) — ou <strong>INCONNUE</strong> quand le score est indécidable.</p>
+
+      <h2 id="sqs">Les cinq critères du Spec Quality Score</h2>
+      <table>
+        <caption class="visually-hidden">Les 5 critères SQS</caption>
+        <thead><tr><th scope="col">#</th><th scope="col">Critère</th><th scope="col">Question posée</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Atomicité</strong></td><td>Une seule responsabilité fonctionnelle ? (1 SPEC = 1 PR)</td></tr>
+          <tr><td>2</td><td><strong>Interfaces précises</strong></td><td>Types et signatures explicites — pas de « retourner un objet » vague ?</td></tr>
+          <tr><td>3</td><td><strong>Testabilité</strong></td><td>Cas de test inclus et liés aux Outcome Criteria du PRD ?</td></tr>
+          <tr><td>4</td><td><strong>Non-ambiguïté</strong></td><td>Zéro adverbe vague — « correctement », « convenablement », « rapidement » ?</td></tr>
+          <tr><td>5</td><td><strong>Scope défini</strong></td><td>Fichiers impactés exhaustifs et Critère de Drift renseigné ?</td></tr>
+        </tbody>
+      </table>
+      <p>Chaque critère vaut 0 ou 1 point. <strong>Score ≥ 4/5 : la Gate s'ouvre</strong>, la SPEC passe en statut <code>ready</code>. Score &lt; 4/5 : retour en révision avec un <strong>plan de remédiation</strong> qui est un livrable à part entière — texte de remplacement proposé et effort estimé, critère par critère. Deux routes spéciales : Atomicité à 0 → <code>/sdd split</code> ; trois échecs successifs → remonter à <code>/sdd intent</code>, le problème est en amont.</p>
+
+      <h2 id="etranger">Le Critère 6 — Test de l'Étranger</h2>
+      <p>Un sixième critère, <strong>non-scorable</strong>, complète la checklist : <em>« Si je montrais cette SPEC à quelqu'un qui ne connaît pas le projet, saurait-il pourquoi on la fait ? »</em> Il ne bloque pas la Gate si la réponse est négative, mais la question doit être posée et la réponse — <strong>deux phrases maximum, rédigées par un humain</strong> — intégrée à la SPEC avant de continuer :</p>
+      <pre><code>## Contexte pour un lecteur extérieur
+[Deux phrases. Rédigées par un humain. Avant l'Execution Gate.]</code></pre>
+      <p>C'est le principe Feynman appliqué aux spécifications : on ne comprend vraiment quelque chose que quand on peut l'expliquer simplement. Si les deux phrases sont impossibles à écrire, le contexte humain est insuffisant — revenir à l'<a href="intent-statement.html">Intent Statement</a> avant de continuer.</p>
+
+      <h2 id="ears-strict">Mode EARS strict</h2>
+      <p>Quand la SPEC déclare <code>Format : EARS</code> en entête (voir la <a href="spec.html#ears">variante EARS</a>), le linter <code>ears-validator</code> passe en mode strict et influe mécaniquement sur le critère 2 :</p>
+      <table>
+        <caption class="visually-hidden">Effet du linter EARS sur le SQS</caption>
+        <thead><tr><th scope="col">Résultat du lint R1–R7</th><th scope="col">Effet sur le critère SQS 2 (Testabilité)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0 violation</strong></td><td>Bonus <strong>+1 garanti</strong> (plafonné à 1/1)</td></tr>
+          <tr><td><strong>≥ 1 violation</strong></td><td>Critère <strong>forcé à 0</strong> — Gate fermée, tableau de reformulations R1–R7 critère par critère</td></tr>
+        </tbody>
+      </table>
+      <p>En format prose, le linter reste indicatif : il signale les ambiguïtés sans altérer le score.</p>
+
+      <h2 id="inconnue">Gate INCONNUE — le fail-closed du SQS</h2>
+      <p>Quand un ou plusieurs critères ne sont <strong>pas scorables</strong> — testabilité impossible à juger sans pile de test connue, cohérence non vérifiable parce qu'une SPEC dépendante est illisible, atomicité indécidable parce que l'Intent parent n'est pas formulé — la Gate ne sort ni OUVERTE ni FERMÉE : elle sort <strong>INCONNUE</strong>, avec un score <code>?/5</code>. C'est un état <a href="jnsp.html">JNSP</a> et il est <strong>fail-closed</strong> : aucune exécution agent ne peut démarrer.</p>
+      <pre><code>Gate : INCONNUE (verdict JNSP)
+SQS : ?/5
+Critères non scorables :
+  - Critère 2 (Testabilité) : motif = &lt;ce qui empêche&gt;
+  - Critère 4 (Cohérence)   : motif = &lt;ce qui empêche&gt;
+Question à l'humain : &lt;question actionnable&gt;</code></pre>
+      <div class="callout danger">
+        <span class="callout-title">Interdit</span>
+        <p>Inventer un score par défaut « pour ne pas bloquer » est exactement le comportement que la Gate INCONNUE empêche. La SPEC reste en <code>draft</code> ou <code>review</code> jusqu'à la décision humaine.</p>
+      </div>
+
+      <h2 id="budget">Préparer le Context Engineering Budget</h2>
+      <p>Si la Gate s'ouvre, elle ne se contente pas de tamponner la SPEC : elle prépare le <a href="context-budget.html">Context Engineering Budget</a> de la session agent à venir — liste des fichiers à injecter, total de tokens estimé, vérification du seuil de 50K tokens au-delà duquel le <em>context rot</em> menace. Le budget est ensuite revérifié au lancement par <a href="execution.html"><code>/sdd exec</code></a>.</p>
+
+      <h2 id="empirique">Validation empirique</h2>
+      <p>L'Execution Gate n'est pas un rituel de confort : elle répond à un biais mesuré. Les agents SOTA présentent un <strong>biais d'action de 35 à 65 %</strong> — la tendance à produire du code plutôt qu'à signaler qu'une exigence est ambiguë ou infaisable. La Gate impose le point d'arrêt humain que l'agent ne s'impose pas lui-même. La synthèse des preuves est consolidée dans <code>docs/legitimation/execution-gate-evidence.md</code>.</p>
+      <div class="callout info">
+        <span class="callout-title">Mode guidé : « grill me »</span>
+        <p>En <code>--guided</code>, la skill <code>grill-me</code> transforme la Gate en interrogatoire interactif : une question à la fois, l'agent propose sa réponse recommandée, l'humain valide ou corrige. Jamais un formulaire statique — la décision d'ouvrir la Gate reste un acte humain.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="spec.html"><span class="dir">← Précédent</span>3. SPEC</a>
+        <a class="next" href="execution.html"><span class="dir">Suivant →</span>5. Exécution agent</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="../artefacts.html">Les artefacts</a></li>
+        <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="../commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="../commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="../gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

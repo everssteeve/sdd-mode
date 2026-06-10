@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drift Lock — code et SPEC dans la même PR | SDD Mode</title>
+<meta name="description" content="Le Drift Lock traite le spec drift comme un échec de processus : code et SPEC synchronisés dans la même PR, Anti-Drift Check en 3 questions, mesure algorithmique via /sdd trace et la GitHub Action sdd-trace.yml (--fail-on-gap), verdict INCONNU si les annotations @spec manquent.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../../en/concepts/drift-lock.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html">2. Phase Research</a></li>
+            <li><a href="spec.html">3. SPEC</a></li>
+            <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html">5. Exécution agent</a></li>
+            <li><a href="validation.html">6. Validation</a></li>
+            <li><a href="drift-lock.html" aria-current="page">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="../artefacts.html">Les artefacts</a></li>
+            <li><a href="../valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="../gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="../recherche.html">Recherche</a></li>
+            <li><a href="../nouveautes.html">Nouveautés</a></li>
+            <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="drift-lock.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../../en/concepts/drift-lock.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="research.html">2. Phase Research</a></li>
+          <li><a href="spec.html">3. SPEC</a></li>
+          <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html">5. Exécution agent</a></li>
+          <li><a href="validation.html">6. Validation</a></li>
+          <li><a href="drift-lock.html" aria-current="page">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="traceability.html">Traçabilité</a></li>
+          <li><a href="../artefacts.html">Les artefacts</a></li>
+          <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../gouvernance/index.html">Gouvernance Tier 1</a></li>
+          <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="../demarrer.html">Démarrer</a></li>
+          <li><a href="../metriques.html">Métriques</a></li>
+          <li><a href="../glossaire.html">Glossaire</a></li>
+          <li><a href="../recherche.html">Recherche</a></li>
+          <li><a href="../nouveautes.html">Nouveautés</a></li>
+          <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../big-picture.html">Cycle SDD</a></li>
+          <li aria-current="page">Drift Lock</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Étape 7 du cycle · <code>/sdd drift-check</code></p>
+      <h1>Drift Lock — code et SPEC dans la même PR</h1>
+      <p class="doc-lede">Le <strong>spec drift</strong> — code qui évolue sans que les artefacts suivent — est le risque numéro un du développement avec agents IA. Le Drift Lock le neutralise par une politique simple et non négociable : <strong>code et SPEC synchronisés dans la même PR</strong>, vérifié par l'humain et mesuré par la machine.</p>
+
+      <h2 id="processus">Un échec de processus, pas une erreur d'agent</h2>
+      <p>C'est le deuxième principe fondateur du SDD Mode : <em>Drift = Échec de Processus</em>. Quand une SPEC se désynchronise du code, le coupable n'est pas l'agent qui a généré le code — c'est le processus qui a permis de merger sans synchroniser. La mise à jour des artefacts fait partie de la Definition of Done : une tâche dont le code est mergé mais la SPEC désynchronisée <strong>n'est pas terminée</strong>.</p>
+      <p>Ce cadrage change tout en pratique : un drift détecté est un <strong>succès du processus</strong>, pas une honte à dissimuler. Le drift le plus dangereux est celui qu'on ne vérifie pas.</p>
+
+      <h2 id="degradation">La dégradation silencieuse — 1, 5, 20 itérations</h2>
+      <p>Le spec drift ne fait pas de bruit ; il s'accumule. Après <strong>une itération</strong> non synchronisée, la SPEC est légèrement désalignée — un champ renommé, un cas limite ajouté au code seul. Après <strong>cinq itérations</strong>, elle est obsolète : l'agent qui la reçoit travaille sur une base erronée et génère du code faux avec assurance. Après <strong>vingt itérations</strong>, elle est inutilisable — et l'équipe revient au développement sans spécification, en ayant payé le coût de la rédaction sans en garder le bénéfice.</p>
+      <div class="callout warn">
+        <span class="callout-title">Anti-pattern : « la SPEC est validée, on ne la touche plus »</span>
+        <p>Toute modification du comportement d'une fonctionnalité impose une mise à jour immédiate de la SPEC, dans la même session. Sans exception. C'est ce qui distingue la posture <a href="spec.html#invariant">spec-anchored</a> du spec-first jetable.</p>
+      </div>
+
+      <h2 id="anti-drift-check">L'Anti-Drift Check — trois questions en fin d'itération</h2>
+      <p>Avant de fermer un ticket, le Product Engineer répond à trois questions pour chaque SPEC utilisée dans la session — dix minutes, sous sa responsabilité :</p>
+      <ol>
+        <li>Le comportement livré correspond-il <strong>exactement</strong> à ce que décrit la SPEC ?</li>
+        <li>Les fichiers impactés listés dans la SPEC sont-ils toujours <strong>exhaustifs</strong> ?</li>
+        <li>Le <strong>CRITÈRE DE DRIFT</strong> de l'<a href="intent-statement.html">Intent Statement parent</a> signale-t-il un écart entre l'intention initiale et ce qui a été livré ?</li>
+      </ol>
+      <p>Si la réponse à l'une des trois est non, la SPEC — et éventuellement l'Intent Statement — est mise à jour avant la fermeture. La troisième question est la plus profonde : elle vérifie non pas que le code respecte la SPEC, mais que la livraison respecte <strong>l'intention humaine d'origine</strong>.</p>
+
+      <h2 id="pr">La politique de PR</h2>
+      <p>Le verrou est mécanique : <strong>la SPEC mise à jour est committée dans la même PR que le code</strong>. Pas dans une PR de suivi « qu'on fera après », pas dans un ticket de documentation : la même. Une PR qui modifie du code applicatif sans toucher la SPEC correspondante déclenche le verdict DRIFT — et ne se merge pas. <code>/sdd drift-check</code> exécute ce contrôle avant chaque PR : si tout est synchronisé, la SPEC passe en statut <code>done</code>, les index sont mis à jour et une entrée est ajoutée à <code>CHANGELOG-ARTEFACTS.md</code>.</p>
+
+      <h2 id="mesure">La mesure algorithmique (v1.10) — <code>/sdd trace</code> et la CI</h2>
+      <p>Depuis la v1.10, le Drift Lock ne repose plus uniquement sur la discipline humaine : il est <strong>mesuré algorithmiquement</strong>. Deux contrôles se combinent : l'heuristique git (skill <code>drift-detection</code> — code modifié sans SPEC mise à jour dans la même PR) et la <a href="traceability.html">matrice de traçabilité</a> (skill <code>traceability</code> — annotations <code>@intent</code> / <code>@spec</code> / <code>@verified-by</code> / <code>@governance</code> croisées avec <code>.aiad/intents/</code> et <code>.aiad/specs/</code>).</p>
+      <pre><code>npx aiad-sdd trace --fail-on-gap   # un gap bloquant fait échouer la pipeline
+
+# Gaps bloquants détectés par la matrice :
+#  - SPEC orpheline   : référencée par le code, absente des artefacts
+#  - Intent orphelin  : aucun code ne le référence
+#  - SPEC validée non-implémentée : aucune annotation @spec ne la cite</code></pre>
+      <p>En CI, la GitHub Action <code>.github/workflows/sdd-trace.yml</code> invoque cette commande sur chaque PR : <strong>un gap bloquant fait échouer la pipeline</strong>. La matrice est l'arbitre final — un gap de traçabilité vaut DRIFT même si l'heuristique git dit OK. À chaque passage réussi, le snapshot <code>.aiad/metrics/traceability/trace.{md,json}</code> est régénéré.</p>
+
+      <h2 id="inconnu">Verdict INCONNU — l'absence de preuve n'est pas une preuve</h2>
+      <p>Quand les annotations <code>@spec</code> sont absentes du code applicatif modifié, la détection <strong>ne peut pas conclure</strong> « pas de drift ». Le verdict obligatoire est <strong>INCONNU</strong> — jamais OK par défaut. C'est l'application directe de la politique <a href="jnsp.html">JNSP</a> : absence de preuve de drift ≠ preuve d'absence de drift.</p>
+      <pre><code>Verdict : INCONNU (JNSP)
+Ce qui est mesuré : &lt;fichiers vérifiés et leurs annotations&gt;
+Ce qui manque : &lt;fichier(s) sans @spec ou annotation orpheline&gt;
+Action humaine : ajouter l'annotation, créer la SPEC manquante,
+                 ou whitelist explicite dans .aiad/hook-bypass.yml</code></pre>
+      <div class="callout danger">
+        <span class="callout-title">Fail-closed</span>
+        <p>Le verdict <code>INCONNU</code> est traité comme un <code>DRIFT</code> par le hook pre-commit et par la CI. Il ne dégrade jamais en OK silencieux — c'est précisément ce silence qui transformerait une zone aveugle en dette intentionnelle.</p>
+      </div>
+
+      <h2 id="sync">La micro-phase Sync des artefacts — 15 minutes, 4 questions</h2>
+      <p>En complément de l'Anti-Drift Check de fin d'itération, chaque boucle d'implémentation se conclut par la <strong>micro-phase Sync des artefacts</strong> : quinze minutes, sous la responsabilité du PE, non négociables. Quatre questions :</p>
+      <table>
+        <caption class="visually-hidden">Les 4 questions de la micro-phase Sync</caption>
+        <thead><tr><th scope="col">Question</th><th scope="col">Si la réponse l'exige</th></tr></thead>
+        <tbody>
+          <tr><td>La SPEC reflète-t-elle le comportement implémenté ?</td><td>Mettre à jour la SPEC</td></tr>
+          <tr><td>Le Critère de Drift de la SPEC est-il toujours valide ?</td><td>Le réviser si les fichiers impactés ont changé</td></tr>
+          <tr><td>Une erreur agent notable a-t-elle été corrigée manuellement ?</td><td>Documenter dans les Lessons Learned</td></tr>
+          <tr><td>Une nouvelle convention a-t-elle émergé ?</td><td>L'ajouter aux patterns de l'AGENT-GUIDE</td></tr>
+        </tbody>
+      </table>
+      <div class="callout success">
+        <span class="callout-title">Le cycle se referme</span>
+        <p>Drift Lock passé, PR mergée : la SPEC est <code>done</code>, l'Intent archivé, le contexte nettoyé. La consolidation se poursuit dans les rituels — <code>/aiad retro</code>, <code>/aiad intention</code> — et une nouvelle itération peut repartir d'un <a href="intent-statement.html">Intent Statement</a> frais.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="validation.html"><span class="dir">← Précédent</span>6. Validation</a>
+        <a class="next" href="human-authorship.html"><span class="dir">Suivant →</span>Human Authorship</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="../artefacts.html">Les artefacts</a></li>
+        <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="../commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="../commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="../gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

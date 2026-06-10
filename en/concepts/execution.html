@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Execution — orchestrate without saturating | SDD Mode</title>
+<meta name="description" content="Launching an agent session in SDD Mode: post-Gate prerequisites, a structured prompt (condensed AGENT-GUIDE + ONE SPEC at the top of context), an implementation plan before any code, /sdd resume for interrupted sessions and machine-verifiable @intent/@spec annotations.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../../fr/concepts/execution.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html">2. Research Phase</a></li>
+            <li><a href="spec.html">3. SPEC</a></li>
+            <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html" aria-current="page">5. Agent Execution</a></li>
+            <li><a href="validation.html">6. Validation</a></li>
+            <li><a href="drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="../artifacts.html">The artifacts</a></li>
+            <li><a href="../values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="../commands/sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="../governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="../search.html">Search</a></li>
+            <li><a href="../whats-new.html">What's New</a></li>
+            <li><a href="../spec-library.html">SPEC Library</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../../fr/concepts/execution.html" hreflang="fr" lang="fr">FR</a>
+          <a href="execution.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="research.html">2. Research Phase</a></li>
+          <li><a href="spec.html">3. SPEC</a></li>
+          <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html" aria-current="page">5. Agent Execution</a></li>
+          <li><a href="validation.html">6. Validation</a></li>
+          <li><a href="drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="traceability.html">Traceability</a></li>
+          <li><a href="../artifacts.html">The artifacts</a></li>
+          <li><a href="../values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="../commands/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../governance/index.html">Tier 1 governance</a></li>
+          <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../get-started.html">Get Started</a></li>
+          <li><a href="../metrics.html">Metrics</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+          <li><a href="../search.html">Search</a></li>
+          <li><a href="../whats-new.html">What's New</a></li>
+          <li><a href="../spec-library.html">SPEC Library</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../big-picture.html">SDD Cycle</a></li>
+          <li aria-current="page">Agent Execution</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Cycle step 5 · <code>/sdd exec</code></p>
+      <h1>Agent Execution — orchestrate without saturating</h1>
+      <p class="doc-lede">Agent execution is the step between the <a href="execution-gate.html">OPEN Gate</a> (SQS ≥ 4/5) and <a href="validation.html">Validation</a>. It is the moment when the Product Engineer orchestrates the AI agent with an optimized context — enough context to succeed, never enough to saturate.</p>
+
+      <h2 id="prerequis">The prerequisites — abort if a single one fails</h2>
+      <p><code>/sdd exec</code> systematically checks its prerequisites before any launch. If one of them fails, the agent is <strong>not launched</strong> and the corrective command is indicated (<code>/sdd gate</code>, <code>/sdd spec</code>, <code>/sdd research</code>…).</p>
+      <table>
+        <caption class="visually-hidden">Prerequisites for launching the agent</caption>
+        <thead><tr><th scope="col">Prerequisite</th><th scope="col">Check</th></tr></thead>
+        <tbody>
+          <tr><td>SPEC exists</td><td><code>.aiad/specs/SPEC-NNN</code> present — <strong>and committed</strong></td></tr>
+          <tr><td><code>ready</code> status</td><td>Has passed the Execution Gate</td></tr>
+          <tr><td>SQS ≥ 4/5</td><td>Score recorded in <code>_index.md</code></td></tr>
+          <tr><td>Parent Intent active</td><td>Not cancelled</td></tr>
+          <tr><td>Discovery (§3.5)</td><td>Linked <a href="research.html">Research</a> with <code>GO</code>/<code>CONDITIONAL GO</code>, anchored Discovery (<code>discovery-gate.js</code> hook)</td></tr>
+          <tr><td>Dependencies satisfied</td><td>Prerequisite SPECs in <code>done</code> status</td></tr>
+        </tbody>
+      </table>
+      <div class="callout danger">
+        <span class="callout-title">UNKNOWN Gate = no launch</span>
+        <p>If the Gate exited as <code>UNKNOWN</code> (a <a href="jnsp.html">JNSP</a> verdict — Je Ne Sais Pas, "I don't know"), execution does not start. Fail-closed only means something if it is honoured here: route back to <code>/sdd gate</code>, then to the human.</p>
+      </div>
+
+      <h2 id="prompt">The structure of the launch prompt</h2>
+      <p>The assembled context splits into two layers: the <strong>permanent context</strong> — condensed AGENT-GUIDE (ALWAYS/NEVER rules, conventions, vocabulary) and ARCHITECTURE summary (≤ 500 tokens) — and the <strong>task context</strong> — <strong>ONE single SPEC</strong>, complete, with the relevant source files listed in §6. Never two unrelated SPECs, never the full PRD.</p>
+      <pre><code>## Context
+[Condensed AGENT-GUIDE]
+[ARCHITECTURE summary]
+
+## Task
+[SPEC §2 — Expected Behaviour]
+
+## Success criteria
+[SPEC §3 — Acceptance Criteria]
+
+## Constraints
+[Applicable ALWAYS/NEVER rules]
+[Applicable governance (regulatory-veto output)]
+
+## Files to modify/create
+[List]</code></pre>
+      <p>The <strong>placement rule</strong> matters as much as the content: the Intent and the active SPEC go <strong>at the top of the context</strong>, to counter the <em>lost-in-the-middle effect</em> — models' tendency to degrade their attention over the middle of a long context. The total budget is checked by the <code>context-budget</code> skill before launch: beyond 50K tokens, you condense (summaries of large files, interface extraction) rather than "inject everything and hope". Governance is qualified by <code>regulatory-veto</code>: a Tier 1 VETO forbids the launch.</p>
+
+      <h2 id="plan">An implementation plan before the code</h2>
+      <p>The agent never starts by coding: <code>/sdd exec</code> requires an <strong>implementation plan</strong> that the PE validates before the first line. Since §3.6, this plan is phased into <strong>testable vertical slices</strong> (<code>.aiad/exec/EXEC-&lt;SPEC-id&gt;-plan.md</code>): each slice declares its objective, its files, its tests — mandatory — and its "Done". A mini-gate (<code>npx aiad-sdd mini-gate &lt;SPEC-id&gt; --phase N</code>) validates each slice before the next. This avoids the classic trap: 1,200 lines of horizontal code before a single test.</p>
+
+      <h2 id="scope">Keeping the agent in scope</h2>
+      <p>During the session, the PE observes: is the agent following the SPEC? Are signs of drift appearing? An agent that drifts is <strong>not at fault if the SPEC was imprecise</strong> — that is a Human Learning, not a Lesson Learned. More than two re-prompts for the same SPEC signal a SPEC that is too ambitious: head for <code>/sdd split</code>. The prompt also carries the <a href="jnsp.html">JNSP</a> contract: facing an undecidable area, the agent writes <code>// TODO-&#74;NSP: &lt;question&gt;</code> and stops, rather than inventing the missing value.</p>
+
+      <h2 id="resume">Resuming an interrupted session — <code>/sdd resume</code></h2>
+      <p>Interruptions (timeout, error, conversation limit, voluntary pause) are normal — not a failure. <code>/sdd resume</code> rebuilds a <strong>minimal context</strong> instead of re-injecting the whole session: an inventory of the work done (<code>git status</code>, <code>git diff</code>), covered vs. remaining criteria, then a resume prompt containing only the condensed AGENT-GUIDE, the full SPEC and the state summary.</p>
+      <pre><code>SESSION STATE — SPEC-NNN
+══════════════════════════════
+Files created      : [list]
+Files modified     : [list]
+Tests added        : X (Y passing, Z failing)
+Criteria completed : X/Y
+
+Remaining work:
+- [ ] [Uncovered criterion]</code></pre>
+      <div class="callout warn">
+        <span class="callout-title">The resume rule</span>
+        <p>The resume context must be <strong>lighter</strong> than the initial context — never the other way around. If the previous state cannot be reconstructed 100% (renamed SPEC, undocumented local changes, open <code>TODO-JNSP</code> markers), the resume exits <code>JNSP</code> and asks for a human recap: you never relaunch blind. Two failed resumes on the same SPEC → <code>/sdd split</code>.</p>
+      </div>
+
+      <h2 id="feedback">The feedback loop — <code>/sdd context</code></h2>
+      <p>After each session, <code>/sdd context</code> compares the budget estimate (SPEC §6) with reality: tokens consumed, observed degradation, actual duration. The recommendations it produces improve the next session — the framework's empiricism applied to the <a href="context-budget.html">Context Engineering Budget</a> itself.</p>
+
+      <h2 id="annotations">Machine-verifiable annotations in the produced code</h2>
+      <p>All application code produced during the session carries the v1.10 <a href="traceability.html">traceability</a> annotations — this is what makes the <a href="drift-lock.html">Drift Lock</a> algorithmically measurable:</p>
+      <pre><code>/**
+ * @intent INTENT-042
+ * @spec SPEC-042-1-flow-auth
+ * @verified-by tests/auth/oidc.test.ts
+ * @governance AIAD-RGPD
+ */</code></pre>
+      <p><code>@spec</code> is <strong>mandatory</strong> (cardinality 1..n) on all application code; <code>@intent</code>, <code>@verified-by</code> and <code>@governance</code> complete the Intent ↔ SPEC ↔ Code ↔ Tests chain. Annotations are accepted in JSDoc, <code>//</code> or <code>#</code> comments and Python docstrings. Once every slice is validated and the tests are green: head for <a href="validation.html"><code>/sdd validate</code></a>.</p>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="execution-gate.html"><span class="dir">← Previous</span>4. Execution Gate &amp; SQS</a>
+        <a class="next" href="validation.html"><span class="dir">Next →</span>6. Validation</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li><a href="../values.html">Values &amp; pillars</a></li>
+        <li><a href="../artifacts.html">The artifacts</a></li>
+        <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="../commands/sdd.html">/sdd commands</a></li>
+        <li><a href="../commands/aiad.html">/aiad commands</a></li>
+        <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="../governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

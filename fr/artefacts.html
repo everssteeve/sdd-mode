@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les artefacts — la mémoire collective de l'équipe | SDD Mode</title>
+<meta name="description" content="Les artefacts AIAD ne sont pas de la bureaucratie : Intent Statement, PRD, ARCHITECTURE, AGENT-GUIDE, SPECs et Definitions of Done forment une hiérarchie documentaire stricte — la mémoire collective de l'équipe et le carburant des agents IA.">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../en/artifacts.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="concepts/research.html">2. Phase Research</a></li>
+            <li><a href="concepts/spec.html">3. SPEC</a></li>
+            <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="concepts/execution.html">5. Exécution agent</a></li>
+            <li><a href="concepts/validation.html">6. Validation</a></li>
+            <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="artefacts.html" aria-current="page">Les artefacts</a></li>
+            <li><a href="valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="metriques.html">Métriques</a></li>
+        <li><a href="glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="recherche.html">Recherche</a></li>
+            <li><a href="nouveautes.html">Nouveautés</a></li>
+            <li><a href="bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="artefacts.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../en/artifacts.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="concepts/research.html">2. Phase Research</a></li>
+          <li><a href="concepts/spec.html">3. SPEC</a></li>
+          <li><a href="concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="concepts/execution.html">5. Exécution agent</a></li>
+          <li><a href="concepts/validation.html">6. Validation</a></li>
+          <li><a href="concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="concepts/jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="concepts/traceability.html">Traçabilité</a></li>
+          <li><a href="artefacts.html" aria-current="page">Les artefacts</a></li>
+          <li><a href="valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="commandes/sdd.html">/sdd (16)</a></li>
+          <li><a href="commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="gouvernance/index.html">Gouvernance Tier 1</a></li>
+          <li><a href="equipe/responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="equipe/rituels.html">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="demarrer.html">Démarrer</a></li>
+          <li><a href="metriques.html">Métriques</a></li>
+          <li><a href="glossaire.html">Glossaire</a></li>
+          <li><a href="recherche.html">Recherche</a></li>
+          <li><a href="nouveautes.html">Nouveautés</a></li>
+          <li><a href="bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="index.html">Accueil</a></li>
+          <li aria-current="page">Les artefacts</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Hiérarchie documentaire</p>
+      <h1>Les artefacts — la mémoire collective de l'équipe</h1>
+      <p class="doc-lede">Les artefacts AIAD ne sont pas de la bureaucratie : ce sont des <strong>outils de pensée et de communication</strong>. Ils rendent visible ce qui resterait implicite, alignent l'équipe sur une compréhension partagée, et fournissent aux agents IA le contexte dont ils ont besoin pour performer. Sans eux, le contexte se perd à chaque session.</p>
+
+      <h2 id="outils-de-pensee">Outils de pensée, pas paperasse</h2>
+      <p>Un bon artefact se reconnaît à quatre qualités : il est <strong>actionnable</strong> (peut-on agir à partir de ce document ?), <strong>vivant</strong> (évolue-t-il avec la compréhension ?), <strong>minimal</strong> (contient-il juste assez, pas plus ?) et <strong>collaboratif</strong> (a-t-il été co-créé, pas dicté ?). L'important n'est pas d'avoir des documents parfaits — c'est d'avoir des documents utiles. Sans AGENT-GUIDE, les agents produisent du code générique ; sans ARCHITECTURE, du code incohérent ; sans SPEC, du code incorrect.</p>
+
+      <h2 id="hierarchie">La hiérarchie documentaire</h2>
+      <p>Les artefacts s'organisent en hiérarchie stricte. La règle est absolue : <strong>ne jamais contredire un niveau supérieur</strong>.</p>
+      <pre><code>Constitution AIAD (valeurs immuables)
+  └── Agents de Gouvernance Tier 1 (droit de veto)
+       └── PRD (vision produit)
+            └── ARCHITECTURE (standards techniques)
+                 └── AGENT-GUIDE (contexte permanent)
+                      └── SPEC (activation par tâche)</code></pre>
+      <p>Cette hiérarchie est aussi l'outil de gestion du <a href="concepts/context-budget.html">Context Engineering Budget</a> : le contexte stratégique en haut (injecté en cadrage), le contexte permanent au milieu (condensé), le contexte de tâche en bas (une SPEC à la fois). En cas de conflit entre une SPEC et un agent de <a href="gouvernance/index.html">gouvernance</a>, la gouvernance prévaut — toujours.</p>
+
+      <h2 id="intent">Intent Statement — le POURQUOI archivé</h2>
+      <p>L'<a href="concepts/intent-statement.html">Intent Statement</a> est l'artefact de premier ordre : il capture l'intention humaine derrière chaque fonctionnalité en cinq champs (POURQUOI MAINTENANT, POUR QUI, OBJECTIF, CONTRAINTES, CRITÈRE DE DRIFT), avec un auteur humain obligatoire — principe <a href="concepts/human-authorship.html">Human Authorship</a>. Il précède et transcende la SPEC, et il est archivé dans <code>.aiad/intents/</code>. Dans six mois, c'est lui qui répondra à la question « qu'est-ce qu'on voulait accomplir, et pourquoi ? ».</p>
+
+      <h2 id="prd">PRD — la valeur attendue</h2>
+      <p>Le <strong>Product Requirement Document</strong> clarifie pourquoi et quoi construire avant le comment. Il contient le contexte et le problème, les <strong>Outcome Criteria</strong> mesurables, les personas et use cases, le hors périmètre volontaire, les trade-offs et les risques. Cinq pratiques sont non négociables : partir du problème (pas de la solution), définir les critères de succès avant de construire, le rédiger <em>avec</em> l'équipe, le maintenir vivant, et l'illustrer (wireframes, flows).</p>
+      <div class="callout warn">
+        <span class="callout-title">Anti-pattern</span>
+        <p>Le PRD fleuve de cinquante pages que personne ne lit, ou le PRD vague type « Améliorer l'expérience utilisateur ». Les deux sont inutiles. Et côté agents : le PRD complet n'est injecté qu'en <strong>phase de cadrage</strong>, jamais en développement.</p>
+      </div>
+
+      <h2 id="architecture">ARCHITECTURE — le référentiel de cohérence</h2>
+      <p>Le document ARCHITECTURE définit les standards techniques que les agents et les PE doivent respecter, en <strong>neuf rubriques</strong> : principes architecturaux, vue d'ensemble, stack technique justifiée, structure du projet, conventions de code, patterns et bonnes pratiques, sécurité, performance, et <strong>ADR</strong> (Architecture Decision Records). Il est évolutif, justifié, pragmatique (YAGNI), visuel et actionnable. En session agent, il n'est jamais injecté en entier : un <strong>condensé permanent de 500 tokens maximum</strong> suffit — le reste se consulte à la demande.</p>
+
+      <h2 id="agent-guide">AGENT-GUIDE — le contexte permanent de l'agent</h2>
+      <p>L'AGENT-GUIDE est le document le plus opérationnel du framework : injecté dans chaque session, il transforme un agent générique en agent du projet. Il contient l'identité du projet, les <strong>règles absolues TOUJOURS / JAMAIS</strong> (ex. : toujours synchroniser SPEC + code dans la même PR ; jamais pusher de secrets), les conventions de code, le <strong>vocabulaire métier</strong>, les patterns et anti-patterns — et deux sections d'apprentissage complémentaires :</p>
+      <table>
+        <caption class="visually-hidden">Lessons Learned vs Human Learnings</caption>
+        <thead><tr><th scope="col">Section</th><th scope="col">Question posée</th><th scope="col">Mise à jour</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Lessons Learned</strong></td><td>« Qu'est-ce que l'<em>agent</em> a mal fait ? » — erreurs récurrentes de l'agent et corrections appliquées</td><td>Fin de chaque itération (5 min, pas optionnel)</td></tr>
+          <tr><td><strong>Human Learnings</strong></td><td>« Qu'est-ce que l'<em>humain</em> a mal exprimé ? » — défaillances de l'expression de l'intention</td><td>Revue à l'Atelier d'Intention mensuel</td></tr>
+        </tbody>
+      </table>
+      <p>Un guide de cent règles est moins efficace qu'un guide de dix règles bien choisies : l'AGENT-GUIDE est borné par le Context Budget (condensé ≤ 500 tokens en session).</p>
+
+      <h2 id="spec">SPECs — l'instruction de travail de l'agent</h2>
+      <p>Une <a href="concepts/spec.html">SPEC</a> fait le pont entre l'intention (PRD, Intent) et l'implémentation par l'agent. Une SPEC de qualité permet de générer 80 %+ du code correct du premier coup — c'est l'investissement au meilleur ROI du framework. Quatre critères la définissent : atomicité, précision, testabilité, complétude — scorés par le SQS à l'<a href="concepts/execution-gate.html">Execution Gate</a> (≥ 4/5 requis). Chaque SPEC porte son propre <strong>Critère de Drift</strong> et reste synchronisée avec le code à chaque PR.</p>
+
+      <h2 id="dod">Les Definitions of Done</h2>
+      <p>La <strong>Definition of Output Done (DoOD)</strong> établit le standard pour qu'un incrément soit livrable, en six catégories : techniques, sécurité, performance, fonctionnels, déploiement, review. Le principe est non négociable : tous les critères ou rien — <strong>« Done à 90 % n'est pas Done »</strong>.</p>
+      <p>La <strong>Definition of Outcome Done (DoOuD)</strong> mesure si la valeur attendue a été réalisée : <strong>User Outcomes</strong> (NPS, adoption, rétention), <strong>Business Outcomes</strong> (MRR, conversions, efficacité) et <strong>Learning Outcomes</strong> (hypothèses validées ou invalidées, insights). L'output est le moyen ; l'outcome est le but — une fonctionnalité livrée mais non adoptée n'est pas un succès.</p>
+
+      <h2 id="arborescence">L'arborescence <code>.aiad/</code></h2>
+      <pre><code>.aiad/
+├── PRD.md                  ← Vision produit (injection : cadrage uniquement)
+├── ARCHITECTURE.md         ← Standards techniques (condensé permanent)
+├── AGENT-GUIDE.md          ← Contexte permanent + Lessons Learned + Human Learnings
+├── gouvernance/            ← Agents Tier 1 avec droit de veto
+│   ├── _index.md
+│   ├── AIAD-AI-ACT.md
+│   ├── AIAD-RGPD.md
+│   ├── AIAD-RGAA.md
+│   └── AIAD-RGESN.md
+├── intents/                ← Intent Statements (POURQUOI)
+│   └── _index.md
+├── specs/                  ← SPECs techniques (COMMENT)
+│   └── _index.md
+├── facts/                  ← Traces /sdd fact
+├── metrics/
+│   ├── security/           ← Rapports /sdd security
+│   ├── audit/              ← Rapports /sdd audit
+│   └── traceability/       ← Snapshots /sdd trace (Markdown + JSON + HTML)
+└── CHANGELOG-ARTEFACTS.md  ← Historique des mises à jour</code></pre>
+
+      <h2 id="anti-patterns">Anti-patterns des artefacts</h2>
+      <div class="callout danger">
+        <span class="callout-title">Trois façons de tuer ses artefacts</span>
+        <p><strong>Le guide de cent pages</strong> — Context Budget dépassé, l'agent ignore la plupart des règles. <strong>La SPEC figée</strong> — « validée, on ne la touche plus » : en cinq itérations, c'est le spec drift et l'agent travaille sur une base erronée. <strong>Tout injecter en même temps</strong> — l'agent reçoit tout, comprend peu : c'est le context rot. AGENT-GUIDE pour le permanent, SPEC pour la tâche — ne jamais mélanger les deux.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="concepts/traceability.html"><span class="dir">← Précédent</span>Traçabilité</a>
+        <a class="next" href="valeurs.html"><span class="dir">Suivant →</span>Valeurs &amp; piliers AIAD</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="big-picture.html">Big Picture</a></li>
+        <li><a href="demarrer.html">Démarrer</a></li>
+        <li><a href="valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="artefacts.html">Les artefacts</a></li>
+        <li><a href="equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="concepts/spec.html">SPEC</a></li>
+        <li><a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="concepts/jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="metriques.html">Métriques</a></li>
+        <li><a href="glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

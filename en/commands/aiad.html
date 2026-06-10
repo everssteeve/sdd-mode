@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>/aiad — rituals, synchronisations and metrics | SDD Mode</title>
+<meta name="description" content="Complete reference for the /aiad router: init, onboard, status, health, gouvernance, tech-review, standup, demo, retro, intention, sync-strat, dora, flow, dashboard, dashboard-html, emit-rules. Team rituals, synchronisations and metrics of the AIAD framework.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../../fr/commandes/aiad.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="../concepts/research.html">2. Research Phase</a></li>
+            <li><a href="../concepts/spec.html">3. SPEC</a></li>
+            <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="../concepts/execution.html">5. Agent Execution</a></li>
+            <li><a href="../concepts/validation.html">6. Validation</a></li>
+            <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="../concepts/jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="../concepts/traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="../artifacts.html">The artifacts</a></li>
+            <li><a href="../values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="aiad.html" aria-current="page">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="../governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="../search.html">Search</a></li>
+            <li><a href="../whats-new.html">What's New</a></li>
+            <li><a href="../spec-library.html">SPEC Library</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../../fr/commandes/aiad.html" hreflang="fr" lang="fr">FR</a>
+          <a href="aiad.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="../concepts/research.html">2. Research Phase</a></li>
+          <li><a href="../concepts/spec.html">3. SPEC</a></li>
+          <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="../concepts/execution.html">5. Agent Execution</a></li>
+          <li><a href="../concepts/validation.html">6. Validation</a></li>
+          <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="../concepts/jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="../concepts/traceability.html">Traceability</a></li>
+          <li><a href="../artifacts.html">The artifacts</a></li>
+          <li><a href="../values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="sdd.html">/sdd (16)</a></li>
+          <li><a href="aiad.html" aria-current="page">/aiad (15)</a></li>
+          <li><a href="cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../governance/index.html">Tier 1 governance</a></li>
+          <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../get-started.html">Get Started</a></li>
+          <li><a href="../metrics.html">Metrics</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+          <li><a href="../search.html">Search</a></li>
+          <li><a href="../whats-new.html">What's New</a></li>
+          <li><a href="../spec-library.html">SPEC Library</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li>Commands</li>
+          <li aria-current="page">/aiad</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Router <code>/aiad &lt;sub&gt;</code></p>
+      <h1>/aiad — rituals, synchronisations and metrics</h1>
+      <p class="doc-lede">Where <code>/sdd</code> carries the development cycle, the <code>/aiad</code> router carries the <strong>life of the team</strong>: framework adoption, synchronisation rituals (standup, demo, retro, workshops), Tier 1 compliance, DORA and Flow metrics, dashboards — and the multi-runtime generation of agent rules.</p>
+
+      <p>Like every command in the framework, they support the <code>--guided</code> / <code>--fast</code> dual-mode with auto-detection based on the maturity of <code>.aiad/</code>. Most of them persist their data in <code>.aiad/metrics/</code>, which makes the metrics <em>organic</em>: they emerge from the process, with no manual entry.</p>
+
+      <h2 id="recap">Overview</h2>
+      <table>
+        <caption class="visually-hidden">Summary of /aiad commands</caption>
+        <thead><tr><th scope="col">Command</th><th scope="col">Phase</th><th scope="col">Description</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#init"><code>/aiad init</code></a></td><td>Adoption</td><td>Bootstrap AIAD on an existing project</td></tr>
+          <tr><td><a href="#onboard"><code>/aiad onboard</code></a></td><td>Adoption</td><td>Onboarding briefing for a new member</td></tr>
+          <tr><td><a href="#status"><code>/aiad status</code></a></td><td>Monitoring</td><td>SDD project state + maturity</td></tr>
+          <tr><td><a href="#health"><code>/aiad health</code></a></td><td>Monitoring</td><td>Diagnose artifact health</td></tr>
+          <tr><td><a href="#gouvernance"><code>/aiad gouvernance</code></a></td><td>Governance</td><td>Check Tier 1 compliance</td></tr>
+          <tr><td><a href="#tech-review"><code>/aiad tech-review</code></a></td><td>Technical</td><td>Tech Review — architectural vigilance</td></tr>
+          <tr><td><a href="#standup"><code>/aiad standup</code></a></td><td>Monitoring</td><td>Daily standup (state, blockers, intents)</td></tr>
+          <tr><td><a href="#demo"><code>/aiad demo</code></a></td><td>Feedback</td><td>Demo &amp; Feedback (30-45 min)</td></tr>
+          <tr><td><a href="#retro"><code>/aiad retro</code></a></td><td>Improvement</td><td>Retrospective + evolution signals</td></tr>
+          <tr><td><a href="#intention"><code>/aiad intention</code></a></td><td>Alignment</td><td>Intent Workshop (purely human space)</td></tr>
+          <tr><td><a href="#sync-strat"><code>/aiad sync-strat</code></a></td><td>Alignment</td><td>Strategic synchronisation (monthly, 1h30)</td></tr>
+          <tr><td><a href="#dora"><code>/aiad dora</code></a></td><td>Metrics</td><td>DORA Metrics (DF, Lead Time, CFR, MTTR)</td></tr>
+          <tr><td><a href="#flow"><code>/aiad flow</code></a></td><td>Metrics</td><td>Flow Metrics (Cycle Time, Throughput, WIP…)</td></tr>
+          <tr><td><a href="#dashboard"><code>/aiad dashboard</code></a></td><td>Metrics</td><td>ASCII dashboard (team ritual)</td></tr>
+          <tr><td><a href="#dashboard-html"><code>/aiad dashboard-html</code></a></td><td>Metrics</td><td>Multi-page HTML dashboard (continuous steering)</td></tr>
+          <tr><td><a href="#emit-rules"><code>/aiad emit-rules</code></a></td><td>Multi-runtime</td><td>Regenerate the rules for all AI runtimes</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="init"><code>/aiad init</code> — bootstrap on an existing project</h2>
+      <p><strong>When.</strong> To adopt AIAD on a project that already has code — unlike <code>/sdd init</code>, which is designed for a fresh project.</p>
+      <p><strong>What it does.</strong> Diagnoses the existing setup (stack, tests, CI/CD, documentation, agent rules already in place), recommends an adoption level (Light / Standard / Full), then creates the <code>.aiad/</code> structure <em>pre-filled</em> from the real code: PRD extracted from the README, ARCHITECTURE inferred from the code, AGENT-GUIDE built from the visible conventions. Existing elements (ADRs, <code>.cursor/rules</code>, tickets) are migrated, not overwritten.</p>
+      <p><strong>Output.</strong> Initialised <code>.aiad/</code> structure + a progressive 3-phase adoption plan (foundations / first cycles / consolidation).</p>
+
+      <h2 id="onboard"><code>/aiad onboard</code> — new member onboarding</h2>
+      <p><strong>When.</strong> A new PE, developer, PM, AE or QA joins the project.</p>
+      <p><strong>What it does.</strong> Scans the artifacts (PRD, ARCHITECTURE, AGENT-GUIDE, active Intents and SPECs, governance) and generates a briefing <strong>tailored to the role</strong> and to the level of AIAD familiarity — readable in 15 minutes at most, with links to the sources rather than copy-paste.</p>
+      <p><strong>Output.</strong> Contextualised briefing + Day 1 / Week 1 / Week 2 checklist with an actionable "recommended first step".</p>
+
+      <h2 id="status"><code>/aiad status</code> — project state</h2>
+      <p><strong>When.</strong> At standup, at session start, or for an on-demand status check.</p>
+      <p><strong>What it does.</strong> Scans <code>.aiad/</code>, <code>CLAUDE.md</code> and the installed commands, then produces a macro report: foundational artifacts (OK / Template / Missing), active Intents and SPECs, average SQS, installed governance agents, SDD maturity level from 0 (not initialised) to 5 (complete).</p>
+      <p><strong>Output.</strong> Text dashboard + the next 3 priority actions according to the detected maturity level.</p>
+
+      <h2 id="health"><code>/aiad health</code> — artifact health</h2>
+      <p><strong>When.</strong> At end of iteration, or when an alarm signal appears (inconsistent agent, frequent drifts). Where <code>status</code> gives a macro view, <code>health</code> diagnoses artifact by artifact.</p>
+      <p><strong>What it does.</strong> Detects the pathologies: <strong>orphan</strong> Intents (without a SPEC) or <strong>zombie</strong> Intents (active &gt; 30 days with no activity), SPECs without an SQS, blocked or not archived, desynchronised indexes, stale AGENT-GUIDE. Includes the anti "dock rot" measure: <code>npx aiad-sdd archive --delivered</code> lists the closed artifacts to move out of the hot context without digging a traceability gap.</p>
+      <p><strong>Output.</strong> Health report (HEALTHY / WARNING / CRITICAL) + prioritised corrective actions.</p>
+
+      <h2 id="gouvernance"><code>/aiad gouvernance</code> — Tier 1 compliance</h2>
+      <p><strong>When.</strong> Before merging a PR or validating a SPEC affecting regulatory aspects.</p>
+      <p><strong>What it does.</strong> Determines the Tier 1 agents applicable to the deliverable — AIAD-AI-ACT (AI component), AIAD-RGPD (personal data), AIAD-RGAA (user interface), AIAD-RGESN (resources), plus AIAD-CRA (product cybersecurity) — then checks each requirement point by point. Each agent holds a <strong>veto right</strong>: a single blocking point is enough to refuse the merge. When applicability is in doubt, the precautionary principle applies.</p>
+      <p><strong>Output.</strong> Compliance report per framework + overall verdict COMPLIANT / NON-COMPLIANT — VETO + corrective actions.</p>
+
+      <h2 id="tech-review"><code>/aiad tech-review</code> — technical review</h2>
+      <p><strong>When.</strong> <strong>Monthly 1-hour</strong> ritual, facilitated by the Tech Lead. Focuses on long-term architecture — not on the quality of a PR (that is the role of <code>/sdd validate</code>).</p>
+      <p><strong>What it does.</strong> Assesses each component of <code>ARCHITECTURE.md</code> (healthy / warning / critical), analyses recurring drifts, lists the ADRs to create or revise and inventories the prioritised technical debt (criticality × effort).</p>
+      <p><strong>Output.</strong> <code>.aiad/metrics/tech-review/YYYY-MM-DD.md</code> + documented ADRs + update of <code>ARCHITECTURE.md</code> and the changelog.</p>
+
+      <h2 id="standup"><code>/aiad standup</code> — daily standup</h2>
+      <p><strong>When.</strong> Daily or twice daily, <strong>15 min max</strong>, synchronous or asynchronous. Optional: it is a tool, not an obligation.</p>
+      <p><strong>What it does.</strong> Reads the <code>in-progress</code> SPECs (the WIP), the previous standup and the unresolved drifts, then collects 3 answers per person: delivered / in progress / blocked. Blockers are escalated according to their nature (technical → Tech Lead, clarification → PE, external → PM).</p>
+      <p><strong>Output.</strong> <code>.aiad/metrics/standup/YYYY-MM-DD.md</code> with WIP, blockers and actions.</p>
+
+      <h2 id="demo"><code>/aiad demo</code> — demo &amp; feedback</h2>
+      <p><strong>When.</strong> Bi-weekly or at end of iteration, <strong>30-45 min</strong>, with external participants (fewer than 2, and the demo does not fulfil its purpose).</p>
+      <p><strong>What it does.</strong> Builds the demo from the <code>done</code> SPECs, structured around the original Intent Statements (the why before the what). Collects each piece of feedback with a signal, without defending the implementation choices, and detects patterns (3 converging feedbacks = strong signal). A rejection on a core feature triggers an Intent Workshop.</p>
+      <p><strong>Output.</strong> <code>.aiad/metrics/demo/YYYY-MM-DD.md</code> + categorised feedback + post-demo actions.</p>
+
+      <h2 id="retro"><code>/aiad retro</code> — retrospective</h2>
+      <p><strong>When.</strong> At end of iteration.</p>
+      <p><strong>What it does.</strong> Strictly categorises the learnings: <strong>Lessons Learned</strong> (recurring agent mistakes) and <strong>Human Learnings</strong> (failures of the human intent) — if no Human Learning emerges, that is suspicious. Computes the iteration metrics (first-pass success rate, drifts) and raises framework evolution signals.</p>
+      <p><strong>Output.</strong> Lessons Learned + Human Learnings entries integrated into the AGENT-GUIDE + iteration metrics + 1-3 actions with owners.</p>
+
+      <h2 id="intention"><code>/aiad intention</code> — Intent Workshop</h2>
+      <p><strong>When.</strong> Foundational monthly ritual: "Are we still building what we wanted?". No metrics, no velocity — only the intent.</p>
+      <p><strong>What it does.</strong> The agent prepares the ground (PRD, active Intents, Human Learnings) then <em>facilitates</em> the 5 questions: alignment, value, intent vs execution, prioritisation, team well-being in the face of AI agents. It documents the answers as they are — it never decides in place of the humans.</p>
+      <div class="callout danger">
+        <span class="callout-title">Purely human space</span>
+        <p>The Intent Workshop remains a purely human space <strong>in both modes</strong>: <code>--fast</code> mode only skips the explanations about the ritual — <strong>never the facilitation of the 5 questions</strong>. The agent structures and documents; the answers and decisions belong to the humans.</p>
+      </div>
+      <p><strong>Output.</strong> Minutes <code>.aiad/intents/ATELIER-INTENTION-YYYY-MM.md</code> with human decisions, owners and deadlines.</p>
+
+      <h2 id="sync-strat"><code>/aiad sync-strat</code> — strategic alignment</h2>
+      <p><strong>When.</strong> Monthly, <strong>1h30</strong>, with PM, PE, AE and Tech Lead — before the standup for immediate cascading.</p>
+      <p><strong>What it does.</strong> Facilitates 5 time-boxed blocks: context and external changes, review of active Intents, backlog prioritisation, governance, actions. Verifies the validity of the PRD and revises the Outcome Criteria if necessary. An Intent in drift for more than 2 weeks triggers an Intent Workshop.</p>
+      <p><strong>Output.</strong> <code>.aiad/metrics/sync-strat/YYYY-MM-DD.md</code> + executive minutes with documented decisions and updated Intents.</p>
+
+      <h2 id="dora"><code>/aiad dora</code> — DORA Metrics</h2>
+      <p><strong>When.</strong> In a retrospective or in a delivery performance review.</p>
+      <p><strong>What it does.</strong> Computes the 4 indicators — Deployment Frequency, Lead Time for Changes, Change Failure Rate, MTTR — from <code>.aiad/metrics/deployments/</code>, and positions each metric on the Elite / High / Medium / Low reference levels.</p>
+      <p><strong>Output.</strong> DORA report with a level per metric, AIAD causal analysis and recommendations.</p>
+
+      <h2 id="flow"><code>/aiad flow</code> — Flow Metrics</h2>
+      <p><strong>When.</strong> To analyse the fluidity of the value stream and detect the bottlenecks of the SDD cycle.</p>
+      <p><strong>What it does.</strong> Computes the 5 indicators — Cycle Time, Lead Time, Throughput, WIP, Flow Efficiency — from the persisted data, verifies Little's law (<code>Lead Time = WIP / Throughput</code>) and identifies the step that slows down delivery.</p>
+      <p><strong>Output.</strong> Flow report with a Lead Time breakdown, the main bottleneck identified and WIP optimisation recommendations.</p>
+
+      <h2 id="dashboard"><code>/aiad dashboard</code> — ASCII dashboard</h2>
+      <p><strong>When.</strong> As a team ritual: weekly (operational, 15-20 min) or monthly (strategic, 30-45 min).</p>
+      <p><strong>What it does.</strong> Aggregates all the data from <code>.aiad/metrics/</code> over the period (deployments, specs, standup, drift, retro — plus demo / sync-strat / tech-review in monthly mode), computes the flow and quality metrics and applies visual thresholds. Missing data is flagged explicitly: it is a process signal, not a hole to be filled with estimates.</p>
+      <p><strong>Output.</strong> Structured ASCII dashboard, ready to share, + priority actions.</p>
+
+      <h2 id="dashboard-html"><code>/aiad dashboard-html</code> — HTML dashboard</h2>
+      <p><strong>When.</strong> For <strong>continuous steering</strong> — a snapshot always available in the browser, complementary to the ritual ASCII dashboard.</p>
+      <p><strong>What it does.</strong> A light wrapper over the <code>aiad-sdd dashboard</code> CLI: generates a static multi-page site in <code>dashboard/</code> (overview, intents, specs, traceability, metrics, governance, drifts, changelog) + <code>data.json</code>. Options: <code>--out</code>, <code>--serve</code> (+ <code>--port</code>), <code>--source-base</code> to prefix the links to the sources (GitHub Pages).</p>
+      <p><strong>Output.</strong> <code>dashboard/</code> folder regenerated on demand.</p>
+
+      <h2 id="emit-rules"><code>/aiad emit-rules</code> — multi-runtime</h2>
+      <p><strong>When.</strong> After any modification of <code>.aiad/AGENT-GUIDE.md</code> or <code>.aiad/gouvernance/</code>, to realign all the AI runtimes.</p>
+      <p><strong>What it does.</strong> AIAD positions itself as the <strong>upstream source</strong>: instead of maintaining N diverging copies, the command regenerates all the targets from the AGENT-GUIDE and the governance — <code>AGENTS.md</code> (cross-tool standard, Copilot), the <code>CLAUDE.md</code> header (Claude Code), <code>.cursor/rules/*.mdc</code> (Cursor, including Tier 1 rules scoped by globs), <code>.codex/AGENT.md</code> (Codex) and <code>GEMINI.md</code> (Gemini). Each emitted file carries a <code>DO NOT EDIT</code> header and a SHA-256 <code>source-hash</code>. <strong>Idempotent</strong> regeneration; targeting is possible via <code>--runtime cursor,codex</code>.</p>
+      <p><strong>Output.</strong> Summary <code>+ created ↑ regenerated ✓ unchanged</code>. In <code>--check</code> mode (CI), exit 1 on divergence — the <code>aiad-emit-rules-check.yml</code> workflow blocks any PR that modifies the AGENT-GUIDE without regenerating the targets, or that manually edits a derived file.</p>
+
+      <h2 id="alias">Deprecated flat aliases</h2>
+      <div class="callout warn">
+        <span class="callout-title">Removed in v2</span>
+        <p>The old flat aliases (<code>/aiad-status</code>, <code>/aiad-retro</code>, <code>/aiad-dashboard</code>, …) remain functional for one version for backward compatibility. When used, they display a migration message towards the <code>/aiad &lt;sub&gt;</code> form. They will be <strong>removed in v2</strong> — it is their removal that delivers the −94% of frontmatter from the move to routers.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="sdd.html"><span class="dir">← Previous</span>/sdd commands</a>
+        <a class="next" href="cli.html"><span class="dir">Next →</span>npx aiad-sdd CLI</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li><a href="../values.html">Values &amp; pillars</a></li>
+        <li><a href="../artifacts.html">The artifacts</a></li>
+        <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="../concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="../concepts/spec.html">SPEC</a></li>
+        <li><a href="../concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="../concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="../concepts/jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="sdd.html">/sdd commands</a></li>
+        <li><a href="aiad.html">/aiad commands</a></li>
+        <li><a href="cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="../governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

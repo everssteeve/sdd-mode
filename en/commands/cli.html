@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>npx aiad-sdd CLI — install and tool up | SDD Mode</title>
+<meta name="description" content="The aiad-sdd command line: init (.aiad/ structure, governance, slash commands), update, status, trace --fail-on-gap, multi-runtime emit-rules, exit codes 0/1/2, GitHub Actions CI integrations and hooks (pre-commit, session-start, discovery-gate).">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../../fr/commandes/cli.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="../concepts/research.html">2. Research Phase</a></li>
+            <li><a href="../concepts/spec.html">3. SPEC</a></li>
+            <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="../concepts/execution.html">5. Agent Execution</a></li>
+            <li><a href="../concepts/validation.html">6. Validation</a></li>
+            <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="../concepts/jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="../concepts/traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="../artifacts.html">The artifacts</a></li>
+            <li><a href="../values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="sdd.html">/sdd — SDD cycle (16)</a></li>
+            <li><a href="aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="cli.html" aria-current="page">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="../governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="../search.html">Search</a></li>
+            <li><a href="../whats-new.html">What's New</a></li>
+            <li><a href="../spec-library.html">SPEC Library</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../../fr/commandes/cli.html" hreflang="fr" lang="fr">FR</a>
+          <a href="cli.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="../concepts/intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="../concepts/research.html">2. Research Phase</a></li>
+          <li><a href="../concepts/spec.html">3. SPEC</a></li>
+          <li><a href="../concepts/execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="../concepts/execution.html">5. Agent Execution</a></li>
+          <li><a href="../concepts/validation.html">6. Validation</a></li>
+          <li><a href="../concepts/drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="../concepts/jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="../concepts/traceability.html">Traceability</a></li>
+          <li><a href="../artifacts.html">The artifacts</a></li>
+          <li><a href="../values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="sdd.html">/sdd (16)</a></li>
+          <li><a href="aiad.html">/aiad (15)</a></li>
+          <li><a href="cli.html" aria-current="page">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../governance/index.html">Tier 1 governance</a></li>
+          <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../get-started.html">Get Started</a></li>
+          <li><a href="../metrics.html">Metrics</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+          <li><a href="../search.html">Search</a></li>
+          <li><a href="../whats-new.html">What's New</a></li>
+          <li><a href="../spec-library.html">SPEC Library</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li>Commands</li>
+          <li aria-current="page">npx aiad-sdd CLI</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Command line</p>
+      <h1>npx aiad-sdd CLI — install and tool up</h1>
+      <p class="doc-lede">The slash commands live in the agent; the <code>aiad-sdd</code> CLI lives in the terminal and the CI. It installs SDD Mode, keeps it up to date, and provides the <strong>deterministic verdicts</strong> (traceability, multi-runtime parity, project state) that turn rituals into measurements.</p>
+
+      <h2 id="installation">1-minute install</h2>
+      <pre><code>npx aiad-sdd init</code></pre>
+      <p>A single command installs in your project: the <code>.aiad/</code> structure (PRD, ARCHITECTURE, AGENT-GUIDE, intents, specs, metrics), the <strong>4 Tier 1 governance agents</strong> (AI-ACT, RGPD, RGAA, RGESN), the slash commands for Claude Code and the configured <code>CLAUDE.md</code> file. Then, in the agent: <code>/sdd init</code> to start the framing.</p>
+      <table>
+        <caption class="visually-hidden">Main options of npx aiad-sdd init</caption>
+        <thead><tr><th scope="col">Option</th><th scope="col">Effect</th></tr></thead>
+        <tbody>
+          <tr><td><code>--sans-gouvernance</code></td><td>Initialise without the Tier 1 governance agents.</td></tr>
+          <tr><td><code>--minimal</code></td><td>AIAD-Lean profile: 4 commands (intent / spec / gate / drift-check).</td></tr>
+          <tr><td><code>--upgrade &lt;module&gt;</code></td><td>Adds a module to the minimal profile: <code>rituals</code>, <code>metrics</code>, <code>gouvernance</code> or <code>all</code>.</td></tr>
+          <tr><td><code>--runtime &lt;list&gt;</code></td><td>Target AI runtime: <code>claude-code</code> (default), <code>cursor</code>, <code>codex</code>, <code>copilot</code>, <code>gemini</code>, <code>all</code>.</td></tr>
+          <tr><td><code>--with-git-hooks</code></td><td>Installs the pre-commit hook (Drift Lock) at the same time.</td></tr>
+          <tr><td><code>--dry-run</code> / <code>--force</code></td><td>Preview without writing / reinitialise by overwriting the existing setup.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="update"><code>npx aiad-sdd update</code> — update</h2>
+      <p>Updates the slash commands and the governance agents to the current version of the package, <strong>while preserving your files</strong>: your <code>.aiad/</code> artifacts (PRD, Intents, SPECs, metrics) are never touched. Options: <code>--sans-gouvernance</code> to leave governance untouched, <code>--dry-run</code> for a preview, <code>--check</code> in CI (exit 1 if the project diverges from the package).</p>
+
+      <h2 id="status"><code>npx aiad-sdd status</code> — project state</h2>
+      <p>Displays the project's SDD state directly in the terminal: artifacts present, current cycle, and a <strong>maturity score from 0 to 5</strong> — from "not initialised" to "complete". Outputs <code>--json</code> (machine) and <code>--markdown</code> (pasteable into a PR, Slack or Notion).</p>
+
+      <h2 id="trace"><code>npx aiad-sdd trace</code> — machine-verifiable traceability</h2>
+      <p>Generates the Intent ↔ SPEC ↔ Code ↔ Tests matrix from the <code>@intent</code> / <code>@spec</code> / <code>@verified-by</code> / <code>@governance</code> annotations placed in the code. It is the final arbiter of the Drift Lock: measurement replaces an act of faith.</p>
+      <pre><code>npx aiad-sdd trace                 # full matrix (md + json + html)
+npx aiad-sdd trace --fail-on-gap   # CI: exit 1 on a blocking gap
+npx aiad-sdd trace --json          # raw JSON on stdout</code></pre>
+      <table>
+        <caption class="visually-hidden">Options of npx aiad-sdd trace</caption>
+        <thead><tr><th scope="col">Option</th><th scope="col">Effect</th></tr></thead>
+        <tbody>
+          <tr><td><code>--fail-on-gap</code></td><td>Exit 1 if a blocking gap is detected (orphan SPEC, validated SPEC without code) — CI usage.</td></tr>
+          <tr><td><code>--format &lt;list&gt;</code></td><td>Produced formats: <code>md</code>, <code>json</code>, <code>html</code> (all by default).</td></tr>
+          <tr><td><code>--out &lt;dir&gt;</code></td><td>Output folder (default: <code>.aiad/metrics/traceability/</code>).</td></tr>
+          <tr><td><code>--watch</code></td><td>Regenerates the matrix on every change (intent / spec / code).</td></tr>
+          <tr><td><code>--suggest</code></td><td>Creates a SPEC skeleton for every orphan SPEC referenced by the code.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="emit-rules"><code>npx aiad-sdd emit-rules</code> — multi-runtime</h2>
+      <p>Regenerates the rule files of all the AI runtimes from the single upstream source (<code>.aiad/AGENT-GUIDE.md</code> + <code>.aiad/gouvernance/</code>): <code>AGENTS.md</code>, the <code>CLAUDE.md</code> header, <code>.cursor/rules/*.mdc</code>, <code>.codex/AGENT.md</code> and <code>GEMINI.md</code>. One single change in the AGENT-GUIDE, and Claude Code, Cursor, Codex, Copilot and Gemini stay aligned.</p>
+      <pre><code>npx aiad-sdd emit-rules                   # all targets
+npx aiad-sdd emit-rules --runtime cursor  # one specific runtime
+npx aiad-sdd emit-rules --check           # CI: exit 1 on divergence</code></pre>
+      <div class="callout warn">
+        <span class="callout-title">Do not edit the emitted files</span>
+        <p>Each generated file carries the <code>DO NOT EDIT</code> header and a SHA-256 <code>source-hash</code>: a manual modification will be overwritten at the next generation, and detected by <code>--check</code> in CI. Every rule is modified in the AGENT-GUIDE or the governance, never in a target.</p>
+      </div>
+
+      <h2 id="exit-codes">Exit codes: 0 / 1 / 2</h2>
+      <p>The CLI follows a three-state convention, aligned with the framework's <a href="../concepts/jnsp.html">JNSP</a> uncertainty policy ("Je Ne Sais Pas" — I don't know):</p>
+      <table>
+        <caption class="visually-hidden">CLI exit code convention</caption>
+        <thead><tr><th scope="col">Code</th><th scope="col">Semantics</th></tr></thead>
+        <tbody>
+          <tr><td><code>0</code></td><td>Success / <strong>PASS</strong> verdict.</td></tr>
+          <tr><td><code>1</code></td><td>Failure, error or <strong>FAIL</strong> verdict.</td></tr>
+          <tr><td><code>2</code></td><td><strong>JNSP</strong> verdict — human decision required. It is <em>not</em> an error: the command detected an undecidable situation (vague intent, untestable criterion, ambiguous governance, unreadable file) and refuses to decide in place of the human.</td></tr>
+        </tbody>
+      </table>
+      <p>This third code lets the CI distinguish "blocked waiting for a human" from a real bug — it is notably emitted by the cycle's deterministic scorers (<code>research</code>, <code>discovery-check</code>, <code>mini-gate</code>).</p>
+
+      <h2 id="ci">CI integrations — GitHub Actions</h2>
+      <p>Two provided workflows lock down the SDD Mode invariants on pull requests:</p>
+      <table>
+        <caption class="visually-hidden">Provided GitHub Actions workflows</caption>
+        <thead><tr><th scope="col">Workflow</th><th scope="col">Role</th></tr></thead>
+        <tbody>
+          <tr><td><code>.github/workflows/sdd-trace.yml</code></td><td>Invokes <code>aiad-sdd trace --fail-on-gap</code> on <strong>every PR</strong> — a blocking traceability gap fails the pipeline (algorithmic Drift Lock).</td></tr>
+          <tr><td><code>.github/workflows/aiad-emit-rules-check.yml</code></td><td>Invokes <code>aiad-sdd emit-rules --check</code> — blocks any PR where the multi-runtime rule files diverge from the AGENT-GUIDE.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="hooks">Hooks</h2>
+      <p>The <code>npx aiad-sdd hooks</code> command installs the Git pre-commit hook (and <code>--uninstall</code> removes it). The hooks provided in <code>.aiad/hooks/</code> close the loop between the agent and the repository:</p>
+      <ul>
+        <li><strong><code>pre-commit.sh</code></strong> — blocks any diff containing an unresolved <code>TODO-JNSP:</code> and applies the Drift Lock before commit. The <code>git commit --no-verify</code> bypass exists but is discouraged.</li>
+        <li><strong><code>session-start.js</code></strong> — executed when an agent session opens, to load the initial SDD context.</li>
+        <li><strong><code>discovery-gate.js</code></strong> — verifies the Discovery prerequisite (§3.5): <code>/sdd spec</code> and <code>/sdd exec</code> do not start without a linked Research at a <code>GO</code> / <code>CONDITIONAL GO</code> verdict.</li>
+      </ul>
+
+      <div class="callout">
+        <span class="callout-title">And much more</span>
+        <p>The CLI exposes other supporting tools — <code>doctor</code> (diagnosis + health score), <code>dashboard</code> (the HTML dashboard described in <a href="aiad.html#dashboard-html">/aiad dashboard-html</a>), <code>gouvernance</code> (Tier 1 agent updates), <code>uninstall</code>… The exhaustive reference is available via <code>npx aiad-sdd help</code>.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="aiad.html"><span class="dir">← Previous</span>/aiad commands</a>
+        <a class="next" href="../governance/index.html"><span class="dir">Next →</span>Tier 1 governance</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li><a href="../values.html">Values &amp; pillars</a></li>
+        <li><a href="../artifacts.html">The artifacts</a></li>
+        <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="../concepts/intent-statement.html">Intent Statement</a></li>
+        <li><a href="../concepts/spec.html">SPEC</a></li>
+        <li><a href="../concepts/execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="../concepts/drift-lock.html">Drift Lock</a></li>
+        <li><a href="../concepts/jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="sdd.html">/sdd commands</a></li>
+        <li><a href="aiad.html">/aiad commands</a></li>
+        <li><a href="cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="../governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD Framework v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

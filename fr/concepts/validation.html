@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validation — trois axes, un verdict | SDD Mode</title>
+<meta name="description" content="La validation SDD est triple : technique (lint, types, tests, build), fonctionnelle (cas de test de la SPEC) et gouvernance (4 agents Tier 1, veto fail-closed). Verdict VALIDÉ / CORRECTIONS / REJET, complété par /sdd security et /sdd audit persistés dans .aiad/metrics/.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="en" href="../../en/concepts/validation.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">Framework AIAD</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">Menu</button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Cycle SDD</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html">2. Phase Research</a></li>
+            <li><a href="spec.html">3. SPEC</a></li>
+            <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html">5. Exécution agent</a></li>
+            <li><a href="validation.html" aria-current="page">6. Validation</a></li>
+            <li><a href="drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html">JNSP — politique d'incertitude</a></li>
+            <li><a href="traceability.html">Traçabilité machine-vérifiable</a></li>
+            <li><a href="../artefacts.html">Les artefacts</a></li>
+            <li><a href="../valeurs.html">Valeurs &amp; piliers AIAD</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commandes</button>
+          <ul class="submenu">
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+          </ul>
+        </li>
+        <li><a href="../gouvernance/index.html">Gouvernance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Équipe</button>
+          <ul class="submenu">
+            <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+            <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+          </ul>
+        </li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Ressources</button>
+          <ul class="submenu">
+            <li><a href="../recherche.html">Recherche</a></li>
+            <li><a href="../nouveautes.html">Nouveautés</a></li>
+            <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../../assets/img/big-picture-fr.svg" download="sdd-big-picture-fr.svg">Poster Big Picture (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Choix de la langue">
+          <a href="validation.html" hreflang="fr" aria-current="true" lang="fr">FR</a>
+          <a href="../../en/concepts/validation.html" hreflang="en" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Navigation de la documentation">
+        <h2>Cycle SDD</h2>
+        <ul>
+          <li><a href="intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="research.html">2. Phase Research</a></li>
+          <li><a href="spec.html">3. SPEC</a></li>
+          <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html">5. Exécution agent</a></li>
+          <li><a href="validation.html" aria-current="page">6. Validation</a></li>
+          <li><a href="drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html">JNSP — incertitude</a></li>
+          <li><a href="traceability.html">Traçabilité</a></li>
+          <li><a href="../artefacts.html">Les artefacts</a></li>
+          <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        </ul>
+        <h2>Commandes</h2>
+        <ul>
+          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../gouvernance/index.html">Gouvernance Tier 1</a></li>
+          <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+          <li><a href="../equipe/rituels.html">Boucles &amp; rituels</a></li>
+        </ul>
+        <h2>Référence</h2>
+        <ul>
+          <li><a href="../demarrer.html">Démarrer</a></li>
+          <li><a href="../metriques.html">Métriques</a></li>
+          <li><a href="../glossaire.html">Glossaire</a></li>
+          <li><a href="../recherche.html">Recherche</a></li>
+          <li><a href="../nouveautes.html">Nouveautés</a></li>
+          <li><a href="../bibliotheque-specs.html">Bibliothèque de SPECs</a></li>
+          <li><a href="../a-propos.html">À propos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="../big-picture.html">Cycle SDD</a></li>
+          <li aria-current="page">Validation</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Étape 6 du cycle · <code>/sdd validate</code></p>
+      <h1>Validation — trois axes, un verdict</h1>
+      <p class="doc-lede">Le code qui compile n'est pas forcément le code qui fonctionne, et le code qui fonctionne n'est pas forcément le code qui respecte l'intention. La validation SDD est <strong>triple</strong> — technique, fonctionnelle, gouvernance — et le code n'est jamais terminé tant que la SPEC n'est pas synchronisée (<a href="drift-lock.html">Drift Lock</a>).</p>
+
+      <h2 id="technique">Axe 1 — Validation technique</h2>
+      <p>Le socle objectif : la chaîne d'outillage du projet, exécutée intégralement et reportée en tableau. Aucun jugement, des faits.</p>
+      <table>
+        <caption class="visually-hidden">Checks de la validation technique</caption>
+        <thead><tr><th scope="col">Check</th><th scope="col">Commande</th><th scope="col">Résultat</th></tr></thead>
+        <tbody>
+          <tr><td>Lint</td><td><code>[commande projet]</code></td><td>PASS / FAIL</td></tr>
+          <tr><td>Types</td><td><code>[type-check]</code></td><td>PASS / FAIL</td></tr>
+          <tr><td>Tests unitaires</td><td><code>[test]</code></td><td>PASS / FAIL</td></tr>
+          <tr><td>Tests d'intégration</td><td><code>[test:integration]</code></td><td>PASS / FAIL</td></tr>
+          <tr><td>Build</td><td><code>[build]</code></td><td>PASS / FAIL</td></tr>
+          <tr><td>Couverture</td><td><code>[coverage]</code></td><td>X %</td></tr>
+        </tbody>
+      </table>
+      <div class="callout danger">
+        <span class="callout-title">Deux interdits absolus</span>
+        <p>Ne JAMAIS valider un code qui ne passe pas les tests. Ne JAMAIS valider un code contenant des <code>TODO-JNSP:</code> non résolus — ces marqueurs sont des questions en attente de décision humaine, pas des détails cosmétiques.</p>
+      </div>
+
+      <h2 id="fonctionnelle">Axe 2 — Validation fonctionnelle</h2>
+      <p>L'axe fonctionnel confronte le code aux <strong>cas de test de la SPEC</strong>, critère par critère — contre le code lui-même, pas seulement contre les tests. Entrées spécifiées respectées, étapes de traitement suivies, format de sortie produit, chaque cas limite couvert par un test, tous les critères d'acceptation cochés. En complément, le <strong>Critère de Drift de l'Intent parent</strong> est relu : le signal observable de trahison de l'intention est-il absent ?</p>
+
+      <h2 id="gouvernance">Axe 3 — Validation gouvernance</h2>
+      <p>Les <a href="../gouvernance/index.html">quatre agents Tier 1</a> — AIAD-AI-ACT, AIAD-RGPD, AIAD-RGAA, AIAD-RGESN — sont appliqués via la skill <code>regulatory-veto</code>. Chacun dispose d'un <strong>droit de veto</strong> : un VETO bloque, un WARN exige un plan de remédiation avant merge. Cette validation n'est pas optionnelle pour les projets concernés.</p>
+      <div class="callout warn">
+        <span class="callout-title">UNKNOWN = VETO (fail-closed)</span>
+        <p>Quand un agent de gouvernance ne peut pas décider — référentiel non applicable de façon certaine, information manquante — il retourne <code>UNKNOWN</code>. Ce verdict est traité comme un <strong>VETO</strong> : on ne merge pas sur un doute réglementaire. C'est la déclinaison gouvernance de la politique <a href="jnsp.html">JNSP</a>.</p>
+      </div>
+
+      <h2 id="composition">Une composition de skills, sans duplication</h2>
+      <p><code>/sdd validate</code> est la commande la plus composite du cycle : elle n'implémente aucune logique propre mais <strong>compose trois skills</strong> réutilisables — <code>ears-validator</code> (couverture des critères testables de §3), <code>drift-detection</code> (écarts code ↔ SPEC sur le diff) et <code>regulatory-veto</code> (les 4 référentiels Tier 1). Chaque skill est aussi invoquée ailleurs dans le cycle (<code>/sdd gate</code>, <code>/sdd drift-check</code>, <code>/sdd security</code>…) : la logique vit en un seul endroit, les commandes l'orchestrent.</p>
+
+      <h2 id="verdict">Le verdict</h2>
+      <table>
+        <caption class="visually-hidden">Les quatre issues de la validation</caption>
+        <thead><tr><th scope="col">Verdict</th><th scope="col">Signification</th><th scope="col">Action</th></tr></thead>
+        <tbody>
+          <tr><td><strong>VALIDÉ</strong></td><td>Triple validation passée</td><td>Procéder au <a href="drift-lock.html">Drift Lock</a> (<code>/sdd drift-check</code>)</td></tr>
+          <tr><td><strong>CORRECTIONS</strong></td><td>Écarts mineurs et localisés</td><td>Lister, relancer l'agent sur les points précis</td></tr>
+          <tr><td><strong>REJET</strong></td><td>Échec structurel</td><td>SPEC imprécise → Human Learning · agent erroné malgré SPEC claire → Lesson Learned</td></tr>
+          <tr><td><strong>JNSP</strong></td><td>Validation indécidable</td><td>Question(s) à l'humain — ne pas dégrader en « corrections mineures » pour faire avancer le merge</td></tr>
+        </tbody>
+      </table>
+      <p>La distinction Human Learning / Lesson Learned est essentielle pour l'amélioration continue : la première documente un écart entre intention humaine et livraison (la SPEC était le problème), la seconde une erreur récurrente de l'agent (l'exécution était le problème). Les deux alimentent l'AGENT-GUIDE.</p>
+      <pre><code>Verdict : JNSP — validation impossible sans décision humaine
+Ce qui est validé : &lt;axes PASS&gt;
+Ce qui bloque : &lt;zones non décidables avec ref §&gt;
+Question(s) à l'humain : &lt;reformulation actionnable&gt;</code></pre>
+
+      <h2 id="audits">Les rôles complémentaires — <code>/sdd security</code> et <code>/sdd audit</code></h2>
+      <p>Deux commandes d'audit prolongent la validation pour les fonctionnalités à fort enjeu, avec persistance des rapports dans <code>.aiad/metrics/</code> :</p>
+      <table>
+        <caption class="visually-hidden">Commandes d'audit complémentaires</caption>
+        <thead><tr><th scope="col">Commande</th><th scope="col">Périmètre</th><th scope="col">Persistance</th></tr></thead>
+        <tbody>
+          <tr><td><code>/sdd security</code></td><td>OWASP Top 10, gestion des secrets, permissions des agents (minimal necessary permissions), exposition des données, conformité AI-ACT/RGPD</td><td><code>.aiad/metrics/security/YYYY-MM-DD-SPEC-NNN.md</code></td></tr>
+          <tr><td><code>/sdd audit</code></td><td>Conformité code ↔ SPEC, dette technique introduite (complexité, couplage, lisibilité), cohérence avec l'AGENT-GUIDE</td><td><code>.aiad/metrics/audit/YYYY-MM-DD-SPEC-NNN.md</code></td></tr>
+        </tbody>
+      </table>
+      <div class="callout info">
+        <span class="callout-title">Quand les lancer</span>
+        <p><code>/sdd security</code> : après toute fonctionnalité touchant des accès, des données utilisateur, des secrets ou un composant IA — recommandé avant toute PR critique, avec un modèle frontier. <code>/sdd audit</code> : pour les fonctionnalités à fort enjeu technique, ou après plusieurs itérations sur un même composant. Les rapports persistés alimentent les <a href="../metriques.html">métriques</a> et les rétrospectives.</p>
+      </div>
+
+      <nav class="doc-pagination" aria-label="Pages voisines">
+        <a class="prev" href="execution.html"><span class="dir">← Précédent</span>5. Exécution agent</a>
+        <a class="next" href="drift-lock.html"><span class="dir">Suivant →</span>7. Drift Lock</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../demarrer.html">Démarrer</a></li>
+        <li><a href="../valeurs.html">Valeurs &amp; piliers</a></li>
+        <li><a href="../artefacts.html">Les artefacts</a></li>
+        <li><a href="../equipe/responsabilites.html">Les 5 responsabilités</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Cycle SDD</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — incertitude</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Référence</h2>
+      <ul>
+        <li><a href="../commandes/sdd.html">Commandes /sdd</a></li>
+        <li><a href="../commandes/aiad.html">Commandes /aiad</a></li>
+        <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
+        <li><a href="../metriques.html">Métriques</a></li>
+        <li><a href="../glossaire.html">Glossaire</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Gouvernance</h2>
+      <ul>
+        <li><a href="../gouvernance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../gouvernance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../gouvernance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../gouvernance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">Framework AIAD v1.12 — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>
