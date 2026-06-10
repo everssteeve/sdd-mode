@@ -50,7 +50,7 @@ test('readCache — fichier absent → cache vide structuré', () => {
   const d = tmp();
   try {
     const c = readCache(d);
-    assert.equal(c.version, 1);
+    assert.equal(c.version, 2);
     assert.deepEqual(c.files, {});
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
@@ -87,7 +87,7 @@ test('writeCache — crée .aiad/.cache/ et persiste version + files', () => {
     const path = join(d, '.aiad/.cache/trace.json');
     assert.ok(existsSync(path));
     const data = JSON.parse(readFileSync(path, 'utf-8'));
-    assert.equal(data.version, 1);
+    assert.equal(data.version, 2);
     assert.ok(data.files['src/a.ts']);
     assert.equal(data.files['src/a.ts'].mtimeMs, 100);
   } finally { rmSync(d, { recursive: true, force: true }); }

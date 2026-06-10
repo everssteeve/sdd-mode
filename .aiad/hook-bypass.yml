@@ -102,6 +102,7 @@ patterns:
   - "lib/command-hooks.js"
   - "lib/plugins.js"
   - "lib/sdd-trace.js"
+  - "lib/trace-cache.js"
   - "lib/dashboard/watch.js"
   # Tests rendus déterministes/portables (import.meta.dirname → idiome Node 18,
   # locale forcée, couverture du fallback polling) — pas de comportement applicatif
@@ -115,6 +116,12 @@ patterns:
   - "test/skills.test.js"
   - "test/standup-url.test.js"
   - "test/obsidian-export.test.js"
+  # Fixtures de tests corrigées suite au resserrement ANNOTATION_REGEX (IDs numériques
+  # stricts) et au bump CACHE_VERSION 1 → 2 — pas de logique applicative nouvelle
+  - "test/sarif.test.js"
+  - "test/spec-suggester.test.js"
+  - "test/trace-cache.test.js"
+  - "test/trace-git.test.js"
 
   # Site statique de documentation — contient des exemples littéraux de
   # marqueurs TODO-JNSP dans des blocs <pre><code> et <p> de documentation.

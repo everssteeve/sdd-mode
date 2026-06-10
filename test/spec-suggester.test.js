@@ -122,11 +122,11 @@ test('suggererSpecs — sans Intent, fallback "TODO"', () => {
 test('suggererSpecs --dry-run — n\'écrit rien', () => {
   const d = fixture();
   try {
-    writeFileSync(join(d, 'src', 'foo.ts'), '// @spec SPEC-XYZ-1-dry\nexport {};\n');
+    writeFileSync(join(d, 'src', 'foo.ts'), '// @spec SPEC-099-1-dry\nexport {};\n');
     const matrice = construireMatrice(d);
     const r = suggererSpecs(d, matrice, { dryRun: true });
     assert.equal(r.created.length, 1);
-    assert.ok(!existsSync(join(d, '.aiad', 'specs', 'SPEC-XYZ-1-dry.md')));
+    assert.ok(!existsSync(join(d, '.aiad', 'specs', 'SPEC-099-1-dry.md')));
   } finally {
     rmSync(d, { recursive: true, force: true });
   }

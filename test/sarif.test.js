@@ -108,7 +108,7 @@ test('rendreSarif — JSON sérialisable et stable', () => {
 test('trace --format sarif — produit trace.sarif valide', silencer(async () => {
   const d = fixture();
   try {
-    writeFileSync(join(d, 'src', 'a.ts'), '// @spec SPEC-FANTOME-1\nexport {};');
+    writeFileSync(join(d, 'src', 'a.ts'), '// @spec SPEC-998-1-fantome\nexport {};');
     await trace(d, { formats: ['sarif'], quiet: true });
     const sarifPath = join(d, '.aiad', 'metrics', 'traceability', 'trace.sarif');
     assert.ok(existsSync(sarifPath), 'trace.sarif manquant');

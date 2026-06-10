@@ -122,10 +122,10 @@ test('construireMatrice — sans repo Git, fallback walk récursif fonctionne', 
     mkdirSync(join(d, '.aiad', 'intents'), { recursive: true });
     mkdirSync(join(d, '.aiad', 'specs'), { recursive: true });
 
-    writeFileSync(join(d, '.aiad', 'intents', 'INTENT-X.md'), 'status: active\n# X');
-    writeFileSync(join(d, '.aiad', 'specs', 'SPEC-X-1.md'),
-      `**Intent parent** : INTENT-X\nstatut: ready\n# X`);
-    writeFileSync(join(d, 'x.ts'), '// @spec SPEC-X-1\nexport {};');
+    writeFileSync(join(d, '.aiad', 'intents', 'INTENT-001.md'), 'status: active\n# X');
+    writeFileSync(join(d, '.aiad', 'specs', 'SPEC-001-1.md'),
+      `**Intent parent** : INTENT-001\nstatut: ready\n# X`);
+    writeFileSync(join(d, 'x.ts'), '// @spec SPEC-001-1\nexport {};');
 
     const m = construireMatrice(d);
     assert.equal(m.summary.specs, 1);
