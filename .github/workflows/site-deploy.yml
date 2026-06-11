@@ -20,6 +20,9 @@ on:
   pull_request:
     paths:
       - 'site/**'
+  # Déclenchement manuel : permet le 1er déploiement par un humain (geste de
+  # release explicite, RESEARCH-014) et un re-déploiement à la demande.
+  workflow_dispatch:
 
 # Permissions minimales (C-R4) : seul l'écriture du contenu (push gh-pages).
 permissions:

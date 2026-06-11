@@ -83,6 +83,11 @@ patterns:
   - ".github/workflows/aiad-emit-rules-check.yml"
   - ".github/workflows/aiad-pr-review.yml"
   - ".github/workflows/canary.yml"
+  # Workflows CI ajoutés en INTENT-013 (gate version + déploiement site) —
+  # leur logique métier est régie par SPEC-013-3 / 013-4a (annotations @spec
+  # dans le YAML) ; ici on évite le faux positif de l'heuristique git.
+  - ".github/workflows/aiad-version-check.yml"
+  - ".github/workflows/site-deploy.yml"
   # Manifeste GitHub App (configuration marketplace — pas de logique applicative)
   - ".github/aiad-app-manifest.yml"
 
