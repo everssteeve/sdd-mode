@@ -58,9 +58,9 @@ annoncée quelque part (docs/site) diffère de `package.json`.**
         `site/`→`gh-pages` (sortant, humain) + audit RGAA AA hors session.)*
   - [⊘] SPEC-013-1b — Unification à 7 valeurs *(**ARCHIVÉE** : contradiction « 6 vs 7 »
         inexistante — toutes les sources disent déjà 7. Aucune action requise.)*
-- [~] SPEC-013-2 — Unification des docs racine + archivage de `SDDMode.md`
-      *(exec 2026-06-11 : SDDMode.md → `docs/archive/`, GUIDE/CLAUDE version-agnostiques,
-      provenance historique préservée. 100 % in-repo, prêt pour validate→done.)*
+- [x] SPEC-013-2 — Unification des docs racine + archivage de `SDDMode.md`
+      *(**DONE** 2026-06-11 — cycle complet exec→validate→Drift Lock. SDDMode.md
+      archivé, GUIDE/CLAUDE version-agnostiques, provenance historique préservée.)*
 - [x] SPEC-013-3 — Sync auto des versions (zones marquées) + check CI
       *(**DONE** 2026-06-11 — cycle complet Research→Gate 5/5→exec phasé 3/3→
       validate→Drift Lock. `lib/version-sync.js` + workflow + 59 zones, CI 7/7.)*

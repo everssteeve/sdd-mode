@@ -14,9 +14,9 @@ governance: AIAD-RGESN
 
 **Intent parent** : INTENT-013
 **SQS** : 4.0 / 5 — Gate OUVERTE (réserve levée)
-**Statut** : validation (VALIDÉ 2026-06-11 — triple validation PASS : technique
-[lint + 3831 tests + 3 checks verts + tarball 4/4], fonctionnelle [4/4 critères §3],
-drift [0 gap], gouvernance [RGESN PASS, sobriété documentaire]. Prêt pour `/sdd drift-check`.)
+**Statut** : done (Drift Lock OK 2026-06-11 — code/docs + SPEC synchronisés dans la
+même PR, 0 gap bloquant. SPEC documentaire, pas d'annotation `@spec` requise.
+Merge vers `main` = étape de release externe.)
 **Gouvernance** : AIAD-RGESN (sobriété documentaire — réduction de la redondance)
 
 > ✅ **Réserve rétrécie (investigation 2026-06-11)** : le **bandeau CLAUDE.md
