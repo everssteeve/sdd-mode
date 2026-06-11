@@ -48,3 +48,9 @@ passant sans gate de couverture/taille → drift.
 
 - [ ] SPEC-014-1 — Gates CI : `lint:size --strict` + `coverage:threshold` + badge
 - [ ] SPEC-014-2 — Protocole `bench/` public + sourcing/requalification des claims
+
+## Signaux liés
+
+- [FACT-001](../facts/FACT-001-seuil-50k-non-source.md) — le seuil 50K tokens
+  (context rot) est codé en dur dans 4 fichiers sans source ni dérivation, alors
+  que le 60–70 % de fenêtre, lui, est sourcé. Candidat SPEC-014-2.
