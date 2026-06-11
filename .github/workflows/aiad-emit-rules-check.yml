@@ -37,15 +37,18 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install aiad-sdd
+      - name: Install dependencies
         run: |
           if [ -f package.json ]; then
             npm install --no-audit --no-fund --omit=optional || true
           fi
-          npm install --no-save --no-audit --no-fund aiad-sdd@latest
 
+      # Utilise la version du PR (bin local), pas `aiad-sdd@latest` : un PR doit
+      # valider la parité contre SON propre outil — sinon un bump de version
+      # (ex. 1.17 → 1.18) casse le check tant que npm n'est pas publié.
+      # Cohérent avec aiad-docs-check, qui utilise déjà le local.
       - name: Verify multi-runtime parity
-        run: npx aiad-sdd emit-rules --check
+        run: node bin/aiad-sdd.js emit-rules --check
 
       - name: Comment PR with remediation
         if: failure() && github.event_name == 'pull_request'
