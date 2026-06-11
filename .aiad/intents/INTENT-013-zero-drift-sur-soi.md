@@ -53,9 +53,12 @@ annoncée quelque part (docs/site) diffère de `package.json`.**
 
 - [~] SPEC-013-1 — Déploiement site v1.18 + résolution « 6 vs 7 valeurs »
       *(Gate FERMÉE SQS 1.0 → **découpée** le 2026-06-11)*
-  - [ ] SPEC-013-1a — Déploiement du site aiad.ovh en v1.18 *(SQS 4.4 — Gate ouverte)*
-  - [ ] SPEC-013-1b — Unification à 7 valeurs sur les 4 sources *(SQS 4.2 — Gate ouverte)*
-- [x] SPEC-013-2 — Unification des docs racine + archivage de `SDDMode.md` *(draft — court-circuit Research tracé)*
+  - [ ] SPEC-013-1a — Déploiement du site aiad.ovh en v1.18 *(Gate OUVERTE 4/5,
+        réserve levée : 33 commandes + nettoyage site/ inclus, refs historiques préservées)*
+  - [⊘] SPEC-013-1b — Unification à 7 valeurs *(**ARCHIVÉE** : contradiction « 6 vs 7 »
+        inexistante — toutes les sources disent déjà 7. Aucune action requise.)*
+- [x] SPEC-013-2 — Unification des docs racine + archivage de `SDDMode.md`
+      *(Gate OUVERTE 4/5 ; bandeau CLAUDE.md déjà présent — reste archivage SDDMode + en-tête périmé)*
 - [x] SPEC-013-3 — Sync auto des versions (zones marquées) + check CI
       *(rédigée 2026-06-11 sous conditions **C1** zones marquées seulement / **C2**
       check CI sur ces zones, prose exclue — RESEARCH-013 CONDITIONAL GO 80 %.

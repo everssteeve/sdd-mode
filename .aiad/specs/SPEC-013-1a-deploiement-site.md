@@ -17,18 +17,19 @@ governance: AIAD-RGAA, AIAD-RGESN
 **Intent parent** : INTENT-013
 **Ordre d'exécution** : 1 sur 2 (indépendante de 013-1b — fichiers disjoints)
 **Dépendances intra-split** : aucune
-**SQS** : 4/5 (Complétude 1 · Testabilité 1 · Atomicité 1 · Non-ambiguïté 0 ·
-Traçabilité 1) — Gate **OUVERTE avec réserve** (2026-06-11)
+**SQS** : 4/5 → **réserve levée** (décision gardien 2026-06-11), Gate **OUVERTE**
 **Statut** : review (Gate ouverte ; passe `in-progress` au lancement de `/sdd exec`,
 ce qui produira le code annoté `@spec` — évite le faux gap « validée non implémentée »)
 
-> ⚠ **Réserve Gate (Non-ambiguïté 0/1)** — à lever avant/pendant `/sdd exec` :
-> 1. **Décompte public de commandes** : afficher **31** (taxonomie documentée
->    16 SDD + 11 rituels + 4 métriques) — *pas* le nombre de fichiers routers (33).
-> 2. **Périmètre `site/`** : trancher si le **nettoyage des mentions de version
->    résiduelles** (`site/` contient 12× `v1.7` et des `v1.10`–`v1.17`) fait partie
->    de cette SPEC ou est un prérequis déjà acquis. Test de l'Étranger : PASS avec
->    réserve sur ce point précis.
+> ✅ **Réserve levée (gardien, 2026-06-11)** :
+> 1. **Décompte de commandes** = **33** (17 `/sdd` + 16 `/aiad`). La taxonomie
+>    documentée est **élargie** pour intégrer `prd`, `arch`, `research` (jusqu'ici
+>    non comptés) → le site affiche 33 et la doc reflète ce décompte.
+> 2. **Nettoyage `site/`** : **inclus** dans cette SPEC. Aligner les **indicateurs
+>    de version *courante*** (footer, badge « version actuelle », description du
+>    cycle/features) sur **v1.18**, en **préservant les références historiques /
+>    changelog** (« nouveautés v1.10 », « depuis v1.11 » — sinon falsification de
+>    l'historique, cf. RESEARCH-013 C1 + valeur « Honnêteté sur les Contradictions »).
 **Gouvernance** : AIAD-RGAA (le site est une interface), AIAD-RGESN (poids des pages)
 
 ## 1. Contexte
@@ -64,7 +65,12 @@ bloquant). Trace conservée ici.
 
 - [ ] aiad.ovh sert la **v1.18** : footer/version à jour, cycle SDD à **7 étapes**
       incluant la phase Research, mentions EARS, protocole JNSP, routers
-      `/sdd`·`/aiad`, **31 commandes**.
+      `/sdd`·`/aiad`, **33 commandes** (17 `/sdd` + 16 `/aiad`).
+- [ ] La **taxonomie de commandes** affichée (site + doc) intègre `prd`, `arch` et
+      `research` → total cohérent **33** (plus de « 27 » ni « 31 » résiduels).
+- [ ] Les **indicateurs de version courante** du site (footer, badge, description
+      cycle/features) affichent **v1.18** ; les **références historiques/changelog**
+      (`nouveautés v1.10`, `depuis v1.11`…) sont **préservées** (pas de réécriture).
 - [ ] Les **alias plats dépréciés** (`/sdd-intent`, `/aiad-status`…) n'apparaissent
       plus comme forme **principale** sur le site (formes router en première
       intention ; mention de dépréciation tolérée).

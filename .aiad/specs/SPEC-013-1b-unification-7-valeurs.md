@@ -3,7 +3,7 @@ id: SPEC-013-1b
 title: Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site
 parent_intent: INTENT-013
 parent_spec: SPEC-013-1
-status: review
+status: archived
 format: prose
 sqs: 4.0
 author: Steeve Evers
@@ -17,21 +17,30 @@ governance: AIAD-RGESN
 **Intent parent** : INTENT-013
 **Ordre d'exécution** : 2 sur 2 (indépendante de 013-1a — fichiers disjoints)
 **Dépendances intra-split** : aucune (parallélisable avec 013-1a)
-**SQS** : 4/5 (Complétude 1 · Testabilité 1 · Atomicité 1 · Non-ambiguïté 0 ·
-Traçabilité 1) — Gate **OUVERTE avec réserve** (2026-06-11)
-**Statut** : review (Gate ouverte ; passe `in-progress` au lancement de `/sdd exec` —
-cf. [[FACT-002]], on évite `ready` tant qu'aucun code annoté `@spec` n'existe)
-**Gouvernance** : AIAD-RGESN (sobriété — une source de vérité, pas de redondance contradictoire)
+**Statut** : **ARCHIVÉE** (2026-06-11) — clôturée sans implémentation, décision gardien.
+**Gouvernance** : AIAD-RGESN
 
-> ⚠ **Réserve Gate (Non-ambiguïté 0/1)** — à lever avant/pendant `/sdd exec` :
-> 1. **Mapping fichier exact** des 4 sources : Constitution = `frameworkAIAD.md`
->    (Art. II) · Vision & Philosophie = `site/{fr,en}/valeurs.html` · site/ ·
->    source emit-rules (cf. point 2).
-> 2. **Vraie source emit-rules de la liste de valeurs** : le critère 3 suppose
->    l'AGENT-GUIDE, mais `.aiad/AGENT-GUIDE.md` **n'énumère pas** les valeurs
->    (vérifié 2026-06-11). Identifier le fichier réellement lu par `emit-rules`
->    (template / `.aiad/gouvernance/`) AVANT d'éditer — sinon la propagation vers
->    `CLAUDE.md` est inopérante.
+> ⛔ **ARCHIVÉE — prémisse inexistante (investigation 2026-06-11).**
+>
+> La contradiction « 6 vs 7 valeurs » qui motivait cette SPEC **n'existe pas
+> dans le code** :
+> - **Constitution** (`frameworkAIAD.md:72-95`) : « les **sept** valeurs
+>   fondatrices », Human Authorship = n°7. Déjà 7.
+> - **`CLAUDE.md:285-293`** : 7 valeurs. **`site/{fr,en}/valeurs.html`** : « sept
+>   valeurs ». Déjà 7.
+> - Le seul « 6 valeurs » littéral du repo est dans `productbacklog.md` et désigne
+>   les **6 forges CI** (`forge.enum`), **sans rapport** avec les valeurs AIAD.
+>
+> De plus, le **critère 3 était faux** : la section Valeurs de `CLAUDE.md` est
+> **hors zone `emit-rules`** (zone gérée = lignes 1-11 seulement, cf.
+> `lib/emit-rules.js:341`), l'AGENT-GUIDE ne liste pas les valeurs, et emit-rules
+> n'en produit aucune. Aucune propagation via emit-rules n'était possible ni
+> nécessaire.
+>
+> **Conclusion** : aucune action requise — l'état désiré (7 valeurs cohérentes
+> partout) est déjà atteint. Signal empirique versé à [[FACT-001]]/INTENT-014
+> (un claim — la contradiction — non vérifié contre le code). Le contenu
+> ci-dessous est conservé pour traçabilité historique.
 
 ## 1. Contexte
 

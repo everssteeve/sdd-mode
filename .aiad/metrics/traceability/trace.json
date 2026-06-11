@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.17.0",
-    "generated": "2026-06-11T14:20:26.738Z"
+    "generated": "2026-06-11T14:29:35.726Z"
   },
-  "generatedAt": "2026-06-11T14:20:26.738Z",
+  "generatedAt": "2026-06-11T14:29:35.725Z",
   "summary": {
     "intents": 23,
     "specs": 17,
@@ -583,7 +583,7 @@
             "file": ".aiad/specs/SPEC-013-1b-unification-7-valeurs.md",
             "title": "Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site",
             "parentIntent": "INTENT-013",
-            "status": "review"
+            "status": "archived"
           },
           "code": [],
           "tests": []
@@ -4743,6 +4743,13 @@
         "title": "Déploiement site v1.18 + résolution « 6 vs 7 valeurs »",
         "parentIntent": "INTENT-013",
         "status": "split"
+      },
+      {
+        "id": "SPEC-013-1b-unification-7-valeurs",
+        "file": ".aiad/specs/SPEC-013-1b-unification-7-valeurs.md",
+        "title": "Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site",
+        "parentIntent": "INTENT-013",
+        "status": "archived"
       }
     ],
     "specsValideesNonImplementees": [],

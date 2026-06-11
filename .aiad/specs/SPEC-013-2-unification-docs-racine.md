@@ -17,11 +17,17 @@ governance: AIAD-RGESN
 **Statut** : review (Gate ouverte ; passe `in-progress` au lancement de `/sdd exec`)
 **Gouvernance** : AIAD-RGESN (sobriété documentaire — réduction de la redondance)
 
-> ⚠ **Réserve Gate (Complétude 0/1)** : avant exec, traiter le cas limite
-> **CLAUDE.md racine régénéré par `emit-rules`** — injecter le bandeau via la zone
-> `aiad-emit-rules:start/end` du template, jamais à la main (sinon écrasé à la
-> prochaine régénération). Couvrir aussi : refs à `SDDMode.md` ailleurs dans le
-> repo, liens entrants externes.
+> ✅ **Réserve rétrécie (investigation 2026-06-11)** : le **bandeau CLAUDE.md
+> existe déjà** — la zone `aiad-emit-rules:start…end` (lignes 1-11) porte déjà
+> `DO NOT EDIT — regenerate via /aiad-emit-rules` + `generated-by` + `source-hash`
+> (cf. `lib/emit-rules.js:328`). Le critère 3 (bandeau) est donc **déjà satisfait**.
+>
+> Reste à traiter (mécanique) :
+> 1. **`SDDMode.md` → `docs/archive/`** + recenser/mettre à jour les **références
+>    entrantes** à `SDDMode.md` dans le repo (liens internes).
+> 2. **En-tête périmé du corps `CLAUDE.md`** : la ligne « Framework AIAD v1.12 —
+>    SDD Mode v1.12 » (hors zone emit-rules, l.13) est obsolète vs package 1.17 —
+>    à traiter via une **zone marquée** (cf. SPEC-013-3 C1), pas en dur.
 
 ## 1. Contexte
 
