@@ -58,4 +58,6 @@ annoncée quelque part (docs/site) diffère de `package.json`.**
 - [x] SPEC-013-2 — Unification des docs racine + archivage de `SDDMode.md` *(draft — court-circuit Research tracé)*
 - [ ] SPEC-013-3 — Synchronisation automatique des en-têtes de version
       (extension `emit-rules` + check CI `version ≠ package.json` → échec)
-      *(RESEARCH-013 en cours — verdict GO/NO-GO en attente)*
+      *(RESEARCH-013 → **CONDITIONAL GO** 80 %, gardien 2026-06-11 — `/sdd spec`
+      autorisé sous conditions **C1** zones marquées seulement / **C2** check CI
+      sur ces zones, prose exclue. Gate discovery PASS machine-side.)*
