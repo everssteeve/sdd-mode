@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.17.0",
-    "generated": "2026-06-11T14:18:04.064Z"
+    "generated": "2026-06-11T14:20:26.738Z"
   },
-  "generatedAt": "2026-06-11T14:18:04.064Z",
+  "generatedAt": "2026-06-11T14:20:26.738Z",
   "summary": {
     "intents": 23,
     "specs": 17,
@@ -605,7 +605,7 @@
             "file": ".aiad/specs/SPEC-013-3-sync-version-zones-marquees.md",
             "title": "Synchronisation automatique des versions sur zones marquées + check CI",
             "parentIntent": "INTENT-013",
-            "status": "draft"
+            "status": "review"
           },
           "code": [],
           "tests": []

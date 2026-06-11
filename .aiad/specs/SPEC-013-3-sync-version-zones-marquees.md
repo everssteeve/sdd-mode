@@ -3,9 +3,9 @@ id: SPEC-013-3
 title: Synchronisation automatique des versions sur zones marquées + check CI
 parent_intent: INTENT-013
 research: RESEARCH-013
-status: draft
+status: review
 format: prose
-sqs: À évaluer via /sdd gate
+sqs: 5.0
 author: Steeve Evers
 date: 2026-06-11
 governance: AIAD-RGESN
@@ -15,7 +15,10 @@ governance: AIAD-RGESN
 
 **Intent parent** : INTENT-013 — Zéro drift sur soi-même
 **Research** : RESEARCH-013 — verdict **CONDITIONAL GO** (80 %), conditions C1/C2
-**Statut** : draft
+**SQS** : 5/5 (Complétude · Testabilité · Atomicité · Non-ambiguïté · Traçabilité)
+— Gate **OUVERTE** (2026-06-11), Test de l'Étranger PASS
+**Statut** : review (Gate ouverte ; passe `in-progress` au lancement de `/sdd exec`
+— cf. [[FACT-002]], on évite `ready` tant qu'aucun code annoté `@spec` n'existe)
 **Gouvernance** : AIAD-RGESN (outillage sobre, réutilise un motif existant)
 
 > Conditions du verdict Research (contraignantes) :
