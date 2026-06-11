@@ -12,7 +12,7 @@
 # SDD Mode — Configuration Agent
 
 > Ce fichier configure l'agent IA (Claude Code, Cursor, Copilot, Codex, Gemini) pour le développement en mode SDD.
-> Framework AIAD v1.12 — SDD Mode v1.12 — https://aiad.ovh
+> Framework AIAD — SDD Mode — https://aiad.ovh *(version-agnostique ; la version exacte est dans `package.json` + en-tête généré ci-dessus)*
 >
 > **v1.12 — Multi-runtime** : ce fichier est synchronisé avec `AGENTS.md`, `.cursor/rules/`, `.codex/AGENT.md`, `GEMINI.md` via `npx aiad-sdd emit-rules`. Source unique : `.aiad/AGENT-GUIDE.md` + `.aiad/gouvernance/`. Le workflow CI `aiad-emit-rules-check.yml` bloque toute divergence en PR.
 

@@ -1,3 +1,8 @@
+> ⚠ **Document historique — v1.6.** Conservé pour traçabilité. Il ne reflète
+> **pas** la version courante du SDD Mode (cycle 9 étapes sans Research, 27
+> commandes, alias plats). **Pour la version à jour, voir [`GUIDE.md`](../../GUIDE.md)**
+> (référence unique, version-agnostique). Archivé le 2026-06-11 — SPEC-013-2.
+
 # AIAD SDD Mode — v1.6
 
 **Spec Driven Development — Guide opérationnel pour Product Engineers AIAD**

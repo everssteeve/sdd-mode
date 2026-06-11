@@ -13,8 +13,11 @@ governance: AIAD-RGESN
 # SPEC-013-2 — Unification des docs racine + archivage de SDDMode.md
 
 **Intent parent** : INTENT-013
-**SQS** : 4.0 / 5 — Gate OUVERTE avec réserve (2026-06-11)
-**Statut** : review (Gate ouverte ; passe `in-progress` au lancement de `/sdd exec`)
+**SQS** : 4.0 / 5 — Gate OUVERTE (réserve levée)
+**Statut** : in-progress (exec 2026-06-11 — SDDMode.md → `docs/archive/` + en-tête
+historique ; GUIDE.md & CLAUDE.md rendus version-agnostiques ; bandeau CLAUDE déjà
+présent ; provenance historique préservée. 3831 tests verts, liens OK. Prêt pour
+`/sdd validate` — 100 % in-repo, pas de blocage externe.)
 **Gouvernance** : AIAD-RGESN (sobriété documentaire — réduction de la redondance)
 
 > ✅ **Réserve rétrécie (investigation 2026-06-11)** : le **bandeau CLAUDE.md

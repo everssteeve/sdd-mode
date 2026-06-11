@@ -1,6 +1,6 @@
 # Guide SDD-Mode — Du code intentionnel, de la première ligne à la production
 
-> **Framework AIAD SDD-Mode v1.14** — aiad.ovh  
+> **Framework AIAD SDD-Mode** — aiad.ovh *(référence courante, version-agnostique — la version exacte vit dans `package.json`)*  
 > Ce guide est un parcours pratique. Vous allez construire une vraie application, étape par étape, en passant par chaque phase du cycle SDD-Mode. À la fin, vous aurez vu toutes les commandes essentielles dans leur contexte réel.
 
 ---
