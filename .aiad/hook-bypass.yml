@@ -47,6 +47,12 @@ patterns:
   # Ces fichiers sont générés par `npx aiad-sdd emit-rules`, pas du code applicatif
   - ".claude/**"
   - "AGENTS.md"
+  # Cibles multi-runtime emit-rules (header `DO NOT EDIT — regenerate via
+  # /aiad-emit-rules`) — dérivées de l'AGENT-GUIDE, jamais éditées à la main
+  - "CLAUDE.md"
+  - "GEMINI.md"
+  - ".codex/**"
+  - ".cursor/**"
 
   # Manifestes et lockfiles (mises à jour de dépendances)
   - "package.json"

@@ -1,3 +1,14 @@
+<!-- aiad-emit-rules:start -->
+<!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
+<!-- generated-by: aiad-emit-rules v1.17.0 -->
+<!-- source-hash: aad6af3f795db48a -->
+<!-- intent_id: INTENT-002 -->
+
+> Ce fichier est synchronisé avec `AGENTS.md`, `.cursor/rules/` et `.codex/` via `npx aiad-sdd emit-rules`.
+> La logique CLAUDE.md complète est conservée ci-dessous — seul ce header est régénéré.
+>
+> **Garde-fou JNSP** — En cas d'incertitude (intention floue, critère non testable, gouvernance non décidable), tu DOIS répondre `JNSP : <question pour l'humain>` plutôt qu'inventer. Détail dans `AGENTS.md` section « INCERTITUDE ».
+<!-- aiad-emit-rules:end -->
 # SDD Mode — Configuration Agent
 
 > Ce fichier configure l'agent IA (Claude Code, Cursor, Copilot, Codex, Gemini) pour le développement en mode SDD.

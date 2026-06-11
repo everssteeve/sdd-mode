@@ -3,7 +3,7 @@
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
 version: 1.17.0
-source-hash: e516d3d082f9c325
+source-hash: 52c86353fdb58694
 ---
 
 # aiad-sdd — Documentation utilisateur (v1.17.0)
@@ -257,6 +257,7 @@ Claude Code charge dynamiquement ces skills selon leur `description`. Validable 
 | **context-budget** | Use when estimating or auditing a Context Engineering Budget. Computes the 5 health metrics (M1-M5), produces a health score 0–5/5 and actionable recommendations. Triggered by /sdd context, /sdd exec budget check, /sdd resume. |
 | **drift-detection** | Use when checking that code changes are synchronised with their SPEC (Drift Lock). Cross-references modified files against active SPECs and emits an OK/DRIFT verdict. Triggered by /sdd drift-check, /sdd validate, /sdd audit, pre-commit hook. |
 | **ears-validator** | Use when linting requirements or acceptance criteria for EARS syntax (Easy Approach to Requirements Syntax). Detects forbidden vague words (should, might, fast, user-friendly, intuitive…), multiple SHALL in a single requirement, missing trigger keywo |
+| **grill-me** | Use when a human gate must be interactive (« grill me ») rather than a static form — one question at a time, the agent proposes its recommended answer, the human validates or corrects. Triggered by /sdd gate --guided and /sdd research --guided. Prese |
 | **human-authorship-check** | Use when validating that an Intent Statement, decision or strategic artefact has explicit human authorship — ensures the POURQUOI is not generated, paraphrased or invented by the agent. Triggered by /sdd intent, /sdd spec, /aiad intention. |
 | **reasons-canvas** | Use when structuring a SPEC via the REASONS Canvas (SPDD — Kevlin Henney). Facilitates the capture of intent justification before the standard AIAD SPEC format. Triggered by /sdd spec when the Intent is complex/ambiguous, or on explicit user request. |
 | **regulatory-veto** | Use when validating code, a SPEC or an Intent against the 4 Tier 1 governance agents (AI-ACT, RGPD, RGAA, RGESN). Emits PASS / WARN / VETO with structured remediation. Triggered by /sdd validate, /sdd security, /sdd exec, /aiad gouvernance. |
@@ -288,4 +289,4 @@ Conventions reconnues par `aiad-sdd trace` (regex stables exportées par `lib/sd
 
 ---
 
-*Document régénéré automatiquement — source-hash `e516d3d082f9c325`, package v1.17.0.*
+*Document régénéré automatiquement — source-hash `52c86353fdb58694`, package v1.17.0.*
