@@ -7,8 +7,9 @@ url: https://aiad.ovh
 baseurl: ""
 lang: fr-FR
 
-# Thème minimal officiel GitHub (Cayman ou minima — minima est plus sobre)
-theme: jekyll-theme-minima
+# Thème minimal officiel GitHub (nom de gem correct = `minima`, pas
+# `jekyll-theme-minima` qui n'existe pas → MissingDependencyException).
+theme: minima
 
 # Métadonnées
 author: Steeve Evers

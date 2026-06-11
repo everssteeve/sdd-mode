@@ -88,6 +88,9 @@ patterns:
   # dans le YAML) ; ici on évite le faux positif de l'heuristique git.
   - ".github/workflows/aiad-version-check.yml"
   - ".github/workflows/site-deploy.yml"
+  # Configuration Jekyll du sous-dossier docs/ (méta de build, pas de logique
+  # applicative régie par SPEC)
+  - "docs/_config.yml"
   # Manifeste GitHub App (configuration marketplace — pas de logique applicative)
   - ".github/aiad-app-manifest.yml"
 
