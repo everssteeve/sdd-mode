@@ -1,13 +1,13 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-11T14:15:12.559Z
+> Généré le 2026-06-11T14:18:04.064Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
 | Intents | 23 |
-| SPECs | 16 |
+| SPECs | 17 |
 | Fichiers code | 317 (annotés : 40) |
 | Fichiers test | 243 (annotés : 24) |
 
@@ -31,6 +31,7 @@
 | INTENT-013-zero-drift-sur-soi | SPEC-013-1a-deploiement-site | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-013-zero-drift-sur-soi | SPEC-013-1b-unification-7-valeurs | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-013-zero-drift-sur-soi | SPEC-013-2-unification-docs-racine | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-013-zero-drift-sur-soi | SPEC-013-3-sync-version-zones-marquees | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-014-empirisme-prouve | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-015-sobriete-cli | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-016-dashboard-fondations | _(aucune SPEC)_ | — | — | ❌ orphelin |

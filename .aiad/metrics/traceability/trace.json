@@ -2,12 +2,12 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.17.0",
-    "generated": "2026-06-11T14:15:12.559Z"
+    "generated": "2026-06-11T14:18:04.064Z"
   },
-  "generatedAt": "2026-06-11T14:15:12.559Z",
+  "generatedAt": "2026-06-11T14:18:04.064Z",
   "summary": {
     "intents": 23,
-    "specs": 16,
+    "specs": 17,
     "codeFiles": 317,
     "annotatedCodeFiles": 40,
     "testFiles": 243,
@@ -595,6 +595,17 @@
             "title": "Unification des docs racine + archivage de SDDMode.md",
             "parentIntent": "INTENT-013",
             "status": "review"
+          },
+          "code": [],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-013-3-sync-version-zones-marquees",
+            "file": ".aiad/specs/SPEC-013-3-sync-version-zones-marquees.md",
+            "title": "Synchronisation automatique des versions sur zones marquées + check CI",
+            "parentIntent": "INTENT-013",
+            "status": "draft"
           },
           "code": [],
           "tests": []
