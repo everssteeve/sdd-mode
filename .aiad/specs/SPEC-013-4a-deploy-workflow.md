@@ -19,9 +19,10 @@ governance: AIAD-RGESN
 **Ordre d'exécution** : 1 sur 2 (013-4b dépend de celle-ci)
 **SQS** : 5/5 — Gate **OUVERTE** (2026-06-11), Test de l'Étranger PASS
 **Gouvernance** : AIAD-RGESN (copie statique, 0 dépendance lourde ajoutée)
-**Statut** : in-progress (exec 2026-06-11 — `.github/workflows/site-deploy.yml`
-créé, annoté `@spec`, YAML valide, gate version vert, 3831 tests OK. Prêt pour
-`/sdd validate`. Le **1er run de publication** se fera au merge sur `main`, geste humain.)
+**Statut** : validation (VALIDÉ 2026-06-11 — triple validation PASS : technique
+[lint + YAML + version-sync + 3831 tests], fonctionnelle [5/5 critères §3 mappés
+au workflow], drift [0 gap, `@spec`], gouvernance [RGESN PASS]. Prêt pour
+`/sdd drift-check`. 1er run de publication = merge `main`, geste humain.)
 
 ## 1. Contexte
 
