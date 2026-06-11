@@ -64,6 +64,7 @@ annoncée quelque part (docs/site) diffère de `package.json`.**
 - [x] SPEC-013-3 — Sync auto des versions (zones marquées) + check CI
       *(**DONE** 2026-06-11 — cycle complet Research→Gate 5/5→exec phasé 3/3→
       validate→Drift Lock. `lib/version-sync.js` + workflow + 59 zones, CI 7/7.)*
-- [ ] SPEC-013-4 — Workflow de déploiement `site/` → `gh-pages` (gate version + RGAA)
-      *(rédigée 2026-06-11 — RESEARCH-014 CONDITIONAL GO 85 %, conditions C-R2/R3/R4
-      intégrées. Statut `draft`, en attente de `/sdd gate`.)*
+- [~] SPEC-013-4 — Workflow de déploiement `site/` → `gh-pages`
+      *(Gate OUVERTE 4/5 avec réserve RGAA → **découpée** le 2026-06-11)*
+  - [ ] SPEC-013-4a — Deploy site/→gh-pages + gate version *(SQS 5/5 — Gate ouverte, prête pour exec)*
+  - [ ] SPEC-013-4b — Gate RGAA AA avant publication *(draft — réserve : outil/config + dépendance Chromium)*

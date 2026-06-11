@@ -23,7 +23,9 @@
 | SPEC-013-1b | Unification à 7 valeurs sur les 4 sources | INTENT-013 | prose | 4.0 | archived | — |
 | SPEC-013-2 | Unification des docs racine + archivage de SDDMode.md | INTENT-013 | prose | 4.0 | done | — |
 | SPEC-013-3 | Sync auto des versions (zones marquées) + check CI | INTENT-013 | prose | 5.0 | done | — |
-| SPEC-013-4 | Workflow de déploiement site/ → gh-pages (gate version + RGAA) | INTENT-013 | prose | 4.0 | review | — |
+| SPEC-013-4 | Workflow de déploiement site/ → gh-pages (gate version + RGAA) | INTENT-013 | prose | 4.0 (OUVERTE → découpée) | split | — |
+| SPEC-013-4a | Deploy site/ → gh-pages + gate version | INTENT-013 | prose | 5.0 | review | — |
+| SPEC-013-4b | Gate RGAA AA avant publication | INTENT-013 | prose | À évaluer | draft | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

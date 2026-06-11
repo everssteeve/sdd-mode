@@ -3,9 +3,9 @@ id: SPEC-013-4
 title: Workflow de déploiement site/ → gh-pages (gate version + RGAA)
 parent_intent: INTENT-013
 research: RESEARCH-014
-status: review
+status: split
 format: prose
-sqs: 4.0
+sqs: 4.0 (OUVERTE avec réserve → découpée)
 author: Steeve Evers
 date: 2026-06-11
 governance: AIAD-RGAA, AIAD-RGESN
@@ -17,17 +17,20 @@ governance: AIAD-RGAA, AIAD-RGESN
 **Research** : RESEARCH-014 — **CONDITIONAL GO** (85 %), conditions C-R2/R3/R4
 **SQS** : 4/5 (Complétude 1 · Testabilité 1 · Atomicité 1 · Non-ambiguïté 0 ·
 Traçabilité 1) — Gate **OUVERTE avec réserve** (2026-06-11), Test de l'Étranger PASS avec réserve
-**Statut** : review (Gate ouverte ; passe `in-progress` au lancement de `/sdd exec` — cf. [[FACT-002]])
-**Gouvernance** : AIAD-RGAA (gate accessibilité avant publication), AIAD-RGESN (copie statique sobre)
+**Statut** : split
+**Gouvernance** : AIAD-RGAA, AIAD-RGESN
 
-> ⚠ **Réserve Gate (Non-ambiguïté 0/1)** — gate RGAA sous-spécifié, à trancher
-> avant/pendant `/sdd exec` :
-> 1. **Outil + config** : pa11y-ci vs axe-core, ruleset, et stratégie de baseline
->    (un « 0 violation AA » strict sur 64 pages peut être irréaliste sans allowlist).
-> 2. **Dépendance lourde** : pa11y/axe tirent Chromium — tension avec « zero runtime
->    dependency » et AIAD-RGESN. Assumer (devDependency CI-only) ou alléger.
-> 3. **Option** : scinder en **013-4a** (deploy + gate version, léger, prêt) /
->    **013-4b** (gate RGAA) si la partie accessibilité doit mûrir séparément.
+> ✅ **Découpée le 2026-06-11** (décision gardien, suite à la réserve Gate
+> Non-ambiguïté) en deux sous-SPECs par dépendance :
+>
+> | Sous-SPEC | Titre | SQS | Statut | Ordre |
+> |-----------|-------|-----|--------|-------|
+> | [SPEC-013-4a](./SPEC-013-4a-deploy-workflow.md) | Deploy site/→gh-pages + gate version | 5.0 | review (Gate OUVERTE) | 1/2 |
+> | [SPEC-013-4b](./SPEC-013-4b-gate-rgaa.md) | Gate RGAA AA avant publication | À évaluer | draft (réserve RGAA) | 2/2 |
+>
+> 013-4a isole la partie **légère et déjà outillée** (deploy + gate version),
+> 013-4b isole la partie **incertaine/lourde** (RGAA + dépendance Chromium) qui
+> portait la réserve. Cette parente ne s'exécute plus directement.
 
 > Conditions héritées de RESEARCH-014 (contraignantes) :
 > **C-R2** — ne pas entrer en conflit avec `docs-deploy.yml` (qui publie `docs/`
