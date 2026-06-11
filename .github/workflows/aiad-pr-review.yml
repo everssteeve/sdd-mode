@@ -80,11 +80,18 @@ jobs:
 
       - name: Publier le commentaire AIAD sur la PR
         uses: actions/github-script@v7
+        env:
+          # Passé via env (et non interpolé `${{ }}` dans le source JS) : le
+          # rapport peut contenir des backticks / ${ } / caractères spéciaux
+          # qui casseraient le template literal du script (SyntaxError).
+          AIAD_REVIEW: ${{ steps.review.outputs.report }}
+          AIAD_SCORE: ${{ steps.sovereignty.outputs.score }}
+          AIAD_GAPS: ${{ steps.trace.outputs.gaps }}
         with:
           script: |
-            const review = `${{ steps.review.outputs.report }}`;
-            const score = `${{ steps.sovereignty.outputs.score }}`;
-            const gaps = `${{ steps.trace.outputs.gaps }}`;
+            const review = process.env.AIAD_REVIEW || '';
+            const score = process.env.AIAD_SCORE || '';
+            const gaps = process.env.AIAD_GAPS || '';
             const body = [
               '## 🤖 AIAD SDD — Review automatisée',
               '',
