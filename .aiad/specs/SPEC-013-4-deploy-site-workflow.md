@@ -3,9 +3,9 @@ id: SPEC-013-4
 title: Workflow de déploiement site/ → gh-pages (gate version + RGAA)
 parent_intent: INTENT-013
 research: RESEARCH-014
-status: draft
+status: review
 format: prose
-sqs: À évaluer via /sdd gate
+sqs: 4.0
 author: Steeve Evers
 date: 2026-06-11
 governance: AIAD-RGAA, AIAD-RGESN
@@ -15,8 +15,19 @@ governance: AIAD-RGAA, AIAD-RGESN
 
 **Intent parent** : INTENT-013 — Zéro drift sur soi-même
 **Research** : RESEARCH-014 — **CONDITIONAL GO** (85 %), conditions C-R2/R3/R4
-**Statut** : draft
+**SQS** : 4/5 (Complétude 1 · Testabilité 1 · Atomicité 1 · Non-ambiguïté 0 ·
+Traçabilité 1) — Gate **OUVERTE avec réserve** (2026-06-11), Test de l'Étranger PASS avec réserve
+**Statut** : review (Gate ouverte ; passe `in-progress` au lancement de `/sdd exec` — cf. [[FACT-002]])
 **Gouvernance** : AIAD-RGAA (gate accessibilité avant publication), AIAD-RGESN (copie statique sobre)
+
+> ⚠ **Réserve Gate (Non-ambiguïté 0/1)** — gate RGAA sous-spécifié, à trancher
+> avant/pendant `/sdd exec` :
+> 1. **Outil + config** : pa11y-ci vs axe-core, ruleset, et stratégie de baseline
+>    (un « 0 violation AA » strict sur 64 pages peut être irréaliste sans allowlist).
+> 2. **Dépendance lourde** : pa11y/axe tirent Chromium — tension avec « zero runtime
+>    dependency » et AIAD-RGESN. Assumer (devDependency CI-only) ou alléger.
+> 3. **Option** : scinder en **013-4a** (deploy + gate version, léger, prêt) /
+>    **013-4b** (gate RGAA) si la partie accessibilité doit mûrir séparément.
 
 > Conditions héritées de RESEARCH-014 (contraignantes) :
 > **C-R2** — ne pas entrer en conflit avec `docs-deploy.yml` (qui publie `docs/`
