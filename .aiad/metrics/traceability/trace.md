@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-11T14:29:35.725Z
+> Généré le 2026-06-11T15:22:08.469Z
 
 ## Synthèse
 
@@ -8,8 +8,8 @@
 |----------|--------|
 | Intents | 23 |
 | SPECs | 17 |
-| Fichiers code | 317 (annotés : 40) |
-| Fichiers test | 243 (annotés : 24) |
+| Fichiers code | 318 (annotés : 41) |
+| Fichiers test | 244 (annotés : 24) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -31,7 +31,7 @@
 | INTENT-013-zero-drift-sur-soi | SPEC-013-1a-deploiement-site | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-013-zero-drift-sur-soi | SPEC-013-1b-unification-7-valeurs | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-013-zero-drift-sur-soi | SPEC-013-2-unification-docs-racine | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-013-zero-drift-sur-soi | SPEC-013-3-sync-version-zones-marquees | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-013-zero-drift-sur-soi | SPEC-013-3-sync-version-zones-marquees | `lib/version-sync.js` | `test/version-sync.test.js` | ✅ |
 | INTENT-014-empirisme-prouve | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-015-sobriete-cli | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-016-dashboard-fondations | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -47,6 +47,7 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
+| `test/version-sync.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |

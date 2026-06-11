@@ -20,6 +20,7 @@ import { doctor } from '../lib/doctor.js';
 import { uninstall } from '../lib/uninstall.js';
 import { validerSkills } from '../lib/skills.js';
 import { docs } from '../lib/docs.js';
+import { versionSync } from '../lib/version-sync.js';
 import { optIn as telemetryOptIn, optOut as telemetryOptOut, showStatus as telemetryStatus, track as telemetryTrack } from '../lib/telemetry.js';
 import { incrementSession as feedbackIncrementSession, tryInvite as feedbackTryInvite, runFeedbackCommand } from '../lib/feedback.js';
 import { ouvrirRepl } from '../lib/repl.js';
@@ -384,6 +385,7 @@ const AIDE = `
     dpia [options]        Pré-remplit l'AIPD Article 35 RGPD (méthode CNIL, 9 sections)
     verify-reproducibility  Calcule le content hash déterministe du tarball (CRA, SLSA, NIST SSDF)
     docs [--check]        Régénère DOCUMENTATION.md depuis les sources (CI parity)
+    version-sync [--check] Synchronise les zones <!--VERSION:START/END--> sur package.json (--dry-run)
     telemetry <sub>       Télémétrie opt-in (opt-in / opt-out / status [--json])
     feedback [<sub>]      Feedback qualitatif (opt-in / opt-out / status) — invitation auto toutes les 15 sessions
     uninstall [options]   Retire aiad-sdd du projet (mode aperçu sauf --force)
@@ -985,6 +987,24 @@ async function main() {
         r = await docs(cwd(), {
           check: Boolean(values.check),
           out: values.out,
+        });
+      } finally {
+        if (json) console.log = savedLog;
+      }
+      if (json) process.stdout.write(JSON.stringify(r, null, 2) + '\n');
+      if (values.check && r.drift) exit(1);
+      break;
+    }
+
+    case 'version-sync': {
+      const json = Boolean(values.json);
+      const savedLog = console.log;
+      if (json) console.log = () => {};
+      let r;
+      try {
+        r = versionSync(cwd(), {
+          check: Boolean(values.check),
+          dryRun: Boolean(values['dry-run']),
         });
       } finally {
         if (json) console.log = savedLog;

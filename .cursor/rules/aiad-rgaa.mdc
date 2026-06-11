@@ -4,7 +4,7 @@ globs: ["**/components/**","**/pages/**","**/views/**","**/app/**/*.tsx","**/app
 alwaysApply: false
 intent_id: INTENT-002
 tier: 1
-generated-by: aiad-emit-rules v1.17.0
+generated-by: aiad-emit-rules v1.18.0
 source-hash: aad6af3f795db48a
 ---
 

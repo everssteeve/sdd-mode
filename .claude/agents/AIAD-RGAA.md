@@ -6,7 +6,7 @@ disallowedTools: Edit, Write, Bash, NotebookEdit
 model: inherit
 memory: project
 paths: ["**/components/**","**/pages/**","**/views/**","**/app/**/*.tsx","**/app/**/*.jsx","**/*.vue"]
-generated-by: aiad-emit-rules v1.17.0
+generated-by: aiad-emit-rules v1.18.0
 source-hash: aad6af3f795db48a
 intent_id: INTENT-002
 ---

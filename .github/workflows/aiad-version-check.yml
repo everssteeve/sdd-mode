@@ -1,0 +1,32 @@
+name: aiad-version-check
+
+# Bloque toute PR où une zone de version marquée <!--VERSION:START/END-->
+# diffère de package.json. Garantit « 0 écart de version » entre le package
+# et les surfaces d'affichage (footers du site, en-têtes de doc marqués) —
+# INTENT-013 « zéro drift sur soi-même », condition C2 de RESEARCH-013.
+#
+# Périmètre (C1) : SEULES les zones marquées sont comparées. La prose
+# narrative et les références historiques/changelog ne sont jamais analysées.
+
+on:
+  pull_request:
+    paths:
+      - 'package.json'
+      - 'site/**'
+      - 'lib/version-sync.js'
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    name: parité version / package.json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Vérifie la parité des zones de version marquées
+        run: npx aiad-sdd version-sync --check

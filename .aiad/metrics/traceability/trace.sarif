@@ -6,7 +6,7 @@
       "tool": {
         "driver": {
           "name": "aiad-sdd-trace",
-          "version": "1.17.0",
+          "version": "1.18.0",
           "informationUri": "https://aiad.ovh",
           "rules": [
             {
@@ -5915,7 +5915,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-11T14:29:35.725Z"
+          "endTimeUtc": "2026-06-11T15:22:08.469Z"
         }
       ]
     }

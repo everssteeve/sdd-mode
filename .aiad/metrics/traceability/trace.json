@@ -1,16 +1,16 @@
 {
   "_meta": {
     "schema": "aiad-sdd-trace",
-    "version": "1.17.0",
-    "generated": "2026-06-11T14:29:35.726Z"
+    "version": "1.18.0",
+    "generated": "2026-06-11T15:22:08.469Z"
   },
-  "generatedAt": "2026-06-11T14:29:35.725Z",
+  "generatedAt": "2026-06-11T15:22:08.469Z",
   "summary": {
     "intents": 23,
     "specs": 17,
-    "codeFiles": 317,
-    "annotatedCodeFiles": 40,
-    "testFiles": 243,
+    "codeFiles": 318,
+    "annotatedCodeFiles": 41,
+    "testFiles": 244,
     "annotatedTestFiles": 24
   },
   "forward": [
@@ -607,8 +607,19 @@
             "parentIntent": "INTENT-013",
             "status": "review"
           },
-          "code": [],
-          "tests": []
+          "code": [
+            {
+              "path": "lib/version-sync.js",
+              "line": 4
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/version-sync.test.js",
+              "line": 5,
+              "viaCode": true
+            }
+          ]
         }
       ]
     },
@@ -704,6 +715,15 @@
     }
   ],
   "backward": [
+    {
+      "test": {
+        "path": "test/version-sync.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -4878,7 +4898,7 @@
           "verifiedBy": [
             {
               "path": "(Human",
-              "line": 327
+              "line": 328
             }
           ],
           "governance": [
@@ -4886,7 +4906,7 @@
               "tags": [
                 "ou"
               ],
-              "line": 1122
+              "line": 1142
             }
           ]
         },

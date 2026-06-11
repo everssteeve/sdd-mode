@@ -2,11 +2,11 @@
 ---
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
-version: 1.17.0
-source-hash: 52c86353fdb58694
+version: 1.18.0
+source-hash: 93dfc6b74fd513a9
 ---
 
-# aiad-sdd — Documentation utilisateur (v1.17.0)
+# aiad-sdd — Documentation utilisateur (v1.18.0)
 
 > Cette documentation est **régénérée à chaque changement** des sources de vérité (CLI, commandes slash, skills, gouvernance, conventions d'annotations). Toute édition manuelle sera écrasée. Pour modifier le contenu : édite la source puis relance `npx aiad-sdd docs`. Le mode `npx aiad-sdd docs --check` est utilisable en CI pour bloquer les PR qui désynchronisent la doc.
 
@@ -24,7 +24,7 @@ source-hash: 52c86353fdb58694
 Sortie de `aiad-sdd help` (extraite du bin pour rester à jour) :
 
 ```
-aiad-sdd v1.17.0 — Spec Driven Development pour Claude Code
+aiad-sdd v1.18.0 — Spec Driven Development pour Claude Code
   https://aiad.ovh
 
   Commandes :
@@ -93,6 +93,7 @@ aiad-sdd v1.17.0 — Spec Driven Development pour Claude Code
     dpia [options]        Pré-remplit l'AIPD Article 35 RGPD (méthode CNIL, 9 sections)
     verify-reproducibility  Calcule le content hash déterministe du tarball (CRA, SLSA, NIST SSDF)
     docs [--check]        Régénère DOCUMENTATION.md depuis les sources (CI parity)
+    version-sync [--check] Synchronise les zones <!--VERSION:START/END--> sur package.json (--dry-run)
     telemetry <sub>       Télémétrie opt-in (opt-in / opt-out / status [--json])
     feedback [<sub>]      Feedback qualitatif (opt-in / opt-out / status) — invitation auto toutes les 15 sessions
     uninstall [options]   Retire aiad-sdd du projet (mode aperçu sauf --force)
@@ -289,4 +290,4 @@ Conventions reconnues par `aiad-sdd trace` (regex stables exportées par `lib/sd
 
 ---
 
-*Document régénéré automatiquement — source-hash `52c86353fdb58694`, package v1.17.0.*
+*Document régénéré automatiquement — source-hash `93dfc6b74fd513a9`, package v1.18.0.*
