@@ -19,7 +19,9 @@ governance: AIAD-RGESN
 **Ordre d'exécution** : 1 sur 2 (013-4b dépend de celle-ci)
 **SQS** : 5/5 — Gate **OUVERTE** (2026-06-11), Test de l'Étranger PASS
 **Gouvernance** : AIAD-RGESN (copie statique, 0 dépendance lourde ajoutée)
-**Statut** : review (passe `in-progress` au lancement de `/sdd exec` — [[FACT-002]])
+**Statut** : in-progress (exec 2026-06-11 — `.github/workflows/site-deploy.yml`
+créé, annoté `@spec`, YAML valide, gate version vert, 3831 tests OK. Prêt pour
+`/sdd validate`. Le **1er run de publication** se fera au merge sur `main`, geste humain.)
 
 ## 1. Contexte
 

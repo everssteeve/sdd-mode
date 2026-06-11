@@ -1,0 +1,57 @@
+# @intent INTENT-013
+# @spec SPEC-013-4a-deploy-workflow
+# @governance AIAD-RGESN
+#
+# Déploie le site statique `site/` vers la branche `gh-pages` (source GitHub
+# Pages d'aiad.ovh) à chaque push sur `main` touchant `site/**`. Garde-fou
+# (RESEARCH-014 C-R3) : ne publie QUE si `version-sync --check` passe — jamais
+# une version désynchronisée. Le gate RGAA AA est ajouté par SPEC-013-4b.
+#
+# Surfaces disjointes (C-R2) : ce workflow ne touche que `gh-pages` ; la doc
+# Jekyll `docs/` reste gérée par `docs-deploy.yml`.
+
+name: site-deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+  pull_request:
+    paths:
+      - 'site/**'
+
+# Permissions minimales (C-R4) : seul l'écriture du contenu (push gh-pages).
+permissions:
+  contents: write
+
+concurrency:
+  group: site-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: gate version + publication gh-pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Gate version (C-R3) : bloque la publication si une zone de version
+      # marquée de `site/` diffère de package.json. Sur PR, ce gate s'exécute
+      # aussi (vérification), mais l'étape de publication est sautée.
+      - name: Gate version (site ↔ package.json)
+        run: node bin/aiad-sdd.js version-sync --check
+
+      - name: Publier site/ → gh-pages
+        if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          # Message de déploiement traçable.
+          commit_message: 'deploy(site): ${{ github.sha }} (gate version OK)'

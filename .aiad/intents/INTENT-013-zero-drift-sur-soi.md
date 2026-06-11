@@ -66,5 +66,7 @@ annoncée quelque part (docs/site) diffère de `package.json`.**
       validate→Drift Lock. `lib/version-sync.js` + workflow + 59 zones, CI 7/7.)*
 - [~] SPEC-013-4 — Workflow de déploiement `site/` → `gh-pages`
       *(Gate OUVERTE 4/5 avec réserve RGAA → **découpée** le 2026-06-11)*
-  - [ ] SPEC-013-4a — Deploy site/→gh-pages + gate version *(SQS 5/5 — Gate ouverte, prête pour exec)*
+  - [~] SPEC-013-4a — Deploy site/→gh-pages + gate version *(exec 2026-06-11 :
+        `site-deploy.yml` créé + gate version, 3831 tests OK. Prêt pour validate ;
+        1er run au merge `main` = geste humain.)*
   - [ ] SPEC-013-4b — Gate RGAA AA avant publication *(draft — réserve : outil/config + dépendance Chromium)*
