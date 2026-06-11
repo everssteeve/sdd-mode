@@ -17,8 +17,9 @@ governance: AIAD-RGESN
 **Research** : RESEARCH-013 — verdict **CONDITIONAL GO** (80 %), conditions C1/C2
 **SQS** : 5/5 (Complétude · Testabilité · Atomicité · Non-ambiguïté · Traçabilité)
 — Gate **OUVERTE** (2026-06-11), Test de l'Étranger PASS
-**Statut** : in-progress (exécuté 2026-06-11 — plan EXEC-SPEC-013-3 3/3 tranches
-PASS, code annoté `@spec`, 3831 tests verts ; prêt pour `/sdd validate`)
+**Statut** : validation (VALIDÉ 2026-06-11 — triple validation PASS : technique
+[lint + 3831 tests + 3 checks verts], fonctionnelle [5/5 critères mappés au code],
+drift [0 gap], gouvernance [RGESN PASS]. Prêt pour `/sdd drift-check` puis merge.)
 **Gouvernance** : AIAD-RGESN (outillage sobre, réutilise un motif existant)
 
 > Conditions du verdict Research (contraignantes) :

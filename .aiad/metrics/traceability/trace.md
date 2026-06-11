@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-11T15:22:08.469Z
+> Généré le 2026-06-11T15:36:02.484Z
 
 ## Synthèse
 
@@ -47,7 +47,6 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/version-sync.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -333,6 +332,7 @@
 | `test/update.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/upgrade.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/verdict.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/version-sync.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/veto.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/vscode-extension.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/vscode-snippets.test.js` | ❌ non-tracé | — | _(aucun)_ |
