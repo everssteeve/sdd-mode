@@ -1,27 +1,721 @@
 {
   "_meta": {
     "schema": "aiad-sdd-trace",
-    "version": "1.14.0",
-    "generated": "2026-05-14T03:25:00.616Z"
+    "version": "1.17.0",
+    "generated": "2026-06-11T14:07:05.956Z"
   },
-  "generatedAt": "2026-05-14T03:25:00.615Z",
+  "generatedAt": "2026-06-11T14:07:05.956Z",
   "summary": {
-    "intents": 0,
-    "specs": 0,
-    "codeFiles": 145,
-    "annotatedCodeFiles": 21,
-    "testFiles": 176,
-    "annotatedTestFiles": 20
+    "intents": 23,
+    "specs": 16,
+    "codeFiles": 317,
+    "annotatedCodeFiles": 40,
+    "testFiles": 243,
+    "annotatedTestFiles": 24
   },
-  "forward": [],
+  "forward": [
+    {
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-001-1-feedback-qualitatif",
+            "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+            "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+            "parentIntent": "INTENT-001",
+            "status": "done"
+          },
+          "code": [
+            {
+              "path": "lib/feedback.js",
+              "line": 2
+            },
+            {
+              "path": "lib/tour.js",
+              "line": 146
+            },
+            {
+              "path": "scripts/bench-trace.js",
+              "line": 55
+            },
+            {
+              "path": "templates/projects/fastapi-aiad/app/main.py",
+              "line": 4
+            },
+            {
+              "path": "templates/projects/node-aiad/src/index.js",
+              "line": 2
+            }
+          ],
+          "tests": [
+            {
+              "path": "templates/projects/fastapi-aiad/tests/test_main.py",
+              "line": 3
+            },
+            {
+              "path": "test/ai-act-audit.test.js",
+              "line": 94
+            },
+            {
+              "path": "test/annotations.test.js",
+              "line": 26
+            },
+            {
+              "path": "test/dashboard-pm-v39.test.js",
+              "line": 118
+            },
+            {
+              "path": "test/dpia.test.js",
+              "line": 113
+            },
+            {
+              "path": "test/leadership-metrics.test.js",
+              "line": 60
+            },
+            {
+              "path": "test/multi-language.test.js",
+              "line": 23
+            },
+            {
+              "path": "test/spec-suggester.test.js",
+              "line": 140
+            },
+            {
+              "path": "test/suggest-annotations.test.js",
+              "line": 197
+            },
+            {
+              "path": "test/trace-cache.test.js",
+              "line": 110
+            },
+            {
+              "path": "test/trace-git.test.js",
+              "line": 96
+            },
+            {
+              "path": "test/trace-perf.test.js",
+              "line": 35
+            },
+            {
+              "path": "test/trace-watch.test.js",
+              "line": 74
+            },
+            {
+              "path": "test/trace.test.js",
+              "line": 33
+            },
+            {
+              "path": "test/veto.test.js",
+              "line": 83
+            },
+            {
+              "path": "tests/export.test.ts',",
+              "line": 147,
+              "viaCode": true
+            },
+            {
+              "path": "tests/test_main.py",
+              "line": 5,
+              "viaCode": true
+            },
+            {
+              "path": "test/index.test.js",
+              "line": 3,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-002-gouvernance-enforced",
+        "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
+        "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-002-1-gouvernance-enforced",
+            "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
+            "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
+            "parentIntent": "INTENT-002",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/drift-verdict.js",
+              "line": 21
+            },
+            {
+              "path": "lib/jnsp.js",
+              "line": 20
+            },
+            {
+              "path": "lib/verdict.js",
+              "line": 27
+            },
+            {
+              "path": "lib/veto.js",
+              "line": 19
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/dashboard-pm-v39.test.js",
+              "line": 119
+            },
+            {
+              "path": "test/suggest-annotations.test.js",
+              "line": 198
+            },
+            {
+              "path": "test/trace-cache.test.js",
+              "line": 150
+            },
+            {
+              "path": "test/drift-verdict.test.js",
+              "line": 22,
+              "viaCode": true
+            },
+            {
+              "path": "test/jnsp.test.js",
+              "line": 21,
+              "viaCode": true
+            },
+            {
+              "path": "test/verdict.test.js",
+              "line": 28,
+              "viaCode": true
+            },
+            {
+              "path": "test/veto.test.js",
+              "line": 20,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-003-research-phase",
+        "file": ".aiad/intents/INTENT-003-research-phase.md",
+        "title": "Phase Research + Discovery obligatoire avant la SPEC (§3.5)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-003-1-research-phase",
+            "file": ".aiad/specs/SPEC-003-1-research-phase.md",
+            "title": "Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)",
+            "parentIntent": "INTENT-003",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/research.js",
+              "line": 33
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/research.test.js",
+              "line": 34,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-004-execution-phasee",
+        "file": ".aiad/intents/INTENT-004-execution-phasee.md",
+        "title": "Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-004-1-execution-phasee",
+            "file": ".aiad/specs/SPEC-004-1-execution-phasee.md",
+            "title": "Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)",
+            "parentIntent": "INTENT-004",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/exec-status.js",
+              "line": 20
+            },
+            {
+              "path": "lib/mini-gate.js",
+              "line": 27
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/exec-status.test.js",
+              "line": 21,
+              "viaCode": true
+            },
+            {
+              "path": "test/mini-gate.test.js",
+              "line": 28,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-005-context-pull",
+        "file": ".aiad/intents/INTENT-005-context-pull.md",
+        "title": "Budget d'instructions push → pull (gouvernance par paths, §3.7)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-005-1-context-pull",
+            "file": ".aiad/specs/SPEC-005-1-context-pull.md",
+            "title": "Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)",
+            "parentIntent": "INTENT-005",
+            "status": "in-progress"
+          },
+          "code": [],
+          "tests": []
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-006-canary-suite",
+        "file": ".aiad/intents/INTENT-006-canary-suite.md",
+        "title": "Canary suite + alignement des références modèles (§3.10)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-006-1-canary-suite",
+            "file": ".aiad/specs/SPEC-006-1-canary-suite.md",
+            "title": "Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)",
+            "parentIntent": "INTENT-006",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/canary.js",
+              "line": 27
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/canary.test.js",
+              "line": 28,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-007-memory-native",
+        "file": ".aiad/intents/INTENT-007-memory-native.md",
+        "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-007-1-memory-native",
+            "file": ".aiad/specs/SPEC-007-1-memory-native.md",
+            "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)",
+            "parentIntent": "INTENT-007",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/memory.js",
+              "line": 23
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/spec-suggester.test.js",
+              "line": 93
+            },
+            {
+              "path": "test/memory.test.js",
+              "line": 24,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-008-cycle-graph",
+        "file": ".aiad/intents/INTENT-008-cycle-graph.md",
+        "title": "Cycle SDD comme graphe de Tasks (§3.9)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-008-1-cycle-graph",
+            "file": ".aiad/specs/SPEC-008-1-cycle-graph.md",
+            "title": "Cycle SDD comme graphe de Tasks (§3.9)",
+            "parentIntent": "INTENT-008",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/cycle-graph.js",
+              "line": 26
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/cycle-graph.test.js",
+              "line": 27,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-009-observabilite-native",
+        "file": ".aiad/intents/INTENT-009-observabilite-native.md",
+        "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-009-1-observabilite-native",
+            "file": ".aiad/specs/SPEC-009-1-observabilite-native.md",
+            "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
+            "parentIntent": "INTENT-009",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/statusline.js",
+              "line": 15
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/archive.test.js",
+              "line": 319
+            },
+            {
+              "path": "test/statusline.test.js",
+              "line": 16,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-010-cross-model-review",
+        "file": ".aiad/intents/INTENT-010-cross-model-review.md",
+        "title": "Cross-model review additive-only (§3.12)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-010-1-cross-model-review",
+            "file": ".aiad/specs/SPEC-010-1-cross-model-review.md",
+            "title": "Cross-model review additive-only (§3.12)",
+            "parentIntent": "INTENT-010",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/cross-model.js",
+              "line": 29
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/cross-model.test.js",
+              "line": 30,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-011-distribution-plugin-goal",
+        "file": ".aiad/intents/INTENT-011-distribution-plugin-goal.md",
+        "title": "Distribution plugin + boucles /goal + toggles de hooks (§3.13)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-011-1-hooks-toggles",
+            "file": ".aiad/specs/SPEC-011-1-hooks-toggles.md",
+            "title": "Toggles de hooks + boucles /goal + packaging plugin (§3.13 SPEC-A + SPEC-B)",
+            "parentIntent": "INTENT-011",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/hooks-config.js",
+              "line": 21
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/hooks-config.test.js",
+              "line": 22,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-012-garde-fous",
+        "file": ".aiad/intents/INTENT-012-garde-fous.md",
+        "title": "Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-012-1-garde-fous",
+            "file": ".aiad/specs/SPEC-012-1-garde-fous.md",
+            "title": "Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)",
+            "parentIntent": "INTENT-012",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/grill.js",
+              "line": 16
+            },
+            {
+              "path": "lib/proportionality.js",
+              "line": 19
+            },
+            {
+              "path": "lib/sunset.js",
+              "line": 21
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/grill.test.js",
+              "line": 17,
+              "viaCode": true
+            },
+            {
+              "path": "test/proportionality.test.js",
+              "line": 20,
+              "viaCode": true
+            },
+            {
+              "path": "test/sunset.test.js",
+              "line": 22,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-013-zero-drift-sur-soi",
+        "file": ".aiad/intents/INTENT-013-zero-drift-sur-soi.md",
+        "title": "Zéro drift sur soi-même — site et docs alignés sur la version livrée",
+        "status": "draft"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-013-1-deploiement-site-valeurs",
+            "file": ".aiad/specs/SPEC-013-1-deploiement-site-valeurs.md",
+            "title": "Déploiement site v1.18 + résolution « 6 vs 7 valeurs »",
+            "parentIntent": "INTENT-013",
+            "status": "split"
+          },
+          "code": [],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-013-1a-deploiement-site",
+            "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
+            "title": "Déploiement du site aiad.ovh en v1.18",
+            "parentIntent": "INTENT-013",
+            "status": "review"
+          },
+          "code": [],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-013-1b-unification-7-valeurs",
+            "file": ".aiad/specs/SPEC-013-1b-unification-7-valeurs.md",
+            "title": "Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site",
+            "parentIntent": "INTENT-013",
+            "status": "review"
+          },
+          "code": [],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-013-2-unification-docs-racine",
+            "file": ".aiad/specs/SPEC-013-2-unification-docs-racine.md",
+            "title": "Unification des docs racine + archivage de SDDMode.md",
+            "parentIntent": "INTENT-013",
+            "status": "review"
+          },
+          "code": [],
+          "tests": []
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-014-empirisme-prouve",
+        "file": ".aiad/intents/INTENT-014-empirisme-prouve.md",
+        "title": "Empirisme prouvé — gates qualité actifs et claims sourcés",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-015-sobriete-cli",
+        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
+        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-016-dashboard-fondations",
+        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
+        "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-017-dashboard-quotidien",
+        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-018-valeur-boussole",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-019-verification-first",
+        "file": ".aiad/intents/INTENT-019-verification-first.md",
+        "title": "Verification-first — dériver des tests des critères EARS",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-020-spec-anchored-deltas",
+        "file": ".aiad/intents/INTENT-020-spec-anchored-deltas.md",
+        "title": "Spec-anchored par construction — deltas et redevabilité bidirectionnelle",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-021-empreinte-mesuree",
+        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
+        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-022-dogfooding-cli",
+        "file": ".aiad/intents/INTENT-022-dogfooding-cli.md",
+        "title": "Dogfooding complet — le CLI sous SPEC",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-023-rayonnement-honnete",
+        "file": ".aiad/intents/INTENT-023-rayonnement-honnete.md",
+        "title": "Rayonnement honnête — comparatif public et runtimes élargis",
+        "status": "draft"
+      },
+      "specs": []
+    }
+  ],
   "backward": [
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
         "line": 3
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -54,8 +748,24 @@
         "path": "test/ai-act-audit.test.js",
         "line": 94
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -88,32 +798,31 @@
         "line": 13
       },
       "intent": null,
-      "code": [
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 44
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 45
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 46
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 47
-        }
-      ]
+      "code": []
     },
     {
       "test": {
         "path": "test/annotations.test.js",
         "line": 26
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -153,8 +862,24 @@
         "path": "test/annotations.test.js",
         "line": 65
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -185,11 +910,27 @@
     {
       "test": {
         "path": "test/archive.test.js",
-        "line": 0
+        "line": 319
       },
-      "spec": null,
-      "intent": null,
-      "code": []
+      "spec": {
+        "id": "SPEC-009-1-observabilite-native",
+        "file": ".aiad/specs/SPEC-009-1-observabilite-native.md",
+        "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
+        "parentIntent": "INTENT-009",
+        "status": "in-progress"
+      },
+      "intent": {
+        "id": "INTENT-009-observabilite-native",
+        "file": ".aiad/intents/INTENT-009-observabilite-native.md",
+        "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/statusline.js",
+          "line": 15
+        }
+      ]
     },
     {
       "test": {
@@ -328,6 +1069,15 @@
     },
     {
       "test": {
+        "path": "test/canary.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/cert.test.js",
         "line": 0
       },
@@ -400,7 +1150,25 @@
     },
     {
       "test": {
+        "path": "test/cross-model.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/csp.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/cycle-graph.test.js",
         "line": 0
       },
       "spec": null,
@@ -499,6 +1267,15 @@
     },
     {
       "test": {
+        "path": "test/dashboard-kanban.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/dashboard-learnings.test.js",
         "line": 0
       },
@@ -545,6 +1322,498 @@
     {
       "test": {
         "path": "test/dashboard-perf-budgets.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-extras.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v10.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v11.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v12.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v13.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v14.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v15.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v16.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v17.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v18.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v19.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v2.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v20.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v21.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v22.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v23.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v24.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v25.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v26.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v27.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v28.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v29.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v3.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v30.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v31.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v32.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v33.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v34.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v35.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v36.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v37.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v38.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v39.test.js",
+        "line": 118
+      },
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
+        {
+          "path": "lib/tour.js",
+          "line": 146
+        },
+        {
+          "path": "scripts/bench-trace.js",
+          "line": 55
+        },
+        {
+          "path": "templates/projects/fastapi-aiad/app/main.py",
+          "line": 4
+        },
+        {
+          "path": "templates/projects/node-aiad/src/index.js",
+          "line": 2
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v39.test.js",
+        "line": 119
+      },
+      "spec": {
+        "id": "SPEC-002-1-gouvernance-enforced",
+        "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
+        "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
+        "parentIntent": "INTENT-002",
+        "status": "in-progress"
+      },
+      "intent": {
+        "id": "INTENT-002-gouvernance-enforced",
+        "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
+        "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/drift-verdict.js",
+          "line": 21
+        },
+        {
+          "path": "lib/jnsp.js",
+          "line": 20
+        },
+        {
+          "path": "lib/verdict.js",
+          "line": 27
+        },
+        {
+          "path": "lib/veto.js",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v4.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v40.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v41.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v42.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v43.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v44.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v45.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v46.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v47.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v5.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v6.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v7.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v8.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-pm-v9.test.js",
         "line": 0
       },
       "spec": null,
@@ -679,6 +1948,15 @@
     },
     {
       "test": {
+        "path": "test/discovery-gate.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/docs-dora-flow.test.js",
         "line": 0
       },
@@ -736,8 +2014,24 @@
         "path": "test/dpia.test.js",
         "line": 113
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -766,6 +2060,15 @@
     },
     {
       "test": {
+        "path": "test/drift-verdict.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/dry-run.test.js",
         "line": 0
       },
@@ -775,7 +2078,25 @@
     },
     {
       "test": {
+        "path": "test/emit-rules-agents.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/emit-rules-concurrent.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/emit-rules-pull.test.js",
         "line": 0
       },
       "spec": null,
@@ -794,6 +2115,15 @@
     {
       "test": {
         "path": "test/en-aliases.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/exec-status.test.js",
         "line": 0
       },
       "spec": null,
@@ -1000,7 +2330,25 @@
     },
     {
       "test": {
+        "path": "test/grill.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/hook-sandbox.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/hooks-config.test.js",
         "line": 0
       },
       "spec": null,
@@ -1072,6 +2420,15 @@
     },
     {
       "test": {
+        "path": "test/jnsp.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/json-output.test.js",
         "line": 0
       },
@@ -1084,8 +2441,24 @@
         "path": "test/leadership-metrics.test.js",
         "line": 60
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1125,8 +2498,24 @@
         "path": "test/leadership-metrics.test.js",
         "line": 103
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1158,8 +2547,24 @@
         "path": "test/leadership-metrics.test.js",
         "line": 105
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1234,6 +2639,15 @@
     },
     {
       "test": {
+        "path": "test/memory.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/meta-share.test.js",
         "line": 0
       },
@@ -1270,11 +2684,36 @@
     },
     {
       "test": {
+        "path": "test/mini-gate.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/multi-language.test.js",
         "line": 23
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1298,8 +2737,24 @@
         "path": "test/multi-language.test.js",
         "line": 24
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1323,8 +2778,24 @@
         "path": "test/multi-language.test.js",
         "line": 25
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1348,8 +2819,24 @@
         "path": "test/multi-language.test.js",
         "line": 26
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1373,8 +2860,24 @@
         "path": "test/multi-language.test.js",
         "line": 27
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1398,8 +2901,24 @@
         "path": "test/multi-language.test.js",
         "line": 28
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1423,8 +2942,24 @@
         "path": "test/multi-language.test.js",
         "line": 29
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1448,8 +2983,24 @@
         "path": "test/multi-language.test.js",
         "line": 30
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1473,8 +3024,24 @@
         "path": "test/multi-language.test.js",
         "line": 31
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1498,8 +3065,24 @@
         "path": "test/multi-language.test.js",
         "line": 32
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1524,32 +3107,31 @@
         "line": 44
       },
       "intent": null,
-      "code": [
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 44
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 45
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 46
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 47
-        }
-      ]
+      "code": []
     },
     {
       "test": {
         "path": "test/multi-language.test.js",
         "line": 65
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1589,8 +3171,24 @@
         "path": "test/multi-language.test.js",
         "line": 90
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1614,8 +3212,24 @@
         "path": "test/multi-language.test.js",
         "line": 92
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1639,8 +3253,24 @@
         "path": "test/multi-language.test.js",
         "line": 94
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1664,8 +3294,24 @@
         "path": "test/multi-language.test.js",
         "line": 96
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1689,8 +3335,24 @@
         "path": "test/multi-language.test.js",
         "line": 98
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -1773,6 +3435,15 @@
     },
     {
       "test": {
+        "path": "test/openapi-conformity.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/openapi-export.test.js",
         "line": 0
       },
@@ -1810,6 +3481,15 @@
     {
       "test": {
         "path": "test/pre-commit.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/proportionality.test.js",
         "line": 0
       },
       "spec": null,
@@ -1881,6 +3561,15 @@
     },
     {
       "test": {
+        "path": "test/research.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/review.test.js",
         "line": 0
       },
@@ -1919,6 +3608,14 @@
         "line": 0
       },
       "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/sdd-trace-aliases.test.js",
+        "line": 60
+      },
       "intent": null,
       "code": []
     },
@@ -1991,24 +3688,7 @@
         "line": 36
       },
       "intent": null,
-      "code": [
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 44
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 45
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 46
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 47
-        }
-      ]
+      "code": []
     },
     {
       "test": {
@@ -2023,8 +3703,25 @@
         "path": "test/spec-suggester.test.js",
         "line": 93
       },
-      "intent": null,
-      "code": []
+      "spec": {
+        "id": "SPEC-007-1-memory-native",
+        "file": ".aiad/specs/SPEC-007-1-memory-native.md",
+        "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)",
+        "parentIntent": "INTENT-007",
+        "status": "in-progress"
+      },
+      "intent": {
+        "id": "INTENT-007-memory-native",
+        "file": ".aiad/intents/INTENT-007-memory-native.md",
+        "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8)",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/memory.js",
+          "line": 23
+        }
+      ]
     },
     {
       "test": {
@@ -2047,8 +3744,24 @@
         "path": "test/spec-suggester.test.js",
         "line": 140
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -2073,24 +3786,7 @@
         "line": 152
       },
       "intent": null,
-      "code": [
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 44
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 45
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 46
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 47
-        }
-      ]
+      "code": []
     },
     {
       "test": {
@@ -2148,6 +3844,15 @@
     },
     {
       "test": {
+        "path": "test/statusline.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/storybook.test.js",
         "line": 0
       },
@@ -2160,8 +3865,24 @@
         "path": "test/suggest-annotations.test.js",
         "line": 197
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -2185,16 +3906,61 @@
         "path": "test/suggest-annotations.test.js",
         "line": 198
       },
-      "intent": null,
-      "code": []
+      "spec": {
+        "id": "SPEC-002-1-gouvernance-enforced",
+        "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
+        "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
+        "parentIntent": "INTENT-002",
+        "status": "in-progress"
+      },
+      "intent": {
+        "id": "INTENT-002-gouvernance-enforced",
+        "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
+        "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/drift-verdict.js",
+          "line": 21
+        },
+        {
+          "path": "lib/jnsp.js",
+          "line": 20
+        },
+        {
+          "path": "lib/verdict.js",
+          "line": 27
+        },
+        {
+          "path": "lib/veto.js",
+          "line": 19
+        }
+      ]
     },
     {
       "test": {
         "path": "test/suggest-annotations.test.js",
         "line": 210
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -2218,8 +3984,24 @@
         "path": "test/suggest-annotations.test.js",
         "line": 261
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -2241,6 +4023,15 @@
     {
       "test": {
         "path": "test/suggest.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/sunset.test.js",
         "line": 0
       },
       "spec": null,
@@ -2297,8 +4088,24 @@
         "path": "test/trace-cache.test.js",
         "line": 110
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -2322,8 +4129,24 @@
         "path": "test/trace-cache.test.js",
         "line": 111
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -2347,16 +4170,61 @@
         "path": "test/trace-cache.test.js",
         "line": 150
       },
-      "intent": null,
-      "code": []
+      "spec": {
+        "id": "SPEC-002-1-gouvernance-enforced",
+        "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
+        "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
+        "parentIntent": "INTENT-002",
+        "status": "in-progress"
+      },
+      "intent": {
+        "id": "INTENT-002-gouvernance-enforced",
+        "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
+        "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/drift-verdict.js",
+          "line": 21
+        },
+        {
+          "path": "lib/jnsp.js",
+          "line": 20
+        },
+        {
+          "path": "lib/verdict.js",
+          "line": 27
+        },
+        {
+          "path": "lib/veto.js",
+          "line": 19
+        }
+      ]
     },
     {
       "test": {
         "path": "test/trace-git.test.js",
         "line": 96
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -2388,16 +4256,65 @@
         "path": "test/trace-git.test.js",
         "line": 128
       },
-      "intent": null,
-      "code": []
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
+        {
+          "path": "lib/tour.js",
+          "line": 146
+        },
+        {
+          "path": "scripts/bench-trace.js",
+          "line": 55
+        },
+        {
+          "path": "templates/projects/fastapi-aiad/app/main.py",
+          "line": 4
+        },
+        {
+          "path": "templates/projects/node-aiad/src/index.js",
+          "line": 2
+        }
+      ]
     },
     {
       "test": {
         "path": "test/trace-perf.test.js",
         "line": 35
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -2421,8 +4338,65 @@
         "path": "test/trace-watch.test.js",
         "line": 74
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
+        {
+          "path": "lib/tour.js",
+          "line": 146
+        },
+        {
+          "path": "scripts/bench-trace.js",
+          "line": 55
+        },
+        {
+          "path": "templates/projects/fastapi-aiad/app/main.py",
+          "line": 4
+        },
+        {
+          "path": "templates/projects/node-aiad/src/index.js",
+          "line": 2
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/trace-watch.test.js",
+        "line": 114
+      },
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -2455,8 +4429,24 @@
         "path": "test/trace.test.js",
         "line": 33
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -2480,8 +4470,24 @@
         "path": "test/trace.test.js",
         "line": 37
       },
-      "intent": null,
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
       "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
         {
           "path": "lib/tour.js",
           "line": 146
@@ -2555,6 +4561,56 @@
     },
     {
       "test": {
+        "path": "test/verdict.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/veto.test.js",
+        "line": 83
+      },
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
+        {
+          "path": "lib/tour.js",
+          "line": 146
+        },
+        {
+          "path": "scripts/bench-trace.js",
+          "line": 55
+        },
+        {
+          "path": "templates/projects/fastapi-aiad/app/main.py",
+          "line": 4
+        },
+        {
+          "path": "templates/projects/node-aiad/src/index.js",
+          "line": 2
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/vscode-extension.test.js",
         "line": 0
       },
@@ -2597,47 +4653,227 @@
       "spec": null,
       "intent": null,
       "code": []
-    },
-    {
-      "test": {
-        "path": "test/dashboard-kanban.test.js",
-        "line": 0
-      },
-      "spec": null,
-      "intent": null,
-      "code": []
-    },
-    {
-      "test": {
-        "path": "test/sdd-trace-aliases.test.js",
-        "line": 60
-      },
-      "intent": null,
-      "code": [
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 44
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 45
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 46
-        },
-        {
-          "path": "lib/sdd-trace.js",
-          "line": 47
-        }
-      ]
     }
   ],
   "gaps": {
-    "intentsSansSpec": [],
-    "specsSansCode": [],
+    "intentsSansSpec": [
+      {
+        "id": "INTENT-014-empirisme-prouve",
+        "file": ".aiad/intents/INTENT-014-empirisme-prouve.md",
+        "title": "Empirisme prouvé — gates qualité actifs et claims sourcés",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-015-sobriete-cli",
+        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
+        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-016-dashboard-fondations",
+        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
+        "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-017-dashboard-quotidien",
+        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-018-valeur-boussole",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-019-verification-first",
+        "file": ".aiad/intents/INTENT-019-verification-first.md",
+        "title": "Verification-first — dériver des tests des critères EARS",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-020-spec-anchored-deltas",
+        "file": ".aiad/intents/INTENT-020-spec-anchored-deltas.md",
+        "title": "Spec-anchored par construction — deltas et redevabilité bidirectionnelle",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-021-empreinte-mesuree",
+        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
+        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-022-dogfooding-cli",
+        "file": ".aiad/intents/INTENT-022-dogfooding-cli.md",
+        "title": "Dogfooding complet — le CLI sous SPEC",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-023-rayonnement-honnete",
+        "file": ".aiad/intents/INTENT-023-rayonnement-honnete.md",
+        "title": "Rayonnement honnête — comparatif public et runtimes élargis",
+        "status": "draft"
+      }
+    ],
+    "specsSansCode": [
+      {
+        "id": "SPEC-005-1-context-pull",
+        "file": ".aiad/specs/SPEC-005-1-context-pull.md",
+        "title": "Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)",
+        "parentIntent": "INTENT-005",
+        "status": "in-progress"
+      },
+      {
+        "id": "SPEC-013-1-deploiement-site-valeurs",
+        "file": ".aiad/specs/SPEC-013-1-deploiement-site-valeurs.md",
+        "title": "Déploiement site v1.18 + résolution « 6 vs 7 valeurs »",
+        "parentIntent": "INTENT-013",
+        "status": "split"
+      }
+    ],
     "specsValideesNonImplementees": [],
     "codeSansSpec": [
+      {
+        "path": ".aiad/hooks/discovery-gate.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".aiad/hooks/drift-lock.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".aiad/hooks/jnsp-scan.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".aiad/hooks/session-start.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".aiad/hooks/skill-usage.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".aiad/hooks/statusline.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".aiad/hooks/veto.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-XXX"
+              ],
+              "line": 59
+            }
+          ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/.aiad/hooks/session-start.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/dashboard/assets/app.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [
+            {
+              "path": "dans",
+              "line": 181
+            },
+            {
+              "path": "dans",
+              "line": 181
+            }
+          ],
+          "governance": []
+        },
+        "annotated": true
+      },
+      {
+        "path": "bin/aiad-sdd.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [
+            {
+              "path": "(Human",
+              "line": 327
+            }
+          ],
+          "governance": [
+            {
+              "tags": [
+                "ou"
+              ],
+              "line": 1122
+            }
+          ]
+        },
+        "annotated": true
+      },
       {
         "path": "dashboard/assets/app.js",
         "isTest": false,
@@ -2839,6 +5075,17 @@
         "annotated": false
       },
       {
+        "path": "lib/coldstart.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/command-hooks.js",
         "isTest": false,
         "annotations": {
@@ -2872,7 +5119,84 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/_history-utils.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/ab-test-tracker.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/acceptance-criteria.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/accepted-risks.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/action-items.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/activity-feed.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/activity-heatmap.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -2894,6 +5218,28 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/ai-act-compliance.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/assets.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/audit-trail.js",
         "isTest": false,
         "annotations": {
@@ -2905,7 +5251,139 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/auto-archive-candidates.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/backlog-freshness.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/backlog-health-score.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/backlog-hygiene.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/backlog-pyramid.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/badges-block.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/blocker-reminders.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/bottlenecks.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/brief-pm.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/burnup-chart.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/bus-factor.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/capacity-planner.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/cockpit-tabs.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -2938,7 +5416,205 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/confidence-tracker.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/cost-of-delay.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/csp.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/cumulative-achievements.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/cumulative-flow.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/customer-feedback.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/customer-voice-wall.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/cycle-time.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/daily-focus.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/deadlines.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/decision-log.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/decision-velocity.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/demo-agenda.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/demo-readiness.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/discovery-board.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/discovery-delivery-balance.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/discovery-to-delivery.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/done-timeline.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/dow-heatmap.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -3019,6 +5695,17 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/global-search.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/glossaire.js",
         "isTest": false,
         "annotations": {
@@ -3033,6 +5720,28 @@
           "governance": []
         },
         "annotated": true
+      },
+      {
+        "path": "lib/dashboard/goal-alignment.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/goal-tree.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
       },
       {
         "path": "lib/dashboard/governance.js",
@@ -3060,6 +5769,127 @@
           "governance": []
         },
         "annotated": true
+      },
+      {
+        "path": "lib/dashboard/health-timeline.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/hypotheses.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/hypothesis-lifecycle.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/initiative-cards.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/intent-compare.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/intent-deps.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/intent-maturity.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/intent-page.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/intent-priority.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/intents-csv.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/kanban.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
       },
       {
         "path": "lib/dashboard/kpi-cards.js",
@@ -3106,6 +5936,17 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/markdown-light.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/meta-share.js",
         "isTest": false,
         "annotations": {
@@ -3117,7 +5958,128 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/newcomer-checklist.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/notfound.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/notification-center.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/okr-mapping.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/okr-progress.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/onboarding-tour.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/onboarding.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/orphan-deps.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/outcome-attribution.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/outcome-completion.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/outcome-leaderboard.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/outcome-north-star.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -3150,7 +6112,139 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/owner-workload.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/ownership.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/pending-decisions.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/perf-budgets.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/persona-drill.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/persona-outcome-matrix.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/pm-diff.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/pm-journal.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/pm-md-export.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/pm-scorecard.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/pm-theme.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/pm-toc.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/pm-weekly-checklist.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -3172,6 +6266,88 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/portfolio-diversity.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/pr-template.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [
+            {
+              "path": "tests/<chemin>.test.js`);",
+              "line": 58
+            }
+          ],
+          "governance": []
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/prd-coverage-gaps.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/prd-coverage.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/prd-freshness.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/prd-sections-coverage.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/print-mode.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/qa.js",
         "isTest": false,
         "annotations": {
@@ -3183,7 +6359,227 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/quarterly-decisions.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/quarterly-delivery.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/quarterly-retro-draft.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/quarterly-retro.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/quick-capture.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/quick-filters.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/quick-links.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/reading-time.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/recent-activity.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/refinement.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/render.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/review-queue.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/rice-matrix.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/risk-burndown.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/risk-concentration.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/risk-transparency.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/risks.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/rituals-calendar.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/rituels.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/roadmap-timeline.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/roadmap.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -3216,6 +6612,50 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/saved-filters.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/section-permalinks.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/section-visibility.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/sentiment-trend.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/server.js",
         "isTest": false,
         "annotations": {
@@ -3238,6 +6678,17 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/smart-suggestions.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/source-base.js",
         "isTest": false,
         "annotations": {
@@ -3249,7 +6700,251 @@
         "annotated": false
       },
       {
+        "path": "lib/dashboard/spec-annotation-coverage.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [
+            {
+              "path": "chemin/vers/test",
+              "line": 7
+            }
+          ],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-XXX",
+                "AIAD-YYY"
+              ],
+              "line": 8
+            }
+          ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/spec-cross-intent.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/spec-lifecycle-time.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/spec-quality-score.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/spec-scope.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/spec-stuck.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/sponsor-prep.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/sponsor-scorecard.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/sponsors.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/sprint-planner.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/sprint-recap.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/sqs-readiness.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/dashboard/sre.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/stakeholder-comms.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/stakeholder-map.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/standup-script.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/standup-timer.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/state-transitions.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/sticky-alerts.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/strategic-narrative.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/tag-cloud.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/tag-clusters.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -3272,6 +6967,94 @@
       },
       {
         "path": "lib/dashboard/tech-debt.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/throughput-trend.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/time-to-first-spec.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/velocity-by-sponsor.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/velocity-by-tag.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/velocity-comparison.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/velocity-forecast.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/velocity-sla.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/velocity.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -3326,6 +7109,50 @@
       },
       {
         "path": "lib/dashboard/watch.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/weekly-newsletter.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/whats-new.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/wins-wall.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/dashboard/wip-limit.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -3434,6 +7261,40 @@
         "annotated": true
       },
       {
+        "path": "lib/emit-rules.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [
+            {
+              "path": "tests/path/file.test.ts",
+              "line": 379
+            }
+          ],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-RGPD"
+              ],
+              "line": 380
+            }
+          ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/esm-import.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/frontmatter.js",
         "isTest": false,
         "annotations": {
@@ -3511,7 +7372,29 @@
         "annotated": false
       },
       {
+        "path": "lib/governance.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/hook-sandbox.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/hooks.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -3545,6 +7428,17 @@
       },
       {
         "path": "lib/init-tui.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/init.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -3782,6 +7676,22 @@
         "annotated": false
       },
       {
+        "path": "lib/sarif.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [
+            {
+              "path": "sur",
+              "line": 69
+            }
+          ],
+          "governance": []
+        },
+        "annotated": true
+      },
+      {
         "path": "lib/sbom.js",
         "isTest": false,
         "annotations": {
@@ -3802,6 +7712,30 @@
           "governance": []
         },
         "annotated": false
+      },
+      {
+        "path": "lib/sdd-trace.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [
+            {
+              "path": "chemin/relatif/test.ts",
+              "line": 40
+            }
+          ],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-AI-ACT",
+                "AIAD-RGPD"
+              ],
+              "line": 41
+            }
+          ]
+        },
+        "annotated": true
       },
       {
         "path": "lib/self-update.js",
@@ -3848,6 +7782,17 @@
         "annotated": false
       },
       {
+        "path": "lib/spec-suggester.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/spec-version.js",
         "isTest": false,
         "annotations": {
@@ -3881,6 +7826,17 @@
         "annotated": false
       },
       {
+        "path": "lib/status.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "lib/storybook.js",
         "isTest": false,
         "annotations": {
@@ -3890,6 +7846,38 @@
           "governance": []
         },
         "annotated": false
+      },
+      {
+        "path": "lib/suggest-annotations.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [
+            {
+              "path": "chemin/test",
+              "line": 91
+            },
+            {
+              "path": "${v}`);",
+              "line": 194
+            },
+            {
+              "path": "${v}`);",
+              "line": 200
+            }
+          ],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-X",
+                "AIAD-Y"
+              ],
+              "line": 92
+            }
+          ]
+        },
+        "annotated": true
       },
       {
         "path": "lib/suggest.js",
@@ -3970,6 +7958,28 @@
       },
       {
         "path": "lib/uninstall.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/update.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "lib/upgrade.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -4123,6 +8133,112 @@
         "annotated": false
       },
       {
+        "path": "site/assets/js/main.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "site/assets/js/search.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.aiad/hooks/discovery-gate.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.aiad/hooks/drift-lock.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.aiad/hooks/jnsp-scan.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.aiad/hooks/session-start.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.aiad/hooks/skill-usage.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.aiad/hooks/statusline.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.aiad/hooks/veto.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-XXX"
+              ],
+              "line": 59
+            }
+          ]
+        },
+        "annotated": true
+      },
+      {
         "path": "templates/projects/fastapi-aiad/app/__init__.py",
         "isTest": false,
         "annotations": {
@@ -4143,323 +8259,10 @@
           "governance": []
         },
         "annotated": false
-      },
-      {
-        "path": "bin/aiad-sdd.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [
-            {
-              "path": "(Human",
-              "line": 287
-            }
-          ],
-          "governance": []
-        },
-        "annotated": true
-      },
-      {
-        "path": "lib/coldstart.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/dashboard.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/dashboard/assets.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/dashboard/kanban.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/governance.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/hooks.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/init.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/status.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/update.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/upgrade.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "templates/.aiad/hooks/session-start.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
       }
     ],
-    "codeSansTests": [
-      {
-        "path": "lib/dashboard/onboarding.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [
-            {
-              "id": "SPEC-NNN-x",
-              "line": 76
-            }
-          ],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": true
-      },
-      {
-        "path": "lib/dashboard/render.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [
-            {
-              "id": "SPEC-NNN-",
-              "line": 728
-            }
-          ],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": true
-      },
-      {
-        "path": "lib/spec-suggester.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [
-            {
-              "id": "INTENT-NNN",
-              "line": 24
-            }
-          ],
-          "specs": [
-            {
-              "id": "SPEC-XXX-N-slug",
-              "line": 3
-            }
-          ],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": true
-      }
-    ],
-    "intentsOrphelinsSurCode": [
-      {
-        "id": "INTENT-NNN",
-        "file": "lib/sarif.js",
-        "line": 53
-      },
-      {
-        "id": "INTENT-NNN",
-        "file": "lib/spec-suggester.js",
-        "line": 24
-      },
-      {
-        "id": "INTENT-NNN",
-        "file": "lib/suggest-annotations.js",
-        "line": 89
-      },
-      {
-        "id": "INTENT-001",
-        "file": "templates/projects/fastapi-aiad/app/main.py",
-        "line": 3
-      },
-      {
-        "id": "INTENT-001",
-        "file": "templates/projects/node-aiad/src/index.js",
-        "line": 1
-      },
-      {
-        "id": "INTENT-NNN",
-        "file": "lib/emit-rules.js",
-        "line": 359
-      },
-      {
-        "id": "INTENT-NNN",
-        "file": "lib/sdd-trace.js",
-        "line": 38
-      }
-    ],
-    "specsOrphelinsSurCode": [
-      {
-        "id": "SPEC-NNN-x",
-        "file": "lib/dashboard/onboarding.js",
-        "line": 76
-      },
-      {
-        "id": "SPEC-NNN-",
-        "file": "lib/dashboard/render.js",
-        "line": 728
-      },
-      {
-        "id": "SPEC-NNN-N-",
-        "file": "lib/sarif.js",
-        "line": 45
-      },
-      {
-        "id": "SPEC-XXX-N-slug",
-        "file": "lib/spec-suggester.js",
-        "line": 3
-      },
-      {
-        "id": "SPEC-NNN-N-slug",
-        "file": "lib/suggest-annotations.js",
-        "line": 90
-      },
-      {
-        "id": "SPEC-001-1-export-donnees",
-        "file": "lib/tour.js",
-        "line": 146
-      },
-      {
-        "id": "SPEC-001-1-bench",
-        "file": "scripts/bench-trace.js",
-        "line": 55
-      },
-      {
-        "id": "SPEC-001-1-bootstrap",
-        "file": "templates/projects/fastapi-aiad/app/main.py",
-        "line": 4
-      },
-      {
-        "id": "SPEC-001-1-bootstrap",
-        "file": "templates/projects/node-aiad/src/index.js",
-        "line": 2
-      },
-      {
-        "id": "SPEC-NNN-N-slug",
-        "file": "lib/emit-rules.js",
-        "line": 360
-      },
-      {
-        "id": "SPEC-NNN-NN-slug",
-        "file": "lib/sdd-trace.js",
-        "line": 39
-      },
-      {
-        "id": "SPEC-042-1-flow-auth",
-        "file": "lib/sdd-trace.js",
-        "line": 44
-      },
-      {
-        "id": "SPEC-042-1-flow-auth",
-        "file": "lib/sdd-trace.js",
-        "line": 45
-      },
-      {
-        "id": "SPEC-042-1-flow-auth",
-        "file": "lib/sdd-trace.js",
-        "line": 46
-      },
-      {
-        "id": "SPEC-042-1-flow-auth",
-        "file": "lib/sdd-trace.js",
-        "line": 47
-      },
-      {
-        "id": "SPEC-NNN-N",
-        "file": "lib/sdd-trace.js",
-        "line": 447
-      },
-      {
-        "id": "SPEC-NNN-N-slug",
-        "file": "lib/sdd-trace.js",
-        "line": 448
-      }
-    ]
+    "codeSansTests": [],
+    "intentsOrphelinsSurCode": [],
+    "specsOrphelinsSurCode": []
   }
 }

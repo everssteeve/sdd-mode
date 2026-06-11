@@ -1,0 +1,5923 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "aiad-sdd-trace",
+          "version": "1.17.0",
+          "informationUri": "https://aiad.ovh",
+          "rules": [
+            {
+              "id": "AIAD-TRACE-001",
+              "name": "intent-without-spec",
+              "shortDescription": {
+                "text": "Intent sans SPEC associée"
+              },
+              "fullDescription": {
+                "text": "L'Intent Statement n'a pas encore donné lieu à une SPEC technique. Le cycle SDD requiert qu'une SPEC valide formalise le COMMENT avant tout code."
+              },
+              "helpUri": "https://aiad.ovh/trace#orphans",
+              "defaultConfiguration": {
+                "level": "warning"
+              }
+            },
+            {
+              "id": "AIAD-TRACE-002",
+              "name": "spec-not-implemented",
+              "shortDescription": {
+                "text": "SPEC validée sans code applicatif"
+              },
+              "fullDescription": {
+                "text": "La SPEC est marquée ready/in-progress/validation/done mais aucun code applicatif ne porte d'annotation @spec correspondante."
+              },
+              "helpUri": "https://aiad.ovh/trace#non-implemented",
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "AIAD-TRACE-003",
+              "name": "spec-orphan-on-code",
+              "shortDescription": {
+                "text": "SPEC référencée par le code mais absente des artefacts"
+              },
+              "fullDescription": {
+                "text": "Le code annote `@spec SPEC-NNN-N-...` mais aucun fichier `.aiad/specs/SPEC-NNN-N-*.md` ne correspond. Soit la SPEC a été supprimée, soit son ID a changé."
+              },
+              "helpUri": "https://aiad.ovh/trace#orphans",
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "AIAD-TRACE-004",
+              "name": "intent-orphan-on-code",
+              "shortDescription": {
+                "text": "Intent référencé par le code mais absent des artefacts"
+              },
+              "fullDescription": {
+                "text": "Le code annote `@intent INTENT-NNN` mais aucun fichier `.aiad/intents/INTENT-NNN.md` ne correspond."
+              },
+              "helpUri": "https://aiad.ovh/trace#orphans",
+              "defaultConfiguration": {
+                "level": "error"
+              }
+            },
+            {
+              "id": "AIAD-TRACE-005",
+              "name": "code-without-spec",
+              "shortDescription": {
+                "text": "Code applicatif sans annotation @spec"
+              },
+              "fullDescription": {
+                "text": "Le fichier de code n'est rattaché à aucune SPEC. Le Drift Lock recommande qu'un fichier applicatif soit traçable jusqu'à une intention."
+              },
+              "helpUri": "https://aiad.ovh/trace#untraced",
+              "defaultConfiguration": {
+                "level": "note"
+              }
+            },
+            {
+              "id": "AIAD-TRACE-006",
+              "name": "code-without-tests",
+              "shortDescription": {
+                "text": "Code annoté @spec sans test associé"
+              },
+              "fullDescription": {
+                "text": "Le fichier de code porte une annotation @spec mais aucun test n'est lié (ni via @verified-by sur ce fichier, ni via une SPEC mentionnée par un test)."
+              },
+              "helpUri": "https://aiad.ovh/trace#untested",
+              "defaultConfiguration": {
+                "level": "warning"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-014-empirisme-prouve (« Empirisme prouvé — gates qualité actifs et claims sourcés ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-014-empirisme-prouve.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-015-sobriete-cli (« Sobriété du CLI — noyau assumé, longue traîne extraite ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-015-sobriete-cli.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-016-dashboard-fondations (« Dashboard exemplaire — fondations accessibles, sobres, maintenables ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-016-dashboard-fondations.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-017-dashboard-quotidien (« Vivre le projet au quotidien — Aujourd'hui, triage, digest ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-017-dashboard-quotidien.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-018-valeur-boussole (« La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-018-valeur-boussole.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-019-verification-first (« Verification-first — dériver des tests des critères EARS ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-019-verification-first.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-020-spec-anchored-deltas (« Spec-anchored par construction — deltas et redevabilité bidirectionnelle ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-020-spec-anchored-deltas.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-021-empreinte-mesuree (« Empreinte mesurée — tokens et coût par fonctionnalité ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-021-empreinte-mesuree.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-022-dogfooding-cli (« Dogfooding complet — le CLI sous SPEC ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-022-dogfooding-cli.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-023-rayonnement-honnete (« Rayonnement honnête — comparatif public et runtimes élargis ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-023-rayonnement-honnete.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .aiad/hooks/discovery-gate.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/hooks/discovery-gate.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .aiad/hooks/drift-lock.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/hooks/drift-lock.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .aiad/hooks/jnsp-scan.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/hooks/jnsp-scan.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .aiad/hooks/session-start.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/hooks/session-start.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .aiad/hooks/skill-usage.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/hooks/skill-usage.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .aiad/hooks/statusline.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/hooks/statusline.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .aiad/hooks/veto.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/hooks/veto.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.aiad/hooks/session-start.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/.aiad/hooks/session-start.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/dashboard/assets/app.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/dashboard/assets/app.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bin/aiad-sdd.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bin/aiad-sdd.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans dashboard/assets/app.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "dashboard/assets/app.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/ai-act-audit.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/ai-act-audit.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/anonymize.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/anonymize.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/archive.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/archive.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/audit.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/audit.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/azure-devops.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/azure-devops.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/backup.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/backup.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/badge.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/badge.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/bench-history.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/bench-history.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/bitbucket.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/bitbucket.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/brief.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/brief.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/cert.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/cert.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/ci-templates.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/ci-templates.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/cli-schema.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/cli-schema.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/coldstart.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/coldstart.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/command-hooks.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/command-hooks.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/completion.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/completion.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/confluence.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/confluence.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/_history-utils.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/_history-utils.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/ab-test-tracker.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/ab-test-tracker.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/acceptance-criteria.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/acceptance-criteria.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/accepted-risks.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/accepted-risks.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/action-items.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/action-items.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/activity-feed.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/activity-feed.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/activity-heatmap.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/activity-heatmap.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/adrs.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/adrs.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/ai-act-compliance.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/ai-act-compliance.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/assets.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/assets.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/audit-trail.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/audit-trail.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/auto-archive-candidates.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/auto-archive-candidates.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/backlog-freshness.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/backlog-freshness.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/backlog-health-score.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/backlog-health-score.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/backlog-hygiene.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/backlog-hygiene.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/backlog-pyramid.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/backlog-pyramid.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/badges-block.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/badges-block.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/blocker-reminders.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/blocker-reminders.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/bottlenecks.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/bottlenecks.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/brief-pm.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/brief-pm.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/burnup-chart.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/burnup-chart.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/bus-factor.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/bus-factor.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/capacity-planner.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/capacity-planner.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/cockpit-tabs.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/cockpit-tabs.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/collect-supplementary.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/collect-supplementary.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/collect.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/collect.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/confidence-tracker.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/confidence-tracker.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/cost-of-delay.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/cost-of-delay.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/csp.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/csp.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/cumulative-achievements.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/cumulative-achievements.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/cumulative-flow.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/cumulative-flow.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/customer-feedback.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/customer-feedback.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/customer-voice-wall.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/customer-voice-wall.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/cycle-time.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/cycle-time.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/daily-focus.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/daily-focus.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/deadlines.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/deadlines.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/decision-log.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/decision-log.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/decision-velocity.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/decision-velocity.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/demo-agenda.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/demo-agenda.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/demo-readiness.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/demo-readiness.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/discovery-board.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/discovery-board.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/discovery-delivery-balance.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/discovery-delivery-balance.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/discovery-to-delivery.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/discovery-to-delivery.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/done-timeline.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/done-timeline.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/dow-heatmap.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/dow-heatmap.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/dpo.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/dpo.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/edge-cases.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/edge-cases.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/favicon.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/favicon.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/global-search.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/global-search.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/glossaire.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/glossaire.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/goal-alignment.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/goal-alignment.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/goal-tree.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/goal-tree.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/governance.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/governance.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/graph.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/graph.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/health-timeline.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/health-timeline.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/hypotheses.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/hypotheses.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/hypothesis-lifecycle.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/hypothesis-lifecycle.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/initiative-cards.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/initiative-cards.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/intent-compare.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/intent-compare.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/intent-deps.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/intent-deps.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/intent-maturity.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/intent-maturity.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/intent-page.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/intent-page.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/intent-priority.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/intent-priority.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/intents-csv.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/intents-csv.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/kanban.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/kanban.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/kpi-cards.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/kpi-cards.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/learnings.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/learnings.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/legal.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/legal.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/manifest.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/manifest.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/markdown-light.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/markdown-light.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/meta-share.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/meta-share.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/newcomer-checklist.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/newcomer-checklist.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/notfound.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/notfound.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/notification-center.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/notification-center.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/okr-mapping.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/okr-mapping.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/okr-progress.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/okr-progress.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/onboarding-tour.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/onboarding-tour.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/onboarding.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/onboarding.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/orphan-deps.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/orphan-deps.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/outcome-attribution.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/outcome-attribution.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/outcome-completion.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/outcome-completion.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/outcome-leaderboard.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/outcome-leaderboard.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/outcome-north-star.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/outcome-north-star.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/outcomes-history.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/outcomes-history.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/outcomes.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/outcomes.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/owner-workload.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/owner-workload.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/ownership.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/ownership.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/pending-decisions.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/pending-decisions.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/perf-budgets.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/perf-budgets.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/persona-drill.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/persona-drill.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/persona-outcome-matrix.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/persona-outcome-matrix.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/pm-diff.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/pm-diff.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/pm-journal.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/pm-journal.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/pm-md-export.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/pm-md-export.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/pm-scorecard.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/pm-scorecard.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/pm-theme.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/pm-theme.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/pm-toc.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/pm-toc.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/pm-weekly-checklist.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/pm-weekly-checklist.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/pm.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/pm.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/portfolio-diversity.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/portfolio-diversity.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/pr-template.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/pr-template.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/prd-coverage-gaps.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/prd-coverage-gaps.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/prd-coverage.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/prd-coverage.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/prd-freshness.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/prd-freshness.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/prd-sections-coverage.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/prd-sections-coverage.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/print-mode.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/print-mode.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/qa.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/qa.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/quarterly-decisions.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/quarterly-decisions.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/quarterly-delivery.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/quarterly-delivery.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/quarterly-retro-draft.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/quarterly-retro-draft.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/quarterly-retro.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/quarterly-retro.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/quick-capture.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/quick-capture.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/quick-filters.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/quick-filters.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/quick-links.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/quick-links.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/reading-time.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/reading-time.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/recent-activity.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/recent-activity.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/refinement.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/refinement.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/render.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/render.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/review-queue.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/review-queue.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/rice-matrix.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/rice-matrix.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/risk-burndown.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/risk-burndown.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/risk-concentration.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/risk-concentration.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/risk-transparency.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/risk-transparency.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/risks.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/risks.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/rituals-calendar.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/rituals-calendar.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/rituels.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/rituels.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/roadmap-timeline.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/roadmap-timeline.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/roadmap.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/roadmap.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sante-globale-history.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sante-globale-history.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sante-globale.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sante-globale.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/saved-filters.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/saved-filters.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/section-permalinks.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/section-permalinks.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/section-visibility.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/section-visibility.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sentiment-trend.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sentiment-trend.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/server.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/server.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sitemap.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sitemap.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/smart-suggestions.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/smart-suggestions.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/source-base.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/source-base.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/spec-annotation-coverage.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/spec-annotation-coverage.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/spec-cross-intent.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/spec-cross-intent.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/spec-lifecycle-time.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/spec-lifecycle-time.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/spec-quality-score.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/spec-quality-score.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/spec-scope.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/spec-scope.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/spec-stuck.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/spec-stuck.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sponsor-prep.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sponsor-prep.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sponsor-scorecard.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sponsor-scorecard.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sponsors.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sponsors.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sprint-planner.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sprint-planner.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sprint-recap.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sprint-recap.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sqs-readiness.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sqs-readiness.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sre.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sre.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/stakeholder-comms.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/stakeholder-comms.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/stakeholder-map.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/stakeholder-map.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/standup-script.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/standup-script.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/standup-timer.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/standup-timer.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/state-transitions.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/state-transitions.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/sticky-alerts.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/sticky-alerts.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/strategic-narrative.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/strategic-narrative.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/tag-cloud.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/tag-cloud.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/tag-clusters.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/tag-clusters.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/tech-debt-history.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/tech-debt-history.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/tech-debt.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/tech-debt.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/throughput-trend.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/throughput-trend.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/time-to-first-spec.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/time-to-first-spec.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/velocity-by-sponsor.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/velocity-by-sponsor.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/velocity-by-tag.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/velocity-by-tag.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/velocity-comparison.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/velocity-comparison.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/velocity-forecast.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/velocity-forecast.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/velocity-sla.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/velocity-sla.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/velocity.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/velocity.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/violations.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/violations.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/watch.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/watch.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/weekly-newsletter.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/weekly-newsletter.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/whats-new.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/whats-new.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/wins-wall.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/wins-wall.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dashboard/wip-limit.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/wip-limit.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dinum.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dinum.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/docs.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/docs.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/doctor-fix.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/doctor-fix.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/doctor.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/doctor.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dora-record.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dora-record.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/dpia.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dpia.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/emit-rules.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/emit-rules.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/esm-import.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/esm-import.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/frontmatter.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/frontmatter.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/fs-ops.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/fs-ops.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/github-app.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/github-app.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/gitlab.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/gitlab.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/governance-lint.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/governance-lint.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/governance-marketplace.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/governance-marketplace.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/governance-packs.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/governance-packs.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/governance.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/governance.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/hook-sandbox.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/hook-sandbox.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/hooks.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/hooks.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/i18n.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/i18n.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/import.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/import.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/init-tui.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/init-tui.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/init.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/init.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/leadership-metrics.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/leadership-metrics.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/lockfile.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/lockfile.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/marketplace.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/marketplace.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/meta.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/meta.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/migrate-v2.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/migrate-v2.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/migrate.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/migrate.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/negotiate.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/negotiate.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/obsidian-export.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/obsidian-export.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/offline.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/offline.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/openapi-export.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/openapi-export.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/org-config.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/org-config.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/pii-scan.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/pii-scan.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/plugins.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/plugins.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/provenance.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/provenance.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/rbac.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/rbac.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/refactor-spec.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/refactor-spec.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/reflect.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/reflect.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/repl.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/repl.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/reproducibility.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/reproducibility.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/review.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/review.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/sarif.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/sarif.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/sbom.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/sbom.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/score.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/score.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/sdd-trace.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/sdd-trace.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/self-update.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/self-update.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/skills.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/skills.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/sla.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/sla.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/sovereignty-score.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/sovereignty-score.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/spec-suggester.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/spec-suggester.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/spec-version.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/spec-version.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/specs-library.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/specs-library.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/standup-url.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/standup-url.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/status.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/status.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/storybook.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/storybook.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/suggest-annotations.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/suggest-annotations.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/suggest.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/suggest.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/telemetry.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/telemetry.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/templates.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/templates.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/term.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/term.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/trace-cache.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/trace-cache.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/trace-worker.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/trace-worker.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/tutorial.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/tutorial.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/uninstall.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/uninstall.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/update.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/update.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/upgrade.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/upgrade.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/webhooks.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/webhooks.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/workspace-analytics.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/workspace-analytics.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans lib/workspace.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/workspace.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans scripts/bench-comparison.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scripts/bench-comparison.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans scripts/bun-parity.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scripts/bun-parity.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans scripts/coverage-threshold.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scripts/coverage-threshold.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans scripts/lint-deps.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scripts/lint-deps.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans scripts/lint-esm.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scripts/lint-esm.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans scripts/lint-size.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scripts/lint-size.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans scripts/lint.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scripts/lint.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans scripts/mutation-batch.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scripts/mutation-batch.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans scripts/mutation-test.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scripts/mutation-test.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans scripts/release.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "scripts/release.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans site/assets/js/main.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "site/assets/js/main.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans site/assets/js/search.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "site/assets/js/search.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.aiad/hooks/discovery-gate.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.aiad/hooks/discovery-gate.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.aiad/hooks/drift-lock.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.aiad/hooks/drift-lock.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.aiad/hooks/jnsp-scan.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.aiad/hooks/jnsp-scan.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.aiad/hooks/session-start.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.aiad/hooks/session-start.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.aiad/hooks/skill-usage.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.aiad/hooks/skill-usage.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.aiad/hooks/statusline.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.aiad/hooks/statusline.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.aiad/hooks/veto.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.aiad/hooks/veto.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/projects/fastapi-aiad/app/__init__.py."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/projects/fastapi-aiad/app/__init__.py"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans vscode-extension/src/extension.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "vscode-extension/src/extension.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "endTimeUtc": "2026-06-11T14:07:05.956Z"
+        }
+      ]
+    }
+  ]
+}
