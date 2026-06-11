@@ -5,7 +5,7 @@ parent_intent: INTENT-013
 parent_spec: SPEC-013-1
 status: review
 format: prose
-sqs: 4.4
+sqs: 4.0
 author: Steeve Evers
 date: 2026-06-11
 governance: AIAD-RGAA, AIAD-RGESN
@@ -17,7 +17,18 @@ governance: AIAD-RGAA, AIAD-RGESN
 **Intent parent** : INTENT-013
 **Ordre d'exécution** : 1 sur 2 (indépendante de 013-1b — fichiers disjoints)
 **Dépendances intra-split** : aucune
-**SQS** : 4.4 / 5 — Gate **OUVERTE** (2026-06-11)
+**SQS** : 4/5 (Complétude 1 · Testabilité 1 · Atomicité 1 · Non-ambiguïté 0 ·
+Traçabilité 1) — Gate **OUVERTE avec réserve** (2026-06-11)
+**Statut** : review (Gate ouverte ; passe `in-progress` au lancement de `/sdd exec`,
+ce qui produira le code annoté `@spec` — évite le faux gap « validée non implémentée »)
+
+> ⚠ **Réserve Gate (Non-ambiguïté 0/1)** — à lever avant/pendant `/sdd exec` :
+> 1. **Décompte public de commandes** : afficher **31** (taxonomie documentée
+>    16 SDD + 11 rituels + 4 métriques) — *pas* le nombre de fichiers routers (33).
+> 2. **Périmètre `site/`** : trancher si le **nettoyage des mentions de version
+>    résiduelles** (`site/` contient 12× `v1.7` et des `v1.10`–`v1.17`) fait partie
+>    de cette SPEC ou est un prérequis déjà acquis. Test de l'Étranger : PASS avec
+>    réserve sur ce point précis.
 **Gouvernance** : AIAD-RGAA (le site est une interface), AIAD-RGESN (poids des pages)
 
 ## 1. Contexte
