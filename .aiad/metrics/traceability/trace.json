@@ -2,12 +2,12 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-11T16:06:27.784Z"
+    "generated": "2026-06-11T16:08:51.922Z"
   },
-  "generatedAt": "2026-06-11T16:06:27.784Z",
+  "generatedAt": "2026-06-11T16:08:51.921Z",
   "summary": {
     "intents": 23,
-    "specs": 17,
+    "specs": 18,
     "codeFiles": 318,
     "annotatedCodeFiles": 41,
     "testFiles": 244,
@@ -620,6 +620,17 @@
               "viaCode": true
             }
           ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-013-4-deploy-site-workflow",
+            "file": ".aiad/specs/SPEC-013-4-deploy-site-workflow.md",
+            "title": "Workflow de déploiement site/ → gh-pages (gate version + RGAA)",
+            "parentIntent": "INTENT-013",
+            "status": "draft"
+          },
+          "code": [],
+          "tests": []
         }
       ]
     },
