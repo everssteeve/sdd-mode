@@ -51,7 +51,10 @@ annoncée quelque part (docs/site) diffère de `package.json`.**
 
 ## SPECs liées
 
-- [x] SPEC-013-1 — Déploiement site v1.18 + résolution « 6 vs 7 valeurs » *(draft — court-circuit Research tracé)*
+- [~] SPEC-013-1 — Déploiement site v1.18 + résolution « 6 vs 7 valeurs »
+      *(Gate FERMÉE SQS 1.0 → **découpée** le 2026-06-11)*
+  - [ ] SPEC-013-1a — Déploiement du site aiad.ovh en v1.18 *(SQS 4.4 — Gate ouverte)*
+  - [ ] SPEC-013-1b — Unification à 7 valeurs sur les 4 sources *(SQS 4.2 — Gate ouverte)*
 - [x] SPEC-013-2 — Unification des docs racine + archivage de `SDDMode.md` *(draft — court-circuit Research tracé)*
 - [ ] SPEC-013-3 — Synchronisation automatique des en-têtes de version
       (extension `emit-rules` + check CI `version ≠ package.json` → échec)

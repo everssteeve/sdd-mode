@@ -2,9 +2,9 @@
 id: SPEC-013-1
 title: Déploiement site v1.18 + résolution « 6 vs 7 valeurs »
 parent_intent: INTENT-013
-status: draft
+status: split
 format: prose
-sqs: À évaluer via /sdd gate
+sqs: 1.0 (FERMÉE → découpée)
 author: Steeve Evers
 date: 2026-06-11
 governance: AIAD-RGAA, AIAD-RGESN
@@ -13,14 +13,21 @@ governance: AIAD-RGAA, AIAD-RGESN
 # SPEC-013-1 — Déploiement site v1.18 + résolution « 6 vs 7 valeurs »
 
 **Intent parent** : INTENT-013
-**SQS** : 1.0 / 5 — Gate **FERMÉE** (2026-06-11) — à découper via `/sdd split`
-**Statut** : draft
+**SQS** : 1.0 / 5 — Gate **FERMÉE** (2026-06-11) → **DÉCOUPÉE** (2026-06-11)
+**Statut** : split
 **Gouvernance** : AIAD-RGAA (le site est une interface), AIAD-RGESN (poids des pages)
 
-> ⛔ **Gate FERMÉE** (Atomicité 0, Testabilité 0, Complétude 0, Non-ambiguïté 0).
-> Route : `/sdd split` → **013-1a** « Déployer site v1.18 » + **013-1b** « Unifier
-> 7 valeurs sur Constitution/Vision/CLAUDE/site ». Reformuler les critères en
-> assertions vérifiables, ajouter ≥ 3 cas limites. Re-gate chaque sous-SPEC.
+> ✅ **Découpée le 2026-06-11** via `/sdd split` en deux sous-SPECs atomiques,
+> chacune passant la Gate indépendamment (l'ambiguïté « 6 vs 7 » qui fermait la
+> Gate est levée par la décision gardien §7 = 7 valeurs) :
+>
+> | Sous-SPEC | Titre | SQS | Ordre |
+> |-----------|-------|-----|-------|
+> | [SPEC-013-1a](./SPEC-013-1a-deploiement-site.md) | Déploiement du site aiad.ovh en v1.18 | 4.4 | 1/2 |
+> | [SPEC-013-1b](./SPEC-013-1b-unification-7-valeurs.md) | Unification à 7 valeurs sur les 4 sources | 4.2 | 2/2 |
+>
+> Les deux sont **parallélisables** (fichiers disjoints). Cette SPEC parente ne
+> doit plus être exécutée directement — voir les sous-SPECs.
 
 ## 1. Contexte
 
