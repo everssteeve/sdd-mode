@@ -37,3 +37,12 @@ topologie Pages réelle. Thème `docs/_config.yml` corrigé par propreté (au ca
 **Justification** : un fix de thème seul aurait été un **faux fix** (échec déplacé
 à l'étape `deploy-pages`). Honnêteté sur les contradictions (valeur n°2).
 **Lien** : INTENT-013, SPEC-013-4a. Voir [[FACT-001]], [[FACT-002]].
+
+## Suite — même cause sur AIAD Dashboard (2026-06-11)
+
+`aiad-dashboard.yml` (instance du repo) souffrait du **même conflit** : build OK,
+mais job « Publication GitHub Pages » (`deploy-pages@v4`) en échec (méthode Actions
+incompatible avec Pages mode branche). **Instance repo supprimée** (décision
+gardien) ; le **template** `templates/.github/workflows/aiad-dashboard.yml`
+(installé chez les utilisateurs, qui choisissent leur mode Pages) est **conservé
+intact**. Suite de tests 3831 pass / 0 fail après suppression.
