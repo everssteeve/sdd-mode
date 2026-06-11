@@ -3,7 +3,7 @@ id: SPEC-013-1a
 title: Déploiement du site aiad.ovh en v1.18
 parent_intent: INTENT-013
 parent_spec: SPEC-013-1
-status: review
+status: in-progress
 format: prose
 sqs: 4.0
 author: Steeve Evers
@@ -18,8 +18,10 @@ governance: AIAD-RGAA, AIAD-RGESN
 **Ordre d'exécution** : 1 sur 2 (indépendante de 013-1b — fichiers disjoints)
 **Dépendances intra-split** : aucune
 **SQS** : 4/5 → **réserve levée** (décision gardien 2026-06-11), Gate **OUVERTE**
-**Statut** : review (Gate ouverte ; passe `in-progress` au lancement de `/sdd exec`,
-ce qui produira le code annoté `@spec` — évite le faux gap « validée non implémentée »)
+**Statut** : in-progress (exec 2026-06-11 — **alignement de contenu fait** : décomptes
+33/17, liens 0 cassé sur 4926. **Bloqué pour `done`** sur deux actions hors agent :
+(1) déploiement `site/` → `gh-pages` (sortant, humain) ; (2) audit RGAA AA sur la
+build (navigateur/CI). Voir aussi SPEC-013-4 (automatiser le déploiement).)
 
 > ✅ **Réserve levée (gardien, 2026-06-11)** :
 > 1. **Décompte de commandes** = **33** (17 `/sdd` + 16 `/aiad`). La taxonomie
@@ -52,14 +54,20 @@ bloquant). Trace conservée ici.
 
 ## 3. Implémentation
 
-- **Publication** : déclencher le déploiement de `site/` v1.18 sur aiad.ovh via
-  `.github/workflows/docs-deploy.yml` (vérifier que le workflow cible bien le
-  contenu courant de `site/` et la bonne branche/environnement).
-- **Accessibilité (RGAA)** : auditer la conformité AA des pages publiées
-  (axe-core ou équivalent) — dogfooding de l'agent AIAD-RGAA que le framework
-  impose au code des utilisateurs.
-- **Sobriété (RGESN)** : vérifier qu'aucune ressource lourde non essentielle
-  n'est ajoutée par le déploiement (pas de régression de poids de page).
+> ⚠ **Correction de prémisse (exec 2026-06-11)** : `docs-deploy.yml` publie
+> `docs/` (Jekyll), **pas `site/`**. aiad.ovh est servi par la **branche
+> `gh-pages`** (mirroir de `site/`, sync **manuel** — aucun workflow ne le fait).
+> Le « déploiement » est donc une **action sortante** (push `site/` → `gh-pages`),
+> réservée à l'humain. L'automatiser fait l'objet d'un suivi → **SPEC-013-4**.
+
+- **Alignement de contenu** (in-repo, fait) : décomptes courants `site/` portés à
+  **33** commandes (17 `/sdd` + 16 `/aiad`) et **17** pour le router `/sdd` ; les
+  rappels historiques « 27 commandes (v1.7) » sont **préservés** (honnêteté / C1).
+- **Publication** (humaine, sortante) : sync `site/` → branche `gh-pages`. Non
+  exécuté par l'agent (action sortante sur le site public).
+- **Accessibilité (RGAA)** : audit AA des pages publiées (axe-core) — à lancer sur
+  la build ; non couvert en session (nécessite navigateur/CI).
+- **Sobriété (RGESN)** : pas de ressource lourde ajoutée (alignements textuels seuls).
 
 ## 4. Critères d'acceptation
 

@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-11T15:37:53.009Z
+> Généré le 2026-06-11T15:47:19.349Z
 
 ## Synthèse
 
@@ -354,9 +354,10 @@
   - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
   - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
   - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
-- SPECs sans code (hors draft/review) : **3**
+- SPECs sans code (hors draft/review) : **4**
   - SPEC-005-1-context-pull (statut : in-progress)
   - SPEC-013-1-deploiement-site-valeurs (statut : split)
+  - SPEC-013-1a-deploiement-site (statut : in-progress)
   - SPEC-013-1b-unification-7-valeurs (statut : archived)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**

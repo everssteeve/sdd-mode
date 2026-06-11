@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-11T15:37:53.009Z"
+    "generated": "2026-06-11T15:47:19.349Z"
   },
-  "generatedAt": "2026-06-11T15:37:53.009Z",
+  "generatedAt": "2026-06-11T15:47:19.349Z",
   "summary": {
     "intents": 23,
     "specs": 17,
@@ -572,7 +572,7 @@
             "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
             "title": "Déploiement du site aiad.ovh en v1.18",
             "parentIntent": "INTENT-013",
-            "status": "review"
+            "status": "in-progress"
           },
           "code": [],
           "tests": []
@@ -4763,6 +4763,13 @@
         "title": "Déploiement site v1.18 + résolution « 6 vs 7 valeurs »",
         "parentIntent": "INTENT-013",
         "status": "split"
+      },
+      {
+        "id": "SPEC-013-1a-deploiement-site",
+        "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
+        "title": "Déploiement du site aiad.ovh en v1.18",
+        "parentIntent": "INTENT-013",
+        "status": "in-progress"
       },
       {
         "id": "SPEC-013-1b-unification-7-valeurs",

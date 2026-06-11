@@ -53,13 +53,16 @@ annoncée quelque part (docs/site) diffère de `package.json`.**
 
 - [~] SPEC-013-1 — Déploiement site v1.18 + résolution « 6 vs 7 valeurs »
       *(Gate FERMÉE SQS 1.0 → **découpée** le 2026-06-11)*
-  - [ ] SPEC-013-1a — Déploiement du site aiad.ovh en v1.18 *(Gate OUVERTE 4/5,
-        réserve levée : 33 commandes + nettoyage site/ inclus, refs historiques préservées)*
+  - [~] SPEC-013-1a — Déploiement du site aiad.ovh en v1.18 *(exec 2026-06-11 :
+        contenu aligné 33/17 + 0 lien cassé. Bloqué pour `done` : déploiement
+        `site/`→`gh-pages` (sortant, humain) + audit RGAA AA hors session.)*
   - [⊘] SPEC-013-1b — Unification à 7 valeurs *(**ARCHIVÉE** : contradiction « 6 vs 7 »
         inexistante — toutes les sources disent déjà 7. Aucune action requise.)*
 - [x] SPEC-013-2 — Unification des docs racine + archivage de `SDDMode.md`
       *(Gate OUVERTE 4/5 ; bandeau CLAUDE.md déjà présent — reste archivage SDDMode + en-tête périmé)*
 - [x] SPEC-013-3 — Sync auto des versions (zones marquées) + check CI
-      *(rédigée 2026-06-11 sous conditions **C1** zones marquées seulement / **C2**
-      check CI sur ces zones, prose exclue — RESEARCH-013 CONDITIONAL GO 80 %.
-      Statut `draft`, en attente de `/sdd gate`.)*
+      *(**DONE** 2026-06-11 — cycle complet Research→Gate 5/5→exec phasé 3/3→
+      validate→Drift Lock. `lib/version-sync.js` + workflow + 59 zones, CI 7/7.)*
+- [ ] SPEC-013-4 — Déploiement `site/` → `gh-pages` automatisé *(planifiée —
+      issue de l'exec 013-1a : le déploiement est aujourd'hui manuel/sortant.
+      À cadrer via `/sdd research` puis `/sdd spec`.)*

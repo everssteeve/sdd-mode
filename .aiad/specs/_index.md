@@ -19,7 +19,7 @@
 | SPEC-011-1 | Toggles de hooks + /goal + packaging plugin (§3.13) | INTENT-011 | prose | 4.1 | in-progress | — |
 | SPEC-012-1 | Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4) | INTENT-012 | prose | 4.0 | in-progress | — |
 | SPEC-013-1 | Déploiement site v1.18 + résolution « 7 valeurs » | INTENT-013 | prose | 1.0 (FERMÉE → découpée) | split | — |
-| SPEC-013-1a | Déploiement du site aiad.ovh en v1.18 | INTENT-013 | prose | 4.0 | review | — |
+| SPEC-013-1a | Déploiement du site aiad.ovh en v1.18 | INTENT-013 | prose | 4.0 | in-progress | — |
 | SPEC-013-1b | Unification à 7 valeurs sur les 4 sources | INTENT-013 | prose | 4.0 | archived | — |
 | SPEC-013-2 | Unification des docs racine + archivage de SDDMode.md | INTENT-013 | prose | 4.0 | review | — |
 | SPEC-013-3 | Sync auto des versions (zones marquées) + check CI | INTENT-013 | prose | 5.0 | done | — |
