@@ -14,10 +14,9 @@ governance: AIAD-RGESN
 
 **Intent parent** : INTENT-013
 **SQS** : 4.0 / 5 — Gate OUVERTE (réserve levée)
-**Statut** : in-progress (exec 2026-06-11 — SDDMode.md → `docs/archive/` + en-tête
-historique ; GUIDE.md & CLAUDE.md rendus version-agnostiques ; bandeau CLAUDE déjà
-présent ; provenance historique préservée. 3831 tests verts, liens OK. Prêt pour
-`/sdd validate` — 100 % in-repo, pas de blocage externe.)
+**Statut** : validation (VALIDÉ 2026-06-11 — triple validation PASS : technique
+[lint + 3831 tests + 3 checks verts + tarball 4/4], fonctionnelle [4/4 critères §3],
+drift [0 gap], gouvernance [RGESN PASS, sobriété documentaire]. Prêt pour `/sdd drift-check`.)
 **Gouvernance** : AIAD-RGESN (sobriété documentaire — réduction de la redondance)
 
 > ✅ **Réserve rétrécie (investigation 2026-06-11)** : le **bandeau CLAUDE.md

@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-11T15:53:27.651Z"
+    "generated": "2026-06-11T15:55:13.745Z"
   },
-  "generatedAt": "2026-06-11T15:53:27.651Z",
+  "generatedAt": "2026-06-11T15:55:13.745Z",
   "summary": {
     "intents": 23,
     "specs": 17,
