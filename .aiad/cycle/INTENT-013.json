@@ -1,0 +1,47 @@
+{
+  "intent": "INTENT-013",
+  "etapes": [
+    {
+      "name": "INTENT",
+      "status": "done",
+      "blockedBy": null,
+      "note": null
+    },
+    {
+      "name": "RESEARCH",
+      "status": "done",
+      "blockedBy": "INTENT",
+      "note": "CONDITIONAL — conditions à lever avant la suite."
+    },
+    {
+      "name": "SPEC",
+      "status": "todo",
+      "blockedBy": "RESEARCH",
+      "note": null
+    },
+    {
+      "name": "GATE",
+      "status": "todo",
+      "blockedBy": "SPEC",
+      "note": null
+    },
+    {
+      "name": "EXEC",
+      "status": "todo",
+      "blockedBy": "GATE",
+      "note": null
+    },
+    {
+      "name": "VALIDATE",
+      "status": "todo",
+      "blockedBy": "EXEC",
+      "note": null
+    },
+    {
+      "name": "DRIFT-LOCK",
+      "status": "todo",
+      "blockedBy": "VALIDATE",
+      "note": null
+    }
+  ]
+}

@@ -18,6 +18,17 @@
 | INTENT-010 | Cross-model review additive-only (§3.12) | Steeve Evers | 2026-06-09 | SPEC-010-1 | active |
 | INTENT-011 | Distribution plugin + /goal + toggles de hooks (§3.13) | Steeve Evers | 2026-06-09 | SPEC-011-1 | active |
 | INTENT-012 | Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4) | Steeve Evers | 2026-06-09 | SPEC-012-1 | active |
+| INTENT-013 | Zéro drift sur soi-même — site et docs alignés sur la version livrée | Steeve Evers | 2026-06-11 | SPEC-013-1/2/3 (planifiées) | draft |
+| INTENT-014 | Empirisme prouvé — gates qualité actifs et claims sourcés | Steeve Evers | 2026-06-11 | — | draft |
+| INTENT-015 | Sobriété du CLI — noyau assumé, longue traîne extraite | Steeve Evers | 2026-06-11 | — | draft |
+| INTENT-016 | Dashboard exemplaire — fondations accessibles, sobres, maintenables | Steeve Evers | 2026-06-11 | — | draft |
+| INTENT-017 | Vivre le projet au quotidien — Aujourd'hui, triage, digest | Steeve Evers | 2026-06-11 | — | draft |
+| INTENT-018 | La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents | Steeve Evers | 2026-06-11 | — | draft |
+| INTENT-019 | Verification-first — dériver des tests des critères EARS | Steeve Evers | 2026-06-11 | — | draft |
+| INTENT-020 | Spec-anchored par construction — deltas et redevabilité bidirectionnelle | Steeve Evers | 2026-06-11 | — | draft |
+| INTENT-021 | Empreinte mesurée — tokens et coût par fonctionnalité | Steeve Evers | 2026-06-11 | — | draft |
+| INTENT-022 | Dogfooding complet — le CLI sous SPEC | Steeve Evers | 2026-06-11 | — | draft |
+| INTENT-023 | Rayonnement honnête — comparatif public et runtimes élargis | Steeve Evers | 2026-06-11 | — | draft |
 
 ## Cycle de vie d'un Intent Statement
 

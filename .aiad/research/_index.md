@@ -8,7 +8,7 @@
 
 | ID | Titre | Intent | Auteur | Date | Verdict | Statut |
 |----|-------|--------|--------|------|---------|--------|
-| | | | | | | |
+| RESEARCH-013 | Sync auto des en-têtes de version + check CI | INTENT-013 | Steeve Evers | 2026-06-11 | CONDITIONAL GO (80 %) | tranché — /sdd spec autorisé (C1, C2) |
 
 ## Verdicts du gate Research
 
