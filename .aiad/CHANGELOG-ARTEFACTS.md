@@ -17,6 +17,15 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-11 — SPEC-013-4a — Drift Lock OK (done)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd drift-check` après VALIDÉ — workflow + SPEC synchronisés,
+0 gap bloquant, `@spec SPEC-013-4a` tracé.
+**Impact** : `.github/workflows/site-deploy.yml` (nouveau) — déploiement
+`site/` → `gh-pages` sous gate `version-sync --check`. SPEC-013-4 découpée
+(013-4a done · 013-4b draft RGAA). 1er run de publication = merge `main` (humain).
+
 ## 2026-06-11 — SPEC-013-2 — Drift Lock OK (done)
 
 **Auteur** : Steeve Evers

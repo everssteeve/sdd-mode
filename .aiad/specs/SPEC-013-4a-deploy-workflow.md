@@ -19,10 +19,9 @@ governance: AIAD-RGESN
 **Ordre d'exécution** : 1 sur 2 (013-4b dépend de celle-ci)
 **SQS** : 5/5 — Gate **OUVERTE** (2026-06-11), Test de l'Étranger PASS
 **Gouvernance** : AIAD-RGESN (copie statique, 0 dépendance lourde ajoutée)
-**Statut** : validation (VALIDÉ 2026-06-11 — triple validation PASS : technique
-[lint + YAML + version-sync + 3831 tests], fonctionnelle [5/5 critères §3 mappés
-au workflow], drift [0 gap, `@spec`], gouvernance [RGESN PASS]. Prêt pour
-`/sdd drift-check`. 1er run de publication = merge `main`, geste humain.)
+**Statut** : done (Drift Lock OK 2026-06-11 — workflow + SPEC synchronisés, 0 gap
+bloquant, `@spec` tracé. 1er run de publication = merge `main` (geste humain) ;
+merge vers `main` = étape de release externe.)
 
 ## 1. Contexte
 
