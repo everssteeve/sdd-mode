@@ -28,3 +28,10 @@ Transformer chaque règle critique de gouvernance de « texte advisory » en « 
 
 - P1→P3 de la roadmap (Research/Discovery, exécution phasée, contexte pull, memory native, graphe Tasks, canary, observabilité, cross-model, distribution) — feront l'objet d'Intents/SPECs ultérieurs.
 - Migration des règles documentaires existantes vers du pull `paths:` (§3.7) — séparée, car elle dépend de ce socle enforced.
+
+## Signaux liés
+
+- [FACT-002](../facts/FACT-002-gate-ready-vs-drift-lock.md) — contradiction entre
+  `gate.md` (statut `ready` sur Gate OUVERTE) et le Drift Lock enforced (Stop hook
+  bloquant sur `ready` sans `@spec`). Reproduit en session 2026-06-11. À trancher :
+  `gate.md` dit `review`, ou retirer `ready` de la liste déclencheuse du gap.

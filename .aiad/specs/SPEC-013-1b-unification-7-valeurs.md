@@ -5,7 +5,7 @@ parent_intent: INTENT-013
 parent_spec: SPEC-013-1
 status: review
 format: prose
-sqs: 4.2
+sqs: 4.0
 author: Steeve Evers
 date: 2026-06-11
 governance: AIAD-RGESN
@@ -17,8 +17,21 @@ governance: AIAD-RGESN
 **Intent parent** : INTENT-013
 **Ordre d'exécution** : 2 sur 2 (indépendante de 013-1a — fichiers disjoints)
 **Dépendances intra-split** : aucune (parallélisable avec 013-1a)
-**SQS** : 4.2 / 5 — Gate **OUVERTE** (2026-06-11)
+**SQS** : 4/5 (Complétude 1 · Testabilité 1 · Atomicité 1 · Non-ambiguïté 0 ·
+Traçabilité 1) — Gate **OUVERTE avec réserve** (2026-06-11)
+**Statut** : review (Gate ouverte ; passe `in-progress` au lancement de `/sdd exec` —
+cf. [[FACT-002]], on évite `ready` tant qu'aucun code annoté `@spec` n'existe)
 **Gouvernance** : AIAD-RGESN (sobriété — une source de vérité, pas de redondance contradictoire)
+
+> ⚠ **Réserve Gate (Non-ambiguïté 0/1)** — à lever avant/pendant `/sdd exec` :
+> 1. **Mapping fichier exact** des 4 sources : Constitution = `frameworkAIAD.md`
+>    (Art. II) · Vision & Philosophie = `site/{fr,en}/valeurs.html` · site/ ·
+>    source emit-rules (cf. point 2).
+> 2. **Vraie source emit-rules de la liste de valeurs** : le critère 3 suppose
+>    l'AGENT-GUIDE, mais `.aiad/AGENT-GUIDE.md` **n'énumère pas** les valeurs
+>    (vérifié 2026-06-11). Identifier le fichier réellement lu par `emit-rules`
+>    (template / `.aiad/gouvernance/`) AVANT d'éditer — sinon la propagation vers
+>    `CLAUDE.md` est inopérante.
 
 ## 1. Contexte
 
