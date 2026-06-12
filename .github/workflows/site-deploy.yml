@@ -49,8 +49,10 @@ jobs:
       - name: Gate version (site ↔ package.json)
         run: node bin/aiad-sdd.js version-sync --check
 
+      # Publie sur push (main) ET sur déclenchement manuel ; jamais sur PR
+      # (où seul le gate doit tourner, sans publication).
       - name: Publier site/ → gh-pages
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
