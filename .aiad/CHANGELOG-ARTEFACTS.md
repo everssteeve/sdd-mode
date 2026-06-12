@@ -17,6 +17,17 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-12 — INTENT-013 + SPEC-013-1a — done (site v1.18 publié)
+
+**Auteur** : Steeve Evers
+**Raison** : site aiad.ovh **déployé en v1.18** via `site-deploy.yml` (gh-pages
+`df34283`, gate version OK, vérifié sur la branche live). Les 3 objectifs de
+l'intention sont atteints (0 écart de version, site v1.18, valeurs unifiées).
+Clôture décidée par le gardien.
+**Impact** : SPEC-013-1a → `done` (audit RGAA AA délégué à 013-4b, non bloquant) ;
+INTENT-013 → `done` (résidu : 013-4b gate RGAA, renforcement hors périmètre
+original, conservé en `draft`).
+
 ## 2026-06-11 — SPEC-013-4a — Drift Lock OK (done)
 
 **Auteur** : Steeve Evers

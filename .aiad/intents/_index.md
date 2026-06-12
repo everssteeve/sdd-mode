@@ -18,7 +18,7 @@
 | INTENT-010 | Cross-model review additive-only (§3.12) | Steeve Evers | 2026-06-09 | SPEC-010-1 | active |
 | INTENT-011 | Distribution plugin + /goal + toggles de hooks (§3.13) | Steeve Evers | 2026-06-09 | SPEC-011-1 | active |
 | INTENT-012 | Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4) | Steeve Evers | 2026-06-09 | SPEC-012-1 | active |
-| INTENT-013 | Zéro drift sur soi-même — site et docs alignés sur la version livrée | Steeve Evers | 2026-06-11 | SPEC-013-1/2/3 (planifiées) | draft |
+| INTENT-013 | Zéro drift sur soi-même — site et docs alignés sur la version livrée | Steeve Evers | 2026-06-11 | SPEC-013-1a/2/3/4a done · 1b archiv · 4b draft | done |
 | INTENT-014 | Empirisme prouvé — gates qualité actifs et claims sourcés | Steeve Evers | 2026-06-11 | — | draft |
 | INTENT-015 | Sobriété du CLI — noyau assumé, longue traîne extraite | Steeve Evers | 2026-06-11 | — | draft |
 | INTENT-016 | Dashboard exemplaire — fondations accessibles, sobres, maintenables | Steeve Evers | 2026-06-11 | — | draft |

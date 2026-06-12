@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-11T16:20:30.915Z"
+    "generated": "2026-06-12T13:09:09.320Z"
   },
-  "generatedAt": "2026-06-11T16:20:30.914Z",
+  "generatedAt": "2026-06-12T13:09:09.320Z",
   "summary": {
     "intents": 23,
     "specs": 20,
@@ -552,7 +552,7 @@
         "id": "INTENT-013-zero-drift-sur-soi",
         "file": ".aiad/intents/INTENT-013-zero-drift-sur-soi.md",
         "title": "Zéro drift sur soi-même — site et docs alignés sur la version livrée",
-        "status": "draft"
+        "status": "done"
       },
       "specs": [
         {
@@ -572,7 +572,7 @@
             "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
             "title": "Déploiement du site aiad.ovh en v1.18",
             "parentIntent": "INTENT-013",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [],
           "tests": []
@@ -4802,7 +4802,7 @@
         "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
         "title": "Déploiement du site aiad.ovh en v1.18",
         "parentIntent": "INTENT-013",
-        "status": "in-progress"
+        "status": "done"
       },
       {
         "id": "SPEC-013-1b-unification-7-valeurs",
@@ -4819,7 +4819,15 @@
         "status": "split"
       }
     ],
-    "specsValideesNonImplementees": [],
+    "specsValideesNonImplementees": [
+      {
+        "id": "SPEC-013-1a-deploiement-site",
+        "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
+        "title": "Déploiement du site aiad.ovh en v1.18",
+        "parentIntent": "INTENT-013",
+        "status": "done"
+      }
+    ],
     "codeSansSpec": [
       {
         "path": ".aiad/hooks/discovery-gate.js",

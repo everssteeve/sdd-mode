@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-11T16:20:30.914Z
+> Généré le 2026-06-12T13:09:09.320Z
 
 ## Synthèse
 
@@ -360,14 +360,15 @@
 - SPECs sans code (hors draft/review) : **5**
   - SPEC-005-1-context-pull (statut : in-progress)
   - SPEC-013-1-deploiement-site-valeurs (statut : split)
-  - SPEC-013-1a-deploiement-site (statut : in-progress)
+  - SPEC-013-1a-deploiement-site (statut : done)
   - SPEC-013-1b-unification-7-valeurs (statut : archived)
   - SPEC-013-4-deploy-site-workflow (statut : split)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
 ### Non-implémentés
-- SPECs validées sans code (statut ready/validation/done) : **0**
+- SPECs validées sans code (statut ready/validation/done) : **1**
+  - SPEC-013-1a-deploiement-site (statut : done)
 
 ### Non-tracés
 - Code sans `@spec` : **296**

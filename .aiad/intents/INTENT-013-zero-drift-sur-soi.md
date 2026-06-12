@@ -1,7 +1,7 @@
 ---
 id: INTENT-013
 title: Zéro drift sur soi-même — site et docs alignés sur la version livrée
-status: draft
+status: done
 author: Steeve Evers
 date: 2026-06-11
 specs:
@@ -53,9 +53,9 @@ annoncée quelque part (docs/site) diffère de `package.json`.**
 
 - [~] SPEC-013-1 — Déploiement site v1.18 + résolution « 6 vs 7 valeurs »
       *(Gate FERMÉE SQS 1.0 → **découpée** le 2026-06-11)*
-  - [~] SPEC-013-1a — Déploiement du site aiad.ovh en v1.18 *(exec 2026-06-11 :
-        contenu aligné 33/17 + 0 lien cassé. Bloqué pour `done` : déploiement
-        `site/`→`gh-pages` (sortant, humain) + audit RGAA AA hors session.)*
+  - [x] SPEC-013-1a — Déploiement du site aiad.ovh en v1.18 *(**DONE** 2026-06-12 —
+        site v1.18 publié sur aiad.ovh via `site-deploy.yml` (gh-pages `df34283`).
+        Audit RGAA AA délégué à 013-4b.)*
   - [⊘] SPEC-013-1b — Unification à 7 valeurs *(**ARCHIVÉE** : contradiction « 6 vs 7 »
         inexistante — toutes les sources disent déjà 7. Aucune action requise.)*
 - [x] SPEC-013-2 — Unification des docs racine + archivage de `SDDMode.md`
@@ -70,3 +70,15 @@ annoncée quelque part (docs/site) diffère de `package.json`.**
         cycle complet exec→validate→Drift Lock. `site-deploy.yml` + gate version ;
         1er run de publication au merge `main` = geste humain.)*
   - [ ] SPEC-013-4b — Gate RGAA AA avant publication *(draft — réserve : outil/config + dépendance Chromium)*
+
+## Clôture — INTENT-013 done (2026-06-12)
+
+Les trois objectifs sont atteints : **0 écart de version** (013-3, check CI),
+**site aiad.ovh déployé en v1.18** (013-1a + 013-4a, publié sur `gh-pages`
+`df34283`), **incohérence valeurs tranchée** (013-1b — fantôme, déjà à 7 partout).
+En bonus : CI assainie des conflits Pages (docs-deploy + dashboard supprimés, FACT-003).
+
+**Résidu non bloquant** : SPEC-013-4b (gate RGAA AA) reste `draft` — c'est un
+**renforcement d'accessibilité au-delà du périmètre original** de l'intention
+(qui portait sur le drift de version/contenu, pas l'audit AA). Conservé comme
+suivi ouvert ; pourra être repris via un Intent dédié si jugé prioritaire.
