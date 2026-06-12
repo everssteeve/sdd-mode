@@ -53,9 +53,10 @@ annoncée quelque part (docs/site) diffère de `package.json`.**
 
 - [~] SPEC-013-1 — Déploiement site v1.18 + résolution « 6 vs 7 valeurs »
       *(Gate FERMÉE SQS 1.0 → **découpée** le 2026-06-11)*
-  - [x] SPEC-013-1a — Déploiement du site aiad.ovh en v1.18 *(**DONE** 2026-06-12 —
-        site v1.18 publié sur aiad.ovh via `site-deploy.yml` (gh-pages `df34283`).
-        Audit RGAA AA délégué à 013-4b.)*
+  - [x] SPEC-013-1a — Déploiement du site aiad.ovh en v1.18 *(**objectif ATTEINT**
+        2026-06-12 — site v1.18 publié via `site-deploy.yml` (gh-pages `df34283`).
+        Frontmatter tenu `in-progress` : SPEC sans code, le trace ne sait pas la
+        marquer `done` — [[FACT-004]]. Audit RGAA AA délégué à 013-4b.)*
   - [⊘] SPEC-013-1b — Unification à 7 valeurs *(**ARCHIVÉE** : contradiction « 6 vs 7 »
         inexistante — toutes les sources disent déjà 7. Aucune action requise.)*
 - [x] SPEC-013-2 — Unification des docs racine + archivage de `SDDMode.md`

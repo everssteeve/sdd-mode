@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-12T13:09:09.320Z"
+    "generated": "2026-06-12T13:16:19.320Z"
   },
-  "generatedAt": "2026-06-12T13:09:09.320Z",
+  "generatedAt": "2026-06-12T13:16:19.319Z",
   "summary": {
     "intents": 23,
     "specs": 20,
@@ -572,7 +572,7 @@
             "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
             "title": "Déploiement du site aiad.ovh en v1.18",
             "parentIntent": "INTENT-013",
-            "status": "done"
+            "status": "in-progress"
           },
           "code": [],
           "tests": []
@@ -4802,7 +4802,7 @@
         "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
         "title": "Déploiement du site aiad.ovh en v1.18",
         "parentIntent": "INTENT-013",
-        "status": "done"
+        "status": "in-progress"
       },
       {
         "id": "SPEC-013-1b-unification-7-valeurs",
@@ -4819,15 +4819,7 @@
         "status": "split"
       }
     ],
-    "specsValideesNonImplementees": [
-      {
-        "id": "SPEC-013-1a-deploiement-site",
-        "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
-        "title": "Déploiement du site aiad.ovh en v1.18",
-        "parentIntent": "INTENT-013",
-        "status": "done"
-      }
-    ],
+    "specsValideesNonImplementees": [],
     "codeSansSpec": [
       {
         "path": ".aiad/hooks/discovery-gate.js",

@@ -3,7 +3,7 @@ id: SPEC-013-1a
 title: Déploiement du site aiad.ovh en v1.18
 parent_intent: INTENT-013
 parent_spec: SPEC-013-1
-status: done
+status: in-progress
 format: prose
 sqs: 4.0
 author: Steeve Evers
@@ -18,11 +18,13 @@ governance: AIAD-RGAA, AIAD-RGESN
 **Ordre d'exécution** : 1 sur 2 (indépendante de 013-1b — fichiers disjoints)
 **Dépendances intra-split** : aucune
 **SQS** : 4/5 → **réserve levée** (décision gardien 2026-06-11), Gate **OUVERTE**
-**Statut** : done (2026-06-12 — **site v1.18 publié sur aiad.ovh** : déploiement
-réel via `site-deploy.yml` (gh-pages commit `df34283`, gate version OK), contenu
-aligné 33/17, 0 lien cassé. Décision gardien de clôture.
-**Réserve tracée (non bloquante)** : le critère *audit RGAA AA* est **délégué à
-SPEC-013-4b** (gate RGAA, `draft`) — non perdu, suivi séparément.)
+**Statut** : in-progress au frontmatter / **objectif ATTEINT** — **site v1.18 publié
+sur aiad.ovh** (déploiement réel via `site-deploy.yml`, gh-pages `df34283`, gate
+version OK), contenu aligné 33/17, 0 lien cassé. Le « done » est porté au niveau
+**INTENT-013** : le frontmatter reste `in-progress` car le trace ne sait pas
+marquer `done` une SPEC **sans code applicatif** (site = `.html`, non scanné) —
+cf. **[[FACT-004]]**, pas du travail restant.
+**Réserve tracée (non bloquante)** : critère *audit RGAA AA* **délégué à SPEC-013-4b**.
 
 > ✅ **Réserve levée (gardien, 2026-06-11)** :
 > 1. **Décompte de commandes** = **33** (17 `/sdd` + 16 `/aiad`). La taxonomie

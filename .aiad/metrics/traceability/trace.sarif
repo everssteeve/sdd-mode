@@ -288,25 +288,6 @@
           ]
         },
         {
-          "ruleId": "AIAD-TRACE-002",
-          "level": "error",
-          "message": {
-            "text": "SPEC SPEC-013-1a-deploiement-site marquée done sans annotation @spec dans le code applicatif."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".aiad/specs/SPEC-013-1a-deploiement-site.md"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
@@ -5934,7 +5915,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-12T13:09:09.320Z"
+          "endTimeUtc": "2026-06-12T13:16:19.319Z"
         }
       ]
     }

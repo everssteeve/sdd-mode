@@ -24,9 +24,10 @@
 `df34283`, gate version OK, vérifié sur la branche live). Les 3 objectifs de
 l'intention sont atteints (0 écart de version, site v1.18, valeurs unifiées).
 Clôture décidée par le gardien.
-**Impact** : SPEC-013-1a → `done` (audit RGAA AA délégué à 013-4b, non bloquant) ;
-INTENT-013 → `done` (résidu : 013-4b gate RGAA, renforcement hors périmètre
-original, conservé en `draft`).
+**Impact** : INTENT-013 → `done`. SPEC-013-1a : objectif atteint (site publié),
+frontmatter tenu `in-progress` car le trace ne sait pas marquer `done` une SPEC
+sans code applicatif (FACT-004) ; audit RGAA AA délégué à 013-4b. Résidu : 013-4b
+gate RGAA, renforcement hors périmètre original, conservé en `draft`.
 
 ## 2026-06-11 — SPEC-013-4a — Drift Lock OK (done)
 
