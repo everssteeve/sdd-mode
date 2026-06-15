@@ -2,10 +2,10 @@
 description: AIAD-RGAA — Accessibilité numérique (RGAA 4.1 / WCAG 2.1)
 globs: ["**/components/**","**/pages/**","**/views/**","**/app/**/*.tsx","**/app/**/*.jsx","**/*.vue"]
 alwaysApply: false
-intent_id: INTENT-002
+intent_id: INTENT-023
 tier: 1
 generated-by: aiad-emit-rules v1.18.0
-source-hash: aad6af3f795db48a
+source-hash: e931bf798acfefa1
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
