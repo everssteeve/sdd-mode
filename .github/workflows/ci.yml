@@ -39,15 +39,21 @@ jobs:
         run: npm test
 
   coverage:
-    name: couverture (node 22 · seuils 75/70/65 %)
+    name: couverture (node 22 · seuils 75/70/65 % · badge)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Vérifie les seuils de couverture
-        run: npm run test:coverage:threshold
+      # Régénère le badge en même temps que la vérification des seuils
+      # (un seul run de couverture — RGESN). SPEC-014-1 / INTENT-014.
+      - name: Vérifie les seuils de couverture + régénère le badge
+        run: npm run coverage:badge
+      # Fraîcheur du badge : le JSON committé doit refléter la couverture
+      # courante. Si la régénération produit un diff, la PR échoue.
+      - name: Vérifie que le badge committé est à jour
+        run: git diff --exit-code -- .aiad/metrics/coverage/badge.json
 
   pack:
     name: npm pack --dry-run (vérifie le tarball publié)

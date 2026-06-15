@@ -34,10 +34,15 @@ jobs:
             exit 1
           fi
 
-      - name: Lint + Tests
+      # Gates bloquants avant publication (SPEC-014-1 / INTENT-014) — parité avec
+      # `prepublishOnly`. `npm publish` redéclenche prepublishOnly, mais on arme
+      # aussi les gates ici pour un échec précoce et lisible au moment du release.
+      - name: Gates qualité (lint + deps + size + couverture seuils)
         run: |
           npm run lint
-          npm test
+          npm run lint:deps
+          npm run lint:size
+          npm run test:coverage:threshold
 
       - name: Publish (avec provenance npm SLSA L3)
         run: npm publish --provenance --access public
