@@ -31,3 +31,16 @@ bench/**/.aiad/metrics/
 
 # Override local des toggles de hooks (§3.13) — par machine, non versionné
 .aiad/hooks-config.local.json
+
+# Artefacts régénérés à chaque run / par session — jamais versionnés.
+# (Le hook statusline les réécrit en continu : versionnés, ils re-dirtifient
+#  l'arbre en permanence et bloquent tout `git checkout`.)
+.aiad/.cache/
+.aiad/metrics/hook-runs.jsonl
+.aiad/metrics/skill-usage.jsonl
+.claude/scheduled_tasks.lock
+
+# Sorties générées des scénarios bench (cache + dashboards ;
+# les métriques sont déjà ignorées ci-dessus)
+bench/**/.aiad/.cache/
+bench/**/dashboard/
