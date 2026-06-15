@@ -47,7 +47,7 @@ passant sans gate de couverture/taille → drift.
 ## SPECs liées
 
 - [x] SPEC-014-1 — Gates CI : `lint:size --strict` + `coverage:threshold` + badge → `.aiad/specs/SPEC-014-1-gates-bloquants-badge.md` (draft, 2026-06-15)
-- [ ] SPEC-014-2 — Protocole `bench/` public + sourcing/requalification des claims
+- [ ] SPEC-014-2 — Sourcing seul (R4) : figer claims externes + requalifier le 50K (C-R3) → `.aiad/specs/SPEC-014-2-sourcing-claims.md` (draft, 2026-06-15)
 
 ## Signaux liés
 

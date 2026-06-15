@@ -2,8 +2,8 @@
 
 **Date** : 2026-06-11
 **Auteur** : Steeve Evers
-**SPEC concernée** : N/A (signal pour INTENT-014 — pas encore de SPEC)
-**Statut** : ouvert
+**SPEC concernée** : SPEC-014-2 (sourcing seul — requalification du 50K)
+**Statut** : traité (2026-06-15)
 
 ## Écart constaté
 
@@ -46,3 +46,12 @@ sourcing/dérivation ; deux options à trancher par l'humain en phase SPEC —
 dérivation explicite du seuil 60–70 %, ou (c) l'assumer comme heuristique de
 sobriété en le documentant comme tel (jamais supprimé en silence).
 **Lien SPEC** : INTENT-014 (candidat SPEC-014-2 — sourcing/requalification des claims).
+
+## Résolution (2026-06-15 — SPEC-014-2)
+
+**Option retenue : (c)** — le 50K est **requalifié en heuristique de sobriété assumée**,
+non sourcée et non dérivée du 60–70 %, documentée comme telle (jamais supprimée). Tranché
+par Steeve Evers via RESEARCH-015 §R3. La formulation canonique est posée dans les 4
+fichiers (`.claude/sdd/gate.md`, `exec.md`, `split.md`, `.claude/skills/context-budget/SKILL.md`).
+Les claims externes 41,7 % (R2Code, arXiv avril 2026) et −96 % (AWS Strands 2026) sont déjà
+des citations datées (vérifiées, inchangées). Pas de protocole `bench/` tokens (R4).

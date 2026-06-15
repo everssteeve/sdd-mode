@@ -30,7 +30,7 @@ L'exécution agent est l'étape entre la **Gate OUVERTE** (SQS ≥ 4/5) et la **
 
 1. **Vérifier les 5 prérequis** : SPEC présente / statut `ready` / SQS ≥ 4/5 / Intent actif / dépendances satisfaites. Abandon si un seul échoue.
 2. **Assembler le contexte** : permanent (AGENT-GUIDE condensé + ARCHITECTURE résumé) + tâche (SPEC + fichiers source listés).
-3. **Vérifier le budget** via la skill `context-budget` (estimation pré-session) — < 50K tokens.
+3. **Vérifier le budget** via la skill `context-budget` (estimation pré-session) — < ≈ 50K tokens (heuristique de sobriété assumée, non sourcée — cf. FACT-001).
 4. **Qualifier la gouvernance** via la skill `regulatory-veto` — si VETO, ne pas lancer.
 5. **Formuler le prompt** selon le pattern standard, MAJ statut → `in-progress`, lancer.
 
@@ -68,7 +68,7 @@ Si échec → indiquer la commande corrective (`/sdd gate`, `/sdd spec`, …) et
 
 ### Étape 3 — Budget
 
-Applique la skill `context-budget` en mode estimation pré-session. Si > 50K tokens : condenser (résumer fichiers volumineux, extraire interfaces).
+Applique la skill `context-budget` en mode estimation pré-session. Si > ≈ 50K tokens (heuristique de sobriété assumée, cf. FACT-001) : condenser (résumer fichiers volumineux, extraire interfaces).
 
 ### Étape 4 — Gouvernance
 

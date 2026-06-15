@@ -7,7 +7,7 @@ description: Découper une SPEC trop volumineuse en sous-SPECs atomiques
 
 Tu es un Product Engineer AIAD. L'utilisateur veut découper une SPEC trop volumineuse ou non-atomique en sous-SPECs qui passent l'Execution Gate.
 
-Une SPEC doit être **atomique** (1 SPEC = 1 PR = 1 tâche livrable). Quand l'Execution Gate échoue sur l'atomicité, ou > 200 lignes, ou > 2 relances agent, ou budget > 50K → découper.
+Une SPEC doit être **atomique** (1 SPEC = 1 PR = 1 tâche livrable). Quand l'Execution Gate échoue sur l'atomicité, ou > 200 lignes, ou > 2 relances agent, ou budget > ≈ 50K (heuristique de sobriété assumée, non sourcée — cf. FACT-001) → découper.
 
 **Recommandation modèle** : Sonnet 4.6 — découpage atomique, jugement de cohérence sémantique.
 
@@ -46,7 +46,7 @@ Affiche : *"Sonnet 4.6 est suffisant pour découper une SPEC — pas besoin d'Op
 | SQS Atomicité = 0 | La Gate a rejeté |
 | SPEC > 200 lignes | Trop de comportements |
 | > 2 relances agent | Tâche trop complexe |
-| Budget > 50K | Contexte excessif |
+| Budget > ≈ 50K (heuristique assumée, cf. FACT-001) | Contexte excessif |
 | Multiples fichiers indépendants | Domaines distincts |
 
 ### Étape 2 — Identifier l'axe de découpage

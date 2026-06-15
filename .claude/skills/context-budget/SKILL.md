@@ -126,4 +126,7 @@ Apprentissage pour futures estimations :
 - Garder les audits courts et actionnables (pas de rapport de 5 pages).
 - Pattern qui se répète → AGENT-GUIDE § Lessons Learned.
 - Mauvaise estimation humaine → AGENT-GUIDE § Human Learnings.
-- Au-dessus de 50K tokens projetés → réduire AVANT de lancer l'agent.
+- Au-dessus de ≈ 50K tokens projetés → réduire AVANT de lancer l'agent. Le **50K est
+  une heuristique de sobriété assumée** : non sourcée et non dérivée du seuil sourcé
+  60–70 % de la fenêtre — un garde-fou opérationnel, pas une mesure (cf.
+  `.aiad/facts/FACT-001` / SPEC-014-2).
