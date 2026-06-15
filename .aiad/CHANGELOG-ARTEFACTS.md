@@ -17,6 +17,18 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-15 — SPEC-014-2 — Drift Check OK (sourcing + guard lint:claims)
+
+**Auteur** : Steeve Evers
+**Raison** : Drift Lock vérifié pour SPEC-014-2 (INTENT-014) — heuristique git OK
+(SPEC + code annoté `@spec SPEC-014-2` dans la même PR #6) + traçabilité machine
+sans gap (`trace --fail-on-gap` exit 0). Le guard `lint:claims` rend le sourcing
+anti-régression (critère de drift INTENT-014 détecté en CI).
+**Impact** : `.claude/sdd/{gate,exec,split}.md`,
+`.claude/skills/context-budget/SKILL.md`, `.aiad/facts/FACT-001-…md` (clôturé),
+`scripts/lint-claims.js`, `test/lint-claims.test.js`, `package.json`, `ci.yml`.
+Statut SPEC `validation` → `done` à la fusion de la PR #6.
+
 ## 2026-06-15 — SPEC-014-1 — Drift Check OK (gates bloquants + badge)
 
 **Auteur** : Steeve Evers
