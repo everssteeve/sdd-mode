@@ -155,6 +155,10 @@ patterns:
   - "test/spec-suggester.test.js"
   - "test/trace-cache.test.js"
   - "test/trace-git.test.js"
+  # Régression du même resserrement : placeholders rejetés, ignore marker,
+  # statut in-progress non bloquant — tests de l'outillage de traçabilité
+  - "test/annotations.test.js"
+  - "test/trace.test.js"
 
   # Site statique de documentation — contient des exemples littéraux de
   # marqueurs TODO-JNSP dans des blocs <pre><code> et <p> de documentation.

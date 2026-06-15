@@ -76,3 +76,33 @@ test('ANNOTATION_REGEX — exposition publique pour interop tooling', () => {
   assert.ok(ANNOTATION_REGEX.verifiedBy instanceof RegExp);
   assert.ok(ANNOTATION_REGEX.governance instanceof RegExp);
 });
+
+test('parserAnnotations — les placeholders de doc ne sont PAS captés', () => {
+  // Régression : la doc/les templates de l'outil contiennent des placeholders
+  // (`SPEC-NNN-…`, `SPEC-XXX-…`, `INTENT-NNN`) qui ne doivent jamais être lus
+  // comme de vraies annotations lors d'un self-scan.
+  const src = `// @intent INTENT-NNN
+// @spec SPEC-NNN-N-slug
+// @spec SPEC-XXX-N-slug
+// @spec SPEC-NNN-x
+// @spec SPEC-NNN-`;
+  const r = parserAnnotations(src, 'lib/doc.js');
+  assert.equal(r.intents.length, 0, 'INTENT-NNN ne doit pas matcher');
+  assert.equal(r.specs.length, 0, 'les SPEC-NNN/XXX placeholders ne doivent pas matcher');
+});
+
+test('parserAnnotations — IDs réels (numériques) toujours captés', () => {
+  const src = `// @intent INTENT-005-context-pull
+// @spec SPEC-005-1-context-pull`;
+  const r = parserAnnotations(src, 'lib/real.js');
+  assert.deepEqual(r.intents.map((i) => i.id), ['INTENT-005-context-pull']);
+  assert.deepEqual(r.specs.map((s) => s.id), ['SPEC-005-1-context-pull']);
+});
+
+test('parserAnnotations — `aiad-trace-ignore` neutralise une ligne', () => {
+  // Échappatoire pour les exemples au format d'ID valide dans la doc.
+  const src = `// @spec SPEC-042-1-flow-auth   aiad-trace-ignore
+// @spec SPEC-001-1-real`;
+  const r = parserAnnotations(src, 'lib/sdd-trace.js');
+  assert.deepEqual(r.specs.map((s) => s.id), ['SPEC-001-1-real']);
+});

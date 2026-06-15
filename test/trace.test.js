@@ -100,6 +100,28 @@ test('construireMatrice — SPEC ready sans code applicatif = non-implémentée'
   }
 });
 
+test('construireMatrice — SPEC in-progress sans code = WIP non bloquant', () => {
+  // Régression : une SPEC en cours d'implémentation est un WIP assumé, pas un
+  // drift bloquant. Elle reste visible (non bloquante) via `specsSansCode`.
+  const dir = fixture();
+  try {
+    writeFileSync(
+      join(dir, '.aiad', 'intents', 'INTENT-005.md'),
+      `# Intent\n\nstatus: active\n`,
+    );
+    writeFileSync(
+      join(dir, '.aiad', 'specs', 'SPEC-005-1-wip.md'),
+      `# Spec en cours\n\n**Intent parent** : INTENT-005\nstatut: in-progress\n`,
+    );
+    const m = construireMatrice(dir);
+    assert.equal(m.gaps.specsValideesNonImplementees.length, 0, 'in-progress ne bloque pas');
+    assert.equal(m.gaps.specsSansCode.length, 1, 'mais reste visible (non bloquant)');
+    assert.equal(m.gaps.specsSansCode[0].id, 'SPEC-005-1-wip');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test('construireMatrice — fichier test sans @spec = non-tracé en backward', () => {
   const dir = fixture();
   try {
