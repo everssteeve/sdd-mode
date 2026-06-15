@@ -1,7 +1,7 @@
 ---
 id: INTENT-011
 title: Distribution plugin + boucles /goal + toggles de hooks (§3.13)
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-09
 specs: SPEC-011-1

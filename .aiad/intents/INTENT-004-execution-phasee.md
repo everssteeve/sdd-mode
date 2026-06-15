@@ -1,7 +1,7 @@
 ---
 id: INTENT-004
 title: Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-08
 specs: SPEC-004-1

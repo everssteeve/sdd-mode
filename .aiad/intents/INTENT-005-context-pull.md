@@ -1,7 +1,7 @@
 ---
 id: INTENT-005
 title: Budget d'instructions push → pull (gouvernance par paths, §3.7)
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-08
 specs: SPEC-005-1

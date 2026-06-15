@@ -4300,25 +4300,6 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
-            "text": "Aucune annotation @spec dans lib/emit-rules.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/emit-rules.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
             "text": "Aucune annotation @spec dans lib/esm-import.js."
           },
           "locations": [
@@ -5067,25 +5048,6 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "lib/self-update.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
-            "text": "Aucune annotation @spec dans lib/skills.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/skills.js"
                 },
                 "region": {
                   "startLine": 1
@@ -5915,7 +5877,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-12T13:16:19.319Z"
+          "endTimeUtc": "2026-06-15T14:14:41.257Z"
         }
       ]
     }

@@ -17,6 +17,21 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-15 — SPEC-002-1 → 012-1 + INTENT-002 → 012 — Rattrapage de board (done)
+
+**Auteur** : Steeve Evers
+**Raison** : Board drift inverse — la vague §3.x (gouvernance enforced, research,
+exécution phasée, gouvernance pull, canary, memory, cycle-graph, observabilité,
+cross-model, hooks toggles, garde-fous) était livrée et testée sans que les
+statuts d'index/frontmatter n'aient été mis à jour. Réalité du code : 11
+implémentations `lib/` + 11 tests dédiés présents. Alignement des artefacts.
+**Impact** : `.aiad/specs/_index.md` (11 lignes in-progress → done),
+`.aiad/intents/_index.md` (11 lignes active → done), 11 frontmatters SPEC + 11
+frontmatters INTENT (002→012). `SPEC-013-1a` et la légende laissés inchangés.
+**Réserve traçabilité** : `SPEC-005-1` (gouvernance pull) est implémentée
+(`lib/emit-rules.js`, `.claude/rules/`, `emit-rules-pull.test.js`) mais ne porte
+**aucune annotation `@spec`** dans le code → gap `/sdd trace` à combler.
+
 ## 2026-06-12 — INTENT-013 + SPEC-013-1a — done (site v1.18 publié)
 
 **Auteur** : Steeve Evers

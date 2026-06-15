@@ -1,7 +1,7 @@
 ---
 id: INTENT-002
 title: Gouvernance SDD enforced par le harness (advisory → enforced)
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-08
 specs: SPEC-002-1

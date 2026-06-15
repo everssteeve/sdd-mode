@@ -1,7 +1,7 @@
 ---
 id: INTENT-006
 title: Canary suite + alignement des références modèles (§3.10)
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-09
 specs: SPEC-006-1

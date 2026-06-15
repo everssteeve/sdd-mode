@@ -2,7 +2,7 @@
 id: SPEC-011-1
 title: Toggles de hooks + boucles /goal + packaging plugin (§3.13 SPEC-A + SPEC-B)
 parent_intent: INTENT-011
-status: in-progress
+status: done
 format: prose
 sqs: 4.1
 author: Steeve Evers

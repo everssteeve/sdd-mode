@@ -7,17 +7,17 @@
 | ID | Titre | Auteur | Date | SPECs liées | Statut |
 |----|-------|--------|------|-------------|--------|
 | INTENT-001 | Feedback qualitatif utilisateurs SDD Mode | Steeve Evers | 2026-05-29 | SPEC-001-1 | done |
-| INTENT-002 | Gouvernance SDD enforced par le harness (advisory → enforced) | Steeve Evers | 2026-06-08 | SPEC-002-1 | active |
-| INTENT-003 | Phase Research + Discovery obligatoire avant la SPEC (§3.5) | Steeve Evers | 2026-06-08 | SPEC-003-1 | active |
-| INTENT-004 | Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6) | Steeve Evers | 2026-06-08 | SPEC-004-1 | active |
-| INTENT-005 | Budget d'instructions push → pull (gouvernance par paths, §3.7) | Steeve Evers | 2026-06-08 | SPEC-005-1 | active |
-| INTENT-006 | Canary suite + alignement des références modèles (§3.10) | Steeve Evers | 2026-06-09 | SPEC-006-1 | active |
-| INTENT-007 | Memory native — promotion from logs + anti dock rot (§3.8) | Steeve Evers | 2026-06-09 | SPEC-007-1 | active |
-| INTENT-008 | Cycle SDD comme graphe de Tasks (§3.9) | Steeve Evers | 2026-06-09 | SPEC-008-1 | active |
-| INTENT-009 | Observabilité native — statusLine + OTel + usage skills (§3.11) | Steeve Evers | 2026-06-09 | SPEC-009-1 | active |
-| INTENT-010 | Cross-model review additive-only (§3.12) | Steeve Evers | 2026-06-09 | SPEC-010-1 | active |
-| INTENT-011 | Distribution plugin + /goal + toggles de hooks (§3.13) | Steeve Evers | 2026-06-09 | SPEC-011-1 | active |
-| INTENT-012 | Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4) | Steeve Evers | 2026-06-09 | SPEC-012-1 | active |
+| INTENT-002 | Gouvernance SDD enforced par le harness (advisory → enforced) | Steeve Evers | 2026-06-08 | SPEC-002-1 | done |
+| INTENT-003 | Phase Research + Discovery obligatoire avant la SPEC (§3.5) | Steeve Evers | 2026-06-08 | SPEC-003-1 | done |
+| INTENT-004 | Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6) | Steeve Evers | 2026-06-08 | SPEC-004-1 | done |
+| INTENT-005 | Budget d'instructions push → pull (gouvernance par paths, §3.7) | Steeve Evers | 2026-06-08 | SPEC-005-1 | done |
+| INTENT-006 | Canary suite + alignement des références modèles (§3.10) | Steeve Evers | 2026-06-09 | SPEC-006-1 | done |
+| INTENT-007 | Memory native — promotion from logs + anti dock rot (§3.8) | Steeve Evers | 2026-06-09 | SPEC-007-1 | done |
+| INTENT-008 | Cycle SDD comme graphe de Tasks (§3.9) | Steeve Evers | 2026-06-09 | SPEC-008-1 | done |
+| INTENT-009 | Observabilité native — statusLine + OTel + usage skills (§3.11) | Steeve Evers | 2026-06-09 | SPEC-009-1 | done |
+| INTENT-010 | Cross-model review additive-only (§3.12) | Steeve Evers | 2026-06-09 | SPEC-010-1 | done |
+| INTENT-011 | Distribution plugin + /goal + toggles de hooks (§3.13) | Steeve Evers | 2026-06-09 | SPEC-011-1 | done |
+| INTENT-012 | Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4) | Steeve Evers | 2026-06-09 | SPEC-012-1 | done |
 | INTENT-013 | Zéro drift sur soi-même — site et docs alignés sur la version livrée | Steeve Evers | 2026-06-11 | SPEC-013-1a/2/3/4a done · 1b archiv · 4b draft | done |
 | INTENT-014 | Empirisme prouvé — gates qualité actifs et claims sourcés | Steeve Evers | 2026-06-11 | — | draft |
 | INTENT-015 | Sobriété du CLI — noyau assumé, longue traîne extraite | Steeve Evers | 2026-06-11 | — | draft |

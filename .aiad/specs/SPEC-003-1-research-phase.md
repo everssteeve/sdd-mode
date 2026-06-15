@@ -2,7 +2,7 @@
 id: SPEC-003-1
 title: Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)
 parent_intent: INTENT-003
-status: in-progress
+status: done
 format: prose
 sqs: 4.4
 author: Steeve Evers

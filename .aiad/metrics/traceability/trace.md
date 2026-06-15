@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-12T13:16:19.319Z
+> Généré le 2026-06-15T14:14:41.257Z
 
 ## Synthèse
 
@@ -8,7 +8,7 @@
 |----------|--------|
 | Intents | 23 |
 | SPECs | 20 |
-| Fichiers code | 318 (annotés : 41) |
+| Fichiers code | 318 (annotés : 42) |
 | Fichiers test | 244 (annotés : 24) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
@@ -19,7 +19,7 @@
 | INTENT-002-gouvernance-enforced | SPEC-002-1-gouvernance-enforced | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` | `test/dashboard-pm-v39.test.js`<br/>`test/suggest-annotations.test.js`<br/>`test/trace-cache.test.js`<br/>`test/drift-verdict.test.js`<br/>`test/jnsp.test.js`<br/>`test/verdict.test.js`<br/>`test/veto.test.js` | ✅ |
 | INTENT-003-research-phase | SPEC-003-1-research-phase | `lib/research.js` | `test/research.test.js` | ✅ |
 | INTENT-004-execution-phasee | SPEC-004-1-execution-phasee | `lib/exec-status.js`<br/>`lib/mini-gate.js` | `test/exec-status.test.js`<br/>`test/mini-gate.test.js` | ✅ |
-| INTENT-005-context-pull | SPEC-005-1-context-pull | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-005-context-pull | SPEC-005-1-context-pull | `lib/emit-rules.js`<br/>`lib/skills.js` | `test/annotations.test.js`<br/>`test/emit-rules-pull.test.js`<br/>`tests/path/file.test.ts`<br/>`test/skills.test.js` | ✅ |
 | INTENT-006-canary-suite | SPEC-006-1-canary-suite | `lib/canary.js` | `test/canary.test.js` | ✅ |
 | INTENT-007-memory-native | SPEC-007-1-memory-native | `lib/memory.js` | `test/spec-suggester.test.js`<br/>`test/memory.test.js` | ✅ |
 | INTENT-008-cycle-graph | SPEC-008-1-cycle-graph | `lib/cycle-graph.js` | `test/cycle-graph.test.js` | ✅ |
@@ -58,6 +58,8 @@
 | `test/annotations.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/annotations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/annotations.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/annotations.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/annotations.test.js` | SPEC-005-1-context-pull | INTENT-005-context-pull | `lib/emit-rules.js`<br/>`lib/skills.js` |
 | `test/annotations.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/anonymize.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/archive.test.js` | SPEC-009-1-observabilite-native | INTENT-009-observabilite-native | `lib/statusline.js` |
@@ -357,8 +359,7 @@
   - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
   - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
   - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
-- SPECs sans code (hors draft/review) : **5**
-  - SPEC-005-1-context-pull (statut : in-progress)
+- SPECs sans code (hors draft/review) : **4**
   - SPEC-013-1-deploiement-site-valeurs (statut : split)
   - SPEC-013-1a-deploiement-site (statut : in-progress)
   - SPEC-013-1b-unification-7-valeurs (statut : archived)
@@ -370,7 +371,7 @@
 - SPECs validées sans code (statut ready/validation/done) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **296**
+- Code sans `@spec` : **294**
   - .aiad/hooks/discovery-gate.js
   - .aiad/hooks/drift-lock.js
   - .aiad/hooks/jnsp-scan.js
@@ -421,5 +422,5 @@
   - lib/dashboard/bottlenecks.js
   - lib/dashboard/brief-pm.js
   - lib/dashboard/burnup-chart.js
-  - … (+246 autres)
+  - … (+244 autres)
 - Code annoté sans tests liés : **0**

@@ -2,7 +2,7 @@
 id: SPEC-005-1
 title: Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)
 parent_intent: INTENT-005
-status: in-progress
+status: done
 format: prose
 sqs: 4.2
 author: Steeve Evers
@@ -13,7 +13,7 @@ date: 2026-06-08
 
 **Intent parent** : INTENT-005
 **SQS** : 4.2 / 5
-**Statut** : in-progress
+**Statut** : done
 
 ## Objectif
 

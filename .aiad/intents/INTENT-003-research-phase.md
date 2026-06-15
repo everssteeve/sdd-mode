@@ -1,7 +1,7 @@
 ---
 id: INTENT-003
 title: Phase Research + Discovery obligatoire avant la SPEC (§3.5)
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-08
 specs: SPEC-003-1

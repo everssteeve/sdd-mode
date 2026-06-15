@@ -2,7 +2,7 @@
 id: SPEC-004-1
 title: Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)
 parent_intent: INTENT-004
-status: in-progress
+status: done
 format: prose
 sqs: 4.4
 author: Steeve Evers

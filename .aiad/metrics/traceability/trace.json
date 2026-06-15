@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-12T13:16:19.320Z"
+    "generated": "2026-06-15T14:14:41.257Z"
   },
-  "generatedAt": "2026-06-12T13:16:19.319Z",
+  "generatedAt": "2026-06-15T14:14:41.257Z",
   "summary": {
     "intents": 23,
     "specs": 20,
     "codeFiles": 318,
-    "annotatedCodeFiles": 41,
+    "annotatedCodeFiles": 42,
     "testFiles": 244,
     "annotatedTestFiles": 24
   },
@@ -137,7 +137,7 @@
         "id": "INTENT-002-gouvernance-enforced",
         "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
         "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -146,7 +146,7 @@
             "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
             "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
             "parentIntent": "INTENT-002",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
@@ -208,7 +208,7 @@
         "id": "INTENT-003-research-phase",
         "file": ".aiad/intents/INTENT-003-research-phase.md",
         "title": "Phase Research + Discovery obligatoire avant la SPEC (§3.5)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -217,7 +217,7 @@
             "file": ".aiad/specs/SPEC-003-1-research-phase.md",
             "title": "Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-003",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
@@ -240,7 +240,7 @@
         "id": "INTENT-004-execution-phasee",
         "file": ".aiad/intents/INTENT-004-execution-phasee.md",
         "title": "Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -249,7 +249,7 @@
             "file": ".aiad/specs/SPEC-004-1-execution-phasee.md",
             "title": "Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-004",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
@@ -281,7 +281,7 @@
         "id": "INTENT-005-context-pull",
         "file": ".aiad/intents/INTENT-005-context-pull.md",
         "title": "Budget d'instructions push → pull (gouvernance par paths, §3.7)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -290,10 +290,39 @@
             "file": ".aiad/specs/SPEC-005-1-context-pull.md",
             "title": "Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-005",
-            "status": "in-progress"
+            "status": "done"
           },
-          "code": [],
-          "tests": []
+          "code": [
+            {
+              "path": "lib/emit-rules.js",
+              "line": 188
+            },
+            {
+              "path": "lib/skills.js",
+              "line": 33
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/annotations.test.js",
+              "line": 96
+            },
+            {
+              "path": "test/emit-rules-pull.test.js",
+              "line": 189,
+              "viaCode": true
+            },
+            {
+              "path": "tests/path/file.test.ts",
+              "line": 388,
+              "viaCode": true
+            },
+            {
+              "path": "test/skills.test.js",
+              "line": 34,
+              "viaCode": true
+            }
+          ]
         }
       ]
     },
@@ -302,7 +331,7 @@
         "id": "INTENT-006-canary-suite",
         "file": ".aiad/intents/INTENT-006-canary-suite.md",
         "title": "Canary suite + alignement des références modèles (§3.10)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -311,7 +340,7 @@
             "file": ".aiad/specs/SPEC-006-1-canary-suite.md",
             "title": "Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-006",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
@@ -334,7 +363,7 @@
         "id": "INTENT-007-memory-native",
         "file": ".aiad/intents/INTENT-007-memory-native.md",
         "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -343,7 +372,7 @@
             "file": ".aiad/specs/SPEC-007-1-memory-native.md",
             "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-007",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
@@ -370,7 +399,7 @@
         "id": "INTENT-008-cycle-graph",
         "file": ".aiad/intents/INTENT-008-cycle-graph.md",
         "title": "Cycle SDD comme graphe de Tasks (§3.9)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -379,7 +408,7 @@
             "file": ".aiad/specs/SPEC-008-1-cycle-graph.md",
             "title": "Cycle SDD comme graphe de Tasks (§3.9)",
             "parentIntent": "INTENT-008",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
@@ -402,7 +431,7 @@
         "id": "INTENT-009-observabilite-native",
         "file": ".aiad/intents/INTENT-009-observabilite-native.md",
         "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -411,7 +440,7 @@
             "file": ".aiad/specs/SPEC-009-1-observabilite-native.md",
             "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
             "parentIntent": "INTENT-009",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
@@ -438,7 +467,7 @@
         "id": "INTENT-010-cross-model-review",
         "file": ".aiad/intents/INTENT-010-cross-model-review.md",
         "title": "Cross-model review additive-only (§3.12)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -447,7 +476,7 @@
             "file": ".aiad/specs/SPEC-010-1-cross-model-review.md",
             "title": "Cross-model review additive-only (§3.12)",
             "parentIntent": "INTENT-010",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
@@ -470,7 +499,7 @@
         "id": "INTENT-011-distribution-plugin-goal",
         "file": ".aiad/intents/INTENT-011-distribution-plugin-goal.md",
         "title": "Distribution plugin + boucles /goal + toggles de hooks (§3.13)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -479,7 +508,7 @@
             "file": ".aiad/specs/SPEC-011-1-hooks-toggles.md",
             "title": "Toggles de hooks + boucles /goal + packaging plugin (§3.13 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-011",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
@@ -502,7 +531,7 @@
         "id": "INTENT-012-garde-fous",
         "file": ".aiad/intents/INTENT-012-garde-fous.md",
         "title": "Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -511,7 +540,7 @@
             "file": ".aiad/specs/SPEC-012-1-garde-fous.md",
             "title": "Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)",
             "parentIntent": "INTENT-012",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
@@ -955,6 +984,76 @@
     },
     {
       "test": {
+        "path": "test/annotations.test.js",
+        "line": 96
+      },
+      "spec": {
+        "id": "SPEC-005-1-context-pull",
+        "file": ".aiad/specs/SPEC-005-1-context-pull.md",
+        "title": "Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)",
+        "parentIntent": "INTENT-005",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-005-context-pull",
+        "file": ".aiad/intents/INTENT-005-context-pull.md",
+        "title": "Budget d'instructions push → pull (gouvernance par paths, §3.7)",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "lib/emit-rules.js",
+          "line": 188
+        },
+        {
+          "path": "lib/skills.js",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/annotations.test.js",
+        "line": 105
+      },
+      "spec": {
+        "id": "SPEC-001-1-feedback-qualitatif",
+        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
+        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
+        "parentIntent": "INTENT-001",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-001-feedback-qualitatif",
+        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
+        "title": "Feedback qualitatif utilisateurs SDD Mode",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
+        {
+          "path": "lib/tour.js",
+          "line": 146
+        },
+        {
+          "path": "scripts/bench-trace.js",
+          "line": 55
+        },
+        {
+          "path": "templates/projects/fastapi-aiad/app/main.py",
+          "line": 4
+        },
+        {
+          "path": "templates/projects/node-aiad/src/index.js",
+          "line": 2
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/anonymize.test.js",
         "line": 0
       },
@@ -972,13 +1071,13 @@
         "file": ".aiad/specs/SPEC-009-1-observabilite-native.md",
         "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
         "parentIntent": "INTENT-009",
-        "status": "in-progress"
+        "status": "done"
       },
       "intent": {
         "id": "INTENT-009-observabilite-native",
         "file": ".aiad/intents/INTENT-009-observabilite-native.md",
         "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -1722,13 +1821,13 @@
         "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
         "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
         "parentIntent": "INTENT-002",
-        "status": "in-progress"
+        "status": "done"
       },
       "intent": {
         "id": "INTENT-002-gouvernance-enforced",
         "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
         "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -3763,13 +3862,13 @@
         "file": ".aiad/specs/SPEC-007-1-memory-native.md",
         "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)",
         "parentIntent": "INTENT-007",
-        "status": "in-progress"
+        "status": "done"
       },
       "intent": {
         "id": "INTENT-007-memory-native",
         "file": ".aiad/intents/INTENT-007-memory-native.md",
         "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8)",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -3966,13 +4065,13 @@
         "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
         "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
         "parentIntent": "INTENT-002",
-        "status": "in-progress"
+        "status": "done"
       },
       "intent": {
         "id": "INTENT-002-gouvernance-enforced",
         "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
         "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -4230,13 +4329,13 @@
         "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
         "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
         "parentIntent": "INTENT-002",
-        "status": "in-progress"
+        "status": "done"
       },
       "intent": {
         "id": "INTENT-002-gouvernance-enforced",
         "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
         "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -4783,13 +4882,6 @@
       }
     ],
     "specsSansCode": [
-      {
-        "id": "SPEC-005-1-context-pull",
-        "file": ".aiad/specs/SPEC-005-1-context-pull.md",
-        "title": "Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)",
-        "parentIntent": "INTENT-005",
-        "status": "in-progress"
-      },
       {
         "id": "SPEC-013-1-deploiement-site-valeurs",
         "file": ".aiad/specs/SPEC-013-1-deploiement-site-valeurs.md",
@@ -7346,29 +7438,6 @@
         "annotated": true
       },
       {
-        "path": "lib/emit-rules.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [
-            {
-              "path": "tests/path/file.test.ts",
-              "line": 379
-            }
-          ],
-          "governance": [
-            {
-              "tags": [
-                "AIAD-RGPD"
-              ],
-              "line": 380
-            }
-          ]
-        },
-        "annotated": true
-      },
-      {
         "path": "lib/esm-import.js",
         "isTest": false,
         "annotations": {
@@ -7824,17 +7893,6 @@
       },
       {
         "path": "lib/self-update.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/skills.js",
         "isTest": false,
         "annotations": {
           "intents": [],

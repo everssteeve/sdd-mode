@@ -2,7 +2,7 @@
 id: SPEC-002-1
 title: Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)
 parent_intent: INTENT-002
-status: in-progress
+status: done
 format: prose
 sqs: 4.4
 author: Steeve Evers

@@ -1,8 +1,8 @@
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 ---
 generated-by: aiad-emit-rules v1.18.0
-source-hash: aad6af3f795db48a
-intent_id: INTENT-002
+source-hash: e931bf798acfefa1
+intent_id: INTENT-023
 ---
 
 # Codex Agent — AIAD SDD

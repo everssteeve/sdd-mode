@@ -1,7 +1,7 @@
 ---
 id: INTENT-010
 title: Cross-model review additive-only (§3.12)
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-09
 specs: SPEC-010-1

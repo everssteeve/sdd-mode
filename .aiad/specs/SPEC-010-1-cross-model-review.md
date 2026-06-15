@@ -2,7 +2,7 @@
 id: SPEC-010-1
 title: Cross-model review additive-only (§3.12)
 parent_intent: INTENT-010
-status: in-progress
+status: done
 format: prose
 sqs: 4.1
 author: Steeve Evers

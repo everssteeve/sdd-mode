@@ -2,7 +2,7 @@
 id: SPEC-006-1
 title: Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)
 parent_intent: INTENT-006
-status: in-progress
+status: done
 format: prose
 sqs: 4.2
 author: Steeve Evers

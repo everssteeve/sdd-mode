@@ -1,7 +1,7 @@
 ---
 id: INTENT-009
 title: Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-09
 specs: SPEC-009-1
