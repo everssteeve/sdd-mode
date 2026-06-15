@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-15T23:04:42.431Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>INTENT-103-retention-30j — Rétention J+30 stabilisée à 55 % — url-shortener-bench</title>
+<meta name="description" content="INTENT-103-retention-30j — Rétention J+30 stabilisée à 55 % — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="INTENT-103-retention-30j — Rétention J+30 stabilisée à 55 % — url-shortener-bench"/>
+<meta property="og:description" content="INTENT-103-retention-30j — Rétention J+30 stabilisée à 55 % — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="INTENT-103-retention-30j — Rétention J+30 stabilisée à 55 % — url-shortener-bench"/>
+<meta name="twitter:description" content="INTENT-103-retention-30j — Rétention J+30 stabilisée à 55 % — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">url-shortener-bench</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v0.1.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 16/05/2026 01:04:42<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>INTENT-103-retention-30j — Rétention J+30 stabilisée à 55 %</h1>
+      <div class="subtitle">Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 16/05/2026 01:04:42. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">url-shortener-bench · v0.1.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+    .ip-cols { display:grid; grid-template-columns: 1fr 280px; gap: 1.5rem; align-items: start; }
+    @media (max-width: 900px) { .ip-cols { grid-template-columns: 1fr; } }
+    .ip-meta table { width:100%; font-size:.85rem; }
+    .ip-meta td { padding:.25rem .4rem; vertical-align:top; }
+    .ip-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+    .ip-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+    .ip-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+    .ip-sections pre { margin:0; white-space:pre-wrap; font-family: inherit; font-size:.88rem; line-height:1.45; }
+    .ip-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+    .ip-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+    .ip-actions a:hover { background:rgba(76,110,245,.18); }
+  </style>
+<div class="ip-cols">
+  <div class="ip-sections">
+    <h2><a class="src-link" href="../.aiad/intents/INTENT-103-retention-30j.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-103-retention-30j.md">INTENT-103-retention-30j</a> — Rétention J+30 stabilisée à 55 %</h2>
+    <section><h3>POURQUOI MAINTENANT</h3><div class="md-light"><p>Rétention J+30 oscille entre 38 % et 52 % depuis 3 mois. Le board veut une stabilité ≥ 55 % pour passer la phase de scale-up.</p></div></section><section><h3>POUR QUI</h3><div class="md-light"><p>Cohorte utilisateurs activés (≥ 1 lien créé dans les 24 h).</p></div></section><section><h3>OBJECTIF</h3><div class="md-light"><p>Atteindre 55 % de rétention J+30 stable sur 4 cohortes consécutives.</p></div></section><section><h3>CONTRAINTES</h3><div class="md-light"><ul><li>RGESN (limiter notifications / push)</li><li>Pas d&#39;ajout de feature majeure — uniquement boucle réengagement existante</li></ul></div></section><section><h3>CRITÈRE DE DRIFT</h3><div class="md-light"><p>Si une cohorte tombe sous 45 % → drift, on stoppe les itérations et on revoit la boucle d&#39;engagement à partir des données comportementales.</p></div></section>
+    <section><h3>SPECs liées</h3><p class="muted" style="font-size:.85rem">Avancement : <strong>0/1</strong> SPECs livrées (0 %), 0 en cours.</p><table><thead><tr><th>ID</th><th>Titre</th><th>Statut</th><th>SQS</th></tr></thead><tbody><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-103-1-relance-email.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-103-1-relance-email.md">SPEC-103-1-relance-email</a></td>
+      <td>Email de relance semaine 2</td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td class="muted">4</td>
+    </tr></tbody></table></section>
+    <section><h3>Risques</h3><p>Niveau global : <strong>medium</strong></p><div></div></section>
+    <section><h3>Hypothèse</h3><p><span class="badge badge-info">partial</span></p><pre>Une boucle email à J+7 sur les utilisateurs inactifs augmentera la rétention J+30 à &gt;55 %</pre></section>
+    <section><h3>Dépendances</h3><p><strong>Bloqué par</strong> : <a class="src-link" href="../.aiad/intents/INTENT-102-onboarding-mobile.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-102-onboarding-mobile.md">INTENT-102-onboarding-mobile</a> (running)</p><p><strong>Bloque</strong> : <em class="muted">aucun</em></p></section>
+    <div class="ip-actions">
+      <a href="pm.html">← Cockpit PM</a>
+      <a href="intents.html">← Catalogue Intents</a>
+      <a href="../.aiad/intents/INTENT-103-retention-30j.md" target="_blank">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="ip-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .3rem">Métadonnées</h3>
+    <table><tr><td><strong>Statut</strong></td><td><span class="badge badge-ok">active</span></td></tr><tr><td><strong>Priorité</strong></td><td><span class="badge badge-info" title="P2 — planifié">P2</span></td></tr><tr><td><strong>Owner</strong></td><td>Steeve</td></tr><tr><td><strong>Sponsor</strong></td><td>Direction Marketing</td></tr><tr><td><strong>Target</strong></td><td>Q3-2026</td></tr><tr><td><strong>OKR</strong></td><td><code>KR-1.3</code></td></tr><tr><td><strong>Kind</strong></td><td><code>discovery</code></td></tr><tr><td><strong>Tags</strong></td><td><span class="badge badge-info" style="font-size:.75rem">#retention</span> <span class="badge badge-info" style="font-size:.75rem">#email</span> <span class="badge badge-info" style="font-size:.75rem">#q3</span> <span class="badge badge-info" style="font-size:.75rem">#growth</span> <span class="badge badge-info" style="font-size:.75rem">#llm</span></td></tr><tr><td><strong>Date</strong></td><td>2026-04-20</td></tr><tr><td><strong>Auteur</strong></td><td>Steeve</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

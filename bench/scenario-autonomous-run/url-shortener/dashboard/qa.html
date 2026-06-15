@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-15T23:04:42.431Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Quality Assurance — url-shortener-bench</title>
+<meta name="description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Quality Assurance — url-shortener-bench"/>
+<meta property="og:description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta property="og:url" content="qa.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Quality Assurance — url-shortener-bench"/>
+<meta name="twitter:description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">url-shortener-bench</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v0.1.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="active">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 16/05/2026 01:04:42<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>Quality Assurance</h1>
+      <div class="subtitle">Queue, coverage, audit, EARS lint, régressions</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 16/05/2026 01:04:42. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">url-shortener-bench · v0.1.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  
+<div class="kpis">
+    <div class="kpi warn">
+      <div class="label">SPECs ready sans tests</div>
+      <div class="value">2</div>
+      <div class="delta">queue actionnable QA</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Audits VALIDÉ</div>
+      <div class="value">0</div>
+      <div class="delta">sur 0 audit(s)</div>
+    </div>
+    <div class="kpi ">
+      <div class="label">CORRECTIONS demandées</div>
+      <div class="value">0</div>
+      <div class="delta">à reprendre</div>
+    </div>
+    <div class="kpi ok">
+      <div class="label">REJETS</div>
+      <div class="value">0</div>
+      <div class="delta">audit qualité bloquant</div>
+    </div>
+    <div class="kpi ok">
+      <div class="label">SPECs EARS à re-linter</div>
+      <div class="value">0</div>
+      <div class="delta">0 SPEC(s) EARS</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Tests ajoutés cette semaine</div>
+      <div class="value">0</div>
+      <div class="delta">fichiers .test/.spec mtime &lt; 7j</div>
+    </div>
+  </div>
+
+<section>
+  <h2>Queue QA — SPECs ready sans tests <span class="count">2 ouverture(s)</span></h2>
+  <div class="filter"><input type="search" id="qQaQueue" data-filter-target="tQaQueue" placeholder="Filtrer la queue QA…" autocomplete="off"/></div>
+      <table id="tQaQueue" data-sortable="true">
+        <thead><tr><th>ID</th><th>Titre</th><th>Statut</th><th>Intent</th><th>Fichiers code</th></tr></thead>
+        <tbody>
+    <tr><td><a class="src-link" href="../.aiad/specs/SPEC-101-1-formulaire-paiement.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-1-formulaire-paiement.md">SPEC-101-1-formulaire-paiement</a></td><td>Formulaire de paiement v2</td>
+    <td><span class="badge badge-ok">done</span></td>
+    <td><a class="src-link" href="../.aiad/intents/INTENT-101-conversion-checkout.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-101-conversion-checkout.md">INTENT-101-conversion-checkout</a></td>
+    <td class="muted">0</td></tr>
+    <tr><td><a class="src-link" href="../.aiad/specs/SPEC-103-1-relance-email.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-103-1-relance-email.md">SPEC-103-1-relance-email</a></td><td>Email de relance semaine 2</td>
+    <td><span class="badge badge-info">ready</span></td>
+    <td><a class="src-link" href="../.aiad/intents/INTENT-103-retention-30j.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-103-retention-30j.md">INTENT-103-retention-30j</a></td>
+    <td class="muted">0</td></tr></tbody>
+      </table>
+</section>
+
+<section>
+  <h2>Coverage par SPEC <span class="count">3 SPEC(s)</span></h2>
+  <p class="muted">Coverage heuristique (ratio tests/code). Pour un coverage réel, écris <code>.aiad/metrics/tests/coverage-summary.json</code> en sortie de c8/istanbul.</p>
+  <div class="filter"><input type="search" id="qQaCoverage" data-filter-target="tQaCoverage" placeholder="Filtrer par ID, titre, bande…" autocomplete="off"/></div>
+      <table id="tQaCoverage" data-sortable="true">
+        <thead><tr><th>ID</th><th>Titre</th><th>Code</th><th>Tests</th><th>Couverture</th><th>Source</th></tr></thead>
+        <tbody><tr><td><a class="src-link" href="../.aiad/specs/SPEC-101-1-formulaire-paiement.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-1-formulaire-paiement.md">SPEC-101-1-formulaire-paiement</a></td><td>Formulaire de paiement v2</td>
+      <td class="muted">0</td><td class="muted">0</td>
+      <td><span class="badge ">—</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-101-2-relance-panier.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-2-relance-panier.md">SPEC-101-2-relance-panier</a></td><td>Relance panier abandonné</td>
+      <td class="muted">0</td><td class="muted">0</td>
+      <td><span class="badge ">—</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-103-1-relance-email.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-103-1-relance-email.md">SPEC-103-1-relance-email</a></td><td>Email de relance semaine 2</td>
+      <td class="muted">0</td><td class="muted">0</td>
+      <td><span class="badge ">—</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr></tbody>
+      </table>
+</section>
+
+<section>
+  <h2>EARS lint <span class="count">0 SPEC(s) EARS · 0 à re-linter</span></h2>
+  <div class="empty">Aucune SPEC au format EARS. Utilise <code>/sdd spec --ears</code> pour les domaines sensibles (sécurité, paiement, conformité).</div>
+</section>
+
+<section>
+  <h2>Tests ajoutés cette semaine <span class="count">0 fichier(s)</span></h2>
+  <div class="empty">Aucun fichier de test modifié dans les 7 derniers jours.</div>
+</section>
+
+
+<section>
+  <h2>Régressions détectées</h2>
+  <div class="empty"><strong>Aucun historique CI.</strong>Pour activer la détection, append une ligne JSON à <code>.aiad/metrics/tests/runs.jsonl</code> après chaque run de tests : <code>{"ts":...,"sha":"...","total":N,"passed":N,"failed":N,"failingTests":[]}</code>. Une simple commande post-run en CI suffit.</div>
+</section>
+
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

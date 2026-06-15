@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-15T23:04:42.431Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Graphe de connaissances — url-shortener-bench</title>
+<meta name="description" content="Graphe de connaissances — Visualisation D3 force-directed Intent ↔ SPEC ↔ Code ↔ Gouvernance · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Graphe de connaissances — url-shortener-bench"/>
+<meta property="og:description" content="Graphe de connaissances — Visualisation D3 force-directed Intent ↔ SPEC ↔ Code ↔ Gouvernance · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta property="og:url" content="graph.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Graphe de connaissances — url-shortener-bench"/>
+<meta name="twitter:description" content="Graphe de connaissances — Visualisation D3 force-directed Intent ↔ SPEC ↔ Code ↔ Gouvernance · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">url-shortener-bench</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v0.1.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="active">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 16/05/2026 01:04:42<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>Graphe de connaissances</h1>
+      <div class="subtitle">Visualisation D3 force-directed Intent ↔ SPEC ↔ Code ↔ Gouvernance</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 16/05/2026 01:04:42. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">url-shortener-bench · v0.1.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  
+<section class="graph-section">
+  <div class="graph-toolbar">
+    <div class="graph-stats">
+      <span><strong>15</strong> nœuds · <strong>29</strong> arêtes</span>
+    </div>
+    <div class="graph-filters">
+      <label class="graph-filter"><input type="checkbox" data-type="intent" checked> <span class="dot" style="background:#ec4899"></span> intent (3)</label><label class="graph-filter"><input type="checkbox" data-type="spec" checked> <span class="dot" style="background:#3b82f6"></span> spec (3)</label><label class="graph-filter"><input type="checkbox" data-type="code" checked> <span class="dot" style="background:#10b981"></span> code (0)</label><label class="graph-filter"><input type="checkbox" data-type="test" checked> <span class="dot" style="background:#f59e0b"></span> test (0)</label><label class="graph-filter"><input type="checkbox" data-type="governance" checked> <span class="dot" style="background:#8b5cf6"></span> governance (9)</label>
+    </div>
+    <div class="graph-search">
+      <input type="search" id="graph-search" placeholder="Rechercher un nœud (Cmd+F)">
+    </div>
+  </div>
+  <div id="graph-canvas" style="width:100%;height:600px;border:1px solid var(--border, #ccc);border-radius:8px;background:var(--bg-soft, #fafafa);"></div>
+  <div class="graph-legend" style="margin-top:1rem;font-size:0.9em;color:var(--text-muted, #666);">
+    <strong>Légende</strong> :
+    <span style="color:#ec4899">● Intent</span>
+    <span style="color:#3b82f6">● SPEC</span>
+    <span style="color:#10b981">● Code</span>
+    <span style="color:#f59e0b">● Test</span>
+    <span style="color:#8b5cf6">● Agent gouvernance</span>
+  </div>
+</section>
+<!-- (#248) D3 CDN sans SRI : le hash sha384 hardcodé devenait obsolète a
+     chaque republication mineure jsdelivr -> SRI fail bloquait le rendu.
+     Pour re-ajouter SRI : pinner a une version exacte (ex: d3@7.9.0) et
+     coller son hash sha384 depuis https://www.srihash.org ou jsdelivr UI.
+     La CSP script-src https://cdn.jsdelivr.net (#246) protege la source. -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" crossorigin="anonymous"></script>
+<script>
+  (function() {
+    const data = {"nodes":[{"id":"INTENT-101-conversion-checkout","type":"intent","label":"INTENT-101-conversion-checkout","humanAuthorship":false},{"id":"INTENT-102-onboarding-mobile","type":"intent","label":"INTENT-102-onboarding-mobile","humanAuthorship":false},{"id":"INTENT-103-retention-30j","type":"intent","label":"INTENT-103-retention-30j","humanAuthorship":false},{"id":"SPEC-101-1-formulaire-paiement","type":"spec","label":"SPEC-101-1-formulaire-paiement","governance":"AIAD-RGPD, AIAD-RGAA"},{"id":"A","type":"governance","label":"A"},{"id":"I","type":"governance","label":"I"},{"id":"D","type":"governance","label":"D"},{"id":"-","type":"governance","label":"-"},{"id":"R","type":"governance","label":"R"},{"id":"G","type":"governance","label":"G"},{"id":"P","type":"governance","label":"P"},{"id":",","type":"governance","label":","},{"id":" ","type":"governance","label":" "},{"id":"SPEC-101-2-relance-panier","type":"spec","label":"SPEC-101-2-relance-panier","governance":"AIAD-RGPD"},{"id":"SPEC-103-1-relance-email","type":"spec","label":"SPEC-103-1-relance-email","governance":[]}],"links":[{"source":"SPEC-101-1-formulaire-paiement","target":"A","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"I","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"A","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"D","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"-","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"R","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"G","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"P","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"D","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":",","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":" ","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"A","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"I","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"A","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"D","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"-","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"R","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"G","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"A","type":"governance"},{"source":"SPEC-101-1-formulaire-paiement","target":"A","type":"governance"},{"source":"SPEC-101-2-relance-panier","target":"A","type":"governance"},{"source":"SPEC-101-2-relance-panier","target":"I","type":"governance"},{"source":"SPEC-101-2-relance-panier","target":"A","type":"governance"},{"source":"SPEC-101-2-relance-panier","target":"D","type":"governance"},{"source":"SPEC-101-2-relance-panier","target":"-","type":"governance"},{"source":"SPEC-101-2-relance-panier","target":"R","type":"governance"},{"source":"SPEC-101-2-relance-panier","target":"G","type":"governance"},{"source":"SPEC-101-2-relance-panier","target":"P","type":"governance"},{"source":"SPEC-101-2-relance-panier","target":"D","type":"governance"}]};
+    const COULEURS = {"intent":"#ec4899","spec":"#3b82f6","code":"#10b981","test":"#f59e0b","governance":"#8b5cf6"};
+
+    const container = document.getElementById('graph-canvas');
+    if (!container) return;
+    if (typeof d3 === 'undefined') {
+      container.innerHTML = '<p style="padding:2rem;text-align:center;color:#666">D3.js indisponible — vérifie ta connexion ou désactive le bloqueur réseau.</p>';
+      return;
+    }
+
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    const svg = d3.select('#graph-canvas').append('svg')
+      .attr('width', width)
+      .attr('height', height);
+
+    const filtres = new Set(Object.keys(COULEURS));
+
+    function nodesVisibles() {
+      return data.nodes.filter((n) => filtres.has(n.type));
+    }
+    function linksVisibles() {
+      const ids = new Set(nodesVisibles().map((n) => n.id));
+      return data.links.filter((l) =>
+        ids.has(typeof l.source === 'object' ? l.source.id : l.source) &&
+        ids.has(typeof l.target === 'object' ? l.target.id : l.target)
+      );
+    }
+
+    const simulation = d3.forceSimulation()
+      .force('link', d3.forceLink().id((d) => d.id).distance(60))
+      .force('charge', d3.forceManyBody().strength(-200))
+      .force('center', d3.forceCenter(width / 2, height / 2))
+      .force('collide', d3.forceCollide(20));
+
+    let linkSel, nodeSel, labelSel;
+
+    function render() {
+      const visN = nodesVisibles();
+      const visL = linksVisibles().map((l) => ({ ...l }));
+
+      svg.selectAll('*').remove();
+
+      linkSel = svg.append('g')
+        .attr('stroke', '#999')
+        .attr('stroke-opacity', 0.5)
+        .selectAll('line')
+        .data(visL)
+        .join('line')
+        .attr('stroke-width', 1.5);
+
+      nodeSel = svg.append('g')
+        .selectAll('circle')
+        .data(visN)
+        .join('circle')
+        .attr('r', (d) => d.type === 'intent' || d.type === 'governance' ? 9 : 6)
+        .attr('fill', (d) => COULEURS[d.type] || '#999')
+        .attr('stroke', '#fff')
+        .attr('stroke-width', 1.5)
+        .call(d3.drag()
+          .on('start', (event, d) => {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x; d.fy = d.y;
+          })
+          .on('drag', (event, d) => { d.fx = event.x; d.fy = event.y; })
+          .on('end', (event, d) => {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null; d.fy = null;
+          }));
+
+      nodeSel.append('title').text((d) => d.id + ' — ' + d.label);
+
+      labelSel = svg.append('g')
+        .selectAll('text')
+        .data(visN)
+        .join('text')
+        .attr('font-size', '10px')
+        .attr('dx', 8)
+        .attr('dy', 3)
+        .text((d) => d.id.slice(0, 24));
+
+      simulation.nodes(visN).on('tick', tick);
+      simulation.force('link').links(visL);
+      simulation.alpha(1).restart();
+    }
+
+    function tick() {
+      linkSel
+        .attr('x1', (d) => d.source.x)
+        .attr('y1', (d) => d.source.y)
+        .attr('x2', (d) => d.target.x)
+        .attr('y2', (d) => d.target.y);
+      nodeSel.attr('cx', (d) => d.x).attr('cy', (d) => d.y);
+      labelSel.attr('x', (d) => d.x).attr('y', (d) => d.y);
+    }
+
+    document.querySelectorAll('.graph-filter input').forEach((cb) => {
+      cb.addEventListener('change', () => {
+        const type = cb.dataset.type;
+        if (cb.checked) filtres.add(type); else filtres.delete(type);
+        render();
+      });
+    });
+
+    document.getElementById('graph-search').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      if (!nodeSel) return;
+      nodeSel.attr('opacity', (d) => !q || d.id.toLowerCase().includes(q) || (d.label || '').toLowerCase().includes(q) ? 1 : 0.15);
+    });
+
+    render();
+  })();
+</script>
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

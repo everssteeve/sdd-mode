@@ -40,7 +40,7 @@ bench/**/.aiad/metrics/
 .aiad/metrics/skill-usage.jsonl
 .claude/scheduled_tasks.lock
 
-# Sorties générées des scénarios bench (cache + dashboards ;
-# les métriques sont déjà ignorées ci-dessus)
+# Cache régénérable des scénarios bench (les métriques sont déjà ignorées
+# ci-dessus). NB : `bench/**/dashboard/` reste VERSIONNÉ — c'est une fixture
+# du test de conformité OpenAPI (#373 `brief`), pas un artefact jetable.
 bench/**/.aiad/.cache/
-bench/**/dashboard/

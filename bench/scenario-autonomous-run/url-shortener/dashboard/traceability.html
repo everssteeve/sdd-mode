@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-15T23:04:42.431Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Traçabilité — url-shortener-bench</title>
+<meta name="description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Traçabilité — url-shortener-bench"/>
+<meta property="og:description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<meta property="og:url" content="traceability.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Traçabilité — url-shortener-bench"/>
+<meta name="twitter:description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · url-shortener-bench · Santé 40/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">url-shortener-bench</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v0.1.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="active">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 16/05/2026 01:04:42<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>Traçabilité</h1>
+      <div class="subtitle">Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 16/05/2026 01:04:42. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">url-shortener-bench · v0.1.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  
+<div class="kpis">
+  <div class="kpi"><div class="label">Intents</div><div class="value">3</div></div>
+  <div class="kpi"><div class="label">SPECs</div><div class="value">3</div></div>
+  <div class="kpi"><div class="label">Code annoté</div><div class="value small">1 / 1</div></div>
+  <div class="kpi"><div class="label">Tests annotés</div><div class="value small">0 / 0</div></div>
+  <div class="kpi warn"><div class="label">Gaps détectés</div><div class="value">6</div></div>
+</div>
+
+<section class="matrix-tab">
+  <h2>Matrice Forward · Intent → SPEC → Code → Tests</h2>
+  <div class="filter"><input type="search" id="qFwd" data-filter-target="tFwd" placeholder="Filtrer la matrice forward…"/></div>
+       <table id="tFwd">
+         <thead><tr><th>Intent</th><th>SPEC</th><th>Code</th><th>Tests</th><th>Verdict</th></tr></thead>
+         <tbody><tr>
+        <td rowspan="2" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-101-conversion-checkout.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-101-conversion-checkout.md">INTENT-101-conversion-checkout</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-101-1-formulaire-paiement.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-1-formulaire-paiement.md">SPEC-101-1-formulaire-paiement</a><br/><small class="muted">Formulaire de paiement v2</small></td>
+        <td><em class="muted">aucun</em></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-implémentée</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-101-2-relance-panier.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-101-2-relance-panier.md">SPEC-101-2-relance-panier</a><br/><small class="muted">Relance panier abandonné</small></td>
+        <td><em class="muted">aucun</em></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-implémentée</span></td>
+      </tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-102-onboarding-mobile.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-102-onboarding-mobile.md">INTENT-102-onboarding-mobile</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-103-retention-30j.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-103-retention-30j.md">INTENT-103-retention-30j</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-103-1-relance-email.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-103-1-relance-email.md">SPEC-103-1-relance-email</a><br/><small class="muted">Email de relance semaine 2</small></td>
+        <td><em class="muted">aucun</em></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-implémentée</span></td>
+      </tr></tbody>
+       </table>
+</section>
+
+<section class="matrix-tab">
+  <h2>Matrice Backward · Tests → Code → SPEC → Intent</h2>
+  <div class="empty"><strong>Aucun test annoté.</strong>Ajoute <code>@spec SPEC-...</code> dans tes fichiers de test pour bâtir la matrice backward.</div>
+</section>
+
+<section>
+  <h2>Gaps détectés</h2>
+  <div class="split">
+    <div class="card">
+      <h3>Orphelins</h3>
+      <ul class="compact">
+        <li><strong>1</strong> intent(s) sans SPEC</li>
+        <li><strong>2</strong> SPEC(s) sans code (hors draft/review)</li>
+        <li><strong>0</strong> SPEC(s) référencé(s) dans le code mais absent(s) des artefacts</li>
+        <li><strong>0</strong> Intent(s) référencé(s) dans le code mais absent(s) des artefacts</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Non-implémentés / non-tracés</h3>
+      <ul class="compact">
+        <li><strong>2</strong> SPEC(s) validée(s) sans code</li>
+        <li><strong>1</strong> fichier(s) code sans <code>@spec</code></li>
+        <li><strong>0</strong> fichier(s) annoté(s) sans test lié</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>
