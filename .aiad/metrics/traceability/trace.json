@@ -2,15 +2,15 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-15T14:14:41.257Z"
+    "generated": "2026-06-15T14:45:24.823Z"
   },
-  "generatedAt": "2026-06-15T14:14:41.257Z",
+  "generatedAt": "2026-06-15T14:45:24.822Z",
   "summary": {
     "intents": 23,
-    "specs": 20,
+    "specs": 21,
     "codeFiles": 318,
-    "annotatedCodeFiles": 42,
-    "testFiles": 244,
+    "annotatedCodeFiles": 43,
+    "testFiles": 245,
     "annotatedTestFiles": 24
   },
   "forward": [
@@ -690,9 +690,32 @@
         "id": "INTENT-014-empirisme-prouve",
         "file": ".aiad/intents/INTENT-014-empirisme-prouve.md",
         "title": "Empirisme prouvé — gates qualité actifs et claims sourcés",
-        "status": "draft"
+        "status": "active"
       },
-      "specs": []
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-014-1-gates-bloquants-badge",
+            "file": ".aiad/specs/SPEC-014-1-gates-bloquants-badge.md",
+            "title": "SPEC-014-1-gates-bloquants-badge",
+            "parentIntent": "INTENT-014",
+            "status": "ready"
+          },
+          "code": [
+            {
+              "path": "scripts/coverage-threshold.js",
+              "line": 17
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/coverage-threshold.test.js",
+              "line": 18,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
     },
     {
       "intent": {
@@ -777,6 +800,15 @@
     }
   ],
   "backward": [
+    {
+      "test": {
+        "path": "test/coverage-threshold.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -4821,12 +4853,6 @@
   "gaps": {
     "intentsSansSpec": [
       {
-        "id": "INTENT-014-empirisme-prouve",
-        "file": ".aiad/intents/INTENT-014-empirisme-prouve.md",
-        "title": "Empirisme prouvé — gates qualité actifs et claims sourcés",
-        "status": "draft"
-      },
-      {
         "id": "INTENT-015-sobriete-cli",
         "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
         "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
@@ -8178,17 +8204,6 @@
       },
       {
         "path": "scripts/bun-parity.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "scripts/coverage-threshold.js",
         "isTest": false,
         "annotations": {
           "intents": [],

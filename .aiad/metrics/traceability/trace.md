@@ -1,15 +1,15 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-15T14:14:41.257Z
+> Généré le 2026-06-15T14:45:24.822Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
 | Intents | 23 |
-| SPECs | 20 |
-| Fichiers code | 318 (annotés : 42) |
-| Fichiers test | 244 (annotés : 24) |
+| SPECs | 21 |
+| Fichiers code | 318 (annotés : 43) |
+| Fichiers test | 245 (annotés : 24) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -35,7 +35,7 @@
 | INTENT-013-zero-drift-sur-soi | SPEC-013-4-deploy-site-workflow | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-013-zero-drift-sur-soi | SPEC-013-4a-deploy-workflow | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-013-zero-drift-sur-soi | SPEC-013-4b-gate-rgaa | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-014-empirisme-prouve | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-014-empirisme-prouve | SPEC-014-1-gates-bloquants-badge | `scripts/coverage-threshold.js` | `test/coverage-threshold.test.js` | ✅ |
 | INTENT-015-sobriete-cli | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-016-dashboard-fondations | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-017-dashboard-quotidien | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -50,6 +50,7 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
+| `test/coverage-threshold.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -348,8 +349,7 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **10**
-  - INTENT-014-empirisme-prouve — Empirisme prouvé — gates qualité actifs et claims sourcés
+- Intents sans SPEC : **9**
   - INTENT-015-sobriete-cli — Sobriété du CLI — noyau assumé, longue traîne extraite
   - INTENT-016-dashboard-fondations — Dashboard exemplaire — fondations accessibles, sobres, maintenables
   - INTENT-017-dashboard-quotidien — Vivre le projet au quotidien — Aujourd'hui, triage, digest
@@ -371,7 +371,7 @@
 - SPECs validées sans code (statut ready/validation/done) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **294**
+- Code sans `@spec` : **293**
   - .aiad/hooks/discovery-gate.js
   - .aiad/hooks/drift-lock.js
   - .aiad/hooks/jnsp-scan.js
@@ -422,5 +422,5 @@
   - lib/dashboard/bottlenecks.js
   - lib/dashboard/brief-pm.js
   - lib/dashboard/burnup-chart.js
-  - … (+244 autres)
+  - … (+243 autres)
 - Code annoté sans tests liés : **0**

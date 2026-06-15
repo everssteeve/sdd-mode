@@ -101,25 +101,6 @@
           "ruleId": "AIAD-TRACE-001",
           "level": "warning",
           "message": {
-            "text": "Intent INTENT-014-empirisme-prouve (« Empirisme prouvé — gates qualité actifs et claims sourcés ») n'a pas de SPEC associée."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".aiad/intents/INTENT-014-empirisme-prouve.md"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-001",
-          "level": "warning",
-          "message": {
             "text": "Intent INTENT-015-sobriete-cli (« Sobriété du CLI — noyau assumé, longue traîne extraite ») n'a pas de SPEC associée."
           },
           "locations": [
@@ -5516,25 +5497,6 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
-            "text": "Aucune annotation @spec dans scripts/coverage-threshold.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "scripts/coverage-threshold.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
             "text": "Aucune annotation @spec dans scripts/lint-deps.js."
           },
           "locations": [
@@ -5877,7 +5839,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-15T14:14:41.257Z"
+          "endTimeUtc": "2026-06-15T14:45:24.822Z"
         }
       ]
     }

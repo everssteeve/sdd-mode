@@ -1,5 +1,7 @@
 # aiad-sdd
 
+[![coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/everssteeve/sdd-mode/main/.aiad/metrics/coverage/badge.json)](https://github.com/everssteeve/sdd-mode/actions)
+
 **Spec Driven Development pour Claude Code** — Framework de développement spec-anchored avec agents IA.
 
 ```bash

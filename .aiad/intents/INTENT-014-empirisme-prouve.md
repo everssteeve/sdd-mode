@@ -1,7 +1,7 @@
 ---
 id: INTENT-014
 title: Empirisme prouvé — gates qualité actifs et claims sourcés
-status: draft
+status: active
 author: Steeve Evers
 date: 2026-06-11
 specs:
@@ -9,8 +9,8 @@ specs:
 
 # INTENT-014 — Empirisme prouvé
 
-> ⚠ Draft issu de l'analyse du 2026-06-11. POURQUOI à approprier par un humain
-> avant passage en `active` (Human Authorship).
+> POURQUOI approprié par Steeve Evers le 2026-06-15 (Human Authorship) →
+> passage `draft` → `active`. Research RESEARCH-015 = CONDITIONAL GO.
 
 ## Pourquoi maintenant
 
@@ -46,7 +46,7 @@ passant sans gate de couverture/taille → drift.
 
 ## SPECs liées
 
-- [ ] SPEC-014-1 — Gates CI : `lint:size --strict` + `coverage:threshold` + badge
+- [x] SPEC-014-1 — Gates CI : `lint:size --strict` + `coverage:threshold` + badge → `.aiad/specs/SPEC-014-1-gates-bloquants-badge.md` (draft, 2026-06-15)
 - [ ] SPEC-014-2 — Protocole `bench/` public + sourcing/requalification des claims
 
 ## Signaux liés

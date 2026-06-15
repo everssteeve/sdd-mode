@@ -17,6 +17,17 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-15 — SPEC-014-1 — Drift Check OK (gates bloquants + badge)
+
+**Auteur** : Steeve Evers
+**Raison** : Drift Lock vérifié pour SPEC-014-1 (INTENT-014) — heuristique git OK
+(SPEC + code annoté `@spec` dans la même PR #5) + traçabilité machine sans gap
+(`trace --fail-on-gap` exit 0 : 0 SPEC validée non-implémentée, 0 orphelin).
+**Impact** : `package.json`, `.github/workflows/{ci,release}.yml`,
+`scripts/coverage-threshold.js`, `test/coverage-threshold.test.js`,
+`.aiad/metrics/coverage/badge.json`, `README.md`. Statut SPEC `validation` →
+`done` à la fusion de la PR #5 (non encore mergée).
+
 ## 2026-06-15 — SPEC-002-1 → 012-1 + INTENT-002 → 012 — Rattrapage de board (done)
 
 **Auteur** : Steeve Evers

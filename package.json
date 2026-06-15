@@ -39,6 +39,7 @@
     "test:watch": "node --test --watch test/*.test.js",
     "test:coverage": "node --test --experimental-test-coverage --test-reporter=spec --test-coverage-include='lib/**/*.js' test/*.test.js",
     "test:coverage:threshold": "node scripts/coverage-threshold.js",
+    "coverage:badge": "node scripts/coverage-threshold.js --badge .aiad/metrics/coverage/badge.json",
     "lint": "node scripts/lint.js",
     "lint:deps": "node scripts/lint-deps.js",
     "lint:size": "node scripts/lint-size.js --strict",
@@ -48,6 +49,6 @@
     "mutation": "node scripts/mutation-test.js",
     "mutation:batch": "node scripts/mutation-batch.js",
     "bench:comparison": "node scripts/bench-comparison.js",
-    "prepublishOnly": "npm run lint && npm run lint:deps && npm test"
+    "prepublishOnly": "npm run lint && npm run lint:deps && npm run lint:size && npm run test:coverage:threshold"
   }
 }
