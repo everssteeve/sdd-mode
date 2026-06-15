@@ -2,7 +2,7 @@
 id: SPEC-009-1
 title: Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)
 parent_intent: INTENT-009
-status: in-progress
+status: done
 format: prose
 sqs: 4.1
 author: Steeve Evers

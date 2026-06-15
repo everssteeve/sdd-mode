@@ -1,7 +1,7 @@
 ---
 id: INTENT-008
 title: Cycle SDD comme graphe de Tasks (§3.9)
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-09
 specs: SPEC-008-1

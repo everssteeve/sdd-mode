@@ -2,7 +2,7 @@
 id: SPEC-007-1
 title: Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)
 parent_intent: INTENT-007
-status: in-progress
+status: done
 format: prose
 sqs: 4.2
 author: Steeve Evers

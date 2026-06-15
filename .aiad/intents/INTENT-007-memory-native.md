@@ -1,7 +1,7 @@
 ---
 id: INTENT-007
 title: Memory native — promotion from logs + auto-curation + anti dock rot (§3.8)
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-09
 specs: SPEC-007-1

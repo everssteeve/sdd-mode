@@ -2,7 +2,7 @@
 id: SPEC-012-1
 title: Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)
 parent_intent: INTENT-012
-status: in-progress
+status: done
 format: prose
 sqs: 4.0
 author: Steeve Evers
