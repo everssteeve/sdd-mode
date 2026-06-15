@@ -164,3 +164,8 @@ patterns:
   # marqueurs TODO-JNSP dans des blocs <pre><code> et <p> de documentation.
   # Ce sont des exemples pédagogiques, pas des marqueurs non résolus.
   - "site/**"
+
+  # Fixture générée du scénario bench (dashboard HTML/JSON/SVG) — sortie de
+  # `aiad-sdd dashboard`, lue par le test de conformité OpenAPI #373. Générée,
+  # pas du code régi par une SPEC.
+  - "bench/**/dashboard/**"
