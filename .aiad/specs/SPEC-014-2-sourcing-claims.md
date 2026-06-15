@@ -4,7 +4,7 @@
 **Research** : RESEARCH-015 (CONDITIONAL GO, 2026-06-12) — périmètre réduit par R4 (sourcing seul)
 **Auteur** : Steeve Evers
 **Date** : 2026-06-15
-**Statut** : in-progress
+**Statut** : validation
 **Format** : prose
 **SQS** : 5/5 — Gate OUVERTE (2026-06-15, Test de l'Étranger PASS)
 
@@ -98,10 +98,10 @@ npx aiad-sdd trace
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] 50K requalifié (formulation canonique) sur les 4 fichiers
-- [ ] Claims externes figés/vérifiés (5 emplacements), aucune valeur modifiée
-- [ ] FACT-001 clôturé (`traité`)
-- [ ] `trace` sans régression ; `emit-rules-check` vert si applicable
-- [ ] SPEC ↔ artefacts synchronisés (Drift Lock)
-- [ ] Code review passée
-- [ ] Gouvernance : **RGESN** (sobriété — pas d'ajout de surface). AI-ACT/RGPD/RGAA non applicables.
+- [x] 50K requalifié (formulation canonique) sur les 4 fichiers (6 mentions)
+- [x] Claims externes figés/vérifiés (5 emplacements), aucune valeur modifiée
+- [x] FACT-001 clôturé (`traité`, option (c))
+- [x] `trace` sans régression (exit 0) ; `emit-rules-check` vert (régen sur PR #5)
+- [x] SPEC ↔ artefacts synchronisés (Drift Lock)
+- [ ] Code review passée (PR à ouvrir)
+- [x] Gouvernance : **RGESN** (sobriété — aucune surface ajoutée). AI-ACT/RGPD/RGAA non applicables.
