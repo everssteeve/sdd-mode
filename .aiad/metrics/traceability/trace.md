@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-15T15:01:32.211Z
+> Généré le 2026-06-15T15:11:09.274Z
 
 ## Synthèse
 
@@ -8,8 +8,8 @@
 |----------|--------|
 | Intents | 23 |
 | SPECs | 22 |
-| Fichiers code | 318 (annotés : 43) |
-| Fichiers test | 245 (annotés : 24) |
+| Fichiers code | 319 (annotés : 44) |
+| Fichiers test | 246 (annotés : 24) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -36,7 +36,7 @@
 | INTENT-013-zero-drift-sur-soi | SPEC-013-4a-deploy-workflow | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-013-zero-drift-sur-soi | SPEC-013-4b-gate-rgaa | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-014-empirisme-prouve | SPEC-014-1-gates-bloquants-badge | `scripts/coverage-threshold.js` | `test/coverage-threshold.test.js` | ✅ |
-| INTENT-014-empirisme-prouve | SPEC-014-2-sourcing-claims | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-014-empirisme-prouve | SPEC-014-2-sourcing-claims | `scripts/lint-claims.js` | `test/lint-claims.test.js` | ✅ |
 | INTENT-015-sobriete-cli | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-016-dashboard-fondations | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-017-dashboard-quotidien | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -51,6 +51,7 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
+| `test/lint-claims.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -360,12 +361,11 @@
   - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
   - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
   - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
-- SPECs sans code (hors draft/review) : **5**
+- SPECs sans code (hors draft/review) : **4**
   - SPEC-013-1-deploiement-site-valeurs (statut : split)
   - SPEC-013-1a-deploiement-site (statut : in-progress)
   - SPEC-013-1b-unification-7-valeurs (statut : archived)
   - SPEC-013-4-deploy-site-workflow (statut : split)
-  - SPEC-014-2-sourcing-claims (statut : in-progress)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 

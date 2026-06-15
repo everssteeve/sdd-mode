@@ -41,6 +41,11 @@ seul, pas de nouveau protocole `bench/` tokens**. Deux sous-trous : (a) les clai
    manque la source → l'ajouter (jamais supprimer le claim).
 3. **Clôturer FACT-001** : statut `ouvert` → `traité`, action retenue = option (c) heuristique
    assumée, lien vers SPEC-014-2.
+4. **Rendre la règle active (gate)** : un guard zéro-dep `scripts/lint-claims.js` échoue si un
+   50K nu réapparaît (sans requalification) ou si un claim externe perd sa source. Câblé dans
+   la CI (`lint:claims`) et `prepublishOnly` — la règle de sourcing devient enforced, pas
+   seulement documentée (cohérent avec l'objectif INTENT-014 « gates qualité actifs » et le
+   critère de drift). Ancre aussi la SPEC dans du code tracé (`@spec SPEC-014-2`).
 
 ### Output
 - 4 fichiers `.claude/` avec le 50K requalifié (formulation canonique).
@@ -68,6 +73,8 @@ seul, pas de nouveau protocole `bench/` tokens**. Deux sous-trous : (a) les clai
 - [ ] Les 5 emplacements des claims externes portent leur source datée — vérifiable par `grep`.
 - [ ] `FACT-001` est en statut `traité` avec l'action retenue et le lien SPEC-014-2.
 - [ ] `npx aiad-sdd trace` ne régresse pas (pas de nouveau gap bloquant).
+- [ ] `npm run lint:claims` échoue (exit 1) sur un 50K nu ou un claim sans source, et passe
+      (exit 0) sur le repo réel — testable (`test/lint-claims.test.js`).
 - [ ] Si un fichier source `emit-rules` est touché, les rendus régénérés sont synchronisés
       (`aiad-emit-rules-check` vert) ; sinon, mention explicite que les 4 fichiers n'en relèvent pas.
 
@@ -86,7 +93,8 @@ npx aiad-sdd trace
 ## 5. Dépendances
 
 - FACT-001 (signal parent).
-- Indépendante de SPEC-014-1 (fichiers disjoints : docs/.claude vs CI/package.json/scripts).
+- `scripts/lint-claims.js` (guard zéro-dep) + `test/lint-claims.test.js` + câblage CI/`prepublishOnly`.
+- Stackée sur SPEC-014-1 (réutilise la chaîne de gates de publication mise en place en 014-1).
 - Hors périmètre (R4) : tout nouveau protocole `bench/` de mesure tokens.
 
 ## 6. Estimation Context Engineering Budget
@@ -101,7 +109,8 @@ npx aiad-sdd trace
 - [x] 50K requalifié (formulation canonique) sur les 4 fichiers (6 mentions)
 - [x] Claims externes figés/vérifiés (5 emplacements), aucune valeur modifiée
 - [x] FACT-001 clôturé (`traité`, option (c))
-- [x] `trace` sans régression (exit 0) ; `emit-rules-check` vert (régen sur PR #5)
+- [x] Guard `scripts/lint-claims.js` (zéro-dep) + 10 tests + câblage CI/`prepublishOnly`
+- [x] `trace` sans régression (exit 0, gap SPEC-014-2 levé) ; `emit-rules-check` vert (régen sur PR #5)
 - [x] SPEC ↔ artefacts synchronisés (Drift Lock)
 - [ ] Code review passée (PR à ouvrir)
 - [x] Gouvernance : **RGESN** (sobriété — aucune surface ajoutée). AI-ACT/RGPD/RGAA non applicables.
