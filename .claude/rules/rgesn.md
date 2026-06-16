@@ -9,7 +9,7 @@ paths:
   - "**/*.yml"
   - "**/*.yaml"
 generated-by: aiad-emit-rules v1.18.0
-source-hash: 1ae70b7e0daafdcb
+source-hash: e931bf798acfefa1
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->

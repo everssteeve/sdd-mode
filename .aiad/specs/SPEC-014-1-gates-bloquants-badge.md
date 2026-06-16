@@ -4,7 +4,7 @@
 **Research** : RESEARCH-015 (CONDITIONAL GO, 2026-06-12)
 **Auteur** : Steeve Evers
 **Date** : 2026-06-15
-**Statut** : validation
+**Statut** : done (PR #5 mergée 2026-06-16 — Drift Lock OK)
 **Format** : prose
 **SQS** : 5/5 — Gate OUVERTE (2026-06-15, Test de l'Étranger PASS)
 
