@@ -1,8 +1,8 @@
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 ---
 generated-by: aiad-emit-rules v1.18.0
-source-hash: 1ae70b7e0daafdcb
-intent_id: INTENT-014
+source-hash: e931bf798acfefa1
+intent_id: INTENT-023
 ---
 
 # AGENTS.md
@@ -32,7 +32,7 @@ Intent Statement → Research (GO/NO-GO) → SPEC → Execution Gate (SQS ≥ 4/
 
 ### Intent actif
 
-- **INTENT-014** — Empirisme prouvé — gates qualité actifs et claims sourcés
+- **INTENT-023** — INTENT-023-rayonnement-honnete.md
 
 
 ## Architecture documentaire

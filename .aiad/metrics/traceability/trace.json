@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-15T15:11:09.274Z"
+    "generated": "2026-06-16T09:00:35.848Z"
   },
-  "generatedAt": "2026-06-15T15:11:09.274Z",
+  "generatedAt": "2026-06-16T09:00:35.848Z",
   "summary": {
     "intents": 23,
     "specs": 22,
@@ -690,7 +690,7 @@
         "id": "INTENT-014-empirisme-prouve",
         "file": ".aiad/intents/INTENT-014-empirisme-prouve.md",
         "title": "Empirisme prouvé — gates qualité actifs et claims sourcés",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -699,7 +699,7 @@
             "file": ".aiad/specs/SPEC-014-1-gates-bloquants-badge.md",
             "title": "SPEC-014-1-gates-bloquants-badge",
             "parentIntent": "INTENT-014",
-            "status": "validation"
+            "status": "done"
           },
           "code": [
             {
@@ -721,7 +721,7 @@
             "file": ".aiad/specs/SPEC-014-2-sourcing-claims.md",
             "title": "SPEC-014-2-sourcing-claims",
             "parentIntent": "INTENT-014",
-            "status": "validation"
+            "status": "done"
           },
           "code": [
             {
@@ -822,15 +822,6 @@
     }
   ],
   "backward": [
-    {
-      "test": {
-        "path": "test/lint-claims.test.js",
-        "line": 0
-      },
-      "spec": null,
-      "intent": null,
-      "code": []
-    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -2799,6 +2790,15 @@
           "line": 2
         }
       ]
+    },
+    {
+      "test": {
+        "path": "test/lint-claims.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
     },
     {
       "test": {

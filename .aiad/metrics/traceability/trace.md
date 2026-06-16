@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-15T15:11:09.274Z
+> Généré le 2026-06-16T09:00:35.848Z
 
 ## Synthèse
 
@@ -51,7 +51,6 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/lint-claims.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -229,6 +228,7 @@
 | `test/leadership-metrics.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/leadership-metrics.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/leadership-metrics.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/lint-claims.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/lint-deps.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/lint-esm.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/lint-size.test.js` | ❌ non-tracé | — | _(aucun)_ |

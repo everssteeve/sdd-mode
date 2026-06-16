@@ -19,7 +19,7 @@
 | INTENT-011 | Distribution plugin + /goal + toggles de hooks (§3.13) | Steeve Evers | 2026-06-09 | SPEC-011-1 | done |
 | INTENT-012 | Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4) | Steeve Evers | 2026-06-09 | SPEC-012-1 | done |
 | INTENT-013 | Zéro drift sur soi-même — site et docs alignés sur la version livrée | Steeve Evers | 2026-06-11 | SPEC-013-1a/2/3/4a done · 1b archiv · 4b draft | done |
-| INTENT-014 | Empirisme prouvé — gates qualité actifs et claims sourcés | Steeve Evers | 2026-06-11 | SPEC-014-1, SPEC-014-2 (plan) | active |
+| INTENT-014 | Empirisme prouvé — gates qualité actifs et claims sourcés | Steeve Evers | 2026-06-11 | SPEC-014-1, SPEC-014-2 done | done |
 | INTENT-015 | Sobriété du CLI — noyau assumé, longue traîne extraite | Steeve Evers | 2026-06-11 | — | draft |
 | INTENT-016 | Dashboard exemplaire — fondations accessibles, sobres, maintenables | Steeve Evers | 2026-06-11 | — | draft |
 | INTENT-017 | Vivre le projet au quotidien — Aujourd'hui, triage, digest | Steeve Evers | 2026-06-11 | — | draft |

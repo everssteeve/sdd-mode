@@ -17,6 +17,17 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-16 — INTENT-014 + SPEC-014-1/2 → done — Clôture de board
+
+**Auteur** : Steeve Evers
+**Raison** : PR #5 (gates bloquants + badge) et PR #6 (sourcing + guard lint:claims)
+mergées dans `main`, CI verte (21/21), Drift Lock OK sur les deux SPECs. INTENT-014
+« Empirisme prouvé » réalisé : gates couverture/taille bloquants au publish, badge
+zéro-dep, 50K requalifié en heuristique assumée (FACT-001 clôturé), claims externes
+figés, guard `lint:claims` anti-régression.
+**Impact** : SPEC-014-1 `validation → done`, SPEC-014-2 `validation → done`,
+INTENT-014 `active → done`. Rendus emit-rules régénérés (intent actif).
+
 ## 2026-06-15 — SPEC-014-2 — Drift Check OK (sourcing + guard lint:claims)
 
 **Auteur** : Steeve Evers
