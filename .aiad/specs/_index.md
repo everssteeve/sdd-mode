@@ -26,7 +26,8 @@
 | SPEC-013-4 | Workflow de déploiement site/ → gh-pages (gate version + RGAA) | INTENT-013 | prose | 4.0 (OUVERTE → découpée) | split | — |
 | SPEC-013-4a | Deploy site/ → gh-pages + gate version | INTENT-013 | prose | 5.0 | done | — |
 | SPEC-013-4b | Gate RGAA AA avant publication | INTENT-013 | prose | À évaluer | draft | — |
-| SPEC-014-1 | Gates bloquants (size + couverture) au publish + badge zéro-dep | INTENT-014 | prose | 5.0 | validation | — |
+| SPEC-014-1 | Gates bloquants (size + couverture) au publish + badge zéro-dep | INTENT-014 | prose | 5.0 | validation | #5 |
+| SPEC-014-2 | Sourcing seul — figer claims externes + requalifier le 50K (FACT-001) | INTENT-014 | prose | 5.0 | validation | #6 |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

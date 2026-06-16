@@ -35,6 +35,9 @@ jobs:
       - name: Lint ESM (no CommonJS residuals)
         run: npm run lint:esm
 
+      - name: Lint claims (50K requalifié + sources externes — SPEC-014-2)
+        run: npm run lint:claims
+
       - name: Tests
         run: npm test
 
