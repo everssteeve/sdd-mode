@@ -1,15 +1,15 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-16T09:00:35.848Z
+> Généré le 2026-06-16T09:59:12.713Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
 | Intents | 23 |
-| SPECs | 22 |
-| Fichiers code | 319 (annotés : 44) |
-| Fichiers test | 246 (annotés : 24) |
+| SPECs | 23 |
+| Fichiers code | 319 (annotés : 45) |
+| Fichiers test | 247 (annotés : 25) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -37,7 +37,7 @@
 | INTENT-013-zero-drift-sur-soi | SPEC-013-4b-gate-rgaa | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-014-empirisme-prouve | SPEC-014-1-gates-bloquants-badge | `scripts/coverage-threshold.js` | `test/coverage-threshold.test.js` | ✅ |
 | INTENT-014-empirisme-prouve | SPEC-014-2-sourcing-claims | `scripts/lint-claims.js` | `test/lint-claims.test.js` | ✅ |
-| INTENT-015-sobriete-cli | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-015-sobriete-cli | SPEC-015-1-telemetrie-usage | `lib/telemetry.js` | `test/telemetry-usage.test.js` | ✅ |
 | INTENT-016-dashboard-fondations | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-017-dashboard-quotidien | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-018-valeur-boussole | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -51,6 +51,7 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
+| `test/telemetry-usage.test.js` | SPEC-015-1-telemetrie-usage | INTENT-015-sobriete-cli | `lib/telemetry.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -351,8 +352,7 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **9**
-  - INTENT-015-sobriete-cli — Sobriété du CLI — noyau assumé, longue traîne extraite
+- Intents sans SPEC : **8**
   - INTENT-016-dashboard-fondations — Dashboard exemplaire — fondations accessibles, sobres, maintenables
   - INTENT-017-dashboard-quotidien — Vivre le projet au quotidien — Aujourd'hui, triage, digest
   - INTENT-018-valeur-boussole — La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents
@@ -373,7 +373,7 @@
 - SPECs validées sans code (statut ready/validation/done) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **293**
+- Code sans `@spec` : **292**
   - .aiad/hooks/discovery-gate.js
   - .aiad/hooks/drift-lock.js
   - .aiad/hooks/jnsp-scan.js
@@ -424,5 +424,5 @@
   - lib/dashboard/bottlenecks.js
   - lib/dashboard/brief-pm.js
   - lib/dashboard/burnup-chart.js
-  - … (+243 autres)
+  - … (+242 autres)
 - Code annoté sans tests liés : **0**

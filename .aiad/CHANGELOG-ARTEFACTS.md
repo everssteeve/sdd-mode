@@ -17,6 +17,22 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-16 — SPEC-015-1 — Drift Check OK (telemetry usage)
+
+**Auteur** : Steeve Evers
+**Raison** : Drift Lock vérifié pour SPEC-015-1 (INTENT-015) — heuristique git OK
+(SPEC créée + code annoté `@spec SPEC-015-1-telemetrie-usage` / `@intent INTENT-015`
+/ `@verified-by` / `@governance AIAD-RGPD` dans le même changeset) + traçabilité
+machine sans gap bloquant (`trace --fail-on-gap` exit 0 : SPECs validées
+non-implémentées = 0, orphelins = 0, code annoté sans tests = 0). Cycle parcouru
+intent → research (RESEARCH-016 CONDITIONAL GO) → spec (EARS 5/5) → gate (OUVERTE)
+→ exec → validate (VALIDÉ, gouvernance RGPD/RGESN PASS). Reste : code review + PR
+avant passage `done`.
+**Impact** : `lib/telemetry.js` (readEvents/aggregateUsage/showUsage),
+`bin/aiad-sdd.js` (sous-commande `telemetry usage [--json]` + AIDE),
+`test/telemetry-usage.test.js` (10/10), `.aiad/specs/SPEC-015-1-…md`,
+`.aiad/research/RESEARCH-016-…md`. Rendus emit-rules régénérés (intent actif).
+
 ## 2026-06-16 — INTENT-014 + SPEC-014-1/2 → done — Clôture de board
 
 **Auteur** : Steeve Evers

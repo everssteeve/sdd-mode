@@ -2,16 +2,16 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-16T09:00:35.848Z"
+    "generated": "2026-06-16T09:59:12.714Z"
   },
-  "generatedAt": "2026-06-16T09:00:35.848Z",
+  "generatedAt": "2026-06-16T09:59:12.713Z",
   "summary": {
     "intents": 23,
-    "specs": 22,
+    "specs": 23,
     "codeFiles": 319,
-    "annotatedCodeFiles": 44,
-    "testFiles": 246,
-    "annotatedTestFiles": 24
+    "annotatedCodeFiles": 45,
+    "testFiles": 247,
+    "annotatedTestFiles": 25
   },
   "forward": [
     {
@@ -744,9 +744,31 @@
         "id": "INTENT-015-sobriete-cli",
         "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
         "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "draft"
+        "status": "active"
       },
-      "specs": []
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-015-1-telemetrie-usage",
+            "file": ".aiad/specs/SPEC-015-1-telemetrie-usage.md",
+            "title": "SPEC-015-1-telemetrie-usage — Agrégat d'usage per-command (local, opt-in)",
+            "parentIntent": "INTENT-015",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/telemetry.js",
+              "line": 169
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/telemetry-usage.test.js",
+              "line": 3
+            }
+          ]
+        }
+      ]
     },
     {
       "intent": {
@@ -822,6 +844,31 @@
     }
   ],
   "backward": [
+    {
+      "test": {
+        "path": "test/telemetry-usage.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-015-1-telemetrie-usage",
+        "file": ".aiad/specs/SPEC-015-1-telemetrie-usage.md",
+        "title": "SPEC-015-1-telemetrie-usage — Agrégat d'usage per-command (local, opt-in)",
+        "parentIntent": "INTENT-015",
+        "status": "in-progress"
+      },
+      "intent": {
+        "id": "INTENT-015-sobriete-cli",
+        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
+        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/telemetry.js",
+          "line": 169
+        }
+      ]
+    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -4884,12 +4931,6 @@
   "gaps": {
     "intentsSansSpec": [
       {
-        "id": "INTENT-015-sobriete-cli",
-        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
-        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "draft"
-      },
-      {
         "id": "INTENT-016-dashboard-fondations",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
         "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
@@ -5102,7 +5143,7 @@
               "tags": [
                 "ou"
               ],
-              "line": 1142
+              "line": 1143
             }
           ]
         },
@@ -8081,17 +8122,6 @@
       },
       {
         "path": "lib/suggest.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/telemetry.js",
         "isTest": false,
         "annotations": {
           "intents": [],
