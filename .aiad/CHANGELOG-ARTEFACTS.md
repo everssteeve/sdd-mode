@@ -17,6 +17,17 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-17 — SPEC-015-1 → done — Clôture de board
+
+**Auteur** : Steeve Evers
+**Raison** : PR #8 (`telemetry usage`) mergée dans `main` (squash `fcad893`), CI
+verte (tests Node 18/20/22 × ubuntu/macos, builds reproductibles, parité
+emit-rules/doc, traçabilité, couverture+badge, Bun), code review OK. Première
+brique de INTENT-015 livrée : la donnée d'usage réelle est désormais lisible
+localement pour ancrer le tiering (condition C1 de RESEARCH-016 servie).
+**Impact** : SPEC-015-1 `in-progress → done` (PR #8). INTENT-015 reste `active`
+(SPEC-015-2 tiering + SPEC-015-3 matrice garde-fous à venir).
+
 ## 2026-06-16 — SPEC-015-1 — Drift Check OK (telemetry usage)
 
 **Auteur** : Steeve Evers

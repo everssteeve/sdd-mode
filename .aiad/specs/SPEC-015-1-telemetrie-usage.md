@@ -4,7 +4,7 @@
 **Research** : RESEARCH-016 (CONDITIONAL GO 85 % — conditions C1, C2, C3)
 **Auteur** : Steeve Evers
 **Date** : 2026-06-16
-**Statut** : in-progress
+**Statut** : done
 **Format** : EARS
 **SQS** : 5/5 — Gate OUVERTE (2026-06-16, EARS strict 0 violation, Étranger PASS)
 **Implémentation** : `lib/telemetry.js` (readEvents/aggregateUsage/showUsage) + `bin/aiad-sdd.js` (dispatch `telemetry usage`) · tests `test/telemetry-usage.test.js` (8/8) · trace : 0 gap bloquant
@@ -167,5 +167,5 @@ bin/aiad-sdd.js : ajout branche `else if (sub === 'usage')` dans case 'telemetry
 - [x] **EARS lint : 0 violation** (skill `ears-validator`, 8 critères)
 - [x] SPEC mise à jour si écart (Drift Lock — trace 0 gap bloquant)
 - [x] Annotations machine-vérifiables posées (`@intent INTENT-015`, `@spec SPEC-015-1-telemetrie-usage`, `@verified-by`, `@governance AIAD-RGPD`)
-- [ ] Code review passée
+- [x] Code review passée (PR #8)
 - [x] Gouvernance vérifiée : **RGPD** (lecture locale de données déjà consenties, aucune nouvelle collecte, aucun envoi réseau, pas de PII) ; **RGESN** (sobriété : zéro dépendance, lecture séquentielle). AI-ACT / RGAA non déclenchés (pas d'IA, pas d'UI).
