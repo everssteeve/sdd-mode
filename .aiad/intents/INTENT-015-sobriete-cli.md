@@ -1,16 +1,17 @@
 ---
 id: INTENT-015
 title: Sobriété du CLI — noyau assumé, longue traîne extraite
-status: draft
+status: active
 author: Steeve Evers
 date: 2026-06-11
 specs:
+  - SPEC-015-1
 ---
 
 # INTENT-015 — Sobriété du CLI
 
-> ⚠ Draft issu de l'analyse du 2026-06-11. POURQUOI à approprier par un humain
-> avant passage en `active` (Human Authorship).
+> POURQUOI approprié par Steeve Evers le 2026-06-16 (Human Authorship) — passage
+> `draft` → `active`. Prochaine étape : phase Research avant SPEC.
 
 ## Pourquoi maintenant
 
@@ -42,6 +43,6 @@ de sobriété.
 
 ## SPECs liées
 
-- [ ] SPEC-015-1 — Télémétrie d'usage des commandes (locale, opt-in)
+- [x] SPEC-015-1 — Télémétrie d'usage des commandes (locale, opt-in) → `SPEC-015-1-telemetrie-usage.md` (EARS, draft, Research RESEARCH-016)
 - [ ] SPEC-015-2 — Tiering core/extended/plugin + plan de dépréciation
 - [ ] SPEC-015-3 — Matrice enforced/advisory + resserrage des bypass

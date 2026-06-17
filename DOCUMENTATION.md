@@ -3,7 +3,7 @@
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
 version: 1.18.0
-source-hash: 93dfc6b74fd513a9
+source-hash: 19e3f92b000e7694
 ---
 
 # aiad-sdd — Documentation utilisateur (v1.18.0)
@@ -94,7 +94,7 @@ aiad-sdd v1.18.0 — Spec Driven Development pour Claude Code
     verify-reproducibility  Calcule le content hash déterministe du tarball (CRA, SLSA, NIST SSDF)
     docs [--check]        Régénère DOCUMENTATION.md depuis les sources (CI parity)
     version-sync [--check] Synchronise les zones <!--VERSION:START/END--> sur package.json (--dry-run)
-    telemetry <sub>       Télémétrie opt-in (opt-in / opt-out / status [--json])
+    telemetry <sub>       Télémétrie opt-in (opt-in / opt-out / status [--json] / usage [--json])
     feedback [<sub>]      Feedback qualitatif (opt-in / opt-out / status) — invitation auto toutes les 15 sessions
     uninstall [options]   Retire aiad-sdd du projet (mode aperçu sauf --force)
     bench [compare]       Mesure cold-start ; --persist log historique ; compare --since N --threshold T
@@ -290,4 +290,4 @@ Conventions reconnues par `aiad-sdd trace` (regex stables exportées par `lib/sd
 
 ---
 
-*Document régénéré automatiquement — source-hash `93dfc6b74fd513a9`, package v1.18.0.*
+*Document régénéré automatiquement — source-hash `19e3f92b000e7694`, package v1.18.0.*

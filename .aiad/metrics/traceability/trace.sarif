@@ -101,25 +101,6 @@
           "ruleId": "AIAD-TRACE-001",
           "level": "warning",
           "message": {
-            "text": "Intent INTENT-015-sobriete-cli (« Sobriété du CLI — noyau assumé, longue traîne extraite ») n'a pas de SPEC associée."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".aiad/intents/INTENT-015-sobriete-cli.md"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-001",
-          "level": "warning",
-          "message": {
             "text": "Intent INTENT-016-dashboard-fondations (« Dashboard exemplaire — fondations accessibles, sobres, maintenables ») n'a pas de SPEC associée."
           },
           "locations": [
@@ -5231,25 +5212,6 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
-            "text": "Aucune annotation @spec dans lib/telemetry.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/telemetry.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
             "text": "Aucune annotation @spec dans lib/templates.js."
           },
           "locations": [
@@ -5839,7 +5801,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-16T09:00:35.848Z"
+          "endTimeUtc": "2026-06-16T09:59:12.713Z"
         }
       ]
     }

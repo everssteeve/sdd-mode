@@ -21,7 +21,7 @@ import { uninstall } from '../lib/uninstall.js';
 import { validerSkills } from '../lib/skills.js';
 import { docs } from '../lib/docs.js';
 import { versionSync } from '../lib/version-sync.js';
-import { optIn as telemetryOptIn, optOut as telemetryOptOut, showStatus as telemetryStatus, track as telemetryTrack } from '../lib/telemetry.js';
+import { optIn as telemetryOptIn, optOut as telemetryOptOut, showStatus as telemetryStatus, showUsage as telemetryUsage, track as telemetryTrack } from '../lib/telemetry.js';
 import { incrementSession as feedbackIncrementSession, tryInvite as feedbackTryInvite, runFeedbackCommand } from '../lib/feedback.js';
 import { ouvrirRepl } from '../lib/repl.js';
 import { migrer } from '../lib/migrate.js';
@@ -386,7 +386,7 @@ const AIDE = `
     verify-reproducibility  Calcule le content hash déterministe du tarball (CRA, SLSA, NIST SSDF)
     docs [--check]        Régénère DOCUMENTATION.md depuis les sources (CI parity)
     version-sync [--check] Synchronise les zones <!--VERSION:START/END--> sur package.json (--dry-run)
-    telemetry <sub>       Télémétrie opt-in (opt-in / opt-out / status [--json])
+    telemetry <sub>       Télémétrie opt-in (opt-in / opt-out / status [--json] / usage [--json])
     feedback [<sub>]      Feedback qualitatif (opt-in / opt-out / status) — invitation auto toutes les 15 sessions
     uninstall [options]   Retire aiad-sdd du projet (mode aperçu sauf --force)
     bench [compare]       Mesure cold-start ; --persist log historique ; compare --since N --threshold T
@@ -960,9 +960,10 @@ async function main() {
       const sub = positionals[1];
       if (sub === 'opt-in') await telemetryOptIn();
       else if (sub === 'opt-out') await telemetryOptOut();
+      else if (sub === 'usage') await telemetryUsage({ json: Boolean(values.json) });
       else if (sub === 'status' || sub === undefined) await telemetryStatus({ json: Boolean(values.json) });
       else {
-        console.error(`\n  Sous-commande inconnue : "${sub}". Disponibles : opt-in, opt-out, status.\n`);
+        console.error(`\n  Sous-commande inconnue : "${sub}". Disponibles : opt-in, opt-out, status, usage.\n`);
         exit(1);
       }
       break;
