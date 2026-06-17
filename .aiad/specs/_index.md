@@ -29,6 +29,7 @@
 | SPEC-014-1 | Gates bloquants (size + couverture) au publish + badge zéro-dep | INTENT-014 | prose | 5.0 | done | #5 |
 | SPEC-014-2 | Sourcing seul — figer claims externes + requalifier le 50K (FACT-001) | INTENT-014 | prose | 5.0 | done | #6 |
 | SPEC-015-1 | Agrégat d'usage per-command (telemetry usage, local, opt-in) | INTENT-015 | EARS | 5.0 | done | #8 |
+| SPEC-015-2-1 | Registre catégorisé des commandes (core/extended/experimental) + snapshot | INTENT-015 | EARS | 5.0 | in-progress | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

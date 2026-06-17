@@ -2,16 +2,16 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-16T09:59:12.714Z"
+    "generated": "2026-06-17T08:12:47.773Z"
   },
-  "generatedAt": "2026-06-16T09:59:12.713Z",
+  "generatedAt": "2026-06-17T08:12:47.773Z",
   "summary": {
     "intents": 23,
-    "specs": 23,
-    "codeFiles": 319,
-    "annotatedCodeFiles": 45,
-    "testFiles": 247,
-    "annotatedTestFiles": 25
+    "specs": 24,
+    "codeFiles": 320,
+    "annotatedCodeFiles": 46,
+    "testFiles": 248,
+    "annotatedTestFiles": 26
   },
   "forward": [
     {
@@ -753,7 +753,7 @@
             "file": ".aiad/specs/SPEC-015-1-telemetrie-usage.md",
             "title": "SPEC-015-1-telemetrie-usage — Agrégat d'usage per-command (local, opt-in)",
             "parentIntent": "INTENT-015",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
@@ -764,6 +764,27 @@
           "tests": [
             {
               "path": "test/telemetry-usage.test.js",
+              "line": 3
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-015-2-1-registre-commandes",
+            "file": ".aiad/specs/SPEC-015-2-1-registre-commandes.md",
+            "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
+            "parentIntent": "INTENT-015",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/commands-registry.js",
+              "line": 4
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/commands-registry.test.js",
               "line": 3
             }
           ]
@@ -846,13 +867,13 @@
   "backward": [
     {
       "test": {
-        "path": "test/telemetry-usage.test.js",
+        "path": "test/commands-registry.test.js",
         "line": 3
       },
       "spec": {
-        "id": "SPEC-015-1-telemetrie-usage",
-        "file": ".aiad/specs/SPEC-015-1-telemetrie-usage.md",
-        "title": "SPEC-015-1-telemetrie-usage — Agrégat d'usage per-command (local, opt-in)",
+        "id": "SPEC-015-2-1-registre-commandes",
+        "file": ".aiad/specs/SPEC-015-2-1-registre-commandes.md",
+        "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
         "parentIntent": "INTENT-015",
         "status": "in-progress"
       },
@@ -864,8 +885,8 @@
       },
       "code": [
         {
-          "path": "lib/telemetry.js",
-          "line": 169
+          "path": "lib/commands-registry.js",
+          "line": 4
         }
       ]
     },
@@ -4313,6 +4334,31 @@
     },
     {
       "test": {
+        "path": "test/telemetry-usage.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-015-1-telemetrie-usage",
+        "file": ".aiad/specs/SPEC-015-1-telemetrie-usage.md",
+        "title": "SPEC-015-1-telemetrie-usage — Agrégat d'usage per-command (local, opt-in)",
+        "parentIntent": "INTENT-015",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-015-sobriete-cli",
+        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
+        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/telemetry.js",
+          "line": 169
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/telemetry.test.js",
         "line": 0
       },
@@ -5135,7 +5181,7 @@
           "verifiedBy": [
             {
               "path": "(Human",
-              "line": 328
+              "line": 330
             }
           ],
           "governance": [
@@ -5143,7 +5189,7 @@
               "tags": [
                 "ou"
               ],
-              "line": 1143
+              "line": 1153
             }
           ]
         },

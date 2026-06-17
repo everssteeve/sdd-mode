@@ -6,6 +6,7 @@ author: Steeve Evers
 date: 2026-06-11
 specs:
   - SPEC-015-1
+  - SPEC-015-2-1
 ---
 
 # INTENT-015 — Sobriété du CLI
@@ -44,5 +45,7 @@ de sobriété.
 ## SPECs liées
 
 - [x] SPEC-015-1 — Télémétrie d'usage des commandes (locale, opt-in) → `SPEC-015-1-telemetrie-usage.md` (EARS, draft, Research RESEARCH-016)
-- [ ] SPEC-015-2 — Tiering core/extended/plugin + plan de dépréciation
+- [ ] SPEC-015-2 — Tiering core/extended/plugin + plan de dépréciation (découpée via RESEARCH-017 → 2 sous-SPECs)
+  - [ ] SPEC-015-2-1 — Registre catégorisé core/extended/experimental + snapshot test → `SPEC-015-2-1-registre-commandes.md` (EARS, draft)
+  - [ ] SPEC-015-2-2 — Cycle de dépréciation soft (dépend de 015-2-1)
 - [ ] SPEC-015-3 — Matrice enforced/advisory + resserrage des bypass
