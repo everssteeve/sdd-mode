@@ -17,6 +17,17 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-19 — SPEC-015-2-1 → done — Clôture de board
+
+**Auteur** : Steeve Evers
+**Raison** : PR #10 (registre catégorisé des commandes) mergée dans `main` (squash
+`2b53fbc`), CI verte du premier coup (doc + badge régénérés au commit), code review
+OK. Deuxième brique de INTENT-015 livrée : noyau de 25 commandes assumé, longue
+traîne (48) et experimental (8) identifiés, figés par snapshot test (drift guard
+exécutoire).
+**Impact** : SPEC-015-2-1 `in-progress → done` (PR #10). INTENT-015 reste `active`
+(SPEC-015-2-2 cycle de dépréciation + SPEC-015-3 matrice garde-fous à venir).
+
 ## 2026-06-17 — SPEC-015-2-1 — Drift Check OK (registre des commandes)
 
 **Auteur** : Steeve Evers
