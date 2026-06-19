@@ -3,7 +3,7 @@
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
 version: 1.18.0
-source-hash: c19708357448cd53
+source-hash: 2699a4b8a5289c16
 ---
 
 # aiad-sdd — Documentation utilisateur (v1.18.0)
@@ -95,6 +95,7 @@ aiad-sdd v1.18.0 — Spec Driven Development pour Claude Code
     docs [--check]        Régénère DOCUMENTATION.md depuis les sources (CI parity)
     version-sync [--check] Synchronise les zones <!--VERSION:START/END--> sur package.json (--dry-run)
     commands [--tier T]   Registre catégorisé des commandes (core/extended/experimental) [--json]
+    guardrails            Matrice enforced/advisory des garde-fous (hooks + gates CI) [--json]
     telemetry <sub>       Télémétrie opt-in (opt-in / opt-out / status [--json] / usage [--json])
     feedback [<sub>]      Feedback qualitatif (opt-in / opt-out / status) — invitation auto toutes les 15 sessions
     uninstall [options]   Retire aiad-sdd du projet (mode aperçu sauf --force)
@@ -291,4 +292,4 @@ Conventions reconnues par `aiad-sdd trace` (regex stables exportées par `lib/sd
 
 ---
 
-*Document régénéré automatiquement — source-hash `c19708357448cd53`, package v1.18.0.*
+*Document régénéré automatiquement — source-hash `2699a4b8a5289c16`, package v1.18.0.*

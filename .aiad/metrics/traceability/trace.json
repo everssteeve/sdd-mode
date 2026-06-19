@@ -2,16 +2,16 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-19T12:46:35.693Z"
+    "generated": "2026-06-19T13:15:34.760Z"
   },
-  "generatedAt": "2026-06-19T12:46:35.693Z",
+  "generatedAt": "2026-06-19T13:15:34.760Z",
   "summary": {
     "intents": 23,
-    "specs": 25,
-    "codeFiles": 321,
-    "annotatedCodeFiles": 47,
-    "testFiles": 249,
-    "annotatedTestFiles": 27
+    "specs": 26,
+    "codeFiles": 322,
+    "annotatedCodeFiles": 48,
+    "testFiles": 250,
+    "annotatedTestFiles": 28
   },
   "forward": [
     {
@@ -778,21 +778,21 @@
           },
           "code": [
             {
-              "path": "lib/deprecation.js",
+              "path": "lib/commands-registry.js",
               "line": 4
             },
             {
-              "path": "lib/commands-registry.js",
+              "path": "lib/deprecation.js",
               "line": 4
             }
           ],
           "tests": [
             {
-              "path": "test/deprecation.test.js",
+              "path": "test/commands-registry.test.js",
               "line": 3
             },
             {
-              "path": "test/commands-registry.test.js",
+              "path": "test/deprecation.test.js",
               "line": 3
             }
           ]
@@ -803,25 +803,50 @@
             "file": ".aiad/specs/SPEC-015-2-2-cycle-depreciation.md",
             "title": "SPEC-015-2-2-cycle-depreciation — Cycle de dépréciation soft (mécanisme)",
             "parentIntent": "INTENT-015",
-            "status": "in-progress"
+            "status": "done"
           },
           "code": [
             {
-              "path": "lib/deprecation.js",
+              "path": "lib/commands-registry.js",
               "line": 4
             },
             {
-              "path": "lib/commands-registry.js",
+              "path": "lib/deprecation.js",
               "line": 4
             }
           ],
           "tests": [
             {
-              "path": "test/deprecation.test.js",
+              "path": "test/commands-registry.test.js",
               "line": 3
             },
             {
-              "path": "test/commands-registry.test.js",
+              "path": "test/deprecation.test.js",
+              "line": 3
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-015-3-matrice-garde-fous",
+            "file": ".aiad/specs/SPEC-015-3-matrice-garde-fous.md",
+            "title": "SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable",
+            "parentIntent": "INTENT-015",
+            "status": "in-progress"
+          },
+          "code": [
+            {
+              "path": "lib/guardrails.js",
+              "line": 4
+            },
+            {
+              "path": ".aiad/hooks/veto.js",
+              "line": 14
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/guardrails.test.js",
               "line": 3
             }
           ]
@@ -904,15 +929,15 @@
   "backward": [
     {
       "test": {
-        "path": "test/deprecation.test.js",
+        "path": "test/guardrails.test.js",
         "line": 3
       },
       "spec": {
-        "id": "SPEC-015-2-1-registre-commandes",
-        "file": ".aiad/specs/SPEC-015-2-1-registre-commandes.md",
-        "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
+        "id": "SPEC-015-3-matrice-garde-fous",
+        "file": ".aiad/specs/SPEC-015-3-matrice-garde-fous.md",
+        "title": "SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable",
         "parentIntent": "INTENT-015",
-        "status": "done"
+        "status": "in-progress"
       },
       "intent": {
         "id": "INTENT-015-sobriete-cli",
@@ -922,12 +947,12 @@
       },
       "code": [
         {
-          "path": "lib/deprecation.js",
+          "path": "lib/guardrails.js",
           "line": 4
         },
         {
-          "path": "lib/commands-registry.js",
-          "line": 4
+          "path": ".aiad/hooks/veto.js",
+          "line": 14
         }
       ]
     },
@@ -1458,11 +1483,11 @@
       },
       "code": [
         {
-          "path": "lib/deprecation.js",
+          "path": "lib/commands-registry.js",
           "line": 4
         },
         {
-          "path": "lib/commands-registry.js",
+          "path": "lib/deprecation.js",
           "line": 4
         }
       ]
@@ -2282,6 +2307,35 @@
       "spec": null,
       "intent": null,
       "code": []
+    },
+    {
+      "test": {
+        "path": "test/deprecation.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-015-2-1-registre-commandes",
+        "file": ".aiad/specs/SPEC-015-2-1-registre-commandes.md",
+        "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
+        "parentIntent": "INTENT-015",
+        "status": "done"
+      },
+      "intent": {
+        "id": "INTENT-015-sobriete-cli",
+        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
+        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/commands-registry.js",
+          "line": 4
+        },
+        {
+          "path": "lib/deprecation.js",
+          "line": 4
+        }
+      ]
     },
     {
       "test": {
@@ -5194,24 +5248,6 @@
         "annotated": false
       },
       {
-        "path": ".aiad/hooks/veto.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": [
-            {
-              "tags": [
-                "AIAD-XXX"
-              ],
-              "line": 59
-            }
-          ]
-        },
-        "annotated": true
-      },
-      {
         "path": "bench/scenario-autonomous-run/url-shortener/.aiad/hooks/session-start.js",
         "isTest": false,
         "annotations": {
@@ -5251,7 +5287,7 @@
           "verifiedBy": [
             {
               "path": "(Human",
-              "line": 331
+              "line": 332
             }
           ],
           "governance": [
@@ -5259,7 +5295,7 @@
               "tags": [
                 "ou"
               ],
-              "line": 1159
+              "line": 1167
             }
           ]
         },

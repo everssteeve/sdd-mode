@@ -8,7 +8,17 @@
 // Fail-closed : UNKNOWN = VETO. Le subagent read-only tranche la conformité ;
 // ce hook garantit qu'aucun changement réglementé ne passe sans preuve de revue.
 //
-// Self-contained par portabilité. Bypass : export AIAD_HOOK_SILENT=1
+// Self-contained par portabilité.
+//
+// @intent INTENT-015
+// @spec SPEC-015-3-matrice-garde-fous
+// @governance AIAD-AI-ACT,AIAD-RGPD,AIAD-RGAA
+//
+// NON-BYPASSABLE (C3 de RESEARCH-018) : le veto Tier 1 fail-closed n'honore
+// PAS `AIAD_HOOK_SILENT` — contrairement aux hooks advisory. Le dernier
+// recours reste `git commit --no-verify` (hors-harness, tracé). L'audit
+// `test/guardrails.test.js` échoue si un early-return `AIAD_HOOK_SILENT`
+// réapparaît ici.
 // Documentation : https://aiad.ovh
 
 import process from 'node:process';
@@ -25,8 +35,8 @@ function resoudreCli(projectDir) {
 }
 
 function main() {
-  if (process.env.AIAD_HOOK_SILENT === '1') return 0;
-
+  // Pas de bypass `AIAD_HOOK_SILENT` ici : le veto Tier 1 est non-bypassable
+  // (C3 de SPEC-015-3). Garde anti-régression : test/guardrails.test.js.
   const projectDir = process.env.CLAUDE_PROJECT_DIR || process.cwd();
   if (!existsSync(join(projectDir, '.aiad'))) return 0;
 
