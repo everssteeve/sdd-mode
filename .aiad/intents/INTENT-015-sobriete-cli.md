@@ -8,6 +8,7 @@ specs:
   - SPEC-015-1
   - SPEC-015-2-1
   - SPEC-015-2-2
+  - SPEC-015-3
 ---
 
 # INTENT-015 — Sobriété du CLI
@@ -49,4 +50,4 @@ de sobriété.
 - [ ] SPEC-015-2 — Tiering core/extended/plugin + plan de dépréciation (découpée via RESEARCH-017 → 2 sous-SPECs)
   - [x] SPEC-015-2-1 — Registre catégorisé core/extended/experimental + snapshot test → `SPEC-015-2-1-registre-commandes.md` (EARS, done, PR #10)
   - [x] SPEC-015-2-2 — Cycle de dépréciation soft (dépend de 015-2-1) → `SPEC-015-2-2-cycle-depreciation.md` (EARS, done, PR #12 ; mécanisme dormant)
-- [ ] SPEC-015-3 — Matrice enforced/advisory + resserrage des bypass
+- [ ] SPEC-015-3 — Matrice enforced/advisory + resserrage des bypass → `SPEC-015-3-matrice-garde-fous.md` (EARS, draft ; ferme le bypass veto, RESEARCH-018)

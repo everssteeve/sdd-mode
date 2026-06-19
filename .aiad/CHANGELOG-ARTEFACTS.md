@@ -17,6 +17,23 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-19 — SPEC-015-3 — Drift Check OK (matrice garde-fous + veto non-bypassable)
+
+**Auteur** : Steeve Evers
+**Raison** : Drift Lock vérifié pour SPEC-015-3 (INTENT-015) — heuristique git OK
+(SPEC + `lib/guardrails.js` + correctif `.aiad/hooks/veto.js` + test annotés
+`@spec SPEC-015-3` dans le même changeset) + traçabilité machine sans gap
+(`trace --fail-on-gap` exit 0). RESEARCH-018 avait révélé que le veto Tier 1 était
+**bypassable** via `AIAD_HOOK_SILENT=1` (veto.js:28) ; le correctif retire ce
+bypass (C3) et l'audit `test/guardrails.test.js` empêche sa réintroduction
+(C-MATRICE). Matrice publiée via `aiad-sdd guardrails` (17 garde-fous, 11
+enforced / 6 advisory). Reste : code review + PR avant `done`.
+**Impact** : `.aiad/hooks/veto.js` (bypass retiré), `lib/guardrails.js` (matrice +
+audit), `bin/aiad-sdd.js` (commande `guardrails`), `lib/commands-registry.js` +
+`test/commands-registry.test.js` (`guardrails` au registre, snapshot MAJ),
+`test/guardrails.test.js` (8/8), `.aiad/specs/SPEC-015-3-…md`,
+`.aiad/research/RESEARCH-018-…md`, `DOCUMENTATION.md` + badge régénérés.
+
 ## 2026-06-19 — SPEC-015-2-2 → done — Clôture de board
 
 **Auteur** : Steeve Evers

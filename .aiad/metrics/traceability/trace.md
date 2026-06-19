@@ -1,15 +1,15 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-19T12:46:35.693Z
+> Généré le 2026-06-19T13:15:34.760Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
 | Intents | 23 |
-| SPECs | 25 |
-| Fichiers code | 321 (annotés : 47) |
-| Fichiers test | 249 (annotés : 27) |
+| SPECs | 26 |
+| Fichiers code | 322 (annotés : 48) |
+| Fichiers test | 250 (annotés : 28) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -38,8 +38,9 @@
 | INTENT-014-empirisme-prouve | SPEC-014-1-gates-bloquants-badge | `scripts/coverage-threshold.js` | `test/coverage-threshold.test.js` | ✅ |
 | INTENT-014-empirisme-prouve | SPEC-014-2-sourcing-claims | `scripts/lint-claims.js` | `test/lint-claims.test.js` | ✅ |
 | INTENT-015-sobriete-cli | SPEC-015-1-telemetrie-usage | `lib/telemetry.js` | `test/telemetry-usage.test.js` | ✅ |
-| INTENT-015-sobriete-cli | SPEC-015-2-1-registre-commandes | `lib/deprecation.js`<br/>`lib/commands-registry.js` | `test/deprecation.test.js`<br/>`test/commands-registry.test.js` | ✅ |
-| INTENT-015-sobriete-cli | SPEC-015-2-2-cycle-depreciation | `lib/deprecation.js`<br/>`lib/commands-registry.js` | `test/deprecation.test.js`<br/>`test/commands-registry.test.js` | ✅ |
+| INTENT-015-sobriete-cli | SPEC-015-2-1-registre-commandes | `lib/commands-registry.js`<br/>`lib/deprecation.js` | `test/commands-registry.test.js`<br/>`test/deprecation.test.js` | ✅ |
+| INTENT-015-sobriete-cli | SPEC-015-2-2-cycle-depreciation | `lib/commands-registry.js`<br/>`lib/deprecation.js` | `test/commands-registry.test.js`<br/>`test/deprecation.test.js` | ✅ |
+| INTENT-015-sobriete-cli | SPEC-015-3-matrice-garde-fous | `lib/guardrails.js`<br/>`.aiad/hooks/veto.js` | `test/guardrails.test.js` | ✅ |
 | INTENT-016-dashboard-fondations | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-017-dashboard-quotidien | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-018-valeur-boussole | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -53,7 +54,7 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/deprecation.test.js` | SPEC-015-2-1-registre-commandes | INTENT-015-sobriete-cli | `lib/deprecation.js`<br/>`lib/commands-registry.js` |
+| `test/guardrails.test.js` | SPEC-015-3-matrice-garde-fous | INTENT-015-sobriete-cli | `lib/guardrails.js`<br/>`.aiad/hooks/veto.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -89,7 +90,7 @@
 | `test/cli-parsing.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/cli-schema.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/command-hooks.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/commands-registry.test.js` | SPEC-015-2-1-registre-commandes | INTENT-015-sobriete-cli | `lib/deprecation.js`<br/>`lib/commands-registry.js` |
+| `test/commands-registry.test.js` | SPEC-015-2-1-registre-commandes | INTENT-015-sobriete-cli | `lib/commands-registry.js`<br/>`lib/deprecation.js` |
 | `test/completion.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/confluence.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/coverage-threshold.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -174,6 +175,7 @@
 | `test/dashboard-violations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-watch.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/deprecation.test.js` | SPEC-015-2-1-registre-commandes | INTENT-015-sobriete-cli | `lib/commands-registry.js`<br/>`lib/deprecation.js` |
 | `test/dinum.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/discovery-gate.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/docs-dora-flow.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -377,14 +379,13 @@
 - SPECs validées sans code (statut ready/validation/done) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **292**
+- Code sans `@spec` : **291**
   - .aiad/hooks/discovery-gate.js
   - .aiad/hooks/drift-lock.js
   - .aiad/hooks/jnsp-scan.js
   - .aiad/hooks/session-start.js
   - .aiad/hooks/skill-usage.js
   - .aiad/hooks/statusline.js
-  - .aiad/hooks/veto.js
   - bench/scenario-autonomous-run/url-shortener/.aiad/hooks/session-start.js
   - bench/scenario-autonomous-run/url-shortener/dashboard/assets/app.js
   - bin/aiad-sdd.js
@@ -428,5 +429,6 @@
   - lib/dashboard/bottlenecks.js
   - lib/dashboard/brief-pm.js
   - lib/dashboard/burnup-chart.js
-  - … (+242 autres)
+  - lib/dashboard/bus-factor.js
+  - … (+241 autres)
 - Code annoté sans tests liés : **0**

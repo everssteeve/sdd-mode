@@ -367,25 +367,6 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
-            "text": "Aucune annotation @spec dans .aiad/hooks/veto.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".aiad/hooks/veto.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
             "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.aiad/hooks/session-start.js."
           },
           "locations": [
@@ -5801,7 +5782,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-19T12:46:35.693Z"
+          "endTimeUtc": "2026-06-19T13:15:34.760Z"
         }
       ]
     }
