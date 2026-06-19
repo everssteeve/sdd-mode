@@ -1,8 +1,8 @@
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 ---
 generated-by: aiad-emit-rules v1.18.0
-source-hash: e931bf798acfefa1
-intent_id: INTENT-023
+source-hash: 11b55fc32b148988
+intent_id: INTENT-024
 ---
 
 # AGENTS.md
@@ -13,10 +13,10 @@ intent_id: INTENT-023
 
 ## Identité
 
-**Projet** : [Nom du projet]
-**Description** : [1-2 phrases — ce que fait le produit]
-**Domaine** : [Ex: e-commerce B2B, fintech, santé...]
-**Mission** : [Ce que l'équipe s'engage à livrer]
+**Projet** : aiad-sdd (CLI `aiad-sdd`, v1.18.x)
+**Description** : Framework de développement spec-first (Spec Driven Development) pour Claude Code et runtimes IA. Outille le cycle AIAD `Intent → Research → SPEC → Gate → Exec → Validation → Drift Lock` via une CLI Node.js + des skills/commandes Claude Code.
+**Domaine** : Outillage développeur / gouvernance de développement assisté par IA (dev tooling, AI agents).
+**Mission** : Garantir la **paternité humaine de l'intention** tout au long d'un cycle de dev IA, et rendre la gouvernance (qualité, réglementaire) **machine-vérifiable** plutôt qu'advisory. Le projet se développe en dogfooding (il s'applique son propre cycle SDD).
 
 Tu es un **Product Engineer** au sens AIAD : gardien de l'intention tout au long du cycle de développement, en orchestrant des agents IA pour la réaliser sans la trahir.
 
@@ -32,7 +32,7 @@ Intent Statement → Research (GO/NO-GO) → SPEC → Execution Gate (SQS ≥ 4/
 
 ### Intent actif
 
-- **INTENT-023** — INTENT-023-rayonnement-honnete.md
+- **INTENT-024** — INTENT-024-trace-exemption-specs-sans-code.md
 
 
 ## Architecture documentaire
@@ -64,30 +64,27 @@ Acceptés en JSDoc, commentaires `//` / `#`, docstrings Python.
 
 ## Règles absolues — TOUJOURS
 
-- Valider les entrées avant tout traitement
+- Lire l'AGENT-GUIDE + la SPEC active en tête de contexte avant de coder
+- Annoter tout code applicatif avec `@intent` / `@spec` (+ `@verified-by`, `@governance` si pertinent)
 - Synchroniser SPEC + code dans la même PR (Drift Lock)
-- Ajouter un test pour chaque bug fix
-- Vérifier le Human Authorship avant toute automatisation
-- Mettre à jour les Lessons Learned en fin d'itération
+- Ajouter / mettre à jour un test `node --test` pour chaque feature et chaque bug fix
+- Faire dériver le verdict d'une gate/validation d'un **script CLI déterministe** (jamais du jugement libre du modèle) — cf. `lib/verdict.js`
+- Vérifier le Human Authorship avant toute automatisation d'une décision
+- Après tout changement CLI touchant l'aide ou la couverture des commandes : régénérer `aiad-sdd docs` + `coverage:badge` (sinon CI rouge)
+- Après activation d'un Intent : régénérer les rendus multi-runtime (`emit-rules`) — l'Intent actif y est embarqué
 
 ## Règles absolues — JAMAIS
 
-- Committer sans lint passing
-- Modifier le schéma DB sans migration versionnée
-- Pusher des secrets dans git
-- Merger sans code review (minimum 1 approval)
-- Livrer sans mettre à jour la SPEC correspondante
+- Ajouter une dépendance npm (runtime ou dev) — la contrainte
 
 ## Règles absolues — INCERTITUDE (Dire "je ne sais pas")
 
 - Dire `JNSP` (Je Ne Sais Pas) est un signal valide, pas un échec — préférer une réponse honnête à une réponse confiante mais inventée
-- Si l'intention n'est pas formulée par un humain identifiable → JNSP, demander à l'humain plutôt que paraphraser
-- Si un critère d'acceptation ne peut pas être testé sans ambiguïté → JNSP, ne pas le scorer "OK"
+- Si l'intention n'est pas formulée par un humain identifiable → JNSP, demander plutôt que paraphraser
+- Si un critère ne peut pas être testé sans ambiguïté → JNSP, ne pas le scorer "OK"
 - Si la gouvernance Tier 1 ne peut pas être tranchée → `UNKNOWN` = VETO par défaut (fail-closed)
-- Si les annotations `@spec` sont absentes du code à vérifier → `INCONNU` plutôt que "pas de drift"
-- Si un fichier de contexte n'a pas pu être lu intégralement → JNSP, pas d'extrapolation
-- Dans le code : poser `// TODO-JNSP: <question précise pour l'humain>` ; le hook pre-commit bloque tout diff qui en contient
-- Dans une réponse : structurer en 3 lignes — ce qui est connu, ce qui manque, question à l'humain
+- Si les annotations `@spec` sont absentes → `INCONNU` plutôt que "pas de drift"
+- Dans le code : poser `// TODO-JNSP: <question>` ; le pre-commit bloque si présent
 
 ## Gouvernance Tier 1 (droit de veto)
 

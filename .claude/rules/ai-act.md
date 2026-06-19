@@ -6,7 +6,7 @@ paths:
   - "**/models/**"
   - "**/agents/**"
 generated-by: aiad-emit-rules v1.18.0
-source-hash: e931bf798acfefa1
+source-hash: 11b55fc32b148988
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
