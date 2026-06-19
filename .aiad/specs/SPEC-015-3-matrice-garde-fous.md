@@ -4,7 +4,7 @@
 **Research** : RESEARCH-018 (CONDITIONAL GO 85 % — conditions C3, C-MATRICE, C-SCOPE)
 **Auteur** : Steeve Evers
 **Date** : 2026-06-19
-**Statut** : in-progress
+**Statut** : done
 **Format** : EARS
 **SQS** : 5/5 — Gate OUVERTE (2026-06-19, EARS strict 0 violation, Étranger PASS)
 **Implémentation** : `.aiad/hooks/veto.js` (bypass AIAD_HOOK_SILENT retiré, C3) + `lib/guardrails.js` (matrice 17 garde-fous + audit) + `aiad-sdd guardrails [--json]` + `test/guardrails.test.js` (8/8) + `guardrails` ajoutée au registre (snapshot SPEC-015-2-1 à jour). 11 enforced / 6 advisory. trace 0 gap.
@@ -175,5 +175,5 @@ bin/aiad-sdd.js :
 - [x] `DOCUMENTATION.md` + badge couverture régénérés (nouvelle commande)
 - [x] SPEC mise à jour si écart (Drift Lock — trace 0 gap bloquant)
 - [x] Annotations machine-vérifiables posées (`@intent INTENT-015`, `@spec SPEC-015-3-matrice-garde-fous`, `@governance` sur le correctif veto)
-- [ ] Code review passée
+- [x] Code review passée (PR #14)
 - [ ] Gouvernance vérifiée : **méta-gouvernance** — le correctif renforce la robustesse du veto Tier 1 (AI-ACT/RGPD/RGAA). RGESN aligné (matrice = lisibilité). Pas de données perso / IA / UI.

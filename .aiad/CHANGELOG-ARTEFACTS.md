@@ -17,6 +17,21 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-19 — INTENT-015 + SPEC-015-3 → done — Clôture de l'intention
+
+**Auteur** : Steeve Evers
+**Raison** : PR #14 (matrice garde-fous + veto non-bypassable) mergée dans `main`
+(squash `b6451cf`), CI verte (21/21), code review OK. **INTENT-015 « Sobriété du
+CLI » entièrement réalisé** — 4 SPECs done : 015-1 (télémétrie d'usage locale,
+#8), 015-2-1 (registre 25 core / 48 extended / 8 experimental, #10), 015-2-2
+(cycle de dépréciation soft dormant, #12), 015-3 (matrice 17 garde-fous + veto
+non-bypassable, #14). Le noyau ~25 est assumé et figé par snapshot, la longue
+traîne est identifiée et outillée pour la dépréciation, le veto Tier 1 n'est plus
+bypassable. Décision pilotée par la donnée différée honnêtement (donnée d'usage
+polluée écartée — RESEARCH-017 C-DATA).
+**Impact** : SPEC-015-3 `in-progress → done` (PR #14), INTENT-015 `active → done`.
+Rendus emit-rules régénérés (l'intent actif a changé).
+
 ## 2026-06-19 — SPEC-015-3 — Drift Check OK (matrice garde-fous + veto non-bypassable)
 
 **Auteur** : Steeve Evers

@@ -31,7 +31,7 @@
 | SPEC-015-1 | Agrégat d'usage per-command (telemetry usage, local, opt-in) | INTENT-015 | EARS | 5.0 | done | #8 |
 | SPEC-015-2-1 | Registre catégorisé des commandes (core/extended/experimental) + snapshot | INTENT-015 | EARS | 5.0 | done | #10 |
 | SPEC-015-2-2 | Cycle de dépréciation soft (mécanisme dormant : warning au dispatch) | INTENT-015 | EARS | 5.0 | done | #12 |
-| SPEC-015-3 | Matrice enforced/advisory machine-vérifiable + veto non-bypassable | INTENT-015 | EARS | 5.0 | in-progress | — |
+| SPEC-015-3 | Matrice enforced/advisory machine-vérifiable + veto non-bypassable | INTENT-015 | EARS | 5.0 | done | #14 |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

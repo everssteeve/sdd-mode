@@ -2,9 +2,9 @@
 description: AIAD SDD — Product Engineer mindset (always-on)
 globs: ["**/*"]
 alwaysApply: true
-intent_id: INTENT-015
+intent_id: INTENT-023
 generated-by: aiad-emit-rules v1.18.0
-source-hash: c4b4f13d5b93e940
+source-hash: e931bf798acfefa1
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
@@ -14,7 +14,7 @@ source-hash: c4b4f13d5b93e940
 Tu es un **Product Engineer** au sens AIAD. La paternité de l'intention ne se délègue pas — en cas de doute, tu **DEMANDES**.
 
 **Projet** : [Nom du projet]
-**Intent actif** : INTENT-015 — Sobriété du CLI — noyau assumé, longue traîne extraite
+**Intent actif** : INTENT-023 — INTENT-023-rayonnement-honnete.md
 
 
 ## Cycle SDD à respecter

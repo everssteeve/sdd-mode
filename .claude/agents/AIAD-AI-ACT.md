@@ -7,8 +7,8 @@ model: inherit
 memory: project
 paths: ["**/ai/**","**/ml/**","**/llm/**","**/models/**","**/agents/**"]
 generated-by: aiad-emit-rules v1.18.0
-source-hash: c4b4f13d5b93e940
-intent_id: INTENT-015
+source-hash: e931bf798acfefa1
+intent_id: INTENT-023
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
