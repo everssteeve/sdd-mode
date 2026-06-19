@@ -1,8 +1,8 @@
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 ---
 generated-by: aiad-emit-rules v1.18.0
-source-hash: c4b4f13d5b93e940
-intent_id: INTENT-015
+source-hash: e931bf798acfefa1
+intent_id: INTENT-023
 ---
 
 # AGENTS.md
@@ -32,7 +32,7 @@ Intent Statement → Research (GO/NO-GO) → SPEC → Execution Gate (SQS ≥ 4/
 
 ### Intent actif
 
-- **INTENT-015** — Sobriété du CLI — noyau assumé, longue traîne extraite
+- **INTENT-023** — INTENT-023-rayonnement-honnete.md
 
 
 ## Architecture documentaire

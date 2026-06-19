@@ -1,8 +1,8 @@
 <!-- aiad-emit-rules:start -->
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 <!-- generated-by: aiad-emit-rules v1.18.0 -->
-<!-- source-hash: c4b4f13d5b93e940 -->
-<!-- intent_id: INTENT-015 -->
+<!-- source-hash: e931bf798acfefa1 -->
+<!-- intent_id: INTENT-023 -->
 
 > Ce fichier est synchronisé avec `AGENTS.md`, `.cursor/rules/` et `.codex/` via `npx aiad-sdd emit-rules`.
 > La logique CLAUDE.md complète est conservée ci-dessous — seul ce header est régénéré.
