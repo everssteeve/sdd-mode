@@ -12,6 +12,7 @@
 | RESEARCH-014 | Déploiement site/ → gh-pages automatisé | INTENT-013 | Steeve Evers | 2026-06-11 | CONDITIONAL GO (85 %) | déclaré GO → durci CONDITIONAL (R2/R3/R4) — /sdd spec autorisé |
 | RESEARCH-015 | Empirisme prouvé — gates bloquants + claims sourcés | INTENT-014 | Steeve Evers | 2026-06-12 | CONDITIONAL GO (85 %) | tranché — /sdd spec autorisé (C-R1, C-R2, C-R3, C-R5) ; prémisse Intent corrigée |
 | RESEARCH-016 | Sobriété du CLI — noyau assumé, longue traîne extraite | INTENT-015 | Steeve Evers | 2026-06-16 | CONDITIONAL GO (85 %) | tranché — /sdd spec autorisé (C1, C2, C3) ; télémétrie opt-in déjà en place |
+| RESEARCH-017 | Tiering CLI core/extended/plugin + plan de dépréciation | INTENT-015 | Steeve Evers | 2026-06-17 | CONDITIONAL GO (80 %) | tranché — /sdd spec autorisé (C1, C2, C-DATA, C-SCOPE) ; donnée d'usage polluée écartée comme preuve |
 
 ## Verdicts du gate Research
 

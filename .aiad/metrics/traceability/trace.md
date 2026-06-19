@@ -1,15 +1,15 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-16T09:59:12.713Z
+> Généré le 2026-06-17T08:12:47.773Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
 | Intents | 23 |
-| SPECs | 23 |
-| Fichiers code | 319 (annotés : 45) |
-| Fichiers test | 247 (annotés : 25) |
+| SPECs | 24 |
+| Fichiers code | 320 (annotés : 46) |
+| Fichiers test | 248 (annotés : 26) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -38,6 +38,7 @@
 | INTENT-014-empirisme-prouve | SPEC-014-1-gates-bloquants-badge | `scripts/coverage-threshold.js` | `test/coverage-threshold.test.js` | ✅ |
 | INTENT-014-empirisme-prouve | SPEC-014-2-sourcing-claims | `scripts/lint-claims.js` | `test/lint-claims.test.js` | ✅ |
 | INTENT-015-sobriete-cli | SPEC-015-1-telemetrie-usage | `lib/telemetry.js` | `test/telemetry-usage.test.js` | ✅ |
+| INTENT-015-sobriete-cli | SPEC-015-2-1-registre-commandes | `lib/commands-registry.js` | `test/commands-registry.test.js` | ✅ |
 | INTENT-016-dashboard-fondations | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-017-dashboard-quotidien | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-018-valeur-boussole | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -51,7 +52,7 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/telemetry-usage.test.js` | SPEC-015-1-telemetrie-usage | INTENT-015-sobriete-cli | `lib/telemetry.js` |
+| `test/commands-registry.test.js` | SPEC-015-2-1-registre-commandes | INTENT-015-sobriete-cli | `lib/commands-registry.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -318,6 +319,7 @@
 | `test/suggest.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/sunset.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/tarball-hygiene.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/telemetry-usage.test.js` | SPEC-015-1-telemetrie-usage | INTENT-015-sobriete-cli | `lib/telemetry.js` |
 | `test/telemetry.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/templates.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/term.test.js` | ❌ non-tracé | — | _(aucun)_ |

@@ -17,6 +17,23 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-17 — SPEC-015-2-1 — Drift Check OK (registre des commandes)
+
+**Auteur** : Steeve Evers
+**Raison** : Drift Lock vérifié pour SPEC-015-2-1 (INTENT-015) — heuristique git OK
+(SPEC + `lib/commands-registry.js` + test annotés `@spec SPEC-015-2-1` dans le même
+changeset) + traçabilité machine sans gap bloquant (`trace --fail-on-gap` exit 0).
+Cycle : research (RESEARCH-017 CONDITIONAL GO 80 %) → spec (EARS 5/5, découpée
+depuis 015-2) → gate (OUVERTE) → exec → validate (VALIDÉ, RGESN PASS). Le snapshot
+test (CA-007) rend le critère de drift de l'intent exécutoire : 25 core / 48
+extended / 8 experimental figés, re-tiering non tracé = CI rouge. Reste : code
+review + PR avant `done`.
+**Impact** : `lib/commands-registry.js` (COMMANDS_REGISTRY, tierOf/listByTier/
+showCommands), `bin/aiad-sdd.js` (commande `commands [--tier] [--json]` + AIDE +
+COMMANDES_VALIDES + OPTIONS_SCHEMA `--tier`), `test/commands-registry.test.js`
+(8/8), `.aiad/specs/SPEC-015-2-1-…md`, `.aiad/research/RESEARCH-017-…md`,
+`DOCUMENTATION.md` + badge couverture régénérés.
+
 ## 2026-06-17 — SPEC-015-1 → done — Clôture de board
 
 **Auteur** : Steeve Evers

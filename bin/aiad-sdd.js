@@ -22,6 +22,7 @@ import { validerSkills } from '../lib/skills.js';
 import { docs } from '../lib/docs.js';
 import { versionSync } from '../lib/version-sync.js';
 import { optIn as telemetryOptIn, optOut as telemetryOptOut, showStatus as telemetryStatus, showUsage as telemetryUsage, track as telemetryTrack } from '../lib/telemetry.js';
+import { showCommands } from '../lib/commands-registry.js';
 import { incrementSession as feedbackIncrementSession, tryInvite as feedbackTryInvite, runFeedbackCommand } from '../lib/feedback.js';
 import { ouvrirRepl } from '../lib/repl.js';
 import { migrer } from '../lib/migrate.js';
@@ -210,6 +211,7 @@ const OPTIONS_SCHEMA = {
   type: { type: 'string' },
   since: { type: 'string' },
   jours: { type: 'string' },
+  tier: { type: 'string' },
   ai: { type: 'boolean' },
   all: { type: 'boolean' },
   reason: { type: 'string' },
@@ -386,6 +388,7 @@ const AIDE = `
     verify-reproducibility  Calcule le content hash déterministe du tarball (CRA, SLSA, NIST SSDF)
     docs [--check]        Régénère DOCUMENTATION.md depuis les sources (CI parity)
     version-sync [--check] Synchronise les zones <!--VERSION:START/END--> sur package.json (--dry-run)
+    commands [--tier T]   Registre catégorisé des commandes (core/extended/experimental) [--json]
     telemetry <sub>       Télémétrie opt-in (opt-in / opt-out / status [--json] / usage [--json])
     feedback [<sub>]      Feedback qualitatif (opt-in / opt-out / status) — invitation auto toutes les 15 sessions
     uninstall [options]   Retire aiad-sdd du projet (mode aperçu sauf --force)
@@ -953,6 +956,13 @@ async function main() {
         dryRun: Boolean(values['dry-run']),
         json: Boolean(values.json),
       });
+      break;
+    }
+
+    case 'commands': {
+      // Registre catégorisé core/extended/experimental (SPEC-015-2-1).
+      const r = showCommands({ tier: values.tier, json: Boolean(values.json) });
+      if (r && r.invalidTier) exit(1);
       break;
     }
 
@@ -3586,7 +3596,7 @@ async function main() {
       const COMMANDES_VALIDES = [
         'init', 'update', 'gouvernance', 'hooks', 'status', 'doctor', 'repl',
         'migrate', 'migrate-v2', 'obsidian', 'workspace', 'ai-act', 'sbom', 'verify-reproducibility',
-        'dpia', 'docs', 'telemetry', 'feedback', 'skills', 'uninstall', 'bench', 'trace',
+        'dpia', 'docs', 'telemetry', 'feedback', 'skills', 'uninstall', 'bench', 'trace', 'commands',
         'dashboard', 'emit-rules', 'new', 'import', 'score', 'template',
         'review', 'suggest-annotations', 'export', 'storybook', 'cert',
         'marketplace', 'audit', 'provenance', 'hook-stats', 'dinum', 'sovereignty', 'adrs', 'dora', 'self-update', 'standup', 'brief', 'badge', 'gitlab', 'azure', 'webhooks', 'reflect', 'negotiate', 'refactor-spec', 'spec-version', 'archive', 'sla', 'completion', 'tour', 'pii-scan', 'backup', 'restore', 'offline', 'bitbucket', 'ci-template', 'github-app', 'anonymize', 'plugin', 'hooks-init', 'schema', 'org', 'rbac', 'tutorial', 'help', 'version',
