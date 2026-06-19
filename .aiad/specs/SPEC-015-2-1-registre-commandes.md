@@ -4,7 +4,7 @@
 **Research** : RESEARCH-017 (CONDITIONAL GO 80 % — conditions C1, C2, C-DATA, C-SCOPE)
 **Auteur** : Steeve Evers
 **Date** : 2026-06-17
-**Statut** : in-progress
+**Statut** : done
 **Format** : EARS
 **SQS** : 5/5 — Gate OUVERTE (2026-06-17, EARS strict 0 violation, Étranger PASS)
 **Implémentation** : `lib/commands-registry.js` (COMMANDS_REGISTRY 81 entrées · tierOf/listByTier/showCommands) + `bin/aiad-sdd.js` (commande `commands [--tier] [--json]`) · tests `test/commands-registry.test.js` (8/8) · trace 0 gap bloquant. Répartition : 25 core / 48 extended / 8 experimental.
@@ -165,5 +165,5 @@ Schéma JSON de sortie :
 - [x] `DOCUMENTATION.md` régénéré (`aiad-sdd docs`) + badge couverture (`coverage:badge`) — gotcha CI nouvelle commande
 - [x] SPEC mise à jour si écart (Drift Lock — trace 0 gap bloquant)
 - [x] Annotations machine-vérifiables posées (`@intent INTENT-015`, `@spec SPEC-015-2-1-registre-commandes`, `@verified-by`)
-- [ ] Code review passée
+- [x] Code review passée (PR #10)
 - [ ] Gouvernance vérifiée : **RGESN** (sobriété : registre statique zéro-dep, rend la longue traîne visible et donc réductible). Pas de données personnelles (RGPD n/a), pas d'IA (AI-ACT n/a), pas d'UI web (RGAA n/a).
