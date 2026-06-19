@@ -17,6 +17,17 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-19 — SPEC-015-2-2 → done — Clôture de board
+
+**Auteur** : Steeve Evers
+**Raison** : PR #12 (cycle de dépréciation soft) mergée dans `main` (squash
+`8562b92`), CI verte du premier coup, code review OK. Troisième brique de
+INTENT-015 : mécanisme de dépréciation soft livré dormant (warning stderr non
+bloquant au dispatch, exécution préservée). Reste SPEC-015-3 (matrice
+enforced/advisory) pour clore l'intent.
+**Impact** : SPEC-015-2-2 `in-progress → done` (PR #12). INTENT-015 reste `active`
+(SPEC-015-3 matrice garde-fous à venir).
+
 ## 2026-06-19 — SPEC-015-2-2 — Drift Check OK (cycle de dépréciation)
 
 **Auteur** : Steeve Evers

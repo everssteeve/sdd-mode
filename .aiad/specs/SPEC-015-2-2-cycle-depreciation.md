@@ -4,7 +4,7 @@
 **Research** : RESEARCH-017 (CONDITIONAL GO 80 % — conditions C1, C2, C-DATA, C-SCOPE)
 **Auteur** : Steeve Evers
 **Date** : 2026-06-19
-**Statut** : in-progress
+**Statut** : done
 **Format** : EARS
 **SQS** : 5/5 — Gate OUVERTE (2026-06-19, EARS strict 0 violation, Étranger PASS)
 **Implémentation** : `lib/deprecation.js` (formatDeprecationNotice/deprecationNotice/emitDeprecation/validateDeprecation) + `bin/aiad-sdd.js` (émission au dispatch) + `lib/commands-registry.js` (rendu deprecated) · tests `test/deprecation.test.js` (8/8) · trace 0 gap. Mécanisme livré dormant (0 commande dépréciée).
@@ -164,5 +164,5 @@ lib/commands-registry.js (showCommands) :
 - [x] `DOCUMENTATION.md` à jour + badge couverture régénéré (pas de nouvelle commande, surface CLI inchangée)
 - [x] SPEC mise à jour si écart (Drift Lock — trace 0 gap bloquant)
 - [x] Annotations machine-vérifiables posées (`@intent INTENT-015`, `@spec SPEC-015-2-2-cycle-depreciation`, `@verified-by`)
-- [ ] Code review passée
+- [x] Code review passée (PR #12)
 - [ ] Gouvernance vérifiée : **RGESN** (mécanisme léger zéro-dep, sert la réduction de surface). RGPD / AI-ACT / RGAA non déclenchés.
