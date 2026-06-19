@@ -3,7 +3,10 @@
 **Date** : 2026-06-12
 **Auteur** : Steeve Evers
 **SPEC concernée** : SPEC-013-1a / 013-2 / 013-4a (INTENT-013)
-**Statut** : ouvert
+**Statut** : résolu (2026-06-19 — INTENT-024 / SPEC-024-1 : champ frontmatter
+`traceability: exempt` + raison, exclu de `specsValideesNonImplementees`. Les 3
+SPECs concernées sont passées `done` + exemptées ; le contournement « frontmatter
+tenu `in-progress` » n'est plus nécessaire.)
 
 ## Écart constaté
 

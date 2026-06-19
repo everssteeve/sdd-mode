@@ -1,4 +1,4 @@
-# AGENT-GUIDE — [Nom du projet]
+# AGENT-GUIDE — aiad-sdd
 
 > Ce fichier est le **contexte permanent** de l'agent IA.
 > Il est injecté dans CHAQUE session de développement.
@@ -9,10 +9,10 @@
 
 ## IDENTITÉ DU PROJET
 
-**Nom** : [Nom du projet]
-**Description** : [1-2 phrases — ce que fait le produit]
-**Domaine métier** : [Ex: e-commerce B2B, fintech, santé...]
-**Mission** : [Ce que l'équipe s'engage à livrer]
+**Nom** : aiad-sdd (CLI `aiad-sdd`, v1.18.x)
+**Description** : Framework de développement spec-first (Spec Driven Development) pour Claude Code et runtimes IA. Outille le cycle AIAD `Intent → Research → SPEC → Gate → Exec → Validation → Drift Lock` via une CLI Node.js + des skills/commandes Claude Code.
+**Domaine métier** : Outillage développeur / gouvernance de développement assisté par IA (dev tooling, AI agents).
+**Mission** : Garantir la **paternité humaine de l'intention** tout au long d'un cycle de dev IA, et rendre la gouvernance (qualité, réglementaire) **machine-vérifiable** plutôt qu'advisory. Le projet se développe en dogfooding (il s'applique son propre cycle SDD).
 
 ---
 
@@ -24,31 +24,44 @@
 | Architecture | @.aiad/ARCHITECTURE.md | Condensé permanent |
 | SPEC active | @.aiad/specs/[SPEC-XXX].md | Par tâche uniquement |
 | Index SPECs | @.aiad/specs/_index.md | Planification |
+| Index Intents | @.aiad/intents/_index.md | Planification |
 | Gouvernance | @.aiad/gouvernance/ | Permanent (Tier 1, veto) |
+| Guide agent multi-runtime | @AGENTS.md | Source des rendus emit-rules |
 
 ---
 
 ## STACK TECHNIQUE (Référence Rapide)
 
-[Résumé de la stack — 10 lignes max. Reprend les éléments clés de ARCHITECTURE.md.]
+- **Runtime** : Node.js ≥ 18 (ESM natif, `"type": "module"`) ; compatible Bun ≥ 1.2.
+- **Langage** : JavaScript pur (pas de TypeScript, pas d'étape de build).
+- **Dépendances** : **ZÉRO dépendance runtime ET dev** (`dependencies: {}`, `devDependencies: {}`). Contrainte structurante — appliquée par `lint:deps`. Tout besoin (JSON Schema, parsing, couleurs terminal) est réimplémenté maison.
+- **Tests** : runner natif `node --test` (`test/*.test.js`), couverture via `--experimental-test-coverage` + seuil (`scripts/coverage-threshold.js`).
+- **Distribution** : paquet npm (`bin/aiad-sdd.js`), + skills/commandes Claude Code dans `.claude/`.
+- **Code applicatif** : `lib/*.js` (~100 modules, un par capacité CLI). Scripts d'outillage dans `scripts/`.
 
 ---
 
 ## RÈGLES ABSOLUES
 
 ### TOUJOURS
-- Valider les entrées avant tout traitement
+- Lire l'AGENT-GUIDE + la SPEC active en tête de contexte avant de coder
+- Annoter tout code applicatif avec `@intent` / `@spec` (+ `@verified-by`, `@governance` si pertinent)
 - Synchroniser SPEC + code dans la même PR (Drift Lock)
-- Ajouter un test pour chaque bug fix
-- Vérifier le Human Authorship avant toute automatisation
-- Mettre à jour les Lessons Learned en fin d'itération
+- Ajouter / mettre à jour un test `node --test` pour chaque feature et chaque bug fix
+- Faire dériver le verdict d'une gate/validation d'un **script CLI déterministe** (jamais du jugement libre du modèle) — cf. `lib/verdict.js`
+- Vérifier le Human Authorship avant toute automatisation d'une décision
+- Après tout changement CLI touchant l'aide ou la couverture des commandes : régénérer `aiad-sdd docs` + `coverage:badge` (sinon CI rouge)
+- Après activation d'un Intent : régénérer les rendus multi-runtime (`emit-rules`) — l'Intent actif y est embarqué
 
 ### JAMAIS
-- Committer sans lint passing
-- Modifier le schéma DB sans migration versionnée
-- Pusher des secrets dans git
-- Merger sans code review (minimum 1 approval)
-- Livrer sans mettre à jour la SPEC correspondante
+- Ajouter une dépendance npm (runtime ou dev) — la contrainte zéro-dep est non négociable
+- Coder une feature sans SPEC validée (SQS ≥ 4/5)
+- Inventer une intention — toujours demander à l'humain
+- Introduire du TypeScript ou une étape de build
+- Committer sans `npm run lint` + tests passants
+- Pusher des secrets dans git (`.env` + `.env.example`)
+- Merger une PR sans Drift Check
+- Ignorer un veto d'un agent de gouvernance Tier 1
 
 ### INCERTITUDE — Dire "je ne sais pas"
 - Dire `JNSP` (Je Ne Sais Pas) est un signal valide, pas un échec — préférer une réponse honnête à une réponse confiante mais inventée
@@ -65,16 +78,36 @@
 ## CONVENTIONS DE CODE
 
 ### Nommage
-[Exemples concrets selon la stack du projet]
+- **Fichiers `lib/`** : kebab-case, un module par capacité (`drift-verdict.js`, `commands-registry.js`, `version-sync.js`).
+- **Exports** : nommés, en `UPPER_SNAKE` pour les constantes gelées (`VERDICTS_CANONIQUES`, `VERDICT_EXIT`), camelCase pour les fonctions.
+- **Tests** : `test/<module>.test.js`, miroir du nom du module.
 
-### Structure des composants
+### Structure d'un module `lib/`
+```js
+// AIAD SDD Mode — <rôle du module en 1-2 phrases>.
+//
+// <contexte / cap stratégique éventuel>
+//
+// @intent INTENT-NNN
+// @spec SPEC-NNN-N-slug
+// @verified-by test/<module>.test.js
+//
+// Documentation : https://aiad.ovh
+
+import { ... } from './autre-module.js'; // imports relatifs avec extension .js
+
+export const CONST = Object.freeze({ ... });
+export function faireQuelqueChose(args) { ... }
 ```
-[Template d'un composant standard]
-```
+
+### Imports
+- ESM uniquement, **extension `.js` obligatoire** sur les imports relatifs (vérifié par `lint:esm`).
+- Aucun import de package tiers (zéro-dep).
 
 ### Gestion des erreurs
-```
-[Pattern standard de gestion d'erreur]
+```js
+// Verdicts via exit codes stables (lib/verdict.js) : 0=PASS/CONDITIONAL, 1=FAIL, 2=JNSP.
+// Erreurs CLI : message clair sur stderr + process.exitCode, pas de throw nu remontant à l'utilisateur.
 ```
 
 ---
@@ -83,17 +116,23 @@
 
 | Terme métier | Définition | Terme à éviter |
 |--------------|------------|----------------|
-| [Terme 1] | [Définition] | [Terme incorrect] |
+| Intent Statement | Le POURQUOI d'une feature, à paternité humaine | « ticket », « user story » |
+| SPEC | Le COMMENT technique atomique, lié à un Intent | « specs » au sens vague |
+| SQS (Spec Quality Score) | Score 0–5 ouvrant l'Execution Gate (seuil ≥ 4/5) | « note de la spec » |
+| Drift Lock | Synchronisation SPEC ↔ code dans la même PR | « sync » |
+| JNSP | « Je Ne Sais Pas » — verdict honnête, exit code 2 | « erreur », « échec » |
+| Veto (Tier 1) | Refus non-bypassable d'un agent de gouvernance | « warning » |
+| Enforced vs Advisory | Règle bloquante (harness) vs simple recommandation | — |
 
 ---
 
 ## PATTERNS DE DÉVELOPPEMENT
 
-### Pattern 1 — [Nom]
-[Description + exemple de code]
+### Pattern 1 — Verdict déterministe + exit code
+Toute gate/validation/audit produit un verdict via `lib/verdict.js` (sortie validée par schéma maison, exit code stable). Le même artefact est affiché à l'humain, injecté au modèle et lu par le hook harness. Jamais de verdict issu du jugement libre du LLM.
 
-### Pattern 2 — [Nom]
-[Description + exemple de code]
+### Pattern 2 — Capacité = un module `lib/` + un test miroir + une commande/skill
+Une nouvelle capacité CLI s'ajoute par : un module `lib/<nom>.js` annoté, un `test/<nom>.test.js`, l'enregistrement dans `lib/commands-registry.js` (catégorie core/extended/experimental), et le câblage dans `bin/aiad-sdd.js`.
 
 ---
 
@@ -101,18 +140,23 @@
 
 | Anti-pattern | Pourquoi éviter | Alternative |
 |--------------|-----------------|-------------|
-| [Anti-pattern 1] | [Raison] | [Solution] |
+| Ajouter une lib npm pour un besoin ponctuel | Casse la garantie zéro-dep (différenciateur du projet) | Réimplémenter le sous-ensemble nécessaire dans `lib/` |
+| Verdict basé sur le jugement libre du modèle | Non déterministe (variance LLM) → gate non fiable | Script CLI + schéma + exit code (`lib/verdict.js`) |
+| Coder puis « documenter plus tard » la SPEC | Drift garanti, CI rouge | SPEC + code dans la même PR (Drift Lock) |
+| Modifier l'aide/couverture sans régénérer | Badge & doc désynchronisés → CI rouge | `aiad-sdd docs` + `coverage:badge` dans la PR |
 
 ---
 
 ## LESSONS LEARNED
 
-> Section mise à jour à chaque fin d'itération (commande `/aiad-retro`).
+> Section mise à jour à chaque fin d'itération (commande `/aiad retro`).
 > Documentez ici les erreurs récurrentes de l'agent ET les corrections appliquées.
 
 | Date | Erreur agent | Correction | Impact |
 |------|-------------|------------|--------|
-| | | | |
+| 2026-06-19 | Activer un Intent sans régénérer les rendus multi-runtime | Lancer `emit-rules` dans la même PR | Évite une CI rouge sur le check de divergence |
+| 2026-06-19 | Toucher l'aide/couverture CLI sans régénérer doc + badge | `aiad-sdd docs` + `npm run coverage:badge` | Évite une CI rouge (doc/badge désynchronisés) |
+| 2026-06-19 | Débugger le test perf « gain cold/warm scanCode » qui échoue | C'est un flaky de timing — relancer le job, ne pas modifier le diff | Évite de chasser un faux bug |
 
 ---
 

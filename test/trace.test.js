@@ -137,3 +137,88 @@ test('construireMatrice — fichier test sans @spec = non-tracé en backward', (
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+// ─── Exemption de traçabilité (SPEC-024-1 / FACT-004) ────────────────────────
+
+// CA-001 — exemption valide : exclue du gap specsValideesNonImplementees.
+test('construireMatrice — SPEC done exemptée (raison non vide) hors du gap', () => {
+  const dir = fixture();
+  try {
+    writeFileSync(
+      join(dir, '.aiad', 'specs', 'SPEC-013-1a-site.md'),
+      `---\nstatus: done\ntraceability: exempt\ntraceability_reason: "Livrable documentaire (site/), aucun fichier scanné"\n---\n# Déploiement site\n`,
+    );
+    const m = construireMatrice(dir);
+    assert.equal(m.gaps.specsValideesNonImplementees.length, 0);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// CA-002 — exemption sans raison : inerte, le gap est maintenu (fail-honest).
+test('construireMatrice — SPEC exempt sans raison reste un gap', () => {
+  const dir = fixture();
+  try {
+    writeFileSync(
+      join(dir, '.aiad', 'specs', 'SPEC-013-1a-site.md'),
+      `---\nstatus: done\ntraceability: exempt\ntraceability_reason: ""\n---\n# Déploiement site\n`,
+    );
+    const m = construireMatrice(dir);
+    assert.equal(m.gaps.specsValideesNonImplementees.length, 1);
+    assert.equal(m.gaps.specsValideesNonImplementees[0].id, 'SPEC-013-1a-site');
+    assert.equal(m.specsExemptees.length, 0);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// CA-003 — rétro-compatibilité : SPEC done sans champ et sans code = gap.
+test('construireMatrice — SPEC done sans exemption ni code reste un gap', () => {
+  const dir = fixture();
+  try {
+    writeFileSync(
+      join(dir, '.aiad', 'specs', 'SPEC-001-1-login.md'),
+      `---\nstatus: done\n---\n# Login\n`,
+    );
+    const m = construireMatrice(dir);
+    assert.equal(m.gaps.specsValideesNonImplementees.length, 1);
+    assert.equal(m.gaps.specsValideesNonImplementees[0].id, 'SPEC-001-1-login');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// CA-004 — visibilité : la SPEC exemptée figure dans specsExemptees.
+test('construireMatrice — SPEC exemptée exposée dans specsExemptees', () => {
+  const dir = fixture();
+  try {
+    writeFileSync(
+      join(dir, '.aiad', 'specs', 'SPEC-013-2-docs.md'),
+      `---\nstatus: done\ntraceability: exempt\ntraceability_reason: "Docs racine, pas de code applicatif"\n---\n# Unification docs\n`,
+    );
+    const m = construireMatrice(dir);
+    assert.equal(m.specsExemptees.length, 1);
+    assert.equal(m.specsExemptees[0].id, 'SPEC-013-2-docs');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// CA-005 — isolation : les autres gaps sont inchangés pour une SPEC exemptée
+// (elle reste visible dans specsSansCode, informatif et non bloquant).
+test('construireMatrice — exemption n’affecte que specsValideesNonImplementees', () => {
+  const dir = fixture();
+  try {
+    writeFileSync(
+      join(dir, '.aiad', 'specs', 'SPEC-013-1a-site.md'),
+      `---\nstatus: done\ntraceability: exempt\ntraceability_reason: "Contenu de site, aucun fichier scanné"\n---\n# Déploiement site\n`,
+    );
+    const m = construireMatrice(dir);
+    assert.equal(m.gaps.specsValideesNonImplementees.length, 0);
+    // specsSansCode (informatif) garde la SPEC : l'exemption ne le touche pas.
+    assert.equal(m.gaps.specsSansCode.length, 1);
+    assert.equal(m.gaps.specsSansCode[0].id, 'SPEC-013-1a-site');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

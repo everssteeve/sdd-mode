@@ -17,6 +17,37 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-19 — INTENT-024 + SPEC-024-1 → done — Exemption de traçabilité (FACT-004 résolu)
+
+**Auteur** : Steeve Evers
+**Raison** : Cause racine du faux signal « SPEC in-progress alors que livrée »
+(remonté lors de l'audit INTENT-013). `lib/sdd-trace.js` ne reconnaissait `@spec`
+que dans du code applicatif (`EXTENSIONS_CODE`), forçant les SPECs doc/site/CI à
+rester `in-progress` ([[FACT-004]]). Ajout d'une **exemption explicite** :
+frontmatter `traceability: exempt` + `traceability_reason` (non vide, sinon inerte —
+fail-honest) exclut la SPEC du gap `specsValideesNonImplementees` et l'expose dans
+`specsExemptees`. SPEC EARS, Gate SQS 5/5 (0 violation EARS), exec tranche unique.
+**Impact** :
+- Code : `lib/sdd-trace.js` (parsing + gaps + modèle, annoté `@spec SPEC-024-1`),
+  `lib/cli-schema.js` + `.aiad/schema/cli-openapi.yaml` (champ `specsExemptees`).
+- Tests : `test/trace.test.js` (5 CA → 11/11 verts). Suite : 3892/3893, 0 fail.
+  Lints : lint/deps/esm/size/claims tous verts. `trace --fail-on-gap` exit 0.
+- Artefacts : INTENT-024 + SPEC-024-1 `done` ; SPEC-013-1a (`in-progress`→`done`+exempt),
+  013-2 et 013-4a (`review`→`done`+exempt), 013-3 (`review`→`done`, a du code) ;
+  FACT-004 `ouvert → résolu`. Index intents + specs MAJ.
+
+## 2026-06-19 — AGENT-GUIDE.md — Remplissage initial (sortie du template)
+
+**Auteur** : Steeve Evers
+**Raison** : L'AGENT-GUIDE était resté au stade template (placeholders non remplis)
+alors qu'il est injecté en contexte permanent dans chaque session agent. Contenu
+ancré sur le code réel : CLI Node.js ESM zéro-dépendance, verdicts déterministes
+(`lib/verdict.js`), tests `node --test`, annotations `@intent`/`@spec`, conventions
+`lib/` kebab-case. Lessons Learned amorcées depuis la mémoire projet vérifiée
+(emit-rules ↔ intent actif, doc/badge à régénérer, flaky perf scanCode).
+**Impact** : `.aiad/AGENT-GUIDE.md` (contexte permanent injecté à chaque session).
+Aucun code applicatif modifié. PRD.md et ARCHITECTURE.md restent au stade template.
+
 ## 2026-06-19 — INTENT-015 + SPEC-015-3 → done — Clôture de l'intention
 
 **Auteur** : Steeve Evers

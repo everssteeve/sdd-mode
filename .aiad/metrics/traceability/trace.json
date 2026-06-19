@@ -2,12 +2,12 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-19T13:15:34.760Z"
+    "generated": "2026-06-19T13:46:41.349Z"
   },
-  "generatedAt": "2026-06-19T13:15:34.760Z",
+  "generatedAt": "2026-06-19T13:46:41.349Z",
   "summary": {
-    "intents": 23,
-    "specs": 26,
+    "intents": 24,
+    "specs": 27,
     "codeFiles": 322,
     "annotatedCodeFiles": 48,
     "testFiles": 250,
@@ -28,7 +28,9 @@
             "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
             "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
             "parentIntent": "INTENT-001",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -146,7 +148,9 @@
             "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
             "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
             "parentIntent": "INTENT-002",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -217,7 +221,9 @@
             "file": ".aiad/specs/SPEC-003-1-research-phase.md",
             "title": "Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-003",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -249,7 +255,9 @@
             "file": ".aiad/specs/SPEC-004-1-execution-phasee.md",
             "title": "Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-004",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -290,7 +298,9 @@
             "file": ".aiad/specs/SPEC-005-1-context-pull.md",
             "title": "Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-005",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -340,7 +350,9 @@
             "file": ".aiad/specs/SPEC-006-1-canary-suite.md",
             "title": "Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-006",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -372,7 +384,9 @@
             "file": ".aiad/specs/SPEC-007-1-memory-native.md",
             "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-007",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -408,7 +422,9 @@
             "file": ".aiad/specs/SPEC-008-1-cycle-graph.md",
             "title": "Cycle SDD comme graphe de Tasks (§3.9)",
             "parentIntent": "INTENT-008",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -440,7 +456,9 @@
             "file": ".aiad/specs/SPEC-009-1-observabilite-native.md",
             "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
             "parentIntent": "INTENT-009",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -476,7 +494,9 @@
             "file": ".aiad/specs/SPEC-010-1-cross-model-review.md",
             "title": "Cross-model review additive-only (§3.12)",
             "parentIntent": "INTENT-010",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -508,7 +528,9 @@
             "file": ".aiad/specs/SPEC-011-1-hooks-toggles.md",
             "title": "Toggles de hooks + boucles /goal + packaging plugin (§3.13 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-011",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -540,7 +562,9 @@
             "file": ".aiad/specs/SPEC-012-1-garde-fous.md",
             "title": "Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)",
             "parentIntent": "INTENT-012",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -590,7 +614,9 @@
             "file": ".aiad/specs/SPEC-013-1-deploiement-site-valeurs.md",
             "title": "Déploiement site v1.18 + résolution « 6 vs 7 valeurs »",
             "parentIntent": "INTENT-013",
-            "status": "split"
+            "status": "split",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [],
           "tests": []
@@ -601,7 +627,9 @@
             "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
             "title": "Déploiement du site aiad.ovh en v1.18",
             "parentIntent": "INTENT-013",
-            "status": "in-progress"
+            "status": "done",
+            "traceability": "exempt",
+            "traceabilityReason": "Livrable = contenu de site/ publié sur gh-pages (.html non scanné) — FACT-004 / SPEC-024-1"
           },
           "code": [],
           "tests": []
@@ -612,7 +640,9 @@
             "file": ".aiad/specs/SPEC-013-1b-unification-7-valeurs.md",
             "title": "Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site",
             "parentIntent": "INTENT-013",
-            "status": "archived"
+            "status": "archived",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [],
           "tests": []
@@ -623,7 +653,9 @@
             "file": ".aiad/specs/SPEC-013-2-unification-docs-racine.md",
             "title": "Unification des docs racine + archivage de SDDMode.md",
             "parentIntent": "INTENT-013",
-            "status": "review"
+            "status": "done",
+            "traceability": "exempt",
+            "traceabilityReason": "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
           },
           "code": [],
           "tests": []
@@ -634,7 +666,9 @@
             "file": ".aiad/specs/SPEC-013-3-sync-version-zones-marquees.md",
             "title": "Synchronisation automatique des versions sur zones marquées + check CI",
             "parentIntent": "INTENT-013",
-            "status": "review"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -656,7 +690,9 @@
             "file": ".aiad/specs/SPEC-013-4-deploy-site-workflow.md",
             "title": "Workflow de déploiement site/ → gh-pages (gate version + RGAA)",
             "parentIntent": "INTENT-013",
-            "status": "split"
+            "status": "split",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [],
           "tests": []
@@ -667,7 +703,9 @@
             "file": ".aiad/specs/SPEC-013-4a-deploy-workflow.md",
             "title": "Workflow de déploiement site/ → gh-pages + gate version",
             "parentIntent": "INTENT-013",
-            "status": "review"
+            "status": "done",
+            "traceability": "exempt",
+            "traceabilityReason": "Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1"
           },
           "code": [],
           "tests": []
@@ -678,7 +716,9 @@
             "file": ".aiad/specs/SPEC-013-4b-gate-rgaa.md",
             "title": "Gate RGAA AA avant publication du site",
             "parentIntent": "INTENT-013",
-            "status": "draft"
+            "status": "draft",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [],
           "tests": []
@@ -699,7 +739,9 @@
             "file": ".aiad/specs/SPEC-014-1-gates-bloquants-badge.md",
             "title": "SPEC-014-1-gates-bloquants-badge",
             "parentIntent": "INTENT-014",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -721,7 +763,9 @@
             "file": ".aiad/specs/SPEC-014-2-sourcing-claims.md",
             "title": "SPEC-014-2-sourcing-claims",
             "parentIntent": "INTENT-014",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -744,7 +788,7 @@
         "id": "INTENT-015-sobriete-cli",
         "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
         "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -753,7 +797,9 @@
             "file": ".aiad/specs/SPEC-015-1-telemetrie-usage.md",
             "title": "SPEC-015-1-telemetrie-usage — Agrégat d'usage per-command (local, opt-in)",
             "parentIntent": "INTENT-015",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -774,7 +820,9 @@
             "file": ".aiad/specs/SPEC-015-2-1-registre-commandes.md",
             "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
             "parentIntent": "INTENT-015",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -803,7 +851,9 @@
             "file": ".aiad/specs/SPEC-015-2-2-cycle-depreciation.md",
             "title": "SPEC-015-2-2-cycle-depreciation — Cycle de dépréciation soft (mécanisme)",
             "parentIntent": "INTENT-015",
-            "status": "done"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
@@ -832,16 +882,18 @@
             "file": ".aiad/specs/SPEC-015-3-matrice-garde-fous.md",
             "title": "SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable",
             "parentIntent": "INTENT-015",
-            "status": "in-progress"
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
           },
           "code": [
             {
-              "path": "lib/guardrails.js",
-              "line": 4
-            },
-            {
               "path": ".aiad/hooks/veto.js",
               "line": 14
+            },
+            {
+              "path": "lib/guardrails.js",
+              "line": 4
             }
           ],
           "tests": [
@@ -924,38 +976,48 @@
         "status": "draft"
       },
       "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-024-trace-exemption-specs-sans-code",
+        "file": ".aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md",
+        "title": "Traçabilité honnête des SPECs sans code applicatif — exemption explicite",
+        "status": "done"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-024-1-trace-exemption",
+            "file": ".aiad/specs/SPEC-024-1-trace-exemption.md",
+            "title": "Exemption de traçabilité pour SPECs sans code applicatif",
+            "parentIntent": "INTENT-024",
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/sdd-trace.js",
+              "line": 14
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/trace.test.js",
+              "line": 15,
+              "viaCode": true
+            },
+            {
+              "path": "chemin/relatif/test.ts",
+              "line": 44,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "backward": [
-    {
-      "test": {
-        "path": "test/guardrails.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-015-3-matrice-garde-fous",
-        "file": ".aiad/specs/SPEC-015-3-matrice-garde-fous.md",
-        "title": "SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable",
-        "parentIntent": "INTENT-015",
-        "status": "in-progress"
-      },
-      "intent": {
-        "id": "INTENT-015-sobriete-cli",
-        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
-        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/guardrails.js",
-          "line": 4
-        },
-        {
-          "path": ".aiad/hooks/veto.js",
-          "line": 14
-        }
-      ]
-    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -966,7 +1028,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -1016,7 +1080,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -1073,7 +1139,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -1130,7 +1198,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -1171,7 +1241,9 @@
         "file": ".aiad/specs/SPEC-005-1-context-pull.md",
         "title": "Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)",
         "parentIntent": "INTENT-005",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-005-context-pull",
@@ -1200,7 +1272,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -1250,7 +1324,9 @@
         "file": ".aiad/specs/SPEC-009-1-observabilite-native.md",
         "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
         "parentIntent": "INTENT-009",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-009-observabilite-native",
@@ -1473,13 +1549,15 @@
         "file": ".aiad/specs/SPEC-015-2-1-registre-commandes.md",
         "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
         "parentIntent": "INTENT-015",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-015-sobriete-cli",
         "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
         "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -1997,7 +2075,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -2038,7 +2118,9 @@
         "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
         "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
         "parentIntent": "INTENT-002",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-002-gouvernance-enforced",
@@ -2318,13 +2400,15 @@
         "file": ".aiad/specs/SPEC-015-2-1-registre-commandes.md",
         "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
         "parentIntent": "INTENT-015",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-015-sobriete-cli",
         "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
         "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -2419,7 +2503,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -2739,6 +2825,37 @@
     },
     {
       "test": {
+        "path": "test/guardrails.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-015-3-matrice-garde-fous",
+        "file": ".aiad/specs/SPEC-015-3-matrice-garde-fous.md",
+        "title": "SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable",
+        "parentIntent": "INTENT-015",
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-015-sobriete-cli",
+        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
+        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": ".aiad/hooks/veto.js",
+          "line": 14
+        },
+        {
+          "path": "lib/guardrails.js",
+          "line": 4
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/hook-sandbox.test.js",
         "line": 0
       },
@@ -2846,7 +2963,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -2903,7 +3022,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -2952,7 +3073,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3110,7 +3233,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3151,7 +3276,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3192,7 +3319,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3233,7 +3362,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3274,7 +3405,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3315,7 +3448,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3356,7 +3491,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3397,7 +3534,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3438,7 +3577,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3479,7 +3620,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3528,7 +3671,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3585,7 +3730,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3626,7 +3773,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3667,7 +3816,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3708,7 +3859,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -3749,7 +3902,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4117,7 +4272,9 @@
         "file": ".aiad/specs/SPEC-007-1-memory-native.md",
         "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)",
         "parentIntent": "INTENT-007",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-007-memory-native",
@@ -4158,7 +4315,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4279,7 +4438,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4320,7 +4481,9 @@
         "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
         "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
         "parentIntent": "INTENT-002",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-002-gouvernance-enforced",
@@ -4357,7 +4520,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4398,7 +4563,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4466,13 +4633,15 @@
         "file": ".aiad/specs/SPEC-015-1-telemetrie-usage.md",
         "title": "SPEC-015-1-telemetrie-usage — Agrégat d'usage per-command (local, opt-in)",
         "parentIntent": "INTENT-015",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-015-sobriete-cli",
         "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
         "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -4527,7 +4696,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4568,7 +4739,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4609,7 +4782,9 @@
         "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
         "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
         "parentIntent": "INTENT-002",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-002-gouvernance-enforced",
@@ -4646,7 +4821,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4695,7 +4872,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4736,7 +4915,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4777,7 +4958,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4818,7 +5001,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4868,7 +5053,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -4909,7 +5096,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -5021,7 +5210,9 @@
         "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
-        "status": "done"
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       "intent": {
         "id": "INTENT-001-feedback-qualitatif",
@@ -5155,28 +5346,54 @@
         "file": ".aiad/specs/SPEC-013-1-deploiement-site-valeurs.md",
         "title": "Déploiement site v1.18 + résolution « 6 vs 7 valeurs »",
         "parentIntent": "INTENT-013",
-        "status": "split"
+        "status": "split",
+        "traceability": "",
+        "traceabilityReason": ""
       },
       {
         "id": "SPEC-013-1a-deploiement-site",
         "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
         "title": "Déploiement du site aiad.ovh en v1.18",
         "parentIntent": "INTENT-013",
-        "status": "in-progress"
+        "status": "done",
+        "traceability": "exempt",
+        "traceabilityReason": "Livrable = contenu de site/ publié sur gh-pages (.html non scanné) — FACT-004 / SPEC-024-1"
       },
       {
         "id": "SPEC-013-1b-unification-7-valeurs",
         "file": ".aiad/specs/SPEC-013-1b-unification-7-valeurs.md",
         "title": "Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site",
         "parentIntent": "INTENT-013",
-        "status": "archived"
+        "status": "archived",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      {
+        "id": "SPEC-013-2-unification-docs-racine",
+        "file": ".aiad/specs/SPEC-013-2-unification-docs-racine.md",
+        "title": "Unification des docs racine + archivage de SDDMode.md",
+        "parentIntent": "INTENT-013",
+        "status": "done",
+        "traceability": "exempt",
+        "traceabilityReason": "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
       },
       {
         "id": "SPEC-013-4-deploy-site-workflow",
         "file": ".aiad/specs/SPEC-013-4-deploy-site-workflow.md",
         "title": "Workflow de déploiement site/ → gh-pages (gate version + RGAA)",
         "parentIntent": "INTENT-013",
-        "status": "split"
+        "status": "split",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      {
+        "id": "SPEC-013-4a-deploy-workflow",
+        "file": ".aiad/specs/SPEC-013-4a-deploy-workflow.md",
+        "title": "Workflow de déploiement site/ → gh-pages + gate version",
+        "parentIntent": "INTENT-013",
+        "status": "done",
+        "traceability": "exempt",
+        "traceabilityReason": "Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1"
       }
     ],
     "specsValideesNonImplementees": [],
@@ -8118,30 +8335,6 @@
         "annotated": false
       },
       {
-        "path": "lib/sdd-trace.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [
-            {
-              "path": "chemin/relatif/test.ts",
-              "line": 40
-            }
-          ],
-          "governance": [
-            {
-              "tags": [
-                "AIAD-AI-ACT",
-                "AIAD-RGPD"
-              ],
-              "line": 41
-            }
-          ]
-        },
-        "annotated": true
-      },
-      {
         "path": "lib/self-update.js",
         "isTest": false,
         "annotations": {
@@ -8635,5 +8828,34 @@
     "codeSansTests": [],
     "intentsOrphelinsSurCode": [],
     "specsOrphelinsSurCode": []
-  }
+  },
+  "specsExemptees": [
+    {
+      "id": "SPEC-013-1a-deploiement-site",
+      "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
+      "title": "Déploiement du site aiad.ovh en v1.18",
+      "parentIntent": "INTENT-013",
+      "status": "done",
+      "traceability": "exempt",
+      "traceabilityReason": "Livrable = contenu de site/ publié sur gh-pages (.html non scanné) — FACT-004 / SPEC-024-1"
+    },
+    {
+      "id": "SPEC-013-2-unification-docs-racine",
+      "file": ".aiad/specs/SPEC-013-2-unification-docs-racine.md",
+      "title": "Unification des docs racine + archivage de SDDMode.md",
+      "parentIntent": "INTENT-013",
+      "status": "done",
+      "traceability": "exempt",
+      "traceabilityReason": "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
+    },
+    {
+      "id": "SPEC-013-4a-deploy-workflow",
+      "file": ".aiad/specs/SPEC-013-4a-deploy-workflow.md",
+      "title": "Workflow de déploiement site/ → gh-pages + gate version",
+      "parentIntent": "INTENT-013",
+      "status": "done",
+      "traceability": "exempt",
+      "traceabilityReason": "Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1"
+    }
+  ]
 }

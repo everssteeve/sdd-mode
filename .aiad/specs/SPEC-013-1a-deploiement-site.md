@@ -3,12 +3,14 @@ id: SPEC-013-1a
 title: Déploiement du site aiad.ovh en v1.18
 parent_intent: INTENT-013
 parent_spec: SPEC-013-1
-status: in-progress
+status: done
 format: prose
 sqs: 4.0
 author: Steeve Evers
 date: 2026-06-11
 governance: AIAD-RGAA, AIAD-RGESN
+traceability: exempt
+traceability_reason: "Livrable = contenu de site/ publié sur gh-pages (.html non scanné) — FACT-004 / SPEC-024-1"
 ---
 
 # SPEC-013-1a — Déploiement du site aiad.ovh en v1.18
