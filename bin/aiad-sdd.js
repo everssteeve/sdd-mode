@@ -23,6 +23,7 @@ import { docs } from '../lib/docs.js';
 import { versionSync } from '../lib/version-sync.js';
 import { optIn as telemetryOptIn, optOut as telemetryOptOut, showStatus as telemetryStatus, showUsage as telemetryUsage, track as telemetryTrack } from '../lib/telemetry.js';
 import { showCommands } from '../lib/commands-registry.js';
+import { deprecationNotice, emitDeprecation } from '../lib/deprecation.js';
 import { incrementSession as feedbackIncrementSession, tryInvite as feedbackTryInvite, runFeedbackCommand } from '../lib/feedback.js';
 import { ouvrirRepl } from '../lib/repl.js';
 import { migrer } from '../lib/migrate.js';
@@ -588,6 +589,11 @@ async function main() {
   if (command !== 'feedback') {
     feedbackIncrementSession();
   }
+
+  // Dépréciation soft (SPEC-015-2-2) : avertit sur stderr si la commande est
+  // marquée `deprecated` dans le registre, puis exécute normalement (no-op
+  // sinon — mécanisme dormant tant qu'aucune commande n'est dépréciée).
+  emitDeprecation(deprecationNotice(command));
 
   switch (command) {
     case 'init': {

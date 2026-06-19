@@ -24,13 +24,13 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-06-17T08:12:47.773Z</em></p>
+<p><em>Généré le 2026-06-19T12:46:35.693Z</em></p>
 
 <div class="stats">
   <div class="stat"><div class="v">23</div><div class="k">Intents</div></div>
-  <div class="stat"><div class="v">24</div><div class="k">SPECs</div></div>
-  <div class="stat"><div class="v">46 / 320</div><div class="k">Code annoté</div></div>
-  <div class="stat"><div class="v">26 / 248</div><div class="k">Tests annotés</div></div>
+  <div class="stat"><div class="v">25</div><div class="k">SPECs</div></div>
+  <div class="stat"><div class="v">47 / 321</div><div class="k">Code annoté</div></div>
+  <div class="stat"><div class="v">27 / 249</div><div class="k">Tests annotés</div></div>
   <div class="stat"><div class="v">292</div><div class="k">Code sans @spec</div></div>
   <div class="stat"><div class="v">0</div><div class="k">SPECs non-implémentées</div></div>
 </div>
@@ -61,7 +61,8 @@
 <tr class="ok"><td>INTENT-014-empirisme-prouve</td><td>SPEC-014-1-gates-bloquants-badge</td><td><code>scripts/coverage-threshold.js</code></td><td><code>test/coverage-threshold.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="ok"><td>INTENT-014-empirisme-prouve</td><td>SPEC-014-2-sourcing-claims</td><td><code>scripts/lint-claims.js</code></td><td><code>test/lint-claims.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="ok"><td>INTENT-015-sobriete-cli</td><td>SPEC-015-1-telemetrie-usage</td><td><code>lib/telemetry.js</code></td><td><code>test/telemetry-usage.test.js</code></td><td><span class="ok">✅</span></td></tr>
-<tr class="ok"><td>INTENT-015-sobriete-cli</td><td>SPEC-015-2-1-registre-commandes</td><td><code>lib/commands-registry.js</code></td><td><code>test/commands-registry.test.js</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-015-sobriete-cli</td><td>SPEC-015-2-1-registre-commandes</td><td><code>lib/deprecation.js</code><br/><code>lib/commands-registry.js</code></td><td><code>test/deprecation.test.js</code><br/><code>test/commands-registry.test.js</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-015-sobriete-cli</td><td>SPEC-015-2-2-cycle-depreciation</td><td><code>lib/deprecation.js</code><br/><code>lib/commands-registry.js</code></td><td><code>test/deprecation.test.js</code><br/><code>test/commands-registry.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr><td>INTENT-016-dashboard-fondations</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-017-dashboard-quotidien</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-018-valeur-boussole</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
@@ -75,7 +76,7 @@
 <h2>Matrice Backward</h2>
 <div class="filter"><input type="search" id="qbwd" placeholder="Filtrer Backward…" /></div>
 <table id="bwd"><thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead><tbody>
-<tr class="ok"><td><code>test/commands-registry.test.js</code></td><td>SPEC-015-2-1-registre-commandes</td><td>INTENT-015-sobriete-cli</td><td><code>lib/commands-registry.js</code></td></tr>
+<tr class="ok"><td><code>test/deprecation.test.js</code></td><td>SPEC-015-2-1-registre-commandes</td><td>INTENT-015-sobriete-cli</td><td><code>lib/deprecation.js</code><br/><code>lib/commands-registry.js</code></td></tr>
 <tr class="ok"><td><code>templates/projects/fastapi-aiad/tests/test_main.py</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>templates/projects/node-aiad/test/index.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="ok"><td><code>test/ai-act-audit.test.js</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
@@ -111,6 +112,7 @@
 <tr class="bad"><td><code>test/cli-parsing.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/cli-schema.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/command-hooks.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/commands-registry.test.js</code></td><td>SPEC-015-2-1-registre-commandes</td><td>INTENT-015-sobriete-cli</td><td><code>lib/deprecation.js</code><br/><code>lib/commands-registry.js</code></td></tr>
 <tr class="bad"><td><code>test/completion.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/confluence.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/coverage-threshold.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>

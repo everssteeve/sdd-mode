@@ -17,6 +17,22 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-19 — SPEC-015-2-2 — Drift Check OK (cycle de dépréciation)
+
+**Auteur** : Steeve Evers
+**Raison** : Drift Lock vérifié pour SPEC-015-2-2 (INTENT-015) — heuristique git OK
+(SPEC + `lib/deprecation.js` + test annotés `@spec SPEC-015-2-2` dans le même
+changeset) + traçabilité machine sans gap bloquant (`trace --fail-on-gap` exit 0).
+Cycle : research (RESEARCH-017) → spec (EARS 5/5) → gate (OUVERTE) → exec →
+validate (VALIDÉ, RGESN PASS). Mécanisme de dépréciation soft livré **dormant**
+(0 commande dépréciée) : warning stderr non bloquant au dispatch, exécution
+préservée (C2). Première dépréciation concrète = décision humaine séparée
+(C-DATA). Reste : code review + PR avant `done`.
+**Impact** : `lib/deprecation.js` (formatDeprecationNotice/deprecationNotice/
+emitDeprecation/validateDeprecation), `bin/aiad-sdd.js` (émission au dispatch),
+`lib/commands-registry.js` (rendu d'une entrée dépréciée), `test/deprecation.test.js`
+(8/8), `.aiad/specs/SPEC-015-2-2-…md`.
+
 ## 2026-06-19 — SPEC-015-2-1 → done — Clôture de board
 
 **Auteur** : Steeve Evers
