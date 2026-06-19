@@ -19,7 +19,7 @@
 | SPEC-011-1 | Toggles de hooks + /goal + packaging plugin (§3.13) | INTENT-011 | prose | 4.1 | done | — |
 | SPEC-012-1 | Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4) | INTENT-012 | prose | 4.0 | done | — |
 | SPEC-013-1 | Déploiement site v1.18 + résolution « 7 valeurs » | INTENT-013 | prose | 1.0 (FERMÉE → découpée) | split | — |
-| SPEC-013-1a | Déploiement du site aiad.ovh en v1.18 | INTENT-013 | prose | 4.0 | in-progress | — |
+| SPEC-013-1a | Déploiement du site aiad.ovh en v1.18 | INTENT-013 | prose | 4.0 | done (trace-exempt) | — |
 | SPEC-013-1b | Unification à 7 valeurs sur les 4 sources | INTENT-013 | prose | 4.0 | archived | — |
 | SPEC-013-2 | Unification des docs racine + archivage de SDDMode.md | INTENT-013 | prose | 4.0 | done | — |
 | SPEC-013-3 | Sync auto des versions (zones marquées) + check CI | INTENT-013 | prose | 5.0 | done | — |
@@ -32,6 +32,7 @@
 | SPEC-015-2-1 | Registre catégorisé des commandes (core/extended/experimental) + snapshot | INTENT-015 | EARS | 5.0 | done | #10 |
 | SPEC-015-2-2 | Cycle de dépréciation soft (mécanisme dormant : warning au dispatch) | INTENT-015 | EARS | 5.0 | done | #12 |
 | SPEC-015-3 | Matrice enforced/advisory machine-vérifiable + veto non-bypassable | INTENT-015 | EARS | 5.0 | done | #14 |
+| SPEC-024-1 | Exemption de traçabilité pour SPECs sans code applicatif (FACT-004) | INTENT-024 | EARS | 5.0 | done | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

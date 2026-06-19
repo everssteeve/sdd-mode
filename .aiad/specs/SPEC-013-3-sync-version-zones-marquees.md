@@ -3,7 +3,7 @@ id: SPEC-013-3
 title: Synchronisation automatique des versions sur zones marquées + check CI
 parent_intent: INTENT-013
 research: RESEARCH-013
-status: review
+status: done
 format: prose
 sqs: 5.0
 author: Steeve Evers

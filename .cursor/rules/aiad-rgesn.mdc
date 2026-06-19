@@ -2,10 +2,10 @@
 description: AIAD-RGESN — Écoconception numérique (RGESN v2)
 globs: ["**/*"]
 alwaysApply: false
-intent_id: INTENT-023
+intent_id: INTENT-024
 tier: 1
 generated-by: aiad-emit-rules v1.18.0
-source-hash: e931bf798acfefa1
+source-hash: 11b55fc32b148988
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->

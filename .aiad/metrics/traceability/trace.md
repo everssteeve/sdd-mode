@@ -1,13 +1,13 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-19T13:15:34.760Z
+> Généré le 2026-06-19T13:46:41.349Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 23 |
-| SPECs | 26 |
+| Intents | 24 |
+| SPECs | 27 |
 | Fichiers code | 322 (annotés : 48) |
 | Fichiers test | 250 (annotés : 28) |
 
@@ -40,7 +40,7 @@
 | INTENT-015-sobriete-cli | SPEC-015-1-telemetrie-usage | `lib/telemetry.js` | `test/telemetry-usage.test.js` | ✅ |
 | INTENT-015-sobriete-cli | SPEC-015-2-1-registre-commandes | `lib/commands-registry.js`<br/>`lib/deprecation.js` | `test/commands-registry.test.js`<br/>`test/deprecation.test.js` | ✅ |
 | INTENT-015-sobriete-cli | SPEC-015-2-2-cycle-depreciation | `lib/commands-registry.js`<br/>`lib/deprecation.js` | `test/commands-registry.test.js`<br/>`test/deprecation.test.js` | ✅ |
-| INTENT-015-sobriete-cli | SPEC-015-3-matrice-garde-fous | `lib/guardrails.js`<br/>`.aiad/hooks/veto.js` | `test/guardrails.test.js` | ✅ |
+| INTENT-015-sobriete-cli | SPEC-015-3-matrice-garde-fous | `.aiad/hooks/veto.js`<br/>`lib/guardrails.js` | `test/guardrails.test.js` | ✅ |
 | INTENT-016-dashboard-fondations | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-017-dashboard-quotidien | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-018-valeur-boussole | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -49,12 +49,12 @@
 | INTENT-021-empreinte-mesuree | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-022-dogfooding-cli | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-023-rayonnement-honnete | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-024-trace-exemption-specs-sans-code | SPEC-024-1-trace-exemption | `lib/sdd-trace.js` | `test/trace.test.js`<br/>`chemin/relatif/test.ts` | ✅ |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/guardrails.test.js` | SPEC-015-3-matrice-garde-fous | INTENT-015-sobriete-cli | `lib/guardrails.js`<br/>`.aiad/hooks/veto.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -217,6 +217,7 @@
 | `test/governance-marketplace.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/governance-packs.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/grill.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/guardrails.test.js` | SPEC-015-3-matrice-garde-fous | INTENT-015-sobriete-cli | `.aiad/hooks/veto.js`<br/>`lib/guardrails.js` |
 | `test/hook-sandbox.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/hooks-config.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/i18n-coverage.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -367,11 +368,13 @@
   - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
   - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
   - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
-- SPECs sans code (hors draft/review) : **4**
+- SPECs sans code (hors draft/review) : **6**
   - SPEC-013-1-deploiement-site-valeurs (statut : split)
-  - SPEC-013-1a-deploiement-site (statut : in-progress)
+  - SPEC-013-1a-deploiement-site (statut : done)
   - SPEC-013-1b-unification-7-valeurs (statut : archived)
+  - SPEC-013-2-unification-docs-racine (statut : done)
   - SPEC-013-4-deploy-site-workflow (statut : split)
+  - SPEC-013-4a-deploy-workflow (statut : done)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
@@ -379,7 +382,7 @@
 - SPECs validées sans code (statut ready/validation/done) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **291**
+- Code sans `@spec` : **290**
   - .aiad/hooks/discovery-gate.js
   - .aiad/hooks/drift-lock.js
   - .aiad/hooks/jnsp-scan.js
@@ -430,5 +433,5 @@
   - lib/dashboard/brief-pm.js
   - lib/dashboard/burnup-chart.js
   - lib/dashboard/bus-factor.js
-  - … (+241 autres)
+  - … (+240 autres)
 - Code annoté sans tests liés : **0**

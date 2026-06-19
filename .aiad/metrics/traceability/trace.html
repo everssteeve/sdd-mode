@@ -24,14 +24,14 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-06-19T13:15:34.760Z</em></p>
+<p><em>Généré le 2026-06-19T13:46:41.349Z</em></p>
 
 <div class="stats">
-  <div class="stat"><div class="v">23</div><div class="k">Intents</div></div>
-  <div class="stat"><div class="v">26</div><div class="k">SPECs</div></div>
+  <div class="stat"><div class="v">24</div><div class="k">Intents</div></div>
+  <div class="stat"><div class="v">27</div><div class="k">SPECs</div></div>
   <div class="stat"><div class="v">48 / 322</div><div class="k">Code annoté</div></div>
   <div class="stat"><div class="v">28 / 250</div><div class="k">Tests annotés</div></div>
-  <div class="stat"><div class="v">291</div><div class="k">Code sans @spec</div></div>
+  <div class="stat"><div class="v">290</div><div class="k">Code sans @spec</div></div>
   <div class="stat"><div class="v">0</div><div class="k">SPECs non-implémentées</div></div>
 </div>
 
@@ -63,7 +63,7 @@
 <tr class="ok"><td>INTENT-015-sobriete-cli</td><td>SPEC-015-1-telemetrie-usage</td><td><code>lib/telemetry.js</code></td><td><code>test/telemetry-usage.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="ok"><td>INTENT-015-sobriete-cli</td><td>SPEC-015-2-1-registre-commandes</td><td><code>lib/commands-registry.js</code><br/><code>lib/deprecation.js</code></td><td><code>test/commands-registry.test.js</code><br/><code>test/deprecation.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="ok"><td>INTENT-015-sobriete-cli</td><td>SPEC-015-2-2-cycle-depreciation</td><td><code>lib/commands-registry.js</code><br/><code>lib/deprecation.js</code></td><td><code>test/commands-registry.test.js</code><br/><code>test/deprecation.test.js</code></td><td><span class="ok">✅</span></td></tr>
-<tr class="ok"><td>INTENT-015-sobriete-cli</td><td>SPEC-015-3-matrice-garde-fous</td><td><code>lib/guardrails.js</code><br/><code>.aiad/hooks/veto.js</code></td><td><code>test/guardrails.test.js</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-015-sobriete-cli</td><td>SPEC-015-3-matrice-garde-fous</td><td><code>.aiad/hooks/veto.js</code><br/><code>lib/guardrails.js</code></td><td><code>test/guardrails.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr><td>INTENT-016-dashboard-fondations</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-017-dashboard-quotidien</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-018-valeur-boussole</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
@@ -72,12 +72,12 @@
 <tr><td>INTENT-021-empreinte-mesuree</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-022-dogfooding-cli</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-023-rayonnement-honnete</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
+<tr class="ok"><td>INTENT-024-trace-exemption-specs-sans-code</td><td>SPEC-024-1-trace-exemption</td><td><code>lib/sdd-trace.js</code></td><td><code>test/trace.test.js</code><br/><code>chemin/relatif/test.ts</code></td><td><span class="ok">✅</span></td></tr>
 </tbody></table>
 
 <h2>Matrice Backward</h2>
 <div class="filter"><input type="search" id="qbwd" placeholder="Filtrer Backward…" /></div>
 <table id="bwd"><thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead><tbody>
-<tr class="ok"><td><code>test/guardrails.test.js</code></td><td>SPEC-015-3-matrice-garde-fous</td><td>INTENT-015-sobriete-cli</td><td><code>lib/guardrails.js</code><br/><code>.aiad/hooks/veto.js</code></td></tr>
 <tr class="ok"><td><code>templates/projects/fastapi-aiad/tests/test_main.py</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>templates/projects/node-aiad/test/index.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="ok"><td><code>test/ai-act-audit.test.js</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
@@ -240,6 +240,7 @@
 <tr class="bad"><td><code>test/governance-marketplace.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/governance-packs.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/grill.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/guardrails.test.js</code></td><td>SPEC-015-3-matrice-garde-fous</td><td>INTENT-015-sobriete-cli</td><td><code>.aiad/hooks/veto.js</code><br/><code>lib/guardrails.js</code></td></tr>
 <tr class="bad"><td><code>test/hook-sandbox.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/hooks-config.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/i18n-coverage.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
