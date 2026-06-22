@@ -1,42 +1,48 @@
 ---
 id: FACT-005
-title: Contraste insuffisant sur .kicker (WCAG 1.4.3 — gold-600 sur fond clair)
+title: Contraste insuffisant sur .kicker et .install (WCAG 1.4.3)
 date: 2026-06-22
 discovered_by: SPEC-013-4b (gate RGAA — pa11y-ci v4, premier audit)
-severity: medium
-status: open
+severity: critique (A) + majeur (B)
+status: partiellement résolu
 linked_spec: SPEC-013-4b
+linked_intent: INTENT-025
 ---
 
-# FACT-005 — Contraste insuffisant sur `.kicker`
+# FACT-005 — Contraste insuffisant sur `.kicker` et `.install`
 
 ## Écart constaté
 
-Lors du premier audit pa11y-ci en exécution de SPEC-013-4b, 6 violations WCAG 2.1 AA
-ont été détectées sur les pages d'accueil (`site/fr/index.html`, `site/en/index.html`) :
+Lors du premier audit pa11y-ci en exécution de SPEC-013-4b, violations WCAG 2.1 AA
+sur les pages d'accueil (`site/fr/index.html`, `site/en/index.html`) :
+
+### A — `.install` code block (critique — ratio 1.05:1)
+
+- **Élément** : `<code class="install" style="background:var(--navy-900);border:none">`
+- **Cause** : fond `--navy-900: #0a1f3d` (très sombre) sans couleur de texte explicite → héritage sombre → invisible
+- **Statut** : ✅ **Patché** (2026-06-22) — `color:#fff` ajouté au style inline dans `fr/index.html` et `en/index.html`
+
+### B — `.kicker` (majeur — ratio ~2.9:1)
 
 - **Code** : `WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail`
 - **Critère** : 1.4.3 — Contraste minimum (ratio 4.5:1 pour texte < 18pt)
-- **Éléments** : tous les `<p class="kicker">` des sections de la page d'accueil
-- **Valeur actuelle** : `--gold-600: #c5860f` → ratio ~2.9:1 sur fonds clairs
-- **Valeur requise** : ≥ 4.5:1 (WCAG AA) → couleur approximative `#7e5300` ou similaire
-
-Un 6ème élément ajoute une violation critique : `<code class="install" style="background:var(--navy-900);border:none">` avec un ratio de 1.05:1 (texte presque invisible).
+- **Éléments** : tous les `<p class="kicker">` + `.pill.gold`
+- **Cause** : `--gold-600: #c5860f` → ~2.9:1 sur fond blanc, ~2.6:1 sur `#fbeecd`
+- **Valeur requise** : ≥ 4.5:1 — candidate : `#7e5300` (6.0:1 sur blanc, 5.3:1 sur `#fbeecd`)
+- **Statut** : ⏳ **En allowlist temporaire** → INTENT-025 créé pour la correction design
 
 ## Fichiers concernés
 
-- `site/assets/css/main.css` : `.kicker { color: var(--gold-600); }` + `--gold-600: #c5860f`
-- `site/fr/index.html`, `site/en/index.html` (toutes les `.kicker` des sections)
+- `site/assets/css/main.css` : `--gold-600: #c5860f`, `.kicker { color: var(--gold-600) }`, `.pill.gold { color: var(--gold-600) }`
+- `site/fr/index.html`, `site/en/index.html` : éléments `.install` et `.kicker`
 
-## Mitigation temporaire
+## Mitigation
 
-Violation ajoutée au `defaults.ignore` de `.pa11yci.json` en tant que baseline historique
-(SPEC-013-4b §4, décision 2026-06-22). Le gate RGAA bloquera toute **nouvelle** violation
-de contraste sur d'autres éléments ou pages.
+- A patché directement.
+- B : `WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail` dans `defaults.ignore` de `.pa11yci.json` (baseline historique jusqu'à INTENT-025).
 
-## Correction attendue
+## Correction restante (INTENT-025)
 
-1. Remplacer `--gold-600: #c5860f` par une couleur ≥ 4.5:1 sur fond blanc (ex. `#7e5300`).
-2. Corriger l'élément `.install` code block (contraste 1.05:1 — texte invisible).
-3. Retirer `WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail` du `defaults.ignore` de `.pa11yci.json`.
-4. Vérifier les variantes dark mode si applicable.
+1. Remplacer `--gold-600: #c5860f` par `#7e5300` (ou valeur validée ≥ 4.5:1 dans les deux contextes).
+2. Retirer `WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail` de `defaults.ignore` dans `.pa11yci.json`.
+3. Vérifier le rendu visuel des `.pill.gold` et `.kicker` avec la nouvelle teinte.
