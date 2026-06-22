@@ -1,6 +1,7 @@
 # @intent INTENT-013
 # @spec SPEC-013-4a-deploy-workflow
-# @governance AIAD-RGESN
+# @spec SPEC-013-4b-gate-rgaa
+# @governance AIAD-RGAA,AIAD-RGESN
 #
 # Déploie le site statique `site/` vers la branche `gh-pages` (source GitHub
 # Pages d'aiad.ovh) à chaque push sur `main` touchant `site/**`. Garde-fou
@@ -43,11 +44,26 @@ jobs:
         with:
           node-version: 22
 
+      # Installe les devDependencies (pa11y-ci + Chromium via puppeteer)
+      # RGESN : Chromium ~300 MB CI-only — devDep, jamais runtime (SPEC-013-4b §1)
+      - name: Install devDependencies
+        run: npm ci
+
       # Gate version (C-R3) : bloque la publication si une zone de version
       # marquée de `site/` diffère de package.json. Sur PR, ce gate s'exécute
       # aussi (vérification), mais l'étape de publication est sautée.
       - name: Gate version (site ↔ package.json)
         run: node bin/aiad-sdd.js version-sync --check
+
+      # Gate RGAA AA (SPEC-013-4b) — audit WCAG 2.1 AA ≡ RGAA 4.1 (~50-60 % couverture auto)
+      # @spec SPEC-013-4b-gate-rgaa
+      # @governance AIAD-RGAA,AIAD-RGESN
+      # Fail-closed : exit ≠ 0 si ≥ 1 violation hors allowlist → publication bloquée.
+      # Allowlist : .pa11yci.json (champ "ignore") — vide = gate strict.
+      - name: Gate RGAA AA (pa11y-ci)
+        run: |
+          mapfile -t URLS < <(find site -name "*.html" -type f | sort | sed "s|^|file://$(pwd)/|")
+          npx pa11y-ci --config .pa11yci.json "${URLS[@]}"
 
       # Publie sur push (main) ET sur déclenchement manuel ; jamais sur PR
       # (où seul le gate doit tourner, sans publication).

@@ -51,5 +51,8 @@
     "mutation:batch": "node scripts/mutation-batch.js",
     "bench:comparison": "node scripts/bench-comparison.js",
     "prepublishOnly": "npm run lint && npm run lint:deps && npm run lint:size && npm run lint:claims && npm run test:coverage:threshold"
+  },
+  "devDependencies": {
+    "pa11y-ci": "^4.1.1"
   }
 }
