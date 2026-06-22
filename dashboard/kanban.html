@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-14T03:07:31.407Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T09:41:13.949Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Kanban SPECs — aiad-sdd</title>
-<meta name="description" content="Kanban SPECs — Vue kanban 4 colonnes — To-Do / In-Progress / Review / Done · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="description" content="Kanban SPECs — Vue kanban 4 colonnes — To-Do / In-Progress / Review / Done · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Kanban SPECs — aiad-sdd"/>
-<meta property="og:description" content="Kanban SPECs — Vue kanban 4 colonnes — To-Do / In-Progress / Review / Done · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta property="og:description" content="Kanban SPECs — Vue kanban 4 colonnes — To-Do / In-Progress / Review / Done · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta property="og:url" content="kanban.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kanban SPECs — aiad-sdd"/>
-<meta name="twitter:description" content="Kanban SPECs — Vue kanban 4 colonnes — To-Do / In-Progress / Review / Done · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="twitter:description" content="Kanban SPECs — Vue kanban 4 colonnes — To-Do / In-Progress / Review / Done · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -33,11 +33,14 @@
   <div class="brand">
     <div class="brand-title">aiad-sdd</div>
     <div class="brand-sub">SDD Mode · Dashboard</div>
-    <div class="brand-version">v1.14.0</div>
+    <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
     </a></li>
     <li><a href="intents.html" class="">
       <span class="nav-icon">◇</span>Intents
@@ -84,7 +87,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 14/05/2026 05:07:31<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 22/06/2026 11:41:13<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -93,14 +96,429 @@
       <div class="subtitle">Vue kanban 4 colonnes — To-Do / In-Progress / Review / Done</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 14/05/2026 05:07:31. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
-      <div class="meta">aiad-sdd · v1.14.0</div>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 11:41:13. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
       </button>
     </div>
   </header>
-  <div class="empty"><strong>Aucune SPEC à afficher.</strong>Lance <code>/sdd spec</code> pour en créer une.</div>
+  
+
+<section class="focus-banner" data-focus="active" data-lens="all" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P3 — 1 SPEC(s) in-progress sans test annoté</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-016-1-architecture-4-couches</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ QA/PE — ajouter `@verified-by` avant Drift Check.</div>
+    </li></ul>
+      </div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=all" style="font-size:.85rem">← Sortir du focus</a>
+      </div>
+    </div>
+  </section>
+<section class="focus-banner" data-focus="active" data-lens="pm" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour · lens PM — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P3 — 1 SPEC(s) in-progress sans test annoté</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-016-1-architecture-4-couches</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ QA/PE — ajouter `@verified-by` avant Drift Check.</div>
+    </li></ul>
+      </div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=pm" style="font-size:.85rem">← Sortir du focus</a>
+      </div>
+    </div>
+  </section>
+<section class="focus-banner" data-focus="active" data-lens="pe" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour · lens PE — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P3 — 1 SPEC(s) in-progress sans test annoté</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-016-1-architecture-4-couches</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ QA/PE — ajouter `@verified-by` avant Drift Check.</div>
+    </li></ul>
+      </div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=pe" style="font-size:.85rem">← Sortir du focus</a>
+      </div>
+    </div>
+  </section>
+<section class="focus-banner" data-focus="active" data-lens="ae" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour · lens AE — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P3 — 1 SPEC(s) in-progress sans test annoté</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-016-1-architecture-4-couches</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ QA/PE — ajouter `@verified-by` avant Drift Check.</div>
+    </li></ul>
+      </div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=ae" style="font-size:.85rem">← Sortir du focus</a>
+      </div>
+    </div>
+  </section>
+<section class="focus-banner" data-focus="active" data-lens="qa" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour · lens QA — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P3 — 1 SPEC(s) in-progress sans test annoté</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-016-1-architecture-4-couches</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ QA/PE — ajouter `@verified-by` avant Drift Check.</div>
+    </li></ul>
+      </div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=qa" style="font-size:.85rem">← Sortir du focus</a>
+      </div>
+    </div>
+  </section>
+<section class="focus-banner" data-focus="active" data-lens="tl" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour · lens TL — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P3 — 1 SPEC(s) in-progress sans test annoté</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-016-1-architecture-4-couches</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ QA/PE — ajouter `@verified-by` avant Drift Check.</div>
+    </li></ul>
+      </div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=tl" style="font-size:.85rem">← Sortir du focus</a>
+      </div>
+    </div>
+  </section>
+<section>
+  <p class="muted">Vue Kanban des SPECs du projet. 27 carte(s) au total — clique sur une carte pour ouvrir le fichier source.</p>
+  
+  <div class="kanban-lens" role="tablist" aria-label="Filtrer par rôle" style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.75rem">
+    <button type="button" role="tab" data-lens="all" class="lens-btn active">Tout</button>
+    <button type="button" role="tab" data-lens="pm"  class="lens-btn">PM</button>
+    <button type="button" role="tab" data-lens="pe"  class="lens-btn">PE</button>
+    <button type="button" role="tab" data-lens="ae"  class="lens-btn">AE</button>
+    <button type="button" role="tab" data-lens="qa"  class="lens-btn">QA</button>
+    <button type="button" role="tab" data-lens="tl"  class="lens-btn">TL</button>
+  </div>
+  
+  <div class="kanban-search" style="margin-bottom:.75rem">
+    <input type="search" id="kanban-search" placeholder="Rechercher SPEC (ID ou titre) — Cmd+F"
+      style="width:100%;max-width:480px;padding:.5rem .75rem;border:1px solid var(--border);border-radius:6px;background:var(--bg-alt);color:var(--fg);font-size:.9rem"
+      aria-label="Rechercher dans le kanban"/>
+  </div>
+  <div style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:stretch">
+    <div class="kanban-col" data-col="todo" style="flex:1;min-width:240px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem">
+      <h3 style="margin-top:0;display:flex;justify-content:space-between;align-items:baseline">
+        <span>To-Do</span>
+        <span class="muted" style="font-size:.85rem">3</span>
+      </h3>
+      <div class="kanban-card" data-roles="" data-statut="draft" data-id="SPEC-016-2-design-system-rgaa" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-016-2-design-system-rgaa.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-016-2-design-system-rgaa</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-016-2 — Design system accessible + axe-core en CI</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS [À évaluer via /sdd gate]</span><span class="badge badge-warn" style="font-size:.7rem">0 test</span>
+    </div>
+  </div><div class="kanban-card" data-roles="" data-statut="draft" data-id="SPEC-016-3-data-json-v2" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-016-3-data-json-v2</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-016-3 — data.json v2 versionné (JSON schema publié)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS [À évaluer via /sdd gate]</span><span class="badge badge-warn" style="font-size:.7rem">0 test</span>
+    </div>
+  </div><div class="kanban-card" data-roles="" data-statut="draft" data-id="SPEC-016-4-rgesn-budgets" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-016-4-rgesn-budgets</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-016-4 — Budgets de poids RGESN par page + CI</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS [À évaluer via /sdd gate]</span><span class="badge badge-warn" style="font-size:.7rem">0 test</span>
+    </div>
+  </div>
+    </div>
+    <div class="kanban-col" data-col="in-progress" style="flex:1;min-width:240px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem">
+      <h3 style="margin-top:0;display:flex;justify-content:space-between;align-items:baseline">
+        <span>In-Progress</span>
+        <span class="muted" style="font-size:.85rem">1</span>
+      </h3>
+      <div class="kanban-card" data-roles="pe tl" data-statut="in-progress" data-id="SPEC-016-1-architecture-4-couches" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-016-1-architecture-4-couches.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-016-1-architecture-4-couches</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 5.0</span><span class="badge badge-warn" style="font-size:.7rem">0 test</span>
+    </div>
+  </div>
+    </div>
+    <div class="kanban-col" data-col="review" style="flex:1;min-width:240px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem">
+      <h3 style="margin-top:0;display:flex;justify-content:space-between;align-items:baseline">
+        <span>Review</span>
+        <span class="muted" style="font-size:.85rem">0</span>
+      </h3>
+      <p class="muted" style="font-size:.85rem;text-align:center;padding:1rem 0">—</p>
+    </div>
+    <div class="kanban-col" data-col="done" style="flex:1;min-width:240px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem">
+      <h3 style="margin-top:0;display:flex;justify-content:space-between;align-items:baseline">
+        <span>Done</span>
+        <span class="muted" style="font-size:.85rem">23</span>
+      </h3>
+      <div class="kanban-card" data-roles="pm ae" data-statut="done" data-id="SPEC-001-1-feedback-qualitatif" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-001-1-feedback-qualitatif</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Feedback qualitatif opt-in — commande CLI et invitation périodique</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4.4</span><span class="badge badge-ok" style="font-size:.7rem">18 test(s)</span><span class="badge badge-info" style="font-size:.7rem">AIAD-RGPD</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm ae" data-statut="done" data-id="SPEC-002-1-gouvernance-enforced" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-002-1-gouvernance-enforced.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-002-1-gouvernance-enforced</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-002-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-002-gouvernance-enforced.md">INTENT-002-gouvernance-enforced</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4.4</span><span class="badge badge-ok" style="font-size:.7rem">7 test(s)</span><span class="badge badge-info" style="font-size:.7rem">AIAD-RGPD</span> <span class="badge badge-info" style="font-size:.7rem">AIAD-AI-ACT</span> <span class="badge badge-info" style="font-size:.7rem">AIAD-RGAA</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-003-1-research-phase" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-003-1-research-phase.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-003-1-research-phase</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-003-research-phase.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-003-research-phase.md">INTENT-003-research-phase</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4.4</span><span class="badge badge-ok" style="font-size:.7rem">1 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-004-1-execution-phasee" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-004-1-execution-phasee.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-004-1-execution-phasee</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-004-execution-phasee.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-004-execution-phasee.md">INTENT-004-execution-phasee</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4.4</span><span class="badge badge-ok" style="font-size:.7rem">2 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-005-1-context-pull" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-005-1-context-pull.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-005-1-context-pull</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-005-context-pull.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-005-context-pull.md">INTENT-005-context-pull</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4.2</span><span class="badge badge-ok" style="font-size:.7rem">4 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-006-1-canary-suite" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-006-1-canary-suite.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-006-1-canary-suite</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-006-canary-suite.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-006-canary-suite.md">INTENT-006-canary-suite</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4.2</span><span class="badge badge-ok" style="font-size:.7rem">1 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-007-1-memory-native" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-007-1-memory-native.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-007-1-memory-native</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-007-memory-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-007-memory-native.md">INTENT-007-memory-native</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4.2</span><span class="badge badge-ok" style="font-size:.7rem">2 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-008-1-cycle-graph" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-008-1-cycle-graph.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-008-1-cycle-graph</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Cycle SDD comme graphe de Tasks (§3.9)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-008-cycle-graph.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-008-cycle-graph.md">INTENT-008-cycle-graph</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4.2</span><span class="badge badge-ok" style="font-size:.7rem">1 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-009-1-observabilite-native" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-009-1-observabilite-native.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-009-1-observabilite-native</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-009-observabilite-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-009-observabilite-native.md">INTENT-009-observabilite-native</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4.1</span><span class="badge badge-ok" style="font-size:.7rem">2 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-010-1-cross-model-review" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-010-1-cross-model-review.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-010-1-cross-model-review</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Cross-model review additive-only (§3.12)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-010-cross-model-review.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-010-cross-model-review.md">INTENT-010-cross-model-review</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4.1</span><span class="badge badge-ok" style="font-size:.7rem">1 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-011-1-hooks-toggles" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-011-1-hooks-toggles.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-011-1-hooks-toggles</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Toggles de hooks + boucles /goal + packaging plugin (§3.13 SPEC-A + SPEC-B)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-011-distribution-plugin-goal.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-011-distribution-plugin-goal.md">INTENT-011-distribution-plugin-goal</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4.1</span><span class="badge badge-ok" style="font-size:.7rem">1 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-012-1-garde-fous" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-012-1-garde-fous.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-012-1-garde-fous</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-012-garde-fous.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-012-garde-fous.md">INTENT-012-garde-fous</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4</span><span class="badge badge-ok" style="font-size:.7rem">3 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm ae qa" data-statut="done" data-id="SPEC-013-1a-deploiement-site" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-013-1a-deploiement-site.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-013-1a-deploiement-site</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Déploiement du site aiad.ovh en v1.18</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-013-zero-drift-sur-soi.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-013-zero-drift-sur-soi.md">INTENT-013-zero-drift-sur-soi</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4</span><span class="badge badge-warn" style="font-size:.7rem">0 test</span><span class="badge badge-info" style="font-size:.7rem">AIAD-RGAA</span> <span class="badge badge-info" style="font-size:.7rem">AIAD-RGESN</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm ae qa" data-statut="done" data-id="SPEC-013-2-unification-docs-racine" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-013-2-unification-docs-racine.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-013-2-unification-docs-racine</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Unification des docs racine + archivage de SDDMode.md</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-013-zero-drift-sur-soi.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-013-zero-drift-sur-soi.md">INTENT-013-zero-drift-sur-soi</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 4</span><span class="badge badge-warn" style="font-size:.7rem">0 test</span><span class="badge badge-info" style="font-size:.7rem">AIAD-RGESN</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm ae" data-statut="done" data-id="SPEC-013-3-sync-version-zones-marquees" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-013-3-sync-version-zones-marquees.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-013-3-sync-version-zones-marquees</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Synchronisation automatique des versions sur zones marquées + check CI</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-013-zero-drift-sur-soi.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-013-zero-drift-sur-soi.md">INTENT-013-zero-drift-sur-soi</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 5</span><span class="badge badge-ok" style="font-size:.7rem">1 test(s)</span><span class="badge badge-info" style="font-size:.7rem">AIAD-RGESN</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm ae qa tl" data-statut="done" data-id="SPEC-013-4a-deploy-workflow" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-013-4a-deploy-workflow.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-013-4a-deploy-workflow</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Workflow de déploiement site/ → gh-pages + gate version</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-013-zero-drift-sur-soi.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-013-zero-drift-sur-soi.md">INTENT-013-zero-drift-sur-soi</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 5</span><span class="badge badge-warn" style="font-size:.7rem">0 test</span><span class="badge badge-info" style="font-size:.7rem">AIAD-RGESN</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm ae qa tl" data-statut="done" data-id="SPEC-013-4b-gate-rgaa" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-013-4b-gate-rgaa.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-013-4b-gate-rgaa</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Gate RGAA AA avant publication du site</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-013-zero-drift-sur-soi.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-013-zero-drift-sur-soi.md">INTENT-013-zero-drift-sur-soi</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5</span><span class="badge badge-warn" style="font-size:.7rem">0 test</span><span class="badge badge-info" style="font-size:.7rem">AIAD-RGAA</span> <span class="badge badge-info" style="font-size:.7rem">AIAD-RGESN</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-015-1-telemetrie-usage" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-015-1-telemetrie-usage.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-015-1-telemetrie-usage</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-015-sobriete-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-015-sobriete-cli.md">INTENT-015-sobriete-cli</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 — Gate OUVERTE (2026-06-16, EARS strict 0 violation, Étranger PASS)</span><span class="badge badge-ok" style="font-size:.7rem">1 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-015-2-1-registre-commandes" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-015-2-1-registre-commandes.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-015-2-1-registre-commandes</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-015-sobriete-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-015-sobriete-cli.md">INTENT-015-sobriete-cli</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 — Gate OUVERTE (2026-06-17, EARS strict 0 violation, Étranger PASS)</span><span class="badge badge-ok" style="font-size:.7rem">2 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-015-2-2-cycle-depreciation" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-015-2-2-cycle-depreciation.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-015-2-2-cycle-depreciation</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-015-2-2-cycle-depreciation — Cycle de dépréciation soft (mécanisme)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-015-sobriete-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-015-sobriete-cli.md">INTENT-015-sobriete-cli</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 — Gate OUVERTE (2026-06-19, EARS strict 0 violation, Étranger PASS)</span><span class="badge badge-ok" style="font-size:.7rem">2 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-015-3-matrice-garde-fous" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-015-3-matrice-garde-fous.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-015-3-matrice-garde-fous</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-015-sobriete-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-015-sobriete-cli.md">INTENT-015-sobriete-cli</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 — Gate OUVERTE (2026-06-19, EARS strict 0 violation, Étranger PASS)</span><span class="badge badge-ok" style="font-size:.7rem">1 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-024-1-trace-exemption" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-024-1-trace-exemption.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-024-1-trace-exemption</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Exemption de traçabilité pour SPECs sans code applicatif</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md">INTENT-024-trace-exemption-specs-sans-code</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 5</span><span class="badge badge-ok" style="font-size:.7rem">2 test(s)</span><span class="badge badge-info" style="font-size:.7rem">aucune (outillage interne</span> <span class="badge badge-info" style="font-size:.7rem">pas d&#39;IA/données perso/UI</span> <span class="badge badge-info" style="font-size:.7rem">RGESN</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm qa" data-statut="done" data-id="SPEC-025-1-gold-contrast-fix" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-025-1-gold-contrast-fix.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-025-1-gold-contrast-fix</code></div>
+    <div style="font-weight:600;margin-top:.25rem">Correction du contraste --gold-600 (.kicker + .pill.gold)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-025-contraste-kicker.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-025-contraste-kicker.md">INTENT-025-contraste-kicker</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-ok" style="font-size:.7rem">SQS 5</span><span class="badge badge-warn" style="font-size:.7rem">0 test</span>
+    </div>
+  </div>
+    </div></div>
+  <script>(function(){
+    var KEY='aiad-kanban-lens';
+    var url=new URL(window.location.href);
+    var initial=url.searchParams.get('lens') || localStorage.getItem(KEY) || 'all';
+    // (#189) focus=today : masque draft/done, révèle la bannière focus.
+    var focus=url.searchParams.get('focus')==='today';
+    function applyFocus(on){
+      document.body.classList.toggle('focus-mode', on);
+      var activeLens=document.querySelector('.lens-btn.active')?.getAttribute('data-lens') || 'all';
+      // (#190) Bascule entre 6 bannières lens-aware : on révèle uniquement
+      // celle dont data-lens matche la lens active. Fallback "all" si la
+      // bannière ciblée n'existe pas (build hétérogène).
+      document.querySelectorAll('.focus-banner').forEach(function(b){
+        var matches = b.getAttribute('data-lens') === activeLens;
+        b.hidden = !(on && matches);
+      });
+      var nbHidden = document.querySelectorAll('.focus-banner:not([hidden])').length;
+      if (on && nbHidden === 0) {
+        var fallback = document.querySelector('.focus-banner[data-lens="all"]');
+        if (fallback) fallback.hidden = false;
+      }
+      document.querySelectorAll('.kanban-card').forEach(function(c){
+        var st=(c.getAttribute('data-statut')||'').toLowerCase();
+        // Masque draft + done quand focus actif (statuts non actionnables au standup)
+        var masque = on && (st==='draft' || st==='done');
+        c.style.display = masque ? 'none' : '';
+      });
+      // Lien "Sortir du focus" : préserve la lens active.
+      document.querySelectorAll('.focus-banner a').forEach(function(a){
+        a.setAttribute('href', '?lens='+encodeURIComponent(activeLens));
+      });
+    }
+    function apply(lens){
+      var cards=document.querySelectorAll('.kanban-card');
+      cards.forEach(function(c){
+        var roles=(c.getAttribute('data-roles')||'').split(/\s+/).filter(Boolean);
+        if(lens==='all'){ c.classList.remove('in-scope'); c.classList.remove('out-scope'); }
+        else if(roles.indexOf(lens)>-1){ c.classList.add('in-scope'); c.classList.remove('out-scope'); }
+        else { c.classList.add('out-scope'); c.classList.remove('in-scope'); }
+      });
+      document.querySelectorAll('.lens-btn').forEach(function(b){
+        if(b.getAttribute('data-lens')===lens) b.classList.add('active'); else b.classList.remove('active');
+      });
+    }
+    document.querySelectorAll('.lens-btn').forEach(function(b){
+      b.addEventListener('click', function(){
+        var lens=b.getAttribute('data-lens');
+        localStorage.setItem(KEY, lens);
+        apply(lens);
+        if(document.body.classList.contains('focus-mode')) applyFocus(true);
+      });
+    });
+    apply(initial);
+    applyFocus(focus);
+  })();</script>
+  <script>(function(){
+    var input=document.getElementById('kanban-search');
+    if(!input) return;
+    function filtrer(){
+      var q=input.value.trim().toLowerCase();
+      var cards=document.querySelectorAll('.kanban-card');
+      var visibles=0, total=cards.length;
+      cards.forEach(function(c){
+        if(!q){ c.style.display=''; visibles++; return; }
+        var id=(c.getAttribute('data-id')||'').toLowerCase();
+        var txt=(c.textContent||'').toLowerCase();
+        var match=id.indexOf(q)>=0 || txt.indexOf(q)>=0;
+        c.style.display=match?'':'none';
+        if(match) visibles++;
+      });
+      // Annonce ARIA pour lecteurs d'écran
+      input.setAttribute('aria-label', q?'Rechercher : '+visibles+'/'+total+' résultats':'Rechercher dans le kanban');
+    }
+    input.addEventListener('input', filtrer);
+    // Cmd+F / Ctrl+F → focus sur la search box (UX standard)
+    document.addEventListener('keydown', function(e){
+      if((e.metaKey||e.ctrlKey)&&e.key==='f'){
+        var k=document.querySelector('.kanban-card'); // sur kanban uniquement
+        if(k){ e.preventDefault(); input.focus(); input.select(); }
+      }
+    });
+  })();</script>
+</section>
 </main>
 <script src="assets/app.js"></script>
 </body>

@@ -39,7 +39,7 @@ test('docs/flow-format.md — fichier présent + 3 rituels documentés', () => {
 });
 
 test('Bannières dashboard DORA/Flow référencent bien ces URLs', () => {
-  const render = readFileSync(join(REPO, 'lib', 'dashboard', 'render.js'), 'utf-8');
-  assert.match(render, /aiad\.ovh\/docs\/dora-format/);
-  assert.match(render, /aiad\.ovh\/docs\/flow-format/);
+  const metrics = readFileSync(join(REPO, 'lib', 'dashboard', 'views', 'metrics.js'), 'utf-8');
+  assert.match(metrics, /aiad\.ovh\/docs\/dora-format/);
+  assert.match(metrics, /aiad\.ovh\/docs\/flow-format/);
 });

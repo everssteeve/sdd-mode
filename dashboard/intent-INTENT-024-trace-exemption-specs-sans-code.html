@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T09:41:13.949Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>INTENT-024-trace-exemption-specs-sans-code — Traçabilité honnête des SPECs sans code applicatif — exemption explicite — aiad-sdd</title>
+<meta name="description" content="INTENT-024-trace-exemption-specs-sans-code — Traçabilité honnête des SPECs sans code applicatif — exemption explicite — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aia…"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="INTENT-024-trace-exemption-specs-sans-code — Traçabilité honnête des SPECs sans code applicatif — exemption explicite — aiad-sdd"/>
+<meta property="og:description" content="INTENT-024-trace-exemption-specs-sans-code — Traçabilité honnête des SPECs sans code applicatif — exemption explicite — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aia…"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="INTENT-024-trace-exemption-specs-sans-code — Traçabilité honnête des SPECs sans code applicatif — exemption explicite — aiad-sdd"/>
+<meta name="twitter:description" content="INTENT-024-trace-exemption-specs-sans-code — Traçabilité honnête des SPECs sans code applicatif — exemption explicite — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aia…"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.18.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 22/06/2026 11:41:13<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>INTENT-024-trace-exemption-specs-sans-code — Traçabilité honnête des SPECs sans code applicatif — exemption explicite</h1>
+      <div class="subtitle">Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 11:41:13. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+    .ip-cols { display:grid; grid-template-columns: 1fr 280px; gap: 1.5rem; align-items: start; }
+    @media (max-width: 900px) { .ip-cols { grid-template-columns: 1fr; } }
+    .ip-meta table { width:100%; font-size:.85rem; }
+    .ip-meta td { padding:.25rem .4rem; vertical-align:top; }
+    .ip-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+    .ip-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+    .ip-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+    .ip-sections pre { margin:0; white-space:pre-wrap; font-family: inherit; font-size:.88rem; line-height:1.45; }
+    .ip-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+    .ip-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+    .ip-actions a:hover { background:rgba(76,110,245,.18); }
+  </style>
+<div class="ip-cols">
+  <div class="ip-sections">
+    <h2><a class="src-link" href="../.aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md">INTENT-024-trace-exemption-specs-sans-code</a> — Traçabilité honnête des SPECs sans code applicatif — exemption explicite</h2>
+    <section><h3>POURQUOI MAINTENANT</h3><div class="md-light"><p><strong>Origine : [[<code>FACT-004</code>]]</strong> (ouvert depuis 2026-06-12). <code>lib/sdd-trace.js</code> ne reconnaît <code>@spec</code> que dans du <strong>code applicatif</strong> (<code>EXTENSIONS_CODE</code> — <code>.js/.ts/.py/…</code>), jamais dans <code>.md</code>, <code>.html</code>, <code>.yml</code>. Conséquence : une SPEC dont le livrable est <strong>documentaire</strong> (013-2), <strong>du contenu de site</strong> (013-1a) ou <strong>un workflow CI</strong> (013-4a) ne peut pas être marquée <code>done</code> sans déclencher un faux gap <code>specsValideesNonImplementees</code> (sdd-trace.js:535) — et le Stop hook bloque la clôture.</p><p>Le contournement actuel (tenir le frontmatter à <code>in-progress</code> et porter le « done » au niveau INTENT) produit un <strong>signal trompeur récurrent</strong> : <code>/aiad status</code> et le trace affichent des SPECs « in-progress » qui sont en réalité <strong>livrées</strong>. C&#39;est précisément ce qui a fait remonter un faux positif d&#39;incohérence sur <code>INTENT-013</code>. Un framework dont la valeur n°2 est « Honnêteté sur les Contradictions » ne peut pas laisser son propre outil de traçabilité afficher du faux WIP.</p></div></section><section><h3>POUR QUI</h3><div class="md-light"><ul><li><strong>Nous-mêmes</strong> (dogfooding) : pouvoir clôturer honnêtement une SPEC doc/site/CI.</li><li><strong>Les utilisateurs du CLI</strong> : toute SPEC dont le livrable n&#39;est pas du code</li></ul><p>applicatif scanné (docs, infra, config, contenu) — piège systématique aujourd&#39;hui.</p></div></section><section><h3>OBJECTIF</h3><div class="md-light"><ul><li>Permettre de marquer <code>done</code> une SPEC **réalisée mais sans code applicatif</li></ul><p>annotable<strong>, via une </strong>exemption explicite et tracée** au frontmatter — sans affaiblir la détection de drift pour les SPECs qui, elles, doivent porter du code.</p><ul><li>Faire disparaître le faux gap <code>specsValideesNonImplementees</code> pour ces SPECs.</li></ul></div></section><section><h3>CONTRAINTES</h3><div class="md-light"><ul><li><strong>Fail-honest, pas fail-open</strong> : l&#39;exemption doit être <strong>explicite</strong> (champ +</li></ul><p>raison obligatoire), jamais un défaut silencieux. Une SPEC sans exemption et sans code reste un gap (comportement actuel préservé).</p><ul><li><strong>Zéro dépendance</strong> (contrainte structurante du projet).</li><li>Rétro-compatible : les SPECs existantes sans le champ se comportent comme avant.</li></ul></div></section><section><h3>CRITÈRE DE DRIFT</h3><p class="muted">— non renseigné</p></section>
+    <section><h3>SPECs liées</h3><p class="muted" style="font-size:.85rem">Avancement : <strong>1/1</strong> SPECs livrées (100 %), 0 en cours.</p><table><thead><tr><th>ID</th><th>Titre</th><th>Statut</th><th>SQS</th></tr></thead><tbody><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-024-1-trace-exemption.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-024-1-trace-exemption.md">SPEC-024-1-trace-exemption</a></td>
+      <td>Exemption de traçabilité pour SPECs sans code applicatif</td>
+      <td><span class="badge badge-ok">done</span></td>
+      <td class="muted">5</td>
+    </tr></tbody></table></section>
+    <section><h3>Risques</h3><p>Niveau global : <strong>medium</strong></p><div><span class="badge badge-warn" style="font-size:.78rem">Dépendance (mot-clé &quot;depend&quot;)</span></div></section>
+    <section><h3>Hypothèse</h3><p class="muted">Aucune hypothèse déclarée (frontmatter <code>hypothesis:</code>).</p></section>
+    <section><h3>Dépendances</h3><p><strong>Bloqué par</strong> : <em class="muted">aucune</em></p><p><strong>Bloque</strong> : <em class="muted">aucun</em></p></section>
+    <div class="ip-actions">
+      <a href="pm.html">← Cockpit PM</a>
+      <a href="intents.html">← Catalogue Intents</a>
+      <a href="../.aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md" target="_blank">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="ip-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .3rem">Métadonnées</h3>
+    <table><tr><td><strong>Statut</strong></td><td><span class="badge badge-ok">done</span></td></tr><tr><td><strong>Date</strong></td><td>2026-06-19</td></tr><tr><td><strong>Auteur</strong></td><td>Steeve Evers</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

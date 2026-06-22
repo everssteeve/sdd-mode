@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-14T03:07:31.407Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T09:41:13.949Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Architecture Decision Records — aiad-sdd</title>
-<meta name="description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Architecture Decision Records — aiad-sdd"/>
-<meta property="og:description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta property="og:description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta property="og:url" content="adrs.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Architecture Decision Records — aiad-sdd"/>
-<meta name="twitter:description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="twitter:description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -33,11 +33,14 @@
   <div class="brand">
     <div class="brand-title">aiad-sdd</div>
     <div class="brand-sub">SDD Mode · Dashboard</div>
-    <div class="brand-version">v1.14.0</div>
+    <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
     </a></li>
     <li><a href="intents.html" class="">
       <span class="nav-icon">◇</span>Intents
@@ -84,7 +87,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 14/05/2026 05:07:31<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 22/06/2026 11:41:13<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -93,8 +96,8 @@
       <div class="subtitle">ADRs extraits de ARCHITECTURE.md (persona Tech Lead)</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 14/05/2026 05:07:31. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
-      <div class="meta">aiad-sdd · v1.14.0</div>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 11:41:13. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
       </button>
@@ -104,11 +107,11 @@
       <strong>Aucun ADR détecté dans <a class="src-link" href="../.aiad/ARCHITECTURE.md" target="_blank" rel="noopener" title="Ouvrir .aiad/ARCHITECTURE.md">.aiad/ARCHITECTURE.md</a>.</strong>
       Convention : ajoute des lignes <code>- **ADR-NNN** : décision</code> dans ARCHITECTURE.md pour les capturer ici.
     </div><section>
-    <h2>Dette technique <span class="count">28</span></h2>
+    <h2>Dette technique <span class="count">41</span></h2>
     <div class="kpis">
-      <div class="kpi"><div class="label">JNSP non résolus</div><div class="value">28</div><div class="delta"><span class="badge badge-bad" style="font-size:.7rem">1 oubliés</span></div></div>
+      <div class="kpi"><div class="label">JNSP non résolus</div><div class="value">39</div><div class="delta"><span class="badge badge-bad" style="font-size:.7rem">16 oubliés</span></div></div>
       <div class="kpi"><div class="label">SPECs > 200 LOC</div><div class="value">0</div><div class="delta">critiques</div></div>
-      <div class="kpi"><div class="label">SPECs > 100 LOC</div><div class="value">0</div><div class="delta">à surveiller</div></div>
+      <div class="kpi"><div class="label">SPECs > 100 LOC</div><div class="value">2</div><div class="delta">à surveiller</div></div>
     </div>
     <div style="margin-top:.75rem">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
@@ -122,13 +125,13 @@
     <rect x="78" y="0" width="8" height="8" fill="#fa5252"/>
     <text x="90" y="8">SPECs > seuil</text>
   </g>
-      <line x1="28" y1="62" x2="316" y2="62" stroke="currentColor" opacity="0.2"/><text x="24" y="14.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">28</text><text x="24" y="62.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">0</text>
-      <text x="61.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">04-20</text><text x="132.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">04-27</text><text x="203.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">05-04</text><rect x="243.0" y="6.0" width="31.5" height="56.0" fill="#4c6ef5" rx="1"><title>JNSP 28 · semaine du 2026-05-11</title></rect><rect x="278.5" y="62.0" width="31.5" height="0.0" fill="#fa5252" rx="1"><title>SPECs grosses 0 · semaine du 2026-05-11</title></rect><text x="274.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">05-11</text>
+      <line x1="28" y1="62" x2="316" y2="62" stroke="currentColor" opacity="0.2"/><text x="24" y="14.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">39</text><text x="24" y="62.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">0</text>
+      <text x="61.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-01</text><text x="132.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-08</text><text x="203.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-15</text><rect x="243.0" y="6.0" width="31.5" height="56.0" fill="#4c6ef5" rx="1"><title>JNSP 39 · semaine du 2026-06-22</title></rect><rect x="278.5" y="62.0" width="31.5" height="0.0" fill="#fa5252" rx="1"><title>SPECs grosses 0 · semaine du 2026-06-22</title></rect><text x="274.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-22</text>
     </svg>
-    <p class="muted" style="font-size:.8rem;margin-top:.25rem">1 snapshot(s) total · 1 par jour persisté dans <code>.aiad/metrics/tech-debt/</code>.</p>
+    <p class="muted" style="font-size:.8rem;margin-top:.25rem">2 snapshot(s) total · 1 par jour persisté dans <code>.aiad/metrics/tech-debt/</code>.</p>
   </div>
     
-    <h3>JNSP non résolus <span class="count">28</span></h3>
+    <h3>JNSP non résolus <span class="count">39</span></h3>
     <p class="muted">Markers <code>TODO-JNSP:</code> en attente de décision humaine. Triés du plus oublié au plus récent. Ancienneté = mtime du fichier (proxy : si le fichier a été modifié récemment sans résoudre le JNSP, le marker reste signalé "stale" si l'âge > 30j).</p>
     <table>
       <thead><tr><th>Fichier</th><th>Ligne</th><th>Question</th><th>Ancienneté</th></tr></thead>
@@ -137,173 +140,203 @@
       <td><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/AGENTS.md#L85" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/AGENTS.md à la ligne 85">bench/scenario-autonomous-run/url-shortener/AGENTS.md</a></td>
       <td class="muted"><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/AGENTS.md#L85" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/AGENTS.md à la ligne 85">L85</a></td>
       <td>&lt;question précise pour l&#39;humain&gt;` ; le hook pre-commit bloque tout diff qui en contient</td>
-      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(88j)</span></td>
-    </tr>
-    <tr>
-      <td><a class="src-link" href="../CHANGELOG.md#L213" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 213">CHANGELOG.md</a></td>
-      <td class="muted"><a class="src-link" href="../CHANGELOG.md#L213" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 213">L213</a></td>
-      <td>` dans le code.</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
-    </tr>
-    <tr>
-      <td><a class="src-link" href="../CHANGELOG.md#L218" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 218">CHANGELOG.md</a></td>
-      <td class="muted"><a class="src-link" href="../CHANGELOG.md#L218" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 218">L218</a></td>
-      <td>` non résolu (mode `block`) ou avertit</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
-    </tr>
-    <tr>
-      <td><a class="src-link" href="../CLAUDE.md#L234" target="_blank" rel="noopener" title="Ouvrir CLAUDE.md à la ligne 234">CLAUDE.md</a></td>
-      <td class="muted"><a class="src-link" href="../CLAUDE.md#L234" target="_blank" rel="noopener" title="Ouvrir CLAUDE.md à la ligne 234">L234</a></td>
-      <td>&lt;question précise à l&#39;humain&gt;</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
-    </tr>
-    <tr>
-      <td><a class="src-link" href="../CLAUDE.md#L238" target="_blank" rel="noopener" title="Ouvrir CLAUDE.md à la ligne 238">CLAUDE.md</a></td>
-      <td class="muted"><a class="src-link" href="../CLAUDE.md#L238" target="_blank" rel="noopener" title="Ouvrir CLAUDE.md à la ligne 238">L238</a></td>
-      <td>` non résolu. Le bypass `git commit --no-verify`</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
-    </tr>
-    <tr>
-      <td><a class="src-link" href="../README.md#L95" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 95">README.md</a></td>
-      <td class="muted"><a class="src-link" href="../README.md#L95" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 95">L95</a></td>
-      <td>&lt;question précise pour l&#39;humain&gt;</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
-    </tr>
-    <tr>
-      <td><a class="src-link" href="../README.md#L98" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 98">README.md</a></td>
-      <td class="muted"><a class="src-link" href="../README.md#L98" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 98">L98</a></td>
-      <td>` non</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/CLAUDE.md#L244" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/CLAUDE.md à la ligne 244">bench/scenario-autonomous-run/url-shortener/CLAUDE.md</a></td>
       <td class="muted"><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/CLAUDE.md#L244" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/CLAUDE.md à la ligne 244">L244</a></td>
       <td>&lt;question précise à l&#39;humain&gt;</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(1j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/CLAUDE.md#L248" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/CLAUDE.md à la ligne 248">bench/scenario-autonomous-run/url-shortener/CLAUDE.md</a></td>
       <td class="muted"><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/CLAUDE.md#L248" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/CLAUDE.md à la ligne 248">L248</a></td>
       <td>` non résolu. Le bypass `git commit --no-verify`</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(1j)</span></td>
-    </tr>
-    <tr>
-      <td><a class="src-link" href="../lib/emit-rules.js#L186" target="_blank" rel="noopener" title="Ouvrir lib/emit-rules.js à la ligne 186">lib/emit-rules.js</a></td>
-      <td class="muted"><a class="src-link" href="../lib/emit-rules.js#L186" target="_blank" rel="noopener" title="Ouvrir lib/emit-rules.js à la ligne 186">L186</a></td>
-      <td>&lt;question&gt;` ; le pre-commit bloque si présent&#39;,</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(2j)</span></td>
-    </tr>
-    <tr>
-      <td><a class="src-link" href="../templates/CLAUDE.md#L234" target="_blank" rel="noopener" title="Ouvrir templates/CLAUDE.md à la ligne 234">templates/CLAUDE.md</a></td>
-      <td class="muted"><a class="src-link" href="../templates/CLAUDE.md#L234" target="_blank" rel="noopener" title="Ouvrir templates/CLAUDE.md à la ligne 234">L234</a></td>
-      <td>&lt;question précise à l&#39;humain&gt;</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(1j)</span></td>
-    </tr>
-    <tr>
-      <td><a class="src-link" href="../templates/CLAUDE.md#L238" target="_blank" rel="noopener" title="Ouvrir templates/CLAUDE.md à la ligne 238">templates/CLAUDE.md</a></td>
-      <td class="muted"><a class="src-link" href="../templates/CLAUDE.md#L238" target="_blank" rel="noopener" title="Ouvrir templates/CLAUDE.md à la ligne 238">L238</a></td>
-      <td>` non résolu. Le bypass `git commit --no-verify`</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(1j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L22" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 22">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L22" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 22">L22</a></td>
       <td>dans .js .ts .py .md&#39;, () =&gt; {</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L26" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 26">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L26" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 26">L26</a></td>
       <td>choisir entre Redis et Postgres\nconst x = 1;\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L27" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 27">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L27" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 27">L27</a></td>
       <td>format date ISO ou UNIX ?\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L28" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 28">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L28" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 28">L28</a></td>
       <td>niveau de log par défaut ?\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L29" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 29">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L29" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 29">L29</a></td>
       <td>validation par qui ?\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L45" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 45">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L45" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 45">L45</a></td>
       <td>noise\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L46" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 46">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L46" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 46">L46</a></td>
       <td>noise\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L58" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 58">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L58" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 58">L58</a></td>
       <td>marker ${i}\n`;</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L125" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 125">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L125" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 125">L125</a></td>
       <td>déléguer ?\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L188" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 188">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L188" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 188">L188</a></td>
       <td>récent\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L189" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 189">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L189" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 189">L189</a></td>
       <td>medium\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L190" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 190">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L190" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 190">L190</a></td>
       <td>ancien\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L303" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 303">test/dashboard-tech-debt.test.js</a></td>
       <td class="muted"><a class="src-link" href="../test/dashboard-tech-debt.test.js#L303" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 303">L303</a></td>
       <td>q1\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(0j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
     </tr>
     <tr>
-      <td><a class="src-link" href="../test/pre-commit.test.js#L214" target="_blank" rel="noopener" title="Ouvrir test/pre-commit.test.js à la ligne 214">test/pre-commit.test.js</a></td>
-      <td class="muted"><a class="src-link" href="../test/pre-commit.test.js#L214" target="_blank" rel="noopener" title="Ouvrir test/pre-commit.test.js à la ligne 214">L214</a></td>
-      <td>quel comportement si le user est verrouillé ?\n  return null;\n}&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(1j)</span></td>
+      <td><a class="src-link" href="../CHANGELOG.md#L2083" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 2083">CHANGELOG.md</a></td>
+      <td class="muted"><a class="src-link" href="../CHANGELOG.md#L2083" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 2083">L2083</a></td>
+      <td>` dans le code.</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(13j)</span></td>
     </tr>
     <tr>
-      <td><a class="src-link" href="../test/pre-commit.test.js#L229" target="_blank" rel="noopener" title="Ouvrir test/pre-commit.test.js à la ligne 229">test/pre-commit.test.js</a></td>
-      <td class="muted"><a class="src-link" href="../test/pre-commit.test.js#L229" target="_blank" rel="noopener" title="Ouvrir test/pre-commit.test.js à la ligne 229">L229</a></td>
-      <td>à clarifier\nexport const x = 1;\n&#39;);</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(1j)</span></td>
+      <td><a class="src-link" href="../CHANGELOG.md#L2088" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 2088">CHANGELOG.md</a></td>
+      <td class="muted"><a class="src-link" href="../CHANGELOG.md#L2088" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 2088">L2088</a></td>
+      <td>` non résolu (mode `block`) ou avertit</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(13j)</span></td>
     </tr>
     <tr>
-      <td><a class="src-link" href="../test/pre-commit.test.js#L243" target="_blank" rel="noopener" title="Ouvrir test/pre-commit.test.js à la ligne 243">test/pre-commit.test.js</a></td>
-      <td class="muted"><a class="src-link" href="../test/pre-commit.test.js#L243" target="_blank" rel="noopener" title="Ouvrir test/pre-commit.test.js à la ligne 243">L243</a></td>
-      <td>→ pas de blocage attendu.</td>
-      <td class="muted"><span class="badge badge-ok" style="font-size:.7rem">&lt; 7j</span> <span class="muted" style="font-size:.7rem">(1j)</span></td>
+      <td><a class="src-link" href="../README.md#L117" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 117">README.md</a></td>
+      <td class="muted"><a class="src-link" href="../README.md#L117" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 117">L117</a></td>
+      <td>&lt;question précise pour l&#39;humain&gt;</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(7j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../README.md#L120" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 120">README.md</a></td>
+      <td class="muted"><a class="src-link" href="../README.md#L120" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 120">L120</a></td>
+      <td>` non</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(7j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../docs/analyse-claude-code-best-practice.md#L38" target="_blank" rel="noopener" title="Ouvrir docs/analyse-claude-code-best-practice.md à la ligne 38">docs/analyse-claude-code-best-practice.md</a></td>
+      <td class="muted"><a class="src-link" href="../docs/analyse-claude-code-best-practice.md#L38" target="_blank" rel="noopener" title="Ouvrir docs/analyse-claude-code-best-practice.md à la ligne 38">L38</a></td>
+      <td>`).</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L17" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 17">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
+      <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L17" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 17">L17</a></td>
+      <td>` | `.aiad/hooks/pre-commit.sh` | git CLI uniquement |</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L20" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 20">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
+      <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L20" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 20">L20</a></td>
+      <td>&lt;question&gt;` + exit codes 0/1/2 | définie |</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L25" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 25">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
+      <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L25" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 25">L25</a></td>
+      <td>` non résolu,</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L34" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 34">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
+      <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L34" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 34">L34</a></td>
+      <td>` ajoutés (lignes `+`),</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L79" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 79">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
+      <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L79" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 79">L79</a></td>
+      <td>` non résolu **avant** l&#39;exécution.</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L80" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 80">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
+      <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L80" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 80">L80</a></td>
+      <td>` non résolu est présent, **the system SHALL** refuser l&#39;outil avec `permissionDecision: &quot;deny&quot;` et exit code 2.</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L86" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 86">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
+      <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L86" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 86">L86</a></td>
+      <td>` → exit 2 + JSON ; diff propre → exit 0.</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../docs/release-notes/v1.18.0.md#L69" target="_blank" rel="noopener" title="Ouvrir docs/release-notes/v1.18.0.md à la ligne 69">docs/release-notes/v1.18.0.md</a></td>
+      <td class="muted"><a class="src-link" href="../docs/release-notes/v1.18.0.md#L69" target="_blank" rel="noopener" title="Ouvrir docs/release-notes/v1.18.0.md à la ligne 69">L69</a></td>
+      <td>` non résolu est **refusé**.</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(13j)</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../templates/CLAUDE.md#L236" target="_blank" rel="noopener" title="Ouvrir templates/CLAUDE.md à la ligne 236">templates/CLAUDE.md</a></td>
+      <td class="muted"><a class="src-link" href="../templates/CLAUDE.md#L236" target="_blank" rel="noopener" title="Ouvrir templates/CLAUDE.md à la ligne 236">L236</a></td>
+      <td>&lt;question précise à l&#39;humain&gt;</td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(13j)</span></td>
     </tr></tbody>
     </table>
     
     
+    <h3>SPECs > 100 LOC (à surveiller) <span class="count">2</span></h3>
+    <p class="muted">Entre 100 et 200 LOC : à surveiller avant qu'elles franchissent le seuil critique.</p>
+    <table>
+      <thead><tr><th>SPEC</th><th>Fichier</th><th>LOC</th><th>Statut</th></tr></thead>
+      <tbody>
+    <tr>
+      <td><code>SPEC-024-1-trace-exemption</code></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-024-1-trace-exemption.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-024-1-trace-exemption.md">.aiad/specs/SPEC-024-1-trace-exemption.md</a></td>
+      <td class="muted">108 LOC</td>
+      <td class="muted">done</td>
+    </tr>
+    <tr>
+      <td><code>SPEC-013-4-deploy-site-workflow</code></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-013-4-deploy-site-workflow.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-4-deploy-site-workflow.md">.aiad/specs/SPEC-013-4-deploy-site-workflow.md</a></td>
+      <td class="muted">101 LOC</td>
+      <td class="muted">split</td>
+    </tr></tbody>
+    </table>
   </section>
 </main>
 <script src="assets/app.js"></script>

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-14T03:07:31.407Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T09:41:13.949Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Traçabilité — aiad-sdd</title>
-<meta name="description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Traçabilité — aiad-sdd"/>
-<meta property="og:description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta property="og:description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta property="og:url" content="traceability.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Traçabilité — aiad-sdd"/>
-<meta name="twitter:description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="twitter:description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -33,11 +33,14 @@
   <div class="brand">
     <div class="brand-title">aiad-sdd</div>
     <div class="brand-sub">SDD Mode · Dashboard</div>
-    <div class="brand-version">v1.14.0</div>
+    <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
     </a></li>
     <li><a href="intents.html" class="">
       <span class="nav-icon">◇</span>Intents
@@ -84,7 +87,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 14/05/2026 05:07:31<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 22/06/2026 11:41:13<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -93,8 +96,8 @@
       <div class="subtitle">Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 14/05/2026 05:07:31. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
-      <div class="meta">aiad-sdd · v1.14.0</div>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 11:41:13. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
       </button>
@@ -102,16 +105,212 @@
   </header>
   
 <div class="kpis">
-  <div class="kpi"><div class="label">Intents</div><div class="value">0</div></div>
-  <div class="kpi"><div class="label">SPECs</div><div class="value">0</div></div>
-  <div class="kpi"><div class="label">Code annoté</div><div class="value small">20 / 144</div></div>
-  <div class="kpi"><div class="label">Tests annotés</div><div class="value small">20 / 176</div></div>
-  <div class="kpi warn"><div class="label">Gaps détectés</div><div class="value">160</div></div>
+  <div class="kpi"><div class="label">Intents</div><div class="value">25</div></div>
+  <div class="kpi"><div class="label">SPECs</div><div class="value">32</div></div>
+  <div class="kpi"><div class="label">Code annoté</div><div class="value small">62 / 375</div></div>
+  <div class="kpi"><div class="label">Tests annotés</div><div class="value small">28 / 250</div></div>
+  <div class="kpi warn"><div class="label">Gaps détectés</div><div class="value">355</div></div>
 </div>
 
 <section class="matrix-tab">
   <h2>Matrice Forward · Intent → SPEC → Code → Tests</h2>
-  <div class="empty"><strong>Aucun intent à tracer.</strong>Lance <code>/sdd intent</code> puis annote ton code avec <code>@spec SPEC-NNN-...</code>.</div>
+  <div class="filter"><input type="search" id="qFwd" data-filter-target="tFwd" placeholder="Filtrer la matrice forward…"/></div>
+       <table id="tFwd">
+         <thead><tr><th>Intent</th><th>SPEC</th><th>Code</th><th>Tests</th><th>Verdict</th></tr></thead>
+         <tbody><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a><br/><small class="muted">Feedback qualitatif opt-in — commande CLI et invitation périodique</small></td>
+        <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+        <td><a class="src-link" href="../templates/projects/fastapi-aiad/tests/test_main.py#L3" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/tests/test_main.py à la ligne 3">templates/projects/fastapi-aiad/tests/test_main.py</a><br/><a class="src-link" href="../test/ai-act-audit.test.js#L94" target="_blank" rel="noopener" title="Ouvrir test/ai-act-audit.test.js à la ligne 94">test/ai-act-audit.test.js</a><br/><a class="src-link" href="../test/annotations.test.js#L26" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 26">test/annotations.test.js</a><br/><a class="src-link" href="../test/dashboard-pm-v39.test.js#L118" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v39.test.js à la ligne 118">test/dashboard-pm-v39.test.js</a><br/><a class="src-link" href="../test/dpia.test.js#L113" target="_blank" rel="noopener" title="Ouvrir test/dpia.test.js à la ligne 113">test/dpia.test.js</a><br/><a class="src-link" href="../test/leadership-metrics.test.js#L60" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 60">test/leadership-metrics.test.js</a><br/><a class="src-link" href="../test/multi-language.test.js#L23" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 23">test/multi-language.test.js</a><br/><a class="src-link" href="../test/spec-suggester.test.js#L140" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 140">test/spec-suggester.test.js</a><br/><a class="src-link" href="../test/suggest-annotations.test.js#L197" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 197">test/suggest-annotations.test.js</a><br/><a class="src-link" href="../test/trace-cache.test.js#L110" target="_blank" rel="noopener" title="Ouvrir test/trace-cache.test.js à la ligne 110">test/trace-cache.test.js</a><br/><a class="src-link" href="../test/trace-git.test.js#L96" target="_blank" rel="noopener" title="Ouvrir test/trace-git.test.js à la ligne 96">test/trace-git.test.js</a><br/><a class="src-link" href="../test/trace-perf.test.js#L35" target="_blank" rel="noopener" title="Ouvrir test/trace-perf.test.js à la ligne 35">test/trace-perf.test.js</a><br/><a class="src-link" href="../test/trace-watch.test.js#L74" target="_blank" rel="noopener" title="Ouvrir test/trace-watch.test.js à la ligne 74">test/trace-watch.test.js</a><br/><a class="src-link" href="../test/trace.test.js#L33" target="_blank" rel="noopener" title="Ouvrir test/trace.test.js à la ligne 33">test/trace.test.js</a><br/><a class="src-link" href="../test/veto.test.js#L83" target="_blank" rel="noopener" title="Ouvrir test/veto.test.js à la ligne 83">test/veto.test.js</a><br/><a class="src-link" href="../tests/export.test.ts&#39;,#L147" target="_blank" rel="noopener" title="Ouvrir tests/export.test.ts&#39;, à la ligne 147">tests/export.test.ts&#39;,</a><br/><a class="src-link" href="../tests/test_main.py#L5" target="_blank" rel="noopener" title="Ouvrir tests/test_main.py à la ligne 5">tests/test_main.py</a><br/><a class="src-link" href="../test/index.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/index.test.js à la ligne 3">test/index.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-002-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-002-gouvernance-enforced.md">INTENT-002-gouvernance-enforced</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-002-1-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-002-1-gouvernance-enforced.md">SPEC-002-1-gouvernance-enforced</a><br/><small class="muted">Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)</small></td>
+        <td><a class="src-link" href="../lib/drift-verdict.js#L21" target="_blank" rel="noopener" title="Ouvrir lib/drift-verdict.js à la ligne 21">lib/drift-verdict.js</a><br/><a class="src-link" href="../lib/jnsp.js#L20" target="_blank" rel="noopener" title="Ouvrir lib/jnsp.js à la ligne 20">lib/jnsp.js</a><br/><a class="src-link" href="../lib/verdict.js#L27" target="_blank" rel="noopener" title="Ouvrir lib/verdict.js à la ligne 27">lib/verdict.js</a><br/><a class="src-link" href="../lib/veto.js#L19" target="_blank" rel="noopener" title="Ouvrir lib/veto.js à la ligne 19">lib/veto.js</a></td>
+        <td><a class="src-link" href="../test/dashboard-pm-v39.test.js#L119" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v39.test.js à la ligne 119">test/dashboard-pm-v39.test.js</a><br/><a class="src-link" href="../test/suggest-annotations.test.js#L198" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 198">test/suggest-annotations.test.js</a><br/><a class="src-link" href="../test/trace-cache.test.js#L150" target="_blank" rel="noopener" title="Ouvrir test/trace-cache.test.js à la ligne 150">test/trace-cache.test.js</a><br/><a class="src-link" href="../test/drift-verdict.test.js#L22" target="_blank" rel="noopener" title="Ouvrir test/drift-verdict.test.js à la ligne 22">test/drift-verdict.test.js</a><br/><a class="src-link" href="../test/jnsp.test.js#L21" target="_blank" rel="noopener" title="Ouvrir test/jnsp.test.js à la ligne 21">test/jnsp.test.js</a><br/><a class="src-link" href="../test/verdict.test.js#L28" target="_blank" rel="noopener" title="Ouvrir test/verdict.test.js à la ligne 28">test/verdict.test.js</a><br/><a class="src-link" href="../test/veto.test.js#L20" target="_blank" rel="noopener" title="Ouvrir test/veto.test.js à la ligne 20">test/veto.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-003-research-phase.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-003-research-phase.md">INTENT-003-research-phase</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-003-1-research-phase.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-003-1-research-phase.md">SPEC-003-1-research-phase</a><br/><small class="muted">Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)</small></td>
+        <td><a class="src-link" href="../lib/research.js#L33" target="_blank" rel="noopener" title="Ouvrir lib/research.js à la ligne 33">lib/research.js</a></td>
+        <td><a class="src-link" href="../test/research.test.js#L34" target="_blank" rel="noopener" title="Ouvrir test/research.test.js à la ligne 34">test/research.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-004-execution-phasee.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-004-execution-phasee.md">INTENT-004-execution-phasee</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-004-1-execution-phasee.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-004-1-execution-phasee.md">SPEC-004-1-execution-phasee</a><br/><small class="muted">Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)</small></td>
+        <td><a class="src-link" href="../lib/exec-status.js#L20" target="_blank" rel="noopener" title="Ouvrir lib/exec-status.js à la ligne 20">lib/exec-status.js</a><br/><a class="src-link" href="../lib/mini-gate.js#L27" target="_blank" rel="noopener" title="Ouvrir lib/mini-gate.js à la ligne 27">lib/mini-gate.js</a></td>
+        <td><a class="src-link" href="../test/exec-status.test.js#L21" target="_blank" rel="noopener" title="Ouvrir test/exec-status.test.js à la ligne 21">test/exec-status.test.js</a><br/><a class="src-link" href="../test/mini-gate.test.js#L28" target="_blank" rel="noopener" title="Ouvrir test/mini-gate.test.js à la ligne 28">test/mini-gate.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-005-context-pull.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-005-context-pull.md">INTENT-005-context-pull</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-005-1-context-pull.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-005-1-context-pull.md">SPEC-005-1-context-pull</a><br/><small class="muted">Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)</small></td>
+        <td><a class="src-link" href="../lib/emit-rules.js#L188" target="_blank" rel="noopener" title="Ouvrir lib/emit-rules.js à la ligne 188">lib/emit-rules.js</a><br/><a class="src-link" href="../lib/skills.js#L33" target="_blank" rel="noopener" title="Ouvrir lib/skills.js à la ligne 33">lib/skills.js</a></td>
+        <td><a class="src-link" href="../test/annotations.test.js#L96" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 96">test/annotations.test.js</a><br/><a class="src-link" href="../test/emit-rules-pull.test.js#L189" target="_blank" rel="noopener" title="Ouvrir test/emit-rules-pull.test.js à la ligne 189">test/emit-rules-pull.test.js</a><br/><a class="src-link" href="../tests/path/file.test.ts#L388" target="_blank" rel="noopener" title="Ouvrir tests/path/file.test.ts à la ligne 388">tests/path/file.test.ts</a><br/><a class="src-link" href="../test/skills.test.js#L34" target="_blank" rel="noopener" title="Ouvrir test/skills.test.js à la ligne 34">test/skills.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-006-canary-suite.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-006-canary-suite.md">INTENT-006-canary-suite</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-006-1-canary-suite.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-006-1-canary-suite.md">SPEC-006-1-canary-suite</a><br/><small class="muted">Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)</small></td>
+        <td><a class="src-link" href="../lib/canary.js#L27" target="_blank" rel="noopener" title="Ouvrir lib/canary.js à la ligne 27">lib/canary.js</a></td>
+        <td><a class="src-link" href="../test/canary.test.js#L28" target="_blank" rel="noopener" title="Ouvrir test/canary.test.js à la ligne 28">test/canary.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-007-memory-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-007-memory-native.md">INTENT-007-memory-native</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-007-1-memory-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-007-1-memory-native.md">SPEC-007-1-memory-native</a><br/><small class="muted">Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)</small></td>
+        <td><a class="src-link" href="../lib/memory.js#L23" target="_blank" rel="noopener" title="Ouvrir lib/memory.js à la ligne 23">lib/memory.js</a></td>
+        <td><a class="src-link" href="../test/spec-suggester.test.js#L93" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 93">test/spec-suggester.test.js</a><br/><a class="src-link" href="../test/memory.test.js#L24" target="_blank" rel="noopener" title="Ouvrir test/memory.test.js à la ligne 24">test/memory.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-008-cycle-graph.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-008-cycle-graph.md">INTENT-008-cycle-graph</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-008-1-cycle-graph.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-008-1-cycle-graph.md">SPEC-008-1-cycle-graph</a><br/><small class="muted">Cycle SDD comme graphe de Tasks (§3.9)</small></td>
+        <td><a class="src-link" href="../lib/cycle-graph.js#L26" target="_blank" rel="noopener" title="Ouvrir lib/cycle-graph.js à la ligne 26">lib/cycle-graph.js</a></td>
+        <td><a class="src-link" href="../test/cycle-graph.test.js#L27" target="_blank" rel="noopener" title="Ouvrir test/cycle-graph.test.js à la ligne 27">test/cycle-graph.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-009-observabilite-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-009-observabilite-native.md">INTENT-009-observabilite-native</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-009-1-observabilite-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-009-1-observabilite-native.md">SPEC-009-1-observabilite-native</a><br/><small class="muted">Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)</small></td>
+        <td><a class="src-link" href="../lib/statusline.js#L15" target="_blank" rel="noopener" title="Ouvrir lib/statusline.js à la ligne 15">lib/statusline.js</a></td>
+        <td><a class="src-link" href="../test/archive.test.js#L319" target="_blank" rel="noopener" title="Ouvrir test/archive.test.js à la ligne 319">test/archive.test.js</a><br/><a class="src-link" href="../test/statusline.test.js#L16" target="_blank" rel="noopener" title="Ouvrir test/statusline.test.js à la ligne 16">test/statusline.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-010-cross-model-review.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-010-cross-model-review.md">INTENT-010-cross-model-review</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-010-1-cross-model-review.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-010-1-cross-model-review.md">SPEC-010-1-cross-model-review</a><br/><small class="muted">Cross-model review additive-only (§3.12)</small></td>
+        <td><a class="src-link" href="../lib/cross-model.js#L29" target="_blank" rel="noopener" title="Ouvrir lib/cross-model.js à la ligne 29">lib/cross-model.js</a></td>
+        <td><a class="src-link" href="../test/cross-model.test.js#L30" target="_blank" rel="noopener" title="Ouvrir test/cross-model.test.js à la ligne 30">test/cross-model.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-011-distribution-plugin-goal.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-011-distribution-plugin-goal.md">INTENT-011-distribution-plugin-goal</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-011-1-hooks-toggles.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-011-1-hooks-toggles.md">SPEC-011-1-hooks-toggles</a><br/><small class="muted">Toggles de hooks + boucles /goal + packaging plugin (§3.13 SPEC-A + SPEC-B)</small></td>
+        <td><a class="src-link" href="../lib/hooks-config.js#L21" target="_blank" rel="noopener" title="Ouvrir lib/hooks-config.js à la ligne 21">lib/hooks-config.js</a></td>
+        <td><a class="src-link" href="../test/hooks-config.test.js#L22" target="_blank" rel="noopener" title="Ouvrir test/hooks-config.test.js à la ligne 22">test/hooks-config.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-012-garde-fous.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-012-garde-fous.md">INTENT-012-garde-fous</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-012-1-garde-fous.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-012-1-garde-fous.md">SPEC-012-1-garde-fous</a><br/><small class="muted">Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)</small></td>
+        <td><a class="src-link" href="../lib/grill.js#L16" target="_blank" rel="noopener" title="Ouvrir lib/grill.js à la ligne 16">lib/grill.js</a><br/><a class="src-link" href="../lib/proportionality.js#L19" target="_blank" rel="noopener" title="Ouvrir lib/proportionality.js à la ligne 19">lib/proportionality.js</a><br/><a class="src-link" href="../lib/sunset.js#L21" target="_blank" rel="noopener" title="Ouvrir lib/sunset.js à la ligne 21">lib/sunset.js</a></td>
+        <td><a class="src-link" href="../test/grill.test.js#L17" target="_blank" rel="noopener" title="Ouvrir test/grill.test.js à la ligne 17">test/grill.test.js</a><br/><a class="src-link" href="../test/proportionality.test.js#L20" target="_blank" rel="noopener" title="Ouvrir test/proportionality.test.js à la ligne 20">test/proportionality.test.js</a><br/><a class="src-link" href="../test/sunset.test.js#L22" target="_blank" rel="noopener" title="Ouvrir test/sunset.test.js à la ligne 22">test/sunset.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="8" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-013-zero-drift-sur-soi.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-013-zero-drift-sur-soi.md">INTENT-013-zero-drift-sur-soi</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-013-1-deploiement-site-valeurs.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-1-deploiement-site-valeurs.md">SPEC-013-1-deploiement-site-valeurs</a><br/><small class="muted">Déploiement site v1.18 + résolution « 6 vs 7 valeurs »</small></td>
+        <td><em class="muted">aucun</em></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-implémentée</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-013-1a-deploiement-site.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-1a-deploiement-site.md">SPEC-013-1a-deploiement-site</a><br/><small class="muted">Déploiement du site aiad.ovh en v1.18</small></td>
+        <td><em class="muted">aucun</em></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-implémentée</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-013-1b-unification-7-valeurs.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-1b-unification-7-valeurs.md">SPEC-013-1b-unification-7-valeurs</a><br/><small class="muted">Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site</small></td>
+        <td><em class="muted">aucun</em></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-implémentée</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-013-2-unification-docs-racine.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-2-unification-docs-racine.md">SPEC-013-2-unification-docs-racine</a><br/><small class="muted">Unification des docs racine + archivage de SDDMode.md</small></td>
+        <td><em class="muted">aucun</em></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-implémentée</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-013-3-sync-version-zones-marquees.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-3-sync-version-zones-marquees.md">SPEC-013-3-sync-version-zones-marquees</a><br/><small class="muted">Synchronisation automatique des versions sur zones marquées + check CI</small></td>
+        <td><a class="src-link" href="../lib/version-sync.js#L4" target="_blank" rel="noopener" title="Ouvrir lib/version-sync.js à la ligne 4">lib/version-sync.js</a></td>
+        <td><a class="src-link" href="../test/version-sync.test.js#L5" target="_blank" rel="noopener" title="Ouvrir test/version-sync.test.js à la ligne 5">test/version-sync.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-013-4-deploy-site-workflow.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-4-deploy-site-workflow.md">SPEC-013-4-deploy-site-workflow</a><br/><small class="muted">Workflow de déploiement site/ → gh-pages (gate version + RGAA)</small></td>
+        <td><a class="src-link" href="../.github/workflows/site-deploy.yml#L2" target="_blank" rel="noopener" title="Ouvrir .github/workflows/site-deploy.yml à la ligne 2">.github/workflows/site-deploy.yml</a><br/><a class="src-link" href="../.github/workflows/site-deploy.yml#L3" target="_blank" rel="noopener" title="Ouvrir .github/workflows/site-deploy.yml à la ligne 3">.github/workflows/site-deploy.yml</a><br/><a class="src-link" href="../.github/workflows/site-deploy.yml#L59" target="_blank" rel="noopener" title="Ouvrir .github/workflows/site-deploy.yml à la ligne 59">.github/workflows/site-deploy.yml</a></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-testée</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-013-4a-deploy-workflow.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-4a-deploy-workflow.md">SPEC-013-4a-deploy-workflow</a><br/><small class="muted">Workflow de déploiement site/ → gh-pages + gate version</small></td>
+        <td><a class="src-link" href="../.github/workflows/site-deploy.yml#L2" target="_blank" rel="noopener" title="Ouvrir .github/workflows/site-deploy.yml à la ligne 2">.github/workflows/site-deploy.yml</a><br/><a class="src-link" href="../.github/workflows/site-deploy.yml#L3" target="_blank" rel="noopener" title="Ouvrir .github/workflows/site-deploy.yml à la ligne 3">.github/workflows/site-deploy.yml</a><br/><a class="src-link" href="../.github/workflows/site-deploy.yml#L59" target="_blank" rel="noopener" title="Ouvrir .github/workflows/site-deploy.yml à la ligne 59">.github/workflows/site-deploy.yml</a></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-testée</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-013-4b-gate-rgaa.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-4b-gate-rgaa.md">SPEC-013-4b-gate-rgaa</a><br/><small class="muted">Gate RGAA AA avant publication du site</small></td>
+        <td><a class="src-link" href="../.github/workflows/site-deploy.yml#L2" target="_blank" rel="noopener" title="Ouvrir .github/workflows/site-deploy.yml à la ligne 2">.github/workflows/site-deploy.yml</a><br/><a class="src-link" href="../.github/workflows/site-deploy.yml#L3" target="_blank" rel="noopener" title="Ouvrir .github/workflows/site-deploy.yml à la ligne 3">.github/workflows/site-deploy.yml</a><br/><a class="src-link" href="../.github/workflows/site-deploy.yml#L59" target="_blank" rel="noopener" title="Ouvrir .github/workflows/site-deploy.yml à la ligne 59">.github/workflows/site-deploy.yml</a></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-testée</span></td>
+      </tr><tr>
+        <td rowspan="2" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-014-empirisme-prouve.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-014-empirisme-prouve.md">INTENT-014-empirisme-prouve</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-014-1-gates-bloquants-badge.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-014-1-gates-bloquants-badge.md">SPEC-014-1-gates-bloquants-badge</a><br/><small class="muted">SPEC-014-1-gates-bloquants-badge</small></td>
+        <td><a class="src-link" href="../scripts/coverage-threshold.js#L17" target="_blank" rel="noopener" title="Ouvrir scripts/coverage-threshold.js à la ligne 17">scripts/coverage-threshold.js</a></td>
+        <td><a class="src-link" href="../test/coverage-threshold.test.js#L18" target="_blank" rel="noopener" title="Ouvrir test/coverage-threshold.test.js à la ligne 18">test/coverage-threshold.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-014-2-sourcing-claims.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-014-2-sourcing-claims.md">SPEC-014-2-sourcing-claims</a><br/><small class="muted">SPEC-014-2-sourcing-claims</small></td>
+        <td><a class="src-link" href="../scripts/lint-claims.js#L17" target="_blank" rel="noopener" title="Ouvrir scripts/lint-claims.js à la ligne 17">scripts/lint-claims.js</a></td>
+        <td><a class="src-link" href="../test/lint-claims.test.js#L18" target="_blank" rel="noopener" title="Ouvrir test/lint-claims.test.js à la ligne 18">test/lint-claims.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="4" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-015-sobriete-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-015-sobriete-cli.md">INTENT-015-sobriete-cli</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-015-1-telemetrie-usage.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-1-telemetrie-usage.md">SPEC-015-1-telemetrie-usage</a><br/><small class="muted">SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in)</small></td>
+        <td><a class="src-link" href="../lib/telemetry.js#L169" target="_blank" rel="noopener" title="Ouvrir lib/telemetry.js à la ligne 169">lib/telemetry.js</a></td>
+        <td><a class="src-link" href="../test/telemetry-usage.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/telemetry-usage.test.js à la ligne 3">test/telemetry-usage.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-015-2-1-registre-commandes.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-2-1-registre-commandes.md">SPEC-015-2-1-registre-commandes</a><br/><small class="muted">SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)</small></td>
+        <td><a class="src-link" href="../lib/commands-registry.js#L4" target="_blank" rel="noopener" title="Ouvrir lib/commands-registry.js à la ligne 4">lib/commands-registry.js</a><br/><a class="src-link" href="../lib/deprecation.js#L4" target="_blank" rel="noopener" title="Ouvrir lib/deprecation.js à la ligne 4">lib/deprecation.js</a></td>
+        <td><a class="src-link" href="../test/commands-registry.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/commands-registry.test.js à la ligne 3">test/commands-registry.test.js</a><br/><a class="src-link" href="../test/deprecation.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/deprecation.test.js à la ligne 3">test/deprecation.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-015-2-2-cycle-depreciation.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-2-2-cycle-depreciation.md">SPEC-015-2-2-cycle-depreciation</a><br/><small class="muted">SPEC-015-2-2-cycle-depreciation — Cycle de dépréciation soft (mécanisme)</small></td>
+        <td><a class="src-link" href="../lib/commands-registry.js#L4" target="_blank" rel="noopener" title="Ouvrir lib/commands-registry.js à la ligne 4">lib/commands-registry.js</a><br/><a class="src-link" href="../lib/deprecation.js#L4" target="_blank" rel="noopener" title="Ouvrir lib/deprecation.js à la ligne 4">lib/deprecation.js</a></td>
+        <td><a class="src-link" href="../test/commands-registry.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/commands-registry.test.js à la ligne 3">test/commands-registry.test.js</a><br/><a class="src-link" href="../test/deprecation.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/deprecation.test.js à la ligne 3">test/deprecation.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-015-3-matrice-garde-fous.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-3-matrice-garde-fous.md">SPEC-015-3-matrice-garde-fous</a><br/><small class="muted">SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable</small></td>
+        <td><a class="src-link" href="../.aiad/hooks/veto.js#L14" target="_blank" rel="noopener" title="Ouvrir .aiad/hooks/veto.js à la ligne 14">.aiad/hooks/veto.js</a><br/><a class="src-link" href="../lib/guardrails.js#L4" target="_blank" rel="noopener" title="Ouvrir lib/guardrails.js à la ligne 4">lib/guardrails.js</a></td>
+        <td><a class="src-link" href="../test/guardrails.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/guardrails.test.js à la ligne 3">test/guardrails.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="4" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-016-1-architecture-4-couches.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-1-architecture-4-couches.md">SPEC-016-1-architecture-4-couches</a><br/><small class="muted">SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)</small></td>
+        <td><a class="src-link" href="../lib/dashboard/model/index.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/model/index.js à la ligne 1">lib/dashboard/model/index.js</a><br/><a class="src-link" href="../lib/dashboard/ui/badges.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/ui/badges.js à la ligne 1">lib/dashboard/ui/badges.js</a><br/><a class="src-link" href="../lib/dashboard/ui/helpers.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/ui/helpers.js à la ligne 1">lib/dashboard/ui/helpers.js</a><br/><a class="src-link" href="../lib/dashboard/ui/sparklines.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/ui/sparklines.js à la ligne 1">lib/dashboard/ui/sparklines.js</a><br/><a class="src-link" href="../lib/dashboard/views/changelog.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/changelog.js à la ligne 1">lib/dashboard/views/changelog.js</a><br/><a class="src-link" href="../lib/dashboard/views/drifts.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/drifts.js à la ligne 1">lib/dashboard/views/drifts.js</a><br/><a class="src-link" href="../lib/dashboard/views/intents.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/intents.js à la ligne 1">lib/dashboard/views/intents.js</a><br/><a class="src-link" href="../lib/dashboard/views/metrics.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/metrics.js à la ligne 1">lib/dashboard/views/metrics.js</a><br/><a class="src-link" href="../lib/dashboard/views/overview.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/overview.js à la ligne 1">lib/dashboard/views/overview.js</a><br/><a class="src-link" href="../lib/dashboard/views/specs.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/specs.js à la ligne 1">lib/dashboard/views/specs.js</a><br/><a class="src-link" href="../lib/dashboard/views/traceability.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/traceability.js à la ligne 1">lib/dashboard/views/traceability.js</a><br/><a class="src-link" href="../lib/dashboard/render.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/render.js à la ligne 1">lib/dashboard/render.js</a></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-testée</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-016-2-design-system-rgaa.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-2-design-system-rgaa.md">SPEC-016-2-design-system-rgaa</a><br/><small class="muted">SPEC-016-2 — Design system accessible + axe-core en CI</small></td>
+        <td><em class="muted">aucun</em></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-implémentée</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a><br/><small class="muted">SPEC-016-3 — data.json v2 versionné (JSON schema publié)</small></td>
+        <td><em class="muted">aucun</em></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-implémentée</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-4-rgesn-budgets.md">SPEC-016-4-rgesn-budgets</a><br/><small class="muted">SPEC-016-4 — Budgets de poids RGESN par page + CI</small></td>
+        <td><em class="muted">aucun</em></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-implémentée</span></td>
+      </tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-018-valeur-boussole.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-018-valeur-boussole.md">INTENT-018-valeur-boussole</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-019-verification-first.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-019-verification-first.md">INTENT-019-verification-first</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-020-spec-anchored-deltas.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-020-spec-anchored-deltas.md">INTENT-020-spec-anchored-deltas</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-021-empreinte-mesuree.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-021-empreinte-mesuree.md">INTENT-021-empreinte-mesuree</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-022-dogfooding-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-022-dogfooding-cli.md">INTENT-022-dogfooding-cli</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-023-rayonnement-honnete.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-023-rayonnement-honnete.md">INTENT-023-rayonnement-honnete</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md">INTENT-024-trace-exemption-specs-sans-code</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-024-1-trace-exemption.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-024-1-trace-exemption.md">SPEC-024-1-trace-exemption</a><br/><small class="muted">Exemption de traçabilité pour SPECs sans code applicatif</small></td>
+        <td><a class="src-link" href="../lib/sdd-trace.js#L14" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 14">lib/sdd-trace.js</a></td>
+        <td><a class="src-link" href="../test/trace.test.js#L15" target="_blank" rel="noopener" title="Ouvrir test/trace.test.js à la ligne 15">test/trace.test.js</a><br/><a class="src-link" href="../chemin/relatif/test.ts#L44" target="_blank" rel="noopener" title="Ouvrir chemin/relatif/test.ts à la ligne 44">chemin/relatif/test.ts</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-025-contraste-kicker.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-025-contraste-kicker.md">INTENT-025-contraste-kicker</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-025-1-gold-contrast-fix.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-025-1-gold-contrast-fix.md">SPEC-025-1-gold-contrast-fix</a><br/><small class="muted">Correction du contraste --gold-600 (.kicker + .pill.gold)</small></td>
+        <td><em class="muted">aucun</em></td>
+        <td><em class="muted">aucun</em></td>
+        <td><span class="badge badge-warn">non-implémentée</span></td>
+      </tr></tbody>
+       </table>
 </section>
 
 <section class="matrix-tab">
@@ -121,9 +320,9 @@
          <thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead>
          <tbody><tr>
       <td><a class="src-link" href="../templates/projects/fastapi-aiad/tests/test_main.py#L3" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/tests/test_main.py à la ligne 3">templates/projects/fastapi-aiad/tests/test_main.py</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../templates/projects/node-aiad/test/index.test.js#L0" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/test/index.test.js à la ligne 0">templates/projects/node-aiad/test/index.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -131,9 +330,9 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/ai-act-audit.test.js#L94" target="_blank" rel="noopener" title="Ouvrir test/ai-act-audit.test.js à la ligne 94">test/ai-act-audit.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/ai-act-audit.test.js#L96" target="_blank" rel="noopener" title="Ouvrir test/ai-act-audit.test.js à la ligne 96">test/ai-act-audit.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -143,12 +342,12 @@
       <td><a class="src-link" href="../test/annotations.test.js#L13" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 13">test/annotations.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/sdd-trace.js#L44" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 44">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L46" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 46">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L47" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 47">lib/sdd-trace.js</a></td>
+      <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/annotations.test.js#L26" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 26">test/annotations.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/annotations.test.js#L27" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 27">test/annotations.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -161,19 +360,29 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/annotations.test.js#L65" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 65">test/annotations.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/annotations.test.js#L96" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 96">test/annotations.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-005-1-context-pull.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-005-1-context-pull.md">SPEC-005-1-context-pull</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-005-context-pull.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-005-context-pull.md">INTENT-005-context-pull</a></td>
+      <td><a class="src-link" href="../lib/emit-rules.js#L188" target="_blank" rel="noopener" title="Ouvrir lib/emit-rules.js à la ligne 188">lib/emit-rules.js</a><br/><a class="src-link" href="../lib/skills.js#L33" target="_blank" rel="noopener" title="Ouvrir lib/skills.js à la ligne 33">lib/skills.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/annotations.test.js#L105" target="_blank" rel="noopener" title="Ouvrir test/annotations.test.js à la ligne 105">test/annotations.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/anonymize.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/anonymize.test.js à la ligne 0">test/anonymize.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
-      <td><a class="src-link" href="../test/archive.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/archive.test.js à la ligne 0">test/archive.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><em class="muted">aucun</em></td>
+      <td><a class="src-link" href="../test/archive.test.js#L319" target="_blank" rel="noopener" title="Ouvrir test/archive.test.js à la ligne 319">test/archive.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-009-1-observabilite-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-009-1-observabilite-native.md">SPEC-009-1-observabilite-native</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-009-observabilite-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-009-observabilite-native.md">INTENT-009-observabilite-native</a></td>
+      <td><a class="src-link" href="../lib/statusline.js#L15" target="_blank" rel="noopener" title="Ouvrir lib/statusline.js à la ligne 15">lib/statusline.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/audit.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/audit.test.js à la ligne 0">test/audit.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -250,6 +459,11 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/canary.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/canary.test.js à la ligne 0">test/canary.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/cert.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/cert.test.js à la ligne 0">test/cert.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
@@ -280,6 +494,11 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/commands-registry.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/commands-registry.test.js à la ligne 3">test/commands-registry.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-015-2-1-registre-commandes.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-2-1-registre-commandes.md">SPEC-015-2-1-registre-commandes</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-015-sobriete-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-015-sobriete-cli.md">INTENT-015-sobriete-cli</a></td>
+      <td><a class="src-link" href="../lib/commands-registry.js#L4" target="_blank" rel="noopener" title="Ouvrir lib/commands-registry.js à la ligne 4">lib/commands-registry.js</a><br/><a class="src-link" href="../lib/deprecation.js#L4" target="_blank" rel="noopener" title="Ouvrir lib/deprecation.js à la ligne 4">lib/deprecation.js</a></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/completion.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/completion.test.js à la ligne 0">test/completion.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
@@ -290,7 +509,22 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/coverage-threshold.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/coverage-threshold.test.js à la ligne 0">test/coverage-threshold.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/cross-model.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/cross-model.test.js à la ligne 0">test/cross-model.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/csp.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/csp.test.js à la ligne 0">test/csp.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/cycle-graph.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/cycle-graph.test.js à la ligne 0">test/cycle-graph.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
@@ -345,6 +579,11 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-kanban.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-kanban.test.js à la ligne 0">test/dashboard-kanban.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/dashboard-learnings.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-learnings.test.js à la ligne 0">test/dashboard-learnings.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
@@ -371,6 +610,246 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/dashboard-perf-budgets.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-perf-budgets.test.js à la ligne 0">test/dashboard-perf-budgets.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-extras.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-extras.test.js à la ligne 0">test/dashboard-pm-extras.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v10.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v10.test.js à la ligne 0">test/dashboard-pm-v10.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v11.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v11.test.js à la ligne 0">test/dashboard-pm-v11.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v12.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v12.test.js à la ligne 0">test/dashboard-pm-v12.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v13.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v13.test.js à la ligne 0">test/dashboard-pm-v13.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v14.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v14.test.js à la ligne 0">test/dashboard-pm-v14.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v15.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v15.test.js à la ligne 0">test/dashboard-pm-v15.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v16.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v16.test.js à la ligne 0">test/dashboard-pm-v16.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v17.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v17.test.js à la ligne 0">test/dashboard-pm-v17.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v18.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v18.test.js à la ligne 0">test/dashboard-pm-v18.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v19.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v19.test.js à la ligne 0">test/dashboard-pm-v19.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v2.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v2.test.js à la ligne 0">test/dashboard-pm-v2.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v20.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v20.test.js à la ligne 0">test/dashboard-pm-v20.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v21.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v21.test.js à la ligne 0">test/dashboard-pm-v21.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v22.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v22.test.js à la ligne 0">test/dashboard-pm-v22.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v23.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v23.test.js à la ligne 0">test/dashboard-pm-v23.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v24.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v24.test.js à la ligne 0">test/dashboard-pm-v24.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v25.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v25.test.js à la ligne 0">test/dashboard-pm-v25.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v26.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v26.test.js à la ligne 0">test/dashboard-pm-v26.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v27.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v27.test.js à la ligne 0">test/dashboard-pm-v27.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v28.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v28.test.js à la ligne 0">test/dashboard-pm-v28.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v29.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v29.test.js à la ligne 0">test/dashboard-pm-v29.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v3.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v3.test.js à la ligne 0">test/dashboard-pm-v3.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v30.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v30.test.js à la ligne 0">test/dashboard-pm-v30.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v31.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v31.test.js à la ligne 0">test/dashboard-pm-v31.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v32.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v32.test.js à la ligne 0">test/dashboard-pm-v32.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v33.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v33.test.js à la ligne 0">test/dashboard-pm-v33.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v34.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v34.test.js à la ligne 0">test/dashboard-pm-v34.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v35.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v35.test.js à la ligne 0">test/dashboard-pm-v35.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v36.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v36.test.js à la ligne 0">test/dashboard-pm-v36.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v37.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v37.test.js à la ligne 0">test/dashboard-pm-v37.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v38.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v38.test.js à la ligne 0">test/dashboard-pm-v38.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v39.test.js#L118" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v39.test.js à la ligne 118">test/dashboard-pm-v39.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v39.test.js#L119" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v39.test.js à la ligne 119">test/dashboard-pm-v39.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-002-1-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-002-1-gouvernance-enforced.md">SPEC-002-1-gouvernance-enforced</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-002-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-002-gouvernance-enforced.md">INTENT-002-gouvernance-enforced</a></td>
+      <td><a class="src-link" href="../lib/drift-verdict.js#L21" target="_blank" rel="noopener" title="Ouvrir lib/drift-verdict.js à la ligne 21">lib/drift-verdict.js</a><br/><a class="src-link" href="../lib/jnsp.js#L20" target="_blank" rel="noopener" title="Ouvrir lib/jnsp.js à la ligne 20">lib/jnsp.js</a><br/><a class="src-link" href="../lib/verdict.js#L27" target="_blank" rel="noopener" title="Ouvrir lib/verdict.js à la ligne 27">lib/verdict.js</a><br/><a class="src-link" href="../lib/veto.js#L19" target="_blank" rel="noopener" title="Ouvrir lib/veto.js à la ligne 19">lib/veto.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v4.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v4.test.js à la ligne 0">test/dashboard-pm-v4.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v40.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v40.test.js à la ligne 0">test/dashboard-pm-v40.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v41.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v41.test.js à la ligne 0">test/dashboard-pm-v41.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v42.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v42.test.js à la ligne 0">test/dashboard-pm-v42.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v43.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v43.test.js à la ligne 0">test/dashboard-pm-v43.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v44.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v44.test.js à la ligne 0">test/dashboard-pm-v44.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v45.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v45.test.js à la ligne 0">test/dashboard-pm-v45.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v46.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v46.test.js à la ligne 0">test/dashboard-pm-v46.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v47.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v47.test.js à la ligne 0">test/dashboard-pm-v47.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v5.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v5.test.js à la ligne 0">test/dashboard-pm-v5.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v6.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v6.test.js à la ligne 0">test/dashboard-pm-v6.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v7.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v7.test.js à la ligne 0">test/dashboard-pm-v7.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v8.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v8.test.js à la ligne 0">test/dashboard-pm-v8.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-pm-v9.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-pm-v9.test.js à la ligne 0">test/dashboard-pm-v9.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
@@ -440,7 +919,17 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/deprecation.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/deprecation.test.js à la ligne 3">test/deprecation.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-015-2-1-registre-commandes.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-2-1-registre-commandes.md">SPEC-015-2-1-registre-commandes</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-015-sobriete-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-015-sobriete-cli.md">INTENT-015-sobriete-cli</a></td>
+      <td><a class="src-link" href="../lib/commands-registry.js#L4" target="_blank" rel="noopener" title="Ouvrir lib/commands-registry.js à la ligne 4">lib/commands-registry.js</a><br/><a class="src-link" href="../lib/deprecation.js#L4" target="_blank" rel="noopener" title="Ouvrir lib/deprecation.js à la ligne 4">lib/deprecation.js</a></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/dinum.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dinum.test.js à la ligne 0">test/dinum.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/discovery-gate.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/discovery-gate.test.js à la ligne 0">test/discovery-gate.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
@@ -476,11 +965,16 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/dpia.test.js#L113" target="_blank" rel="noopener" title="Ouvrir test/dpia.test.js à la ligne 113">test/dpia.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/dpia.test.js#L114" target="_blank" rel="noopener" title="Ouvrir test/dpia.test.js à la ligne 114">test/dpia.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/drift-verdict.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/drift-verdict.test.js à la ligne 0">test/drift-verdict.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
@@ -490,7 +984,17 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/emit-rules-agents.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/emit-rules-agents.test.js à la ligne 0">test/emit-rules-agents.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/emit-rules-concurrent.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/emit-rules-concurrent.test.js à la ligne 0">test/emit-rules-concurrent.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/emit-rules-pull.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/emit-rules-pull.test.js à la ligne 0">test/emit-rules-pull.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
@@ -501,6 +1005,11 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/en-aliases.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/en-aliases.test.js à la ligne 0">test/en-aliases.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/exec-status.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/exec-status.test.js à la ligne 0">test/exec-status.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
@@ -615,7 +1124,22 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/grill.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/grill.test.js à la ligne 0">test/grill.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/guardrails.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/guardrails.test.js à la ligne 3">test/guardrails.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-015-3-matrice-garde-fous.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-3-matrice-garde-fous.md">SPEC-015-3-matrice-garde-fous</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-015-sobriete-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-015-sobriete-cli.md">INTENT-015-sobriete-cli</a></td>
+      <td><a class="src-link" href="../.aiad/hooks/veto.js#L14" target="_blank" rel="noopener" title="Ouvrir .aiad/hooks/veto.js à la ligne 14">.aiad/hooks/veto.js</a><br/><a class="src-link" href="../lib/guardrails.js#L4" target="_blank" rel="noopener" title="Ouvrir lib/guardrails.js à la ligne 4">lib/guardrails.js</a></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/hook-sandbox.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/hook-sandbox.test.js à la ligne 0">test/hook-sandbox.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/hooks-config.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/hooks-config.test.js à la ligne 0">test/hooks-config.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
@@ -655,15 +1179,20 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/jnsp.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/jnsp.test.js à la ligne 0">test/jnsp.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/json-output.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/json-output.test.js à la ligne 0">test/json-output.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/leadership-metrics.test.js#L60" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 60">test/leadership-metrics.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/leadership-metrics.test.js#L63" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 63">test/leadership-metrics.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -676,9 +1205,9 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/leadership-metrics.test.js#L103" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 103">test/leadership-metrics.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/leadership-metrics.test.js#L104" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 104">test/leadership-metrics.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -686,9 +1215,14 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/leadership-metrics.test.js#L105" target="_blank" rel="noopener" title="Ouvrir test/leadership-metrics.test.js à la ligne 105">test/leadership-metrics.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/lint-claims.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/lint-claims.test.js à la ligne 0">test/lint-claims.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/lint-deps.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/lint-deps.test.js à la ligne 0">test/lint-deps.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -720,6 +1254,11 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/memory.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/memory.test.js à la ligne 0">test/memory.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/meta-share.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/meta-share.test.js à la ligne 0">test/meta-share.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
@@ -740,65 +1279,70 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
-      <td><a class="src-link" href="../test/multi-language.test.js#L23" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 23">test/multi-language.test.js</a></td>
+      <td><a class="src-link" href="../test/mini-gate.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/mini-gate.test.js à la ligne 0">test/mini-gate.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/multi-language.test.js#L23" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 23">test/multi-language.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L24" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 24">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L25" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 25">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L26" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 26">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L27" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 27">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L28" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 28">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L29" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 29">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L30" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 30">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L31" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 31">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L32" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 32">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L44" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 44">test/multi-language.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/sdd-trace.js#L44" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 44">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L46" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 46">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L47" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 47">lib/sdd-trace.js</a></td>
+      <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L65" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 65">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L66" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 66">test/multi-language.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -811,29 +1355,29 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L90" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 90">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L92" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 92">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L94" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 94">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L96" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 96">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L98" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 98">test/multi-language.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/multi-language.test.js#L118" target="_blank" rel="noopener" title="Ouvrir test/multi-language.test.js à la ligne 118">test/multi-language.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -870,6 +1414,11 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/openapi-conformity.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/openapi-conformity.test.js à la ligne 0">test/openapi-conformity.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/openapi-export.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/openapi-export.test.js à la ligne 0">test/openapi-export.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
@@ -891,6 +1440,11 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/pre-commit.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/pre-commit.test.js à la ligne 0">test/pre-commit.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/proportionality.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/proportionality.test.js à la ligne 0">test/proportionality.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
@@ -930,6 +1484,11 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/research.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/research.test.js à la ligne 0">test/research.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/review.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/review.test.js à la ligne 0">test/review.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
@@ -951,6 +1510,11 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/score.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/score.test.js à la ligne 0">test/score.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/sdd-trace-aliases.test.js#L60" target="_blank" rel="noopener" title="Ouvrir test/sdd-trace-aliases.test.js à la ligne 60">test/sdd-trace-aliases.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
@@ -993,7 +1557,7 @@
       <td><a class="src-link" href="../test/spec-suggester.test.js#L36" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 36">test/spec-suggester.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/sdd-trace.js#L44" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 44">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L46" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 46">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L47" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 47">lib/sdd-trace.js</a></td>
+      <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/spec-suggester.test.js#L63" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 63">test/spec-suggester.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -1001,9 +1565,9 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/spec-suggester.test.js#L93" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 93">test/spec-suggester.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><em class="muted">aucun</em></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-007-1-memory-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-007-1-memory-native.md">SPEC-007-1-memory-native</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-007-memory-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-007-memory-native.md">INTENT-007-memory-native</a></td>
+      <td><a class="src-link" href="../lib/memory.js#L23" target="_blank" rel="noopener" title="Ouvrir lib/memory.js à la ligne 23">lib/memory.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/spec-suggester.test.js#L110" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 110">test/spec-suggester.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -1016,14 +1580,14 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/spec-suggester.test.js#L140" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 140">test/spec-suggester.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/spec-suggester.test.js#L152" target="_blank" rel="noopener" title="Ouvrir test/spec-suggester.test.js à la ligne 152">test/spec-suggester.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/sdd-trace.js#L44" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 44">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L46" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 46">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L47" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 47">lib/sdd-trace.js</a></td>
+      <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/spec-version.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/spec-version.test.js à la ligne 0">test/spec-version.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -1055,32 +1619,42 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/statusline.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/statusline.test.js à la ligne 0">test/statusline.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/storybook.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/storybook.test.js à la ligne 0">test/storybook.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/suggest-annotations.test.js#L197" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 197">test/suggest-annotations.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/suggest-annotations.test.js#L198" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 198">test/suggest-annotations.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-002-1-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-002-1-gouvernance-enforced.md">SPEC-002-1-gouvernance-enforced</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-002-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-002-gouvernance-enforced.md">INTENT-002-gouvernance-enforced</a></td>
+      <td><a class="src-link" href="../lib/drift-verdict.js#L21" target="_blank" rel="noopener" title="Ouvrir lib/drift-verdict.js à la ligne 21">lib/drift-verdict.js</a><br/><a class="src-link" href="../lib/jnsp.js#L20" target="_blank" rel="noopener" title="Ouvrir lib/jnsp.js à la ligne 20">lib/jnsp.js</a><br/><a class="src-link" href="../lib/verdict.js#L27" target="_blank" rel="noopener" title="Ouvrir lib/verdict.js à la ligne 27">lib/verdict.js</a><br/><a class="src-link" href="../lib/veto.js#L19" target="_blank" rel="noopener" title="Ouvrir lib/veto.js à la ligne 19">lib/veto.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/suggest-annotations.test.js#L210" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 210">test/suggest-annotations.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/suggest-annotations.test.js#L261" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 261">test/suggest-annotations.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/suggest.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/suggest.test.js à la ligne 0">test/suggest.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
-      <td><a class="src-link" href="../test/suggest-annotations.test.js#L210" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 210">test/suggest-annotations.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
-    </tr><tr>
-      <td><a class="src-link" href="../test/suggest-annotations.test.js#L261" target="_blank" rel="noopener" title="Ouvrir test/suggest-annotations.test.js à la ligne 261">test/suggest-annotations.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
-    </tr><tr>
-      <td><a class="src-link" href="../test/suggest.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/suggest.test.js à la ligne 0">test/suggest.test.js</a></td>
+      <td><a class="src-link" href="../test/sunset.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/sunset.test.js à la ligne 0">test/sunset.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
@@ -1089,6 +1663,11 @@
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/telemetry-usage.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/telemetry-usage.test.js à la ligne 3">test/telemetry-usage.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-015-1-telemetrie-usage.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-1-telemetrie-usage.md">SPEC-015-1-telemetrie-usage</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-015-sobriete-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-015-sobriete-cli.md">INTENT-015-sobriete-cli</a></td>
+      <td><a class="src-link" href="../lib/telemetry.js#L169" target="_blank" rel="noopener" title="Ouvrir lib/telemetry.js à la ligne 169">lib/telemetry.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/telemetry.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/telemetry.test.js à la ligne 0">test/telemetry.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -1111,24 +1690,24 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace-cache.test.js#L110" target="_blank" rel="noopener" title="Ouvrir test/trace-cache.test.js à la ligne 110">test/trace-cache.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace-cache.test.js#L111" target="_blank" rel="noopener" title="Ouvrir test/trace-cache.test.js à la ligne 111">test/trace-cache.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace-cache.test.js#L150" target="_blank" rel="noopener" title="Ouvrir test/trace-cache.test.js à la ligne 150">test/trace-cache.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><em class="muted">aucun</em></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-002-1-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-002-1-gouvernance-enforced.md">SPEC-002-1-gouvernance-enforced</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-002-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-002-gouvernance-enforced.md">INTENT-002-gouvernance-enforced</a></td>
+      <td><a class="src-link" href="../lib/drift-verdict.js#L21" target="_blank" rel="noopener" title="Ouvrir lib/drift-verdict.js à la ligne 21">lib/drift-verdict.js</a><br/><a class="src-link" href="../lib/jnsp.js#L20" target="_blank" rel="noopener" title="Ouvrir lib/jnsp.js à la ligne 20">lib/jnsp.js</a><br/><a class="src-link" href="../lib/verdict.js#L27" target="_blank" rel="noopener" title="Ouvrir lib/verdict.js à la ligne 27">lib/verdict.js</a><br/><a class="src-link" href="../lib/veto.js#L19" target="_blank" rel="noopener" title="Ouvrir lib/veto.js à la ligne 19">lib/veto.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace-git.test.js#L96" target="_blank" rel="noopener" title="Ouvrir test/trace-git.test.js à la ligne 96">test/trace-git.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace-git.test.js#L102" target="_blank" rel="noopener" title="Ouvrir test/trace-git.test.js à la ligne 102">test/trace-git.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -1136,19 +1715,24 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace-git.test.js#L128" target="_blank" rel="noopener" title="Ouvrir test/trace-git.test.js à la ligne 128">test/trace-git.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><em class="muted">aucun</em></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace-perf.test.js#L35" target="_blank" rel="noopener" title="Ouvrir test/trace-perf.test.js à la ligne 35">test/trace-perf.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace-watch.test.js#L74" target="_blank" rel="noopener" title="Ouvrir test/trace-watch.test.js à la ligne 74">test/trace-watch.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/trace-watch.test.js#L114" target="_blank" rel="noopener" title="Ouvrir test/trace-watch.test.js à la ligne 114">test/trace-watch.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace-worker.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/trace-worker.test.js à la ligne 0">test/trace-worker.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -1156,14 +1740,14 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace.test.js#L33" target="_blank" rel="noopener" title="Ouvrir test/trace.test.js à la ligne 33">test/trace.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace.test.js#L37" target="_blank" rel="noopener" title="Ouvrir test/trace.test.js à la ligne 37">test/trace.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/trace.test.js#L59" target="_blank" rel="noopener" title="Ouvrir test/trace.test.js à la ligne 59">test/trace.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -1195,6 +1779,21 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/verdict.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/verdict.test.js à la ligne 0">test/verdict.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/version-sync.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/version-sync.test.js à la ligne 0">test/version-sync.test.js</a></td>
+      <td><span class="badge badge-bad">non-tracé</span></td>
+      <td><em class="muted">—</em></td>
+      <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/veto.test.js#L83" target="_blank" rel="noopener" title="Ouvrir test/veto.test.js à la ligne 83">test/veto.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><a class="src-link" href="../lib/feedback.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js à la ligne 2">lib/feedback.js</a><br/><a class="src-link" href="../lib/tour.js#L146" target="_blank" rel="noopener" title="Ouvrir lib/tour.js à la ligne 146">lib/tour.js</a><br/><a class="src-link" href="../scripts/bench-trace.js#L55" target="_blank" rel="noopener" title="Ouvrir scripts/bench-trace.js à la ligne 55">scripts/bench-trace.js</a><br/><a class="src-link" href="../templates/projects/fastapi-aiad/app/main.py#L4" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/app/main.py à la ligne 4">templates/projects/fastapi-aiad/app/main.py</a><br/><a class="src-link" href="../templates/projects/node-aiad/src/index.js#L2" target="_blank" rel="noopener" title="Ouvrir templates/projects/node-aiad/src/index.js à la ligne 2">templates/projects/node-aiad/src/index.js</a></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/vscode-extension.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/vscode-extension.test.js à la ligne 0">test/vscode-extension.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
@@ -1219,16 +1818,6 @@
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
-    </tr><tr>
-      <td><a class="src-link" href="../test/dashboard-kanban.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-kanban.test.js à la ligne 0">test/dashboard-kanban.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><em class="muted">aucun</em></td>
-    </tr><tr>
-      <td><a class="src-link" href="../test/sdd-trace-aliases.test.js#L60" target="_blank" rel="noopener" title="Ouvrir test/sdd-trace-aliases.test.js à la ligne 60">test/sdd-trace-aliases.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><a class="src-link" href="../lib/sdd-trace.js#L44" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 44">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L46" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 46">lib/sdd-trace.js</a><br/><a class="src-link" href="../lib/sdd-trace.js#L47" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 47">lib/sdd-trace.js</a></td>
     </tr></tbody>
        </table>
 </section>
@@ -1239,18 +1828,18 @@
     <div class="card">
       <h3>Orphelins</h3>
       <ul class="compact">
-        <li><strong>0</strong> intent(s) sans SPEC</li>
-        <li><strong>0</strong> SPEC(s) sans code (hors draft/review)</li>
-        <li><strong>17</strong> SPEC(s) référencé(s) dans le code mais absent(s) des artefacts</li>
-        <li><strong>7</strong> Intent(s) référencé(s) dans le code mais absent(s) des artefacts</li>
+        <li><strong>7</strong> intent(s) sans SPEC</li>
+        <li><strong>5</strong> SPEC(s) sans code (hors draft/review)</li>
+        <li><strong>0</strong> SPEC(s) référencé(s) dans le code mais absent(s) des artefacts</li>
+        <li><strong>0</strong> Intent(s) référencé(s) dans le code mais absent(s) des artefacts</li>
       </ul>
     </div>
     <div class="card">
       <h3>Non-implémentés / non-tracés</h3>
       <ul class="compact">
         <li><strong>0</strong> SPEC(s) validée(s) sans code</li>
-        <li><strong>133</strong> fichier(s) code sans <code>@spec</code></li>
-        <li><strong>3</strong> fichier(s) annoté(s) sans test lié</li>
+        <li><strong>330</strong> fichier(s) code sans <code>@spec</code></li>
+        <li><strong>13</strong> fichier(s) annoté(s) sans test lié</li>
       </ul>
     </div>
   </div>

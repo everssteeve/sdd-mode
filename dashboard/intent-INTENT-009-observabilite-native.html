@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T09:41:13.949Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>INTENT-009-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11) — aiad-sdd</title>
+<meta name="description" content="INTENT-009-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11) — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd …"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="INTENT-009-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11) — aiad-sdd"/>
+<meta property="og:description" content="INTENT-009-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11) — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd …"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="INTENT-009-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11) — aiad-sdd"/>
+<meta name="twitter:description" content="INTENT-009-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11) — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd …"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.18.0</div>
+  </div>
+  <ul>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 22/06/2026 11:41:13<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>INTENT-009-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)</h1>
+      <div class="subtitle">Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 11:41:13. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+    .ip-cols { display:grid; grid-template-columns: 1fr 280px; gap: 1.5rem; align-items: start; }
+    @media (max-width: 900px) { .ip-cols { grid-template-columns: 1fr; } }
+    .ip-meta table { width:100%; font-size:.85rem; }
+    .ip-meta td { padding:.25rem .4rem; vertical-align:top; }
+    .ip-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+    .ip-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+    .ip-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+    .ip-sections pre { margin:0; white-space:pre-wrap; font-family: inherit; font-size:.88rem; line-height:1.45; }
+    .ip-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+    .ip-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+    .ip-actions a:hover { background:rgba(76,110,245,.18); }
+  </style>
+<div class="ip-cols">
+  <div class="ip-sections">
+    <h2><a class="src-link" href="../.aiad/intents/INTENT-009-observabilite-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-009-observabilite-native.md">INTENT-009-observabilite-native</a> — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)</h2>
+    <p class="muted">Sections POURQUOI / POUR QUI / OBJECTIF / CONTRAINTES / CRITÈRE DE DRIFT non détectées dans le corps de l'Intent.</p>
+    <section><h3>SPECs liées</h3><p class="muted" style="font-size:.85rem">Avancement : <strong>1/1</strong> SPECs livrées (100 %), 0 en cours.</p><table><thead><tr><th>ID</th><th>Titre</th><th>Statut</th><th>SQS</th></tr></thead><tbody><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-009-1-observabilite-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-009-1-observabilite-native.md">SPEC-009-1-observabilite-native</a></td>
+      <td>Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)</td>
+      <td><span class="badge badge-ok">done</span></td>
+      <td class="muted">4.1</td>
+    </tr></tbody></table></section>
+    <section><h3>Risques</h3><p class="muted">Aucun risque détecté (frontmatter <code>risks:</code> ni heuristique sur CONTRAINTES).</p></section>
+    <section><h3>Hypothèse</h3><p class="muted">Aucune hypothèse déclarée (frontmatter <code>hypothesis:</code>).</p></section>
+    <section><h3>Dépendances</h3><p><strong>Bloqué par</strong> : <em class="muted">aucune</em></p><p><strong>Bloque</strong> : <em class="muted">aucun</em></p></section>
+    <div class="ip-actions">
+      <a href="pm.html">← Cockpit PM</a>
+      <a href="intents.html">← Catalogue Intents</a>
+      <a href="../.aiad/intents/INTENT-009-observabilite-native.md" target="_blank">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="ip-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .3rem">Métadonnées</h3>
+    <table><tr><td><strong>Statut</strong></td><td><span class="badge badge-ok">done</span></td></tr><tr><td><strong>Date</strong></td><td>2026-06-09</td></tr><tr><td><strong>Auteur</strong></td><td>Steeve Evers</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

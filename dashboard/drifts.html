@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-14T03:07:31.407Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T09:41:13.949Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Drifts &amp; Facts — aiad-sdd</title>
-<meta name="description" content="Drifts &amp; Facts — Écarts livré ↔ désiré et drifts code ↔ SPEC capturés · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="description" content="Drifts &amp; Facts — Écarts livré ↔ désiré et drifts code ↔ SPEC capturés · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Drifts &amp; Facts — aiad-sdd"/>
-<meta property="og:description" content="Drifts &amp; Facts — Écarts livré ↔ désiré et drifts code ↔ SPEC capturés · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta property="og:description" content="Drifts &amp; Facts — Écarts livré ↔ désiré et drifts code ↔ SPEC capturés · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta property="og:url" content="drifts.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Drifts &amp; Facts — aiad-sdd"/>
-<meta name="twitter:description" content="Drifts &amp; Facts — Écarts livré ↔ désiré et drifts code ↔ SPEC capturés · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="twitter:description" content="Drifts &amp; Facts — Écarts livré ↔ désiré et drifts code ↔ SPEC capturés · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -33,11 +33,14 @@
   <div class="brand">
     <div class="brand-title">aiad-sdd</div>
     <div class="brand-sub">SDD Mode · Dashboard</div>
-    <div class="brand-version">v1.14.0</div>
+    <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
     </a></li>
     <li><a href="intents.html" class="">
       <span class="nav-icon">◇</span>Intents
@@ -84,7 +87,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 14/05/2026 05:07:31<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 22/06/2026 11:41:13<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -93,17 +96,84 @@
       <div class="subtitle">Écarts livré ↔ désiré et drifts code ↔ SPEC capturés</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 14/05/2026 05:07:31. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
-      <div class="meta">aiad-sdd · v1.14.0</div>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 11:41:13. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
       </button>
     </div>
   </header>
-  <div class="empty">
-      <strong>Aucun drift / fact capturé.</strong>
-      <code>/sdd fact</code> capture les écarts livré ↔ désiré. <code>/sdd drift-check</code> détecte les divergences code ↔ SPEC. Si vous travaillez en SDD strict, l'absence de fact peut être saine — ou indiquer que le rituel n'est pas encore activé.
-    </div>
+  
+<div class="kpis">
+  <div class="kpi"><div class="label">Total facts</div><div class="value">5</div></div>
+  <div class="kpi ok"><div class="label">Ouverts</div><div class="value">0</div></div>
+  <div class="kpi"><div class="label">Résolus</div><div class="value">1</div></div>
+</div>
+
+<section>
+  <h2>Drifts & Facts capturés</h2>
+  <div class="filter"><input type="search" id="qFacts" data-filter-target="tFacts" placeholder="Filtrer par titre, statut, cause…"/></div>
+  <table id="tFacts" data-sortable="true">
+    <thead><tr><th>ID</th><th>Titre</th><th>Gravité</th><th>Statut</th><th>Date</th><th>Cause</th></tr></thead>
+    <tbody><tr>
+    <td><a class="src-link" href="../.aiad/facts/FACT-001-seuil-50k-non-source.md" target="_blank" rel="noopener" title="Ouvrir .aiad/facts/FACT-001-seuil-50k-non-source.md">FACT-001-seuil-50k-non-source</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>FACT-001 — Seuil 50K tokens (context rot) non sourcé</strong>
+      </div>
+    </td>
+    <td data-sort="1"><span class="badge badge-muted">—</span></td>
+    <td data-sort="traité (2026-06-15)"><span class="badge badge-muted">traité (2026-06-15)</span></td>
+    <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    <td class="muted" title=""></td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/facts/FACT-002-gate-ready-vs-drift-lock.md" target="_blank" rel="noopener" title="Ouvrir .aiad/facts/FACT-002-gate-ready-vs-drift-lock.md">FACT-002-gate-ready-vs-drift-lock</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>FACT-002 — Contradiction `gate.md` (statut `ready`) ↔ Drift Lock</strong>
+      </div>
+    </td>
+    <td data-sort="1"><span class="badge badge-muted">—</span></td>
+    <td data-sort="ouvert"><span class="badge badge-muted">ouvert</span></td>
+    <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    <td class="muted" title=""></td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/facts/FACT-003-docs-deploy-incompatible-pages.md" target="_blank" rel="noopener" title="Ouvrir .aiad/facts/FACT-003-docs-deploy-incompatible-pages.md">FACT-003-docs-deploy-incompatible-pages</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>FACT-003 — docs-deploy.yml incompatible avec la topologie Pages (gh-pages)</strong>
+      </div>
+    </td>
+    <td data-sort="1"><span class="badge badge-muted">—</span></td>
+    <td data-sort="résolu"><span class="badge badge-muted">résolu</span></td>
+    <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    <td class="muted" title=""></td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/facts/FACT-004-trace-specs-sans-code.md" target="_blank" rel="noopener" title="Ouvrir .aiad/facts/FACT-004-trace-specs-sans-code.md">FACT-004-trace-specs-sans-code</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>FACT-004 — Le trace ne sait pas marquer `done` une SPEC sans code applicatif</strong>
+      </div>
+    </td>
+    <td data-sort="1"><span class="badge badge-muted">—</span></td>
+    <td data-sort="résolu (2026-06-19 — intent-024 / spec-024-1 : champ frontmatter"><span class="badge badge-muted">résolu (2026-06-19 — intent-024 / spec-024-1 : champ frontmatter</span></td>
+    <td class="muted" data-sort="2026-06-12">2026-06-12</td>
+    <td class="muted" title=""></td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/facts/FACT-005-contraste-kicker.md" target="_blank" rel="noopener" title="Ouvrir .aiad/facts/FACT-005-contraste-kicker.md">FACT-005-contraste-kicker</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>FACT-005 — Contraste insuffisant sur `.kicker` et `.install`</strong>
+      </div>
+    </td>
+    <td data-sort="1"><span class="badge badge-muted">critique (A) + majeur (B)</span></td>
+    <td data-sort="partiellement résolu"><span class="badge badge-muted">partiellement résolu</span></td>
+    <td class="muted" data-sort="2026-06-22">2026-06-22</td>
+    <td class="muted" title=""></td>
+  </tr></tbody>
+  </table>
+</section>
+
 </main>
 <script src="assets/app.js"></script>
 </body>

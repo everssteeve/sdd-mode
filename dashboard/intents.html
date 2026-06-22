@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-14T03:07:31.407Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T09:41:13.949Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Intent Statements — aiad-sdd</title>
-<meta name="description" content="Intent Statements — Le POURQUOI capturé avant toute spécification · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="description" content="Intent Statements — Le POURQUOI capturé avant toute spécification · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Intent Statements — aiad-sdd"/>
-<meta property="og:description" content="Intent Statements — Le POURQUOI capturé avant toute spécification · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta property="og:description" content="Intent Statements — Le POURQUOI capturé avant toute spécification · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta property="og:url" content="intents.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Intent Statements — aiad-sdd"/>
-<meta name="twitter:description" content="Intent Statements — Le POURQUOI capturé avant toute spécification · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="twitter:description" content="Intent Statements — Le POURQUOI capturé avant toute spécification · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -33,11 +33,14 @@
   <div class="brand">
     <div class="brand-title">aiad-sdd</div>
     <div class="brand-sub">SDD Mode · Dashboard</div>
-    <div class="brand-version">v1.14.0</div>
+    <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
     </a></li>
     <li><a href="intents.html" class="active">
       <span class="nav-icon">◇</span>Intents
@@ -84,7 +87,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 14/05/2026 05:07:31<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 22/06/2026 11:41:13<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -93,17 +96,535 @@
       <div class="subtitle">Le POURQUOI capturé avant toute spécification</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 14/05/2026 05:07:31. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
-      <div class="meta">aiad-sdd · v1.14.0</div>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 11:41:13. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
       </button>
     </div>
   </header>
-  <div class="empty">
-      <strong>Aucun Intent Statement.</strong>
-      Le cycle SDD commence par un Intent : lance <code>/sdd intent</code> dans Claude Code pour capturer le POURQUOI d'une nouvelle fonctionnalité.
+  
+<div class="card" style="border-left:3px solid #e8590c; padding:.75rem; margin:.5rem 0;">
+    <strong>23 action(s) PM à traiter</strong>
+    — <a href="pm.html">Voir le cockpit Product Manager →</a>
+  </div>
+<div class="kpis">
+    <div class="kpi">
+      <div class="label">active</div>
+      <div class="value">1</div>
     </div>
+    <div class="kpi">
+      <div class="label">draft</div>
+      <div class="value">7</div>
+    </div>
+    <div class="kpi">
+      <div class="label">done</div>
+      <div class="value">17</div>
+    </div>
+    <div class="kpi">
+      <div class="label">archived</div>
+      <div class="value">0</div>
+    </div></div>
+
+<section>
+  <h2>Répartition par statut</h2>
+  <div class="card"><div class="dist-bar"><span class="dist-seg seg-ok" style="width:4%" title="active : 1"></span><span class="dist-seg seg-warn" style="width:28.000000000000004%" title="draft : 7">7</span><span class="dist-seg seg-muted" style="width:68%" title="done : 17">17</span></div><div class="dist-leg"><span class="dist-leg-item"><span class="dist-leg-dot seg-ok"></span>active <strong>1</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>in-progress <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>draft <strong>7</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-muted"></span>done <strong>17</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-muted"></span>archived <strong>0</strong></span></div></div>
+</section>
+
+<section>
+  <h2>Catalogue <span class="count">25 intent(s)</span></h2>
+  <div class="pm-filter-chips" data-pm-filter-target="tIntents" role="toolbar" aria-label="Filtres rapides PM">
+    <button type="button" data-pm-filter="*" aria-pressed="true">Tous</button>
+    <button type="button" data-pm-filter="zombie" aria-pressed="false">Zombies</button>
+    <button type="button" data-pm-filter="draft-vieux" aria-pressed="false">Drafts &gt;14j</button>
+    <button type="button" data-pm-filter="sans-spec" aria-pressed="false">Sans SPEC</button>
+    <button type="button" data-pm-filter="sans-livraison" aria-pressed="false">Sans livraison</button>
+  </div>
+  <div class="filter"><input type="search" id="qIntents" data-filter-target="tIntents" placeholder="Filtrer par ID, titre, statut, auteur…"/></div>
+  <table id="tIntents" data-sortable="true">
+    <thead><tr><th>ID</th><th>Titre</th><th>Prio</th><th>Statut</th><th>SPECs liées</th><th>Avancement</th><th>Auteur</th><th>Date</th></tr></thead>
+    <tbody><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-001-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-001-feedback-qualitatif.md">INTENT-001-feedback-qualitatif</a></td>
+      <td><strong>Feedback qualitatif utilisateurs SDD Mode</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-05-29">2026-05-29</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-002-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-002-gouvernance-enforced.md">INTENT-002-gouvernance-enforced</a></td>
+      <td><strong>Gouvernance SDD enforced par le harness (advisory → enforced)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-002-1-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-002-1-gouvernance-enforced.md">SPEC-002-1-gouvernance-enforced</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-08">2026-06-08</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-003-research-phase.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-003-research-phase.md">INTENT-003-research-phase</a></td>
+      <td><strong>Phase Research + Discovery obligatoire avant la SPEC (§3.5)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-003-1-research-phase.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-003-1-research-phase.md">SPEC-003-1-research-phase</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-08">2026-06-08</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-004-execution-phasee.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-004-execution-phasee.md">INTENT-004-execution-phasee</a></td>
+      <td><strong>Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-004-1-execution-phasee.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-004-1-execution-phasee.md">SPEC-004-1-execution-phasee</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-08">2026-06-08</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-005-context-pull.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-005-context-pull.md">INTENT-005-context-pull</a></td>
+      <td><strong>Budget d&#39;instructions push → pull (gouvernance par paths, §3.7)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-005-1-context-pull.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-005-1-context-pull.md">SPEC-005-1-context-pull</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-08">2026-06-08</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-006-canary-suite.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-006-canary-suite.md">INTENT-006-canary-suite</a></td>
+      <td><strong>Canary suite + alignement des références modèles (§3.10)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-006-1-canary-suite.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-006-1-canary-suite.md">SPEC-006-1-canary-suite</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-09">2026-06-09</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-007-memory-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-007-memory-native.md">INTENT-007-memory-native</a></td>
+      <td><strong>Memory native — promotion from logs + auto-curation + anti dock rot (§3.8)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-007-1-memory-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-007-1-memory-native.md">SPEC-007-1-memory-native</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-09">2026-06-09</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-008-cycle-graph.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-008-cycle-graph.md">INTENT-008-cycle-graph</a></td>
+      <td><strong>Cycle SDD comme graphe de Tasks (§3.9)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-008-1-cycle-graph.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-008-1-cycle-graph.md">SPEC-008-1-cycle-graph</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-09">2026-06-09</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-009-observabilite-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-009-observabilite-native.md">INTENT-009-observabilite-native</a></td>
+      <td><strong>Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-009-1-observabilite-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-009-1-observabilite-native.md">SPEC-009-1-observabilite-native</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-09">2026-06-09</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-010-cross-model-review.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-010-cross-model-review.md">INTENT-010-cross-model-review</a></td>
+      <td><strong>Cross-model review additive-only (§3.12)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-010-1-cross-model-review.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-010-1-cross-model-review.md">SPEC-010-1-cross-model-review</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-09">2026-06-09</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-011-distribution-plugin-goal.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-011-distribution-plugin-goal.md">INTENT-011-distribution-plugin-goal</a></td>
+      <td><strong>Distribution plugin + boucles /goal + toggles de hooks (§3.13)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-011-1-hooks-toggles.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-011-1-hooks-toggles.md">SPEC-011-1-hooks-toggles</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-09">2026-06-09</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-012-garde-fous.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-012-garde-fous.md">INTENT-012-garde-fous</a></td>
+      <td><strong>Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><em class="muted">Sections POURQUOI / POUR QUI / OBJECTIF non détectées — ouvrir le fichier .md.</em></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-012-1-garde-fous.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-012-1-garde-fous.md">SPEC-012-1-garde-fous</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-09">2026-06-09</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="l&#39;audit du 2026-06-11 a révélé que le framework drifte sur lui-même : le site
+live aiad.ovh documente le sdd mode en v1.7, le readme en v1.12, `sddmode.md`
+en v1.6, alors que le package est en v1.17 (changelog v1.18). notre principe
+fondateur n°2 est « drift = échec de processus ». un framework anti-drift qui
+drifte sur sa propre vitrine perd sa crédibilité et offre une attaque gratuite
+à la concurrence (spec kit, kiro, openspec). je veux fermer cet écart avant
+toute nouvelle fonctionnalité. les évaluateurs/prospects qui jugent le framework sur sa cohérence, les
+contributeurs qui doivent savoir quelle version fait foi, et nous-mêmes
+(dogfooding de la valeur n°2 « drift = échec de processus »). - **0 écart de version** entre `package.json`, le site déployé et les en-têtes
+  des docs racine (`readme.md`, `guide.md`, `sddmode.md`, `claude.md`).
+- **site aiad.ovh déployé en v1.18** : intègre le cycle research, ears, le
+  protocole jnsp, les routers et les 31 commandes.
+- **incohérence « 6 vs 7 valeurs »** (constitution art. ii vs page vision &amp;
+  philosophie) tranchée et propagée partout. - ne pas casser les liens/ancres existants du site.
+- le site doit rester cohérent avec la constitution (sphère des valeurs —
+  toute clarification de valeur exige l&#39;accord du gardien).
+- effort court (~1 semaine), pas de refonte du contenu : alignement seulement. si une release future publie une version sans synchroniser le site et les
+en-têtes des docs → drift. **un check ci doit échouer dès que la version
+annoncée quelque part (docs/site) diffère de `package.json`.**">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-013-zero-drift-sur-soi.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-013-zero-drift-sur-soi.md">INTENT-013-zero-drift-sur-soi</a></td>
+      <td><strong>Zéro drift sur soi-même — site et docs alignés sur la version livrée</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>L&#39;audit du 2026-06-11 a révélé que le framework drifte sur lui-même : le site live aiad.ovh documente le SDD Mode en v1.7, le README en v1.12, <code>SDDMode.md</code> en v1.6, alors que le package est en v1.17 (CHANGELOG v1.18). Notre principe fondateur n°2 est « Drift = Échec de Processus ». Un framework anti-drift qui drifte sur sa propre vitrine perd sa crédibilité et offre une attaque gratuite à la concurrence (Spec Kit, Kiro, OpenSpec). Je veux fermer cet écart avant toute nouvelle fonctionnalité.</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Les évaluateurs/prospects qui jugent le framework sur sa cohérence, les contributeurs qui doivent savoir quelle version fait foi, et nous-mêmes (dogfooding de la valeur n°2 « Drift = Échec de Processus »).</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li><strong>0 écart de version</strong> entre <code>package.json</code>, le site déployé et les en-têtes</li></ul><p>des docs racine (<code>README.md</code>, <code>GUIDE.md</code>, <code>SDDMode.md</code>, <code>CLAUDE.md</code>).</p><ul><li><strong>Site aiad.ovh déployé en v1.18</strong> : intègre le cycle Research, EARS, le</li></ul><p>protocole JNSP, les routers et les 31 commandes.</p><ul><li><strong>Incohérence « 6 vs 7 valeurs »</strong> (Constitution Art. II vs page Vision &amp;</li></ul><p>Philosophie) tranchée et propagée partout.</p></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li>Ne pas casser les liens/ancres existants du site.</li><li>Le site doit rester cohérent avec la Constitution (sphère des Valeurs —</li></ul><p>toute clarification de valeur exige l&#39;accord du gardien).</p><ul><li>Effort court (~1 semaine), pas de refonte du contenu : alignement seulement.</li></ul></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Si une release future publie une version sans synchroniser le site et les en-têtes des docs → drift. <strong>Un check CI doit échouer dès que la version annoncée quelque part (docs/site) diffère de <code>package.json</code>.</strong></p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-013-1-deploiement-site-valeurs.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-1-deploiement-site-valeurs.md">SPEC-013-1-deploiement-site-valeurs</a> <a class="src-link" href="../.aiad/specs/SPEC-013-1a-deploiement-site.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-1a-deploiement-site.md">SPEC-013-1a-deploiement-site</a> <a class="src-link" href="../.aiad/specs/SPEC-013-1b-unification-7-valeurs.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-1b-unification-7-valeurs.md">SPEC-013-1b-unification-7-valeurs</a> <a class="src-link" href="../.aiad/specs/SPEC-013-2-unification-docs-racine.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-2-unification-docs-racine.md">SPEC-013-2-unification-docs-racine</a> <a class="src-link" href="../.aiad/specs/SPEC-013-3-sync-version-zones-marquees.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-3-sync-version-zones-marquees.md">SPEC-013-3-sync-version-zones-marquees</a> <a class="src-link" href="../.aiad/specs/SPEC-013-4-deploy-site-workflow.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-4-deploy-site-workflow.md">SPEC-013-4-deploy-site-workflow</a> <a class="src-link" href="../.aiad/specs/SPEC-013-4a-deploy-workflow.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-4a-deploy-workflow.md">SPEC-013-4a-deploy-workflow</a> <a class="src-link" href="../.aiad/specs/SPEC-013-4b-gate-rgaa.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-4b-gate-rgaa.md">SPEC-013-4b-gate-rgaa</a></td>
+      <td data-sort="0.75"><div class="pm-progress" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" title="Avancement : 75%">
+    <div class="pm-progress-fill pm-progress-warn" style="width:75%"></div>
+    <span class="pm-progress-label">6/8</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    </tr><tr data-tags="sans-livraison" data-statut="done" data-search-blob="la valeur n°5 « empirisme sans concession » exige que la mesure prime sur
+l&#39;intuition. or nos chiffres publics (« −41,7 % de tokens », « aws strands
+−96 % ») ne sont adossés à aucun protocole reproductible du projet, et les
+scripts `test:coverage:threshold` et `lint:size --strict` existent mais ne
+s&#39;exécutent **jamais** en ci ni dans `prepublishonly`. nous prêchons la mesure
+sans la pratiquer sur nous-mêmes. les évaluateurs qui vérifient nos affirmations, les contributeurs qui ont besoin
+d&#39;un signal de qualité fiable, et le mainteneur. - `lint:size --strict` et `test:coverage:threshold` intégrés à `prepublishonly`
+  et à la ci, avec un seuil de couverture explicite (cible initiale ~70 %) et un
+  badge de couverture publié.
+- chaque claim chiffré public adossé à un protocole `bench/` reproductible, ou
+  requalifié en citation externe datée. - ne pas casser `prepublishonly` ; seuil de couverture réaliste, pas punitif.
+- les claims non reproductibles sont requalifiés, jamais supprimés en silence. un claim chiffré publié sans protocole reproductible associé, ou une release
+passant sans gate de couverture/taille → drift.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-014-empirisme-prouve.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-014-empirisme-prouve.md">INTENT-014-empirisme-prouve</a></td>
+      <td><strong>Empirisme prouvé — gates qualité actifs et claims sourcés</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>La valeur n°5 « Empirisme sans Concession » exige que la mesure prime sur l&#39;intuition. Or nos chiffres publics (« −41,7 % de tokens », « AWS Strands −96 % ») ne sont adossés à aucun protocole reproductible du projet, et les scripts <code>test:coverage:threshold</code> et <code>lint:size --strict</code> existent mais ne s&#39;exécutent <strong>jamais</strong> en CI ni dans <code>prepublishOnly</code>. Nous prêchons la mesure sans la pratiquer sur nous-mêmes.</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Les évaluateurs qui vérifient nos affirmations, les contributeurs qui ont besoin d&#39;un signal de qualité fiable, et le mainteneur.</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li><code>lint:size --strict</code> et <code>test:coverage:threshold</code> intégrés à <code>prepublishOnly</code></li></ul><p>et à la CI, avec un seuil de couverture explicite (cible initiale ~70 %) et un badge de couverture publié.</p><ul><li>Chaque claim chiffré public adossé à un protocole <code>bench/</code> reproductible, ou</li></ul><p>requalifié en citation externe datée.</p></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li>Ne pas casser <code>prepublishOnly</code> ; seuil de couverture réaliste, pas punitif.</li><li>Les claims non reproductibles sont requalifiés, jamais supprimés en silence.</li></ul></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Un claim chiffré publié sans protocole reproductible associé, ou une release passant sans gate de couverture/taille → drift.</p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-014-1-gates-bloquants-badge.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-014-1-gates-bloquants-badge.md">SPEC-014-1-gates-bloquants-badge</a> <a class="src-link" href="../.aiad/specs/SPEC-014-2-sourcing-claims.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-014-2-sourcing-claims.md">SPEC-014-2-sourcing-claims</a></td>
+      <td data-sort="0"><div class="pm-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" title="Avancement : 0%">
+    <div class="pm-progress-fill pm-progress-bad" style="width:0%"></div>
+    <span class="pm-progress-label">0/2</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="84 commandes cli contredisent « sobriété intentionnelle » (« on construit le
+nécessaire, non l&#39;impressionnant »). une large part relève de la longue traîne
+(`obsidian`, `storybook`, `cert`, `marketplace`, `tour`, `repl`…) sans signal
+d&#39;usage connu. le poids cognitif et de maintenance croît sans intention explicite. les utilisateurs (lisibilité du produit) et le mainteneur (charge de maintenance). - définir un **noyau** (~25 commandes : cycle sdd + gouvernance + trace + dashboard)
+  et extraire/déprécier la longue traîne en packs optionnels.
+- décider sur **données d&#39;usage** (télémétrie locale opt-in), pas à l&#39;intuition.
+- publier une matrice **enforced vs advisory** des garde-fous. - décision pilotée par la donnée d&#39;usage, pas par préférence.
+- rétro-compatibilité : dépréciations annoncées (retrait v2), pas de rupture brutale. ajout d&#39;une commande au noyau sans intention explicite ni signal d&#39;usage → drift
+de sobriété.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-015-sobriete-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-015-sobriete-cli.md">INTENT-015-sobriete-cli</a></td>
+      <td><strong>Sobriété du CLI — noyau assumé, longue traîne extraite</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>84 commandes CLI contredisent « Sobriété Intentionnelle » (« on construit le nécessaire, non l&#39;impressionnant »). Une large part relève de la longue traîne (<code>obsidian</code>, <code>storybook</code>, <code>cert</code>, <code>marketplace</code>, <code>tour</code>, <code>repl</code>…) sans signal d&#39;usage connu. Le poids cognitif et de maintenance croît sans intention explicite.</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Les utilisateurs (lisibilité du produit) et le mainteneur (charge de maintenance).</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li>Définir un <strong>noyau</strong> (~25 commandes : cycle SDD + gouvernance + trace + dashboard)</li></ul><p>et extraire/déprécier la longue traîne en packs optionnels.</p><ul><li>Décider sur <strong>données d&#39;usage</strong> (télémétrie locale opt-in), pas à l&#39;intuition.</li><li>Publier une matrice <strong>enforced vs advisory</strong> des garde-fous.</li></ul></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li>Décision pilotée par la donnée d&#39;usage, pas par préférence.</li><li>Rétro-compatibilité : dépréciations annoncées (retrait v2), pas de rupture brutale.</li></ul></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Ajout d&#39;une commande au noyau sans intention explicite ni signal d&#39;usage → drift de sobriété.</p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-015-1-telemetrie-usage.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-1-telemetrie-usage.md">SPEC-015-1-telemetrie-usage</a> <a class="src-link" href="../.aiad/specs/SPEC-015-2-1-registre-commandes.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-2-1-registre-commandes.md">SPEC-015-2-1-registre-commandes</a> <a class="src-link" href="../.aiad/specs/SPEC-015-2-2-cycle-depreciation.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-2-2-cycle-depreciation.md">SPEC-015-2-2-cycle-depreciation</a> <a class="src-link" href="../.aiad/specs/SPEC-015-3-matrice-garde-fous.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-3-matrice-garde-fous.md">SPEC-015-3-matrice-garde-fous</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">4/4</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    </tr><tr data-tags="sans-livraison" data-statut="active" data-search-blob="le dashboard ne satisfait pas le rgaa qu&#39;il impose au code des utilisateurs
+(#132 : 1 seul attribut aria, pas de `&lt;label&gt;`, pas d&#39;alt sur les sparklines).
+et `render.js` (1 003 loc) / `assets.js` (878 loc) monolithiques rendent tout
+refactor « recentrage valeur » impraticable. ces fondations sont le prérequis
+bloquant des intent-017 et intent-018. les équipes qui pilotent au quotidien, et nous-mêmes (dogfooding rgaa + rgesn). - architecture en 4 couches : `collect/` · `model/` · `views/` · `ui/`.
+- design system **rgaa aa** vérifié par axe-core en ci (0 violation bloquante).
+- `data.json` **v2 versionné** (schéma publié, documenté comme api).
+- budget de poids **rgesn** par page généré, vérifié en ci. - rester **statique-généré** (pas de backend — c&#39;est un avantage compétitif).
+- aucune régression de contenu pendant le refactor. une page générée échouant l&#39;audit axe-core aa, ou un dépassement de budget de
+poids non justifié → drift.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></td>
+      <td><strong>Dashboard exemplaire — fondations accessibles, sobres, maintenables</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>Le dashboard ne satisfait pas le RGAA qu&#39;il impose au code des utilisateurs (#132 : 1 seul attribut ARIA, pas de <code>&lt;label&gt;</code>, pas d&#39;alt sur les sparklines). Et <code>render.js</code> (1 003 LOC) / <code>assets.js</code> (878 LOC) monolithiques rendent tout refactor « recentrage valeur » impraticable. Ces fondations sont le prérequis bloquant des <code>INTENT-017</code> et <code>INTENT-018</code>.</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Les équipes qui pilotent au quotidien, et nous-mêmes (dogfooding RGAA + RGESN).</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li>Architecture en 4 couches : <code>collect/</code> · <code>model/</code> · <code>views/</code> · <code>ui/</code>.</li><li>Design system <strong>RGAA AA</strong> vérifié par axe-core en CI (0 violation bloquante).</li><li><code>data.json</code> <strong>v2 versionné</strong> (schéma publié, documenté comme API).</li><li>Budget de poids <strong>RGESN</strong> par page généré, vérifié en CI.</li></ul></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li>Rester <strong>statique-généré</strong> (pas de backend — c&#39;est un avantage compétitif).</li><li>Aucune régression de contenu pendant le refactor.</li></ul></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Une page générée échouant l&#39;audit axe-core AA, ou un dépassement de budget de poids non justifié → drift.</p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="active"><span class="badge badge-ok">active</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-016-1-architecture-4-couches.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-1-architecture-4-couches.md">SPEC-016-1-architecture-4-couches</a> <a class="src-link" href="../.aiad/specs/SPEC-016-2-design-system-rgaa.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-2-design-system-rgaa.md">SPEC-016-2-design-system-rgaa</a> <a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a> <a class="src-link" href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-4-rgesn-budgets.md">SPEC-016-4-rgesn-budgets</a></td>
+      <td data-sort="0"><div class="pm-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" title="Avancement : 0%">
+    <div class="pm-progress-fill pm-progress-bad" style="width:0%"></div>
+    <span class="pm-progress-label">0/4</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    </tr><tr data-tags="" data-statut="draft" data-search-blob="le dashboard est une encyclopédie (17 pages, 100+ blocs), pas un radiateur :
+sans vue « ma journée », il n&#39;est pas consulté quotidiennement et ne sert aucune
+décision. le benchmark 2026 (linear : my issues + inbox + triage + pulse) montre
+que le pattern gagnant est « today + triage + digest ». le pe, le pm et l&#39;équipe, au quotidien. - page **aujourd&#39;hui** (≤ 4 sections, lisible en 10 s) par défaut.
+- **inbox de triage** des facts/drifts (accept/defer), séparée du reste.
+- **digest delta** « depuis la dernière génération » + script de standup auto.
+- pages **détail intent/spec** (#453) avec drill-down.
+- mode **live sse** (#140) ; **snapshots persistants** pour tendances longues. - dépend de intent-016 (fondations 4 couches accessibles).
+- **pas de notifications push** : digest en pull (anti dashboard fatigue). page aujourd&#39;hui dépassant 4 sections / 1 écran, ou réintroduction de
+notifications push unitaires → drift.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></td>
+      <td><strong>Vivre le projet au quotidien — Aujourd&#39;hui, triage, digest</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>Le dashboard est une encyclopédie (17 pages, 100+ blocs), pas un radiateur : sans vue « ma journée », il n&#39;est pas consulté quotidiennement et ne sert aucune décision. Le benchmark 2026 (Linear : My Issues + Inbox + Triage + Pulse) montre que le pattern gagnant est « Today + triage + digest ».</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Le PE, le PM et l&#39;équipe, au quotidien.</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li>Page <strong>Aujourd&#39;hui</strong> (≤ 4 sections, lisible en 10 s) par défaut.</li><li><strong>Inbox de triage</strong> des facts/drifts (accept/defer), séparée du reste.</li><li><strong>Digest delta</strong> « depuis la dernière génération » + script de standup auto.</li><li>Pages <strong>détail Intent/SPEC</strong> (#453) avec drill-down.</li><li>Mode <strong>live SSE</strong> (#140) ; <strong>snapshots persistants</strong> pour tendances longues.</li></ul></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li>Dépend de <code>INTENT-016</code> (fondations 4 couches accessibles).</li><li><strong>Pas de notifications push</strong> : digest en pull (anti dashboard fatigue).</li></ul></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Page Aujourd&#39;hui dépassant 4 sections / 1 écran, ou réintroduction de notifications push unitaires → drift.</p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="draft"><span class="badge badge-warn">draft</span></td>
+      <td><em class="muted">aucune</em></td>
+      <td data-sort="-1"><span class="muted" title="Aucune SPEC liée">—</span></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    </tr><tr data-tags="" data-statut="draft" data-search-blob="le principe directeur d&#39;aiad est « on juge sur la valeur réalisée », mais le
+dashboard ne mesure que l&#39;**activité** (specs fermées, throughput). les outcomes
+du prd ne sont jamais reliés aux intents. c&#39;est aussi un différenciateur marché
+vérifié : aucun outil ne trace la contribution **humain vs agent**. le pm et le leadership ; le positionnement produit du framework. - matrice **outcomes ↔ intents** (critère prd ↔ intents contributeurs ↔ mesures datées).
+- les **4 aires ebm** (current/unrealized value, time-to-market, ability to innovate).
+- **investment balance** (features / dette / bugs / conformité).
+- **hill charts** calculés depuis l&#39;état du cycle sdd.
+- **bilan humains/agents** par intent (qui formule, qui exécute, qui valide, vetos).
+- matrice **impact × effort** des intents en attente. - dépend de intent-016 et intent-017.
+- **pas d&#39;ia qui pilote** : l&#39;ia propose, l&#39;humain tranche (cf. échec de height). un outcome affiché sans mesure datée (faux « 100 % » au lieu d&#39;un `jnsp`) → drift
+de l&#39;empirisme.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-018-valeur-boussole.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-018-valeur-boussole.md">INTENT-018-valeur-boussole</a></td>
+      <td><strong>La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>Le principe directeur d&#39;AIAD est « on juge sur la valeur réalisée », mais le dashboard ne mesure que l&#39;<strong>activité</strong> (specs fermées, throughput). Les outcomes du PRD ne sont jamais reliés aux Intents. C&#39;est aussi un différenciateur marché vérifié : aucun outil ne trace la contribution <strong>humain vs agent</strong>.</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Le PM et le leadership ; le positionnement produit du framework.</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li>Matrice <strong>outcomes ↔ Intents</strong> (critère PRD ↔ Intents contributeurs ↔ mesures datées).</li><li>Les <strong>4 aires EBM</strong> (Current/Unrealized Value, Time-to-Market, Ability to Innovate).</li><li><strong>Investment balance</strong> (features / dette / bugs / conformité).</li><li><strong>Hill charts</strong> calculés depuis l&#39;état du cycle SDD.</li><li><strong>Bilan humains/agents</strong> par Intent (qui formule, qui exécute, qui valide, vetos).</li><li>Matrice <strong>Impact × Effort</strong> des Intents en attente.</li></ul></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li>Dépend de <code>INTENT-016</code> et <code>INTENT-017</code>.</li><li><strong>Pas d&#39;IA qui pilote</strong> : l&#39;IA propose, l&#39;humain tranche (cf. échec de Height).</li></ul></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Un outcome affiché sans mesure datée (faux « 100 % » au lieu d&#39;un <code>JNSP</code>) → drift de l&#39;empirisme.</p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="draft"><span class="badge badge-warn">draft</span></td>
+      <td><em class="muted">aucune</em></td>
+      <td data-sort="-1"><span class="muted" title="Aucune SPEC liée">—</span></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    </tr><tr data-tags="" data-statut="draft" data-search-blob="le marché sdd est passé de « comment écrire la spec » à « comment **prouver** que
+le code la respecte » : kiro dérive des property-based tests directement des
+exigences ears. aiad *valide* la syntaxe ears (`ears-validator`) mais n&#39;en dérive
+**rien d&#39;exécutable**. c&#39;est le gap technique n°1 face à la concurrence. les pe qui veulent une preuve de conformité, pas une promesse. - générateur de **squelettes de tests** à partir d&#39;une spec `format : ears`
+  validée (r1-r7), reliés par `@verified-by`.
+- `trace --fail-on-gap` couvre la chaîne ears → test → code. - ears reste **optionnel** : ne rien imposer aux specs en prose.
+- squelettes de test = point de départ, jamais une preuve auto-validée. une spec ears validée sans aucun test dérivé ni lié → drift verification-first.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-019-verification-first.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-019-verification-first.md">INTENT-019-verification-first</a></td>
+      <td><strong>Verification-first — dériver des tests des critères EARS</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>Le marché SDD est passé de « comment écrire la spec » à « comment <strong>prouver</strong> que le code la respecte » : Kiro dérive des property-based tests directement des exigences EARS. AIAD <em>valide</em> la syntaxe EARS (<code>ears-validator</code>) mais n&#39;en dérive <strong>rien d&#39;exécutable</strong>. C&#39;est le gap technique n°1 face à la concurrence.</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Les PE qui veulent une preuve de conformité, pas une promesse.</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li>Générateur de <strong>squelettes de tests</strong> à partir d&#39;une SPEC <code>Format : EARS</code></li></ul><p>validée (R1-R7), reliés par <code>@verified-by</code>.</p><ul><li><code>trace --fail-on-gap</code> couvre la chaîne EARS → test → code.</li></ul></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li>EARS reste <strong>optionnel</strong> : ne rien imposer aux SPECs en prose.</li><li>Squelettes de test = point de départ, jamais une preuve auto-validée.</li></ul></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Une SPEC EARS validée sans aucun test dérivé ni lié → drift verification-first.</p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="draft"><span class="badge badge-warn">draft</span></td>
+      <td><em class="muted">aucune</em></td>
+      <td data-sort="-1"><span class="muted" title="Aucune SPEC liée">—</span></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    </tr><tr data-tags="" data-statut="draft" data-search-blob="notre drift lock repose sur la **discipline** (mettre à jour la spec dans la même
+pr). le modèle openspec (specs = état courant, changements = deltas archivés à la
+fusion) est spec-anchored **par construction** et supprime structurellement la
+« taxe de maintenance » que la critique 2026 (augment code) dénonce : une spec
+périmée trompe un agent qui exécute un plan obsolète « avec assurance ». les pe sur projets brownfield et à cycle de vie long. - modèle **deltas/archive** : propositions de changement fusionnées dans l&#39;état courant.
+- **redevabilité bidirectionnelle** : l&#39;agent met à jour la spec quand il découvre
+  une contrainte violée (tracé en `fact`). - cohabiter avec le cycle existant ; **migration non imposée**.
+- ne pas alourdir le cycle pour les petits changements (proportionnalité). une contrainte violée découverte en exécution sans mise à jour de spec ni `fact`
+associé → drift.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-020-spec-anchored-deltas.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-020-spec-anchored-deltas.md">INTENT-020-spec-anchored-deltas</a></td>
+      <td><strong>Spec-anchored par construction — deltas et redevabilité bidirectionnelle</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>Notre Drift Lock repose sur la <strong>discipline</strong> (mettre à jour la SPEC dans la même PR). Le modèle OpenSpec (specs = état courant, changements = deltas archivés à la fusion) est spec-anchored <strong>par construction</strong> et supprime structurellement la « taxe de maintenance » que la critique 2026 (Augment Code) dénonce : une spec périmée trompe un agent qui exécute un plan obsolète « avec assurance ».</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Les PE sur projets brownfield et à cycle de vie long.</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li>Modèle <strong>deltas/archive</strong> : propositions de changement fusionnées dans l&#39;état courant.</li><li><strong>Redevabilité bidirectionnelle</strong> : l&#39;agent met à jour la SPEC quand il découvre</li></ul><p>une contrainte violée (tracé en <code>fact</code>).</p></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li>Cohabiter avec le cycle existant ; <strong>migration non imposée</strong>.</li><li>Ne pas alourdir le cycle pour les petits changements (proportionnalité).</li></ul></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Une contrainte violée découverte en exécution sans mise à jour de SPEC ni <code>fact</code> associé → drift.</p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="draft"><span class="badge badge-warn">draft</span></td>
+      <td><em class="muted">aucune</em></td>
+      <td data-sort="-1"><span class="muted" title="Aucune SPEC liée">—</span></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    </tr><tr data-tags="" data-statut="draft" data-search-blob="la constitution (art. iv) engage à « mesurer et publier l&#39;empreinte — tokens,
+coûts énergétiques par fonctionnalité ». cet engagement n&#39;a **aucune**
+implémentation dans le package. personne sur le marché ne le fait : c&#39;est un
+différenciateur d&#39;écoconception aligné rgesn. les équipes soucieuses de sobriété ; le reporting rgesn. - comptage des **tokens par intent/spec**.
+- restitution dans `/sdd context` et dans la page **valeur** du dashboard (intent-018). - pas de télémétrie intrusive : mesure **locale, opt-in**.
+- alimente intent-018 (synergie, pas dépendance bloquante). une fonctionnalité livrée sans empreinte mesurée alors que la donnée est
+disponible → drift de l&#39;engagement art. iv.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-021-empreinte-mesuree.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-021-empreinte-mesuree.md">INTENT-021-empreinte-mesuree</a></td>
+      <td><strong>Empreinte mesurée — tokens et coût par fonctionnalité</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>La Constitution (Art. IV) engage à « mesurer et publier l&#39;empreinte — tokens, coûts énergétiques par fonctionnalité ». Cet engagement n&#39;a <strong>aucune</strong> implémentation dans le package. Personne sur le marché ne le fait : c&#39;est un différenciateur d&#39;écoconception aligné RGESN.</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Les équipes soucieuses de sobriété ; le reporting RGESN.</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li>Comptage des <strong>tokens par Intent/SPEC</strong>.</li><li>Restitution dans <code>/sdd context</code> et dans la page <strong>Valeur</strong> du dashboard (<code>INTENT-018</code>).</li></ul></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li>Pas de télémétrie intrusive : mesure <strong>locale, opt-in</strong>.</li><li>Alimente <code>INTENT-018</code> (synergie, pas dépendance bloquante).</li></ul></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Une fonctionnalité livrée sans empreinte mesurée alors que la donnée est disponible → drift de l&#39;engagement Art. IV.</p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="draft"><span class="badge badge-warn">draft</span></td>
+      <td><em class="muted">aucune</em></td>
+      <td data-sort="-1"><span class="muted" title="Aucune SPEC liée">—</span></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    </tr><tr data-tags="" data-statut="draft" data-search-blob="« zéro code sans spec validée » doit s&#39;appliquer aux ~60 000 loc du package
+lui-même. la trace du repo le prouve : `bin/aiad-sdd.js` et l&#39;essentiel de `lib/`
+remontent comme `code_without_spec` (non bloquants aujourd&#39;hui). la matrice de
+traçabilité du package publié deviendrait notre **preuve vivante**. les contributeurs ; la crédibilité du framework auprès des évaluateurs. - specs **rétroactives** des modules cœur (`trace`, `emit-rules`, `init`, hooks).
+- annotations `@spec` dans `lib/`.
+- `code_without_spec` bloquant ramené à **0** ; non-bloquant en décroissance continue. - **progressif**, par module touché (pas de big bang).
+- ne pas geler la vélocité de développement. un nouveau module applicatif de `lib/` mergé sans annotation `@spec` → drift de
+dogfooding.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-022-dogfooding-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-022-dogfooding-cli.md">INTENT-022-dogfooding-cli</a></td>
+      <td><strong>Dogfooding complet — le CLI sous SPEC</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>« Zéro code sans spec validée » doit s&#39;appliquer aux ~60 000 LOC du package lui-même. La trace du repo le prouve : <code>bin/aiad-sdd.js</code> et l&#39;essentiel de <code>lib/</code> remontent comme <code>code_without_spec</code> (non bloquants aujourd&#39;hui). La matrice de traçabilité du package publié deviendrait notre <strong>preuve vivante</strong>.</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Les contributeurs ; la crédibilité du framework auprès des évaluateurs.</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li>SPECs <strong>rétroactives</strong> des modules cœur (<code>trace</code>, <code>emit-rules</code>, <code>init</code>, hooks).</li><li>Annotations <code>@spec</code> dans <code>lib/</code>.</li><li><code>code_without_spec</code> bloquant ramené à <strong>0</strong> ; non-bloquant en décroissance continue.</li></ul></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li><strong>Progressif</strong>, par module touché (pas de big bang).</li><li>Ne pas geler la vélocité de développement.</li></ul></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Un nouveau module applicatif de <code>lib/</code> mergé sans annotation <code>@spec</code> → drift de dogfooding.</p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="draft"><span class="badge badge-warn">draft</span></td>
+      <td><em class="muted">aucune</em></td>
+      <td data-sort="-1"><span class="muted" title="Aucune SPEC liée">—</span></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    </tr><tr data-tags="" data-statut="draft" data-search-blob="la valeur « ouverture radicale » impose un comparatif factuel qui assume nos
+faiblesses ; la moat « gouvernance + traçabilité » n&#39;a de valeur que si elle est
+**visible**. nous supportons 5 runtimes via `emit-rules` quand spec kit en couvre
+30+. les prospects qui comparent les frameworks ; la communauté. - page comparative **aiad vs spec kit / kiro / openspec / bmad**, factuelle,
+  forces **et** faiblesses assumées, centrée sur la moat gouvernance + traçabilité.
+- extension `emit-rules` à 2-3 runtimes supplémentaires selon la demande. - **honnêteté sur les contradictions** : ne masquer aucune faiblesse réelle.
+- dépend d&#39;une maison en ordre (p0/p1 : exemplarité et sobriété d&#39;abord). un comparatif public qui masque une faiblesse réelle d&#39;aiad → drift (auto-trahison
+de la valeur d&#39;honnêteté).">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-023-rayonnement-honnete.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-023-rayonnement-honnete.md">INTENT-023-rayonnement-honnete</a></td>
+      <td><strong>Rayonnement honnête — comparatif public et runtimes élargis</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>La valeur « Ouverture Radicale » impose un comparatif factuel qui assume nos faiblesses ; la moat « gouvernance + traçabilité » n&#39;a de valeur que si elle est <strong>visible</strong>. Nous supportons 5 runtimes via <code>emit-rules</code> quand Spec Kit en couvre 30+.</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Les prospects qui comparent les frameworks ; la communauté.</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li>Page comparative <strong>AIAD vs Spec Kit / Kiro / OpenSpec / BMAD</strong>, factuelle,</li></ul><p>forces <strong>et</strong> faiblesses assumées, centrée sur la moat gouvernance + traçabilité.</p><ul><li>Extension <code>emit-rules</code> à 2-3 runtimes supplémentaires selon la demande.</li></ul></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li><strong>Honnêteté sur les Contradictions</strong> : ne masquer aucune faiblesse réelle.</li><li>Dépend d&#39;une maison en ordre (P0/P1 : exemplarité et sobriété d&#39;abord).</li></ul></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Un comparatif public qui masque une faiblesse réelle d&#39;AIAD → drift (auto-trahison de la valeur d&#39;honnêteté).</p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="draft"><span class="badge badge-warn">draft</span></td>
+      <td><em class="muted">aucune</em></td>
+      <td data-sort="-1"><span class="muted" title="Aucune SPEC liée">—</span></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-11">2026-06-11</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="**origine : [[fact-004]]** (ouvert depuis 2026-06-12). `lib/sdd-trace.js` ne
+reconnaît `@spec` que dans du **code applicatif** (`extensions_code` —
+`.js/.ts/.py/…`), jamais dans `.md`, `.html`, `.yml`. conséquence : une spec dont
+le livrable est **documentaire** (013-2), **du contenu de site** (013-1a) ou **un
+workflow ci** (013-4a) ne peut pas être marquée `done` sans déclencher un faux gap
+`specsvalideesnonimplementees` (sdd-trace.js:535) — et le stop hook bloque la clôture.
+
+le contournement actuel (tenir le frontmatter à `in-progress` et porter le « done »
+au niveau intent) produit un **signal trompeur récurrent** : `/aiad status` et le
+trace affichent des specs « in-progress » qui sont en réalité **livrées**. c&#39;est
+précisément ce qui a fait remonter un faux positif d&#39;incohérence sur intent-013.
+un framework dont la valeur n°2 est « honnêteté sur les contradictions » ne peut pas
+laisser son propre outil de traçabilité afficher du faux wip. - **nous-mêmes** (dogfooding) : pouvoir clôturer honnêtement une spec doc/site/ci.
+- **les utilisateurs du cli** : toute spec dont le livrable n&#39;est pas du code
+  applicatif scanné (docs, infra, config, contenu) — piège systématique aujourd&#39;hui. - permettre de marquer `done` une spec **réalisée mais sans code applicatif
+  annotable**, via une **exemption explicite et tracée** au frontmatter — sans
+  affaiblir la détection de drift pour les specs qui, elles, doivent porter du code.
+- faire disparaître le faux gap `specsvalideesnonimplementees` pour ces specs. - **fail-honest, pas fail-open** : l&#39;exemption doit être **explicite** (champ +
+  raison obligatoire), jamais un défaut silencieux. une spec sans exemption et sans
+  code reste un gap (comportement actuel préservé).
+- **zéro dépendance** (contrainte structurante du projet).
+- rétro-compatible : les specs existantes sans le champ se comportent comme avant.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md">INTENT-024-trace-exemption-specs-sans-code</a></td>
+      <td><strong>Traçabilité honnête des SPECs sans code applicatif — exemption explicite</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p><strong>Origine : [[<code>FACT-004</code>]]</strong> (ouvert depuis 2026-06-12). <code>lib/sdd-trace.js</code> ne reconnaît <code>@spec</code> que dans du <strong>code applicatif</strong> (<code>EXTENSIONS_CODE</code> — <code>.js/.ts/.py/…</code>), jamais dans <code>.md</code>, <code>.html</code>, <code>.yml</code>. Conséquence : une SPEC dont le livrable est <strong>documentaire</strong> (013-2), <strong>du contenu de site</strong> (013-1a) ou <strong>un workflow CI</strong> (013-4a) ne peut pas être marquée <code>done</code> sans déclencher un faux gap <code>specsValideesNonImplementees</code> (sdd-trace.js:535) — et le Stop hook bloque la clôture.</p><p>Le contournement actuel (tenir le frontmatter à <code>in-progress</code> et porter le « done » au niveau INTENT) produit un <strong>signal trompeur récurrent</strong> : <code>/aiad status</code> et le trace affichent des SPECs « in-progress » qui sont en réalité <strong>livrées</strong>. C&#39;est précisément ce qui a fait remonter un faux positif d&#39;incohérence sur <code>INTENT-013</code>. Un framework dont la valeur n°2 est « Honnêteté sur les Contradictions » ne peut pas laisser son propre outil de traçabilité afficher du faux WIP.</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><ul><li><strong>Nous-mêmes</strong> (dogfooding) : pouvoir clôturer honnêtement une SPEC doc/site/CI.</li><li><strong>Les utilisateurs du CLI</strong> : toute SPEC dont le livrable n&#39;est pas du code</li></ul><p>applicatif scanné (docs, infra, config, contenu) — piège systématique aujourd&#39;hui.</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li>Permettre de marquer <code>done</code> une SPEC **réalisée mais sans code applicatif</li></ul><p>annotable<strong>, via une </strong>exemption explicite et tracée** au frontmatter — sans affaiblir la détection de drift pour les SPECs qui, elles, doivent porter du code.</p><ul><li>Faire disparaître le faux gap <code>specsValideesNonImplementees</code> pour ces SPECs.</li></ul></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li><strong>Fail-honest, pas fail-open</strong> : l&#39;exemption doit être <strong>explicite</strong> (champ +</li></ul><p>raison obligatoire), jamais un défaut silencieux. Une SPEC sans exemption et sans code reste un gap (comportement actuel préservé).</p><ul><li><strong>Zéro dépendance</strong> (contrainte structurante du projet).</li><li>Rétro-compatible : les SPECs existantes sans le champ se comportent comme avant.</li></ul></div></div><div class="pm-section pm-section-empty"><strong>CRITÈRE DE DRIFT</strong><span class="muted">— non renseigné</span></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-024-1-trace-exemption.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-024-1-trace-exemption.md">SPEC-024-1-trace-exemption</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-19">2026-06-19</td>
+    </tr><tr data-tags="" data-statut="done" data-search-blob="- le gate rgaa est opérationnel depuis spec-013-4b — la violation est visible dans le rapport ci.
+- l&#39;élément `.install` (ratio 1.05:1, texte invisible) a été patché en urgence (fact-005).
+- la correction du contraste `.kicker` est la dernière violation baseline en allowlist.
+- retirer `wcag2aa.principle1.guideline1_4.1_4_3.g18.fail` de l&#39;allowlist est l&#39;objectif final.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-025-contraste-kicker.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-025-contraste-kicker.md">INTENT-025-contraste-kicker</a></td>
+      <td><strong>Corriger le contraste des kickers et pills gold (WCAG 1.4.3)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><ul><li>Le gate RGAA est opérationnel depuis <code>SPEC-013-</code>4b — la violation est visible dans le rapport CI.</li><li>L&#39;élément <code>.install</code> (ratio 1.05:1, texte invisible) a été patché en urgence (<code>FACT-005</code>).</li><li>La correction du contraste <code>.kicker</code> est la dernière violation baseline en allowlist.</li><li>Retirer <code>WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail</code> de l&#39;allowlist est l&#39;objectif final.</li></ul></div></div><div class="pm-section pm-section-empty"><strong>POUR QUI</strong><span class="muted">— non renseigné</span></div><div class="pm-section pm-section-empty"><strong>OBJECTIF</strong><span class="muted">— non renseigné</span></div><div class="pm-section pm-section-empty"><strong>CONTRAINTES</strong><span class="muted">— non renseigné</span></div><div class="pm-section pm-section-empty"><strong>CRITÈRE DE DRIFT</strong><span class="muted">— non renseigné</span></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="done"><span class="badge badge-ok">done</span></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-025-1-gold-contrast-fix.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-025-1-gold-contrast-fix.md">SPEC-025-1-gold-contrast-fix</a></td>
+      <td data-sort="1"><div class="pm-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" title="Avancement : 100%">
+    <div class="pm-progress-fill pm-progress-ok" style="width:100%"></div>
+    <span class="pm-progress-label">1/1</span>
+  </div></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-22">2026-06-22</td>
+    </tr></tbody>
+  </table>
+</section>
+
 </main>
 <script src="assets/app.js"></script>
 </body>

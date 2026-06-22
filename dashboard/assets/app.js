@@ -7,7 +7,12 @@ function bindFilter(inputId, tableId) {
     var rows = table.tBodies[0].rows;
     for (var i = 0; i < rows.length; i++) {
       var tr = rows[i];
-      tr.style.display = tr.textContent.toLowerCase().indexOf(q) >= 0 ? '' : 'none';
+      // (#425) Recherche aussi dans data-search-blob (contenu Intent body
+      // qui n'est pas dans textContent quand <details> est replié).
+      var blob = tr.getAttribute('data-search-blob') || '';
+      var matchVisible = tr.textContent.toLowerCase().indexOf(q) >= 0;
+      var matchBlob = blob.indexOf(q) >= 0;
+      tr.style.display = (matchVisible || matchBlob) ? '' : 'none';
     }
   });
 }
@@ -242,6 +247,31 @@ function autoTagGlossaire() {
   walk(document.body);
 }
 
+// (#231) Filtres rapides PM sur intents.html — chips qui filtrent les
+// rows par data-tags (zombie / draft-vieux / sans-spec / sans-livraison).
+// Un seul groupe de chips actif à la fois, "*" = aucun filtre actif.
+function bindPmFilterChips() {
+  var groupes = document.querySelectorAll('[data-pm-filter-target]');
+  groupes.forEach(function (g) {
+    var tableId = g.getAttribute('data-pm-filter-target');
+    var table = document.getElementById(tableId);
+    if (!table) return;
+    var rows = table.querySelectorAll('tbody tr');
+    var boutons = g.querySelectorAll('button[data-pm-filter]');
+    boutons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var filtre = b.getAttribute('data-pm-filter');
+        boutons.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        rows.forEach(function (r) {
+          if (filtre === '*') { r.style.display = ''; return; }
+          var tags = (r.getAttribute('data-tags') || '').split(/\s+/);
+          r.style.display = tags.indexOf(filtre) >= 0 ? '' : 'none';
+        });
+      });
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   var inputs = document.querySelectorAll('[data-filter-target]');
   inputs.forEach(function (inp) {
@@ -253,5 +283,6 @@ document.addEventListener('DOMContentLoaded', function () {
   autoTagIds();     // (#182) annote les IDs avant le binding
   bindCopyOnClick();
   autoTagGlossaire(); // (#215) tooltips sur le jargon AIAD
+  bindPmFilterChips(); // (#231) chips PM sur intents.html
   startLivePolling(); // (#140) polling 30s du data.json
 });

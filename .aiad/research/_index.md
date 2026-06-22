@@ -15,6 +15,7 @@
 | RESEARCH-017 | Tiering CLI core/extended/plugin + plan de dépréciation | INTENT-015 | Steeve Evers | 2026-06-17 | CONDITIONAL GO (80 %) | tranché — /sdd spec autorisé (C1, C2, C-DATA, C-SCOPE) ; donnée d'usage polluée écartée comme preuve |
 | RESEARCH-018 | Matrice enforced/advisory + resserrage des bypass | INTENT-015 | Steeve Evers | 2026-06-19 | CONDITIONAL GO (85 %) | tranché — /sdd spec autorisé (C3, C-MATRICE, C-SCOPE) ; **veto bypassable aujourd'hui** (veto.js:28) à fermer |
 | RESEARCH-019 | Gate RGAA AA avant publication du site aiad.ovh | INTENT-013 | Steeve Evers | 2026-06-22 | GO (100 %) | tranché — /sdd spec autorisé ; pa11y-ci recommandé, Chromium CI-only assumé |
+| RESEARCH-020 | Dashboard exemplaire : fondations accessibles, sobres, maintenables | INTENT-016 | Steeve Evers | 2026-06-22 | GO (100 %) | tranché — /sdd spec autorisé ; 4 SPECs prévues (architecture + RGAA + data.json v2 + RGESN) |
 
 ## Verdicts du gate Research
 

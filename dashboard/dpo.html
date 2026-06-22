@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-05-14T03:07:31.407Z"/><meta name="aiad-version" content="1.14.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T09:41:13.949Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>DPO / RGPD — aiad-sdd</title>
-<meta name="description" content="DPO / RGPD — DPIA · SPECs RGPD · Coverage · Angles morts · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="description" content="DPO / RGPD — DPIA · SPECs RGPD · Coverage · Angles morts · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="DPO / RGPD — aiad-sdd"/>
-<meta property="og:description" content="DPO / RGPD — DPIA · SPECs RGPD · Coverage · Angles morts · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta property="og:description" content="DPO / RGPD — DPIA · SPECs RGPD · Coverage · Angles morts · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <meta property="og:url" content="dpo.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="DPO / RGPD — aiad-sdd"/>
-<meta name="twitter:description" content="DPO / RGPD — DPIA · SPECs RGPD · Coverage · Angles morts · aiad-sdd · Santé 50/100 · Maturité 0/5"/>
+<meta name="twitter:description" content="DPO / RGPD — DPIA · SPECs RGPD · Coverage · Angles morts · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -33,11 +33,14 @@
   <div class="brand">
     <div class="brand-title">aiad-sdd</div>
     <div class="brand-sub">SDD Mode · Dashboard</div>
-    <div class="brand-version">v1.14.0</div>
+    <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
     </a></li>
     <li><a href="intents.html" class="">
       <span class="nav-icon">◇</span>Intents
@@ -84,7 +87,7 @@
     <li><a href="dpo.html" class="active">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 14/05/2026 05:07:31<br/>Framework AIAD v1.14.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 22/06/2026 11:41:13<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -93,8 +96,8 @@
       <div class="subtitle">DPIA · SPECs RGPD · Coverage · Angles morts</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 14/05/2026 05:07:31. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
-      <div class="meta">aiad-sdd · v1.14.0</div>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 11:41:13. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
       </button>
@@ -108,17 +111,32 @@
         </div>
       </section>
 <section>
-    <h2>Inventaire RGPD <span class="count">0 SPEC(s) · 6 fichier(s) code</span></h2>
+    <h2>Inventaire RGPD <span class="count">2 SPEC(s) · 10 fichier(s) code</span></h2>
     <div class="kpis">
-      <div class="kpi"><div class="label">SPECs <code>AIAD-RGPD</code></div><div class="value">0</div><div class="delta">déclarent gouvernance RGPD</div></div>
-      <div class="kpi"><div class="label">Fichiers annotés</div><div class="value">6</div><div class="delta"><code>@governance AIAD-RGPD</code></div></div>
-      <div class="kpi"><div class="label">Coverage</div><div class="value" style="font-size:1.5rem"><span class="badge">—</span></div><div class="delta">SPECs couvertes / actives</div></div>
+      <div class="kpi"><div class="label">SPECs <code>AIAD-RGPD</code></div><div class="value">2</div><div class="delta">déclarent gouvernance RGPD</div></div>
+      <div class="kpi"><div class="label">Fichiers annotés</div><div class="value">10</div><div class="delta"><code>@governance AIAD-RGPD</code></div></div>
+      <div class="kpi"><div class="label">Coverage</div><div class="value" style="font-size:1.5rem"><span class="badge badge-ok">100%</span></div><div class="delta">SPECs couvertes / actives</div></div>
     </div>
     
+      <details>
+        <summary><strong>SPECs déclarant <code>AIAD-RGPD</code></strong> (2)</summary>
+        <table>
+          <thead><tr><th>SPEC</th><th>Fichier</th><th>Statut</th></tr></thead>
+          <tbody><tr>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">.aiad/specs/SPEC-001-1-feedback-qualitatif.md</a></td>
+            <td class="muted">done</td>
+          </tr><tr>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-002-1-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-002-1-gouvernance-enforced.md">SPEC-002-1-gouvernance-enforced</a></td>
+            <td><a class="src-link" href="../.aiad/specs/SPEC-002-1-gouvernance-enforced.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-002-1-gouvernance-enforced.md">.aiad/specs/SPEC-002-1-gouvernance-enforced.md</a></td>
+            <td class="muted">done</td>
+          </tr></tbody>
+        </table>
+      </details>
     
       <details>
-        <summary><strong>Fichiers code annotés <code>@governance AIAD-RGPD</code></strong> (6)</summary>
-        <ul style="margin:.5rem 0;padding-left:1.2rem"><li><a class="src-link" href="../lib/dashboard/dpo.js" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/dpo.js">lib/dashboard/dpo.js</a></li><li><a class="src-link" href="../lib/dashboard/violations.js" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/violations.js">lib/dashboard/violations.js</a></li><li><a class="src-link" href="../lib/dinum.js" target="_blank" rel="noopener" title="Ouvrir lib/dinum.js">lib/dinum.js</a></li><li><a class="src-link" href="../lib/dpia.js" target="_blank" rel="noopener" title="Ouvrir lib/dpia.js">lib/dpia.js</a></li><li><a class="src-link" href="../lib/emit-rules.js" target="_blank" rel="noopener" title="Ouvrir lib/emit-rules.js">lib/emit-rules.js</a></li><li><a class="src-link" href="../lib/sdd-trace.js" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js">lib/sdd-trace.js</a></li></ul>
+        <summary><strong>Fichiers code annotés <code>@governance AIAD-RGPD</code></strong> (10)</summary>
+        <ul style="margin:.5rem 0;padding-left:1.2rem"><li><a class="src-link" href="../.aiad/hooks/veto.js" target="_blank" rel="noopener" title="Ouvrir .aiad/hooks/veto.js">.aiad/hooks/veto.js</a></li><li><a class="src-link" href="../lib/dashboard/dpo.js" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/dpo.js">lib/dashboard/dpo.js</a></li><li><a class="src-link" href="../lib/dashboard/violations.js" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/violations.js">lib/dashboard/violations.js</a></li><li><a class="src-link" href="../lib/dinum.js" target="_blank" rel="noopener" title="Ouvrir lib/dinum.js">lib/dinum.js</a></li><li><a class="src-link" href="../lib/dpia.js" target="_blank" rel="noopener" title="Ouvrir lib/dpia.js">lib/dpia.js</a></li><li><a class="src-link" href="../lib/emit-rules.js" target="_blank" rel="noopener" title="Ouvrir lib/emit-rules.js">lib/emit-rules.js</a></li><li><a class="src-link" href="../lib/feedback.js" target="_blank" rel="noopener" title="Ouvrir lib/feedback.js">lib/feedback.js</a></li><li><a class="src-link" href="../lib/sdd-trace.js" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js">lib/sdd-trace.js</a></li><li><a class="src-link" href="../lib/telemetry.js" target="_blank" rel="noopener" title="Ouvrir lib/telemetry.js">lib/telemetry.js</a></li><li><a class="src-link" href="../lib/veto.js" target="_blank" rel="noopener" title="Ouvrir lib/veto.js">lib/veto.js</a></li></ul>
       </details>
   </section>
 
