@@ -55,6 +55,20 @@ jobs:
       - name: Validate data.json against schema v2
         run: node scripts/validate-data-schema.js
 
+  rgesn-budgets:
+    name: budgets poids RGESN par page (SPEC-016-4)
+    runs-on: ubuntu-latest
+    needs: validate-schema
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Génère le dashboard
+        run: npx aiad-sdd dashboard --quiet
+      - name: Vérifie les budgets de poids RGESN
+        run: node scripts/check-page-budgets.js
+
   coverage:
     name: couverture (node 22 · seuils 75/70/65 % · badge)
     runs-on: ubuntu-latest

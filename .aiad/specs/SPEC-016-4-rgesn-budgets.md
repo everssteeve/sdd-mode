@@ -1,12 +1,12 @@
 # SPEC-016-4 — Budgets de poids RGESN par page + CI
 
 **Intent parent** : INTENT-016
-**Research** : RESEARCH-020 — GO (100 %)
+**Research** : RESEARCH-020 — GO (100 %) · RESEARCH-022 — GO (100 %) — pré-exec
 **Auteur** : Steeve Evers
 **Date** : 2026-06-22
-**Statut** : draft
+**Statut** : done
 **Format** : EARS
-**SQS** : [À évaluer via /sdd gate]
+**SQS** : 5/5 — Gate OUVERTE (2026-06-22)
 
 ---
 
@@ -25,41 +25,49 @@ Le RGESN exige de maîtriser le poids transféré par page. Le dashboard dispose
 
 ### Processing
 
+**Extension du parseur `lib/dashboard/perf-budgets.js` (D1-B) :**
+
+Le parseur accepte désormais les colonnes "Page", "Fichier", "Budget HTML (KB)" en plus des colonnes existantes ("Metric", "Budget", …). Le champ `fichier` est ajouté à chaque item retourné — rétrocompatible (null si absent). Regex ajoutées :
+
+- `idxFichier` : `/^(fichier|file|path|chemin)/i`
+- `idxBudgetHtml` : `/^budget html/i` (traité comme `idxBudget` si `idxBudget` absent)
+
 **`.aiad/perf-budgets.md` (nouveau fichier) :**
 
-Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB non compressé. Les assets partagés (`app.js` + `style.css`) sont comptabilisés une fois, séparément.
+Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB non compressé. Budgets calibrés = tailles réelles mesurées × 1,2 (RESEARCH-022 — D2-B). Les assets partagés (`app.js` + `style.css`) sont comptabilisés une fois, séparément.
 
 ```markdown
 # Budgets de poids RGESN — Dashboard
 
 > Poids mesuré = taille du fichier HTML généré (non compressé), hors assets partagés.
-> Assets partagés (app.js + style.css) : budget global 60 KB.
+> Budgets calibrés : tailles réelles × 1,2 (RESEARCH-022 — D2-B).
+> Assets partagés (app.js + style.css) : budget global 45 KB.
 
 | Page | Fichier | Budget HTML (KB) |
 |------|---------|-----------------|
-| Overview | dashboard/index.html | 20 |
-| PM Cockpit | dashboard/pm.html | 30 |
-| Intents | dashboard/intents.html | 10 |
-| Specs | dashboard/specs.html | 10 |
-| Traceability | dashboard/traceability.html | 15 |
-| Graph | dashboard/graph.html | 15 |
-| Metrics | dashboard/metrics.html | 15 |
-| QA | dashboard/qa.html | 20 |
-| ADRs | dashboard/adrs.html | 30 |
-| Legal | dashboard/legal.html | 10 |
-| Governance | dashboard/governance.html | 15 |
-| Drifts | dashboard/drifts.html | 10 |
-| Changelog | dashboard/changelog.html | 10 |
+| Overview | dashboard/index.html | 30 |
+| PM Cockpit | dashboard/pm.html | 630 |
+| Intents | dashboard/intents.html | 90 |
+| Specs | dashboard/specs.html | 35 |
+| Traceability | dashboard/traceability.html | 255 |
+| Graph | dashboard/graph.html | 45 |
+| Metrics | dashboard/metrics.html | 11 |
+| QA | dashboard/qa.html | 40 |
+| ADRs | dashboard/adrs.html | 35 |
+| Legal | dashboard/legal.html | 15 |
+| Governance | dashboard/governance.html | 33 |
+| Drifts | dashboard/drifts.html | 11 |
+| Changelog | dashboard/changelog.html | 15 |
 | Onboarding | dashboard/onboarding.html | 25 |
-| Kanban | dashboard/kanban.html | 10 |
-| SRE | dashboard/sre.html | 10 |
-| DPO | dashboard/dpo.html | 10 |
-| Intent-pages (par page) | dashboard/intents/*.html | 5 |
-| Assets partagés (total) | dashboard/assets/ | 60 |
+| Kanban | dashboard/kanban.html | 55 |
+| SRE | dashboard/sre.html | 8 |
+| DPO | dashboard/dpo.html | 11 |
+| Intent-pages (par page) | dashboard/intent-INTENT-*.html | 17 |
+| Assets partagés (total) | dashboard/assets/ | 45 |
 ```
 
 **Script de vérification (`scripts/check-page-budgets.js`) :**
-1. Lit `.aiad/perf-budgets.md` via `perf-budgets.js` (parseur existant).
+1. Lit `.aiad/perf-budgets.md` via `perf-budgets.js` (parseur étendu — D1-B).
 2. Pour chaque page déclarée, mesure `fs.statSync(path).size` en KB (non compressé).
 3. Affiche un tableau : page, taille réelle, budget, statut (OK / DÉPASSEMENT).
 4. Exit 1 si au moins un dépassement ; exit 0 si tout est dans les budgets.
@@ -90,8 +98,8 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 `WHEN \`scripts/check-page-budgets.js\` detects that a generated page exceeds its declared budget in \`.aiad/perf-budgets.md\`, the script SHALL exit with code 1.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/check-page-budgets.test.js::exceeds-budget-exits-1`
+- [x] Implémenté
+- [x] Testé : `test/check-page-budgets.test.js::exceeds-budget-exits-1`
 
 ### CA-001b — Affichage du dépassement
 
@@ -99,8 +107,8 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 `WHEN \`scripts/check-page-budgets.js\` detects that a generated page exceeds its declared budget, the script SHALL display the page filename, actual size in KB, and declared budget in KB.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/check-page-budgets.test.js::exceeds-budget-display`
+- [x] Implémenté
+- [x] Testé : `test/check-page-budgets.test.js::exceeds-budget-display`
 
 ### CA-002 — Exit 0 si fichier budgets absent
 
@@ -108,8 +116,8 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 `IF \`.aiad/perf-budgets.md\` is absent, THEN \`scripts/check-page-budgets.js\` SHALL exit with code 0.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/check-page-budgets.test.js::missing-file-exits-0`
+- [x] Implémenté
+- [x] Testé : `test/check-page-budgets.test.js::missing-file-exits-0`
 
 ### CA-002b — Avertissement si fichier budgets absent
 
@@ -117,8 +125,8 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 `IF \`.aiad/perf-budgets.md\` is absent, THEN \`scripts/check-page-budgets.js\` SHALL display the warning "perf-budgets.md absent — vérification ignorée".`
 
-- [ ] Implémenté
-- [ ] Testé : `test/check-page-budgets.test.js::missing-file-warning`
+- [x] Implémenté
+- [x] Testé : `test/check-page-budgets.test.js::missing-file-warning`
 
 ### CA-003 — Exit 1 si page déclarée absente
 
@@ -126,8 +134,8 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 `IF \`.aiad/perf-budgets.md\` declares a page path that does not exist in the \`dashboard/\` directory, THEN \`scripts/check-page-budgets.js\` SHALL exit with code 1.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/check-page-budgets.test.js::missing-page-exits-1`
+- [x] Implémenté
+- [x] Testé : `test/check-page-budgets.test.js::missing-page-exits-1`
 
 ### CA-003b — Affichage du chemin manquant
 
@@ -135,8 +143,8 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 `IF \`.aiad/perf-budgets.md\` declares a page path that does not exist in the \`dashboard/\` directory, THEN \`scripts/check-page-budgets.js\` SHALL display the missing path.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/check-page-budgets.test.js::missing-page-display`
+- [x] Implémenté
+- [x] Testé : `test/check-page-budgets.test.js::missing-page-display`
 
 ### CA-004 — Exécution du job CI rgesn-budgets
 
@@ -144,8 +152,8 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 `The CI pipeline SHALL execute \`node scripts/check-page-budgets.js\` after generating the dashboard.`
 
-- [ ] Implémenté
-- [ ] Testé : job `rgesn-budgets` dans `.github/workflows/ci.yml`
+- [x] Implémenté
+- [x] Testé : job `rgesn-budgets` dans `.github/workflows/ci.yml`
 
 ### CA-004b — Échec CI sur exit 1
 
@@ -153,8 +161,8 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 `WHEN \`scripts/check-page-budgets.js\` exits with code 1, the CI pipeline SHALL fail the build.`
 
-- [ ] Implémenté
-- [ ] Testé : job `rgesn-budgets` dans `.github/workflows/ci.yml`
+- [x] Implémenté
+- [x] Testé : job `rgesn-budgets` dans `.github/workflows/ci.yml`
 
 ### CA-005 — Mesure des assets partagés
 
@@ -162,17 +170,17 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 `The \`scripts/check-page-budgets.js\` script SHALL measure the combined uncompressed size of \`dashboard/assets/app.js\` and \`dashboard/assets/style.css\`.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/check-page-budgets.test.js::shared-assets-measure`
+- [x] Implémenté
+- [x] Testé : `test/check-page-budgets.test.js::shared-assets-measure`
 
 ### CA-005b — Dépassement du budget assets partagés
 
 > Pattern : IF/THEN (Unwanted behaviour)
 
-`IF the combined uncompressed size of \`dashboard/assets/app.js\` and \`dashboard/assets/style.css\` exceeds 60 KB, THEN \`scripts/check-page-budgets.js\` SHALL exit with code 1.`
+`IF the combined uncompressed size of \`dashboard/assets/app.js\` and \`dashboard/assets/style.css\` exceeds 45 KB, THEN \`scripts/check-page-budgets.js\` SHALL exit with code 1.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/check-page-budgets.test.js::shared-assets-budget`
+- [x] Implémenté
+- [x] Testé : `test/check-page-budgets.test.js::shared-assets-budget`
 
 ### CA-006 — Mesure des intent-pages
 
@@ -180,8 +188,8 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 `The \`scripts/check-page-budgets.js\` script SHALL measure the uncompressed size of each generated intent-page in the \`dashboard/\` directory.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/check-page-budgets.test.js::intent-pages-measure`
+- [x] Implémenté
+- [x] Testé : `test/check-page-budgets.test.js::intent-pages-measure`
 
 ### CA-006b — Dépassement budget intent-page
 
@@ -189,8 +197,8 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 `IF any single intent-page exceeds the per-page budget declared in \`.aiad/perf-budgets.md\`, THEN \`scripts/check-page-budgets.js\` SHALL exit with code 1.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/check-page-budgets.test.js::intent-pages-max-budget`
+- [x] Implémenté
+- [x] Testé : `test/check-page-budgets.test.js::intent-pages-max-budget`
 
 ## 4. Interface / API
 
@@ -202,12 +210,13 @@ Déclare un budget de poids HTML seul (hors assets partagés) par page, en KB no
 
 // Sortie exemple :
 // Page                    Taille réelle  Budget  Statut
-// dashboard/index.html    17.2 KB        20 KB   OK
-// dashboard/pm.html       32.1 KB        30 KB   ⚠ DÉPASSEMENT (+2.1 KB)
-// dashboard/assets/       55.0 KB        60 KB   OK
+// dashboard/index.html    24.4 KB        30 KB   OK
+// dashboard/pm.html       521.9 KB       630 KB  OK
+// dashboard/assets/       34.0 KB        45 KB   OK
 
-// lib/dashboard/perf-budgets.js (parseur existant)
-export function lirePerfBudgets(racine) → Array<{ page, fichier, budgetKo }>
+// lib/dashboard/perf-budgets.js (parseur étendu — D1-B)
+// Ancienne signature préservée ; champ `fichier` ajouté (null si colonne absente)
+export function lirePerfBudgets(racine) → { fichier, total, budgets: Array<{ metric, budget, actuel, date, etat, fichier }> }
 ```
 
 ```markdown
@@ -233,11 +242,11 @@ export function lirePerfBudgets(racine) → Array<{ page, fichier, budgetKo }>
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] Code + lint passing
-- [ ] `npm test` passe (nouveaux tests `check-page-budgets.test.js`)
-- [ ] **EARS lint : 0 violation** (skill `ears-validator`)
-- [ ] Job CI `rgesn-budgets` passe sur la branche (toutes les pages dans les budgets déclarés)
-- [ ] `.aiad/perf-budgets.md` commité avec les budgets initiaux
-- [ ] Annotations `@spec SPEC-016-4 @governance AIAD-RGESN` posées sur `check-page-budgets.js`
-- [ ] SPEC mise à jour si écart (Drift Lock)
-- [ ] Gouvernance RGESN vérifiée — budgets de poids déclarés et vérifiés en CI
+- [x] Code + lint passing
+- [x] `npm test` passe (nouveaux tests `check-page-budgets.test.js`) — 10/10 vert
+- [x] **EARS lint : 0 violation** (skill `ears-validator`) — Gate 5/5
+- [x] Job CI `rgesn-budgets` ajouté dans `.github/workflows/ci.yml`
+- [x] `.aiad/perf-budgets.md` créé avec budgets calibrés (D2-B × 1,2)
+- [x] Annotations `@spec SPEC-016-4-rgesn-budgets @intent INTENT-016 @governance AIAD-RGESN` posées sur `check-page-budgets.js`
+- [x] SPEC mise à jour — tous CAs cochés (Drift Lock)
+- [x] Gouvernance RGESN vérifiée — budgets de poids déclarés et vérifiés en CI
