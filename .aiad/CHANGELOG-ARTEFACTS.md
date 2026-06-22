@@ -17,6 +17,24 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-22 — INTENT-016 → done — Dashboard exemplaire (toutes SPECs clôturées)
+
+**Auteur** : Steeve Evers
+**Raison** : Clôture de l'intent après livraison des 4 SPECs. SPEC-016-1 et SPEC-016-2 livrées lors du commit `85b8415` et `0a186d4` — DoODs vérifiés rétrospectivement (lint ✓, tests ✓, coverage ✓). _index.md resté en `in-progress` par omission.
+**Impact** : INTENT-016 → `done` · SPEC-016-1 → `done` · SPEC-016-2 → `done` · _index.md synchronisé
+
+## 2026-06-22 — SPEC-016-1 → done — Architecture 4 couches (drift lock rétroactif)
+
+**Auteur** : Steeve Evers
+**Raison** : DoOD cochés rétrospectivement — livrables vérifiés : render.js 112 LOC, views/ ≤ 299 LOC, lint:size/esm/deps ✓, tests 3919 pass, coverage 92 %/83 %/91 %, cycle toléré documenté.
+**Impact** : `lib/dashboard/{model,views,ui}/` — 10 fichiers extraits de render.js
+
+## 2026-06-22 — SPEC-016-2 → done — Design system accessible + axe-core CI (drift lock rétroactif)
+
+**Auteur** : Steeve Evers
+**Raison** : DoODs déjà cochés dans la SPEC, statut `done`, _index.md resté en `in-progress` par omission.
+**Impact** : `lib/dashboard/assets.js`, `lib/dashboard/ui/sparklines.js`, job CI `a11y` — 0 violation WCAG2AA / 17 pages
+
 ## 2026-06-22 — SPEC-016-4 → done — Budgets de poids RGESN par page + CI
 
 **Auteur** : Steeve Evers

@@ -34,8 +34,8 @@
 | SPEC-015-3 | Matrice enforced/advisory machine-vérifiable + veto non-bypassable | INTENT-015 | EARS | 5.0 | done | #14 |
 | SPEC-024-1 | Exemption de traçabilité pour SPECs sans code applicatif (FACT-004) | INTENT-024 | EARS | 5.0 | done | — |
 | SPEC-025-1 | Correction du contraste `--gold-600` (`.kicker` + `.pill.gold`) | INTENT-025 | EARS | 5.0 | done (trace-exempt) | — |
-| SPEC-016-1 | Architecture 4 couches — collect / model / views / ui | INTENT-016 | prose | 5.0 | in-progress | — |
-| SPEC-016-2 | Design system accessible + axe-core en CI | INTENT-016 | EARS | 5/5 | in-progress | — |
+| SPEC-016-1 | Architecture 4 couches — collect / model / views / ui | INTENT-016 | prose | 5.0 | done | — |
+| SPEC-016-2 | Design system accessible + axe-core en CI | INTENT-016 | EARS | 5/5 | done | — |
 | SPEC-016-3 | data.json v2 versionné (JSON schema publié) | INTENT-016 | prose | 5/5 | done | — |
 | SPEC-016-4 | Budgets de poids RGESN par page + CI | INTENT-016 | EARS | 5/5 | done | — |
 

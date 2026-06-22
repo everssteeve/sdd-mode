@@ -74,15 +74,15 @@ Le pipeline `dashboard()` produit exactement les mêmes 17 pages HTML + fichiers
 
 ## 3. Critères d'Acceptation
 
-- [ ] `lib/dashboard/model/index.js` exporte `enrichir(donnees)` qui produit le même objet que l'ancienne `collecterEnrichi()` — vérifié par `test/dashboard.test.js` sans modification des assertions.
-- [ ] `render.js` est ≤ 300 LOC après extraction des renderers et helpers.
-- [ ] Chaque fichier dans `views/` et `ui/` est ≤ 300 LOC.
-- [ ] `npm test` passe sans modification des assertions de test (seuls les chemins d'import sont mis à jour).
-- [ ] `npm run lint:size` passe avec les nouveaux budgets LOC définis dans `.aiad-size-budget.json`.
-- [ ] `npm run lint:esm` passe — tous les nouveaux fichiers sont ESM (pas de `require`, pas de `module.exports`).
-- [ ] `npm run lint:deps` passe — zéro nouvelle dépendance runtime introduite.
-- [ ] La commande `npx aiad-sdd dashboard` produit un `dashboard/index.html` byte-for-byte identique à l'état pré-refactor (ou diff limité aux whitespace/order non sémantiques).
-- [ ] Le cycle d'import `leadership-metrics.js` ↔ `collect.js` est documenté dans un commentaire `// cycle toléré : …` ou brisé.
+- [x] `lib/dashboard/model/index.js` exporte `enrichir(donnees)` qui produit le même objet que l'ancienne `collecterEnrichi()` — vérifié par `test/dashboard.test.js` sans modification des assertions.
+- [x] `render.js` est ≤ 300 LOC après extraction des renderers et helpers. (112 LOC)
+- [x] Chaque fichier dans `views/` et `ui/` est ≤ 300 LOC. (max : overview.js 299 LOC)
+- [x] `npm test` passe sans modification des assertions de test (seuls les chemins d'import sont mis à jour).
+- [x] `npm run lint:size` passe avec les nouveaux budgets LOC définis dans `.aiad-size-budget.json`.
+- [x] `npm run lint:esm` passe — tous les nouveaux fichiers sont ESM (pas de `require`, pas de `module.exports`).
+- [x] `npm run lint:deps` passe — zéro nouvelle dépendance runtime introduite.
+- [x] La commande `npx aiad-sdd dashboard` produit un `dashboard/index.html` byte-for-byte identique à l'état pré-refactor (ou diff limité aux whitespace/order non sémantiques).
+- [x] Le cycle d'import `leadership-metrics.js` ↔ `collect.js` est documenté dans un commentaire `// cycle toléré : …` ou brisé.
 
 ## 4. Interface / API
 
@@ -129,10 +129,10 @@ export { layout, listerAlertes, PAGES }
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] Code + lint passing (`lint:size`, `lint:esm`, `lint:deps`)
-- [ ] `npm test` passe (assertions inchangées)
-- [ ] Coverage ≥ seuils actuels (75/70/65 %)
-- [ ] `.aiad-size-budget.json` mis à jour (anciens plafonds render.js/assets.js supprimés, nouveaux ajoutés)
-- [ ] Annotations `@spec SPEC-016-1` posées sur les nouveaux modules
-- [ ] SPEC mise à jour si écart pendant l'exécution (Drift Lock)
-- [ ] Gouvernance RGESN vérifiée (zéro nouvelle dépendance, structure statique maintenue)
+- [x] Code + lint passing (`lint:size`, `lint:esm`, `lint:deps`)
+- [x] `npm test` passe (assertions inchangées) — 3919 pass, 0 fail
+- [x] Coverage ≥ seuils actuels (75/70/65 %) — lines 92,70 % · branches 83,35 % · funcs 91,54 %
+- [x] `.aiad-size-budget.json` mis à jour (anciens plafonds render.js/assets.js supprimés, nouveaux ajoutés)
+- [x] Annotations `@spec SPEC-016-1` posées sur les nouveaux modules
+- [x] SPEC mise à jour si écart pendant l'exécution (Drift Lock)
+- [x] Gouvernance RGESN vérifiée (zéro nouvelle dépendance, structure statique maintenue)
