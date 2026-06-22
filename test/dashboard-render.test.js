@@ -4,6 +4,7 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import { pageMetrics, pageOverview, listerAlertes, freshnessBadge, blocQueueQa, kpiSbom, kpiSovereignty, kpiHookStats, kpiViolations, lienSource, setSourceBase, hrefSource, pageTraceability, pageChangelog } from '../lib/dashboard/render.js';
+import { sparkline } from '../lib/dashboard/ui/sparklines.js';
 
 function donneesVides() {
   return {
@@ -863,4 +864,38 @@ test('#313 hrefSource(file, ligne) → anchor #LNN ajouté', () => {
 test('#313 hrefSource(null) → chaîne vide', () => {
   assert.equal(hrefSource(null), '');
   assert.equal(hrefSource(''), '');
+});
+
+// SPEC-016-2 — CA-006 / CA-006b / CA-007 (sparklines accessibles)
+test('sparkline-role-img — SVG avec valeurs (CA-006)', () => {
+  const svg = sparkline([1, 2, 3]);
+  assert.ok(svg.includes('role="img"'), 'sparkline doit avoir role="img"');
+});
+
+test('sparkline-aria-label — aria-label non vide (CA-006b)', () => {
+  const svg = sparkline([10, 20], { label: 'Lead Time' });
+  assert.ok(svg.includes('aria-label="Lead Time"'), 'aria-label doit reprendre opts.label');
+});
+
+test('sparkline-aria-label-default — aria-label par défaut sans opts.label (CA-006b)', () => {
+  const svg = sparkline([5, 10]);
+  assert.ok(svg.includes('aria-label='), 'aria-label doit être présent même sans opts.label');
+  assert.ok(!svg.includes('aria-label=""'), 'aria-label ne doit pas être vide');
+});
+
+test('sparkline-empty-aria-label — valeurs vides → Données non disponibles (CA-007)', () => {
+  const svg = sparkline([]);
+  assert.ok(svg.includes('role="img"'), 'doit avoir role="img" même pour valeurs vides');
+  assert.ok(svg.includes('aria-label="Données non disponibles"'), 'doit avoir aria-label spécifique pour valeurs vides');
+});
+
+test('sparkline-null-aria-label — null → Données non disponibles (CA-007)', () => {
+  const svg = sparkline(null);
+  assert.ok(svg.includes('aria-label="Données non disponibles"'), 'null doit aussi produire Données non disponibles');
+});
+
+test('sparkline-single-value — 1 valeur → role+aria-label (CA-006/CA-006b)', () => {
+  const svg = sparkline([42], { label: 'CFR' });
+  assert.ok(svg.includes('role="img"'), 'doit avoir role="img" pour 1 valeur');
+  assert.ok(svg.includes('aria-label="CFR"'), 'doit avoir aria-label pour 1 valeur');
 });

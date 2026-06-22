@@ -2,16 +2,16 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-22T08:12:33.548Z"
+    "generated": "2026-06-22T10:16:25.600Z"
   },
-  "generatedAt": "2026-06-22T08:12:33.548Z",
+  "generatedAt": "2026-06-22T10:16:25.599Z",
   "summary": {
     "intents": 25,
-    "specs": 28,
-    "codeFiles": 364,
-    "annotatedCodeFiles": 50,
-    "testFiles": 250,
-    "annotatedTestFiles": 28
+    "specs": 32,
+    "codeFiles": 375,
+    "annotatedCodeFiles": 63,
+    "testFiles": 251,
+    "annotatedTestFiles": 29
   },
   "forward": [
     {
@@ -949,9 +949,141 @@
         "id": "INTENT-016-dashboard-fondations",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
         "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
-        "status": "draft"
+        "status": "active"
       },
-      "specs": []
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-016-1-architecture-4-couches",
+            "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+            "title": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
+            "parentIntent": "INTENT-016",
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/dashboard/model/index.js",
+              "line": 1
+            },
+            {
+              "path": "lib/dashboard/render.js",
+              "line": 1
+            },
+            {
+              "path": "lib/dashboard/ui/badges.js",
+              "line": 1
+            },
+            {
+              "path": "lib/dashboard/ui/helpers.js",
+              "line": 1
+            },
+            {
+              "path": "lib/dashboard/ui/sparklines.js",
+              "line": 1
+            },
+            {
+              "path": "lib/dashboard/views/changelog.js",
+              "line": 1
+            },
+            {
+              "path": "lib/dashboard/views/drifts.js",
+              "line": 1
+            },
+            {
+              "path": "lib/dashboard/views/intents.js",
+              "line": 1
+            },
+            {
+              "path": "lib/dashboard/views/metrics.js",
+              "line": 1
+            },
+            {
+              "path": "lib/dashboard/views/overview.js",
+              "line": 1
+            },
+            {
+              "path": "lib/dashboard/views/specs.js",
+              "line": 1
+            },
+            {
+              "path": "lib/dashboard/views/traceability.js",
+              "line": 1
+            }
+          ],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-016-2-design-system-rgaa",
+            "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+            "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
+            "parentIntent": "INTENT-016",
+            "status": "in-progress",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/dashboard/assets.js",
+              "line": 583
+            },
+            {
+              "path": "lib/dashboard/assets.js",
+              "line": 589
+            },
+            {
+              "path": "lib/dashboard/assets.js",
+              "line": 599
+            },
+            {
+              "path": "lib/dashboard/assets.js",
+              "line": 623
+            },
+            {
+              "path": "lib/dashboard/assets.js",
+              "line": 877
+            },
+            {
+              "path": "lib/dashboard/ui/sparklines.js",
+              "line": 1
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/dashboard-assets.test.js",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-016-3-data-json-v2",
+            "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
+            "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
+            "parentIntent": "INTENT-016",
+            "status": "draft",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-016-4-rgesn-budgets",
+            "file": ".aiad/specs/SPEC-016-4-rgesn-budgets.md",
+            "title": "SPEC-016-4 — Budgets de poids RGESN par page + CI",
+            "parentIntent": "INTENT-016",
+            "status": "draft",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [],
+          "tests": []
+        }
+      ]
     },
     {
       "intent": {
@@ -1060,7 +1192,7 @@
         "id": "INTENT-025-contraste-kicker",
         "file": ".aiad/intents/INTENT-025-contraste-kicker.md",
         "title": "Corriger le contraste des kickers et pills gold (WCAG 1.4.3)",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -1080,6 +1212,53 @@
     }
   ],
   "backward": [
+    {
+      "test": {
+        "path": "test/dashboard-assets.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-016-2-design-system-rgaa",
+        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+        "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
+        "parentIntent": "INTENT-016",
+        "status": "in-progress",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-016-dashboard-fondations",
+        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
+        "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 583
+        },
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 589
+        },
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 599
+        },
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 623
+        },
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 877
+        },
+        {
+          "path": "lib/dashboard/ui/sparklines.js",
+          "line": 1
+        }
+      ]
+    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -5354,12 +5533,6 @@
   "gaps": {
     "intentsSansSpec": [
       {
-        "id": "INTENT-016-dashboard-fondations",
-        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
-        "status": "draft"
-      },
-      {
         "id": "INTENT-017-dashboard-quotidien",
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
         "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
@@ -5873,11 +6046,11 @@
           "verifiedBy": [
             {
               "path": "dans",
-              "line": 176
+              "line": 181
             },
             {
               "path": "dans",
-              "line": 176
+              "line": 181
             }
           ],
           "governance": []
@@ -6220,17 +6393,6 @@
       },
       {
         "path": "lib/dashboard/ai-act-compliance.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/dashboard/assets.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -7460,17 +7622,6 @@
       },
       {
         "path": "lib/dashboard/refinement.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/dashboard/render.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -9376,6 +9527,286 @@
                 "AIAD-RGESN"
               ],
               "line": 60
+            }
+          ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/model/index.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-016",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-016-1-architecture-4-couches",
+              "line": 1
+            }
+          ],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/render.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-016",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-016-1-architecture-4-couches",
+              "line": 1
+            }
+          ],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/ui/badges.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-016",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-016-1-architecture-4-couches",
+              "line": 1
+            }
+          ],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/ui/helpers.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-016",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-016-1-architecture-4-couches",
+              "line": 1
+            }
+          ],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/views/changelog.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-016",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-016-1-architecture-4-couches",
+              "line": 1
+            }
+          ],
+          "verifiedBy": [],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-RGAA"
+              ],
+              "line": 3
+            }
+          ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/views/drifts.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-016",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-016-1-architecture-4-couches",
+              "line": 1
+            }
+          ],
+          "verifiedBy": [],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-RGAA"
+              ],
+              "line": 3
+            }
+          ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/views/intents.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-016",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-016-1-architecture-4-couches",
+              "line": 1
+            }
+          ],
+          "verifiedBy": [],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-RGAA"
+              ],
+              "line": 3
+            }
+          ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/views/metrics.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-016",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-016-1-architecture-4-couches",
+              "line": 1
+            }
+          ],
+          "verifiedBy": [],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-RGAA"
+              ],
+              "line": 3
+            }
+          ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/views/overview.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-016",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-016-1-architecture-4-couches",
+              "line": 1
+            }
+          ],
+          "verifiedBy": [],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-RGAA"
+              ],
+              "line": 3
+            }
+          ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/views/specs.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-016",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-016-1-architecture-4-couches",
+              "line": 1
+            }
+          ],
+          "verifiedBy": [],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-RGAA"
+              ],
+              "line": 3
+            }
+          ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/views/traceability.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-016",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-016-1-architecture-4-couches",
+              "line": 1
+            }
+          ],
+          "verifiedBy": [],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-RGAA"
+              ],
+              "line": 3
             }
           ]
         },

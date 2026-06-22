@@ -5,11 +5,12 @@
   --bg-nav: #0f172a;
   --bg-nav-active: #1e293b;
   --fg: #0f172a;
-  --fg-muted: #64748b;
+  --fg-muted: #475569;
   --fg-nav: #cbd5e1;
   --fg-nav-active: #f8fafc;
   --border: #e2e8f0;
   --accent: #2563eb;
+  --accent-fg: #ffffff;
   --ok-bg: #dcfce7;
   --ok-fg: #166534;
   --warn-bg: #fef3c7;
@@ -20,6 +21,10 @@
   --info-fg: #1e40af;
   --muted-bg: #e2e8f0;
   --muted-fg: #475569;
+  --muted: #717171;
+  --card-bg: var(--bg-alt);
+  --bg-soft: var(--bg);
+  --text-muted: var(--fg-muted);
   --code-bg: #f1f5f9;
 }
 /* Dark vars : appliquées soit via le réglage OS, soit via toggle manuel
@@ -36,6 +41,7 @@
     --fg-nav-active: #ffffff;
     --border: #1f2937;
     --accent: #60a5fa;
+    --accent-fg: #0f172a;
     --ok-bg: #14532d;
     --ok-fg: #bbf7d0;
     --warn-bg: #78350f;
@@ -46,6 +52,7 @@
     --info-fg: #bfdbfe;
     --muted-bg: #1f2937;
     --muted-fg: #cbd5e1;
+    --muted: #94a3b8;
     --code-bg: #1f2937;
   }
 }
@@ -60,6 +67,7 @@
   --fg-nav-active: #ffffff;
   --border: #1f2937;
   --accent: #60a5fa;
+  --accent-fg: #0f172a;
   --ok-bg: #14532d;
   --ok-fg: #bbf7d0;
   --warn-bg: #78350f;
@@ -70,6 +78,7 @@
   --info-fg: #bfdbfe;
   --muted-bg: #1f2937;
   --muted-fg: #cbd5e1;
+  --muted: #94a3b8;
   --code-bg: #1f2937;
 }
 * { box-sizing: border-box; }
@@ -468,6 +477,8 @@ hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
   border-radius: 8px;
   padding: 1rem 1.25rem;
 }
+/* CA-008b @spec SPEC-016-2-design-system-rgaa @governance AIAD-RGAA — override fg-muted inside colored blocks */
+.alertes .muted { color: currentColor; }
 .alertes .alertes-icon { font-size: 1.5rem; }
 .alertes-list {
   display: grid;
@@ -513,11 +524,11 @@ hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
   min-width: 1px;
 }
 .dist-seg:hover { filter: brightness(1.1); }
-.seg-ok { background: #16a34a; }
-.seg-info { background: #2563eb; }
-.seg-warn { background: #ea580c; }
-.seg-bad { background: #dc2626; }
-.seg-muted { background: #94a3b8; }
+.seg-ok { background: #008933; }
+.seg-info { background: #1d4ed8; }
+.seg-warn { background: #d14800; }
+.seg-bad { background: #b91c1c; }
+.seg-muted { background: #68778c; }
 .dist-leg {
   display: flex;
   flex-wrap: wrap;
@@ -573,8 +584,13 @@ td.rowspan {
   .src-link { display: none; }
 }
 
-/* Focus visible (a11y) */
-a:focus-visible, input:focus-visible, button:focus-visible, th:focus-visible {
-  outline: 2px solid var(--accent);
+/* Focus visible (a11y — CA-004 @spec SPEC-016-2-design-system-rgaa @governance AIAD-RGAA) */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* Mouvement réduit (CA-005 @spec SPEC-016-2-design-system-rgaa @governance AIAD-RGAA) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
 }

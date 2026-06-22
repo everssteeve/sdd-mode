@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T09:41:13.949Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T11:26:47.845Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>INTENT-016-dashboard-fondations — Dashboard exemplaire — fondations accessibles, sobres, maintenables — aiad-sdd</title>
-<meta name="description" content="INTENT-016-dashboard-fondations — Dashboard exemplaire — fondations accessibles, sobres, maintenables — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 76…"/>
+<meta name="description" content="INTENT-016-dashboard-fondations — Dashboard exemplaire — fondations accessibles, sobres, maintenables — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 65…"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="INTENT-016-dashboard-fondations — Dashboard exemplaire — fondations accessibles, sobres, maintenables — aiad-sdd"/>
-<meta property="og:description" content="INTENT-016-dashboard-fondations — Dashboard exemplaire — fondations accessibles, sobres, maintenables — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 76…"/>
+<meta property="og:description" content="INTENT-016-dashboard-fondations — Dashboard exemplaire — fondations accessibles, sobres, maintenables — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 65…"/>
 <meta property="og:url" content="index.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="INTENT-016-dashboard-fondations — Dashboard exemplaire — fondations accessibles, sobres, maintenables — aiad-sdd"/>
-<meta name="twitter:description" content="INTENT-016-dashboard-fondations — Dashboard exemplaire — fondations accessibles, sobres, maintenables — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 76…"/>
+<meta name="twitter:description" content="INTENT-016-dashboard-fondations — Dashboard exemplaire — fondations accessibles, sobres, maintenables — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 65…"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -87,7 +87,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 22/06/2026 11:41:13<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 22/06/2026 13:26:47<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +96,7 @@
       <div class="subtitle">Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 11:41:13. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 13:26:47. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -120,16 +120,16 @@
   <div class="ip-sections">
     <h2><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a> — Dashboard exemplaire — fondations accessibles, sobres, maintenables</h2>
     <section><h3>POURQUOI MAINTENANT</h3><div class="md-light"><p>Le dashboard ne satisfait pas le RGAA qu&#39;il impose au code des utilisateurs (#132 : 1 seul attribut ARIA, pas de <code>&lt;label&gt;</code>, pas d&#39;alt sur les sparklines). Et <code>render.js</code> (1 003 LOC) / <code>assets.js</code> (878 LOC) monolithiques rendent tout refactor « recentrage valeur » impraticable. Ces fondations sont le prérequis bloquant des <code>INTENT-017</code> et <code>INTENT-018</code>.</p></div></section><section><h3>POUR QUI</h3><div class="md-light"><p>Les équipes qui pilotent au quotidien, et nous-mêmes (dogfooding RGAA + RGESN).</p></div></section><section><h3>OBJECTIF</h3><div class="md-light"><ul><li>Architecture en 4 couches : <code>collect/</code> · <code>model/</code> · <code>views/</code> · <code>ui/</code>.</li><li>Design system <strong>RGAA AA</strong> vérifié par axe-core en CI (0 violation bloquante).</li><li><code>data.json</code> <strong>v2 versionné</strong> (schéma publié, documenté comme API).</li><li>Budget de poids <strong>RGESN</strong> par page généré, vérifié en CI.</li></ul></div></section><section><h3>CONTRAINTES</h3><div class="md-light"><ul><li>Rester <strong>statique-généré</strong> (pas de backend — c&#39;est un avantage compétitif).</li><li>Aucune régression de contenu pendant le refactor.</li></ul></div></section><section><h3>CRITÈRE DE DRIFT</h3><div class="md-light"><p>Une page générée échouant l&#39;audit axe-core AA, ou un dépassement de budget de poids non justifié → drift.</p></div></section>
-    <section><h3>SPECs liées</h3><p class="muted" style="font-size:.85rem">Avancement : <strong>0/4</strong> SPECs livrées (0 %), 1 en cours.</p><table><thead><tr><th>ID</th><th>Titre</th><th>Statut</th><th>SQS</th></tr></thead><tbody><tr>
+    <section><h3>SPECs liées</h3><p class="muted" style="font-size:.85rem">Avancement : <strong>1/4</strong> SPECs livrées (25 %), 1 en cours.</p><table><thead><tr><th>ID</th><th>Titre</th><th>Statut</th><th>SQS</th></tr></thead><tbody><tr>
       <td><a class="src-link" href="../.aiad/specs/SPEC-016-1-architecture-4-couches.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-1-architecture-4-couches.md">SPEC-016-1-architecture-4-couches</a></td>
       <td>SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)</td>
-      <td><span class="badge badge-info">in-progress</span></td>
+      <td><span class="badge badge-ok">done</span></td>
       <td class="muted">5.0</td>
     </tr><tr>
       <td><a class="src-link" href="../.aiad/specs/SPEC-016-2-design-system-rgaa.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-2-design-system-rgaa.md">SPEC-016-2-design-system-rgaa</a></td>
       <td>SPEC-016-2 — Design system accessible + axe-core en CI</td>
-      <td><span class="badge badge-warn">draft</span></td>
-      <td class="muted">[À évaluer via /sdd gate]</td>
+      <td><span class="badge badge-info">in-progress</span></td>
+      <td class="muted">5/5 — Gate OUVERTE (EARS 11/11 · Étranger PASS · 2026-06-22)</td>
     </tr><tr>
       <td><a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a></td>
       <td>SPEC-016-3 — data.json v2 versionné (JSON schema publié)</td>

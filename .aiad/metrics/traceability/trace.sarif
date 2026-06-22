@@ -101,25 +101,6 @@
           "ruleId": "AIAD-TRACE-001",
           "level": "warning",
           "message": {
-            "text": "Intent INTENT-016-dashboard-fondations (« Dashboard exemplaire — fondations accessibles, sobres, maintenables ») n'a pas de SPEC associée."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".aiad/intents/INTENT-016-dashboard-fondations.md"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-001",
-          "level": "warning",
-          "message": {
             "text": "Intent INTENT-017-dashboard-quotidien (« Vivre le projet au quotidien — Aujourd'hui, triage, digest ») n'a pas de SPEC associée."
           },
           "locations": [
@@ -1457,25 +1438,6 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "lib/dashboard/ai-act-compliance.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
-            "text": "Aucune annotation @spec dans lib/dashboard/assets.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/dashboard/assets.js"
                 },
                 "region": {
                   "startLine": 1
@@ -3509,25 +3471,6 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "lib/dashboard/refinement.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
-            "text": "Aucune annotation @spec dans lib/dashboard/render.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/dashboard/render.js"
                 },
                 "region": {
                   "startLine": 1
@@ -6556,12 +6499,221 @@
               }
             }
           ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/dashboard/model/index.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/model/index.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/dashboard/render.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/render.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/dashboard/ui/badges.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/ui/badges.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/dashboard/ui/helpers.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/ui/helpers.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/dashboard/views/changelog.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/views/changelog.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/dashboard/views/drifts.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/views/drifts.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/dashboard/views/intents.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/views/intents.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/dashboard/views/metrics.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/views/metrics.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/dashboard/views/overview.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/views/overview.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/dashboard/views/specs.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/views/specs.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/dashboard/views/traceability.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/views/traceability.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
         }
       ],
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-22T08:12:33.548Z"
+          "endTimeUtc": "2026-06-22T10:16:25.599Z"
         }
       ]
     }

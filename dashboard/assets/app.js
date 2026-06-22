@@ -2,6 +2,10 @@ function bindFilter(inputId, tableId) {
   var input = document.getElementById(inputId);
   var table = document.getElementById(tableId);
   if (!input || !table) return;
+  // CA-002 @spec SPEC-016-2-design-system-rgaa @governance AIAD-RGAA
+  if (!input.getAttribute('aria-label') && !document.querySelector('[for="' + inputId + '"]')) {
+    input.setAttribute('aria-label', input.getAttribute('placeholder') || 'Filtrer');
+  }
   input.addEventListener('input', function () {
     var q = input.value.toLowerCase();
     var rows = table.tBodies[0].rows;
@@ -22,6 +26,10 @@ function bindFilter(inputId, tableId) {
 // dates / nombres avec mise en forme HTML), sinon textContent.
 function bindSortable(table) {
   var ths = table.tHead ? table.tHead.rows[0].cells : [];
+  // CA-003b @spec SPEC-016-2-design-system-rgaa @governance AIAD-RGAA
+  for (var k = 0; k < ths.length; k++) {
+    if (!ths[k].getAttribute('scope')) ths[k].setAttribute('scope', 'col');
+  }
   for (var i = 0; i < ths.length; i++) {
     (function (col) {
       ths[col].addEventListener('click', function () {
@@ -272,6 +280,22 @@ function bindPmFilterChips() {
   });
 }
 
+// CA-003/CA-003b @spec SPEC-016-2-design-system-rgaa @governance AIAD-RGAA
+function initA11yTables() {
+  var tables = document.querySelectorAll('table');
+  tables.forEach(function (t) {
+    var ths = t.tHead && t.tHead.rows[0] ? Array.prototype.slice.call(t.tHead.rows[0].cells) : [];
+    ths.forEach(function (th) {
+      if (th.tagName === 'TH' && !th.getAttribute('scope')) th.setAttribute('scope', 'col');
+    });
+    if (!t.querySelector('caption')) {
+      var cap = document.createElement('caption');
+      cap.textContent = t.getAttribute('data-a11y-caption') || 'Tableau de données';
+      t.insertBefore(cap, t.firstChild);
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   var inputs = document.querySelectorAll('[data-filter-target]');
   inputs.forEach(function (inp) {
@@ -279,6 +303,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   var sortables = document.querySelectorAll('table[data-sortable="true"]');
   sortables.forEach(bindSortable);
+  initA11yTables();
   bindThemeToggle();
   autoTagIds();     // (#182) annote les IDs avant le binding
   bindCopyOnClick();

@@ -1,0 +1,267 @@
+{
+  "date": "2026-06-22",
+  "intents": [
+    {
+      "id": "INTENT-001-feedback-qualitatif",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-002-gouvernance-enforced",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-003-research-phase",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-004-execution-phasee",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-005-context-pull",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-006-canary-suite",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-007-memory-native",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-008-cycle-graph",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-009-observabilite-native",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-010-cross-model-review",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-011-distribution-plugin-goal",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-012-garde-fous",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-013-zero-drift-sur-soi",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-014-empirisme-prouve",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-015-sobriete-cli",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-016-dashboard-fondations",
+      "statut": "active"
+    },
+    {
+      "id": "INTENT-017-dashboard-quotidien",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-018-valeur-boussole",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-019-verification-first",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-020-spec-anchored-deltas",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-021-empreinte-mesuree",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-022-dogfooding-cli",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-023-rayonnement-honnete",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-024-trace-exemption-specs-sans-code",
+      "statut": "done"
+    },
+    {
+      "id": "INTENT-025-contraste-kicker",
+      "statut": "done"
+    }
+  ],
+  "specs": [
+    {
+      "id": "SPEC-001-1-feedback-qualitatif",
+      "statut": "done",
+      "parentIntent": "INTENT-001"
+    },
+    {
+      "id": "SPEC-002-1-gouvernance-enforced",
+      "statut": "done",
+      "parentIntent": "INTENT-002"
+    },
+    {
+      "id": "SPEC-003-1-research-phase",
+      "statut": "done",
+      "parentIntent": "INTENT-003"
+    },
+    {
+      "id": "SPEC-004-1-execution-phasee",
+      "statut": "done",
+      "parentIntent": "INTENT-004"
+    },
+    {
+      "id": "SPEC-005-1-context-pull",
+      "statut": "done",
+      "parentIntent": "INTENT-005"
+    },
+    {
+      "id": "SPEC-006-1-canary-suite",
+      "statut": "done",
+      "parentIntent": "INTENT-006"
+    },
+    {
+      "id": "SPEC-007-1-memory-native",
+      "statut": "done",
+      "parentIntent": "INTENT-007"
+    },
+    {
+      "id": "SPEC-008-1-cycle-graph",
+      "statut": "done",
+      "parentIntent": "INTENT-008"
+    },
+    {
+      "id": "SPEC-009-1-observabilite-native",
+      "statut": "done",
+      "parentIntent": "INTENT-009"
+    },
+    {
+      "id": "SPEC-010-1-cross-model-review",
+      "statut": "done",
+      "parentIntent": "INTENT-010"
+    },
+    {
+      "id": "SPEC-011-1-hooks-toggles",
+      "statut": "done",
+      "parentIntent": "INTENT-011"
+    },
+    {
+      "id": "SPEC-012-1-garde-fous",
+      "statut": "done",
+      "parentIntent": "INTENT-012"
+    },
+    {
+      "id": "SPEC-013-1-deploiement-site-valeurs",
+      "statut": "split",
+      "parentIntent": "INTENT-013"
+    },
+    {
+      "id": "SPEC-013-1a-deploiement-site",
+      "statut": "done",
+      "parentIntent": "INTENT-013"
+    },
+    {
+      "id": "SPEC-013-1b-unification-7-valeurs",
+      "statut": "archived",
+      "parentIntent": "INTENT-013"
+    },
+    {
+      "id": "SPEC-013-2-unification-docs-racine",
+      "statut": "done",
+      "parentIntent": "INTENT-013"
+    },
+    {
+      "id": "SPEC-013-3-sync-version-zones-marquees",
+      "statut": "done",
+      "parentIntent": "INTENT-013"
+    },
+    {
+      "id": "SPEC-013-4-deploy-site-workflow",
+      "statut": "split",
+      "parentIntent": "INTENT-013"
+    },
+    {
+      "id": "SPEC-013-4a-deploy-workflow",
+      "statut": "done",
+      "parentIntent": "INTENT-013"
+    },
+    {
+      "id": "SPEC-013-4b-gate-rgaa",
+      "statut": "done",
+      "parentIntent": "INTENT-013"
+    },
+    {
+      "id": "SPEC-014-1-gates-bloquants-badge",
+      "statut": "done (pr #5 mergée 2026-06-16 — drift lock ok)",
+      "parentIntent": "INTENT-014"
+    },
+    {
+      "id": "SPEC-014-2-sourcing-claims",
+      "statut": "done (pr #6 mergée 2026-06-16 — drift lock ok)",
+      "parentIntent": "INTENT-014"
+    },
+    {
+      "id": "SPEC-015-1-telemetrie-usage",
+      "statut": "done",
+      "parentIntent": "INTENT-015"
+    },
+    {
+      "id": "SPEC-015-2-1-registre-commandes",
+      "statut": "done",
+      "parentIntent": "INTENT-015"
+    },
+    {
+      "id": "SPEC-015-2-2-cycle-depreciation",
+      "statut": "done",
+      "parentIntent": "INTENT-015"
+    },
+    {
+      "id": "SPEC-015-3-matrice-garde-fous",
+      "statut": "done",
+      "parentIntent": "INTENT-015"
+    },
+    {
+      "id": "SPEC-016-1-architecture-4-couches",
+      "statut": "done",
+      "parentIntent": "INTENT-016"
+    },
+    {
+      "id": "SPEC-016-2-design-system-rgaa",
+      "statut": "in-progress",
+      "parentIntent": "INTENT-016"
+    },
+    {
+      "id": "SPEC-016-3-data-json-v2",
+      "statut": "draft",
+      "parentIntent": "INTENT-016"
+    },
+    {
+      "id": "SPEC-016-4-rgesn-budgets",
+      "statut": "draft",
+      "parentIntent": "INTENT-016"
+    },
+    {
+      "id": "SPEC-024-1-trace-exemption",
+      "statut": "done",
+      "parentIntent": "INTENT-024"
+    },
+    {
+      "id": "SPEC-025-1-gold-contrast-fix",
+      "statut": "done",
+      "parentIntent": "INTENT-025"
+    }
+  ]
+}

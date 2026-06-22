@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T09:41:13.949Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T11:26:47.845Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Quality Assurance — aiad-sdd</title>
-<meta name="description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
+<meta name="description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Quality Assurance — aiad-sdd"/>
-<meta property="og:description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
+<meta property="og:description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
 <meta property="og:url" content="qa.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Quality Assurance — aiad-sdd"/>
-<meta name="twitter:description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 76/100 · Maturité 3/5"/>
+<meta name="twitter:description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -87,7 +87,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 22/06/2026 11:41:13<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 22/06/2026 13:26:47<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +96,7 @@
       <div class="subtitle">Queue, coverage, audit, EARS lint, régressions</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 11:41:13. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 13:26:47. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -132,7 +132,7 @@
     </div>
     <div class="kpi">
       <div class="label">Tests ajoutés cette semaine</div>
-      <div class="value">9</div>
+      <div class="value">11</div>
       <div class="delta">fichiers .test/.spec mtime &lt; 7j</div>
     </div>
   </div>
@@ -140,9 +140,13 @@
 <section>
   <h2>Queue QA — SPECs ready sans tests <span class="count">6 ouverture(s)</span></h2>
   <div class="filter"><input type="search" id="qQaQueue" data-filter-target="tQaQueue" placeholder="Filtrer la queue QA…" autocomplete="off"/></div>
-      <table id="tQaQueue" data-sortable="true">
+      <table id="tQaQueue" data-sortable="true" data-a11y-caption="Queue QA — SPECs en attente de validation">
         <thead><tr><th>ID</th><th>Titre</th><th>Statut</th><th>Intent</th><th>Fichiers code</th></tr></thead>
         <tbody>
+    <tr><td><a class="src-link" href="../.aiad/specs/SPEC-016-1-architecture-4-couches.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-1-architecture-4-couches.md">SPEC-016-1-architecture-4-couches</a></td><td>SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)</td>
+    <td><span class="badge badge-ok">done</span></td>
+    <td><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></td>
+    <td class="muted">12</td></tr>
     <tr><td><a class="src-link" href="../.aiad/specs/SPEC-013-4a-deploy-workflow.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-4a-deploy-workflow.md">SPEC-013-4a-deploy-workflow</a></td><td>Workflow de déploiement site/ → gh-pages + gate version</td>
     <td><span class="badge badge-ok">done</span></td>
     <td><a class="src-link" href="../.aiad/intents/INTENT-013-zero-drift-sur-soi.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-013-zero-drift-sur-soi.md">INTENT-013-zero-drift-sur-soi</a></td>
@@ -162,11 +166,7 @@
     <tr><td><a class="src-link" href="../.aiad/specs/SPEC-025-1-gold-contrast-fix.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-025-1-gold-contrast-fix.md">SPEC-025-1-gold-contrast-fix</a></td><td>Correction du contraste --gold-600 (.kicker + .pill.gold)</td>
     <td><span class="badge badge-ok">done</span></td>
     <td><a class="src-link" href="../.aiad/intents/INTENT-025-contraste-kicker.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-025-contraste-kicker.md">INTENT-025-contraste-kicker</a></td>
-    <td class="muted">0</td></tr>
-    <tr><td><a class="src-link" href="../.aiad/specs/SPEC-016-1-architecture-4-couches.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-1-architecture-4-couches.md">SPEC-016-1-architecture-4-couches</a></td><td>SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)</td>
-    <td><span class="badge badge-info">in-progress</span></td>
-    <td><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></td>
-    <td class="muted">12</td></tr></tbody>
+    <td class="muted">0</td></tr></tbody>
       </table>
 </section>
 
@@ -174,7 +174,7 @@
   <h2>Coverage par SPEC <span class="count">32 SPEC(s)</span></h2>
   <p class="muted">Coverage heuristique (ratio tests/code). Pour un coverage réel, écris <code>.aiad/metrics/tests/coverage-summary.json</code> en sortie de c8/istanbul.</p>
   <div class="filter"><input type="search" id="qQaCoverage" data-filter-target="tQaCoverage" placeholder="Filtrer par ID, titre, bande…" autocomplete="off"/></div>
-      <table id="tQaCoverage" data-sortable="true">
+      <table id="tQaCoverage" data-sortable="true" data-a11y-caption="Couverture EARS par SPEC">
         <thead><tr><th>ID</th><th>Titre</th><th>Code</th><th>Tests</th><th>Couverture</th><th>Source</th></tr></thead>
         <tbody><tr><td><a class="src-link" href="../.aiad/specs/SPEC-013-4-deploy-site-workflow.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-4-deploy-site-workflow.md">SPEC-013-4-deploy-site-workflow</a></td><td>Workflow de déploiement site/ → gh-pages (gate version + RGAA)</td>
       <td class="muted">3</td><td class="muted">0</td>
@@ -188,6 +188,9 @@
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-016-1-architecture-4-couches.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-1-architecture-4-couches.md">SPEC-016-1-architecture-4-couches</a></td><td>SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)</td>
       <td class="muted">12</td><td class="muted">0</td>
       <td><span class="badge bad">0%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-016-2-design-system-rgaa.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-2-design-system-rgaa.md">SPEC-016-2-design-system-rgaa</a></td><td>SPEC-016-2 — Design system accessible + axe-core en CI</td>
+      <td class="muted">10</td><td class="muted">2</td>
+      <td><span class="badge warn">20%</span></td>
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td><td>Feedback qualitatif opt-in — commande CLI et invitation périodique</td>
       <td class="muted">5</td><td class="muted">18</td>
       <td><span class="badge ok">360%</span></td>
@@ -260,9 +263,6 @@
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-013-2-unification-docs-racine.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-2-unification-docs-racine.md">SPEC-013-2-unification-docs-racine</a></td><td>Unification des docs racine + archivage de SDDMode.md</td>
       <td class="muted">0</td><td class="muted">0</td>
       <td><span class="badge ">—</span></td>
-      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-016-2-design-system-rgaa.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-2-design-system-rgaa.md">SPEC-016-2-design-system-rgaa</a></td><td>SPEC-016-2 — Design system accessible + axe-core en CI</td>
-      <td class="muted">0</td><td class="muted">0</td>
-      <td><span class="badge ">—</span></td>
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a></td><td>SPEC-016-3 — data.json v2 versionné (JSON schema publié)</td>
       <td class="muted">0</td><td class="muted">0</td>
       <td><span class="badge ">—</span></td>
@@ -279,7 +279,7 @@
 <section>
   <h2>EARS lint <span class="count">8 SPEC(s) EARS · 6 à re-linter</span></h2>
   <div class="filter"><input type="search" id="qQaEars" data-filter-target="tQaEars" placeholder="Filtrer par ID, titre, SQS…" autocomplete="off"/></div>
-      <table id="tQaEars" data-sortable="true">
+      <table id="tQaEars" data-sortable="true" data-a11y-caption="SPECs EARS — résultats du lint">
         <thead><tr><th>ID</th><th>Titre</th><th>SQS</th><th>Lint</th></tr></thead>
         <tbody>
     <tr><td><a class="src-link" href="../.aiad/specs/SPEC-015-1-telemetrie-usage.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-1-telemetrie-usage.md">SPEC-015-1-telemetrie-usage</a></td><td>SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in)</td>
@@ -310,10 +310,12 @@
 </section>
 
 <section>
-  <h2>Tests ajoutés cette semaine <span class="count">9 fichier(s)</span></h2>
+  <h2>Tests ajoutés cette semaine <span class="count">11 fichier(s)</span></h2>
   <table data-sortable="true">
         <thead><tr><th>Fichier</th><th>Modifié</th></tr></thead>
         <tbody>
+    <tr><td><a class="src-link" href="../test/dashboard-render.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-render.test.js">test/dashboard-render.test.js</a></td><td class="muted">22/06/2026 12:13:22</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard-assets.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-assets.test.js">test/dashboard-assets.test.js</a></td><td class="muted">22/06/2026 12:12:59</td></tr>
     <tr><td><a class="src-link" href="../test/docs-dora-flow.test.js" target="_blank" rel="noopener" title="Ouvrir test/docs-dora-flow.test.js">test/docs-dora-flow.test.js</a></td><td class="muted">22/06/2026 11:39:59</td></tr>
     <tr><td><a class="src-link" href="../test/trace.test.js" target="_blank" rel="noopener" title="Ouvrir test/trace.test.js">test/trace.test.js</a></td><td class="muted">19/06/2026 15:56:27</td></tr>
     <tr><td><a class="src-link" href="../test/guardrails.test.js" target="_blank" rel="noopener" title="Ouvrir test/guardrails.test.js">test/guardrails.test.js</a></td><td class="muted">19/06/2026 15:19:45</td></tr>

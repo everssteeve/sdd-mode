@@ -96,6 +96,25 @@ jobs:
             console.log('Tarball propre — ' + files.length + ' fichiers.');
           "
 
+  a11y:
+    name: audit WCAG2AA pa11y-ci (17 pages dashboard)
+    runs-on: ubuntu-latest
+    needs: test
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install deps
+        run: npm install
+      - name: Génère le dashboard + lance le serveur HTTP (port 8765)
+        run: node bin/aiad-sdd.js dashboard --serve --port 8765 &
+      - name: Attend que le serveur soit prêt
+        run: npx wait-on http://localhost:8765/index.html --timeout 30000
+      - name: Audit WCAG2AA — échoue sur toute violation (CA-001b)
+        run: npx pa11y-ci --config .pa11yci.json
+
   reproducibility:
     name: build reproductible (content hash cross-Node)
     runs-on: ubuntu-latest

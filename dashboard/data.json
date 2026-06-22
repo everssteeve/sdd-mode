@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.18.0",
-    "generated": "2026-06-22T09:41:13.949Z",
+    "generated": "2026-06-22T11:26:47.845Z",
     "slim": true
   },
   "projet": {
     "nom": "aiad-sdd",
     "version": "1.18.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd",
-    "genere": "2026-06-22T09:41:13.949Z"
+    "genere": "2026-06-22T11:26:47.845Z"
   },
   "fondamentaux": [
     {
@@ -787,28 +787,28 @@
       "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
       "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
       "parentIntent": "INTENT-016",
-      "statut": "in-progress",
+      "statut": "done",
       "format": "prose",
       "sqs": "5.0",
       "governance": null,
       "parallelWith": [],
       "auteur": "Steeve Evers",
       "date": "2026-06-22",
-      "mtime": 1782118415124.3298
+      "mtime": 1782121972926.8994
     },
     {
       "id": "SPEC-016-2-design-system-rgaa",
       "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
       "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
       "parentIntent": "INTENT-016",
-      "statut": "draft",
+      "statut": "in-progress",
       "format": "ears",
-      "sqs": "[À évaluer via /sdd gate]",
+      "sqs": "5/5 — Gate OUVERTE (EARS 11/11 · Étranger PASS · 2026-06-22)",
       "governance": null,
       "parallelWith": [],
       "auteur": "Steeve Evers",
       "date": "2026-06-22",
-      "mtime": 1782117279727.7375
+      "mtime": 1782123364438.0588
     },
     {
       "id": "SPEC-016-3-data-json-v2",
@@ -1205,14 +1205,14 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-06-22T09:41:13.976Z",
+    "generatedAt": "2026-06-22T11:26:47.870Z",
     "summary": {
       "intents": 25,
       "specs": 32,
       "codeFiles": 375,
-      "annotatedCodeFiles": 62,
-      "testFiles": 250,
-      "annotatedTestFiles": 28
+      "annotatedCodeFiles": 63,
+      "testFiles": 251,
+      "annotatedTestFiles": 29
     },
     "forward": [
       {
@@ -2159,13 +2159,17 @@
               "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
               "title": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
               "parentIntent": "INTENT-016",
-              "status": "in-progress",
+              "status": "done",
               "traceability": "",
               "traceabilityReason": ""
             },
             "code": [
               {
                 "path": "lib/dashboard/model/index.js",
+                "line": 1
+              },
+              {
+                "path": "lib/dashboard/render.js",
                 "line": 1
               },
               {
@@ -2207,10 +2211,6 @@
               {
                 "path": "lib/dashboard/views/traceability.js",
                 "line": 1
-              },
-              {
-                "path": "lib/dashboard/render.js",
-                "line": 1
               }
             ],
             "tests": []
@@ -2221,12 +2221,63 @@
               "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
               "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
               "parentIntent": "INTENT-016",
-              "status": "draft",
+              "status": "in-progress",
               "traceability": "",
               "traceabilityReason": ""
             },
-            "code": [],
-            "tests": []
+            "code": [
+              {
+                "path": "dashboard/assets/app.js",
+                "line": 5
+              },
+              {
+                "path": "dashboard/assets/app.js",
+                "line": 29
+              },
+              {
+                "path": "dashboard/assets/app.js",
+                "line": 283
+              },
+              {
+                "path": "lib/dashboard/assets.js",
+                "line": 487
+              },
+              {
+                "path": "lib/dashboard/assets.js",
+                "line": 594
+              },
+              {
+                "path": "lib/dashboard/assets.js",
+                "line": 600
+              },
+              {
+                "path": "lib/dashboard/assets.js",
+                "line": 610
+              },
+              {
+                "path": "lib/dashboard/assets.js",
+                "line": 634
+              },
+              {
+                "path": "lib/dashboard/assets.js",
+                "line": 888
+              },
+              {
+                "path": "lib/dashboard/ui/sparklines.js",
+                "line": 1
+              }
+            ],
+            "tests": [
+              {
+                "path": "test/dashboard-assets.test.js",
+                "line": 1
+              },
+              {
+                "path": "dans",
+                "line": 189,
+                "viaCode": true
+              }
+            ]
           },
           {
             "spec": {
@@ -2383,6 +2434,69 @@
       }
     ],
     "backward": [
+      {
+        "test": {
+          "path": "test/dashboard-assets.test.js",
+          "line": 1
+        },
+        "spec": {
+          "id": "SPEC-016-2-design-system-rgaa",
+          "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
+          "parentIntent": "INTENT-016",
+          "status": "in-progress",
+          "traceability": "",
+          "traceabilityReason": ""
+        },
+        "intent": {
+          "id": "INTENT-016-dashboard-fondations",
+          "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
+          "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
+          "status": "active"
+        },
+        "code": [
+          {
+            "path": "dashboard/assets/app.js",
+            "line": 5
+          },
+          {
+            "path": "dashboard/assets/app.js",
+            "line": 29
+          },
+          {
+            "path": "dashboard/assets/app.js",
+            "line": 283
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 487
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 594
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 600
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 610
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 634
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 888
+          },
+          {
+            "path": "lib/dashboard/ui/sparklines.js",
+            "line": 1
+          }
+        ]
+      },
       {
         "test": {
           "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -3565,15 +3679,6 @@
         "spec": null,
         "intent": null,
         "code": []
-      },
-      {
-        "test": {
-          "path": "test/dashboard-pm-v45.test.js",
-          "line": 0
-        },
-        "spec": null,
-        "intent": null,
-        "code": []
       }
     ],
     "gaps": {
@@ -4084,26 +4189,6 @@
           "annotated": true
         },
         {
-          "path": "dashboard/assets/app.js",
-          "isTest": false,
-          "annotations": {
-            "intents": [],
-            "specs": [],
-            "verifiedBy": [
-              {
-                "path": "dans",
-                "line": 176
-              },
-              {
-                "path": "dans",
-                "line": 176
-              }
-            ],
-            "governance": []
-          },
-          "annotated": true
-        },
-        {
           "path": "docs/_config.yml",
           "isTest": false,
           "annotations": {
@@ -4439,17 +4524,6 @@
         },
         {
           "path": "lib/dashboard/ai-act-compliance.js",
-          "isTest": false,
-          "annotations": {
-            "intents": [],
-            "specs": [],
-            "verifiedBy": [],
-            "governance": []
-          },
-          "annotated": false
-        },
-        {
-          "path": "lib/dashboard/assets.js",
           "isTest": false,
           "annotations": {
             "intents": [],
@@ -4843,11 +4917,135 @@
             "governance": []
           },
           "annotated": false
+        },
+        {
+          "path": "lib/dashboard/dpo.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 7
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 37
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 147
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 164
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 173
+              },
+              {
+                "tags": [
+                  "AIAD-RGPD"
+                ],
+                "line": 176
+              }
+            ]
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/dashboard/edge-cases.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
         }
       ],
       "codeSansTests": [
         {
+          "path": ".github/workflows/site-deploy.yml",
+          "isTest": false,
+          "annotations": {
+            "intents": [
+              {
+                "id": "INTENT-013",
+                "line": 1
+              }
+            ],
+            "specs": [
+              {
+                "id": "SPEC-013-4",
+                "line": 2
+              },
+              {
+                "id": "SPEC-013-4",
+                "line": 3
+              },
+              {
+                "id": "SPEC-013-4",
+                "line": 59
+              }
+            ],
+            "verifiedBy": [],
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-RGAA",
+                  "AIAD-RGESN"
+                ],
+                "line": 4
+              },
+              {
+                "tags": [
+                  "AIAD-RGAA",
+                  "AIAD-RGESN"
+                ],
+                "line": 60
+              }
+            ]
+          },
+          "annotated": true
+        },
+        {
           "path": "lib/dashboard/model/index.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [
+              {
+                "id": "INTENT-016",
+                "line": 2
+              }
+            ],
+            "specs": [
+              {
+                "id": "SPEC-016-1-architecture-4-couches",
+                "line": 1
+              }
+            ],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": true
+        },
+        {
+          "path": "lib/dashboard/render.js",
           "isTest": false,
           "annotations": {
             "intents": [
@@ -4910,27 +5108,6 @@
           "annotated": true
         },
         {
-          "path": "lib/dashboard/ui/sparklines.js",
-          "isTest": false,
-          "annotations": {
-            "intents": [
-              {
-                "id": "INTENT-016",
-                "line": 2
-              }
-            ],
-            "specs": [
-              {
-                "id": "SPEC-016-1-architecture-4-couches",
-                "line": 1
-              }
-            ],
-            "verifiedBy": [],
-            "governance": []
-          },
-          "annotated": true
-        },
-        {
           "path": "lib/dashboard/views/changelog.js",
           "isTest": false,
           "annotations": {
@@ -4947,7 +5124,14 @@
               }
             ],
             "verifiedBy": [],
-            "governance": []
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-RGAA"
+                ],
+                "line": 3
+              }
+            ]
           },
           "annotated": true
         },
@@ -4968,7 +5152,14 @@
               }
             ],
             "verifiedBy": [],
-            "governance": []
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-RGAA"
+                ],
+                "line": 3
+              }
+            ]
           },
           "annotated": true
         },
@@ -4989,7 +5180,14 @@
               }
             ],
             "verifiedBy": [],
-            "governance": []
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-RGAA"
+                ],
+                "line": 3
+              }
+            ]
           },
           "annotated": true
         },
@@ -5010,7 +5208,14 @@
               }
             ],
             "verifiedBy": [],
-            "governance": []
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-RGAA"
+                ],
+                "line": 3
+              }
+            ]
           },
           "annotated": true
         },
@@ -5031,7 +5236,14 @@
               }
             ],
             "verifiedBy": [],
-            "governance": []
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-RGAA"
+                ],
+                "line": 3
+              }
+            ]
           },
           "annotated": true
         },
@@ -5052,7 +5264,14 @@
               }
             ],
             "verifiedBy": [],
-            "governance": []
+            "governance": [
+              {
+                "tags": [
+                  "AIAD-RGAA"
+                ],
+                "line": 3
+              }
+            ]
           },
           "annotated": true
         },
@@ -5073,72 +5292,14 @@
               }
             ],
             "verifiedBy": [],
-            "governance": []
-          },
-          "annotated": true
-        },
-        {
-          "path": ".github/workflows/site-deploy.yml",
-          "isTest": false,
-          "annotations": {
-            "intents": [
-              {
-                "id": "INTENT-013",
-                "line": 1
-              }
-            ],
-            "specs": [
-              {
-                "id": "SPEC-013-4",
-                "line": 2
-              },
-              {
-                "id": "SPEC-013-4",
-                "line": 3
-              },
-              {
-                "id": "SPEC-013-4",
-                "line": 59
-              }
-            ],
-            "verifiedBy": [],
             "governance": [
               {
                 "tags": [
-                  "AIAD-RGAA",
-                  "AIAD-RGESN"
+                  "AIAD-RGAA"
                 ],
-                "line": 4
-              },
-              {
-                "tags": [
-                  "AIAD-RGAA",
-                  "AIAD-RGESN"
-                ],
-                "line": 60
+                "line": 3
               }
             ]
-          },
-          "annotated": true
-        },
-        {
-          "path": "lib/dashboard/render.js",
-          "isTest": false,
-          "annotations": {
-            "intents": [
-              {
-                "id": "INTENT-016",
-                "line": 2
-              }
-            ],
-            "specs": [
-              {
-                "id": "SPEC-016-1-architecture-4-couches",
-                "line": 1
-              }
-            ],
-            "verifiedBy": [],
-            "governance": []
           },
           "annotated": true
         }
@@ -5146,7 +5307,7 @@
       "intentsOrphelinsSurCode": [],
       "specsOrphelinsSurCode": [],
       "codeSansSpec_truncated": true,
-      "codeSansSpec_total": 330
+      "codeSansSpec_total": 328
     },
     "specsExemptees": [
       {
@@ -5186,7 +5347,7 @@
         "traceabilityReason": "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
       }
     ],
-    "backward_total": 300,
+    "backward_total": 301,
     "backward_truncated": true
   },
   "signaux": {
@@ -5201,13 +5362,13 @@
       },
       "governanceCoverage": {
         "sensitiveFiles": 10,
-        "governedFiles": 0,
-        "ratio": 0
+        "governedFiles": 7,
+        "ratio": 0.7
       },
       "traceCompleteness": {
         "total": 32,
-        "complete": 20,
-        "ratio": 0.625
+        "complete": 21,
+        "ratio": 0.65625
       },
       "langueArtefacts": {
         "fr": 38,
@@ -5234,10 +5395,10 @@
       },
       {
         "mois": "2026-06",
-        "ts": 1782121274003,
+        "ts": 1782127607894,
         "humanAuthorshipRatio": 1,
-        "governanceCoverage": 0,
-        "traceCompleteness": 0.625,
+        "governanceCoverage": 0.7,
+        "traceCompleteness": 0.65625,
         "langueArtefacts": {
           "fr": 38,
           "en": 2,
@@ -5324,11 +5485,11 @@
     },
     "hookStats": {
       "available": true,
-      "count": 142,
+      "count": 143,
       "p50": 0,
       "p95": 1000,
       "max": 1000,
-      "ratioFail": 0.20422535211267606,
+      "ratioFail": 0.20279720279720279,
       "timeouts": 0,
       "scopeLeaks": 0,
       "sante": "attention"
@@ -5749,28 +5910,28 @@
         "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
         "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
         "parentIntent": "INTENT-016",
-        "statut": "in-progress",
+        "statut": "done",
         "format": "prose",
         "sqs": "5.0",
         "governance": null,
         "parallelWith": [],
         "auteur": "Steeve Evers",
         "date": "2026-06-22",
-        "mtime": 1782118415124.3298
+        "mtime": 1782121972926.8994
       },
       {
         "id": "SPEC-016-2-design-system-rgaa",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "parentIntent": "INTENT-016",
-        "statut": "draft",
+        "statut": "in-progress",
         "format": "ears",
-        "sqs": "[À évaluer via /sdd gate]",
+        "sqs": "5/5 — Gate OUVERTE (EARS 11/11 · Étranger PASS · 2026-06-22)",
         "governance": null,
         "parallelWith": [],
         "auteur": "Steeve Evers",
         "date": "2026-06-22",
-        "mtime": 1782117279727.7375
+        "mtime": 1782123364438.0588
       },
       {
         "id": "SPEC-016-3-data-json-v2",
@@ -5837,6 +5998,15 @@
   "qa": {
     "queueReadySansTests": [
       {
+        "id": "SPEC-016-1-architecture-4-couches",
+        "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
+        "statut": "done",
+        "parentIntent": "INTENT-016-dashboard-fondations",
+        "parentIntentFile": ".aiad/intents/INTENT-016-dashboard-fondations.md",
+        "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+        "codeLies": 12
+      },
+      {
         "id": "SPEC-013-4a-deploy-workflow",
         "titre": "Workflow de déploiement site/ → gh-pages + gate version",
         "statut": "done",
@@ -5880,15 +6050,6 @@
         "parentIntentFile": ".aiad/intents/INTENT-025-contraste-kicker.md",
         "file": ".aiad/specs/SPEC-025-1-gold-contrast-fix.md",
         "codeLies": 0
-      },
-      {
-        "id": "SPEC-016-1-architecture-4-couches",
-        "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
-        "statut": "in-progress",
-        "parentIntent": "INTENT-016-dashboard-fondations",
-        "parentIntentFile": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
-        "codeLies": 12
       }
     ],
     "coverage": [
@@ -5934,6 +6095,17 @@
         "ratio": 0,
         "pct": null,
         "band": "vide",
+        "source": "heuristique"
+      },
+      {
+        "id": "SPEC-016-2-design-system-rgaa",
+        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+        "tests": 2,
+        "code": 10,
+        "ratio": 0.2,
+        "pct": null,
+        "band": "partiel",
         "source": "heuristique"
       },
       {
@@ -6201,17 +6373,6 @@
         "source": "heuristique"
       },
       {
-        "id": "SPEC-016-2-design-system-rgaa",
-        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "tests": 0,
-        "code": 0,
-        "ratio": null,
-        "pct": null,
-        "band": "na",
-        "source": "heuristique"
-      },
-      {
         "id": "SPEC-016-3-data-json-v2",
         "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
         "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
@@ -6318,6 +6479,14 @@
       ]
     },
     "testsRecents": [
+      {
+        "path": "test/dashboard-render.test.js",
+        "mtime": 1782123202384.2688
+      },
+      {
+        "path": "test/dashboard-assets.test.js",
+        "mtime": 1782123179068.8154
+      },
       {
         "path": "test/docs-dora-flow.test.js",
         "mtime": 1782121199111.313
@@ -6527,6 +6696,13 @@
         "mtime": 1782115945486.3892,
         "file": ".aiad/specs/SPEC-025-1-gold-contrast-fix.md",
         "lastDemo": null
+      },
+      {
+        "id": "SPEC-016-1-architecture-4-couches",
+        "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
+        "mtime": 1782121972926.8994,
+        "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+        "lastDemo": null
       }
     ],
     "avancement": [
@@ -6686,9 +6862,9 @@
         "statut": "active",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
         "total": 4,
-        "done": 0,
+        "done": 1,
         "enCours": 1,
-        "ratio": 0
+        "ratio": 0.25
       },
       {
         "id": "INTENT-017-dashboard-quotidien",
@@ -6903,13 +7079,13 @@
       {
         "key": "2026-W26",
         "label": "S26",
-        "count": 2,
+        "count": 3,
         "ts": 1782086400000
       }
     ],
     "totaux": {
       "intentsDone": 17,
-      "specsDone": 23,
+      "specsDone": 24,
       "moisCouverts": 6,
       "semainesCouvertes": 12
     },
@@ -6919,7 +7095,7 @@
     },
     "tendanceSpecs": {
       "sens": "up",
-      "delta": 23
+      "delta": 24
     }
   },
   "roadmap": {
@@ -7153,18 +7329,6 @@
       ],
       "cards": [
         {
-          "id": "SPEC-016-2-design-system-rgaa",
-          "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-          "intentId": "INTENT-016-dashboard-fondations",
-          "intentFile": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-          "statut": "draft",
-          "sqs": "[À évaluer via /sdd gate]",
-          "governance": [],
-          "testsCount": 0,
-          "codeCount": 0,
-          "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md"
-        },
-        {
           "id": "SPEC-016-3-data-json-v2",
           "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
           "intentId": "INTENT-016-dashboard-fondations",
@@ -7198,16 +7362,16 @@
       ],
       "cards": [
         {
-          "id": "SPEC-016-1-architecture-4-couches",
-          "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
+          "id": "SPEC-016-2-design-system-rgaa",
+          "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
           "intentId": "INTENT-016-dashboard-fondations",
           "intentFile": ".aiad/intents/INTENT-016-dashboard-fondations.md",
           "statut": "in-progress",
-          "sqs": "5.0",
+          "sqs": "5/5 — Gate OUVERTE (EARS 11/11 · Étranger PASS · 2026-06-22)",
           "governance": [],
-          "testsCount": 0,
-          "codeCount": 12,
-          "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md"
+          "testsCount": 2,
+          "codeCount": 10,
+          "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md"
         }
       ]
     },
@@ -7499,6 +7663,18 @@
           "file": ".aiad/specs/SPEC-015-3-matrice-garde-fous.md"
         },
         {
+          "id": "SPEC-016-1-architecture-4-couches",
+          "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
+          "intentId": "INTENT-016-dashboard-fondations",
+          "intentFile": ".aiad/intents/INTENT-016-dashboard-fondations.md",
+          "statut": "done",
+          "sqs": "5.0",
+          "governance": [],
+          "testsCount": 0,
+          "codeCount": 12,
+          "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md"
+        },
+        {
           "id": "SPEC-024-1-trace-exemption",
           "titre": "Exemption de traçabilité pour SPECs sans code applicatif",
           "intentId": "INTENT-024-trace-exemption-specs-sans-code",
@@ -7531,96 +7707,12 @@
   ],
   "kanbanConflits": [],
   "focusAlertes": {
-    "all": [
-      {
-        "priorite": "P3",
-        "titre": "1 SPEC(s) in-progress sans test annoté",
-        "detail": "SPEC-016-1-architecture-4-couches",
-        "action": "QA/PE — ajouter `@verified-by` avant Drift Check.",
-        "cardIds": [
-          "SPEC-016-1-architecture-4-couches"
-        ],
-        "roles": [
-          "qa",
-          "pe"
-        ]
-      }
-    ],
-    "pm": [
-      {
-        "priorite": "P3",
-        "titre": "1 SPEC(s) in-progress sans test annoté",
-        "detail": "SPEC-016-1-architecture-4-couches",
-        "action": "QA/PE — ajouter `@verified-by` avant Drift Check.",
-        "cardIds": [
-          "SPEC-016-1-architecture-4-couches"
-        ],
-        "roles": [
-          "qa",
-          "pe"
-        ]
-      }
-    ],
-    "pe": [
-      {
-        "priorite": "P3",
-        "titre": "1 SPEC(s) in-progress sans test annoté",
-        "detail": "SPEC-016-1-architecture-4-couches",
-        "action": "QA/PE — ajouter `@verified-by` avant Drift Check.",
-        "cardIds": [
-          "SPEC-016-1-architecture-4-couches"
-        ],
-        "roles": [
-          "qa",
-          "pe"
-        ]
-      }
-    ],
-    "ae": [
-      {
-        "priorite": "P3",
-        "titre": "1 SPEC(s) in-progress sans test annoté",
-        "detail": "SPEC-016-1-architecture-4-couches",
-        "action": "QA/PE — ajouter `@verified-by` avant Drift Check.",
-        "cardIds": [
-          "SPEC-016-1-architecture-4-couches"
-        ],
-        "roles": [
-          "qa",
-          "pe"
-        ]
-      }
-    ],
-    "qa": [
-      {
-        "priorite": "P3",
-        "titre": "1 SPEC(s) in-progress sans test annoté",
-        "detail": "SPEC-016-1-architecture-4-couches",
-        "action": "QA/PE — ajouter `@verified-by` avant Drift Check.",
-        "cardIds": [
-          "SPEC-016-1-architecture-4-couches"
-        ],
-        "roles": [
-          "qa",
-          "pe"
-        ]
-      }
-    ],
-    "tl": [
-      {
-        "priorite": "P3",
-        "titre": "1 SPEC(s) in-progress sans test annoté",
-        "detail": "SPEC-016-1-architecture-4-couches",
-        "action": "QA/PE — ajouter `@verified-by` avant Drift Check.",
-        "cardIds": [
-          "SPEC-016-1-architecture-4-couches"
-        ],
-        "roles": [
-          "qa",
-          "pe"
-        ]
-      }
-    ]
+    "all": [],
+    "pm": [],
+    "pe": [],
+    "ae": [],
+    "qa": [],
+    "tl": []
   },
   "techDebt": {
     "seuilLoc": 200,
@@ -8004,9 +8096,9 @@
     }
   },
   "violations": {
-    "total": 13,
+    "total": 31,
     "typeA": {
-      "total": 11,
+      "total": 29,
       "entrees": [
         {
           "type": "code-non-déclaré-dans-SPEC",
@@ -8082,6 +8174,150 @@
         },
         {
           "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-1-architecture-4-couches",
+          "specFile": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+          "codeFile": "lib/dashboard/ui/sparklines.js",
+          "line": 3
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-1-architecture-4-couches",
+          "specFile": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+          "codeFile": "lib/dashboard/views/changelog.js",
+          "line": 3
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-1-architecture-4-couches",
+          "specFile": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+          "codeFile": "lib/dashboard/views/drifts.js",
+          "line": 3
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-1-architecture-4-couches",
+          "specFile": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+          "codeFile": "lib/dashboard/views/intents.js",
+          "line": 3
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-1-architecture-4-couches",
+          "specFile": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+          "codeFile": "lib/dashboard/views/metrics.js",
+          "line": 3
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-1-architecture-4-couches",
+          "specFile": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+          "codeFile": "lib/dashboard/views/overview.js",
+          "line": 3
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-1-architecture-4-couches",
+          "specFile": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+          "codeFile": "lib/dashboard/views/specs.js",
+          "line": 3
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-1-architecture-4-couches",
+          "specFile": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+          "codeFile": "lib/dashboard/views/traceability.js",
+          "line": 3
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-2-design-system-rgaa",
+          "specFile": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "codeFile": "dashboard/assets/app.js",
+          "line": 5
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-2-design-system-rgaa",
+          "specFile": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "codeFile": "dashboard/assets/app.js",
+          "line": 5
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-2-design-system-rgaa",
+          "specFile": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "codeFile": "dashboard/assets/app.js",
+          "line": 5
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-2-design-system-rgaa",
+          "specFile": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "codeFile": "lib/dashboard/assets.js",
+          "line": 487
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-2-design-system-rgaa",
+          "specFile": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "codeFile": "lib/dashboard/assets.js",
+          "line": 487
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-2-design-system-rgaa",
+          "specFile": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "codeFile": "lib/dashboard/assets.js",
+          "line": 487
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-2-design-system-rgaa",
+          "specFile": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "codeFile": "lib/dashboard/assets.js",
+          "line": 487
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-2-design-system-rgaa",
+          "specFile": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "codeFile": "lib/dashboard/assets.js",
+          "line": 487
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-2-design-system-rgaa",
+          "specFile": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "codeFile": "lib/dashboard/assets.js",
+          "line": 487
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-016-2-design-system-rgaa",
+          "specFile": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "codeFile": "lib/dashboard/ui/sparklines.js",
+          "line": 3
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
           "tag": "AIAD-AI-ACT",
           "specId": "SPEC-024-1-trace-exemption",
           "specFile": ".aiad/specs/SPEC-024-1-trace-exemption.md",
@@ -8121,17 +8357,17 @@
       "AIAD-RGESN": 6,
       "AIAD-RGPD": 4,
       "AIAD-AI-ACT": 2,
-      "AIAD-RGAA": 1
+      "AIAD-RGAA": 19
     }
   },
   "sre": {
     "hookStats": {
       "available": true,
-      "count": 142,
+      "count": 143,
       "p50": 0,
       "p95": 1000,
       "max": 1000,
-      "ratioFail": 0.20422535211267606,
+      "ratioFail": 0.20279720279720279,
       "timeouts": 0,
       "scopeLeaks": 0,
       "sante": "attention"
@@ -8578,9 +8814,16 @@
         "file": ".aiad/specs/SPEC-025-1-gold-contrast-fix.md",
         "mtime": 1782115945486.3892,
         "parentIntent": "INTENT-025"
+      },
+      {
+        "id": "SPEC-016-1-architecture-4-couches",
+        "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
+        "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+        "mtime": 1782121972926.8994,
+        "parentIntent": "INTENT-016"
       }
     ],
-    "total": 40
+    "total": 41
   },
   "personaDrill": [],
   "deadlines": {
@@ -9084,12 +9327,12 @@
           },
           {
             "id": "SPEC-016-1-architecture-4-couches",
-            "statut": "in-progress",
+            "statut": "done",
             "parentIntent": "INTENT-016"
           },
           {
             "id": "SPEC-016-2-design-system-rgaa",
-            "statut": "draft",
+            "statut": "in-progress",
             "parentIntent": "INTENT-016"
           },
           {
@@ -9114,7 +9357,7 @@
           }
         ]
       },
-      "mtime": 1782121274089.382
+      "mtime": 1782127607948.052
     },
     "totalChangements": 0
   },
@@ -9999,14 +10242,25 @@
     "items": [
       {
         "type": "SPEC",
+        "id": "SPEC-016-2-design-system-rgaa",
+        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+        "statut": "in-progress",
+        "mtime": 1782123364438.0588,
+        "parentIntent": "INTENT-016",
+        "ageMs": 4243510.941162109,
+        "ageHumain": "il y a 1 h"
+      },
+      {
+        "type": "SPEC",
         "id": "SPEC-016-1-architecture-4-couches",
         "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
         "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
-        "statut": "in-progress",
-        "mtime": 1782118415124.3298,
+        "statut": "done",
+        "mtime": 1782121972926.8994,
         "parentIntent": "INTENT-016",
-        "ageMs": 2858966.6701660156,
-        "ageHumain": "il y a 48 min"
+        "ageMs": 5635022.1005859375,
+        "ageHumain": "il y a 2 h"
       },
       {
         "type": "Intent",
@@ -10015,8 +10269,8 @@
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
         "statut": "active",
         "mtime": 1782117337810.044,
-        "ageMs": 3936280.9560546875,
-        "ageHumain": "il y a 1 h"
+        "ageMs": 10270138.956054688,
+        "ageHumain": "il y a 3 h"
       },
       {
         "type": "SPEC",
@@ -10026,19 +10280,8 @@
         "statut": "draft",
         "mtime": 1782117301800.7737,
         "parentIntent": "INTENT-016",
-        "ageMs": 3972290.2263183594,
-        "ageHumain": "il y a 1 h"
-      },
-      {
-        "type": "SPEC",
-        "id": "SPEC-016-2-design-system-rgaa",
-        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "draft",
-        "mtime": 1782117279727.7375,
-        "parentIntent": "INTENT-016",
-        "ageMs": 3994363.262451172,
-        "ageHumain": "il y a 1 h"
+        "ageMs": 10306148.22631836,
+        "ageHumain": "il y a 3 h"
       },
       {
         "type": "SPEC",
@@ -10048,8 +10291,8 @@
         "statut": "draft",
         "mtime": 1782117101399.3145,
         "parentIntent": "INTENT-016",
-        "ageMs": 4172691.685546875,
-        "ageHumain": "il y a 1 h"
+        "ageMs": 10506549.685546875,
+        "ageHumain": "il y a 3 h"
       },
       {
         "type": "Intent",
@@ -10058,8 +10301,8 @@
         "file": ".aiad/intents/INTENT-025-contraste-kicker.md",
         "statut": "done",
         "mtime": 1782115963089.1055,
-        "ageMs": 5311001.89453125,
-        "ageHumain": "il y a 1 h"
+        "ageMs": 11644859.89453125,
+        "ageHumain": "il y a 3 h"
       },
       {
         "type": "SPEC",
@@ -10069,8 +10312,8 @@
         "statut": "done",
         "mtime": 1782115945486.3892,
         "parentIntent": "INTENT-025",
-        "ageMs": 5328604.610839844,
-        "ageHumain": "il y a 1 h"
+        "ageMs": 11662462.610839844,
+        "ageHumain": "il y a 3 h"
       },
       {
         "type": "SPEC",
@@ -10080,8 +10323,8 @@
         "statut": "done",
         "mtime": 1782114811140.4956,
         "parentIntent": "INTENT-013",
-        "ageMs": 6462950.504394531,
-        "ageHumain": "il y a 2 h"
+        "ageMs": 12796808.504394531,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "SPEC",
@@ -10091,7 +10334,7 @@
         "statut": "done",
         "mtime": 1781877387355.2705,
         "parentIntent": "INTENT-024",
-        "ageMs": 243886735.7294922,
+        "ageMs": 250220593.7294922,
         "ageHumain": "il y a 3 j"
       },
       {
@@ -10102,7 +10345,7 @@
         "statut": "done",
         "mtime": 1781877387355.1785,
         "parentIntent": "INTENT-013",
-        "ageMs": 243886735.8215332,
+        "ageMs": 250220593.8215332,
         "ageHumain": "il y a 3 j"
       }
     ],
@@ -10974,10 +11217,10 @@
       "sens": "down"
     },
     "specs": {
-      "courant": 2,
+      "courant": 3,
       "precedent": 20,
-      "abs": -18,
-      "rel": -90,
+      "abs": -17,
+      "rel": -85,
       "sens": "down"
     },
     "historique": {
@@ -10989,7 +11232,7 @@
       "specs": [
         1,
         20,
-        2
+        3
       ]
     }
   },
@@ -11018,10 +11261,10 @@
       "etat": "sain",
       "items": [
         {
-          "id": "SPEC-016-1-architecture-4-couches",
-          "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
+          "id": "SPEC-016-2-design-system-rgaa",
+          "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
           "statut": "in-progress",
-          "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md"
+          "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md"
         }
       ]
     }
@@ -11110,21 +11353,11 @@
       },
       {
         "type": "SPEC",
-        "id": "SPEC-016-1-architecture-4-couches",
-        "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
-        "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
-        "statut": "in-progress",
-        "mtime": 1782118415124.3298,
-        "ageJours": 0,
-        "bande": "frais"
-      },
-      {
-        "type": "SPEC",
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "draft",
-        "mtime": 1782117279727.7375,
+        "statut": "in-progress",
+        "mtime": 1782123364438.0588,
         "ageJours": 0,
         "bande": "frais"
       },
@@ -11150,11 +11383,11 @@
       }
     ],
     "totaux": {
-      "total": 12,
+      "total": 11,
       "abandonne": 0,
       "stale": 0,
       "tiede": 0,
-      "frais": 12
+      "frais": 11
     }
   },
   "goalTree": {
@@ -11454,13 +11687,13 @@
           {
             "id": "SPEC-016-1-architecture-4-couches",
             "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
-            "statut": "in-progress",
+            "statut": "done",
             "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md"
           },
           {
             "id": "SPEC-016-2-design-system-rgaa",
             "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-            "statut": "draft",
+            "statut": "in-progress",
             "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md"
           },
           {
@@ -11585,6 +11818,18 @@
   },
   "outcomeLeaderboard": {
     "items": [
+      {
+        "id": "INTENT-016-dashboard-fondations",
+        "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
+        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
+        "statut": "active",
+        "priority": null,
+        "score": 1.5,
+        "outcomesServis": 0,
+        "poidsPrio": 1,
+        "base": 0,
+        "bonus": 1.5
+      },
       {
         "id": "INTENT-001-feedback-qualitatif",
         "titre": "Feedback qualitatif utilisateurs SDD Mode",
@@ -11776,18 +12021,6 @@
         "poidsPrio": 1,
         "base": 0,
         "bonus": 1
-      },
-      {
-        "id": "INTENT-016-dashboard-fondations",
-        "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
-        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "statut": "active",
-        "priority": null,
-        "score": 0.5,
-        "outcomesServis": 0,
-        "poidsPrio": 1,
-        "base": 0,
-        "bonus": 0.5
       }
     ],
     "totaux": {
@@ -11818,57 +12051,57 @@
       },
       {
         "x": 5,
-        "y": 2
+        "y": 3
       }
     ],
     "forecast": [
       {
         "semaineIdx": 6,
-        "y": 10.5,
-        "yMin": 2.6,
-        "yMax": 18.5
+        "y": 11.2,
+        "yMin": 3.5,
+        "yMax": 18.9
       },
       {
         "semaineIdx": 7,
-        "y": 12.4,
-        "yMin": 4.5,
-        "yMax": 20.4
+        "y": 13.3,
+        "yMin": 5.5,
+        "yMax": 21
       },
       {
         "semaineIdx": 8,
-        "y": 14.4,
-        "yMin": 6.4,
-        "yMax": 22.3
+        "y": 15.3,
+        "yMin": 7.6,
+        "yMax": 23.1
       },
       {
         "semaineIdx": 9,
-        "y": 16.3,
-        "yMin": 8.3,
-        "yMax": 24.2
+        "y": 17.4,
+        "yMin": 9.6,
+        "yMax": 25.1
       },
       {
         "semaineIdx": 10,
-        "y": 18.2,
-        "yMin": 10.2,
-        "yMax": 26.1
+        "y": 19.4,
+        "yMin": 11.7,
+        "yMax": 27.2
       },
       {
         "semaineIdx": 11,
-        "y": 20.1,
-        "yMin": 12.2,
-        "yMax": 28.1
+        "y": 21.5,
+        "yMin": 13.7,
+        "yMax": 29.2
       }
     ],
     "reg": {
-      "slope": 1.91,
-      "intercept": -1,
-      "stdErr": 7.9
+      "slope": 2.06,
+      "intercept": -1.1,
+      "stdErr": 7.7
     },
-    "rythmeMoyen": 3.8,
-    "projectionHorizon": 91.9,
+    "rythmeMoyen": 4,
+    "projectionHorizon": 98.1,
     "horizonSem": 6,
     "fenetreSem": 6,
-    "restant": 8,
+    "restant": 7,
     "etaSemaines": 1
   },
   "aiActCompliance": {
@@ -12055,15 +12288,53 @@
           }
         ],
         "mtime": 1778728051515.1775
+      },
+      {
+        "date": "2026-06-22",
+        "score": 65,
+        "niveau": "attention",
+        "composantes": [
+          {
+            "id": "maturite",
+            "points": 12,
+            "max": 20,
+            "disponible": true
+          },
+          {
+            "id": "governance",
+            "points": 20,
+            "max": 20,
+            "disponible": true
+          },
+          {
+            "id": "dpo",
+            "points": 20,
+            "max": 20,
+            "disponible": true
+          },
+          {
+            "id": "edgeCases",
+            "points": 0,
+            "max": 20,
+            "disponible": false
+          },
+          {
+            "id": "violations",
+            "points": 0,
+            "max": 20,
+            "disponible": true
+          }
+        ],
+        "mtime": 1782127462078.6277
       }
     ],
     "tendance": {
-      "direction": "unknown",
-      "delta": 0,
-      "base": null
+      "direction": "up",
+      "delta": 15,
+      "base": 50
     },
     "courant": null,
-    "nbPoints": 1
+    "nbPoints": 2
   },
   "notifications": {
     "items": [],
@@ -13560,17 +13831,18 @@
     "seuilCommit": 8
   },
   "strategicNarrative": {
-    "texte": "**aiad-sdd** — état 2026-06-22 : 1 Intent(s) actif(s), 1 en delivery, 17 livré(s). Vélocité **3.8 SPECs/sem** en accélération (projection 6sem : 91.9 SPECs), ETA backlog ~1 sem.",
+    "texte": "**aiad-sdd** — état 2026-06-22 : 1 Intent(s) actif(s), 1 en delivery, 17 livré(s). Vélocité **4 SPECs/sem** en accélération (projection 6sem : 98.1 SPECs), ETA backlog ~1 sem. Santé du projet **65/100** en amélioration (+15 pts) sur 2 snapshots.",
     "phrases": [
       "**aiad-sdd** — état 2026-06-22 : 1 Intent(s) actif(s), 1 en delivery, 17 livré(s).",
-      "Vélocité **3.8 SPECs/sem** en accélération (projection 6sem : 91.9 SPECs), ETA backlog ~1 sem."
+      "Vélocité **4 SPECs/sem** en accélération (projection 6sem : 98.1 SPECs), ETA backlog ~1 sem.",
+      "Santé du projet **65/100** en amélioration (+15 pts) sur 2 snapshots."
     ],
     "meta": {
       "intentsActifs": 1,
       "risquesEleves": 0,
       "healthScore": null,
-      "healthTrend": "unknown",
-      "veloMoyen": 3.8
+      "healthTrend": "up",
+      "veloMoyen": 4
     }
   },
   "stakeholderComms": {
@@ -13916,50 +14188,50 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1777282874095,
-        "fin": 1777887674095,
+        "debut": 1777289207955,
+        "fin": 1777894007955,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1777887674095,
-        "fin": 1778492474095,
+        "debut": 1777894007955,
+        "fin": 1778498807955,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1778492474095,
-        "fin": 1779097274095,
+        "debut": 1778498807955,
+        "fin": 1779103607955,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1779097274095,
-        "fin": 1779702074095,
+        "debut": 1779103607955,
+        "fin": 1779708407955,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1779702074095,
-        "fin": 1780306874095,
+        "debut": 1779708407955,
+        "fin": 1780313207955,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1780306874095,
-        "fin": 1780911674095,
+        "debut": 1780313207955,
+        "fin": 1780918007955,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1780911674095,
-        "fin": 1781516474095,
+        "debut": 1780918007955,
+        "fin": 1781522807955,
         "count": 2,
         "decisions": [
           {
@@ -13976,8 +14248,8 @@
       },
       {
         "idx": 7,
-        "debut": 1781516474095,
-        "fin": 1782121274095,
+        "debut": 1781522807955,
+        "fin": 1782127607955,
         "count": 3,
         "decisions": [
           {
@@ -14234,11 +14506,19 @@
     "items": [
       {
         "type": "spec",
-        "id": "SPEC-016-1-architecture-4-couches",
-        "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
-        "mtime": 1782118415124.3298,
+        "id": "SPEC-016-2-design-system-rgaa",
+        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+        "mtime": 1782123364438.0588,
         "parentIntent": "INTENT-016",
         "statut": "in-progress"
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-016-1-architecture-4-couches",
+        "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
+        "mtime": 1782121972926.8994,
+        "parentIntent": "INTENT-016",
+        "statut": "done"
       },
       {
         "type": "intent",
@@ -14252,14 +14532,6 @@
         "id": "SPEC-016-4-rgesn-budgets",
         "titre": "SPEC-016-4 — Budgets de poids RGESN par page + CI",
         "mtime": 1782117301800.7737,
-        "parentIntent": "INTENT-016",
-        "statut": "draft"
-      },
-      {
-        "type": "spec",
-        "id": "SPEC-016-2-design-system-rgaa",
-        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-        "mtime": 1782117279727.7375,
         "parentIntent": "INTENT-016",
         "statut": "draft"
       },
@@ -14664,7 +14936,7 @@
         "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md"
       }
     ],
-    "nowMs": 1782121274096
+    "nowMs": 1782127607956
   },
   "hypothesisLifecycle": {
     "items": [],
@@ -14684,7 +14956,7 @@
   "roadmapTimeline": {
     "items": [],
     "plage": null,
-    "now": 1782121274096,
+    "now": 1782127607956,
     "totaux": {
       "total": 0,
       "retard": 0,
@@ -14707,10 +14979,10 @@
       {
         "cle": "specs-livrees",
         "label": "SPECs livrées",
-        "courant": 24,
+        "courant": 25,
         "precedent": 0,
         "icone": "🚀",
-        "delta": 24,
+        "delta": 25,
         "direction": "up"
       },
       {
@@ -14751,14 +15023,14 @@
       }
     ],
     "fenetre": {
-      "debut": 1779529274096,
-      "fin": 1782121274096
+      "debut": 1779535607956,
+      "fin": 1782127607956
     },
     "fenetrePrecedente": {
-      "debut": 1776937274096,
-      "fin": 1779529274096
+      "debut": 1776943607956,
+      "fin": 1779535607956
     },
-    "totalActivite": 54,
+    "totalActivite": 55,
     "totalPrecedent": 0,
     "directionGlobale": "up"
   },
@@ -14796,9 +15068,9 @@
           "statut": "active",
           "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
           "total": 4,
-          "done": 0,
+          "done": 1,
           "enCours": 1,
-          "ratio": 0
+          "ratio": 0.25
         },
         "risque": {
           "id": "INTENT-016-dashboard-fondations",
@@ -15293,8 +15565,8 @@
       {
         "trim": "Q2-2026",
         "planifie": 0,
-        "livre": 24,
-        "ecart": 24,
+        "livre": 25,
+        "ecart": 25,
         "ratio": null,
         "intentsPlanifies": [],
         "specsLivrees": [
@@ -15324,7 +15596,7 @@
     "totaux": {
       "trimestres": 1,
       "totalPlanifie": 0,
-      "totalLivre": 24,
+      "totalLivre": 25,
       "couvertures": 0,
       "deficits": 0
     }
@@ -15348,6 +15620,15 @@
   },
   "winsWall": {
     "items": [
+      {
+        "type": "spec",
+        "id": "SPEC-016-1-architecture-4-couches",
+        "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
+        "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+        "statut": "done",
+        "parentIntent": "INTENT-016",
+        "mtime": 1782121972926.8994
+      },
       {
         "type": "intent",
         "id": "INTENT-025-contraste-kicker",
@@ -15446,22 +15727,13 @@
         "statut": "done",
         "sponsor": null,
         "mtime": 1781875442785.975
-      },
-      {
-        "type": "spec",
-        "id": "SPEC-015-2-2-cycle-depreciation",
-        "titre": "SPEC-015-2-2-cycle-depreciation — Cycle de dépréciation soft (mécanisme)",
-        "file": ".aiad/specs/SPEC-015-2-2-cycle-depreciation.md",
-        "statut": "done",
-        "parentIntent": "INTENT-015",
-        "mtime": 1781873814503.2864
       }
     ],
     "totaux": {
-      "total": 41,
-      "specs": 24,
+      "total": 42,
+      "specs": 25,
       "intents": 17,
-      "now": 1782121274097
+      "now": 1782127607957
     }
   },
   "stateTransitions": {
@@ -15634,9 +15906,9 @@
       }
     ],
     "temps": 30,
-    "coupes": 17,
+    "coupes": 18,
     "dureeCible": 30,
-    "totauxSpecsDispo": 23
+    "totauxSpecsDispo": 24
   },
   "specStuck": {
     "items": [],
@@ -15790,7 +16062,7 @@
         "cle": "neuf",
         "label": "0-7j",
         "max": 7,
-        "couleur": "#2b8a3e",
+        "couleur": "#267336",
         "items": [
           {
             "id": "INTENT-016-dashboard-fondations",
@@ -15806,7 +16078,7 @@
         "cle": "recent",
         "label": "8-30j",
         "max": 30,
-        "couleur": "#4c6ef5",
+        "couleur": "#3b5bd9",
         "items": [
           {
             "id": "INTENT-017-dashboard-quotidien",
@@ -15864,7 +16136,7 @@
         "cle": "mature",
         "label": "31-90j",
         "max": 90,
-        "couleur": "#f5a623",
+        "couleur": "#945500",
         "items": [],
         "count": 0
       },
@@ -15872,7 +16144,7 @@
         "cle": "ancien",
         "label": "91-180j",
         "max": 180,
-        "couleur": "#e8590c",
+        "couleur": "#c2410c",
         "items": [],
         "count": 0
       },
@@ -15929,42 +16201,42 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1779097274098,
+        "finSem": 1779103607958,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1779702074098,
+        "finSem": 1779708407958,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1780306874098,
+        "finSem": 1780313207958,
         "intake": 1,
         "delivery": 1,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1780911674098,
+        "finSem": 1780918007958,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1781516474098,
+        "finSem": 1781522807958,
         "intake": 8,
         "delivery": 1,
         "delta": 7
       },
       {
         "idx": 5,
-        "finSem": 1782121274098,
+        "finSem": 1782127607958,
         "intake": 16,
         "delivery": 15,
         "delta": 1
@@ -16529,7 +16801,7 @@
         "id": "SPEC-016-1-architecture-4-couches",
         "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
         "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
-        "statut": "in-progress",
+        "statut": "done",
         "mots": 12,
         "minutes": 1,
         "trop_long": false
@@ -16539,7 +16811,7 @@
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "draft",
+        "statut": "in-progress",
         "mots": 9,
         "minutes": 1,
         "trop_long": false
@@ -17103,7 +17375,7 @@
         "id": "SPEC-016-1-architecture-4-couches",
         "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
         "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
-        "statut": "in-progress",
+        "statut": "done",
         "mots": 12,
         "minutes": 1,
         "trop_long": false
@@ -17113,7 +17385,7 @@
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "draft",
+        "statut": "in-progress",
         "mots": 9,
         "minutes": 1,
         "trop_long": false
@@ -17241,7 +17513,7 @@
         "id": "SPEC-016-1-architecture-4-couches",
         "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
         "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
-        "statut": "in-progress",
+        "statut": "done",
         "parentIntent": "INTENT-016",
         "mots": 12,
         "sections": 0,
@@ -17362,7 +17634,7 @@
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "draft",
+        "statut": "in-progress",
         "parentIntent": "INTENT-016",
         "mots": 9,
         "sections": 0,
@@ -17543,11 +17815,11 @@
   },
   "velocitySla": {
     "target": 1.5,
-    "actuel": 3.8,
-    "ratio": 2.53,
-    "ecart": 2.3,
+    "actuel": 4,
+    "ratio": 2.67,
+    "ecart": 2.5,
     "etat": "tenu",
-    "pct": 253,
+    "pct": 267,
     "message": null
   },
   "doneTimeline": {
@@ -17786,6 +18058,11 @@
             "mtime": 1781875442786.245
           },
           {
+            "id": "SPEC-016-1-architecture-4-couches",
+            "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
+            "mtime": 1782121972926.8994
+          },
+          {
             "id": "SPEC-024-1-trace-exemption",
             "titre": "Exemption de traçabilité pour SPECs sans code applicatif",
             "mtime": 1781877387355.2705
@@ -17800,7 +18077,7 @@
     ],
     "totaux": {
       "moisAffiches": 6,
-      "totalSpecs": 24,
+      "totalSpecs": 25,
       "totalIntents": 17,
       "moisPlusActif": "juin 2026"
     }
@@ -17955,18 +18232,18 @@
     "intentsLivres": 17,
     "intentsDraft": 7,
     "specsTotal": 32,
-    "specsLivrees": 24,
+    "specsLivrees": 25,
     "specsEnCours": 1,
     "ageMois": 1,
     "ageJours": 24,
     "debut": 1780038041124.293,
-    "tauxLivrSpec": 75,
-    "vitesseSpecsParMois": 24
+    "tauxLivrSpec": 78,
+    "vitesseSpecsParMois": 25
   },
   "standupScript": {
-    "texte": "# Standup 22/06/2026\n\n## 🎉 Hier (livrés dans les 24h)\n- ✅ SPEC SPEC-013-4b-gate-rgaa — Gate RGAA AA avant publication du site\n- ✅ SPEC SPEC-025-1-gold-contrast-fix — Correction du contraste --gold-600 (.kicker + .pill.gold)\n- ✅ Intent INTENT-025-contraste-kicker — Corriger le contraste des kickers et pills gold (WCAG 1.4.3) (archivé)\n",
+    "texte": "# Standup 22/06/2026\n\n## 🎉 Hier (livrés dans les 24h)\n- ✅ SPEC SPEC-013-4b-gate-rgaa — Gate RGAA AA avant publication du site\n- ✅ SPEC SPEC-016-1-architecture-4-couches — SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)\n- ✅ SPEC SPEC-025-1-gold-contrast-fix — Correction du contraste --gold-600 (.kicker + .pill.gold)\n- ✅ Intent INTENT-025-contraste-kicker — Corriger le contraste des kickers et pills gold (WCAG 1.4.3) (archivé)\n",
     "sections": {
-      "hierCount": 3,
+      "hierCount": 4,
       "priorites": 0,
       "blockers": 0,
       "decisions": 0
@@ -17974,9 +18251,9 @@
   },
   "quarterlyRetroDraft": {
     "trim": "Q2-2026",
-    "texte": "# Rétrospective Q2-2026 — aiad-sdd\n\n_Brouillon généré automatiquement le 22/06/2026 depuis le dashboard PM. À enrichir en atelier équipe._\n\n## 1. 🎉 Livraisons du trimestre\n### SPECs livrées (24)\n- SPEC-001-1-feedback-qualitatif — Feedback qualitatif opt-in — commande CLI et invitation périodique\n- SPEC-002-1-gouvernance-enforced — Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)\n- SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)\n- SPEC-004-1-execution-phasee — Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)\n- SPEC-005-1-context-pull — Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)\n- SPEC-006-1-canary-suite — Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)\n- SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)\n- SPEC-008-1-cycle-graph — Cycle SDD comme graphe de Tasks (§3.9)\n- SPEC-009-1-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)\n- SPEC-010-1-cross-model-review — Cross-model review additive-only (§3.12)\n- _… +14 autres_\n\n### Intents archivés (17)\n- INTENT-001-feedback-qualitatif — Feedback qualitatif utilisateurs SDD Mode\n- INTENT-002-gouvernance-enforced — Gouvernance SDD enforced par le harness (advisory → enforced)\n- INTENT-003-research-phase — Phase Research + Discovery obligatoire avant la SPEC (§3.5)\n- INTENT-004-execution-phasee — Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)\n- INTENT-005-context-pull — Budget d'instructions push → pull (gouvernance par paths, §3.7)\n- INTENT-006-canary-suite — Canary suite + alignement des références modèles (§3.10)\n\n## 2. 📊 Métriques clés\n- Vélocité moyenne : **3.8 SPECs/sem** (slope 1.91)\n- Throughput backlog : 25 intake vs 17 delivery sur 6 sem (direction : gonfle)\n\n## 3. 🧪 Hypothèses (apprentissages)\n_Aucune hypothèse formulée — opportunité d'instaurer la pratique._\n\n## 4. ⚠ Risques marquants\n_Aucun risque critical/high — portefeuille en bon état._\n\n## 5. 🤝 Sujets pour la rétro humaine\nÀ remplir en atelier :\n- Qu'est-ce qui a bien fonctionné ?\n- Qu'est-ce qui a mal fonctionné ?\n- Quelle action concrète pour le prochain trimestre ?\n\n---\n_Généré par aiad-sdd dashboard — humain garde la paternité de la rétro réelle._",
+    "texte": "# Rétrospective Q2-2026 — aiad-sdd\n\n_Brouillon généré automatiquement le 22/06/2026 depuis le dashboard PM. À enrichir en atelier équipe._\n\n## 1. 🎉 Livraisons du trimestre\n### SPECs livrées (25)\n- SPEC-001-1-feedback-qualitatif — Feedback qualitatif opt-in — commande CLI et invitation périodique\n- SPEC-002-1-gouvernance-enforced — Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)\n- SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)\n- SPEC-004-1-execution-phasee — Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)\n- SPEC-005-1-context-pull — Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)\n- SPEC-006-1-canary-suite — Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)\n- SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)\n- SPEC-008-1-cycle-graph — Cycle SDD comme graphe de Tasks (§3.9)\n- SPEC-009-1-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)\n- SPEC-010-1-cross-model-review — Cross-model review additive-only (§3.12)\n- _… +15 autres_\n\n### Intents archivés (17)\n- INTENT-001-feedback-qualitatif — Feedback qualitatif utilisateurs SDD Mode\n- INTENT-002-gouvernance-enforced — Gouvernance SDD enforced par le harness (advisory → enforced)\n- INTENT-003-research-phase — Phase Research + Discovery obligatoire avant la SPEC (§3.5)\n- INTENT-004-execution-phasee — Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)\n- INTENT-005-context-pull — Budget d'instructions push → pull (gouvernance par paths, §3.7)\n- INTENT-006-canary-suite — Canary suite + alignement des références modèles (§3.10)\n\n## 2. 📊 Métriques clés\n- Vélocité moyenne : **4 SPECs/sem** (slope 2.06)\n- Throughput backlog : 25 intake vs 17 delivery sur 6 sem (direction : gonfle)\n\n## 3. 🧪 Hypothèses (apprentissages)\n_Aucune hypothèse formulée — opportunité d'instaurer la pratique._\n\n## 4. ⚠ Risques marquants\n_Aucun risque critical/high — portefeuille en bon état._\n\n## 5. 🤝 Sujets pour la rétro humaine\nÀ remplir en atelier :\n- Qu'est-ce qui a bien fonctionné ?\n- Qu'est-ce qui a mal fonctionné ?\n- Quelle action concrète pour le prochain trimestre ?\n\n---\n_Généré par aiad-sdd dashboard — humain garde la paternité de la rétro réelle._",
     "meta": {
-      "specsLivrees": 24,
+      "specsLivrees": 25,
       "intentsArchives": 17,
       "hypotheses": 0,
       "risques": 0
@@ -18410,7 +18687,7 @@
         "id": "SPEC-016-1-architecture-4-couches",
         "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
         "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
-        "statut": "in-progress",
+        "statut": "done",
         "tags": {
           "@intent": 0,
           "@spec": 0,
@@ -18425,7 +18702,7 @@
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "draft",
+        "statut": "in-progress",
         "tags": {
           "@intent": 0,
           "@spec": 0,
@@ -18626,7 +18903,7 @@
         "id": "INTENT-016-dashboard-fondations",
         "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "texte": "## Summary\nImplémente **Dashboard exemplaire — fondations accessibles, sobres, maintenables** (INTENT-016).\n\n**Objectif** : - Architecture en 4 couches : `collect/` · `model/` · `views/` · `ui/`. - Design system **RGAA AA** vérifié par axe-core en CI (0 violation bloquante). - `data.json` **v2 versionné** (schéma publié, d\n\n## Changes\n- SPEC-016-1-architecture-4-couches — SPEC-016-1 — Architecture 4 couches (collect / model / views / ui) [in-progress]\n\n## Test plan\n- [ ] Tests unitaires passent (`npm test`)\n- [ ] `npx aiad-sdd trace` ne signale aucun gap nouveau\n- [ ] Validation manuelle du flow utilisateur\n\n## Drift Lock\nAnnotations attendues dans le code applicatif :\n```\n@intent INTENT-016\n@spec SPEC-016-1-architecture-4-couches\n@verified-by tests/<chemin>.test.js\n```",
+        "texte": "## Summary\nImplémente **Dashboard exemplaire — fondations accessibles, sobres, maintenables** (INTENT-016).\n\n**Objectif** : - Architecture en 4 couches : `collect/` · `model/` · `views/` · `ui/`. - Design system **RGAA AA** vérifié par axe-core en CI (0 violation bloquante). - `data.json` **v2 versionné** (schéma publié, d\n\n## Changes\n- SPEC-016-1-architecture-4-couches — SPEC-016-1 — Architecture 4 couches (collect / model / views / ui) [done]\n- SPEC-016-2-design-system-rgaa — SPEC-016-2 — Design system accessible + axe-core en CI [in-progress]\n\n## Test plan\n- [ ] Tests unitaires passent (`npm test`)\n- [ ] `npx aiad-sdd trace` ne signale aucun gap nouveau\n- [ ] Validation manuelle du flow utilisateur\n\n## Drift Lock\nAnnotations attendues dans le code applicatif :\n```\n@intent INTENT-016\n@spec SPEC-016-1-architecture-4-couches\n@verified-by tests/<chemin>.test.js\n```",
         "gouvernances": [],
         "nbSpecs": 4
       }
@@ -18718,14 +18995,9 @@
         "mtime": 1781600732284.6404
       },
       {
-        "id": "SPEC-016-1-architecture-4-couches",
-        "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
-        "mtime": 1782118415124.3298
-      },
-      {
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-        "mtime": 1782117279727.7375
+        "mtime": 1782123364438.0588
       },
       {
         "id": "SPEC-016-3-data-json-v2",
@@ -18741,11 +19013,11 @@
     "enCoursAuDebutSample": [],
     "totaux": {
       "duree": 14,
-      "debutSprint": 1780911674102,
-      "finSprint": 1782121274102,
-      "livrees": 23,
+      "debutSprint": 1780918007960,
+      "finSprint": 1782127607960,
+      "livrees": 24,
       "enCoursAuDebut": 0,
-      "ajoutees": 8,
+      "ajoutees": 7,
       "existant": 1,
       "completionRatio": null
     }
@@ -18808,7 +19080,7 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1777887674103,
+        "finSem": 1777894007961,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18817,7 +19089,7 @@
       },
       {
         "idx": 1,
-        "finSem": 1778492474103,
+        "finSem": 1778498807961,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18826,7 +19098,7 @@
       },
       {
         "idx": 2,
-        "finSem": 1779097274103,
+        "finSem": 1779103607961,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18835,7 +19107,7 @@
       },
       {
         "idx": 3,
-        "finSem": 1779702074103,
+        "finSem": 1779708407961,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18844,7 +19116,7 @@
       },
       {
         "idx": 4,
-        "finSem": 1780306874103,
+        "finSem": 1780313207961,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18853,7 +19125,7 @@
       },
       {
         "idx": 5,
-        "finSem": 1780911674103,
+        "finSem": 1780918007961,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18862,7 +19134,7 @@
       },
       {
         "idx": 6,
-        "finSem": 1781516474103,
+        "finSem": 1781522807961,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18871,7 +19143,7 @@
       },
       {
         "idx": 7,
-        "finSem": 1782121274103,
+        "finSem": 1782127607961,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -19010,8 +19282,8 @@
       {
         "ordre": 5,
         "type": "spec",
-        "label": "SPEC-016-1-architecture-4-couches — SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
-        "cible": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
+        "label": "SPEC-016-2-design-system-rgaa — SPEC-016-2 — Design system accessible + axe-core en CI",
+        "cible": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
         "minutes": 4,
         "priorite": "recommande",
         "meta": "[in-progress]"
@@ -19218,7 +19490,7 @@
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "draft",
+        "statut": "in-progress",
         "score": 2,
         "etat": "partiel",
         "checks": {
@@ -19303,45 +19575,15 @@
             "valeur": "stable"
           }
         }
-      },
-      {
-        "id": "SPEC-016-1-architecture-4-couches",
-        "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
-        "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
-        "statut": "in-progress",
-        "score": 3,
-        "etat": "bon",
-        "checks": {
-          "sqs": {
-            "ok": true,
-            "valeur": 5
-          },
-          "taille": {
-            "ok": true,
-            "valeur": "XS"
-          },
-          "ac": {
-            "ok": false,
-            "valeur": 0
-          },
-          "anno": {
-            "ok": false,
-            "valeur": 0
-          },
-          "stable": {
-            "ok": true,
-            "valeur": "stable"
-          }
-        }
       }
     ],
     "totaux": {
-      "total": 8,
+      "total": 7,
       "excellent": 0,
-      "bon": 1,
+      "bon": 0,
       "partiel": 7,
       "faible": 0,
-      "scoreMoyen": 2.1
+      "scoreMoyen": 2
     }
   },
   "sponsorScorecard": {
@@ -19362,10 +19604,17 @@
     "events": [
       {
         "type": "spec",
+        "id": "SPEC-016-2-design-system-rgaa",
+        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+        "statut": "in-progress",
+        "mtime": 1782123364438.0588
+      },
+      {
+        "type": "spec",
         "id": "SPEC-016-1-architecture-4-couches",
         "titre": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
-        "statut": "in-progress",
-        "mtime": 1782118415124.3298
+        "statut": "done",
+        "mtime": 1782121972926.8994
       },
       {
         "type": "intent",
@@ -19380,13 +19629,6 @@
         "titre": "SPEC-016-4 — Budgets de poids RGESN par page + CI",
         "statut": "draft",
         "mtime": 1782117301800.7737
-      },
-      {
-        "type": "spec",
-        "id": "SPEC-016-2-design-system-rgaa",
-        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-        "statut": "draft",
-        "mtime": 1782117279727.7375
       },
       {
         "type": "spec",
@@ -19601,9 +19843,9 @@
     "budgets": []
   },
   "santeGlobale": {
-    "score": 76,
+    "score": 65,
     "total": 100,
-    "scoreBrut": 61,
+    "scoreBrut": 52,
     "maxBrut": 80,
     "breakdown": [
       {
@@ -19642,12 +19884,12 @@
         "id": "violations",
         "label": "Conformité Tier 1",
         "max": 20,
-        "ratio": 0.45833333333333337,
-        "points": 9,
+        "ratio": 0,
+        "points": 0,
         "disponible": true
       }
     ],
-    "niveau": "sain",
+    "niveau": "attention",
     "composantesDisponibles": 4,
     "evolution": {
       "snapshots": 2,
@@ -19731,13 +19973,13 @@
         {
           "semaine": "2026-06-22",
           "samples": 1,
-          "score": 76,
-          "niveau": "sain"
+          "score": 65,
+          "niveau": "attention"
         }
       ],
       "tendance": {
         "sens": "up",
-        "delta": 26
+        "delta": 15
       },
       "prune": {
         "pruned": [],
@@ -19919,5 +20161,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-06-22T09:41:13.949Z"
+  "generatedAt": "2026-06-22T11:26:47.845Z"
 }
