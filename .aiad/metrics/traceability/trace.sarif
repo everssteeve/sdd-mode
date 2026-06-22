@@ -899,25 +899,6 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
-            "text": "Aucune annotation @spec dans dashboard/assets/app.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "dashboard/assets/app.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
             "text": "Aucune annotation @spec dans docs/_config.yml."
           },
           "locations": [
@@ -1248,25 +1229,6 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "lib/confluence.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
-            "text": "Aucune annotation @spec dans lib/dashboard.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/dashboard.js"
                 },
                 "region": {
                   "startLine": 1
@@ -6713,7 +6675,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-22T10:16:25.599Z"
+          "endTimeUtc": "2026-06-22T12:53:59.622Z"
         }
       ]
     }

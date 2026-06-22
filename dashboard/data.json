@@ -2,14 +2,19 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.18.0",
-    "generated": "2026-06-22T11:26:47.845Z",
+    "generated": "2026-06-22T12:52:26.549Z",
+    "schema_version": "2.0",
     "slim": true
+  },
+  "_schema": {
+    "url": "https://aiad.ovh/schema/data-v2.schema.json",
+    "local": "lib/dashboard/schema/data-v2.schema.json"
   },
   "projet": {
     "nom": "aiad-sdd",
     "version": "1.18.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd",
-    "genere": "2026-06-22T11:26:47.845Z"
+    "genere": "2026-06-22T12:52:26.549Z"
   },
   "fondamentaux": [
     {
@@ -801,28 +806,28 @@
       "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
       "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
       "parentIntent": "INTENT-016",
-      "statut": "in-progress",
+      "statut": "done",
       "format": "ears",
       "sqs": "5/5 — Gate OUVERTE (EARS 11/11 · Étranger PASS · 2026-06-22)",
       "governance": null,
       "parallelWith": [],
       "auteur": "Steeve Evers",
       "date": "2026-06-22",
-      "mtime": 1782123364438.0588
+      "mtime": 1782127678990.9934
     },
     {
       "id": "SPEC-016-3-data-json-v2",
       "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
       "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
       "parentIntent": "INTENT-016",
-      "statut": "draft",
+      "statut": "in-progress",
       "format": "prose",
-      "sqs": "[À évaluer via /sdd gate]",
+      "sqs": "5/5 — Gate OUVERTE (2026-06-22)",
       "governance": null,
       "parallelWith": [],
       "auteur": "Steeve Evers",
       "date": "2026-06-22",
-      "mtime": 1782117101399.3145
+      "mtime": 1782132631703.9883
     },
     {
       "id": "SPEC-016-4-rgesn-budgets",
@@ -1205,14 +1210,14 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-06-22T11:26:47.870Z",
+    "generatedAt": "2026-06-22T12:52:26.576Z",
     "summary": {
       "intents": 25,
       "specs": 32,
-      "codeFiles": 375,
-      "annotatedCodeFiles": 63,
-      "testFiles": 251,
-      "annotatedTestFiles": 29
+      "codeFiles": 376,
+      "annotatedCodeFiles": 65,
+      "testFiles": 252,
+      "annotatedTestFiles": 31
     },
     "forward": [
       {
@@ -2221,7 +2226,7 @@
               "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
               "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
               "parentIntent": "INTENT-016",
-              "status": "in-progress",
+              "status": "done",
               "traceability": "",
               "traceabilityReason": ""
             },
@@ -2285,12 +2290,30 @@
               "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
               "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
               "parentIntent": "INTENT-016",
-              "status": "draft",
+              "status": "in-progress",
               "traceability": "",
               "traceabilityReason": ""
             },
-            "code": [],
-            "tests": []
+            "code": [
+              {
+                "path": "scripts/validate-data-schema.js",
+                "line": 10
+              },
+              {
+                "path": "lib/dashboard.js",
+                "line": 343
+              }
+            ],
+            "tests": [
+              {
+                "path": "test/validate-data-schema.test.js",
+                "line": 4
+              },
+              {
+                "path": "test/dashboard.test.js",
+                "line": 113
+              }
+            ]
           },
           {
             "spec": {
@@ -2436,13 +2459,13 @@
     "backward": [
       {
         "test": {
-          "path": "test/dashboard-assets.test.js",
-          "line": 1
+          "path": "test/validate-data-schema.test.js",
+          "line": 4
         },
         "spec": {
-          "id": "SPEC-016-2-design-system-rgaa",
-          "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-          "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
+          "id": "SPEC-016-3-data-json-v2",
+          "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
+          "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
           "parentIntent": "INTENT-016",
           "status": "in-progress",
           "traceability": "",
@@ -2456,44 +2479,12 @@
         },
         "code": [
           {
-            "path": "dashboard/assets/app.js",
-            "line": 5
+            "path": "scripts/validate-data-schema.js",
+            "line": 10
           },
           {
-            "path": "dashboard/assets/app.js",
-            "line": 29
-          },
-          {
-            "path": "dashboard/assets/app.js",
-            "line": 283
-          },
-          {
-            "path": "lib/dashboard/assets.js",
-            "line": 487
-          },
-          {
-            "path": "lib/dashboard/assets.js",
-            "line": 594
-          },
-          {
-            "path": "lib/dashboard/assets.js",
-            "line": 600
-          },
-          {
-            "path": "lib/dashboard/assets.js",
-            "line": 610
-          },
-          {
-            "path": "lib/dashboard/assets.js",
-            "line": 634
-          },
-          {
-            "path": "lib/dashboard/assets.js",
-            "line": 888
-          },
-          {
-            "path": "lib/dashboard/ui/sparklines.js",
-            "line": 1
+            "path": "lib/dashboard.js",
+            "line": 343
           }
         ]
       },
@@ -3132,6 +3123,69 @@
       },
       {
         "test": {
+          "path": "test/dashboard-assets.test.js",
+          "line": 1
+        },
+        "spec": {
+          "id": "SPEC-016-2-design-system-rgaa",
+          "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+          "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
+          "parentIntent": "INTENT-016",
+          "status": "done",
+          "traceability": "",
+          "traceabilityReason": ""
+        },
+        "intent": {
+          "id": "INTENT-016-dashboard-fondations",
+          "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
+          "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
+          "status": "active"
+        },
+        "code": [
+          {
+            "path": "dashboard/assets/app.js",
+            "line": 5
+          },
+          {
+            "path": "dashboard/assets/app.js",
+            "line": 29
+          },
+          {
+            "path": "dashboard/assets/app.js",
+            "line": 283
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 487
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 594
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 600
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 610
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 634
+          },
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 888
+          },
+          {
+            "path": "lib/dashboard/ui/sparklines.js",
+            "line": 1
+          }
+        ]
+      },
+      {
+        "test": {
           "path": "test/dashboard-audit-trail.test.js",
           "line": 0
         },
@@ -3665,15 +3719,6 @@
       {
         "test": {
           "path": "test/dashboard-pm-v43.test.js",
-          "line": 0
-        },
-        "spec": null,
-        "intent": null,
-        "code": []
-      },
-      {
-        "test": {
-          "path": "test/dashboard-pm-v44.test.js",
           "line": 0
         },
         "spec": null,
@@ -4424,17 +4469,6 @@
           "annotated": false
         },
         {
-          "path": "lib/dashboard.js",
-          "isTest": false,
-          "annotations": {
-            "intents": [],
-            "specs": [],
-            "verifiedBy": [],
-            "governance": []
-          },
-          "annotated": false
-        },
-        {
           "path": "lib/dashboard/_history-utils.js",
           "isTest": false,
           "annotations": {
@@ -4976,6 +5010,17 @@
             "governance": []
           },
           "annotated": false
+        },
+        {
+          "path": "lib/dashboard/favicon.js",
+          "isTest": false,
+          "annotations": {
+            "intents": [],
+            "specs": [],
+            "verifiedBy": [],
+            "governance": []
+          },
+          "annotated": false
         }
       ],
       "codeSansTests": [
@@ -5307,7 +5352,7 @@
       "intentsOrphelinsSurCode": [],
       "specsOrphelinsSurCode": [],
       "codeSansSpec_truncated": true,
-      "codeSansSpec_total": 328
+      "codeSansSpec_total": 327
     },
     "specsExemptees": [
       {
@@ -5347,7 +5392,7 @@
         "traceabilityReason": "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
       }
     ],
-    "backward_total": 301,
+    "backward_total": 302,
     "backward_truncated": true
   },
   "signaux": {
@@ -5367,8 +5412,8 @@
       },
       "traceCompleteness": {
         "total": 32,
-        "complete": 21,
-        "ratio": 0.65625
+        "complete": 22,
+        "ratio": 0.6875
       },
       "langueArtefacts": {
         "fr": 38,
@@ -5395,10 +5440,10 @@
       },
       {
         "mois": "2026-06",
-        "ts": 1782127607894,
+        "ts": 1782132746603,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": 0.7,
-        "traceCompleteness": 0.65625,
+        "traceCompleteness": 0.6875,
         "langueArtefacts": {
           "fr": 38,
           "en": 2,
@@ -5485,11 +5530,11 @@
     },
     "hookStats": {
       "available": true,
-      "count": 143,
+      "count": 144,
       "p50": 0,
       "p95": 1000,
       "max": 1000,
-      "ratioFail": 0.20279720279720279,
+      "ratioFail": 0.2013888888888889,
       "timeouts": 0,
       "scopeLeaks": 0,
       "sante": "attention"
@@ -5924,28 +5969,28 @@
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "parentIntent": "INTENT-016",
-        "statut": "in-progress",
+        "statut": "done",
         "format": "ears",
         "sqs": "5/5 — Gate OUVERTE (EARS 11/11 · Étranger PASS · 2026-06-22)",
         "governance": null,
         "parallelWith": [],
         "auteur": "Steeve Evers",
         "date": "2026-06-22",
-        "mtime": 1782123364438.0588
+        "mtime": 1782127678990.9934
       },
       {
         "id": "SPEC-016-3-data-json-v2",
         "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
         "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
         "parentIntent": "INTENT-016",
-        "statut": "draft",
+        "statut": "in-progress",
         "format": "prose",
-        "sqs": "[À évaluer via /sdd gate]",
+        "sqs": "5/5 — Gate OUVERTE (2026-06-22)",
         "governance": null,
         "parallelWith": [],
         "auteur": "Steeve Evers",
         "date": "2026-06-22",
-        "mtime": 1782117101399.3145
+        "mtime": 1782132631703.9883
       },
       {
         "id": "SPEC-016-4-rgesn-budgets",
@@ -6318,6 +6363,17 @@
         "source": "heuristique"
       },
       {
+        "id": "SPEC-016-3-data-json-v2",
+        "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
+        "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
+        "tests": 2,
+        "code": 2,
+        "ratio": 1,
+        "pct": null,
+        "band": "ok",
+        "source": "heuristique"
+      },
+      {
         "id": "SPEC-024-1-trace-exemption",
         "titre": "Exemption de traçabilité pour SPECs sans code applicatif",
         "file": ".aiad/specs/SPEC-024-1-trace-exemption.md",
@@ -6365,17 +6421,6 @@
         "id": "SPEC-013-2-unification-docs-racine",
         "titre": "Unification des docs racine + archivage de SDDMode.md",
         "file": ".aiad/specs/SPEC-013-2-unification-docs-racine.md",
-        "tests": 0,
-        "code": 0,
-        "ratio": null,
-        "pct": null,
-        "band": "na",
-        "source": "heuristique"
-      },
-      {
-        "id": "SPEC-016-3-data-json-v2",
-        "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
-        "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
         "tests": 0,
         "code": 0,
         "ratio": null,
@@ -6480,6 +6525,14 @@
     },
     "testsRecents": [
       {
+        "path": "test/validate-data-schema.test.js",
+        "mtime": 1782132541075.775
+      },
+      {
+        "path": "test/dashboard.test.js",
+        "mtime": 1782132385333.7695
+      },
+      {
         "path": "test/dashboard-render.test.js",
         "mtime": 1782123202384.2688
       },
@@ -6518,10 +6571,6 @@
       {
         "path": "test/coverage-threshold.test.js",
         "mtime": 1781539253674.9155
-      },
-      {
-        "path": "test/annotations.test.js",
-        "mtime": 1781527516296.7703
       }
     ],
     "regressions": {
@@ -6703,6 +6752,13 @@
         "mtime": 1782121972926.8994,
         "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
         "lastDemo": null
+      },
+      {
+        "id": "SPEC-016-2-design-system-rgaa",
+        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+        "mtime": 1782127678990.9934,
+        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+        "lastDemo": null
       }
     ],
     "avancement": [
@@ -6862,9 +6918,9 @@
         "statut": "active",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
         "total": 4,
-        "done": 1,
+        "done": 2,
         "enCours": 1,
-        "ratio": 0.25
+        "ratio": 0.5
       },
       {
         "id": "INTENT-017-dashboard-quotidien",
@@ -7079,13 +7135,13 @@
       {
         "key": "2026-W26",
         "label": "S26",
-        "count": 3,
+        "count": 4,
         "ts": 1782086400000
       }
     ],
     "totaux": {
       "intentsDone": 17,
-      "specsDone": 24,
+      "specsDone": 25,
       "moisCouverts": 6,
       "semainesCouvertes": 12
     },
@@ -7095,7 +7151,7 @@
     },
     "tendanceSpecs": {
       "sens": "up",
-      "delta": 24
+      "delta": 25
     }
   },
   "roadmap": {
@@ -7329,18 +7385,6 @@
       ],
       "cards": [
         {
-          "id": "SPEC-016-3-data-json-v2",
-          "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
-          "intentId": "INTENT-016-dashboard-fondations",
-          "intentFile": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-          "statut": "draft",
-          "sqs": "[À évaluer via /sdd gate]",
-          "governance": [],
-          "testsCount": 0,
-          "codeCount": 0,
-          "file": ".aiad/specs/SPEC-016-3-data-json-v2.md"
-        },
-        {
           "id": "SPEC-016-4-rgesn-budgets",
           "titre": "SPEC-016-4 — Budgets de poids RGESN par page + CI",
           "intentId": "INTENT-016-dashboard-fondations",
@@ -7362,16 +7406,16 @@
       ],
       "cards": [
         {
-          "id": "SPEC-016-2-design-system-rgaa",
-          "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+          "id": "SPEC-016-3-data-json-v2",
+          "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
           "intentId": "INTENT-016-dashboard-fondations",
           "intentFile": ".aiad/intents/INTENT-016-dashboard-fondations.md",
           "statut": "in-progress",
-          "sqs": "5/5 — Gate OUVERTE (EARS 11/11 · Étranger PASS · 2026-06-22)",
+          "sqs": "5/5 — Gate OUVERTE (2026-06-22)",
           "governance": [],
           "testsCount": 2,
-          "codeCount": 10,
-          "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md"
+          "codeCount": 2,
+          "file": ".aiad/specs/SPEC-016-3-data-json-v2.md"
         }
       ]
     },
@@ -7675,6 +7719,18 @@
           "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md"
         },
         {
+          "id": "SPEC-016-2-design-system-rgaa",
+          "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+          "intentId": "INTENT-016-dashboard-fondations",
+          "intentFile": ".aiad/intents/INTENT-016-dashboard-fondations.md",
+          "statut": "done",
+          "sqs": "5/5 — Gate OUVERTE (EARS 11/11 · Étranger PASS · 2026-06-22)",
+          "governance": [],
+          "testsCount": 2,
+          "codeCount": 10,
+          "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md"
+        },
+        {
           "id": "SPEC-024-1-trace-exemption",
           "titre": "Exemption de traçabilité pour SPECs sans code applicatif",
           "intentId": "INTENT-024-trace-exemption-specs-sans-code",
@@ -7879,91 +7935,91 @@
           "file": "test/dashboard-tech-debt.test.js",
           "line": 22,
           "question": "dans .js .ts .py .md', () => {",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 26,
           "question": "choisir entre Redis et Postgres\\nconst x = 1;\\n');",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 27,
           "question": "format date ISO ou UNIX ?\\n');",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 28,
           "question": "niveau de log par défaut ?\\n');",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 29,
           "question": "validation par qui ?\\n');",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 45,
           "question": "noise\\n');",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 46,
           "question": "noise\\n');",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 58,
           "question": "marker ${i}\\n`;",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 125,
           "question": "déléguer ?\\n');",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 188,
           "question": "récent\\n');",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 189,
           "question": "medium\\n');",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 190,
           "question": "ancien\\n');",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
           "file": "test/dashboard-tech-debt.test.js",
           "line": 303,
           "question": "q1\\n');",
-          "ageDays": 39,
+          "ageDays": 40,
           "age": "stale"
         },
         {
@@ -8363,11 +8419,11 @@
   "sre": {
     "hookStats": {
       "available": true,
-      "count": 143,
+      "count": 144,
       "p50": 0,
       "p95": 1000,
       "max": 1000,
-      "ratioFail": 0.20279720279720279,
+      "ratioFail": 0.2013888888888889,
       "timeouts": 0,
       "scopeLeaks": 0,
       "sante": "attention"
@@ -8821,9 +8877,16 @@
         "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
         "mtime": 1782121972926.8994,
         "parentIntent": "INTENT-016"
+      },
+      {
+        "id": "SPEC-016-2-design-system-rgaa",
+        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+        "mtime": 1782127678990.9934,
+        "parentIntent": "INTENT-016"
       }
     ],
-    "total": 41
+    "total": 42
   },
   "personaDrill": [],
   "deadlines": {
@@ -9332,12 +9395,12 @@
           },
           {
             "id": "SPEC-016-2-design-system-rgaa",
-            "statut": "in-progress",
+            "statut": "done",
             "parentIntent": "INTENT-016"
           },
           {
             "id": "SPEC-016-3-data-json-v2",
-            "statut": "draft",
+            "statut": "in-progress",
             "parentIntent": "INTENT-016"
           },
           {
@@ -9357,7 +9420,7 @@
           }
         ]
       },
-      "mtime": 1782127607948.052
+      "mtime": 1782132746668.8872
     },
     "totalChangements": 0
   },
@@ -9963,7 +10026,7 @@
         "id": "INTENT-016-dashboard-fondations",
         "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "ageJours": 0,
+        "ageJours": 1,
         "statut": "active"
       }
     ],
@@ -10014,7 +10077,7 @@
         "id": "INTENT-016-dashboard-fondations",
         "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "ageJours": 0,
+        "ageJours": 1,
         "statut": "active"
       }
     ]
@@ -10242,13 +10305,24 @@
     "items": [
       {
         "type": "SPEC",
+        "id": "SPEC-016-3-data-json-v2",
+        "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
+        "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
+        "statut": "in-progress",
+        "mtime": 1782132631703.9883,
+        "parentIntent": "INTENT-016",
+        "ageMs": 114966.01171875,
+        "ageHumain": "il y a 2 min"
+      },
+      {
+        "type": "SPEC",
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "in-progress",
-        "mtime": 1782123364438.0588,
+        "statut": "done",
+        "mtime": 1782127678990.9934,
         "parentIntent": "INTENT-016",
-        "ageMs": 4243510.941162109,
+        "ageMs": 5067679.006591797,
         "ageHumain": "il y a 1 h"
       },
       {
@@ -10259,8 +10333,8 @@
         "statut": "done",
         "mtime": 1782121972926.8994,
         "parentIntent": "INTENT-016",
-        "ageMs": 5635022.1005859375,
-        "ageHumain": "il y a 2 h"
+        "ageMs": 10773743.100585938,
+        "ageHumain": "il y a 3 h"
       },
       {
         "type": "Intent",
@@ -10269,8 +10343,8 @@
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
         "statut": "active",
         "mtime": 1782117337810.044,
-        "ageMs": 10270138.956054688,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 15408859.956054688,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "SPEC",
@@ -10280,19 +10354,8 @@
         "statut": "draft",
         "mtime": 1782117301800.7737,
         "parentIntent": "INTENT-016",
-        "ageMs": 10306148.22631836,
-        "ageHumain": "il y a 3 h"
-      },
-      {
-        "type": "SPEC",
-        "id": "SPEC-016-3-data-json-v2",
-        "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
-        "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
-        "statut": "draft",
-        "mtime": 1782117101399.3145,
-        "parentIntent": "INTENT-016",
-        "ageMs": 10506549.685546875,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 15444869.22631836,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "Intent",
@@ -10301,8 +10364,8 @@
         "file": ".aiad/intents/INTENT-025-contraste-kicker.md",
         "statut": "done",
         "mtime": 1782115963089.1055,
-        "ageMs": 11644859.89453125,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 16783580.89453125,
+        "ageHumain": "il y a 5 h"
       },
       {
         "type": "SPEC",
@@ -10312,8 +10375,8 @@
         "statut": "done",
         "mtime": 1782115945486.3892,
         "parentIntent": "INTENT-025",
-        "ageMs": 11662462.610839844,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 16801183.610839844,
+        "ageHumain": "il y a 5 h"
       },
       {
         "type": "SPEC",
@@ -10323,8 +10386,8 @@
         "statut": "done",
         "mtime": 1782114811140.4956,
         "parentIntent": "INTENT-013",
-        "ageMs": 12796808.504394531,
-        "ageHumain": "il y a 4 h"
+        "ageMs": 17935529.50439453,
+        "ageHumain": "il y a 5 h"
       },
       {
         "type": "SPEC",
@@ -10334,7 +10397,7 @@
         "statut": "done",
         "mtime": 1781877387355.2705,
         "parentIntent": "INTENT-024",
-        "ageMs": 250220593.7294922,
+        "ageMs": 255359314.7294922,
         "ageHumain": "il y a 3 j"
       },
       {
@@ -10345,7 +10408,7 @@
         "statut": "done",
         "mtime": 1781877387355.1785,
         "parentIntent": "INTENT-013",
-        "ageMs": 250220593.8215332,
+        "ageMs": 255359314.8215332,
         "ageHumain": "il y a 3 j"
       }
     ],
@@ -11217,10 +11280,10 @@
       "sens": "down"
     },
     "specs": {
-      "courant": 3,
+      "courant": 4,
       "precedent": 20,
-      "abs": -17,
-      "rel": -85,
+      "abs": -16,
+      "rel": -80,
       "sens": "down"
     },
     "historique": {
@@ -11232,7 +11295,7 @@
       "specs": [
         1,
         20,
-        3
+        4
       ]
     }
   },
@@ -11261,10 +11324,10 @@
       "etat": "sain",
       "items": [
         {
-          "id": "SPEC-016-2-design-system-rgaa",
-          "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+          "id": "SPEC-016-3-data-json-v2",
+          "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
           "statut": "in-progress",
-          "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md"
+          "file": ".aiad/specs/SPEC-016-3-data-json-v2.md"
         }
       ]
     }
@@ -11353,21 +11416,11 @@
       },
       {
         "type": "SPEC",
-        "id": "SPEC-016-2-design-system-rgaa",
-        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "in-progress",
-        "mtime": 1782123364438.0588,
-        "ageJours": 0,
-        "bande": "frais"
-      },
-      {
-        "type": "SPEC",
         "id": "SPEC-016-3-data-json-v2",
         "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
         "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
-        "statut": "draft",
-        "mtime": 1782117101399.3145,
+        "statut": "in-progress",
+        "mtime": 1782132631703.9883,
         "ageJours": 0,
         "bande": "frais"
       },
@@ -11383,11 +11436,11 @@
       }
     ],
     "totaux": {
-      "total": 11,
+      "total": 10,
       "abandonne": 0,
       "stale": 0,
       "tiede": 0,
-      "frais": 11
+      "frais": 10
     }
   },
   "goalTree": {
@@ -11693,13 +11746,13 @@
           {
             "id": "SPEC-016-2-design-system-rgaa",
             "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-            "statut": "in-progress",
+            "statut": "done",
             "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md"
           },
           {
             "id": "SPEC-016-3-data-json-v2",
             "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
-            "statut": "draft",
+            "statut": "in-progress",
             "file": ".aiad/specs/SPEC-016-3-data-json-v2.md"
           },
           {
@@ -12051,57 +12104,57 @@
       },
       {
         "x": 5,
-        "y": 3
+        "y": 4
       }
     ],
     "forecast": [
       {
         "semaineIdx": 6,
-        "y": 11.2,
-        "yMin": 3.5,
-        "yMax": 18.9
+        "y": 11.9,
+        "yMin": 4.3,
+        "yMax": 19.4
       },
       {
         "semaineIdx": 7,
-        "y": 13.3,
-        "yMin": 5.5,
-        "yMax": 21
+        "y": 14.1,
+        "yMin": 6.5,
+        "yMax": 21.6
       },
       {
         "semaineIdx": 8,
-        "y": 15.3,
-        "yMin": 7.6,
-        "yMax": 23.1
+        "y": 16.3,
+        "yMin": 8.7,
+        "yMax": 23.8
       },
       {
         "semaineIdx": 9,
-        "y": 17.4,
-        "yMin": 9.6,
-        "yMax": 25.1
+        "y": 18.5,
+        "yMin": 10.9,
+        "yMax": 26
       },
       {
         "semaineIdx": 10,
-        "y": 19.4,
-        "yMin": 11.7,
-        "yMax": 27.2
+        "y": 20.7,
+        "yMin": 13.1,
+        "yMax": 28.2
       },
       {
         "semaineIdx": 11,
-        "y": 21.5,
-        "yMin": 13.7,
-        "yMax": 29.2
+        "y": 22.9,
+        "yMin": 15.3,
+        "yMax": 30.4
       }
     ],
     "reg": {
-      "slope": 2.06,
-      "intercept": -1.1,
-      "stdErr": 7.7
+      "slope": 2.2,
+      "intercept": -1.3,
+      "stdErr": 7.6
     },
-    "rythmeMoyen": 4,
-    "projectionHorizon": 98.1,
+    "rythmeMoyen": 4.2,
+    "projectionHorizon": 104.4,
     "horizonSem": 6,
     "fenetreSem": 6,
-    "restant": 7,
+    "restant": 6,
     "etaSemaines": 1
   },
   "aiActCompliance": {
@@ -12325,7 +12378,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1782127462078.6277
+        "mtime": 1782127607963.3735
       }
     ],
     "tendance": {
@@ -13831,10 +13884,10 @@
     "seuilCommit": 8
   },
   "strategicNarrative": {
-    "texte": "**aiad-sdd** — état 2026-06-22 : 1 Intent(s) actif(s), 1 en delivery, 17 livré(s). Vélocité **4 SPECs/sem** en accélération (projection 6sem : 98.1 SPECs), ETA backlog ~1 sem. Santé du projet **65/100** en amélioration (+15 pts) sur 2 snapshots.",
+    "texte": "**aiad-sdd** — état 2026-06-22 : 1 Intent(s) actif(s), 1 en delivery, 17 livré(s). Vélocité **4.2 SPECs/sem** en accélération (projection 6sem : 104.4 SPECs), ETA backlog ~1 sem. Santé du projet **65/100** en amélioration (+15 pts) sur 2 snapshots.",
     "phrases": [
       "**aiad-sdd** — état 2026-06-22 : 1 Intent(s) actif(s), 1 en delivery, 17 livré(s).",
-      "Vélocité **4 SPECs/sem** en accélération (projection 6sem : 98.1 SPECs), ETA backlog ~1 sem.",
+      "Vélocité **4.2 SPECs/sem** en accélération (projection 6sem : 104.4 SPECs), ETA backlog ~1 sem.",
       "Santé du projet **65/100** en amélioration (+15 pts) sur 2 snapshots."
     ],
     "meta": {
@@ -13842,7 +13895,7 @@
       "risquesEleves": 0,
       "healthScore": null,
       "healthTrend": "up",
-      "veloMoyen": 4
+      "veloMoyen": 4.2
     }
   },
   "stakeholderComms": {
@@ -14188,50 +14241,50 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1777289207955,
-        "fin": 1777894007955,
+        "debut": 1777294346675,
+        "fin": 1777899146675,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1777894007955,
-        "fin": 1778498807955,
+        "debut": 1777899146675,
+        "fin": 1778503946675,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1778498807955,
-        "fin": 1779103607955,
+        "debut": 1778503946675,
+        "fin": 1779108746675,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1779103607955,
-        "fin": 1779708407955,
+        "debut": 1779108746675,
+        "fin": 1779713546675,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1779708407955,
-        "fin": 1780313207955,
+        "debut": 1779713546675,
+        "fin": 1780318346675,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1780313207955,
-        "fin": 1780918007955,
+        "debut": 1780318346675,
+        "fin": 1780923146675,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1780918007955,
-        "fin": 1781522807955,
+        "debut": 1780923146675,
+        "fin": 1781527946675,
         "count": 2,
         "decisions": [
           {
@@ -14248,8 +14301,8 @@
       },
       {
         "idx": 7,
-        "debut": 1781522807955,
-        "fin": 1782127607955,
+        "debut": 1781527946675,
+        "fin": 1782132746675,
         "count": 3,
         "decisions": [
           {
@@ -14506,11 +14559,19 @@
     "items": [
       {
         "type": "spec",
-        "id": "SPEC-016-2-design-system-rgaa",
-        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-        "mtime": 1782123364438.0588,
+        "id": "SPEC-016-3-data-json-v2",
+        "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
+        "mtime": 1782132631703.9883,
         "parentIntent": "INTENT-016",
         "statut": "in-progress"
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-016-2-design-system-rgaa",
+        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+        "mtime": 1782127678990.9934,
+        "parentIntent": "INTENT-016",
+        "statut": "done"
       },
       {
         "type": "spec",
@@ -14532,14 +14593,6 @@
         "id": "SPEC-016-4-rgesn-budgets",
         "titre": "SPEC-016-4 — Budgets de poids RGESN par page + CI",
         "mtime": 1782117301800.7737,
-        "parentIntent": "INTENT-016",
-        "statut": "draft"
-      },
-      {
-        "type": "spec",
-        "id": "SPEC-016-3-data-json-v2",
-        "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
-        "mtime": 1782117101399.3145,
         "parentIntent": "INTENT-016",
         "statut": "draft"
       },
@@ -14936,7 +14989,7 @@
         "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md"
       }
     ],
-    "nowMs": 1782127607956
+    "nowMs": 1782132746675
   },
   "hypothesisLifecycle": {
     "items": [],
@@ -14956,7 +15009,7 @@
   "roadmapTimeline": {
     "items": [],
     "plage": null,
-    "now": 1782127607956,
+    "now": 1782132746675,
     "totaux": {
       "total": 0,
       "retard": 0,
@@ -14979,10 +15032,10 @@
       {
         "cle": "specs-livrees",
         "label": "SPECs livrées",
-        "courant": 25,
+        "courant": 26,
         "precedent": 0,
         "icone": "🚀",
-        "delta": 25,
+        "delta": 26,
         "direction": "up"
       },
       {
@@ -15023,14 +15076,14 @@
       }
     ],
     "fenetre": {
-      "debut": 1779535607956,
-      "fin": 1782127607956
+      "debut": 1779540746676,
+      "fin": 1782132746676
     },
     "fenetrePrecedente": {
-      "debut": 1776943607956,
-      "fin": 1779535607956
+      "debut": 1776948746676,
+      "fin": 1779540746676
     },
-    "totalActivite": 55,
+    "totalActivite": 56,
     "totalPrecedent": 0,
     "directionGlobale": "up"
   },
@@ -15068,9 +15121,9 @@
           "statut": "active",
           "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
           "total": 4,
-          "done": 1,
+          "done": 2,
           "enCours": 1,
-          "ratio": 0.25
+          "ratio": 0.5
         },
         "risque": {
           "id": "INTENT-016-dashboard-fondations",
@@ -15507,8 +15560,8 @@
         "statut": "active",
         "mtime": 1782117337810.044,
         "premiereSpec": {
-          "id": "SPEC-016-3-data-json-v2",
-          "mtime": 1782117101399.3145
+          "id": "SPEC-016-4-rgesn-budgets",
+          "mtime": 1782117301800.7737
         },
         "ttfsJours": 0,
         "etat": "rapide"
@@ -15565,8 +15618,8 @@
       {
         "trim": "Q2-2026",
         "planifie": 0,
-        "livre": 25,
-        "ecart": 25,
+        "livre": 26,
+        "ecart": 26,
         "ratio": null,
         "intentsPlanifies": [],
         "specsLivrees": [
@@ -15596,7 +15649,7 @@
     "totaux": {
       "trimestres": 1,
       "totalPlanifie": 0,
-      "totalLivre": 25,
+      "totalLivre": 26,
       "couvertures": 0,
       "deficits": 0
     }
@@ -15620,6 +15673,15 @@
   },
   "winsWall": {
     "items": [
+      {
+        "type": "spec",
+        "id": "SPEC-016-2-design-system-rgaa",
+        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+        "statut": "done",
+        "parentIntent": "INTENT-016",
+        "mtime": 1782127678990.9934
+      },
       {
         "type": "spec",
         "id": "SPEC-016-1-architecture-4-couches",
@@ -15718,22 +15780,13 @@
         "statut": "done",
         "parentIntent": "INTENT-015",
         "mtime": 1781875442786.245
-      },
-      {
-        "type": "intent",
-        "id": "INTENT-015-sobriete-cli",
-        "titre": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
-        "statut": "done",
-        "sponsor": null,
-        "mtime": 1781875442785.975
       }
     ],
     "totaux": {
-      "total": 42,
-      "specs": 25,
+      "total": 43,
+      "specs": 26,
       "intents": 17,
-      "now": 1782127607957
+      "now": 1782132746677
     }
   },
   "stateTransitions": {
@@ -15906,9 +15959,9 @@
       }
     ],
     "temps": 30,
-    "coupes": 18,
+    "coupes": 19,
     "dureeCible": 30,
-    "totauxSpecsDispo": 24
+    "totauxSpecsDispo": 25
   },
   "specStuck": {
     "items": [],
@@ -16201,42 +16254,42 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1779103607958,
+        "finSem": 1779108746678,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1779708407958,
+        "finSem": 1779713546678,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1780313207958,
+        "finSem": 1780318346678,
         "intake": 1,
         "delivery": 1,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1780918007958,
+        "finSem": 1780923146678,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1781522807958,
+        "finSem": 1781527946678,
         "intake": 8,
         "delivery": 1,
         "delta": 7
       },
       {
         "idx": 5,
-        "finSem": 1782127607958,
+        "finSem": 1782132746678,
         "intake": 16,
         "delivery": 15,
         "delta": 1
@@ -16811,7 +16864,7 @@
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "in-progress",
+        "statut": "done",
         "mots": 9,
         "minutes": 1,
         "trop_long": false
@@ -16821,7 +16874,7 @@
         "id": "SPEC-016-3-data-json-v2",
         "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
         "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
-        "statut": "draft",
+        "statut": "in-progress",
         "mots": 8,
         "minutes": 1,
         "trop_long": false
@@ -17385,7 +17438,7 @@
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "in-progress",
+        "statut": "done",
         "mots": 9,
         "minutes": 1,
         "trop_long": false
@@ -17395,7 +17448,7 @@
         "id": "SPEC-016-3-data-json-v2",
         "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
         "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
-        "statut": "draft",
+        "statut": "in-progress",
         "mots": 8,
         "minutes": 1,
         "trop_long": false
@@ -17634,7 +17687,7 @@
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "in-progress",
+        "statut": "done",
         "parentIntent": "INTENT-016",
         "mots": 9,
         "sections": 0,
@@ -17678,7 +17731,7 @@
         "id": "SPEC-016-3-data-json-v2",
         "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
         "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
-        "statut": "draft",
+        "statut": "in-progress",
         "parentIntent": "INTENT-016",
         "mots": 8,
         "sections": 0,
@@ -17815,11 +17868,11 @@
   },
   "velocitySla": {
     "target": 1.5,
-    "actuel": 4,
-    "ratio": 2.67,
-    "ecart": 2.5,
+    "actuel": 4.2,
+    "ratio": 2.8,
+    "ecart": 2.7,
     "etat": "tenu",
-    "pct": 267,
+    "pct": 280,
     "message": null
   },
   "doneTimeline": {
@@ -18063,6 +18116,11 @@
             "mtime": 1782121972926.8994
           },
           {
+            "id": "SPEC-016-2-design-system-rgaa",
+            "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
+            "mtime": 1782127678990.9934
+          },
+          {
             "id": "SPEC-024-1-trace-exemption",
             "titre": "Exemption de traçabilité pour SPECs sans code applicatif",
             "mtime": 1781877387355.2705
@@ -18077,7 +18135,7 @@
     ],
     "totaux": {
       "moisAffiches": 6,
-      "totalSpecs": 25,
+      "totalSpecs": 26,
       "totalIntents": 17,
       "moisPlusActif": "juin 2026"
     }
@@ -18232,18 +18290,18 @@
     "intentsLivres": 17,
     "intentsDraft": 7,
     "specsTotal": 32,
-    "specsLivrees": 25,
+    "specsLivrees": 26,
     "specsEnCours": 1,
     "ageMois": 1,
     "ageJours": 24,
     "debut": 1780038041124.293,
-    "tauxLivrSpec": 78,
-    "vitesseSpecsParMois": 25
+    "tauxLivrSpec": 81,
+    "vitesseSpecsParMois": 26
   },
   "standupScript": {
-    "texte": "# Standup 22/06/2026\n\n## 🎉 Hier (livrés dans les 24h)\n- ✅ SPEC SPEC-013-4b-gate-rgaa — Gate RGAA AA avant publication du site\n- ✅ SPEC SPEC-016-1-architecture-4-couches — SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)\n- ✅ SPEC SPEC-025-1-gold-contrast-fix — Correction du contraste --gold-600 (.kicker + .pill.gold)\n- ✅ Intent INTENT-025-contraste-kicker — Corriger le contraste des kickers et pills gold (WCAG 1.4.3) (archivé)\n",
+    "texte": "# Standup 22/06/2026\n\n## 🎉 Hier (livrés dans les 24h)\n- ✅ SPEC SPEC-013-4b-gate-rgaa — Gate RGAA AA avant publication du site\n- ✅ SPEC SPEC-016-1-architecture-4-couches — SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)\n- ✅ SPEC SPEC-016-2-design-system-rgaa — SPEC-016-2 — Design system accessible + axe-core en CI\n- ✅ SPEC SPEC-025-1-gold-contrast-fix — Correction du contraste --gold-600 (.kicker + .pill.gold)\n- ✅ Intent INTENT-025-contraste-kicker — Corriger le contraste des kickers et pills gold (WCAG 1.4.3) (archivé)\n",
     "sections": {
-      "hierCount": 4,
+      "hierCount": 5,
       "priorites": 0,
       "blockers": 0,
       "decisions": 0
@@ -18251,9 +18309,9 @@
   },
   "quarterlyRetroDraft": {
     "trim": "Q2-2026",
-    "texte": "# Rétrospective Q2-2026 — aiad-sdd\n\n_Brouillon généré automatiquement le 22/06/2026 depuis le dashboard PM. À enrichir en atelier équipe._\n\n## 1. 🎉 Livraisons du trimestre\n### SPECs livrées (25)\n- SPEC-001-1-feedback-qualitatif — Feedback qualitatif opt-in — commande CLI et invitation périodique\n- SPEC-002-1-gouvernance-enforced — Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)\n- SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)\n- SPEC-004-1-execution-phasee — Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)\n- SPEC-005-1-context-pull — Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)\n- SPEC-006-1-canary-suite — Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)\n- SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)\n- SPEC-008-1-cycle-graph — Cycle SDD comme graphe de Tasks (§3.9)\n- SPEC-009-1-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)\n- SPEC-010-1-cross-model-review — Cross-model review additive-only (§3.12)\n- _… +15 autres_\n\n### Intents archivés (17)\n- INTENT-001-feedback-qualitatif — Feedback qualitatif utilisateurs SDD Mode\n- INTENT-002-gouvernance-enforced — Gouvernance SDD enforced par le harness (advisory → enforced)\n- INTENT-003-research-phase — Phase Research + Discovery obligatoire avant la SPEC (§3.5)\n- INTENT-004-execution-phasee — Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)\n- INTENT-005-context-pull — Budget d'instructions push → pull (gouvernance par paths, §3.7)\n- INTENT-006-canary-suite — Canary suite + alignement des références modèles (§3.10)\n\n## 2. 📊 Métriques clés\n- Vélocité moyenne : **4 SPECs/sem** (slope 2.06)\n- Throughput backlog : 25 intake vs 17 delivery sur 6 sem (direction : gonfle)\n\n## 3. 🧪 Hypothèses (apprentissages)\n_Aucune hypothèse formulée — opportunité d'instaurer la pratique._\n\n## 4. ⚠ Risques marquants\n_Aucun risque critical/high — portefeuille en bon état._\n\n## 5. 🤝 Sujets pour la rétro humaine\nÀ remplir en atelier :\n- Qu'est-ce qui a bien fonctionné ?\n- Qu'est-ce qui a mal fonctionné ?\n- Quelle action concrète pour le prochain trimestre ?\n\n---\n_Généré par aiad-sdd dashboard — humain garde la paternité de la rétro réelle._",
+    "texte": "# Rétrospective Q2-2026 — aiad-sdd\n\n_Brouillon généré automatiquement le 22/06/2026 depuis le dashboard PM. À enrichir en atelier équipe._\n\n## 1. 🎉 Livraisons du trimestre\n### SPECs livrées (26)\n- SPEC-001-1-feedback-qualitatif — Feedback qualitatif opt-in — commande CLI et invitation périodique\n- SPEC-002-1-gouvernance-enforced — Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)\n- SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)\n- SPEC-004-1-execution-phasee — Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)\n- SPEC-005-1-context-pull — Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)\n- SPEC-006-1-canary-suite — Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)\n- SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)\n- SPEC-008-1-cycle-graph — Cycle SDD comme graphe de Tasks (§3.9)\n- SPEC-009-1-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)\n- SPEC-010-1-cross-model-review — Cross-model review additive-only (§3.12)\n- _… +16 autres_\n\n### Intents archivés (17)\n- INTENT-001-feedback-qualitatif — Feedback qualitatif utilisateurs SDD Mode\n- INTENT-002-gouvernance-enforced — Gouvernance SDD enforced par le harness (advisory → enforced)\n- INTENT-003-research-phase — Phase Research + Discovery obligatoire avant la SPEC (§3.5)\n- INTENT-004-execution-phasee — Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)\n- INTENT-005-context-pull — Budget d'instructions push → pull (gouvernance par paths, §3.7)\n- INTENT-006-canary-suite — Canary suite + alignement des références modèles (§3.10)\n\n## 2. 📊 Métriques clés\n- Vélocité moyenne : **4.2 SPECs/sem** (slope 2.2)\n- Throughput backlog : 25 intake vs 17 delivery sur 6 sem (direction : gonfle)\n\n## 3. 🧪 Hypothèses (apprentissages)\n_Aucune hypothèse formulée — opportunité d'instaurer la pratique._\n\n## 4. ⚠ Risques marquants\n_Aucun risque critical/high — portefeuille en bon état._\n\n## 5. 🤝 Sujets pour la rétro humaine\nÀ remplir en atelier :\n- Qu'est-ce qui a bien fonctionné ?\n- Qu'est-ce qui a mal fonctionné ?\n- Quelle action concrète pour le prochain trimestre ?\n\n---\n_Généré par aiad-sdd dashboard — humain garde la paternité de la rétro réelle._",
     "meta": {
-      "specsLivrees": 25,
+      "specsLivrees": 26,
       "intentsArchives": 17,
       "hypotheses": 0,
       "risques": 0
@@ -18702,7 +18760,7 @@
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "in-progress",
+        "statut": "done",
         "tags": {
           "@intent": 0,
           "@spec": 0,
@@ -18717,7 +18775,7 @@
         "id": "SPEC-016-3-data-json-v2",
         "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
         "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
-        "statut": "draft",
+        "statut": "in-progress",
         "tags": {
           "@intent": 0,
           "@spec": 0,
@@ -18903,7 +18961,7 @@
         "id": "INTENT-016-dashboard-fondations",
         "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "texte": "## Summary\nImplémente **Dashboard exemplaire — fondations accessibles, sobres, maintenables** (INTENT-016).\n\n**Objectif** : - Architecture en 4 couches : `collect/` · `model/` · `views/` · `ui/`. - Design system **RGAA AA** vérifié par axe-core en CI (0 violation bloquante). - `data.json` **v2 versionné** (schéma publié, d\n\n## Changes\n- SPEC-016-1-architecture-4-couches — SPEC-016-1 — Architecture 4 couches (collect / model / views / ui) [done]\n- SPEC-016-2-design-system-rgaa — SPEC-016-2 — Design system accessible + axe-core en CI [in-progress]\n\n## Test plan\n- [ ] Tests unitaires passent (`npm test`)\n- [ ] `npx aiad-sdd trace` ne signale aucun gap nouveau\n- [ ] Validation manuelle du flow utilisateur\n\n## Drift Lock\nAnnotations attendues dans le code applicatif :\n```\n@intent INTENT-016\n@spec SPEC-016-1-architecture-4-couches\n@verified-by tests/<chemin>.test.js\n```",
+        "texte": "## Summary\nImplémente **Dashboard exemplaire — fondations accessibles, sobres, maintenables** (INTENT-016).\n\n**Objectif** : - Architecture en 4 couches : `collect/` · `model/` · `views/` · `ui/`. - Design system **RGAA AA** vérifié par axe-core en CI (0 violation bloquante). - `data.json` **v2 versionné** (schéma publié, d\n\n## Changes\n- SPEC-016-1-architecture-4-couches — SPEC-016-1 — Architecture 4 couches (collect / model / views / ui) [done]\n- SPEC-016-2-design-system-rgaa — SPEC-016-2 — Design system accessible + axe-core en CI [done]\n- SPEC-016-3-data-json-v2 — SPEC-016-3 — data.json v2 versionné (JSON schema publié) [in-progress]\n\n## Test plan\n- [ ] Tests unitaires passent (`npm test`)\n- [ ] `npx aiad-sdd trace` ne signale aucun gap nouveau\n- [ ] Validation manuelle du flow utilisateur\n\n## Drift Lock\nAnnotations attendues dans le code applicatif :\n```\n@intent INTENT-016\n@spec SPEC-016-1-architecture-4-couches\n@verified-by tests/<chemin>.test.js\n```",
         "gouvernances": [],
         "nbSpecs": 4
       }
@@ -18995,14 +19053,9 @@
         "mtime": 1781600732284.6404
       },
       {
-        "id": "SPEC-016-2-design-system-rgaa",
-        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-        "mtime": 1782123364438.0588
-      },
-      {
         "id": "SPEC-016-3-data-json-v2",
         "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
-        "mtime": 1782117101399.3145
+        "mtime": 1782132631703.9883
       },
       {
         "id": "SPEC-016-4-rgesn-budgets",
@@ -19013,11 +19066,11 @@
     "enCoursAuDebutSample": [],
     "totaux": {
       "duree": 14,
-      "debutSprint": 1780918007960,
-      "finSprint": 1782127607960,
-      "livrees": 24,
+      "debutSprint": 1780923146682,
+      "finSprint": 1782132746682,
+      "livrees": 25,
       "enCoursAuDebut": 0,
-      "ajoutees": 7,
+      "ajoutees": 6,
       "existant": 1,
       "completionRatio": null
     }
@@ -19080,7 +19133,7 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1777894007961,
+        "finSem": 1777899146682,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -19089,7 +19142,7 @@
       },
       {
         "idx": 1,
-        "finSem": 1778498807961,
+        "finSem": 1778503946682,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -19098,7 +19151,7 @@
       },
       {
         "idx": 2,
-        "finSem": 1779103607961,
+        "finSem": 1779108746682,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -19107,7 +19160,7 @@
       },
       {
         "idx": 3,
-        "finSem": 1779708407961,
+        "finSem": 1779713546682,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -19116,7 +19169,7 @@
       },
       {
         "idx": 4,
-        "finSem": 1780313207961,
+        "finSem": 1780318346682,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -19125,7 +19178,7 @@
       },
       {
         "idx": 5,
-        "finSem": 1780918007961,
+        "finSem": 1780923146682,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -19134,7 +19187,7 @@
       },
       {
         "idx": 6,
-        "finSem": 1781522807961,
+        "finSem": 1781527946682,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -19143,7 +19196,7 @@
       },
       {
         "idx": 7,
-        "finSem": 1782127607961,
+        "finSem": 1782132746682,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -19282,8 +19335,8 @@
       {
         "ordre": 5,
         "type": "spec",
-        "label": "SPEC-016-2-design-system-rgaa — SPEC-016-2 — Design system accessible + axe-core en CI",
-        "cible": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+        "label": "SPEC-016-3-data-json-v2 — SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
+        "cible": ".aiad/specs/SPEC-016-3-data-json-v2.md",
         "minutes": 4,
         "priorite": "recommande",
         "meta": "[in-progress]"
@@ -19487,40 +19540,10 @@
         }
       },
       {
-        "id": "SPEC-016-2-design-system-rgaa",
-        "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "statut": "in-progress",
-        "score": 2,
-        "etat": "partiel",
-        "checks": {
-          "sqs": {
-            "ok": false,
-            "valeur": null
-          },
-          "taille": {
-            "ok": true,
-            "valeur": "XS"
-          },
-          "ac": {
-            "ok": false,
-            "valeur": 0
-          },
-          "anno": {
-            "ok": false,
-            "valeur": 0
-          },
-          "stable": {
-            "ok": true,
-            "valeur": "stable"
-          }
-        }
-      },
-      {
         "id": "SPEC-016-3-data-json-v2",
         "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
         "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
-        "statut": "draft",
+        "statut": "in-progress",
         "score": 2,
         "etat": "partiel",
         "checks": {
@@ -19578,10 +19601,10 @@
       }
     ],
     "totaux": {
-      "total": 7,
+      "total": 6,
       "excellent": 0,
       "bon": 0,
-      "partiel": 7,
+      "partiel": 6,
       "faible": 0,
       "scoreMoyen": 2
     }
@@ -19604,10 +19627,17 @@
     "events": [
       {
         "type": "spec",
+        "id": "SPEC-016-3-data-json-v2",
+        "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
+        "statut": "in-progress",
+        "mtime": 1782132631703.9883
+      },
+      {
+        "type": "spec",
         "id": "SPEC-016-2-design-system-rgaa",
         "titre": "SPEC-016-2 — Design system accessible + axe-core en CI",
-        "statut": "in-progress",
-        "mtime": 1782123364438.0588
+        "statut": "done",
+        "mtime": 1782127678990.9934
       },
       {
         "type": "spec",
@@ -19629,13 +19659,6 @@
         "titre": "SPEC-016-4 — Budgets de poids RGESN par page + CI",
         "statut": "draft",
         "mtime": 1782117301800.7737
-      },
-      {
-        "type": "spec",
-        "id": "SPEC-016-3-data-json-v2",
-        "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
-        "statut": "draft",
-        "mtime": 1782117101399.3145
       },
       {
         "type": "intent",
@@ -20161,5 +20184,5 @@
   ],
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-06-22T11:26:47.845Z"
+  "generatedAt": "2026-06-22T12:52:26.549Z"
 }

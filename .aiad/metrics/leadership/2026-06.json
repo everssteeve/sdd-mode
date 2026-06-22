@@ -1,9 +1,9 @@
 {
   "mois": "2026-06",
-  "ts": 1782127607894,
+  "ts": 1782132746603,
   "humanAuthorshipRatio": 1,
   "governanceCoverage": 0.7,
-  "traceCompleteness": 0.65625,
+  "traceCompleteness": 0.6875,
   "langueArtefacts": {
     "fr": 38,
     "en": 2,

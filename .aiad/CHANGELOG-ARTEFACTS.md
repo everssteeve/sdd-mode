@@ -17,6 +17,19 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-22 — SPEC-016-3 → done — data.json v2 versionné (JSON schema publié)
+
+**Auteur** : Steeve Evers
+**Raison** : SPEC-016-3 (INTENT-016) — cycle complet Research → Gate → Exec → Validate → Drift Lock. Livraison de `_meta.schema_version: "2.0"`, bloc `_schema`, JSON Schema draft 2020-12, script de validation inline et job CI `validate-schema`.
+**Impact** :
+- `lib/dashboard.js:343-353` — `serializerDonnees()` injecte `schema_version` + `_schema`
+- `lib/dashboard/schema/data-v2.schema.json` — nouveau fichier (schéma publié)
+- `scripts/validate-data-schema.js` — nouveau script CI (exit 0/1, zero dep)
+- `test/dashboard.test.js` — assertions `schema_version` + `_schema` ajoutées
+- `test/validate-data-schema.test.js` — 6 tests de validation
+- `.github/workflows/ci.yml` — job `validate-schema` (needs: test)
+- `dashboard/data.json` — régénéré avec les nouveaux champs
+
 ## 2026-06-19 — INTENT-024 + SPEC-024-1 → done — Exemption de traçabilité (FACT-004 résolu)
 
 **Auteur** : Steeve Evers

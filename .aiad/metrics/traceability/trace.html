@@ -24,14 +24,14 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-06-22T10:16:25.599Z</em></p>
+<p><em>Généré le 2026-06-22T12:53:59.622Z</em></p>
 
 <div class="stats">
   <div class="stat"><div class="v">25</div><div class="k">Intents</div></div>
   <div class="stat"><div class="v">32</div><div class="k">SPECs</div></div>
-  <div class="stat"><div class="v">63 / 375</div><div class="k">Code annoté</div></div>
-  <div class="stat"><div class="v">29 / 251</div><div class="k">Tests annotés</div></div>
-  <div class="stat"><div class="v">329</div><div class="k">Code sans @spec</div></div>
+  <div class="stat"><div class="v">65 / 376</div><div class="k">Code annoté</div></div>
+  <div class="stat"><div class="v">31 / 252</div><div class="k">Tests annotés</div></div>
+  <div class="stat"><div class="v">327</div><div class="k">Code sans @spec</div></div>
   <div class="stat"><div class="v">0</div><div class="k">SPECs non-implémentées</div></div>
 </div>
 
@@ -65,8 +65,8 @@
 <tr class="ok"><td>INTENT-015-sobriete-cli</td><td>SPEC-015-2-2-cycle-depreciation</td><td><code>lib/commands-registry.js</code><br/><code>lib/deprecation.js</code></td><td><code>test/commands-registry.test.js</code><br/><code>test/deprecation.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="ok"><td>INTENT-015-sobriete-cli</td><td>SPEC-015-3-matrice-garde-fous</td><td><code>.aiad/hooks/veto.js</code><br/><code>lib/guardrails.js</code></td><td><code>test/guardrails.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="warn"><td>INTENT-016-dashboard-fondations</td><td>SPEC-016-1-architecture-4-couches</td><td><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/render.js</code><br/><code>lib/dashboard/ui/badges.js</code><br/><code>lib/dashboard/ui/helpers.js</code><br/><code>lib/dashboard/ui/sparklines.js</code><br/><code>lib/dashboard/views/changelog.js</code><br/><code>lib/dashboard/views/drifts.js</code><br/><code>lib/dashboard/views/intents.js</code><br/><code>lib/dashboard/views/metrics.js</code><br/><code>lib/dashboard/views/overview.js</code><br/><code>lib/dashboard/views/specs.js</code><br/><code>lib/dashboard/views/traceability.js</code></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-testée</span></td></tr>
-<tr class="ok"><td>INTENT-016-dashboard-fondations</td><td>SPEC-016-2-design-system-rgaa</td><td><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/ui/sparklines.js</code></td><td><code>test/dashboard-assets.test.js</code></td><td><span class="ok">✅</span></td></tr>
-<tr class="warn"><td>INTENT-016-dashboard-fondations</td><td>SPEC-016-3-data-json-v2</td><td><em>(aucun)</em></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
+<tr class="ok"><td>INTENT-016-dashboard-fondations</td><td>SPEC-016-2-design-system-rgaa</td><td><code>dashboard/assets/app.js</code><br/><code>dashboard/assets/app.js</code><br/><code>dashboard/assets/app.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/ui/sparklines.js</code></td><td><code>test/dashboard-assets.test.js</code><br/><code>dans</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-016-dashboard-fondations</td><td>SPEC-016-3-data-json-v2</td><td><code>scripts/validate-data-schema.js</code><br/><code>lib/dashboard.js</code></td><td><code>test/validate-data-schema.test.js</code><br/><code>test/dashboard.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="warn"><td>INTENT-016-dashboard-fondations</td><td>SPEC-016-4-rgesn-budgets</td><td><em>(aucun)</em></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
 <tr><td>INTENT-017-dashboard-quotidien</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-018-valeur-boussole</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
@@ -82,7 +82,7 @@
 <h2>Matrice Backward</h2>
 <div class="filter"><input type="search" id="qbwd" placeholder="Filtrer Backward…" /></div>
 <table id="bwd"><thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead><tbody>
-<tr class="ok"><td><code>test/dashboard-assets.test.js</code></td><td>SPEC-016-2-design-system-rgaa</td><td>INTENT-016-dashboard-fondations</td><td><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/ui/sparklines.js</code></td></tr>
+<tr class="ok"><td><code>test/validate-data-schema.test.js</code></td><td>SPEC-016-3-data-json-v2</td><td>INTENT-016-dashboard-fondations</td><td><code>scripts/validate-data-schema.js</code><br/><code>lib/dashboard.js</code></td></tr>
 <tr class="ok"><td><code>templates/projects/fastapi-aiad/tests/test_main.py</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>templates/projects/node-aiad/test/index.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="ok"><td><code>test/ai-act-audit.test.js</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
@@ -128,6 +128,7 @@
 <tr class="bad"><td><code>test/dashboard-_history-utils.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-adrs.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-assets-autotag.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/dashboard-assets.test.js</code></td><td>SPEC-016-2-design-system-rgaa</td><td>INTENT-016-dashboard-fondations</td><td><code>dashboard/assets/app.js</code><br/><code>dashboard/assets/app.js</code><br/><code>dashboard/assets/app.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/ui/sparklines.js</code></td></tr>
 <tr class="bad"><td><code>test/dashboard-audit-trail.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-collect-supplementary.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-collect.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -202,7 +203,7 @@
 <tr class="bad"><td><code>test/dashboard-tech-debt.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-violations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-watch.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
-<tr class="bad"><td><code>test/dashboard.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/dashboard.test.js</code></td><td>SPEC-016-3-data-json-v2</td><td>INTENT-016-dashboard-fondations</td><td><code>scripts/validate-data-schema.js</code><br/><code>lib/dashboard.js</code></td></tr>
 <tr class="ok"><td><code>test/deprecation.test.js</code></td><td>SPEC-015-2-1-registre-commandes</td><td>INTENT-015-sobriete-cli</td><td><code>lib/commands-registry.js</code><br/><code>lib/deprecation.js</code></td></tr>
 <tr class="bad"><td><code>test/dinum.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/discovery-gate.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>

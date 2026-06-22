@@ -16,6 +16,7 @@
 | RESEARCH-018 | Matrice enforced/advisory + resserrage des bypass | INTENT-015 | Steeve Evers | 2026-06-19 | CONDITIONAL GO (85 %) | tranché — /sdd spec autorisé (C3, C-MATRICE, C-SCOPE) ; **veto bypassable aujourd'hui** (veto.js:28) à fermer |
 | RESEARCH-019 | Gate RGAA AA avant publication du site aiad.ovh | INTENT-013 | Steeve Evers | 2026-06-22 | GO (100 %) | tranché — /sdd spec autorisé ; pa11y-ci recommandé, Chromium CI-only assumé |
 | RESEARCH-020 | Dashboard exemplaire : fondations accessibles, sobres, maintenables | INTENT-016 | Steeve Evers | 2026-06-22 | GO (100 %) | tranché — /sdd spec autorisé ; 4 SPECs prévues (architecture + RGAA + data.json v2 + RGESN) |
+| RESEARCH-021 | data.json v2 versionné — Discovery post SPEC-016-1/2 | INTENT-016 / SPEC-016-3 | Steeve Evers | 2026-06-22 | CONDITIONAL GO (100 %) | tranché — /sdd exec autorisé ; C1 levée (SPEC-016-3 § Processing corrigée) |
 
 ## Verdicts du gate Research
 

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiad.ovh/schema/data-v2.schema.json",
+  "title": "AIAD SDD Dashboard Data v2",
+  "description": "JSON Schema for dashboard/data.json produced by npx aiad-sdd dashboard",
+  "type": "object",
+  "required": ["_meta", "projet", "intents", "specs"],
+  "additionalProperties": true,
+  "properties": {
+    "_meta": {
+      "type": "object",
+      "required": ["schema", "schema_version", "version", "generated"],
+      "additionalProperties": true,
+      "properties": {
+        "schema": {
+          "type": "string",
+          "const": "aiad-sdd-dashboard"
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+$"
+        },
+        "version": {
+          "type": "string"
+        },
+        "generated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "slim": {
+          "type": "boolean"
+        }
+      }
+    },
+    "_schema": {
+      "type": "object",
+      "required": ["url", "local"],
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "local": {
+          "type": "string"
+        }
+      }
+    },
+    "projet": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "intents": {
+      "type": "array"
+    },
+    "specs": {
+      "type": "array"
+    },
+    "gouvernance": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "facts": {
+      "type": "array"
+    },
+    "changelog": {
+      "type": "array"
+    }
+  }
+}

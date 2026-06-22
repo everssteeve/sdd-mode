@@ -41,6 +41,20 @@ jobs:
       - name: Tests
         run: npm test
 
+  validate-schema:
+    name: validate data.json schema v2 (SPEC-016-3)
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generate dashboard data.json
+        run: npx aiad-sdd dashboard --quiet
+      - name: Validate data.json against schema v2
+        run: node scripts/validate-data-schema.js
+
   coverage:
     name: couverture (node 22 · seuils 75/70/65 % · badge)
     runs-on: ubuntu-latest

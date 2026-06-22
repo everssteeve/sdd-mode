@@ -1,12 +1,12 @@
 # SPEC-016-3 — data.json v2 versionné (JSON schema publié)
 
 **Intent parent** : INTENT-016
-**Research** : RESEARCH-020 — GO (100 %)
+**Research** : RESEARCH-020 — GO (100 %) · RESEARCH-021 — CONDITIONAL GO (100 %, C1 levée)
 **Auteur** : Steeve Evers
 **Date** : 2026-06-22
-**Statut** : draft
+**Statut** : done
 **Format** : prose
-**SQS** : [À évaluer via /sdd gate]
+**SQS** : 5/5 — Gate OUVERTE (2026-06-22)
 
 ---
 
@@ -22,9 +22,34 @@ La commande `npx aiad-sdd dashboard` (ou `dashboard --slim`) génère `dashboard
 
 ### Processing
 
-**Modifications de `collecterEnrichi()` / `model/index.js` (post SPEC-016-1) :**
+**Point d'injection réel (post SPEC-016-1) — `lib/dashboard.js:343-347` :**
 
-1. Ajouter dans `_meta` :
+`_meta` est construit dans `serializerDonnees()` via `buildMeta()` (`lib/meta.js:28-35`),
+**pas** dans `model/index.js`. Modifier l'appel `buildMeta()` dans `lib/dashboard.js:343` :
+
+```js
+// lib/dashboard.js:343-347 — avant
+const _meta = buildMeta({
+  schema: 'aiad-sdd-dashboard',
+  slim: !options.full,
+  generated: d.projet?.genere,
+});
+
+// lib/dashboard.js:343-349 — après (SPEC-016-3)
+const _meta = buildMeta({
+  schema: 'aiad-sdd-dashboard',
+  schema_version: '2.0',
+  slim: !options.full,
+  generated: d.projet?.genere,
+});
+const _schema = {
+  url: 'https://aiad.ovh/schema/data-v2.schema.json',
+  local: 'lib/dashboard/schema/data-v2.schema.json',
+};
+const out = { _meta, _schema, ...d };
+```
+
+Résultat dans `data.json` :
    ```json
    "_meta": {
      "schema": "aiad-sdd-dashboard",
@@ -34,8 +59,8 @@ La commande `npx aiad-sdd dashboard` (ou `dashboard --slim`) génère `dashboard
      "slim": false
    }
    ```
-2. Publier le schéma JSON dans `lib/dashboard/schema/data-v2.schema.json` (validé par `ajv` en devDep ou via `node --eval` avec le schéma inline — zéro dep runtime).
-3. Ajouter une section `_schema` à la racine de `data.json` :
+2. Publier le schéma JSON dans `lib/dashboard/schema/data-v2.schema.json` (validation inline via `JSON.parse` + vérification manuelle — zéro dep runtime).
+3. Ajouter une section `_schema` à la racine de `data.json` (voir ci-dessus) :
    ```json
    "_schema": {
      "url": "https://aiad.ovh/schema/data-v2.schema.json",
@@ -65,19 +90,19 @@ La commande `npx aiad-sdd dashboard` (ou `dashboard --slim`) génère `dashboard
 - **Mode `--slim`** : le flag slim produit un sous-ensemble des champs. Le schéma v2 marque les champs slim-exclus comme `nullable: true`. Le script de validation accepte les deux modes.
 - **Champs calculés inconnus** : si `collecterEnrichi()` ajoute un champ non déclaré dans le schéma, la validation ne doit pas échouer (les champs non listés dans le schéma sont permis au niveau racine via `additionalProperties: true`).
 - **Données vides** : si `.aiad/intents/` est vide, `intents` vaut `[]` — le schéma doit l'accepter (array, minItems non contraint).
-- **Génération hors-ligne** : `schema_version` est écrit sans appel réseau — la valeur est hardcodée dans `collecterEnrichi()` / `model/index.js`.
+- **Génération hors-ligne** : `schema_version` est écrit sans appel réseau — la valeur est hardcodée dans l'appel `buildMeta()` de `serializerDonnees()` / `lib/dashboard.js:343`.
 
 ## 3. Critères d'Acceptation
 
-- [ ] `dashboard/data.json` contient `_meta.schema_version: "2.0"` après `npx aiad-sdd dashboard`.
-- [ ] `dashboard/data.json` contient `_schema.local: "lib/dashboard/schema/data-v2.schema.json"`.
-- [ ] `lib/dashboard/schema/data-v2.schema.json` existe et est un JSON Schema draft 2020-12 valide.
-- [ ] `node scripts/validate-data-schema.js` exit 0 sur le `data.json` généré.
-- [ ] `node scripts/validate-data-schema.js` exit 1 si `_meta` est absent ou `intents` n'est pas un array.
-- [ ] Toutes les clés racine présentes dans la v1 sont présentes dans la v2 (aucune régression de consommateur).
-- [ ] `npm test` passe sans modification des assertions de test existantes.
+- [x] `dashboard/data.json` contient `_meta.schema_version: "2.0"` après `npx aiad-sdd dashboard`.
+- [x] `dashboard/data.json` contient `_schema.local: "lib/dashboard/schema/data-v2.schema.json"`.
+- [x] `lib/dashboard/schema/data-v2.schema.json` existe et est un JSON Schema draft 2020-12 valide.
+- [x] `node scripts/validate-data-schema.js` exit 0 sur le `data.json` généré.
+- [x] `node scripts/validate-data-schema.js` exit 1 si `_meta` est absent ou `intents` n'est pas un array.
+- [x] Toutes les clés racine présentes dans la v1 sont présentes dans la v2 (aucune régression de consommateur).
+- [x] `npm test` passe sans modification des assertions de test existantes.
 - [ ] Le job CI `validate-schema` passe sur la branche.
-- [ ] `npm run lint:deps` passe — zéro nouvelle dépendance runtime (validation inline, pas d'`ajv` en prod).
+- [x] `npm run lint:deps` passe — zéro nouvelle dépendance runtime (validation inline, pas d'`ajv` en prod).
 
 ## 4. Interface / API
 
@@ -115,7 +140,8 @@ La commande `npx aiad-sdd dashboard` (ou `dashboard --slim`) génère `dashboard
 
 ## 5. Dépendances
 
-- `lib/dashboard/model/index.js` (post SPEC-016-1) — ou `lib/dashboard.js:collecterEnrichi()` si exécuté avant SPEC-016-1
+- `lib/dashboard.js:343-349` — `serializerDonnees()` / appel `buildMeta()` (point d'injection `_meta` + `_schema`)
+- `lib/meta.js:28-35` — `buildMeta()` (source unique `_meta` pour tout le CLI)
 - `.github/workflows/ci.yml` — ajout job `validate-schema`
 - Zéro nouvelle dépendance runtime
 
@@ -123,15 +149,15 @@ La commande `npx aiad-sdd dashboard` (ou `dashboard --slim`) génère `dashboard
 
 - AGENT-GUIDE (condensé) : ~300 tokens
 - Cette SPEC : ~500 tokens
-- Fichiers source pertinents : `lib/dashboard.js:408-572` (collecterEnrichi), `dashboard/data.json` (structure _meta existante)
+- Fichiers source pertinents : `lib/dashboard.js:340-373` (serializerDonnees), `lib/meta.js:28-35` (buildMeta), `dashboard/data.json` (structure _meta existante)
 - **Total estimé** : ~1 800 tokens
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] Code + lint passing
-- [ ] `npm test` passe
-- [ ] `node scripts/validate-data-schema.js` exit 0
-- [ ] `lib/dashboard/schema/data-v2.schema.json` commité
-- [ ] Annotations `@spec SPEC-016-3` posées sur `model/index.js` (ou `collecterEnrichi`) et `validate-data-schema.js`
-- [ ] SPEC mise à jour si écart (Drift Lock)
-- [ ] Gouvernance RGPD vérifiée — `data.json` ne contient pas de données personnelles (le schéma confirme l'absence de PII)
+- [x] Code + lint passing
+- [x] `npm test` passe
+- [x] `node scripts/validate-data-schema.js` exit 0
+- [x] `lib/dashboard/schema/data-v2.schema.json` commité
+- [x] Annotations `@spec SPEC-016-3` posées sur `lib/dashboard.js` (serializerDonnees) et `scripts/validate-data-schema.js`
+- [x] SPEC mise à jour si écart (Drift Lock)
+- [x] Gouvernance RGPD vérifiée — `data.json` ne contient pas de données personnelles (le schéma confirme l'absence de PII)

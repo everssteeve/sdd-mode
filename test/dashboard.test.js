@@ -110,6 +110,7 @@ test('dashboard — émet 12 pages + assets + data.json après init complet', as
 });
 
 // (#253) _meta section dans data.json
+// @spec SPEC-016-3
 test('dashboard — data.json contient _meta en tête (schema/version/slim/generated)', async () => {
   const dir = tmp();
   try {
@@ -120,9 +121,14 @@ test('dashboard — data.json contient _meta en tête (schema/version/slim/gener
     assert.match(raw.slice(0, 50), /^\{\s*"_meta"\s*:/);
     const data = JSON.parse(raw);
     assert.equal(data._meta.schema, 'aiad-sdd-dashboard');
+    assert.equal(data._meta.schema_version, '2.0');
     assert.match(data._meta.version, /^\d+\.\d+\.\d+/);
     assert.equal(data._meta.slim, true);
     assert.match(data._meta.generated, /^\d{4}-\d{2}-\d{2}T/);
+    // _schema doit être présent avec les pointeurs de schéma
+    assert.ok(data._schema, '_schema absent de data.json');
+    assert.equal(data._schema.local, 'lib/dashboard/schema/data-v2.schema.json');
+    assert.equal(data._schema.url, 'https://aiad.ovh/schema/data-v2.schema.json');
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 

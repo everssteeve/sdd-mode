@@ -240,12 +240,12 @@
     },
     {
       "id": "SPEC-016-2-design-system-rgaa",
-      "statut": "in-progress",
+      "statut": "done",
       "parentIntent": "INTENT-016"
     },
     {
       "id": "SPEC-016-3-data-json-v2",
-      "statut": "draft",
+      "statut": "in-progress",
       "parentIntent": "INTENT-016"
     },
     {

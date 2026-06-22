@@ -45,5 +45,5 @@ poids non justifié → drift.
 
 - [ ] SPEC-016-1 — Architecture 4 couches (collect/model/views/ui) · draft
 - [ ] SPEC-016-2 — Design system accessible + axe-core en CI · draft (EARS)
-- [ ] SPEC-016-3 — `data.json` v2 versionné (schéma publié) · draft
+- [x] SPEC-016-3 — `data.json` v2 versionné (schéma publié) · done
 - [ ] SPEC-016-4 — Budgets de poids RGESN par page · draft (EARS)

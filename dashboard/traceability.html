@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T11:26:47.845Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T12:52:26.549Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Traçabilité — aiad-sdd</title>
 <meta name="description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
@@ -87,7 +87,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 22/06/2026 13:26:47<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 22/06/2026 14:52:26<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +96,7 @@
       <div class="subtitle">Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 13:26:47. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 14:52:26. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -107,9 +107,9 @@
 <div class="kpis">
   <div class="kpi"><div class="label">Intents</div><div class="value">25</div></div>
   <div class="kpi"><div class="label">SPECs</div><div class="value">32</div></div>
-  <div class="kpi"><div class="label">Code annoté</div><div class="value small">63 / 375</div></div>
-  <div class="kpi"><div class="label">Tests annotés</div><div class="value small">29 / 251</div></div>
-  <div class="kpi warn"><div class="label">Gaps détectés</div><div class="value">352</div></div>
+  <div class="kpi"><div class="label">Code annoté</div><div class="value small">65 / 376</div></div>
+  <div class="kpi"><div class="label">Tests annotés</div><div class="value small">31 / 252</div></div>
+  <div class="kpi warn"><div class="label">Gaps détectés</div><div class="value">351</div></div>
 </div>
 
 <section class="matrix-tab">
@@ -288,9 +288,9 @@
       </tr><tr>
         
         <td><a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a><br/><small class="muted">SPEC-016-3 — data.json v2 versionné (JSON schema publié)</small></td>
-        <td><em class="muted">aucun</em></td>
-        <td><em class="muted">aucun</em></td>
-        <td><span class="badge badge-warn">non-implémentée</span></td>
+        <td><a class="src-link" href="../scripts/validate-data-schema.js#L10" target="_blank" rel="noopener" title="Ouvrir scripts/validate-data-schema.js à la ligne 10">scripts/validate-data-schema.js</a><br/><a class="src-link" href="../lib/dashboard.js#L343" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 343">lib/dashboard.js</a></td>
+        <td><a class="src-link" href="../test/validate-data-schema.test.js#L4" target="_blank" rel="noopener" title="Ouvrir test/validate-data-schema.test.js à la ligne 4">test/validate-data-schema.test.js</a><br/><a class="src-link" href="../test/dashboard.test.js#L113" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js à la ligne 113">test/dashboard.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
       </tr><tr>
         
         <td><a class="src-link" href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-4-rgesn-budgets.md">SPEC-016-4-rgesn-budgets</a><br/><small class="muted">SPEC-016-4 — Budgets de poids RGESN par page + CI</small></td>
@@ -319,10 +319,10 @@
        <table id="tBwd" data-a11y-caption="Matrice de traçabilité — Backward (Tests → Code → SPEC → Intent)">
          <thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead>
          <tbody><tr>
-      <td><a class="src-link" href="../test/dashboard-assets.test.js#L1" target="_blank" rel="noopener" title="Ouvrir test/dashboard-assets.test.js à la ligne 1">test/dashboard-assets.test.js</a></td>
-      <td><a class="src-link" href="../.aiad/specs/SPEC-016-2-design-system-rgaa.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-2-design-system-rgaa.md">SPEC-016-2-design-system-rgaa</a></td>
+      <td><a class="src-link" href="../test/validate-data-schema.test.js#L4" target="_blank" rel="noopener" title="Ouvrir test/validate-data-schema.test.js à la ligne 4">test/validate-data-schema.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a></td>
       <td><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></td>
-      <td><a class="src-link" href="../dashboard/assets/app.js#L5" target="_blank" rel="noopener" title="Ouvrir dashboard/assets/app.js à la ligne 5">dashboard/assets/app.js</a><br/><a class="src-link" href="../dashboard/assets/app.js#L29" target="_blank" rel="noopener" title="Ouvrir dashboard/assets/app.js à la ligne 29">dashboard/assets/app.js</a><br/><a class="src-link" href="../dashboard/assets/app.js#L283" target="_blank" rel="noopener" title="Ouvrir dashboard/assets/app.js à la ligne 283">dashboard/assets/app.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L487" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 487">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L594" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 594">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L600" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 600">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L610" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 610">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L634" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 634">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L888" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 888">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/ui/sparklines.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/ui/sparklines.js à la ligne 1">lib/dashboard/ui/sparklines.js</a></td>
+      <td><a class="src-link" href="../scripts/validate-data-schema.js#L10" target="_blank" rel="noopener" title="Ouvrir scripts/validate-data-schema.js à la ligne 10">scripts/validate-data-schema.js</a><br/><a class="src-link" href="../lib/dashboard.js#L343" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 343">lib/dashboard.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../templates/projects/fastapi-aiad/tests/test_main.py#L3" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/tests/test_main.py à la ligne 3">templates/projects/fastapi-aiad/tests/test_main.py</a></td>
       <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
@@ -548,6 +548,11 @@
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-assets.test.js#L1" target="_blank" rel="noopener" title="Ouvrir test/dashboard-assets.test.js à la ligne 1">test/dashboard-assets.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-016-2-design-system-rgaa.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-2-design-system-rgaa.md">SPEC-016-2-design-system-rgaa</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></td>
+      <td><a class="src-link" href="../dashboard/assets/app.js#L5" target="_blank" rel="noopener" title="Ouvrir dashboard/assets/app.js à la ligne 5">dashboard/assets/app.js</a><br/><a class="src-link" href="../dashboard/assets/app.js#L29" target="_blank" rel="noopener" title="Ouvrir dashboard/assets/app.js à la ligne 29">dashboard/assets/app.js</a><br/><a class="src-link" href="../dashboard/assets/app.js#L283" target="_blank" rel="noopener" title="Ouvrir dashboard/assets/app.js à la ligne 283">dashboard/assets/app.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L487" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 487">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L594" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 594">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L600" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 600">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L610" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 610">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L634" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 634">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/assets.js#L888" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/assets.js à la ligne 888">lib/dashboard/assets.js</a><br/><a class="src-link" href="../lib/dashboard/ui/sparklines.js#L1" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/ui/sparklines.js à la ligne 1">lib/dashboard/ui/sparklines.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/dashboard-audit-trail.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-audit-trail.test.js à la ligne 0">test/dashboard-audit-trail.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -919,10 +924,10 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
-      <td><a class="src-link" href="../test/dashboard.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js à la ligne 0">test/dashboard.test.js</a></td>
-      <td><span class="badge badge-bad">non-tracé</span></td>
-      <td><em class="muted">—</em></td>
-      <td><em class="muted">aucun</em></td>
+      <td><a class="src-link" href="../test/dashboard.test.js#L113" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js à la ligne 113">test/dashboard.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></td>
+      <td><a class="src-link" href="../scripts/validate-data-schema.js#L10" target="_blank" rel="noopener" title="Ouvrir scripts/validate-data-schema.js à la ligne 10">scripts/validate-data-schema.js</a><br/><a class="src-link" href="../lib/dashboard.js#L343" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 343">lib/dashboard.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/deprecation.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/deprecation.test.js à la ligne 3">test/deprecation.test.js</a></td>
       <td><a class="src-link" href="../.aiad/specs/SPEC-015-2-1-registre-commandes.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-2-1-registre-commandes.md">SPEC-015-2-1-registre-commandes</a></td>
@@ -1843,7 +1848,7 @@
       <h3>Non-implémentés / non-tracés</h3>
       <ul class="compact">
         <li><strong>0</strong> SPEC(s) validée(s) sans code</li>
-        <li><strong>328</strong> fichier(s) code sans <code>@spec</code></li>
+        <li><strong>327</strong> fichier(s) code sans <code>@spec</code></li>
         <li><strong>12</strong> fichier(s) annoté(s) sans test lié</li>
       </ul>
     </div>

@@ -2,16 +2,16 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-22T10:16:25.600Z"
+    "generated": "2026-06-22T12:53:59.622Z"
   },
-  "generatedAt": "2026-06-22T10:16:25.599Z",
+  "generatedAt": "2026-06-22T12:53:59.622Z",
   "summary": {
     "intents": 25,
     "specs": 32,
-    "codeFiles": 375,
-    "annotatedCodeFiles": 63,
-    "testFiles": 251,
-    "annotatedTestFiles": 29
+    "codeFiles": 376,
+    "annotatedCodeFiles": 65,
+    "testFiles": 252,
+    "annotatedTestFiles": 31
   },
   "forward": [
     {
@@ -1020,30 +1020,46 @@
             "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
             "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
             "parentIntent": "INTENT-016",
-            "status": "in-progress",
+            "status": "done",
             "traceability": "",
             "traceabilityReason": ""
           },
           "code": [
             {
-              "path": "lib/dashboard/assets.js",
-              "line": 583
+              "path": "dashboard/assets/app.js",
+              "line": 5
+            },
+            {
+              "path": "dashboard/assets/app.js",
+              "line": 29
+            },
+            {
+              "path": "dashboard/assets/app.js",
+              "line": 283
             },
             {
               "path": "lib/dashboard/assets.js",
-              "line": 589
+              "line": 487
             },
             {
               "path": "lib/dashboard/assets.js",
-              "line": 599
+              "line": 594
             },
             {
               "path": "lib/dashboard/assets.js",
-              "line": 623
+              "line": 600
             },
             {
               "path": "lib/dashboard/assets.js",
-              "line": 877
+              "line": 610
+            },
+            {
+              "path": "lib/dashboard/assets.js",
+              "line": 634
+            },
+            {
+              "path": "lib/dashboard/assets.js",
+              "line": 888
             },
             {
               "path": "lib/dashboard/ui/sparklines.js",
@@ -1054,6 +1070,11 @@
             {
               "path": "test/dashboard-assets.test.js",
               "line": 1
+            },
+            {
+              "path": "dans",
+              "line": 189,
+              "viaCode": true
             }
           ]
         },
@@ -1063,12 +1084,30 @@
             "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
             "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
             "parentIntent": "INTENT-016",
-            "status": "draft",
+            "status": "in-progress",
             "traceability": "",
             "traceabilityReason": ""
           },
-          "code": [],
-          "tests": []
+          "code": [
+            {
+              "path": "scripts/validate-data-schema.js",
+              "line": 10
+            },
+            {
+              "path": "lib/dashboard.js",
+              "line": 343
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/validate-data-schema.test.js",
+              "line": 4
+            },
+            {
+              "path": "test/dashboard.test.js",
+              "line": 113
+            }
+          ]
         },
         {
           "spec": {
@@ -1214,13 +1253,13 @@
   "backward": [
     {
       "test": {
-        "path": "test/dashboard-assets.test.js",
-        "line": 1
+        "path": "test/validate-data-schema.test.js",
+        "line": 4
       },
       "spec": {
-        "id": "SPEC-016-2-design-system-rgaa",
-        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
+        "id": "SPEC-016-3-data-json-v2",
+        "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
+        "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
         "parentIntent": "INTENT-016",
         "status": "in-progress",
         "traceability": "",
@@ -1234,28 +1273,12 @@
       },
       "code": [
         {
-          "path": "lib/dashboard/assets.js",
-          "line": 583
+          "path": "scripts/validate-data-schema.js",
+          "line": 10
         },
         {
-          "path": "lib/dashboard/assets.js",
-          "line": 589
-        },
-        {
-          "path": "lib/dashboard/assets.js",
-          "line": 599
-        },
-        {
-          "path": "lib/dashboard/assets.js",
-          "line": 623
-        },
-        {
-          "path": "lib/dashboard/assets.js",
-          "line": 877
-        },
-        {
-          "path": "lib/dashboard/ui/sparklines.js",
-          "line": 1
+          "path": "lib/dashboard.js",
+          "line": 343
         }
       ]
     },
@@ -1891,6 +1914,69 @@
       "spec": null,
       "intent": null,
       "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-assets.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-016-2-design-system-rgaa",
+        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
+        "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
+        "parentIntent": "INTENT-016",
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-016-dashboard-fondations",
+        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
+        "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "dashboard/assets/app.js",
+          "line": 5
+        },
+        {
+          "path": "dashboard/assets/app.js",
+          "line": 29
+        },
+        {
+          "path": "dashboard/assets/app.js",
+          "line": 283
+        },
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 487
+        },
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 594
+        },
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 600
+        },
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 610
+        },
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 634
+        },
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 888
+        },
+        {
+          "path": "lib/dashboard/ui/sparklines.js",
+          "line": 1
+        }
+      ]
     },
     {
       "test": {
@@ -2625,11 +2711,33 @@
     {
       "test": {
         "path": "test/dashboard.test.js",
-        "line": 0
+        "line": 113
       },
-      "spec": null,
-      "intent": null,
-      "code": []
+      "spec": {
+        "id": "SPEC-016-3-data-json-v2",
+        "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
+        "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
+        "parentIntent": "INTENT-016",
+        "status": "in-progress",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-016-dashboard-fondations",
+        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
+        "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "scripts/validate-data-schema.js",
+          "line": 10
+        },
+        {
+          "path": "lib/dashboard.js",
+          "line": 343
+        }
+      ]
     },
     {
       "test": {
@@ -6038,26 +6146,6 @@
         "annotated": true
       },
       {
-        "path": "dashboard/assets/app.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [
-            {
-              "path": "dans",
-              "line": 181
-            },
-            {
-              "path": "dans",
-              "line": 181
-            }
-          ],
-          "governance": []
-        },
-        "annotated": true
-      },
-      {
         "path": "docs/_config.yml",
         "isTest": false,
         "annotations": {
@@ -6283,17 +6371,6 @@
       },
       {
         "path": "lib/confluence.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/dashboard.js",
         "isTest": false,
         "annotations": {
           "intents": [],
