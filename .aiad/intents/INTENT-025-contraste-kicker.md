@@ -3,7 +3,7 @@ id: INTENT-025
 title: Corriger le contraste des kickers et pills gold (WCAG 1.4.3)
 author: Steeve Evers
 date: 2026-06-22
-status: open
+status: done
 source: FACT-005
 ---
 
@@ -28,6 +28,10 @@ blanc et 5.3:1 sur `#fbeecd` — elle reste dans la famille dorée/ambrée.
 - L'élément `.install` (ratio 1.05:1, texte invisible) a été patché en urgence (FACT-005).
 - La correction du contraste `.kicker` est la dernière violation baseline en allowlist.
 - Retirer `WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail` de l'allowlist est l'objectif final.
+
+## SPEC liée
+
+- SPEC-025-1-gold-contrast-fix (draft)
 
 ## Critère de succès
 

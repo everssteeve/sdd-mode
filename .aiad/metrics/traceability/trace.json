@@ -2,12 +2,12 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-22T07:55:14.423Z"
+    "generated": "2026-06-22T08:12:33.548Z"
   },
-  "generatedAt": "2026-06-22T07:55:14.423Z",
+  "generatedAt": "2026-06-22T08:12:33.548Z",
   "summary": {
-    "intents": 24,
-    "specs": 27,
+    "intents": 25,
+    "specs": 28,
     "codeFiles": 364,
     "annotatedCodeFiles": 50,
     "testFiles": 250,
@@ -1052,6 +1052,29 @@
               "viaCode": true
             }
           ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-025-contraste-kicker",
+        "file": ".aiad/intents/INTENT-025-contraste-kicker.md",
+        "title": "Corriger le contraste des kickers et pills gold (WCAG 1.4.3)",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-025-1-gold-contrast-fix",
+            "file": ".aiad/specs/SPEC-025-1-gold-contrast-fix.md",
+            "title": "Correction du contraste --gold-600 (.kicker + .pill.gold)",
+            "parentIntent": "INTENT-025",
+            "status": "done",
+            "traceability": "exempt",
+            "traceabilityReason": "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
+          },
+          "code": [],
+          "tests": []
         }
       ]
     }
@@ -5415,6 +5438,15 @@
         "status": "done",
         "traceability": "exempt",
         "traceabilityReason": "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
+      },
+      {
+        "id": "SPEC-025-1-gold-contrast-fix",
+        "file": ".aiad/specs/SPEC-025-1-gold-contrast-fix.md",
+        "title": "Correction du contraste --gold-600 (.kicker + .pill.gold)",
+        "parentIntent": "INTENT-025",
+        "status": "done",
+        "traceability": "exempt",
+        "traceabilityReason": "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
       }
     ],
     "specsValideesNonImplementees": [],
@@ -9380,6 +9412,15 @@
       "status": "done",
       "traceability": "exempt",
       "traceabilityReason": "Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1"
+    },
+    {
+      "id": "SPEC-025-1-gold-contrast-fix",
+      "file": ".aiad/specs/SPEC-025-1-gold-contrast-fix.md",
+      "title": "Correction du contraste --gold-600 (.kicker + .pill.gold)",
+      "parentIntent": "INTENT-025",
+      "status": "done",
+      "traceability": "exempt",
+      "traceabilityReason": "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
     }
   ]
 }

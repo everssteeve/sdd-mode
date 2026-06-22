@@ -14,7 +14,7 @@
   --blue-500: #2d6cdf;
   --blue-100: #e3edfb;
   --gold-500: #e8a020;
-  --gold-600: #c5860f;
+  --gold-600: #7e5300; /* @spec SPEC-025-1-gold-contrast-fix — ratio 6.0:1 (blanc) 5.3:1 (#fbeecd) */
   --teal-500: #0e8a7d;
   --red-600: #c0392b;
   --green-600: #1e7e34;

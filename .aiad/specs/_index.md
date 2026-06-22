@@ -33,6 +33,7 @@
 | SPEC-015-2-2 | Cycle de dépréciation soft (mécanisme dormant : warning au dispatch) | INTENT-015 | EARS | 5.0 | done | #12 |
 | SPEC-015-3 | Matrice enforced/advisory machine-vérifiable + veto non-bypassable | INTENT-015 | EARS | 5.0 | done | #14 |
 | SPEC-024-1 | Exemption de traçabilité pour SPECs sans code applicatif (FACT-004) | INTENT-024 | EARS | 5.0 | done | — |
+| SPEC-025-1 | Correction du contraste `--gold-600` (`.kicker` + `.pill.gold`) | INTENT-025 | EARS | 5.0 | done (trace-exempt) | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

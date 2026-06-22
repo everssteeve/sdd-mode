@@ -1,13 +1,13 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-22T07:55:14.423Z
+> Généré le 2026-06-22T08:12:33.548Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 24 |
-| SPECs | 27 |
+| Intents | 25 |
+| SPECs | 28 |
 | Fichiers code | 364 (annotés : 50) |
 | Fichiers test | 250 (annotés : 28) |
 
@@ -50,6 +50,7 @@
 | INTENT-022-dogfooding-cli | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-023-rayonnement-honnete | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-024-trace-exemption-specs-sans-code | SPEC-024-1-trace-exemption | `lib/sdd-trace.js` | `test/trace.test.js`<br/>`chemin/relatif/test.ts` | ✅ |
+| INTENT-025-contraste-kicker | SPEC-025-1-gold-contrast-fix | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
 
@@ -368,11 +369,12 @@
   - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
   - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
   - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
-- SPECs sans code (hors draft/review) : **4**
+- SPECs sans code (hors draft/review) : **5**
   - SPEC-013-1-deploiement-site-valeurs (statut : split)
   - SPEC-013-1a-deploiement-site (statut : done)
   - SPEC-013-1b-unification-7-valeurs (statut : archived)
   - SPEC-013-2-unification-docs-racine (statut : done)
+  - SPEC-025-1-gold-contrast-fix (statut : done)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
