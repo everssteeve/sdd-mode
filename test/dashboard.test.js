@@ -109,6 +109,24 @@ test('dashboard — émet 12 pages + assets + data.json après init complet', as
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
+// CA-007a — PAGES array includes slug "today"
+// @spec SPEC-017-1-page-aujourdhui
+import { PAGES } from '../lib/dashboard/render.js';
+test('CA-007a — PAGES array includes an entry with slug "today"', () => {
+  assert.ok(PAGES.some(p => p.slug === 'today'), 'PAGES should contain { slug: "today" }');
+});
+
+// CA-007b — dashboard generator writes today.html
+// @spec SPEC-017-1-page-aujourdhui
+test('CA-007b — dashboard generator writes today.html to the output directory', async () => {
+  const dir = tmp();
+  try {
+    await init(dir, { quiet: true });
+    const r = await dashboard(dir, { quiet: true });
+    assert.ok(existsSync(join(r.outDir, 'today.html')), 'today.html missing from output directory');
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
 // (#253) _meta section dans data.json
 // @spec SPEC-016-3
 test('dashboard — data.json contient _meta en tête (schema/version/slim/generated)', async () => {

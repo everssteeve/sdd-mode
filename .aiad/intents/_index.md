@@ -22,7 +22,7 @@
 | INTENT-014 | Empirisme prouvé — gates qualité actifs et claims sourcés | Steeve Evers | 2026-06-11 | SPEC-014-1, SPEC-014-2 done | done |
 | INTENT-015 | Sobriété du CLI — noyau assumé, longue traîne extraite | Steeve Evers | 2026-06-11 | SPEC-015-1/2-1/2-2/3 done | done |
 | INTENT-016 | Dashboard exemplaire — fondations accessibles, sobres, maintenables | Steeve Evers | 2026-06-11 | SPEC-016-1/2/3/4 done | done |
-| INTENT-017 | Vivre le projet au quotidien — Aujourd'hui, triage, digest | Steeve Evers | 2026-06-11 | — | draft |
+| INTENT-017 | Vivre le projet au quotidien — Aujourd'hui, triage, digest | Steeve Evers | 2026-06-11 | SPEC-017-1/2/3/4 | active |
 | INTENT-018 | La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents | Steeve Evers | 2026-06-11 | — | draft |
 | INTENT-019 | Verification-first — dériver des tests des critères EARS | Steeve Evers | 2026-06-11 | — | draft |
 | INTENT-020 | Spec-anchored par construction — deltas et redevabilité bidirectionnelle | Steeve Evers | 2026-06-11 | — | draft |

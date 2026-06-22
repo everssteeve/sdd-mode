@@ -1,16 +1,20 @@
 ---
 id: INTENT-017
 title: Vivre le projet au quotidien — Aujourd'hui, triage, digest
-status: draft
+status: active
 author: Steeve Evers
 date: 2026-06-11
+activated: 2026-06-22
 specs:
+  - SPEC-017-1
+  - SPEC-017-2
+  - SPEC-017-3
+  - SPEC-017-4
 ---
 
 # INTENT-017 — Vivre le projet au quotidien
 
-> ⚠ Draft issu de l'analyse du 2026-06-11. POURQUOI à approprier par un humain
-> avant passage en `active` (Human Authorship).
+> ✅ Validé par Steeve Evers le 2026-06-22 — Human Authorship confirmé.
 
 ## Pourquoi maintenant
 
@@ -43,9 +47,9 @@ notifications push unitaires → drift.
 
 ## SPECs liées
 
-- [ ] SPEC-017-1 — Page Aujourd'hui (radiator ≤ 4 sections)
-- [ ] SPEC-017-2 — Inbox de triage facts/drifts
-- [ ] SPEC-017-3 — Digest delta + script de standup
-- [ ] SPEC-017-4 — Pages détail Intent/SPEC (#453)
-- [ ] SPEC-017-5 — Mode live SSE (#140)
-- [ ] SPEC-017-6 — Snapshots persistants (tendances longues)
+- [ ] SPEC-017-1 — Page "Aujourd'hui" (radiator ≤ 4 sections) · draft EARS
+- [ ] SPEC-017-2 — Inbox de triage facts/drifts (localStorage) · draft EARS
+- [ ] SPEC-017-3 — Digest delta + snapshots persistants · draft EARS
+- [ ] SPEC-017-4 — Pages détail SPEC (drill-down) · draft EARS
+- ~~SPEC-017-5 — Mode live SSE~~ → livré dans INTENT-016 (`assets.js:734`, polling 30s, C2 RESEARCH-023)
+- ~~SPEC-017-6 — Snapshots persistants~~ → patterns établis dans INTENT-016 (pm-snapshots, sante-globale)
