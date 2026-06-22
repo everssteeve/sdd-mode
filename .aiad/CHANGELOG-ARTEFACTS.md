@@ -17,6 +17,18 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-22 — SPEC-016-4 → done — Budgets de poids RGESN par page + CI
+
+**Auteur** : Steeve Evers
+**Raison** : SPEC-016-4 (INTENT-016) — cycle complet Research (RESEARCH-022) → Gate 5/5 → Exec → Validate → Drift Lock. Extension parseur `perf-budgets.js` (D1-B), fichier de budgets calibrés × 1,2 (D2-B), script de vérification et job CI bloquant.
+**Impact** :
+- `lib/dashboard/perf-budgets.js` — extension D1-B : colonnes Page/Fichier/Budget HTML, champ `fichier` dans le retour (rétrocompat)
+- `.aiad/perf-budgets.md` — nouveau fichier, 19 budgets calibrés (RESEARCH-022)
+- `scripts/check-page-budgets.js` — nouveau script ESM zero-dep (fichiers / répertoires / globs), exit 0/1
+- `test/check-page-budgets.test.js` — 10 tests (CA-001 → CA-006b), 100 % verts
+- `.github/workflows/ci.yml` — job `rgesn-budgets` (needs: validate-schema)
+- `RESEARCH-022-rgesn-budgets-page-check.md` — GO (100 %), ancre D1-B + D2-B
+
 ## 2026-06-22 — SPEC-016-3 → done — data.json v2 versionné (JSON schema publié)
 
 **Auteur** : Steeve Evers

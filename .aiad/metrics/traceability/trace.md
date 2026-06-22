@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-22T12:53:59.622Z
+> Généré le 2026-06-22T13:25:35.987Z
 
 ## Synthèse
 
@@ -8,8 +8,8 @@
 |----------|--------|
 | Intents | 25 |
 | SPECs | 32 |
-| Fichiers code | 376 (annotés : 65) |
-| Fichiers test | 252 (annotés : 31) |
+| Fichiers code | 377 (annotés : 66) |
+| Fichiers test | 253 (annotés : 32) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -43,8 +43,8 @@
 | INTENT-015-sobriete-cli | SPEC-015-3-matrice-garde-fous | `.aiad/hooks/veto.js`<br/>`lib/guardrails.js` | `test/guardrails.test.js` | ✅ |
 | INTENT-016-dashboard-fondations | SPEC-016-1-architecture-4-couches | `lib/dashboard/model/index.js`<br/>`lib/dashboard/render.js`<br/>`lib/dashboard/ui/badges.js`<br/>`lib/dashboard/ui/helpers.js`<br/>`lib/dashboard/ui/sparklines.js`<br/>`lib/dashboard/views/changelog.js`<br/>`lib/dashboard/views/drifts.js`<br/>`lib/dashboard/views/intents.js`<br/>`lib/dashboard/views/metrics.js`<br/>`lib/dashboard/views/overview.js`<br/>`lib/dashboard/views/specs.js`<br/>`lib/dashboard/views/traceability.js` | _(aucun)_ | ⚠ non-testée |
 | INTENT-016-dashboard-fondations | SPEC-016-2-design-system-rgaa | `dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/ui/sparklines.js` | `test/dashboard-assets.test.js`<br/>`dans` | ✅ |
-| INTENT-016-dashboard-fondations | SPEC-016-3-data-json-v2 | `scripts/validate-data-schema.js`<br/>`lib/dashboard.js` | `test/validate-data-schema.test.js`<br/>`test/dashboard.test.js` | ✅ |
-| INTENT-016-dashboard-fondations | SPEC-016-4-rgesn-budgets | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-016-dashboard-fondations | SPEC-016-3-data-json-v2 | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` | `test/dashboard.test.js`<br/>`test/validate-data-schema.test.js` | ✅ |
+| INTENT-016-dashboard-fondations | SPEC-016-4-rgesn-budgets | `scripts/check-page-budgets.js` | `test/check-page-budgets.test.js` | ✅ |
 | INTENT-017-dashboard-quotidien | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-018-valeur-boussole | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-019-verification-first | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -59,7 +59,6 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/validate-data-schema.test.js` | SPEC-016-3-data-json-v2 | INTENT-016-dashboard-fondations | `scripts/validate-data-schema.js`<br/>`lib/dashboard.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -90,6 +89,7 @@
 | `test/bun-parity.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/canary.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/cert.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/check-page-budgets.test.js` | SPEC-016-4-rgesn-budgets | INTENT-016-dashboard-fondations | `scripts/check-page-budgets.js` |
 | `test/ci-templates.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/cli-adrs.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/cli-parsing.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -180,7 +180,7 @@
 | `test/dashboard-tech-debt.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-violations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-watch.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dashboard.test.js` | SPEC-016-3-data-json-v2 | INTENT-016-dashboard-fondations | `scripts/validate-data-schema.js`<br/>`lib/dashboard.js` |
+| `test/dashboard.test.js` | SPEC-016-3-data-json-v2 | INTENT-016-dashboard-fondations | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` |
 | `test/deprecation.test.js` | SPEC-015-2-1-registre-commandes | INTENT-015-sobriete-cli | `lib/commands-registry.js`<br/>`lib/deprecation.js` |
 | `test/dinum.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/discovery-gate.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -353,6 +353,7 @@
 | `test/update-check.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/update.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/upgrade.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/validate-data-schema.test.js` | SPEC-016-3-data-json-v2 | INTENT-016-dashboard-fondations | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` |
 | `test/verdict.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/version-sync.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/veto.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
