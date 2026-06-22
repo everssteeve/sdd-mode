@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-19T13:46:41.349Z
+> Généré le 2026-06-22T07:55:14.423Z
 
 ## Synthèse
 
@@ -8,7 +8,7 @@
 |----------|--------|
 | Intents | 24 |
 | SPECs | 27 |
-| Fichiers code | 322 (annotés : 48) |
+| Fichiers code | 364 (annotés : 50) |
 | Fichiers test | 250 (annotés : 28) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
@@ -32,9 +32,9 @@
 | INTENT-013-zero-drift-sur-soi | SPEC-013-1b-unification-7-valeurs | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-013-zero-drift-sur-soi | SPEC-013-2-unification-docs-racine | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-013-zero-drift-sur-soi | SPEC-013-3-sync-version-zones-marquees | `lib/version-sync.js` | `test/version-sync.test.js` | ✅ |
-| INTENT-013-zero-drift-sur-soi | SPEC-013-4-deploy-site-workflow | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-013-zero-drift-sur-soi | SPEC-013-4a-deploy-workflow | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-013-zero-drift-sur-soi | SPEC-013-4b-gate-rgaa | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-013-zero-drift-sur-soi | SPEC-013-4-deploy-site-workflow | `.github/workflows/site-deploy.yml`<br/>`.github/workflows/site-deploy.yml`<br/>`.github/workflows/site-deploy.yml` | _(aucun)_ | ⚠ non-testée |
+| INTENT-013-zero-drift-sur-soi | SPEC-013-4a-deploy-workflow | `.github/workflows/site-deploy.yml`<br/>`.github/workflows/site-deploy.yml`<br/>`.github/workflows/site-deploy.yml` | _(aucun)_ | ⚠ non-testée |
+| INTENT-013-zero-drift-sur-soi | SPEC-013-4b-gate-rgaa | `.github/workflows/site-deploy.yml`<br/>`.github/workflows/site-deploy.yml`<br/>`.github/workflows/site-deploy.yml` | _(aucun)_ | ⚠ non-testée |
 | INTENT-014-empirisme-prouve | SPEC-014-1-gates-bloquants-badge | `scripts/coverage-threshold.js` | `test/coverage-threshold.test.js` | ✅ |
 | INTENT-014-empirisme-prouve | SPEC-014-2-sourcing-claims | `scripts/lint-claims.js` | `test/lint-claims.test.js` | ✅ |
 | INTENT-015-sobriete-cli | SPEC-015-1-telemetrie-usage | `lib/telemetry.js` | `test/telemetry-usage.test.js` | ✅ |
@@ -368,13 +368,11 @@
   - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
   - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
   - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
-- SPECs sans code (hors draft/review) : **6**
+- SPECs sans code (hors draft/review) : **4**
   - SPEC-013-1-deploiement-site-valeurs (statut : split)
   - SPEC-013-1a-deploiement-site (statut : done)
   - SPEC-013-1b-unification-7-valeurs (statut : archived)
   - SPEC-013-2-unification-docs-racine (statut : done)
-  - SPEC-013-4-deploy-site-workflow (statut : split)
-  - SPEC-013-4a-deploy-workflow (statut : done)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
@@ -382,17 +380,44 @@
 - SPECs validées sans code (statut ready/validation/done) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **290**
+- Code sans `@spec` : **331**
+  - .aiad/config.yml
+  - .aiad/hook-bypass.yml
   - .aiad/hooks/discovery-gate.js
   - .aiad/hooks/drift-lock.js
   - .aiad/hooks/jnsp-scan.js
   - .aiad/hooks/session-start.js
   - .aiad/hooks/skill-usage.js
   - .aiad/hooks/statusline.js
+  - .aiad/schema/cli-openapi.yaml
+  - .github/actions/aiad-sdd/action.yml
+  - .github/aiad-app-manifest.yml
+  - .github/workflows/aiad-docs-check.yml
+  - .github/workflows/aiad-emit-rules-check.yml
+  - .github/workflows/aiad-pr-review.yml
+  - .github/workflows/aiad-version-check.yml
+  - .github/workflows/bun-smoke.yml
+  - .github/workflows/canary.yml
+  - .github/workflows/ci.yml
+  - .github/workflows/mutation.yml
+  - .github/workflows/release.yml
+  - .github/workflows/sdd-trace.yml
+  - bench/scenario-autonomous-run/url-shortener/.aiad/config.yml
+  - bench/scenario-autonomous-run/url-shortener/.aiad/hook-bypass.yml
   - bench/scenario-autonomous-run/url-shortener/.aiad/hooks/session-start.js
+  - bench/scenario-autonomous-run/url-shortener/.aiad/pm-links.yml
+  - bench/scenario-autonomous-run/url-shortener/.github/aiad-app-manifest.yml
+  - bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-dashboard.yml
+  - bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-docs-check.yml
+  - bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-emit-rules-check.yml
+  - bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-pr-review.yml
+  - bench/scenario-autonomous-run/url-shortener/.github/workflows/sdd-trace.yml
   - bench/scenario-autonomous-run/url-shortener/dashboard/assets/app.js
+  - bench/scenario-autonomous-run/url-shortener/docker-compose.prod.yml
+  - bench/scenario-autonomous-run/url-shortener/docker-compose.yml
   - bin/aiad-sdd.js
   - dashboard/assets/app.js
+  - docs/_config.yml
   - lib/ai-act-audit.js
   - lib/anonymize.js
   - lib/archive.js
@@ -406,32 +431,6 @@
   - lib/cert.js
   - lib/ci-templates.js
   - lib/cli-schema.js
-  - lib/coldstart.js
-  - lib/command-hooks.js
-  - lib/completion.js
-  - lib/confluence.js
-  - lib/dashboard.js
-  - lib/dashboard/_history-utils.js
-  - lib/dashboard/ab-test-tracker.js
-  - lib/dashboard/acceptance-criteria.js
-  - lib/dashboard/accepted-risks.js
-  - lib/dashboard/action-items.js
-  - lib/dashboard/activity-feed.js
-  - lib/dashboard/activity-heatmap.js
-  - lib/dashboard/adrs.js
-  - lib/dashboard/ai-act-compliance.js
-  - lib/dashboard/assets.js
-  - lib/dashboard/audit-trail.js
-  - lib/dashboard/auto-archive-candidates.js
-  - lib/dashboard/backlog-freshness.js
-  - lib/dashboard/backlog-health-score.js
-  - lib/dashboard/backlog-hygiene.js
-  - lib/dashboard/backlog-pyramid.js
-  - lib/dashboard/badges-block.js
-  - lib/dashboard/blocker-reminders.js
-  - lib/dashboard/bottlenecks.js
-  - lib/dashboard/brief-pm.js
-  - lib/dashboard/burnup-chart.js
-  - lib/dashboard/bus-factor.js
-  - … (+240 autres)
-- Code annoté sans tests liés : **0**
+  - … (+281 autres)
+- Code annoté sans tests liés : **1**
+  - .github/workflows/site-deploy.yml

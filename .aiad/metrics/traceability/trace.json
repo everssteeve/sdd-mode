@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-19T13:46:41.349Z"
+    "generated": "2026-06-22T07:55:14.423Z"
   },
-  "generatedAt": "2026-06-19T13:46:41.349Z",
+  "generatedAt": "2026-06-22T07:55:14.423Z",
   "summary": {
     "intents": 24,
     "specs": 27,
-    "codeFiles": 322,
-    "annotatedCodeFiles": 48,
+    "codeFiles": 364,
+    "annotatedCodeFiles": 50,
     "testFiles": 250,
     "annotatedTestFiles": 28
   },
@@ -694,7 +694,20 @@
             "traceability": "",
             "traceabilityReason": ""
           },
-          "code": [],
+          "code": [
+            {
+              "path": ".github/workflows/site-deploy.yml",
+              "line": 2
+            },
+            {
+              "path": ".github/workflows/site-deploy.yml",
+              "line": 3
+            },
+            {
+              "path": ".github/workflows/site-deploy.yml",
+              "line": 59
+            }
+          ],
           "tests": []
         },
         {
@@ -707,7 +720,20 @@
             "traceability": "exempt",
             "traceabilityReason": "Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1"
           },
-          "code": [],
+          "code": [
+            {
+              "path": ".github/workflows/site-deploy.yml",
+              "line": 2
+            },
+            {
+              "path": ".github/workflows/site-deploy.yml",
+              "line": 3
+            },
+            {
+              "path": ".github/workflows/site-deploy.yml",
+              "line": 59
+            }
+          ],
           "tests": []
         },
         {
@@ -716,11 +742,24 @@
             "file": ".aiad/specs/SPEC-013-4b-gate-rgaa.md",
             "title": "Gate RGAA AA avant publication du site",
             "parentIntent": "INTENT-013",
-            "status": "draft",
+            "status": "done",
             "traceability": "",
             "traceabilityReason": ""
           },
-          "code": [],
+          "code": [
+            {
+              "path": ".github/workflows/site-deploy.yml",
+              "line": 2
+            },
+            {
+              "path": ".github/workflows/site-deploy.yml",
+              "line": 3
+            },
+            {
+              "path": ".github/workflows/site-deploy.yml",
+              "line": 59
+            }
+          ],
           "tests": []
         }
       ]
@@ -5376,28 +5415,39 @@
         "status": "done",
         "traceability": "exempt",
         "traceabilityReason": "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
-      },
-      {
-        "id": "SPEC-013-4-deploy-site-workflow",
-        "file": ".aiad/specs/SPEC-013-4-deploy-site-workflow.md",
-        "title": "Workflow de déploiement site/ → gh-pages (gate version + RGAA)",
-        "parentIntent": "INTENT-013",
-        "status": "split",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      {
-        "id": "SPEC-013-4a-deploy-workflow",
-        "file": ".aiad/specs/SPEC-013-4a-deploy-workflow.md",
-        "title": "Workflow de déploiement site/ → gh-pages + gate version",
-        "parentIntent": "INTENT-013",
-        "status": "done",
-        "traceability": "exempt",
-        "traceabilityReason": "Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1"
       }
     ],
     "specsValideesNonImplementees": [],
     "codeSansSpec": [
+      {
+        "path": ".aiad/config.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".aiad/hook-bypass.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": [
+            {
+              "tags": [
+                "serait"
+              ],
+              "line": 41
+            }
+          ]
+        },
+        "annotated": true
+      },
       {
         "path": ".aiad/hooks/discovery-gate.js",
         "isTest": false,
@@ -5465,7 +5515,249 @@
         "annotated": false
       },
       {
+        "path": ".aiad/schema/cli-openapi.yaml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/actions/aiad-sdd/action.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/aiad-app-manifest.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/workflows/aiad-docs-check.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/workflows/aiad-emit-rules-check.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/workflows/aiad-pr-review.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/workflows/aiad-version-check.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/workflows/bun-smoke.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/workflows/canary.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/workflows/mutation.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/workflows/release.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": ".github/workflows/sdd-trace.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/.aiad/config.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/.aiad/hook-bypass.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "bench/scenario-autonomous-run/url-shortener/.aiad/hooks/session-start.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/.aiad/pm-links.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/.github/aiad-app-manifest.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-dashboard.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-docs-check.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-emit-rules-check.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-pr-review.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/.github/workflows/sdd-trace.yml",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -5494,6 +5786,28 @@
           "governance": []
         },
         "annotated": true
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/docker-compose.prod.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "bench/scenario-autonomous-run/url-shortener/docker-compose.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
       },
       {
         "path": "bin/aiad-sdd.js",
@@ -5537,6 +5851,17 @@
           "governance": []
         },
         "annotated": true
+      },
+      {
+        "path": "docs/_config.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
       },
       {
         "path": "lib/ai-act-audit.js",
@@ -8719,6 +9044,28 @@
         "annotated": false
       },
       {
+        "path": "templates/.aiad/config.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.aiad/hook-bypass.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "templates/.aiad/hooks/discovery-gate.js",
         "isTest": false,
         "annotations": {
@@ -8803,6 +9150,138 @@
         "annotated": true
       },
       {
+        "path": "templates/.github/aiad-app-manifest.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.github/workflows/aiad-dashboard.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.github/workflows/aiad-docs-check.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.github/workflows/aiad-emit-rules-check.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.github/workflows/aiad-pr-review.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.github/workflows/canary.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/.github/workflows/sdd-trace.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/forges/.drone.aiad.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/forges/.gitlab-ci.aiad.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/forges/azure-pipelines.aiad.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/forges/bitbucket-pipelines.aiad.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
+        "path": "templates/forges/github-actions.aiad.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": false
+      },
+      {
         "path": "templates/projects/fastapi-aiad/app/__init__.py",
         "isTest": false,
         "annotations": {
@@ -8825,7 +9304,52 @@
         "annotated": false
       }
     ],
-    "codeSansTests": [],
+    "codeSansTests": [
+      {
+        "path": ".github/workflows/site-deploy.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-013",
+              "line": 1
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-013-4",
+              "line": 2
+            },
+            {
+              "id": "SPEC-013-4",
+              "line": 3
+            },
+            {
+              "id": "SPEC-013-4",
+              "line": 59
+            }
+          ],
+          "verifiedBy": [],
+          "governance": [
+            {
+              "tags": [
+                "AIAD-RGAA",
+                "AIAD-RGESN"
+              ],
+              "line": 4
+            },
+            {
+              "tags": [
+                "AIAD-RGAA",
+                "AIAD-RGESN"
+              ],
+              "line": 60
+            }
+          ]
+        },
+        "annotated": true
+      }
+    ],
     "intentsOrphelinsSurCode": [],
     "specsOrphelinsSurCode": []
   },

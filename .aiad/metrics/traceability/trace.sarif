@@ -253,6 +253,44 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
+            "text": "Aucune annotation @spec dans .aiad/config.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/config.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .aiad/hook-bypass.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/hook-bypass.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
             "text": "Aucune annotation @spec dans .aiad/hooks/discovery-gate.js."
           },
           "locations": [
@@ -367,6 +405,291 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
+            "text": "Aucune annotation @spec dans .aiad/schema/cli-openapi.yaml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/schema/cli-openapi.yaml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/actions/aiad-sdd/action.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/actions/aiad-sdd/action.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/aiad-app-manifest.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/aiad-app-manifest.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/workflows/aiad-docs-check.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/aiad-docs-check.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/workflows/aiad-emit-rules-check.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/aiad-emit-rules-check.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/workflows/aiad-pr-review.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/aiad-pr-review.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/workflows/aiad-version-check.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/aiad-version-check.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/workflows/bun-smoke.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/bun-smoke.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/workflows/canary.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/canary.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/workflows/ci.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/ci.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/workflows/mutation.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/mutation.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/workflows/release.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/release.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans .github/workflows/sdd-trace.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/sdd-trace.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.aiad/config.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/.aiad/config.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.aiad/hook-bypass.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/.aiad/hook-bypass.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
             "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.aiad/hooks/session-start.js."
           },
           "locations": [
@@ -386,6 +709,139 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.aiad/pm-links.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/.aiad/pm-links.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.github/aiad-app-manifest.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/.github/aiad-app-manifest.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-dashboard.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-dashboard.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-docs-check.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-docs-check.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-emit-rules-check.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-emit-rules-check.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-pr-review.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/.github/workflows/aiad-pr-review.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/.github/workflows/sdd-trace.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/.github/workflows/sdd-trace.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
             "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/dashboard/assets/app.js."
           },
           "locations": [
@@ -393,6 +849,44 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "bench/scenario-autonomous-run/url-shortener/dashboard/assets/app.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/docker-compose.prod.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/docker-compose.prod.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans bench/scenario-autonomous-run/url-shortener/docker-compose.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "bench/scenario-autonomous-run/url-shortener/docker-compose.yml"
                 },
                 "region": {
                   "startLine": 1
@@ -431,6 +925,25 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "dashboard/assets/app.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans docs/_config.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docs/_config.yml"
                 },
                 "region": {
                   "startLine": 1
@@ -5592,6 +6105,44 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
+            "text": "Aucune annotation @spec dans templates/.aiad/config.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.aiad/config.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.aiad/hook-bypass.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.aiad/hook-bypass.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
             "text": "Aucune annotation @spec dans templates/.aiad/hooks/discovery-gate.js."
           },
           "locations": [
@@ -5725,6 +6276,234 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
+            "text": "Aucune annotation @spec dans templates/.github/aiad-app-manifest.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.github/aiad-app-manifest.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.github/workflows/aiad-dashboard.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.github/workflows/aiad-dashboard.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.github/workflows/aiad-docs-check.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.github/workflows/aiad-docs-check.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.github/workflows/aiad-emit-rules-check.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.github/workflows/aiad-emit-rules-check.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.github/workflows/aiad-pr-review.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.github/workflows/aiad-pr-review.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.github/workflows/canary.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.github/workflows/canary.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/.github/workflows/sdd-trace.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/.github/workflows/sdd-trace.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/forges/.drone.aiad.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/forges/.drone.aiad.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/forges/.gitlab-ci.aiad.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/forges/.gitlab-ci.aiad.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/forges/azure-pipelines.aiad.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/forges/azure-pipelines.aiad.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/forges/bitbucket-pipelines.aiad.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/forges/bitbucket-pipelines.aiad.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans templates/forges/github-actions.aiad.yml."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "templates/forges/github-actions.aiad.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
             "text": "Aucune annotation @spec dans templates/projects/fastapi-aiad/app/__init__.py."
           },
           "locations": [
@@ -5758,12 +6537,31 @@
               }
             }
           ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code .github/workflows/site-deploy.yml annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".github/workflows/site-deploy.yml"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
         }
       ],
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-19T13:46:41.349Z"
+          "endTimeUtc": "2026-06-22T07:55:14.423Z"
         }
       ]
     }
