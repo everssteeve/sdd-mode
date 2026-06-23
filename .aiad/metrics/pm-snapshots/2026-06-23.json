@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-22",
+  "date": "2026-06-23",
   "intents": [
     {
       "id": "INTENT-001-feedback-qualitatif",
@@ -260,17 +260,17 @@
     },
     {
       "id": "SPEC-017-2-inbox-triage",
-      "statut": "draft",
+      "statut": "done",
       "parentIntent": "INTENT-017"
     },
     {
       "id": "SPEC-017-3-digest-delta",
-      "statut": "draft",
+      "statut": "validation",
       "parentIntent": "INTENT-017"
     },
     {
       "id": "SPEC-017-4-pages-detail-spec",
-      "statut": "draft",
+      "statut": "done",
       "parentIntent": "INTENT-017"
     },
     {

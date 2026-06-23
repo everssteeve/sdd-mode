@@ -64,6 +64,59 @@
     },
     "changelog": {
       "type": "array"
+    },
+    "ebmAires": {
+      "type": "object",
+      "description": "4 aires EBM — SPEC-018-2",
+      "additionalProperties": false,
+      "properties": {
+        "currentValue":      { "$ref": "#/$defs/aireEbm" },
+        "unrealizedValue":   { "$ref": "#/$defs/aireEbm" },
+        "timeToMarket":      { "$ref": "#/$defs/aireEbm" },
+        "abilityToInnovate": { "$ref": "#/$defs/aireEbm" }
+      }
+    },
+    "investmentBalance": {
+      "type": "object",
+      "description": "Investment Balance par type d'Intent — SPEC-018-2",
+      "additionalProperties": false,
+      "required": ["buckets", "pcts", "total", "sante"],
+      "properties": {
+        "buckets": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "features":   { "type": "number" },
+            "enabler":    { "type": "number" },
+            "conformite": { "type": "number" },
+            "inconnu":    { "type": "number" }
+          }
+        },
+        "pcts": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "features":   { "type": "number" },
+            "enabler":    { "type": "number" },
+            "conformite": { "type": "number" },
+            "inconnu":    { "type": "number" }
+          }
+        },
+        "total": { "type": "number" },
+        "sante": { "type": "string", "enum": ["ok", "attention", "critique"] }
+      }
+    }
+  },
+  "$defs": {
+    "aireEbm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["valeur", "label", "jnsp"],
+      "properties": {
+        "valeur": { "type": ["number", "null"] },
+        "label":  { "type": "string" },
+        "jnsp":   { "type": "boolean" }
+      }
     }
   }
 }

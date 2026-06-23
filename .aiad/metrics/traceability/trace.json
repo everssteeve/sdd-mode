@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-23T08:06:16.676Z"
+    "generated": "2026-06-23T08:15:29.436Z"
   },
-  "generatedAt": "2026-06-23T08:06:16.675Z",
+  "generatedAt": "2026-06-23T08:15:29.436Z",
   "summary": {
     "intents": 25,
     "specs": 41,
@@ -1551,37 +1551,6 @@
     },
     {
       "test": {
-        "path": "test/dashboard-matrice-outcomes.test.js",
-        "line": 1
-      },
-      "spec": {
-        "id": "SPEC-018-1-matrice-outcomes-intents",
-        "file": ".aiad/specs/SPEC-018-1-matrice-outcomes-intents.md",
-        "title": "SPEC-018-1 — Matrice outcomes ↔ Intents",
-        "parentIntent": "INTENT-018",
-        "status": "done",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-018-valeur-boussole",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/dashboard/model/index.js",
-          "line": 236
-        },
-        {
-          "path": "lib/dashboard/outcome-attribution.js",
-          "line": 149
-        }
-      ]
-    },
-    {
-      "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
         "line": 3
       },
@@ -2392,6 +2361,37 @@
       "spec": null,
       "intent": null,
       "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-matrice-outcomes.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-018-1-matrice-outcomes-intents",
+        "file": ".aiad/specs/SPEC-018-1-matrice-outcomes-intents.md",
+        "title": "SPEC-018-1 — Matrice outcomes ↔ Intents",
+        "parentIntent": "INTENT-018",
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-018-valeur-boussole",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 236
+        },
+        {
+          "path": "lib/dashboard/outcome-attribution.js",
+          "line": 149
+        }
+      ]
     },
     {
       "test": {

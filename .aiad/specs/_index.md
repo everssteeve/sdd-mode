@@ -43,7 +43,7 @@
 | SPEC-017-3 | Digest delta + snapshots persistants | INTENT-017 | EARS | 5/5 | done | 2026-06-22 |
 | SPEC-017-4 | Pages détail SPEC (drill-down depuis specs.html) | INTENT-017 | EARS | 5/5 (gate OK) | done | 2026-06-22 |
 | SPEC-018-1 | Matrice outcomes ↔ Intents | INTENT-018 | prose | 5/5 | done | 2026-06-23 |
-| SPEC-018-2 | Aires EBM + Investment Balance | INTENT-018 | prose | À évaluer | draft | — |
+| SPEC-018-2 | Aires EBM + Investment Balance | INTENT-018 | prose | 5/5 | done | — |
 | SPEC-018-3 | Hill charts calculés depuis l'état SDD | INTENT-018 | prose | À évaluer | draft | — |
 | SPEC-018-4 | Bilan humains/agents par Intent | INTENT-018 | prose | À évaluer | draft | — |
 | SPEC-018-5 | Matrice Impact × Effort des Intents en attente | INTENT-018 | prose | À évaluer | draft | — |

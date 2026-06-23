@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-23T08:06:16.675Z
+> Généré le 2026-06-23T08:15:29.436Z
 
 ## Synthèse
 
@@ -68,7 +68,6 @@
 |------|------|--------|--------------|
 | `test/dashboard-digest.test.js` | SPEC-017-3-digest-delta | INTENT-017-dashboard-quotidien | `lib/dashboard/digest-delta.js`<br/>`lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/today.js` |
 | `test/dashboard-inbox.test.js` | SPEC-017-2-inbox-triage | INTENT-017-dashboard-quotidien | `lib/dashboard/views/inbox.js`<br/>`lib/dashboard/model/index.js` |
-| `test/dashboard-matrice-outcomes.test.js` | SPEC-018-1-matrice-outcomes-intents | INTENT-018-valeur-boussole | `lib/dashboard/model/index.js`<br/>`lib/dashboard/outcome-attribution.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -126,6 +125,7 @@
 | `test/dashboard-kanban.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-learnings.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-legal.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-matrice-outcomes.test.js` | SPEC-018-1-matrice-outcomes-intents | INTENT-018-valeur-boussole | `lib/dashboard/model/index.js`<br/>`lib/dashboard/outcome-attribution.js` |
 | `test/dashboard-onboarding.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-outcomes-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-outcomes.test.js` | ❌ non-tracé | — | _(aucun)_ |
