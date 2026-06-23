@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-23T10:07:14.266Z"
+    "generated": "2026-06-23T11:50:52.413Z"
   },
-  "generatedAt": "2026-06-23T10:07:14.266Z",
+  "generatedAt": "2026-06-23T11:50:52.412Z",
   "summary": {
     "intents": 25,
     "specs": 41,
@@ -1383,7 +1383,7 @@
             "file": ".aiad/specs/SPEC-018-4-bilan-humains-agents.md",
             "title": "SPEC-018-4 — Bilan humains/agents par Intent",
             "parentIntent": "INTENT-018",
-            "status": "validation",
+            "status": "done",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1410,7 +1410,7 @@
             "file": ".aiad/specs/SPEC-018-5-impact-effort-en-attente.md",
             "title": "SPEC-018-5 — Matrice Impact × Effort des Intents en attente",
             "parentIntent": "INTENT-018",
-            "status": "validation",
+            "status": "done",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -2421,7 +2421,7 @@
         "file": ".aiad/specs/SPEC-018-5-impact-effort-en-attente.md",
         "title": "SPEC-018-5 — Matrice Impact × Effort des Intents en attente",
         "parentIntent": "INTENT-018",
-        "status": "validation",
+        "status": "done",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2483,7 +2483,7 @@
         "file": ".aiad/specs/SPEC-018-4-bilan-humains-agents.md",
         "title": "SPEC-018-4 — Bilan humains/agents par Intent",
         "parentIntent": "INTENT-018",
-        "status": "validation",
+        "status": "done",
         "traceability": "",
         "traceabilityReason": ""
       },

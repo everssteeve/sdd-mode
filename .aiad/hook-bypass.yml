@@ -169,3 +169,7 @@ patterns:
   # `aiad-sdd dashboard`, lue par le test de conformité OpenAPI #373. Générée,
   # pas du code régi par une SPEC.
   - "bench/**/dashboard/**"
+
+  # Dashboard HTML généré — sortie de `npx aiad-sdd dashboard` (artefact dérivé
+  # des sources et artefacts SDD). Jamais édité à la main, toujours régénéré.
+  - "dashboard/**"

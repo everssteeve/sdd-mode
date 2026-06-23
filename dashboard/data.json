@@ -2,7 +2,7 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.18.0",
-    "generated": "2026-06-23T10:14:26.118Z",
+    "generated": "2026-06-23T11:51:49.527Z",
     "schema_version": "2.0",
     "slim": true
   },
@@ -14,7 +14,7 @@
     "nom": "aiad-sdd",
     "version": "1.18.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd",
-    "genere": "2026-06-23T10:14:26.118Z"
+    "genere": "2026-06-23T11:51:49.527Z"
   },
   "fondamentaux": [
     {
@@ -315,7 +315,7 @@
       "id": "INTENT-018-valeur-boussole",
       "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
       "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-      "statut": "active",
+      "statut": "done",
       "auteur": "Steeve Evers",
       "date": "2026-06-11",
       "executor": null,
@@ -329,7 +329,7 @@
         "contraintes": "- Dépend de INTENT-016 et INTENT-017.\n- **Pas d'IA qui pilote** : l'IA propose, l'humain tranche (cf. échec de Height).",
         "critereDrift": "Un outcome affiché sans mesure datée (faux « 100 % » au lieu d'un `JNSP`) → drift\nde l'empirisme."
       },
-      "mtime": 1782200017283.6401
+      "mtime": 1782215495394.5276
     },
     {
       "id": "INTENT-019-verification-first",
@@ -2983,6 +2983,14 @@
     "entrees": [
       {
         "date": "2026-06-23",
+        "artefact": "INTENT-018 → done",
+        "type": "Drift Lock cycle complet",
+        "auteur": "Steeve Evers + Claude (Sonnet 4.6)",
+        "raison": "Toutes les 5 SPECs de INTENT-018 validées et commitées — drift-check final OK",
+        "impact": "- `INTENT-018-valeur-boussole.md` : `status: active → done`, 5 SPECs cochées"
+      },
+      {
+        "date": "2026-06-23",
         "artefact": "SPEC-018-1 → done",
         "type": "Matrice outcomes ↔ Intents",
         "auteur": "Steeve Evers + Claude (Sonnet 4.6)",
@@ -3279,7 +3287,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-06-23T10:14:26.158Z",
+    "generatedAt": "2026-06-23T11:51:49.561Z",
     "summary": {
       "intents": 25,
       "specs": 41,
@@ -4557,7 +4565,7 @@
           "id": "INTENT-018-valeur-boussole",
           "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
           "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-          "status": "active"
+          "status": "done"
         },
         "specs": [
           {
@@ -5673,7 +5681,7 @@
           "id": "INTENT-018-valeur-boussole",
           "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
           "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-          "status": "active"
+          "status": "done"
         },
         "code": [
           {
@@ -5704,7 +5712,7 @@
           "id": "INTENT-018-valeur-boussole",
           "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
           "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-          "status": "active"
+          "status": "done"
         },
         "code": [
           {
@@ -5766,7 +5774,7 @@
           "id": "INTENT-018-valeur-boussole",
           "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
           "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-          "status": "active"
+          "status": "done"
         },
         "code": [
           {
@@ -5824,7 +5832,7 @@
           "id": "INTENT-018-valeur-boussole",
           "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
           "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-          "status": "active"
+          "status": "done"
         },
         "code": [
           {
@@ -7868,7 +7876,7 @@
       },
       {
         "mois": "2026-06",
-        "ts": 1782209666185,
+        "ts": 1782215509588,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": 0.75,
         "traceCompleteness": 0.7560975609756098,
@@ -7958,11 +7966,11 @@
     },
     "hookStats": {
       "available": true,
-      "count": 157,
+      "count": 158,
       "p50": 0,
       "p95": 1000,
       "max": 1000,
-      "ratioFail": 0.1910828025477707,
+      "ratioFail": 0.189873417721519,
       "timeouts": 0,
       "scopeLeaks": 0,
       "sante": "attention"
@@ -11568,7 +11576,7 @@
       {
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "statut": "active",
+        "statut": "done",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "total": 5,
         "done": 5,
@@ -11649,8 +11657,8 @@
     "funnel": {
       "idea": 5,
       "validated": 0,
-      "inDelivery": 2,
-      "done": 18,
+      "inDelivery": 1,
+      "done": 19,
       "archived": 0
     },
     "seuils": {
@@ -11694,7 +11702,7 @@
       {
         "key": "2026-06",
         "label": "juin 26",
-        "count": 17,
+        "count": 18,
         "ts": 1780272000000
       }
     ],
@@ -11773,14 +11781,14 @@
       }
     ],
     "totaux": {
-      "intentsDone": 18,
+      "intentsDone": 19,
       "specsDone": 35,
       "moisCouverts": 6,
       "semainesCouvertes": 12
     },
     "tendanceIntents": {
       "sens": "up",
-      "delta": 18
+      "delta": 19
     },
     "tendanceSpecs": {
       "sens": "up",
@@ -11952,7 +11960,7 @@
         "id": "INTENT-018-valeur-boussole",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "statut": "active"
+        "statut": "done"
       },
       {
         "id": "INTENT-019-verification-first",
@@ -13331,11 +13339,11 @@
   "sre": {
     "hookStats": {
       "available": true,
-      "count": 157,
+      "count": 158,
       "p50": 0,
       "p95": 1000,
       "max": 1000,
-      "ratioFail": 0.1910828025477707,
+      "ratioFail": 0.189873417721519,
       "timeouts": 0,
       "scopeLeaks": 0,
       "sante": "attention"
@@ -13632,6 +13640,13 @@
         "statut": "done",
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
         "mtime": 1782202627769.8833
+      },
+      {
+        "id": "INTENT-018-valeur-boussole",
+        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "statut": "done",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "mtime": 1782215495394.5276
       }
     ],
     "specs": [
@@ -13881,7 +13896,7 @@
         "parentIntent": "INTENT-018"
       }
     ],
-    "total": 53
+    "total": 54
   },
   "personaDrill": [],
   "deadlines": {
@@ -13896,15 +13911,6 @@
           "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
           "statut": "active",
           "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-          "target": null,
-          "target_date": null,
-          "joursRestants": null
-        },
-        {
-          "id": "INTENT-018-valeur-boussole",
-          "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-          "statut": "active",
-          "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
           "target": null,
           "target_date": null,
           "joursRestants": null
@@ -14101,6 +14107,15 @@
           "joursRestants": null
         },
         {
+          "id": "INTENT-018-valeur-boussole",
+          "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+          "statut": "done",
+          "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+          "target": null,
+          "target_date": null,
+          "joursRestants": null
+        },
+        {
           "id": "INTENT-024-trace-exemption-specs-sans-code",
           "titre": "Traçabilité honnête des SPECs sans code applicatif — exemption explicite",
           "statut": "done",
@@ -14125,24 +14140,23 @@
       "urgent": 0,
       "proche": 0,
       "planifie": 0,
-      "sansCible": 7,
-      "livre": 18
+      "sansCible": 6,
+      "livre": 19
     }
   },
   "pmDiff": {
     "diff": {
       "intents": {
         "nouveaux": [],
-        "passesActifs": [
-          {
-            "id": "INTENT-018-valeur-boussole",
-            "de": "draft"
-          }
-        ],
+        "passesActifs": [],
         "passesDone": [
           {
             "id": "INTENT-017-dashboard-quotidien",
             "de": "active"
+          },
+          {
+            "id": "INTENT-018-valeur-boussole",
+            "de": "draft"
           }
         ],
         "passesArchive": [],
@@ -14155,7 +14169,7 @@
           {
             "id": "INTENT-018-valeur-boussole",
             "de": "draft",
-            "vers": "active"
+            "vers": "done"
           }
         ]
       },
@@ -14590,7 +14604,7 @@
           },
           {
             "id": "INTENT-018-valeur-boussole",
-            "statut": "active"
+            "statut": "done"
           },
           {
             "id": "INTENT-019-verification-first",
@@ -14829,7 +14843,7 @@
           }
         ]
       },
-      "mtime": 1782209666298.083
+      "mtime": 1782215509697.908
     },
     "totalChangements": 10
   },
@@ -14991,7 +15005,7 @@
       {
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "statut": "active",
+        "statut": "done",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "bloquePar": [],
         "bloque": [],
@@ -15179,7 +15193,7 @@
           {
             "id": "INTENT-018-valeur-boussole",
             "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-            "statut": "active",
+            "statut": "done",
             "file": ".aiad/intents/INTENT-018-valeur-boussole.md"
           },
           {
@@ -15227,8 +15241,8 @@
         ],
         "totaux": {
           "total": 25,
-          "actifs": 7,
-          "livres": 18
+          "actifs": 6,
+          "livres": 19
         }
       }
     ],
@@ -15285,9 +15299,9 @@
   },
   "cycleTime": {
     "stats": {
-      "n": 18,
+      "n": 19,
       "p50": 0,
-      "p95": 0.14999999999999858,
+      "p95": 1,
       "moyenne": 0,
       "min": 0,
       "max": 1
@@ -15297,6 +15311,14 @@
         "id": "INTENT-017-dashboard-quotidien",
         "titre": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "leadJours": 1,
+        "capture": 1782086400000,
+        "livraison": 1782172800000
+      },
+      {
+        "id": "INTENT-018-valeur-boussole",
+        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "leadJours": 1,
         "capture": 1782086400000,
         "livraison": 1782172800000
@@ -15445,13 +15467,6 @@
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
         "ageJours": 1,
         "statut": "active"
-      },
-      {
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "ageJours": 1,
-        "statut": "active"
       }
     ],
     "plusLents": [
@@ -15459,6 +15474,14 @@
         "id": "INTENT-017-dashboard-quotidien",
         "titre": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "leadJours": 1,
+        "capture": 1782086400000,
+        "livraison": 1782172800000
+      },
+      {
+        "id": "INTENT-018-valeur-boussole",
+        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "leadJours": 1,
         "capture": 1782086400000,
         "livraison": 1782172800000
@@ -15486,14 +15509,6 @@
         "leadJours": 0,
         "capture": 1782086400000,
         "livraison": 1782086400000
-      },
-      {
-        "id": "INTENT-004-execution-phasee",
-        "titre": "Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)",
-        "file": ".aiad/intents/INTENT-004-execution-phasee.md",
-        "leadJours": 0,
-        "capture": 1782086400000,
-        "livraison": 1782086400000
       }
     ],
     "ageEnCours": [
@@ -15501,13 +15516,6 @@
         "id": "INTENT-016-dashboard-fondations",
         "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "ageJours": 1,
-        "statut": "active"
-      },
-      {
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "ageJours": 1,
         "statut": "active"
       }
@@ -15555,7 +15563,7 @@
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
+        "statut": "done",
         "niveau": "medium",
         "risques": [
           {
@@ -15653,22 +15661,13 @@
         "impact": 0,
         "effort": 8,
         "quadrant": "time-sinks"
-      },
-      {
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
-        "impact": 0,
-        "effort": 8,
-        "quadrant": "time-sinks"
       }
     ],
     "totaux": {
       "quick-wins": 0,
       "big-bets": 0,
       "fill-ins": 0,
-      "time-sinks": 2
+      "time-sinks": 1
     }
   },
   "impactEffortEnAttente": {
@@ -15749,6 +15748,16 @@
   "recentActivity": {
     "items": [
       {
+        "type": "Intent",
+        "id": "INTENT-018-valeur-boussole",
+        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "statut": "done",
+        "mtime": 1782215495394.5276,
+        "ageMs": 14306.472412109375,
+        "ageHumain": "à l'instant"
+      },
+      {
         "type": "SPEC",
         "id": "SPEC-018-5-impact-effort-en-attente",
         "titre": "string,",
@@ -15756,8 +15765,8 @@
         "statut": "done",
         "mtime": 1782209657701.1543,
         "parentIntent": "INTENT-018",
-        "ageMs": 8598.845703125,
-        "ageHumain": "à l'instant"
+        "ageMs": 5851999.845703125,
+        "ageHumain": "il y a 2 h"
       },
       {
         "type": "SPEC",
@@ -15767,8 +15776,8 @@
         "statut": "done",
         "mtime": 1782209653702.137,
         "parentIntent": "INTENT-018",
-        "ageMs": 12597.863037109375,
-        "ageHumain": "à l'instant"
+        "ageMs": 5855998.863037109,
+        "ageHumain": "il y a 2 h"
       },
       {
         "type": "SPEC",
@@ -15778,8 +15787,8 @@
         "statut": "done",
         "mtime": 1782205830939.904,
         "parentIntent": "INTENT-018",
-        "ageMs": 3835360.0959472656,
-        "ageHumain": "il y a 1 h"
+        "ageMs": 9678761.095947266,
+        "ageHumain": "il y a 3 h"
       },
       {
         "type": "SPEC",
@@ -15789,8 +15798,8 @@
         "statut": "done",
         "mtime": 1782204009055.574,
         "parentIntent": "INTENT-018",
-        "ageMs": 5657244.426025391,
-        "ageHumain": "il y a 2 h"
+        "ageMs": 11500645.42602539,
+        "ageHumain": "il y a 3 h"
       },
       {
         "type": "Intent",
@@ -15799,8 +15808,8 @@
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
         "statut": "done",
         "mtime": 1782202627769.8833,
-        "ageMs": 7038530.116699219,
-        "ageHumain": "il y a 2 h"
+        "ageMs": 12881931.116699219,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "SPEC",
@@ -15810,18 +15819,8 @@
         "statut": "done",
         "mtime": 1782200936965.559,
         "parentIntent": "INTENT-018",
-        "ageMs": 8729334.440917969,
-        "ageHumain": "il y a 2 h"
-      },
-      {
-        "type": "Intent",
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
-        "mtime": 1782200017283.6401,
-        "ageMs": 9649016.359863281,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 14572735.440917969,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "SPEC",
@@ -15831,8 +15830,8 @@
         "statut": "done",
         "mtime": 1782143362861.8252,
         "parentIntent": "INTENT-017",
-        "ageMs": 66303438.17480469,
-        "ageHumain": "il y a 18 h"
+        "ageMs": 72146839.17480469,
+        "ageHumain": "il y a 20 h"
       },
       {
         "type": "SPEC",
@@ -15842,8 +15841,8 @@
         "statut": "validation",
         "mtime": 1782141950442.2166,
         "parentIntent": "INTENT-017",
-        "ageMs": 67715857.78344727,
-        "ageHumain": "il y a 19 h"
+        "ageMs": 73559258.78344727,
+        "ageHumain": "il y a 20 h"
       },
       {
         "type": "SPEC",
@@ -15853,8 +15852,8 @@
         "statut": "done",
         "mtime": 1782140443713.4868,
         "parentIntent": "INTENT-017",
-        "ageMs": 69222586.5131836,
-        "ageHumain": "il y a 19 h"
+        "ageMs": 75065987.5131836,
+        "ageHumain": "il y a 21 h"
       }
     ],
     "totaux": {
@@ -15882,11 +15881,11 @@
         "date": "2026-06-23",
         "par": {
           "draft": 5,
-          "active": 2,
+          "active": 1,
           "review": 0,
           "in-progress": 0,
           "validation": 0,
-          "done": 18,
+          "done": 19,
           "archived": 0,
           "unknown": 0
         }
@@ -16058,7 +16057,7 @@
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
+        "statut": "done",
         "hypothese": null,
         "hypothesisStatus": null
       },
@@ -16143,13 +16142,13 @@
       {
         "date": "2026-06-23",
         "total": 25,
-        "done": 18
+        "done": 19
       }
     ],
     "estimation": {
-      "vitesse": 1.1574074074074074e-8,
-      "date": "2026-06-30",
-      "restant": 7
+      "vitesse": 2.3148148148148148e-8,
+      "date": "2026-06-26",
+      "restant": 6
     },
     "snapshots": 2
   },
@@ -16159,33 +16158,6 @@
         "id": "INTENT-016-dashboard-fondations",
         "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "statut": "active",
-        "raisons": [
-          {
-            "key": "objectif-lourd",
-            "gravite": "medium",
-            "label": "Objectif > 200 chars",
-            "action": "Lancer `/sdd split` ou raffiner le scope."
-          },
-          {
-            "key": "no-target",
-            "gravite": "low",
-            "label": "Aucun target déclaré",
-            "action": "Ajouter `target: Q3-2026` ou `target_date: ...` dans le frontmatter."
-          },
-          {
-            "key": "no-owner",
-            "gravite": "low",
-            "label": "Aucun owner / sponsor",
-            "action": "Ajouter `owner:` et `sponsor:` dans le frontmatter."
-          }
-        ],
-        "pireGravite": "medium"
-      },
-      {
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "statut": "active",
         "raisons": [
           {
@@ -16304,9 +16276,9 @@
       }
     ],
     "totaux": {
-      "total": 7,
+      "total": 6,
       "high": 0,
-      "medium": 5,
+      "medium": 4,
       "low": 2
     }
   },
@@ -16382,7 +16354,7 @@
     ],
     "totaux": {
       "satures": 0,
-      "sansQuarter": 7
+      "sansQuarter": 6
     }
   },
   "confidenceTracker": {
@@ -16725,10 +16697,10 @@
     "semaineCouranteDebut": "2026-06-22",
     "semainePrecedenteDebut": "2026-06-15",
     "intents": {
-      "courant": 2,
+      "courant": 3,
       "precedent": 14,
-      "abs": -12,
-      "rel": -86,
+      "abs": -11,
+      "rel": -79,
       "sens": "down"
     },
     "specs": {
@@ -16742,7 +16714,7 @@
       "intents": [
         1,
         14,
-        2
+        3
       ],
       "specs": [
         1,
@@ -16758,7 +16730,7 @@
       "source": "défaut (5/8)"
     },
     "intents": {
-      "charge": 2,
+      "charge": 1,
       "limite": 5,
       "etat": "sain",
       "items": [
@@ -16767,12 +16739,6 @@
           "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
           "statut": "active",
           "file": ".aiad/intents/INTENT-016-dashboard-fondations.md"
-        },
-        {
-          "id": "INTENT-018-valeur-boussole",
-          "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-          "statut": "active",
-          "file": ".aiad/intents/INTENT-018-valeur-boussole.md"
         }
       ]
     },
@@ -16853,16 +16819,6 @@
         "bande": "frais"
       },
       {
-        "type": "Intent",
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
-        "mtime": 1782200017283.6401,
-        "ageJours": 0,
-        "bande": "frais"
-      },
-      {
         "type": "SPEC",
         "id": "SPEC-017-3-digest-delta",
         "titre": "SPEC-017-3 — Digest delta + snapshots persistants",
@@ -16874,11 +16830,11 @@
       }
     ],
     "totaux": {
-      "total": 8,
+      "total": 7,
       "abandonne": 0,
       "stale": 0,
       "tiede": 0,
-      "frais": 8
+      "frais": 7
     }
   },
   "goalTree": {
@@ -17236,7 +17192,7 @@
       {
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "statut": "active",
+        "statut": "done",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "specs": [
           {
@@ -17359,12 +17315,12 @@
       },
       {
         "date": "2026-06-23",
-        "ouverts": 4
+        "ouverts": 3
       }
     ],
     "snapshots": 2,
     "totalRisques": 6,
-    "courantsOuverts": 4,
+    "courantsOuverts": 3,
     "tendance": "down"
   },
   "outcomeLeaderboard": {
@@ -17373,18 +17329,6 @@
         "id": "INTENT-016-dashboard-fondations",
         "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "statut": "active",
-        "priority": null,
-        "score": 1.5,
-        "outcomesServis": 0,
-        "poidsPrio": 1,
-        "base": 0,
-        "bonus": 1.5
-      },
-      {
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "statut": "active",
         "priority": null,
         "score": 1.5,
@@ -17574,6 +17518,18 @@
         "bonus": 1
       },
       {
+        "id": "INTENT-018-valeur-boussole",
+        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "statut": "done",
+        "priority": null,
+        "score": 1,
+        "outcomesServis": 0,
+        "poidsPrio": 1,
+        "base": 0,
+        "bonus": 1
+      },
+      {
         "id": "INTENT-024-trace-exemption-specs-sans-code",
         "titre": "Traçabilité honnête des SPECs sans code applicatif — exemption explicite",
         "file": ".aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md",
@@ -17709,21 +17665,6 @@
         "specsFaibles": []
       },
       {
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
-        "priority": null,
-        "etat": "to-score",
-        "total": 5,
-        "score": {
-          "min": null,
-          "avg": null,
-          "scored": 0
-        },
-        "specsFaibles": []
-      },
-      {
         "id": "INTENT-019-verification-first",
         "titre": "Verification-first — dériver des tests des critères EARS",
         "file": ".aiad/intents/INTENT-019-verification-first.md",
@@ -17800,11 +17741,11 @@
       }
     ],
     "totaux": {
-      "total": 7,
+      "total": 6,
       "ready": 0,
       "partial": 1,
       "needsWork": 0,
-      "toScore": 1,
+      "toScore": 0,
       "noSpec": 5
     },
     "seuil": 4
@@ -17923,7 +17864,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1782208573530.1414
+        "mtime": 1782209666314.1248
       }
     ],
     "tendance": {
@@ -18823,7 +18764,7 @@
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
+        "statut": "done",
         "priority": null,
         "cellules": [
           {
@@ -19169,44 +19110,6 @@
         "bonus": 1
       },
       {
-        "id": "INTENT-018-valeur-boussole",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "statut": "active",
-        "auteur": "Steeve Evers",
-        "date": "2026-06-11",
-        "executor": null,
-        "validator": null,
-        "activatedAt": null,
-        "problem": null,
-        "sections": {
-          "pourquoi": "Le principe directeur d'AIAD est « on juge sur la valeur réalisée », mais le\ndashboard ne mesure que l'**activité** (specs fermées, throughput). Les outcomes\ndu PRD ne sont jamais reliés aux Intents. C'est aussi un différenciateur marché\nvérifié : aucun outil ne trace la contribution **humain vs agent**.",
-          "pourQui": "Le PM et le leadership ; le positionnement produit du framework.",
-          "objectif": "- Matrice **outcomes ↔ Intents** (critère PRD ↔ Intents contributeurs ↔ mesures datées).\n- Les **4 aires EBM** (Current/Unrealized Value, Time-to-Market, Ability to Innovate).\n- **Investment balance** (features / dette / bugs / conformité).\n- **Hill charts** calculés depuis l'état du cycle SDD.\n- **Bilan humains/agents** par Intent (qui formule, qui exécute, qui valide, vetos).\n- Matrice **Impact × Effort** des Intents en attente.",
-          "contraintes": "- Dépend de INTENT-016 et INTENT-017.\n- **Pas d'IA qui pilote** : l'IA propose, l'humain tranche (cf. échec de Height).",
-          "critereDrift": "Un outcome affiché sans mesure datée (faux « 100 % » au lieu d'un `JNSP`) → drift\nde l'empirisme."
-        },
-        "mtime": 1782200017283.6401,
-        "readiness": {
-          "id": "INTENT-018-valeur-boussole",
-          "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-          "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-          "statut": "active",
-          "priority": null,
-          "etat": "to-score",
-          "total": 5,
-          "score": {
-            "min": null,
-            "avg": null,
-            "scored": 0
-          },
-          "specsFaibles": []
-        },
-        "score": 32,
-        "poids": 3,
-        "bonus": 2
-      },
-      {
         "id": "INTENT-019-verification-first",
         "file": ".aiad/intents/INTENT-019-verification-first.md",
         "titre": "Verification-first — dériver des tests des critères EARS",
@@ -19404,17 +19307,17 @@
       "label": "Q1-2026",
       "source": "défaut (2 Intents × 5 PE)"
     },
-    "seuilCommit": 7
+    "seuilCommit": 6
   },
   "strategicNarrative": {
-    "texte": "**aiad-sdd** — état 2026-06-23 : 2 Intent(s) actif(s), 2 en delivery, 18 livré(s). Vélocité **5.8 SPECs/sem** en accélération (projection 6sem : 165.6 SPECs), ETA backlog ~1 sem. Santé du projet **65/100** en amélioration (+15 pts) sur 3 snapshots.",
+    "texte": "**aiad-sdd** — état 2026-06-23 : 1 Intent(s) actif(s), 1 en delivery, 19 livré(s). Vélocité **5.8 SPECs/sem** en accélération (projection 6sem : 165.6 SPECs), ETA backlog ~1 sem. Santé du projet **65/100** en amélioration (+15 pts) sur 3 snapshots.",
     "phrases": [
-      "**aiad-sdd** — état 2026-06-23 : 2 Intent(s) actif(s), 2 en delivery, 18 livré(s).",
+      "**aiad-sdd** — état 2026-06-23 : 1 Intent(s) actif(s), 1 en delivery, 19 livré(s).",
       "Vélocité **5.8 SPECs/sem** en accélération (projection 6sem : 165.6 SPECs), ETA backlog ~1 sem.",
       "Santé du projet **65/100** en amélioration (+15 pts) sur 3 snapshots."
     ],
     "meta": {
-      "intentsActifs": 2,
+      "intentsActifs": 1,
       "risquesEleves": 0,
       "healthScore": null,
       "healthTrend": "up",
@@ -19648,7 +19551,7 @@
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
+        "statut": "done",
         "sponsor": null,
         "lastDemo": null,
         "lastSync": null,
@@ -19764,50 +19667,50 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1777371266304,
-        "fin": 1777976066304,
+        "debut": 1777377109705,
+        "fin": 1777981909705,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1777976066304,
-        "fin": 1778580866304,
+        "debut": 1777981909705,
+        "fin": 1778586709705,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1778580866304,
-        "fin": 1779185666304,
+        "debut": 1778586709705,
+        "fin": 1779191509705,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1779185666304,
-        "fin": 1779790466304,
+        "debut": 1779191509705,
+        "fin": 1779796309705,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1779790466304,
-        "fin": 1780395266304,
+        "debut": 1779796309705,
+        "fin": 1780401109705,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1780395266304,
-        "fin": 1781000066304,
+        "debut": 1780401109705,
+        "fin": 1781005909705,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1781000066304,
-        "fin": 1781604866304,
+        "debut": 1781005909705,
+        "fin": 1781610709705,
         "count": 3,
         "decisions": [
           {
@@ -19829,8 +19732,8 @@
       },
       {
         "idx": 7,
-        "debut": 1781604866304,
-        "fin": 1782209666304,
+        "debut": 1781610709705,
+        "fin": 1782215509705,
         "count": 2,
         "decisions": [
           {
@@ -19954,15 +19857,15 @@
   "discoveryDeliveryBalance": {
     "buckets": {
       "discovery": 0,
-      "delivery": 2,
+      "delivery": 1,
       "enabler": 0,
-      "inconnu": 23
+      "inconnu": 24
     },
     "pcts": {
       "discovery": 0,
-      "delivery": 8,
+      "delivery": 4,
       "enabler": 0,
-      "inconnu": 92
+      "inconnu": 96
     },
     "echantillons": {
       "discovery": [],
@@ -19970,11 +19873,6 @@
         {
           "id": "INTENT-016-dashboard-fondations",
           "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
-          "source": "heuristique-specs"
-        },
-        {
-          "id": "INTENT-018-valeur-boussole",
-          "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
           "source": "heuristique-specs"
         }
       ],
@@ -20011,7 +19909,7 @@
     "sante": {
       "delivery": {
         "etat": "desequilibre",
-        "delta": -57
+        "delta": -61
       },
       "discovery": {
         "etat": "tendu",
@@ -20074,13 +19972,6 @@
         "positionX": 0,
         "jnsp": true,
         "trajectoire": []
-      },
-      {
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "positionX": 0,
-        "jnsp": true,
-        "trajectoire": []
       }
     ],
     "historiqueDisponible": false,
@@ -20090,24 +19981,6 @@
     {
       "id": "INTENT-016-dashboard-fondations",
       "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
-      "statut": "active",
-      "formulateur": {
-        "nom": "Steeve Evers",
-        "type": "human"
-      },
-      "executor": {
-        "nom": null,
-        "type": "inconnu"
-      },
-      "validator": {
-        "nom": null,
-        "type": "inconnu"
-      },
-      "agentsGouvernance": []
-    },
-    {
-      "id": "INTENT-018-valeur-boussole",
-      "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
       "statut": "active",
       "formulateur": {
         "nom": "Steeve Evers",
@@ -20412,6 +20285,24 @@
       "agentsGouvernance": []
     },
     {
+      "id": "INTENT-018-valeur-boussole",
+      "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+      "statut": "done",
+      "formulateur": {
+        "nom": "Steeve Evers",
+        "type": "human"
+      },
+      "executor": {
+        "nom": null,
+        "type": "inconnu"
+      },
+      "validator": {
+        "nom": null,
+        "type": "inconnu"
+      },
+      "agentsGouvernance": []
+    },
+    {
       "id": "INTENT-019-verification-first",
       "titre": "Verification-first — dériver des tests des critères EARS",
       "statut": "draft",
@@ -20607,6 +20498,13 @@
   "whatsNew": {
     "items": [
       {
+        "type": "intent",
+        "id": "INTENT-018-valeur-boussole",
+        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "mtime": 1782215495394.5276,
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md"
+      },
+      {
         "type": "spec",
         "id": "SPEC-018-5-impact-effort-en-attente",
         "titre": "string,",
@@ -20652,13 +20550,6 @@
         "mtime": 1782200936965.559,
         "parentIntent": "INTENT-018",
         "statut": "done"
-      },
-      {
-        "type": "intent",
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "mtime": 1782200017283.6401,
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md"
       },
       {
         "type": "spec",
@@ -21067,7 +20958,7 @@
         "file": ".aiad/intents/INTENT-023-rayonnement-honnete.md"
       }
     ],
-    "nowMs": 1782209666305
+    "nowMs": 1782215509706
   },
   "hypothesisLifecycle": {
     "items": [],
@@ -21087,7 +20978,7 @@
   "roadmapTimeline": {
     "items": [],
     "plage": null,
-    "now": 1782209666305,
+    "now": 1782215509707,
     "totaux": {
       "total": 0,
       "retard": 0,
@@ -21154,12 +21045,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1779617666305,
-      "fin": 1782209666305
+      "debut": 1779623509707,
+      "fin": 1782215509707
     },
     "fenetrePrecedente": {
-      "debut": 1777025666305,
-      "fin": 1779617666305
+      "debut": 1777031509707,
+      "fin": 1779623509707
     },
     "totalActivite": 66,
     "totalPrecedent": 0,
@@ -21224,62 +21115,6 @@
         "deps": null
       },
       {
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "priority": null,
-        "statut": "active",
-        "sponsor": null,
-        "owner": null,
-        "targetDate": null,
-        "hypothesis": null,
-        "hypothesisStatus": null,
-        "sqs": {
-          "id": "INTENT-018-valeur-boussole",
-          "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-          "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-          "statut": "active",
-          "priority": null,
-          "etat": "to-score",
-          "total": 5,
-          "score": {
-            "min": null,
-            "avg": null,
-            "scored": 0
-          },
-          "specsFaibles": []
-        },
-        "avancement": {
-          "id": "INTENT-018-valeur-boussole",
-          "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-          "statut": "active",
-          "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-          "total": 5,
-          "done": 5,
-          "enCours": 0,
-          "ratio": 1
-        },
-        "risque": {
-          "id": "INTENT-018-valeur-boussole",
-          "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-          "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-          "statut": "active",
-          "niveau": "medium",
-          "risques": [
-            {
-              "texte": "Dépendance (mot-clé \"depend\")",
-              "source": "heuristique",
-              "niveau": "medium",
-              "categorie": "Dépendance",
-              "motCle": "depend"
-            }
-          ],
-          "countExplicites": 0,
-          "countHeuristiques": 1
-        },
-        "deps": null
-      },
-      {
         "id": "INTENT-019-verification-first",
         "titre": "Verification-first — dériver des tests des critères EARS",
         "file": ".aiad/intents/INTENT-019-verification-first.md",
@@ -21317,12 +21152,51 @@
         },
         "risque": null,
         "deps": null
+      },
+      {
+        "id": "INTENT-020-spec-anchored-deltas",
+        "titre": "Spec-anchored par construction — deltas et redevabilité bidirectionnelle",
+        "file": ".aiad/intents/INTENT-020-spec-anchored-deltas.md",
+        "priority": null,
+        "statut": "draft",
+        "sponsor": null,
+        "owner": null,
+        "targetDate": null,
+        "hypothesis": null,
+        "hypothesisStatus": null,
+        "sqs": {
+          "id": "INTENT-020-spec-anchored-deltas",
+          "titre": "Spec-anchored par construction — deltas et redevabilité bidirectionnelle",
+          "file": ".aiad/intents/INTENT-020-spec-anchored-deltas.md",
+          "statut": "draft",
+          "priority": null,
+          "etat": "no-spec",
+          "total": 0,
+          "score": {
+            "min": null,
+            "avg": null,
+            "scored": 0
+          },
+          "specsFaibles": []
+        },
+        "avancement": {
+          "id": "INTENT-020-spec-anchored-deltas",
+          "titre": "Spec-anchored par construction — deltas et redevabilité bidirectionnelle",
+          "statut": "draft",
+          "file": ".aiad/intents/INTENT-020-spec-anchored-deltas.md",
+          "total": 0,
+          "done": 0,
+          "enCours": 0,
+          "ratio": null
+        },
+        "risque": null,
+        "deps": null
       }
     ],
     "defautIds": [
       "INTENT-016-dashboard-fondations",
-      "INTENT-018-valeur-boussole",
-      "INTENT-019-verification-first"
+      "INTENT-019-verification-first",
+      "INTENT-020-spec-anchored-deltas"
     ],
     "totalIntentsDispo": 25
   },
@@ -21624,8 +21498,8 @@
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
-        "mtime": 1782200017283.6401,
+        "statut": "done",
+        "mtime": 1782215495394.5276,
         "premiereSpec": {
           "id": "SPEC-018-1-matrice-outcomes-intents",
           "mtime": 1782200936965.559
@@ -21753,6 +21627,15 @@
   "winsWall": {
     "items": [
       {
+        "type": "intent",
+        "id": "INTENT-018-valeur-boussole",
+        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "statut": "done",
+        "sponsor": null,
+        "mtime": 1782215495394.5276
+      },
+      {
         "type": "spec",
         "id": "SPEC-018-5-impact-effort-en-attente",
         "titre": "string,",
@@ -21850,22 +21733,13 @@
         "statut": "done",
         "parentIntent": "INTENT-016",
         "mtime": 1782134458268.8145
-      },
-      {
-        "type": "spec",
-        "id": "SPEC-016-3-data-json-v2",
-        "titre": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
-        "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
-        "statut": "done",
-        "parentIntent": "INTENT-016",
-        "mtime": 1782132867139.04
       }
     ],
     "totaux": {
-      "total": 54,
+      "total": 55,
       "specs": 36,
-      "intents": 18,
-      "now": 1782209666307
+      "intents": 19,
+      "now": 1782215509708
     }
   },
   "stateTransitions": {
@@ -21903,7 +21777,7 @@
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statutCourant": "active",
+        "statutCourant": "done",
         "etats": [
           {
             "statut": "draft",
@@ -21911,7 +21785,7 @@
             "date": "2026-06-22"
           },
           {
-            "statut": "active",
+            "statut": "done",
             "ts": 1782172800000,
             "date": "2026-06-23"
           }
@@ -21919,7 +21793,7 @@
         "transitions": [
           {
             "de": "draft",
-            "vers": "active",
+            "vers": "done",
             "ts": 1782172800000,
             "date": "2026-06-23",
             "regression": false
@@ -22145,20 +22019,6 @@
         "tier": "critical"
       },
       {
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
-        "priority": null,
-        "poidsPrio": 10,
-        "target": null,
-        "urgenceClasse": "aucun-target",
-        "urgenceMult": 0.7,
-        "statutMult": 1.2,
-        "cod": 8.4,
-        "tier": "critical"
-      },
-      {
         "id": "INTENT-019-verification-first",
         "titre": "Verification-first — dériver des tests des critères EARS",
         "file": ".aiad/intents/INTENT-019-verification-first.md",
@@ -22230,8 +22090,8 @@
       }
     ],
     "totaux": {
-      "total": 7,
-      "critical": 3,
+      "total": 6,
+      "critical": 2,
       "eleve": 2,
       "standard": 2
     },
@@ -22251,16 +22111,9 @@
             "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
             "jours": 0,
             "statut": "active"
-          },
-          {
-            "id": "INTENT-018-valeur-boussole",
-            "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-            "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-            "jours": 0,
-            "statut": "active"
           }
         ],
-        "count": 2
+        "count": 1
       },
       {
         "cle": "recent",
@@ -22331,8 +22184,8 @@
         "count": 0
       }
     ],
-    "total": 7,
-    "ageMoyen": 9
+    "total": 6,
+    "ageMoyen": 10
   },
   "specCrossIntent": {
     "items": [],
@@ -22375,55 +22228,55 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1779185666308,
+        "finSem": 1779191509709,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1779790466308,
+        "finSem": 1779796309709,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1780395266308,
+        "finSem": 1780401109709,
         "intake": 1,
         "delivery": 1,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1781000066308,
+        "finSem": 1781005909709,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1781604866308,
+        "finSem": 1781610709709,
         "intake": 18,
         "delivery": 13,
         "delta": 5
       },
       {
         "idx": 5,
-        "finSem": 1782209666308,
+        "finSem": 1782215509709,
         "intake": 6,
-        "delivery": 4,
-        "delta": 2
+        "delivery": 5,
+        "delta": 1
       }
     ],
     "nbSem": 6,
     "cumul": {
       "intake": 25,
-      "delivery": 18
+      "delivery": 19
     },
     "dernieres3": {
       "intake": 24,
-      "delivery": 17
+      "delivery": 18
     },
     "direction": "gonfle"
   },
@@ -22635,7 +22488,7 @@
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
+        "statut": "done",
         "mots": 163,
         "minutes": 1,
         "trop_long": false
@@ -23297,7 +23150,7 @@
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "statut": "active",
+        "statut": "done",
         "mots": 163,
         "minutes": 1,
         "trop_long": false
@@ -24399,6 +24252,11 @@
             "mtime": 1782202627769.8833
           },
           {
+            "id": "INTENT-018-valeur-boussole",
+            "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+            "mtime": 1782215495394.5276
+          },
+          {
             "id": "INTENT-024-trace-exemption-specs-sans-code",
             "titre": "Traçabilité honnête des SPECs sans code applicatif — exemption explicite",
             "mtime": 1781877387353.6636
@@ -24591,7 +24449,7 @@
     "totaux": {
       "moisAffiches": 6,
       "totalSpecs": 36,
-      "totalIntents": 18,
+      "totalIntents": 19,
       "moisPlusActif": "juin 2026"
     }
   },
@@ -24741,8 +24599,8 @@
   },
   "cumulativeAchievements": {
     "intentsTotal": 25,
-    "intentsActifs": 2,
-    "intentsLivres": 18,
+    "intentsActifs": 1,
+    "intentsLivres": 19,
     "intentsDraft": 5,
     "specsTotal": 41,
     "specsLivrees": 36,
@@ -24754,7 +24612,7 @@
     "vitesseSpecsParMois": 36
   },
   "standupScript": {
-    "texte": "# Standup 23/06/2026\n\n## 🎉 Hier (livrés dans les 24h)\n- ✅ SPEC SPEC-016-1-architecture-4-couches — SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)\n- ✅ SPEC SPEC-016-2-design-system-rgaa — SPEC-016-2 — Design system accessible + axe-core en CI\n- ✅ SPEC SPEC-016-3-data-json-v2 — SPEC-016-3 — data.json v2 versionné (JSON schema publié)\n- ✅ SPEC SPEC-016-4-rgesn-budgets — SPEC-016-4 — Budgets de poids RGESN par page + CI\n- ✅ SPEC SPEC-017-1-page-aujourdhui — SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)\n- ✅ SPEC SPEC-017-2-inbox-triage — SPEC-017-2 — Inbox de triage facts/drifts (localStorage)\n- ✅ SPEC SPEC-017-4-pages-detail-spec — SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)\n- ✅ SPEC SPEC-018-1-matrice-outcomes-intents — SPEC-018-1 — Matrice outcomes ↔ Intents\n- ✅ SPEC SPEC-018-2-aires-ebm-investment-balance — SPEC-018-2 — Aires EBM + Investment Balance\n- ✅ SPEC SPEC-018-3-hill-charts-sdd — string,\n- ✅ SPEC SPEC-018-4-bilan-humains-agents — string,\n- ✅ SPEC SPEC-018-5-impact-effort-en-attente — string,\n- ✅ Intent INTENT-017-dashboard-quotidien — Vivre le projet au quotidien — Aujourd'hui, triage, digest (archivé)\n\n## 🎯 Décisions à prendre\n- 🔍 SPEC SPEC-017-3-digest-delta en validation\n",
+    "texte": "# Standup 23/06/2026\n\n## 🎉 Hier (livrés dans les 24h)\n- ✅ SPEC SPEC-016-1-architecture-4-couches — SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)\n- ✅ SPEC SPEC-016-3-data-json-v2 — SPEC-016-3 — data.json v2 versionné (JSON schema publié)\n- ✅ SPEC SPEC-016-4-rgesn-budgets — SPEC-016-4 — Budgets de poids RGESN par page + CI\n- ✅ SPEC SPEC-017-1-page-aujourdhui — SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)\n- ✅ SPEC SPEC-017-2-inbox-triage — SPEC-017-2 — Inbox de triage facts/drifts (localStorage)\n- ✅ SPEC SPEC-017-4-pages-detail-spec — SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)\n- ✅ SPEC SPEC-018-1-matrice-outcomes-intents — SPEC-018-1 — Matrice outcomes ↔ Intents\n- ✅ SPEC SPEC-018-2-aires-ebm-investment-balance — SPEC-018-2 — Aires EBM + Investment Balance\n- ✅ SPEC SPEC-018-3-hill-charts-sdd — string,\n- ✅ SPEC SPEC-018-4-bilan-humains-agents — string,\n- ✅ SPEC SPEC-018-5-impact-effort-en-attente — string,\n- ✅ Intent INTENT-017-dashboard-quotidien — Vivre le projet au quotidien — Aujourd'hui, triage, digest (archivé)\n- ✅ Intent INTENT-018-valeur-boussole — La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents (archivé)\n\n## 🎯 Décisions à prendre\n- 🔍 SPEC SPEC-017-3-digest-delta en validation\n",
     "sections": {
       "hierCount": 13,
       "priorites": 0,
@@ -24764,10 +24622,10 @@
   },
   "quarterlyRetroDraft": {
     "trim": "Q2-2026",
-    "texte": "# Rétrospective Q2-2026 — aiad-sdd\n\n_Brouillon généré automatiquement le 23/06/2026 depuis le dashboard PM. À enrichir en atelier équipe._\n\n## 1. 🎉 Livraisons du trimestre\n### SPECs livrées (36)\n- SPEC-001-1-feedback-qualitatif — Feedback qualitatif opt-in — commande CLI et invitation périodique\n- SPEC-002-1-gouvernance-enforced — Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)\n- SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)\n- SPEC-004-1-execution-phasee — Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)\n- SPEC-005-1-context-pull — Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)\n- SPEC-006-1-canary-suite — Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)\n- SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)\n- SPEC-008-1-cycle-graph — Cycle SDD comme graphe de Tasks (§3.9)\n- SPEC-009-1-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)\n- SPEC-010-1-cross-model-review — Cross-model review additive-only (§3.12)\n- _… +26 autres_\n\n### Intents archivés (18)\n- INTENT-001-feedback-qualitatif — Feedback qualitatif utilisateurs SDD Mode\n- INTENT-002-gouvernance-enforced — Gouvernance SDD enforced par le harness (advisory → enforced)\n- INTENT-003-research-phase — Phase Research + Discovery obligatoire avant la SPEC (§3.5)\n- INTENT-004-execution-phasee — Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)\n- INTENT-005-context-pull — Budget d'instructions push → pull (gouvernance par paths, §3.7)\n- INTENT-006-canary-suite — Canary suite + alignement des références modèles (§3.10)\n\n## 2. 📊 Métriques clés\n- Vélocité moyenne : **5.8 SPECs/sem** (slope 3.63)\n- Throughput backlog : 25 intake vs 18 delivery sur 6 sem (direction : gonfle)\n\n## 3. 🧪 Hypothèses (apprentissages)\n_Aucune hypothèse formulée — opportunité d'instaurer la pratique._\n\n## 4. ⚠ Risques marquants\n_Aucun risque critical/high — portefeuille en bon état._\n\n## 5. 🤝 Sujets pour la rétro humaine\nÀ remplir en atelier :\n- Qu'est-ce qui a bien fonctionné ?\n- Qu'est-ce qui a mal fonctionné ?\n- Quelle action concrète pour le prochain trimestre ?\n\n---\n_Généré par aiad-sdd dashboard — humain garde la paternité de la rétro réelle._",
+    "texte": "# Rétrospective Q2-2026 — aiad-sdd\n\n_Brouillon généré automatiquement le 23/06/2026 depuis le dashboard PM. À enrichir en atelier équipe._\n\n## 1. 🎉 Livraisons du trimestre\n### SPECs livrées (36)\n- SPEC-001-1-feedback-qualitatif — Feedback qualitatif opt-in — commande CLI et invitation périodique\n- SPEC-002-1-gouvernance-enforced — Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)\n- SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)\n- SPEC-004-1-execution-phasee — Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)\n- SPEC-005-1-context-pull — Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)\n- SPEC-006-1-canary-suite — Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)\n- SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)\n- SPEC-008-1-cycle-graph — Cycle SDD comme graphe de Tasks (§3.9)\n- SPEC-009-1-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)\n- SPEC-010-1-cross-model-review — Cross-model review additive-only (§3.12)\n- _… +26 autres_\n\n### Intents archivés (19)\n- INTENT-001-feedback-qualitatif — Feedback qualitatif utilisateurs SDD Mode\n- INTENT-002-gouvernance-enforced — Gouvernance SDD enforced par le harness (advisory → enforced)\n- INTENT-003-research-phase — Phase Research + Discovery obligatoire avant la SPEC (§3.5)\n- INTENT-004-execution-phasee — Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)\n- INTENT-005-context-pull — Budget d'instructions push → pull (gouvernance par paths, §3.7)\n- INTENT-006-canary-suite — Canary suite + alignement des références modèles (§3.10)\n\n## 2. 📊 Métriques clés\n- Vélocité moyenne : **5.8 SPECs/sem** (slope 3.63)\n- Throughput backlog : 25 intake vs 19 delivery sur 6 sem (direction : gonfle)\n\n## 3. 🧪 Hypothèses (apprentissages)\n_Aucune hypothèse formulée — opportunité d'instaurer la pratique._\n\n## 4. ⚠ Risques marquants\n_Aucun risque critical/high — portefeuille en bon état._\n\n## 5. 🤝 Sujets pour la rétro humaine\nÀ remplir en atelier :\n- Qu'est-ce qui a bien fonctionné ?\n- Qu'est-ce qui a mal fonctionné ?\n- Quelle action concrète pour le prochain trimestre ?\n\n---\n_Généré par aiad-sdd dashboard — humain garde la paternité de la rétro réelle._",
     "meta": {
       "specsLivrees": 36,
-      "intentsArchives": 18,
+      "intentsArchives": 19,
       "hypotheses": 0,
       "risques": 0
     }
@@ -25445,7 +25303,7 @@
     ]
   },
   "portfolioDiversity": {
-    "nbActifs": 2,
+    "nbActifs": 1,
     "dimensions": {
       "tags": {
         "score": 0,
@@ -25454,7 +25312,7 @@
         "top": [
           {
             "valeur": "(non-déclaré)",
-            "count": 2
+            "count": 1
           }
         ],
         "total": 1
@@ -25466,7 +25324,7 @@
         "top": [
           {
             "valeur": "(non-déclaré)",
-            "count": 2
+            "count": 1
           }
         ],
         "total": 1
@@ -25478,7 +25336,7 @@
         "top": [
           {
             "valeur": "(non-déclaré)",
-            "count": 2
+            "count": 1
           }
         ],
         "total": 1
@@ -25548,14 +25406,6 @@
   "prTemplate": {
     "templates": [
       {
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "texte": "## Summary\nImplémente **La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents** (INTENT-018).\n\n**Objectif** : - Matrice **outcomes ↔ Intents** (critère PRD ↔ Intents contributeurs ↔ mesures datées). - Les **4 aires EBM** (Current/Unrealized Value, Time-to-Market, Ability to Innovate). - **Investment balance**\n\n## Changes\n- SPEC-018-1-matrice-outcomes-intents — SPEC-018-1 — Matrice outcomes ↔ Intents [done]\n- SPEC-018-2-aires-ebm-investment-balance — SPEC-018-2 — Aires EBM + Investment Balance [done]\n- SPEC-018-3-hill-charts-sdd — string, [done]\n- SPEC-018-4-bilan-humains-agents — string, [done]\n- SPEC-018-5-impact-effort-en-attente — string, [done]\n\n## Test plan\n- [ ] Tests unitaires passent (`npm test`)\n- [ ] `npx aiad-sdd trace` ne signale aucun gap nouveau\n- [ ] Validation manuelle du flow utilisateur\n\n## Drift Lock\nAnnotations attendues dans le code applicatif :\n```\n@intent INTENT-018\n@spec SPEC-018-1-matrice-outcomes-intents\n@verified-by tests/<chemin>.test.js\n```",
-        "gouvernances": [],
-        "nbSpecs": 5
-      },
-      {
         "id": "INTENT-016-dashboard-fondations",
         "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
@@ -25565,7 +25415,7 @@
       }
     ],
     "totaux": {
-      "total": 2,
+      "total": 1,
       "avecGouv": 0
     }
   },
@@ -25659,8 +25509,8 @@
     "enCoursAuDebutSample": [],
     "totaux": {
       "duree": 14,
-      "debutSprint": 1781000066310,
-      "finSprint": 1782209666310,
+      "debutSprint": 1781005909711,
+      "finSprint": 1782215509711,
       "livrees": 35,
       "enCoursAuDebut": 0,
       "ajoutees": 5,
@@ -25711,21 +25561,12 @@
         "owners": [],
         "busFactor": 0,
         "etat": "pas-downer"
-      },
-      {
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "priority": null,
-        "owners": [],
-        "busFactor": 0,
-        "etat": "pas-downer"
       }
     ],
     "totaux": {
-      "total": 2,
+      "total": 1,
       "singleOwner": 0,
-      "pasDowner": 2,
+      "pasDowner": 1,
       "duo": 0,
       "sain": 0,
       "tauxSain": 0
@@ -25735,7 +25576,7 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1777976066311,
+        "finSem": 1777981909712,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25744,7 +25585,7 @@
       },
       {
         "idx": 1,
-        "finSem": 1778580866311,
+        "finSem": 1778586709712,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25753,7 +25594,7 @@
       },
       {
         "idx": 2,
-        "finSem": 1779185666311,
+        "finSem": 1779191509712,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25762,7 +25603,7 @@
       },
       {
         "idx": 3,
-        "finSem": 1779790466311,
+        "finSem": 1779796309712,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25771,7 +25612,7 @@
       },
       {
         "idx": 4,
-        "finSem": 1780395266311,
+        "finSem": 1780401109712,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25780,7 +25621,7 @@
       },
       {
         "idx": 5,
-        "finSem": 1781000066311,
+        "finSem": 1781005909712,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25789,7 +25630,7 @@
       },
       {
         "idx": 6,
-        "finSem": 1781604866311,
+        "finSem": 1781610709712,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25798,7 +25639,7 @@
       },
       {
         "idx": 7,
-        "finSem": 1782209666311,
+        "finSem": 1782215509712,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25936,15 +25777,6 @@
       },
       {
         "ordre": 5,
-        "type": "intent",
-        "label": "INTENT-018-valeur-boussole — La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "cible": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "minutes": 5,
-        "priorite": "recommande",
-        "meta": ""
-      },
-      {
-        "ordre": 6,
         "type": "spec",
         "label": "SPEC-017-3-digest-delta — SPEC-017-3 — Digest delta + snapshots persistants",
         "cible": ".aiad/specs/SPEC-017-3-digest-delta.md",
@@ -25953,7 +25785,7 @@
         "meta": "[validation]"
       },
       {
-        "ordre": 7,
+        "ordre": 6,
         "type": "gouvernance",
         "label": "Lire les 4 agents Tier 1 (AI-ACT / RGPD / RGAA / RGESN)",
         "cible": ".aiad/gouvernance/",
@@ -25961,7 +25793,7 @@
         "priorite": "recommande"
       },
       {
-        "ordre": 8,
+        "ordre": 7,
         "type": "reference",
         "label": "Mémo commandes /sdd et /aiad",
         "cible": "#commandes-pm-copy-paste",
@@ -25969,9 +25801,9 @@
         "priorite": "recommande"
       }
     ],
-    "totalMinutes": 57,
+    "totalMinutes": 52,
     "totaux": {
-      "total": 8,
+      "total": 7,
       "incontournables": 3
     }
   },
@@ -26217,6 +26049,13 @@
   "activityFeed": {
     "events": [
       {
+        "type": "intent",
+        "id": "INTENT-018-valeur-boussole",
+        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "statut": "done",
+        "mtime": 1782215495394.5276
+      },
+      {
         "type": "spec",
         "id": "SPEC-018-5-impact-effort-en-attente",
         "titre": "string,",
@@ -26257,13 +26096,6 @@
         "titre": "SPEC-018-1 — Matrice outcomes ↔ Intents",
         "statut": "done",
         "mtime": 1782200936965.559
-      },
-      {
-        "type": "intent",
-        "id": "INTENT-018-valeur-boussole",
-        "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "statut": "active",
-        "mtime": 1782200017283.6401
       },
       {
         "type": "spec",
@@ -27007,15 +26839,15 @@
   },
   "digestDelta": {
     "delta": {
-      "specsDone": 2,
+      "specsDone": 0,
       "intentsArchived": 0,
       "zombies": 0,
       "santeScore": 0
     },
-    "depuis": "2026-06-23T09:56:13.582Z",
-    "message": null
+    "depuis": "2026-06-23T10:14:26.364Z",
+    "message": "Aucun changement depuis la dernière génération."
   },
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-06-23T10:14:26.118Z"
+  "generatedAt": "2026-06-23T11:51:49.527Z"
 }

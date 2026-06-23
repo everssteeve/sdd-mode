@@ -17,6 +17,17 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-23 — INTENT-018 → done — Drift Lock cycle complet
+
+**Auteur** : Steeve Evers + Claude (Sonnet 4.6)
+**Raison** : Toutes les 5 SPECs de INTENT-018 validées et commitées — drift-check final OK
+**Impact** :
+- `INTENT-018-valeur-boussole.md` : `status: active → done`, 5 SPECs cochées
+- SPEC-018-1 à SPEC-018-5 : toutes `done`, SQS 5/5, DoOD 100 %
+- Traces : 0 gap bloquant, annotations `@spec` + `@intent` + `@governance` en place
+- Tests : 23/23 (SPEC-018-4) + 15/15 (SPEC-018-5), suite globale 4039/4040
+- Pa11y WCAG2AA : 0 issues sur toutes les pages nouvelles
+
 ## 2026-06-23 — SPEC-018-1 → done — Matrice outcomes ↔ Intents
 
 **Auteur** : Steeve Evers + Claude (Sonnet 4.6)
