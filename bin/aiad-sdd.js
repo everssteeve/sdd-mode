@@ -46,6 +46,7 @@ import { listerTemplatesSpec, templateSpecExiste, creerSpecDepuisTemplate } from
 import { lintGouvernance } from '../lib/governance-lint.js';
 import { review } from '../lib/review.js';
 import { suggererAnnotations } from '../lib/suggest-annotations.js';
+import { genererSquelettesTests } from '../lib/test-skeleton-generator.js';
 import { exporterOpenApi } from '../lib/openapi-export.js';
 import { genererStorybook } from '../lib/storybook.js';
 import {
@@ -330,6 +331,7 @@ const AIDE = `
     template <domain>     Génère une SPEC depuis bibliothèque (auth-oidc, payment-pci, rag-llm, gdpr-data-export)
     review <branch>       Diff Intent/SPEC vs branche cible (rapport Markdown commentable en PR)
     suggest-annotations <fichier>  Ollama local suggère @spec/@governance/@verified-by (Human Authorship préservé)
+    suggest-tests <SPEC-id|path>  Génère un squelette de tests node:test depuis une SPEC EARS (--force, --dry-run)
     export <sub>          Génère artefacts externes : openapi (OpenAPI 3.1) | confluence (publish pages)
     storybook             Storybook HTML zero-dep des 30 commandes slash (recherche + filtres)
     cert <sub>            Programme certification Product Engineer AIAD (matrix|exam|badge|verify)
@@ -1679,6 +1681,30 @@ async function main() {
         }
       } else {
         console.error(`\n  Usage : aiad-sdd export <sub>\n  Sous-commandes : openapi, confluence\n`);
+        exit(1);
+      }
+      break;
+    }
+
+    case 'suggest-tests': {
+      const specArg = positionals[1];
+      if (!specArg) {
+        console.error(`\n  Usage : aiad-sdd suggest-tests <SPEC-id|path> [--force] [--dry-run]\n  Exemple : aiad-sdd suggest-tests SPEC-019-1\n`);
+        exit(1);
+      }
+      try {
+        const result = await genererSquelettesTests(specArg, {
+          force: Boolean(values.force),
+          dryRun: Boolean(values['dry-run']),
+          racine: cwd(),
+        });
+        if (values['dry-run']) {
+          process.stdout.write(result.content);
+        } else {
+          console.log(`\n  ✓ ${result.outputPath}\n`);
+        }
+      } catch (err) {
+        process.stderr.write(`\n  ${err.message}\n`);
         exit(1);
       }
       break;
@@ -3612,7 +3638,7 @@ async function main() {
         'migrate', 'migrate-v2', 'obsidian', 'workspace', 'ai-act', 'sbom', 'verify-reproducibility',
         'dpia', 'docs', 'telemetry', 'feedback', 'skills', 'uninstall', 'bench', 'trace', 'commands', 'guardrails',
         'dashboard', 'emit-rules', 'new', 'import', 'score', 'template',
-        'review', 'suggest-annotations', 'export', 'storybook', 'cert',
+        'review', 'suggest-annotations', 'suggest-tests', 'export', 'storybook', 'cert',
         'marketplace', 'audit', 'provenance', 'hook-stats', 'dinum', 'sovereignty', 'adrs', 'dora', 'self-update', 'standup', 'brief', 'badge', 'gitlab', 'azure', 'webhooks', 'reflect', 'negotiate', 'refactor-spec', 'spec-version', 'archive', 'sla', 'completion', 'tour', 'pii-scan', 'backup', 'restore', 'offline', 'bitbucket', 'ci-template', 'github-app', 'anonymize', 'plugin', 'hooks-init', 'schema', 'org', 'rbac', 'tutorial', 'help', 'version',
         'canary', 'memory', 'cycle', 'statusline', 'cross-model', 'hooks-config', 'proportionality', 'sunset',
       ];

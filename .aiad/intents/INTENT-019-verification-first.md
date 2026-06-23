@@ -1,7 +1,7 @@
 ---
 id: INTENT-019
 title: Verification-first — dériver des tests des critères EARS
-status: draft
+status: active
 author: Steeve Evers
 date: 2026-06-11
 specs:
@@ -40,5 +40,5 @@ Une SPEC EARS validée sans aucun test dérivé ni lié → drift verification-f
 
 ## SPECs liées
 
-- [ ] SPEC-019-1 — Générateur de squelettes de tests depuis EARS
-- [ ] SPEC-019-2 — Liaison `@verified-by` automatique + `trace --fail-on-gap`
+- [ ] SPEC-019-1 — Générateur de squelettes de tests depuis EARS (`suggest-tests`) — draft
+- [ ] SPEC-019-2 — Gap `earsSpecsSansTests` dans `trace --fail-on-gap` — draft

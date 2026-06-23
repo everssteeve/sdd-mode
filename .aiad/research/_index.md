@@ -20,6 +20,7 @@
 | RESEARCH-022 | RGESN budgets de poids par page : Discovery pré-exec SPEC-016-4 | INTENT-016 / SPEC-016-4 | Steeve Evers | 2026-06-22 | GO (100 %) | tranché — /sdd exec autorisé ; D1-B (extension parseur) · D2-B (budgets calibrés réel +20 %) |
 | RESEARCH-023 | Dashboard quotidien : Aujourd'hui, triage, digest | INTENT-017 | Steeve Evers | 2026-06-22 | CONDITIONAL GO (90 %) | tranché — /sdd spec autorisé (C1 localStorage, C2 polling RGESN explicite) ; 4 SPECs au lieu de 6 |
 | RESEARCH-024 | La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents | INTENT-018 | Steeve Evers | 2026-06-23 | GO (90 %) | tranché — /sdd spec autorisé ; R1 (executor: frontmatter vs git-blame) à trancher avant SPEC-018-4 ; R2 (≥ 3 snapshots) à vérifier avant SPEC-018-3 |
+| RESEARCH-025 | Verification-first — dériver des squelettes de tests depuis des SPECs EARS | INTENT-019 | Steeve Evers | 2026-06-23 | GO (80 %) | tranché — /sdd spec autorisé ; R3 (node:test par défaut, --framework en phase 2) |
 
 ## Verdicts du gate Research
 
