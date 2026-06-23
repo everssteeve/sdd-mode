@@ -24,14 +24,14 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-06-23T09:07:14.223Z</em></p>
+<p><em>Généré le 2026-06-23T10:07:14.266Z</em></p>
 
 <div class="stats">
   <div class="stat"><div class="v">25</div><div class="k">Intents</div></div>
   <div class="stat"><div class="v">41</div><div class="k">SPECs</div></div>
-  <div class="stat"><div class="v">74 / 383</div><div class="k">Code annoté</div></div>
-  <div class="stat"><div class="v">38 / 260</div><div class="k">Tests annotés</div></div>
-  <div class="stat"><div class="v">325</div><div class="k">Code sans @spec</div></div>
+  <div class="stat"><div class="v">76 / 384</div><div class="k">Code annoté</div></div>
+  <div class="stat"><div class="v">40 / 262</div><div class="k">Tests annotés</div></div>
+  <div class="stat"><div class="v">324</div><div class="k">Code sans @spec</div></div>
   <div class="stat"><div class="v">0</div><div class="k">SPECs non-implémentées</div></div>
 </div>
 
@@ -75,8 +75,8 @@
 <tr class="ok"><td>INTENT-018-valeur-boussole</td><td>SPEC-018-1-matrice-outcomes-intents</td><td><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/outcome-attribution.js</code></td><td><code>test/dashboard-matrice-outcomes.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="warn"><td>INTENT-018-valeur-boussole</td><td>SPEC-018-2-aires-ebm-investment-balance</td><td><code>lib/dashboard/ebm-aires.js</code><br/><code>lib/dashboard/ebm-aires.js</code><br/><code>lib/dashboard/ebm-aires.js</code><br/><code>lib/dashboard/ebm-aires.js</code><br/><code>lib/dashboard/ebm-aires.js</code><br/><code>lib/dashboard/model/index.js</code></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-testée</span></td></tr>
 <tr class="ok"><td>INTENT-018-valeur-boussole</td><td>SPEC-018-3-hill-charts-sdd</td><td><code>lib/dashboard/hill-charts.js</code><br/><code>lib/dashboard/model/index.js</code></td><td><code>test/dashboard-hill-charts.test.js</code></td><td><span class="ok">✅</span></td></tr>
-<tr class="warn"><td>INTENT-018-valeur-boussole</td><td>SPEC-018-4-bilan-humains-agents</td><td><em>(aucun)</em></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
-<tr class="warn"><td>INTENT-018-valeur-boussole</td><td>SPEC-018-5-impact-effort-en-attente</td><td><em>(aucun)</em></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
+<tr class="ok"><td>INTENT-018-valeur-boussole</td><td>SPEC-018-4-bilan-humains-agents</td><td><code>lib/dashboard/intent-humans-agents.js</code><br/><code>lib/dashboard/model/index.js</code></td><td><code>test/dashboard-intent-humans-agents.test.js</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-018-valeur-boussole</td><td>SPEC-018-5-impact-effort-en-attente</td><td><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/rice-matrix.js</code></td><td><code>test/dashboard-impact-effort.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr><td>INTENT-019-verification-first</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-020-spec-anchored-deltas</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-021-empreinte-mesuree</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
@@ -89,7 +89,6 @@
 <h2>Matrice Backward</h2>
 <div class="filter"><input type="search" id="qbwd" placeholder="Filtrer Backward…" /></div>
 <table id="bwd"><thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead><tbody>
-<tr class="ok"><td><code>test/dashboard-hill-charts.test.js</code></td><td>SPEC-018-3-hill-charts-sdd</td><td>INTENT-018-valeur-boussole</td><td><code>lib/dashboard/hill-charts.js</code><br/><code>lib/dashboard/model/index.js</code></td></tr>
 <tr class="ok"><td><code>templates/projects/fastapi-aiad/tests/test_main.py</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>templates/projects/node-aiad/test/index.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="ok"><td><code>test/ai-act-audit.test.js</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
@@ -146,7 +145,10 @@
 <tr class="bad"><td><code>test/dashboard-edge-cases.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-glossaire.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-graph.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/dashboard-hill-charts.test.js</code></td><td>SPEC-018-3-hill-charts-sdd</td><td>INTENT-018-valeur-boussole</td><td><code>lib/dashboard/hill-charts.js</code><br/><code>lib/dashboard/model/index.js</code></td></tr>
+<tr class="ok"><td><code>test/dashboard-impact-effort.test.js</code></td><td>SPEC-018-5-impact-effort-en-attente</td><td>INTENT-018-valeur-boussole</td><td><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/rice-matrix.js</code></td></tr>
 <tr class="ok"><td><code>test/dashboard-inbox.test.js</code></td><td>SPEC-017-2-inbox-triage</td><td>INTENT-017-dashboard-quotidien</td><td><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/views/inbox.js</code></td></tr>
+<tr class="ok"><td><code>test/dashboard-intent-humans-agents.test.js</code></td><td>SPEC-018-4-bilan-humains-agents</td><td>INTENT-018-valeur-boussole</td><td><code>lib/dashboard/intent-humans-agents.js</code><br/><code>lib/dashboard/model/index.js</code></td></tr>
 <tr class="bad"><td><code>test/dashboard-kanban.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-learnings.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-legal.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>

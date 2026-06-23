@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-23T09:07:14.223Z
+> Généré le 2026-06-23T10:07:14.266Z
 
 ## Synthèse
 
@@ -8,8 +8,8 @@
 |----------|--------|
 | Intents | 25 |
 | SPECs | 41 |
-| Fichiers code | 383 (annotés : 74) |
-| Fichiers test | 260 (annotés : 38) |
+| Fichiers code | 384 (annotés : 76) |
+| Fichiers test | 262 (annotés : 40) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -52,8 +52,8 @@
 | INTENT-018-valeur-boussole | SPEC-018-1-matrice-outcomes-intents | `lib/dashboard/model/index.js`<br/>`lib/dashboard/outcome-attribution.js` | `test/dashboard-matrice-outcomes.test.js` | ✅ |
 | INTENT-018-valeur-boussole | SPEC-018-2-aires-ebm-investment-balance | `lib/dashboard/ebm-aires.js`<br/>`lib/dashboard/ebm-aires.js`<br/>`lib/dashboard/ebm-aires.js`<br/>`lib/dashboard/ebm-aires.js`<br/>`lib/dashboard/ebm-aires.js`<br/>`lib/dashboard/model/index.js` | _(aucun)_ | ⚠ non-testée |
 | INTENT-018-valeur-boussole | SPEC-018-3-hill-charts-sdd | `lib/dashboard/hill-charts.js`<br/>`lib/dashboard/model/index.js` | `test/dashboard-hill-charts.test.js` | ✅ |
-| INTENT-018-valeur-boussole | SPEC-018-4-bilan-humains-agents | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-018-valeur-boussole | SPEC-018-5-impact-effort-en-attente | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-018-valeur-boussole | SPEC-018-4-bilan-humains-agents | `lib/dashboard/intent-humans-agents.js`<br/>`lib/dashboard/model/index.js` | `test/dashboard-intent-humans-agents.test.js` | ✅ |
+| INTENT-018-valeur-boussole | SPEC-018-5-impact-effort-en-attente | `lib/dashboard/model/index.js`<br/>`lib/dashboard/rice-matrix.js` | `test/dashboard-impact-effort.test.js` | ✅ |
 | INTENT-019-verification-first | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-020-spec-anchored-deltas | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-021-empreinte-mesuree | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -66,7 +66,6 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/dashboard-hill-charts.test.js` | SPEC-018-3-hill-charts-sdd | INTENT-018-valeur-boussole | `lib/dashboard/hill-charts.js`<br/>`lib/dashboard/model/index.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -123,7 +122,10 @@
 | `test/dashboard-edge-cases.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-glossaire.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-graph.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-hill-charts.test.js` | SPEC-018-3-hill-charts-sdd | INTENT-018-valeur-boussole | `lib/dashboard/hill-charts.js`<br/>`lib/dashboard/model/index.js` |
+| `test/dashboard-impact-effort.test.js` | SPEC-018-5-impact-effort-en-attente | INTENT-018-valeur-boussole | `lib/dashboard/model/index.js`<br/>`lib/dashboard/rice-matrix.js` |
 | `test/dashboard-inbox.test.js` | SPEC-017-2-inbox-triage | INTENT-017-dashboard-quotidien | `lib/dashboard/model/index.js`<br/>`lib/dashboard/views/inbox.js` |
+| `test/dashboard-intent-humans-agents.test.js` | SPEC-018-4-bilan-humains-agents | INTENT-018-valeur-boussole | `lib/dashboard/intent-humans-agents.js`<br/>`lib/dashboard/model/index.js` |
 | `test/dashboard-kanban.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-learnings.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-legal.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -401,7 +403,7 @@
 - SPECs validées sans code (statut ready/validation/done) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **325**
+- Code sans `@spec` : **324**
   - .aiad/config.yml
   - .aiad/hook-bypass.yml
   - .aiad/hooks/discovery-gate.js
@@ -452,7 +454,7 @@
   - lib/ci-templates.js
   - lib/cli-schema.js
   - lib/coldstart.js
-  - … (+275 autres)
+  - … (+274 autres)
 - Code annoté sans tests liés : **11**
   - .github/workflows/site-deploy.yml
   - lib/dashboard/ebm-aires.js

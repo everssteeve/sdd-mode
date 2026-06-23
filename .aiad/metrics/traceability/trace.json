@@ -2,16 +2,16 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-23T09:07:14.224Z"
+    "generated": "2026-06-23T10:07:14.266Z"
   },
-  "generatedAt": "2026-06-23T09:07:14.223Z",
+  "generatedAt": "2026-06-23T10:07:14.266Z",
   "summary": {
     "intents": 25,
     "specs": 41,
-    "codeFiles": 383,
-    "annotatedCodeFiles": 74,
-    "testFiles": 260,
-    "annotatedTestFiles": 38
+    "codeFiles": 384,
+    "annotatedCodeFiles": 76,
+    "testFiles": 262,
+    "annotatedTestFiles": 40
   },
   "forward": [
     {
@@ -1182,7 +1182,7 @@
           "code": [
             {
               "path": "lib/dashboard/model/index.js",
-              "line": 144
+              "line": 145
             },
             {
               "path": "lib/dashboard/views/inbox.js",
@@ -1221,7 +1221,7 @@
             },
             {
               "path": "lib/dashboard/model/index.js",
-              "line": 146
+              "line": 147
             },
             {
               "path": "lib/dashboard/views/today.js",
@@ -1257,7 +1257,7 @@
             },
             {
               "path": "lib/dashboard/collect.js",
-              "line": 306
+              "line": 308
             },
             {
               "path": "lib/dashboard/spec-page.js",
@@ -1298,7 +1298,7 @@
           "code": [
             {
               "path": "lib/dashboard/model/index.js",
-              "line": 238
+              "line": 241
             },
             {
               "path": "lib/dashboard/outcome-attribution.js",
@@ -1345,7 +1345,7 @@
             },
             {
               "path": "lib/dashboard/model/index.js",
-              "line": 241
+              "line": 244
             }
           ],
           "tests": []
@@ -1356,7 +1356,7 @@
             "file": ".aiad/specs/SPEC-018-3-hill-charts-sdd.md",
             "title": "SPEC-018-3 — Hill charts calculés depuis l'état SDD",
             "parentIntent": "INTENT-018",
-            "status": "validation",
+            "status": "done",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1367,7 +1367,7 @@
             },
             {
               "path": "lib/dashboard/model/index.js",
-              "line": 244
+              "line": 247
             }
           ],
           "tests": [
@@ -1383,12 +1383,26 @@
             "file": ".aiad/specs/SPEC-018-4-bilan-humains-agents.md",
             "title": "SPEC-018-4 — Bilan humains/agents par Intent",
             "parentIntent": "INTENT-018",
-            "status": "draft",
+            "status": "validation",
             "traceability": "",
             "traceabilityReason": ""
           },
-          "code": [],
-          "tests": []
+          "code": [
+            {
+              "path": "lib/dashboard/intent-humans-agents.js",
+              "line": 3
+            },
+            {
+              "path": "lib/dashboard/model/index.js",
+              "line": 249
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/dashboard-intent-humans-agents.test.js",
+              "line": 1
+            }
+          ]
         },
         {
           "spec": {
@@ -1396,12 +1410,26 @@
             "file": ".aiad/specs/SPEC-018-5-impact-effort-en-attente.md",
             "title": "SPEC-018-5 — Matrice Impact × Effort des Intents en attente",
             "parentIntent": "INTENT-018",
-            "status": "draft",
+            "status": "validation",
             "traceability": "",
             "traceabilityReason": ""
           },
-          "code": [],
-          "tests": []
+          "code": [
+            {
+              "path": "lib/dashboard/model/index.js",
+              "line": 204
+            },
+            {
+              "path": "lib/dashboard/rice-matrix.js",
+              "line": 229
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/dashboard-impact-effort.test.js",
+              "line": 1
+            }
+          ]
         }
       ]
     },
@@ -1514,37 +1542,6 @@
     }
   ],
   "backward": [
-    {
-      "test": {
-        "path": "test/dashboard-hill-charts.test.js",
-        "line": 1
-      },
-      "spec": {
-        "id": "SPEC-018-3-hill-charts-sdd",
-        "file": ".aiad/specs/SPEC-018-3-hill-charts-sdd.md",
-        "title": "SPEC-018-3 — Hill charts calculés depuis l'état SDD",
-        "parentIntent": "INTENT-018",
-        "status": "validation",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-018-valeur-boussole",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/dashboard/hill-charts.js",
-          "line": 14
-        },
-        {
-          "path": "lib/dashboard/model/index.js",
-          "line": 244
-        }
-      ]
-    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -2330,7 +2327,7 @@
         },
         {
           "path": "lib/dashboard/model/index.js",
-          "line": 146
+          "line": 147
         },
         {
           "path": "lib/dashboard/views/today.js",
@@ -2385,6 +2382,68 @@
     },
     {
       "test": {
+        "path": "test/dashboard-hill-charts.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-018-3-hill-charts-sdd",
+        "file": ".aiad/specs/SPEC-018-3-hill-charts-sdd.md",
+        "title": "SPEC-018-3 — Hill charts calculés depuis l'état SDD",
+        "parentIntent": "INTENT-018",
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-018-valeur-boussole",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/hill-charts.js",
+          "line": 14
+        },
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 247
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/dashboard-impact-effort.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-018-5-impact-effort-en-attente",
+        "file": ".aiad/specs/SPEC-018-5-impact-effort-en-attente.md",
+        "title": "SPEC-018-5 — Matrice Impact × Effort des Intents en attente",
+        "parentIntent": "INTENT-018",
+        "status": "validation",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-018-valeur-boussole",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 204
+        },
+        {
+          "path": "lib/dashboard/rice-matrix.js",
+          "line": 229
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/dashboard-inbox.test.js",
         "line": 1
       },
@@ -2406,11 +2465,42 @@
       "code": [
         {
           "path": "lib/dashboard/model/index.js",
-          "line": 144
+          "line": 145
         },
         {
           "path": "lib/dashboard/views/inbox.js",
           "line": 3
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/dashboard-intent-humans-agents.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-018-4-bilan-humains-agents",
+        "file": ".aiad/specs/SPEC-018-4-bilan-humains-agents.md",
+        "title": "SPEC-018-4 — Bilan humains/agents par Intent",
+        "parentIntent": "INTENT-018",
+        "status": "validation",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-018-valeur-boussole",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/intent-humans-agents.js",
+          "line": 3
+        },
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 249
         }
       ]
     },
@@ -2464,7 +2554,7 @@
       "code": [
         {
           "path": "lib/dashboard/model/index.js",
-          "line": 238
+          "line": 241
         },
         {
           "path": "lib/dashboard/outcome-attribution.js",
@@ -3094,7 +3184,7 @@
         },
         {
           "path": "lib/dashboard/collect.js",
-          "line": 306
+          "line": 308
         },
         {
           "path": "lib/dashboard/spec-page.js",
@@ -8231,17 +8321,6 @@
       },
       {
         "path": "lib/dashboard/review-queue.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/dashboard/rice-matrix.js",
         "isTest": false,
         "annotations": {
           "intents": [],

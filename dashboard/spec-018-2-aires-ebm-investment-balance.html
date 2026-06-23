@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T10:14:26.118Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
-<title>SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — aiad-sdd</title>
-<meta name="description" content="SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · M…"/>
+<title>SPEC-018-2-aires-ebm-investment-balance — SPEC-018-2 — Aires EBM + Investment Balance — aiad-sdd</title>
+<meta name="description" content="SPEC-018-2-aires-ebm-investment-balance — SPEC-018-2 — Aires EBM + Investment Balance — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — aiad-sdd"/>
-<meta property="og:description" content="SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · M…"/>
+<meta property="og:title" content="SPEC-018-2-aires-ebm-investment-balance — SPEC-018-2 — Aires EBM + Investment Balance — aiad-sdd"/>
+<meta property="og:description" content="SPEC-018-2-aires-ebm-investment-balance — SPEC-018-2 — Aires EBM + Investment Balance — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
 <meta property="og:url" content="index.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — aiad-sdd"/>
-<meta name="twitter:description" content="SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · M…"/>
+<meta name="twitter:title" content="SPEC-018-2-aires-ebm-investment-balance — SPEC-018-2 — Aires EBM + Investment Balance — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-018-2-aires-ebm-investment-balance — SPEC-018-2 — Aires EBM + Investment Balance — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -98,7 +98,7 @@
 <main>
   <header class="page-header">
     <div>
-      <h1>SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)</h1>
+      <h1>SPEC-018-2-aires-ebm-investment-balance — SPEC-018-2 — Aires EBM + Investment Balance</h1>
       <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
     </div>
     <div class="header-right">
@@ -129,11 +129,11 @@
 </style>
 <div class="sp-cols">
   <div class="sp-sections">
-    <h1><a class="src-link" href="../.aiad/specs/SPEC-003-1-research-phase.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-003-1-research-phase.md">SPEC-003-1-research-phase</a> — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)</h1>
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-018-2-aires-ebm-investment-balance.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-018-2-aires-ebm-investment-balance.md">SPEC-018-2-aires-ebm-investment-balance</a> — SPEC-018-2 — Aires EBM + Investment Balance</h1>
 
     <section aria-label="Contexte">
       <h3>§1 — Contexte</h3>
-      <p class="muted">Non renseigné.</p>
+      <p>Les 4 aires EBM (Evidence-Based Management) permettent de mesurer la valeur réalisée selon 4 dimensions complémentaires. L&#39;Investment Balance complète le tableau en montrant comment le budget d&#39;effort est réparti (features / enabler / expérimentation / conformité). Ces métriques sont actuellement absentes du dashboard — elles constituent le cœur de INTENT-018 « juger sur la valeur réalisée ».</p>
     </section>
 
     <section aria-label="Critères d'acceptation">
@@ -143,27 +143,44 @@
 
     <section aria-label="Interface / API">
       <h3>§4 — Interface / API</h3>
-      <p class="muted">Non définie.</p>
+      <pre><code>```js
+// lib/dashboard/ebm-aires.js (nouveau fichier)
+
+/**
+ * @intent INTENT-018
+ * @spec SPEC-018-2-aires-ebm-investment-balance
+ */
+export function calculerEbmAires(donnees) { /* … */ }
+export function calculerInvestmentBalance(donnees) { /* … */ }
+export function blocEbmAires(donnees) { /* → string HTML */ }
+export function blocInvestmentBalance(donnees) { /* → string HTML */ }
+```
+
+Injection dans `model/index.js` (après SPEC-018-1) :
+```js
+donnees.ebmAires = calculerEbmAires(donnees);
+donnees.investmentBalance = calculerInvestmentBalance(donnees);
+```</code></pre>
     </section>
 
     <section aria-label="Dépendances">
       <h3>§5 — Dépendances</h3>
-      <p class="muted">Aucune dépendance déclarée.</p>
+      <ul><li>**SPEC-018-1** — donnees.matriceOutcomesIntents requis pour CV/UV</li><li>lib/dashboard/discovery-delivery-balance.js:80 — pcts.discovery consommé</li><li>lib/dashboard/model/index.js — injection</li><li>lib/dashboard/schema/data-v2.schema.json — déclarer ebmAires et investmentBalance</li></ul>
     </section>
 
     <section aria-label="Definition of Output Done">
       <h3>§7 — Definition of Output Done</h3>
-      <p class="muted">Non définie.</p>
+      <ul class="dood-list"><li>☐ lib/dashboard/ebm-aires.js créé avec 4 exports (calculer×2, bloc×2)</li><li>☐ Injection dans model/index.js</li><li>☐ Schéma data-v2.schema.json étendu (ebmAires, investmentBalance)</li><li>☐ Tests unitaires dans test/dashboard-ebm-aires.test.js — CV/UV/T2M/A2I + balance</li><li>☐ Rendu axe-core AA : 0 violation RGAA (grille 2×2 + tableau balance)</li><li>☐ @spec SPEC-018-2 posé dans tous les fichiers touchés</li><li>☐ _index.md mis à jour</li><li>☐ npx aiad-sdd drift-check OK</li></ul>
     </section>
 
     <div class="sp-actions">
       <a href="specs.html">← Retour à la liste des SPECs</a>
-      <a href="../.aiad/specs/SPEC-003-1-research-phase.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+      <a href="../.aiad/specs/SPEC-018-2-aires-ebm-investment-balance.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
     </div>
   </div>
   <aside class="sp-meta">
     <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
-    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-ok">done</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-ok">SQS 4.4/5</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-muted">prose</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-003</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-06-08</td></tr></table>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-ok">done</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-muted">—</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-muted">prose</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-018</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-06-23</td></tr></table>
   </aside>
 </div>
 </main>

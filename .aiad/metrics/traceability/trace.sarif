@@ -3388,25 +3388,6 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
-            "text": "Aucune annotation @spec dans lib/dashboard/rice-matrix.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/dashboard/rice-matrix.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
             "text": "Aucune annotation @spec dans lib/dashboard/risk-burndown.js."
           },
           "locations": [
@@ -6580,7 +6561,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-23T09:07:14.223Z"
+          "endTimeUtc": "2026-06-23T10:07:14.266Z"
         }
       ]
     }

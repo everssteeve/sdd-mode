@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T10:14:26.118Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
-<title>SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — aiad-sdd</title>
-<meta name="description" content="SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · M…"/>
+<title>SPEC-018-1-matrice-outcomes-intents — SPEC-018-1 — Matrice outcomes ↔ Intents — aiad-sdd</title>
+<meta name="description" content="SPEC-018-1-matrice-outcomes-intents — SPEC-018-1 — Matrice outcomes ↔ Intents — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — aiad-sdd"/>
-<meta property="og:description" content="SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · M…"/>
+<meta property="og:title" content="SPEC-018-1-matrice-outcomes-intents — SPEC-018-1 — Matrice outcomes ↔ Intents — aiad-sdd"/>
+<meta property="og:description" content="SPEC-018-1-matrice-outcomes-intents — SPEC-018-1 — Matrice outcomes ↔ Intents — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
 <meta property="og:url" content="index.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — aiad-sdd"/>
-<meta name="twitter:description" content="SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · M…"/>
+<meta name="twitter:title" content="SPEC-018-1-matrice-outcomes-intents — SPEC-018-1 — Matrice outcomes ↔ Intents — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-018-1-matrice-outcomes-intents — SPEC-018-1 — Matrice outcomes ↔ Intents — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -98,7 +98,7 @@
 <main>
   <header class="page-header">
     <div>
-      <h1>SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)</h1>
+      <h1>SPEC-018-1-matrice-outcomes-intents — SPEC-018-1 — Matrice outcomes ↔ Intents</h1>
       <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
     </div>
     <div class="header-right">
@@ -129,11 +129,11 @@
 </style>
 <div class="sp-cols">
   <div class="sp-sections">
-    <h1><a class="src-link" href="../.aiad/specs/SPEC-003-1-research-phase.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-003-1-research-phase.md">SPEC-003-1-research-phase</a> — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)</h1>
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-018-1-matrice-outcomes-intents.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-018-1-matrice-outcomes-intents.md">SPEC-018-1-matrice-outcomes-intents</a> — SPEC-018-1 — Matrice outcomes ↔ Intents</h1>
 
     <section aria-label="Contexte">
       <h3>§1 — Contexte</h3>
-      <p class="muted">Non renseigné.</p>
+      <p>INTENT-018 veut relier les outcomes du PRD aux Intents qui y contribuent, pour que le PM voie non plus seulement l&#39;activité (specs fermées) mais la valeur produite (quel outcome progresse, grâce à quel Intent). L&#39;infrastructure de base existe (`outcome-attribution.js`, `outcomes.js`) mais ne trace que la direction outcome → specs ; il manque la liaison inverse Intent → outcomes.</p>
     </section>
 
     <section aria-label="Critères d'acceptation">
@@ -143,27 +143,47 @@
 
     <section aria-label="Interface / API">
       <h3>§4 — Interface / API</h3>
-      <p class="muted">Non définie.</p>
+      <pre><code>```js
+// lib/dashboard/outcome-attribution.js (extension)
+
+/**
+ * @intent INTENT-018
+ * @spec SPEC-018-1-matrice-outcomes-intents
+ */
+export function calculerMatriceOutcomesIntents(donnees) {
+  // retourne MatriceOutcomesIntentsItem[]
+}
+
+export function blocMatriceOutcomesIntents(donnees) {
+  // retourne string HTML
+}
+```
+
+Injection dans `model/index.js` :
+```js
+donnees.matriceOutcomesIntents = calculerMatriceOutcomesIntents(donnees);
+// après donnees.outcomeAttribution (ligne ~185)
+```</code></pre>
     </section>
 
     <section aria-label="Dépendances">
       <h3>§5 — Dépendances</h3>
-      <p class="muted">Aucune dépendance déclarée.</p>
+      <ul><li>lib/dashboard/outcome-attribution.js — étendu (non réécrit)</li><li>lib/dashboard/outcomes.js — lireOutcomes() non modifié</li><li>lib/dashboard/collect.js:243-264 — champ outcomes déjà parsé</li><li>lib/dashboard/model/index.js — injection du nouveau calcul</li><li>SPEC-018-2 — consommera donnees.matriceOutcomesIntents (Wave 2)</li><li>SPEC-018-4 — consommera données Intent enrichies (Wave 2)</li></ul>
     </section>
 
     <section aria-label="Definition of Output Done">
       <h3>§7 — Definition of Output Done</h3>
-      <p class="muted">Non définie.</p>
+      <ul class="dood-list"><li>☑ calculerMatriceOutcomesIntents() implémentée et exportée depuis outcome-attribution.js</li><li>☑ blocMatriceOutcomesIntents() produit un tableau HTML AA-conforme (axe-core 0 violation)</li><li>☑ Injection dans model/index.js après outcomeAttribution</li><li>☑ Test unitaire test/dashboard-matrice-outcomes.test.js : 2 outcomes × 3 Intents (8 cas)</li><li>☑ @spec SPEC-018-1 posé dans les fichiers touchés (outcome-attribution.js, model/index.js, test)</li><li>☑ _index.md mis à jour, INTENT-018 lié</li><li>☑ Drift check — annotations présentes, 0 gap</li></ul>
     </section>
 
     <div class="sp-actions">
       <a href="specs.html">← Retour à la liste des SPECs</a>
-      <a href="../.aiad/specs/SPEC-003-1-research-phase.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+      <a href="../.aiad/specs/SPEC-018-1-matrice-outcomes-intents.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
     </div>
   </div>
   <aside class="sp-meta">
     <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
-    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-ok">done</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-ok">SQS 4.4/5</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-muted">prose</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-003</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-06-08</td></tr></table>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-ok">done</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-muted">—</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-muted">prose</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-018</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-06-23</td></tr></table>
   </aside>
 </div>
 </main>

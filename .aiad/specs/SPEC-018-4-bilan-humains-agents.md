@@ -3,7 +3,7 @@
 **Intent parent** : INTENT-018
 **Auteur** : Steeve Evers
 **Date** : 2026-06-23
-**Statut** : validation
+**Statut** : done
 **Format** : prose
 **SQS** : 5/5
 **Dépend de** : SPEC-018-1
@@ -117,15 +117,15 @@ donnees.bilanHumainsAgents = calculerBilanHumainsAgents(donnees);
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] `lib/dashboard/intent-humans-agents.js` créé avec `calculerBilanHumainsAgents()` + `blocBilanHumainsAgents()`
-- [ ] `collect.js` étendu : lecture `executor` + `validator` (nullable, rétrocompat)
-- [ ] Injection dans `model/index.js`
-- [ ] Schéma `data-v2.schema.json` étendu (`bilanHumainsAgents`)
-- [ ] Test unitaire `test/dashboard-intent-humans-agents.test.js`
-- [ ] axe-core 0 violation sur le tableau rendu
-- [ ] `@spec SPEC-018-4` + `@governance AIAD-RGPD` posés dans les fichiers touchés
-- [ ] `_index.md` mis à jour
-- [ ] `npx aiad-sdd drift-check` OK
+- [x] `lib/dashboard/intent-humans-agents.js` créé avec `calculerBilanHumainsAgents()` + `blocBilanHumainsAgents()`
+- [x] `collect.js` étendu : lecture `executor` + `validator` (nullable, rétrocompat)
+- [x] Injection dans `model/index.js`
+- [x] Schéma `data-v2.schema.json` étendu (`bilanHumainsAgents`)
+- [x] Test unitaire `test/dashboard-intent-humans-agents.test.js`
+- [x] axe-core 0 violation sur le tableau rendu (pa11y WCAG2AA — 0 issues)
+- [x] `@spec SPEC-018-4` + `@governance AIAD-RGPD` posés dans les fichiers touchés
+- [x] `_index.md` mis à jour
+- [x] `npx aiad-sdd drift-check` OK (0 gap bloquant)
 
 ## Note RGPD
 

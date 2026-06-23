@@ -3,7 +3,7 @@
 **Intent parent** : INTENT-018
 **Auteur** : Steeve Evers
 **Date** : 2026-06-23
-**Statut** : validation
+**Statut** : done
 **Format** : prose
 **SQS** : 5/5
 
@@ -108,11 +108,11 @@ donnees.impactEffortEnAttente = calculerImpactEffortEnAttente(donnees);
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] `calculerImpactEffortEnAttente()` et `blocImpactEffortEnAttente()` ajoutés à `rice-matrix.js`
-- [ ] Injection dans `model/index.js`
-- [ ] Schéma `data-v2.schema.json` étendu (`impactEffortEnAttente`)
-- [ ] Test unitaire dans `test/dashboard-pm-v*.test.js` (ou nouveau) : 5 Intents → 2 en attente retournés
-- [ ] axe-core 0 violation sur le tableau
-- [ ] `@spec SPEC-018-5` posé dans les fichiers touchés
-- [ ] `_index.md` mis à jour
-- [ ] `npx aiad-sdd drift-check` OK
+- [x] `calculerImpactEffortEnAttente()` et `blocImpactEffortEnAttente()` ajoutés à `rice-matrix.js`
+- [x] Injection dans `model/index.js`
+- [x] Schéma `data-v2.schema.json` étendu (`impactEffortEnAttente`)
+- [x] Test unitaire `test/dashboard-impact-effort.test.js` : 5 Intents → 2 en attente retournés
+- [x] axe-core 0 violation sur le tableau (pa11y WCAG2AA — 0 issues)
+- [x] `@spec SPEC-018-5` posé dans les fichiers touchés
+- [x] `_index.md` mis à jour
+- [x] `npx aiad-sdd drift-check` OK (0 gap bloquant)

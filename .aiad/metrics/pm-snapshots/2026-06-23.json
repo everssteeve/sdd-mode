@@ -67,11 +67,11 @@
     },
     {
       "id": "INTENT-017-dashboard-quotidien",
-      "statut": "active"
+      "statut": "done"
     },
     {
       "id": "INTENT-018-valeur-boussole",
-      "statut": "draft"
+      "statut": "active"
     },
     {
       "id": "INTENT-019-verification-first",
@@ -272,6 +272,31 @@
       "id": "SPEC-017-4-pages-detail-spec",
       "statut": "done",
       "parentIntent": "INTENT-017"
+    },
+    {
+      "id": "SPEC-018-1-matrice-outcomes-intents",
+      "statut": "done",
+      "parentIntent": "INTENT-018"
+    },
+    {
+      "id": "SPEC-018-2-aires-ebm-investment-balance",
+      "statut": "done",
+      "parentIntent": "INTENT-018"
+    },
+    {
+      "id": "SPEC-018-3-hill-charts-sdd",
+      "statut": "done",
+      "parentIntent": "INTENT-018"
+    },
+    {
+      "id": "SPEC-018-4-bilan-humains-agents",
+      "statut": "done",
+      "parentIntent": "INTENT-018"
+    },
+    {
+      "id": "SPEC-018-5-impact-effort-en-attente",
+      "statut": "done",
+      "parentIntent": "INTENT-018"
     },
     {
       "id": "SPEC-024-1-trace-exemption",
