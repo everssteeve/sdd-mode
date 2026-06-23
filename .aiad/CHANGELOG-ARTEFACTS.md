@@ -17,6 +17,17 @@
 
 <!-- Ajoutez vos entrées ci-dessous, les plus récentes en haut -->
 
+## 2026-06-23 — SPEC-018-1 → done — Matrice outcomes ↔ Intents
+
+**Auteur** : Steeve Evers + Claude (Sonnet 4.6)
+**Raison** : Implémenter la liaison inverse Intent → outcomes absente de `calculerOutcomeAttribution()` (INTENT-018 Wave 1)
+**Impact** :
+- `lib/dashboard/outcome-attribution.js` — +2 exports : `calculerMatriceOutcomesIntents`, `blocMatriceOutcomesIntents`
+- `lib/dashboard/model/index.js:236` — injection `donnees.matriceOutcomesIntents` après `outcomeAttribution`
+- `test/dashboard-matrice-outcomes.test.js` — 8 cas, fixture 2 outcomes × 3 Intents
+- `@spec SPEC-018-1-matrice-outcomes-intents` posé dans 3 fichiers
+- SQS 5/5 · Gouvernance PASS · Drift OK
+
 ## 2026-06-22 — INTENT-016 → done — Dashboard exemplaire (toutes SPECs clôturées)
 
 **Auteur** : Steeve Evers

@@ -1,10 +1,17 @@
 ---
 id: INTENT-018
 title: La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents
-status: draft
+status: active
 author: Steeve Evers
 date: 2026-06-11
+activated: 2026-06-23
+research: RESEARCH-024
 specs:
+  - SPEC-018-1
+  - SPEC-018-2
+  - SPEC-018-3
+  - SPEC-018-4
+  - SPEC-018-5
 ---
 
 # INTENT-018 — La valeur réalisée comme boussole
@@ -44,8 +51,8 @@ de l'empirisme.
 
 ## SPECs liées
 
-- [ ] SPEC-018-1 — Matrice outcomes ↔ Intents
-- [ ] SPEC-018-2 — Aires EBM + investment balance
-- [ ] SPEC-018-3 — Hill charts calculés depuis l'état SDD
-- [ ] SPEC-018-4 — Bilan humains/agents par Intent
-- [ ] SPEC-018-5 — Matrice Impact × Effort
+- [ ] SPEC-018-1 — Matrice outcomes ↔ Intents (Wave 1)
+- [ ] SPEC-018-2 — Aires EBM + Investment Balance (Wave 2, après 018-1)
+- [ ] SPEC-018-3 — Hill charts calculés depuis l'état SDD (Wave 1)
+- [ ] SPEC-018-4 — Bilan humains/agents par Intent (Wave 2, après 018-1)
+- [ ] SPEC-018-5 — Matrice Impact × Effort en attente (Wave 1)

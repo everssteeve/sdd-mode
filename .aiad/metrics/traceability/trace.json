@@ -2,16 +2,16 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-22T13:25:35.988Z"
+    "generated": "2026-06-23T08:06:16.676Z"
   },
-  "generatedAt": "2026-06-22T13:25:35.987Z",
+  "generatedAt": "2026-06-23T08:06:16.675Z",
   "summary": {
     "intents": 25,
-    "specs": 32,
-    "codeFiles": 377,
-    "annotatedCodeFiles": 66,
-    "testFiles": 253,
-    "annotatedTestFiles": 32
+    "specs": 41,
+    "codeFiles": 381,
+    "annotatedCodeFiles": 72,
+    "testFiles": 258,
+    "annotatedTestFiles": 37
   },
   "forward": [
     {
@@ -1091,7 +1091,7 @@
           "code": [
             {
               "path": "lib/dashboard.js",
-              "line": 343
+              "line": 363
             },
             {
               "path": "scripts/validate-data-schema.js",
@@ -1101,7 +1101,7 @@
           "tests": [
             {
               "path": "test/dashboard.test.js",
-              "line": 113
+              "line": 131
             },
             {
               "path": "test/validate-data-schema.test.js",
@@ -1139,18 +1139,232 @@
         "id": "INTENT-017-dashboard-quotidien",
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
         "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "draft"
+        "status": "active"
       },
-      "specs": []
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-017-1-page-aujourdhui",
+            "file": ".aiad/specs/SPEC-017-1-page-aujourdhui.md",
+            "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
+            "parentIntent": "INTENT-017",
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/dashboard/views/today.js",
+              "line": 2
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/dashboard-today.test.js",
+              "line": 1
+            },
+            {
+              "path": "test/dashboard.test.js",
+              "line": 113
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-017-2-inbox-triage",
+            "file": ".aiad/specs/SPEC-017-2-inbox-triage.md",
+            "title": "SPEC-017-2 — Inbox de triage facts/drifts (localStorage)",
+            "parentIntent": "INTENT-017",
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/dashboard/views/inbox.js",
+              "line": 3
+            },
+            {
+              "path": "lib/dashboard/model/index.js",
+              "line": 142
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/dashboard-inbox.test.js",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-017-3-digest-delta",
+            "file": ".aiad/specs/SPEC-017-3-digest-delta.md",
+            "title": "SPEC-017-3 — Digest delta + snapshots persistants",
+            "parentIntent": "INTENT-017",
+            "status": "validation",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/dashboard/digest-delta.js",
+              "line": 2
+            },
+            {
+              "path": "lib/dashboard.js",
+              "line": 48
+            },
+            {
+              "path": "lib/dashboard/model/index.js",
+              "line": 2
+            },
+            {
+              "path": "lib/dashboard/model/index.js",
+              "line": 144
+            },
+            {
+              "path": "lib/dashboard/views/today.js",
+              "line": 3
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/dashboard-digest.test.js",
+              "line": 1
+            },
+            {
+              "path": "test/dashboard-today.test.js",
+              "line": 5,
+              "viaCode": true
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-017-4-pages-detail-spec",
+            "file": ".aiad/specs/SPEC-017-4-pages-detail-spec.md",
+            "title": "SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)",
+            "parentIntent": "INTENT-017",
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/dashboard.js",
+              "line": 53
+            },
+            {
+              "path": "lib/dashboard/collect.js",
+              "line": 306
+            },
+            {
+              "path": "lib/dashboard/spec-page.js",
+              "line": 9
+            },
+            {
+              "path": "lib/dashboard/views/specs.js",
+              "line": 2
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/dashboard-spec-pages.test.js",
+              "line": 1
+            }
+          ]
+        }
+      ]
     },
     {
       "intent": {
         "id": "INTENT-018-valeur-boussole",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "draft"
+        "status": "active"
       },
-      "specs": []
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-018-1-matrice-outcomes-intents",
+            "file": ".aiad/specs/SPEC-018-1-matrice-outcomes-intents.md",
+            "title": "SPEC-018-1 — Matrice outcomes ↔ Intents",
+            "parentIntent": "INTENT-018",
+            "status": "done",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/dashboard/model/index.js",
+              "line": 236
+            },
+            {
+              "path": "lib/dashboard/outcome-attribution.js",
+              "line": 149
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/dashboard-matrice-outcomes.test.js",
+              "line": 1
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-018-2-aires-ebm-investment-balance",
+            "file": ".aiad/specs/SPEC-018-2-aires-ebm-investment-balance.md",
+            "title": "SPEC-018-2 — Aires EBM + Investment Balance",
+            "parentIntent": "INTENT-018",
+            "status": "draft",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-018-3-hill-charts-sdd",
+            "file": ".aiad/specs/SPEC-018-3-hill-charts-sdd.md",
+            "title": "SPEC-018-3 — Hill charts calculés depuis l'état SDD",
+            "parentIntent": "INTENT-018",
+            "status": "draft",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-018-4-bilan-humains-agents",
+            "file": ".aiad/specs/SPEC-018-4-bilan-humains-agents.md",
+            "title": "SPEC-018-4 — Bilan humains/agents par Intent",
+            "parentIntent": "INTENT-018",
+            "status": "draft",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-018-5-impact-effort-en-attente",
+            "file": ".aiad/specs/SPEC-018-5-impact-effort-en-attente.md",
+            "title": "SPEC-018-5 — Matrice Impact × Effort des Intents en attente",
+            "parentIntent": "INTENT-018",
+            "status": "draft",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [],
+          "tests": []
+        }
+      ]
     },
     {
       "intent": {
@@ -1261,6 +1475,111 @@
     }
   ],
   "backward": [
+    {
+      "test": {
+        "path": "test/dashboard-digest.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-017-3-digest-delta",
+        "file": ".aiad/specs/SPEC-017-3-digest-delta.md",
+        "title": "SPEC-017-3 — Digest delta + snapshots persistants",
+        "parentIntent": "INTENT-017",
+        "status": "validation",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-017-dashboard-quotidien",
+        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/digest-delta.js",
+          "line": 2
+        },
+        {
+          "path": "lib/dashboard.js",
+          "line": 48
+        },
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 2
+        },
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 144
+        },
+        {
+          "path": "lib/dashboard/views/today.js",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/dashboard-inbox.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-017-2-inbox-triage",
+        "file": ".aiad/specs/SPEC-017-2-inbox-triage.md",
+        "title": "SPEC-017-2 — Inbox de triage facts/drifts (localStorage)",
+        "parentIntent": "INTENT-017",
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-017-dashboard-quotidien",
+        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/views/inbox.js",
+          "line": 3
+        },
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 142
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/dashboard-matrice-outcomes.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-018-1-matrice-outcomes-intents",
+        "file": ".aiad/specs/SPEC-018-1-matrice-outcomes-intents.md",
+        "title": "SPEC-018-1 — Matrice outcomes ↔ Intents",
+        "parentIntent": "INTENT-018",
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-018-valeur-boussole",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 236
+        },
+        {
+          "path": "lib/dashboard/outcome-attribution.js",
+          "line": 149
+        }
+      ]
+    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -2671,6 +2990,45 @@
     },
     {
       "test": {
+        "path": "test/dashboard-spec-pages.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-017-4-pages-detail-spec",
+        "file": ".aiad/specs/SPEC-017-4-pages-detail-spec.md",
+        "title": "SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)",
+        "parentIntent": "INTENT-017",
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-017-dashboard-quotidien",
+        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard.js",
+          "line": 53
+        },
+        {
+          "path": "lib/dashboard/collect.js",
+          "line": 306
+        },
+        {
+          "path": "lib/dashboard/spec-page.js",
+          "line": 9
+        },
+        {
+          "path": "lib/dashboard/views/specs.js",
+          "line": 2
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/dashboard-sre.test.js",
         "line": 0
       },
@@ -2698,6 +3056,33 @@
     },
     {
       "test": {
+        "path": "test/dashboard-today.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-017-1-page-aujourdhui",
+        "file": ".aiad/specs/SPEC-017-1-page-aujourdhui.md",
+        "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
+        "parentIntent": "INTENT-017",
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-017-dashboard-quotidien",
+        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/views/today.js",
+          "line": 2
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/dashboard-violations.test.js",
         "line": 0
       },
@@ -2720,6 +3105,60 @@
         "line": 113
       },
       "spec": {
+        "id": "SPEC-017-1-page-aujourdhui",
+        "file": ".aiad/specs/SPEC-017-1-page-aujourdhui.md",
+        "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
+        "parentIntent": "INTENT-017",
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-017-dashboard-quotidien",
+        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/views/today.js",
+          "line": 2
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/dashboard.test.js",
+        "line": 120
+      },
+      "spec": {
+        "id": "SPEC-017-1-page-aujourdhui",
+        "file": ".aiad/specs/SPEC-017-1-page-aujourdhui.md",
+        "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
+        "parentIntent": "INTENT-017",
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-017-dashboard-quotidien",
+        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/views/today.js",
+          "line": 2
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/dashboard.test.js",
+        "line": 131
+      },
+      "spec": {
         "id": "SPEC-016-3-data-json-v2",
         "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
         "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
@@ -2737,7 +3176,7 @@
       "code": [
         {
           "path": "lib/dashboard.js",
-          "line": 343
+          "line": 363
         },
         {
           "path": "scripts/validate-data-schema.js",
@@ -5560,7 +5999,7 @@
       "code": [
         {
           "path": "lib/dashboard.js",
-          "line": 343
+          "line": 363
         },
         {
           "path": "scripts/validate-data-schema.js",
@@ -5677,18 +6116,6 @@
   ],
   "gaps": {
     "intentsSansSpec": [
-      {
-        "id": "INTENT-017-dashboard-quotidien",
-        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
-        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "draft"
-      },
-      {
-        "id": "INTENT-018-valeur-boussole",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "draft"
-      },
       {
         "id": "INTENT-019-verification-first",
         "file": ".aiad/intents/INTENT-019-verification-first.md",
@@ -6682,17 +7109,6 @@
         "annotated": false
       },
       {
-        "path": "lib/dashboard/collect.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
         "path": "lib/dashboard/confidence-tracker.js",
         "isTest": false,
         "annotations": {
@@ -7313,17 +7729,6 @@
       },
       {
         "path": "lib/dashboard/orphan-deps.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/dashboard/outcome-attribution.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -9647,27 +10052,6 @@
         "annotated": true
       },
       {
-        "path": "lib/dashboard/model/index.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [
-            {
-              "id": "INTENT-016",
-              "line": 2
-            }
-          ],
-          "specs": [
-            {
-              "id": "SPEC-016-1-architecture-4-couches",
-              "line": 1
-            }
-          ],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": true
-      },
-      {
         "path": "lib/dashboard/render.js",
         "isTest": false,
         "annotations": {
@@ -9844,34 +10228,6 @@
       },
       {
         "path": "lib/dashboard/views/overview.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [
-            {
-              "id": "INTENT-016",
-              "line": 2
-            }
-          ],
-          "specs": [
-            {
-              "id": "SPEC-016-1-architecture-4-couches",
-              "line": 1
-            }
-          ],
-          "verifiedBy": [],
-          "governance": [
-            {
-              "tags": [
-                "AIAD-RGAA"
-              ],
-              "line": 3
-            }
-          ]
-        },
-        "annotated": true
-      },
-      {
-        "path": "lib/dashboard/views/specs.js",
         "isTest": false,
         "annotations": {
           "intents": [

@@ -1,15 +1,15 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-22T13:25:35.987Z
+> Généré le 2026-06-23T08:06:16.675Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
 | Intents | 25 |
-| SPECs | 32 |
-| Fichiers code | 377 (annotés : 66) |
-| Fichiers test | 253 (annotés : 32) |
+| SPECs | 41 |
+| Fichiers code | 381 (annotés : 72) |
+| Fichiers test | 258 (annotés : 37) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -45,8 +45,15 @@
 | INTENT-016-dashboard-fondations | SPEC-016-2-design-system-rgaa | `dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/ui/sparklines.js` | `test/dashboard-assets.test.js`<br/>`dans` | ✅ |
 | INTENT-016-dashboard-fondations | SPEC-016-3-data-json-v2 | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` | `test/dashboard.test.js`<br/>`test/validate-data-schema.test.js` | ✅ |
 | INTENT-016-dashboard-fondations | SPEC-016-4-rgesn-budgets | `scripts/check-page-budgets.js` | `test/check-page-budgets.test.js` | ✅ |
-| INTENT-017-dashboard-quotidien | _(aucune SPEC)_ | — | — | ❌ orphelin |
-| INTENT-018-valeur-boussole | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-017-dashboard-quotidien | SPEC-017-1-page-aujourdhui | `lib/dashboard/views/today.js` | `test/dashboard-today.test.js`<br/>`test/dashboard.test.js` | ✅ |
+| INTENT-017-dashboard-quotidien | SPEC-017-2-inbox-triage | `lib/dashboard/views/inbox.js`<br/>`lib/dashboard/model/index.js` | `test/dashboard-inbox.test.js` | ✅ |
+| INTENT-017-dashboard-quotidien | SPEC-017-3-digest-delta | `lib/dashboard/digest-delta.js`<br/>`lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/today.js` | `test/dashboard-digest.test.js`<br/>`test/dashboard-today.test.js` | ✅ |
+| INTENT-017-dashboard-quotidien | SPEC-017-4-pages-detail-spec | `lib/dashboard.js`<br/>`lib/dashboard/collect.js`<br/>`lib/dashboard/spec-page.js`<br/>`lib/dashboard/views/specs.js` | `test/dashboard-spec-pages.test.js` | ✅ |
+| INTENT-018-valeur-boussole | SPEC-018-1-matrice-outcomes-intents | `lib/dashboard/model/index.js`<br/>`lib/dashboard/outcome-attribution.js` | `test/dashboard-matrice-outcomes.test.js` | ✅ |
+| INTENT-018-valeur-boussole | SPEC-018-2-aires-ebm-investment-balance | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-018-valeur-boussole | SPEC-018-3-hill-charts-sdd | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-018-valeur-boussole | SPEC-018-4-bilan-humains-agents | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-018-valeur-boussole | SPEC-018-5-impact-effort-en-attente | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-019-verification-first | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-020-spec-anchored-deltas | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-021-empreinte-mesuree | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -59,6 +66,9 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
+| `test/dashboard-digest.test.js` | SPEC-017-3-digest-delta | INTENT-017-dashboard-quotidien | `lib/dashboard/digest-delta.js`<br/>`lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/today.js` |
+| `test/dashboard-inbox.test.js` | SPEC-017-2-inbox-triage | INTENT-017-dashboard-quotidien | `lib/dashboard/views/inbox.js`<br/>`lib/dashboard/model/index.js` |
+| `test/dashboard-matrice-outcomes.test.js` | SPEC-018-1-matrice-outcomes-intents | INTENT-018-valeur-boussole | `lib/dashboard/model/index.js`<br/>`lib/dashboard/outcome-attribution.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -175,11 +185,15 @@
 | `test/dashboard-sante-globale-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-sante-globale.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-source-base.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-spec-pages.test.js` | SPEC-017-4-pages-detail-spec | INTENT-017-dashboard-quotidien | `lib/dashboard.js`<br/>`lib/dashboard/collect.js`<br/>`lib/dashboard/spec-page.js`<br/>`lib/dashboard/views/specs.js` |
 | `test/dashboard-sre.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-tech-debt-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-tech-debt.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-today.test.js` | SPEC-017-1-page-aujourdhui | INTENT-017-dashboard-quotidien | `lib/dashboard/views/today.js` |
 | `test/dashboard-violations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-watch.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard.test.js` | SPEC-017-1-page-aujourdhui | INTENT-017-dashboard-quotidien | `lib/dashboard/views/today.js` |
+| `test/dashboard.test.js` | SPEC-017-1-page-aujourdhui | INTENT-017-dashboard-quotidien | `lib/dashboard/views/today.js` |
 | `test/dashboard.test.js` | SPEC-016-3-data-json-v2 | INTENT-016-dashboard-fondations | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` |
 | `test/deprecation.test.js` | SPEC-015-2-1-registre-commandes | INTENT-015-sobriete-cli | `lib/commands-registry.js`<br/>`lib/deprecation.js` |
 | `test/dinum.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -366,9 +380,7 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **7**
-  - INTENT-017-dashboard-quotidien — Vivre le projet au quotidien — Aujourd'hui, triage, digest
-  - INTENT-018-valeur-boussole — La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents
+- Intents sans SPEC : **5**
   - INTENT-019-verification-first — Verification-first — dériver des tests des critères EARS
   - INTENT-020-spec-anchored-deltas — Spec-anchored par construction — deltas et redevabilité bidirectionnelle
   - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
@@ -387,7 +399,7 @@
 - SPECs validées sans code (statut ready/validation/done) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **327**
+- Code sans `@spec` : **325**
   - .aiad/config.yml
   - .aiad/hook-bypass.yml
   - .aiad/hooks/discovery-gate.js
@@ -438,10 +450,9 @@
   - lib/ci-templates.js
   - lib/cli-schema.js
   - lib/coldstart.js
-  - … (+277 autres)
-- Code annoté sans tests liés : **12**
+  - … (+275 autres)
+- Code annoté sans tests liés : **10**
   - .github/workflows/site-deploy.yml
-  - lib/dashboard/model/index.js
   - lib/dashboard/render.js
   - lib/dashboard/ui/badges.js
   - lib/dashboard/ui/helpers.js
@@ -450,5 +461,4 @@
   - lib/dashboard/views/intents.js
   - lib/dashboard/views/metrics.js
   - lib/dashboard/views/overview.js
-  - lib/dashboard/views/specs.js
   - lib/dashboard/views/traceability.js
