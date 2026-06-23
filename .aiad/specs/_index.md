@@ -48,7 +48,7 @@
 | SPEC-018-4 | Bilan humains/agents par Intent | INTENT-018 | prose | 5/5 | done | 2026-06-23 |
 | SPEC-018-5 | Matrice Impact × Effort des Intents en attente | INTENT-018 | prose | 5/5 | done | 2026-06-23 |
 | SPEC-019-1 | Générateur de squelettes de tests depuis EARS (suggest-tests) | INTENT-019 | EARS | 5/5 | done | — |
-| SPEC-019-2 | Gap earsSpecsSansTests dans trace --fail-on-gap | INTENT-019 | EARS | À évaluer | draft | — |
+| SPEC-019-2 | Gap earsSpecsSansTests dans trace --fail-on-gap | INTENT-019 | EARS | 5/5 | done | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

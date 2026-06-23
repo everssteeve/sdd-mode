@@ -100,6 +100,10 @@
     {
       "id": "INTENT-025-contraste-kicker",
       "statut": "done"
+    },
+    {
+      "id": "INTENT-026-archivage-artefacts-done",
+      "statut": "draft"
     }
   ],
   "specs": [
