@@ -179,3 +179,11 @@ patterns:
   # Dashboard HTML généré — sortie de `npx aiad-sdd dashboard` (artefact dérivé
   # des sources et artefacts SDD). Jamais édité à la main, toujours régénéré.
   - "dashboard/**"
+
+  # Enregistrements structurels déclenchés par SPEC-019-1/019-2 (INTENT-019) :
+  # ajout de `suggest-tests` au registre + `earsSpecsSansTests` au schéma OpenAPI.
+  # SPEC-015-2-1 reste la SPEC maîtresse du registre — pas de nouvelle SPEC requise
+  # pour un ajout d'entrée unitaire issu d'une autre SPEC.
+  - "lib/commands-registry.js"
+  - "lib/cli-schema.js"
+  - "test/commands-registry.test.js"

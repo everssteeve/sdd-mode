@@ -2,16 +2,16 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-23T11:50:52.413Z"
+    "generated": "2026-06-23T15:12:24.438Z"
   },
-  "generatedAt": "2026-06-23T11:50:52.412Z",
+  "generatedAt": "2026-06-23T15:12:24.437Z",
   "summary": {
-    "intents": 25,
-    "specs": 41,
-    "codeFiles": 384,
-    "annotatedCodeFiles": 76,
-    "testFiles": 262,
-    "annotatedTestFiles": 40
+    "intents": 27,
+    "specs": 43,
+    "codeFiles": 385,
+    "annotatedCodeFiles": 77,
+    "testFiles": 264,
+    "annotatedTestFiles": 42
   },
   "forward": [
     {
@@ -29,6 +29,7 @@
             "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
             "parentIntent": "INTENT-001",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -149,6 +150,7 @@
             "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
             "parentIntent": "INTENT-002",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -222,6 +224,7 @@
             "title": "Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-003",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -256,6 +259,7 @@
             "title": "Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-004",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -299,6 +303,7 @@
             "title": "Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-005",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -351,6 +356,7 @@
             "title": "Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-006",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -385,6 +391,7 @@
             "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-007",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -423,6 +430,7 @@
             "title": "Cycle SDD comme graphe de Tasks (§3.9)",
             "parentIntent": "INTENT-008",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -457,6 +465,7 @@
             "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
             "parentIntent": "INTENT-009",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -495,6 +504,7 @@
             "title": "Cross-model review additive-only (§3.12)",
             "parentIntent": "INTENT-010",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -529,6 +539,7 @@
             "title": "Toggles de hooks + boucles /goal + packaging plugin (§3.13 SPEC-A + SPEC-B)",
             "parentIntent": "INTENT-011",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -563,6 +574,7 @@
             "title": "Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)",
             "parentIntent": "INTENT-012",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -615,6 +627,7 @@
             "title": "Déploiement site v1.18 + résolution « 6 vs 7 valeurs »",
             "parentIntent": "INTENT-013",
             "status": "split",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -628,6 +641,7 @@
             "title": "Déploiement du site aiad.ovh en v1.18",
             "parentIntent": "INTENT-013",
             "status": "done",
+            "format": "PROSE",
             "traceability": "exempt",
             "traceabilityReason": "Livrable = contenu de site/ publié sur gh-pages (.html non scanné) — FACT-004 / SPEC-024-1"
           },
@@ -641,6 +655,7 @@
             "title": "Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site",
             "parentIntent": "INTENT-013",
             "status": "archived",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -654,6 +669,7 @@
             "title": "Unification des docs racine + archivage de SDDMode.md",
             "parentIntent": "INTENT-013",
             "status": "done",
+            "format": "PROSE",
             "traceability": "exempt",
             "traceabilityReason": "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
           },
@@ -667,6 +683,7 @@
             "title": "Synchronisation automatique des versions sur zones marquées + check CI",
             "parentIntent": "INTENT-013",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -691,6 +708,7 @@
             "title": "Workflow de déploiement site/ → gh-pages (gate version + RGAA)",
             "parentIntent": "INTENT-013",
             "status": "split",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -717,6 +735,7 @@
             "title": "Workflow de déploiement site/ → gh-pages + gate version",
             "parentIntent": "INTENT-013",
             "status": "done",
+            "format": "PROSE",
             "traceability": "exempt",
             "traceabilityReason": "Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1"
           },
@@ -743,6 +762,7 @@
             "title": "Gate RGAA AA avant publication du site",
             "parentIntent": "INTENT-013",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -779,6 +799,7 @@
             "title": "SPEC-014-1-gates-bloquants-badge",
             "parentIntent": "INTENT-014",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -803,6 +824,7 @@
             "title": "SPEC-014-2-sourcing-claims",
             "parentIntent": "INTENT-014",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -837,6 +859,7 @@
             "title": "SPEC-015-1-telemetrie-usage — Agrégat d'usage per-command (local, opt-in)",
             "parentIntent": "INTENT-015",
             "status": "done",
+            "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -860,6 +883,7 @@
             "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
             "parentIntent": "INTENT-015",
             "status": "done",
+            "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -891,6 +915,7 @@
             "title": "SPEC-015-2-2-cycle-depreciation — Cycle de dépréciation soft (mécanisme)",
             "parentIntent": "INTENT-015",
             "status": "done",
+            "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -922,6 +947,7 @@
             "title": "SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable",
             "parentIntent": "INTENT-015",
             "status": "done",
+            "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -959,6 +985,7 @@
             "title": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
             "parentIntent": "INTENT-016",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1021,6 +1048,7 @@
             "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
             "parentIntent": "INTENT-016",
             "status": "done",
+            "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1085,6 +1113,7 @@
             "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
             "parentIntent": "INTENT-016",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1116,6 +1145,7 @@
             "title": "SPEC-016-4 — Budgets de poids RGESN par page + CI",
             "parentIntent": "INTENT-016",
             "status": "done",
+            "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1149,6 +1179,7 @@
             "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
             "parentIntent": "INTENT-017",
             "status": "done",
+            "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1176,6 +1207,7 @@
             "title": "SPEC-017-2 — Inbox de triage facts/drifts (localStorage)",
             "parentIntent": "INTENT-017",
             "status": "done",
+            "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1203,6 +1235,7 @@
             "title": "SPEC-017-3 — Digest delta + snapshots persistants",
             "parentIntent": "INTENT-017",
             "status": "validation",
+            "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1247,6 +1280,7 @@
             "title": "SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)",
             "parentIntent": "INTENT-017",
             "status": "done",
+            "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1282,7 +1316,7 @@
         "id": "INTENT-018-valeur-boussole",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -1292,6 +1326,7 @@
             "title": "SPEC-018-1 — Matrice outcomes ↔ Intents",
             "parentIntent": "INTENT-018",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1319,6 +1354,7 @@
             "title": "SPEC-018-2 — Aires EBM + Investment Balance",
             "parentIntent": "INTENT-018",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1357,6 +1393,7 @@
             "title": "SPEC-018-3 — Hill charts calculés depuis l'état SDD",
             "parentIntent": "INTENT-018",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1384,6 +1421,7 @@
             "title": "SPEC-018-4 — Bilan humains/agents par Intent",
             "parentIntent": "INTENT-018",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1411,6 +1449,7 @@
             "title": "SPEC-018-5 — Matrice Impact × Effort des Intents en attente",
             "parentIntent": "INTENT-018",
             "status": "done",
+            "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1438,9 +1477,73 @@
         "id": "INTENT-019-verification-first",
         "file": ".aiad/intents/INTENT-019-verification-first.md",
         "title": "Verification-first — dériver des tests des critères EARS",
-        "status": "draft"
+        "status": "active"
       },
-      "specs": []
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-019-1-skeleton-generator",
+            "file": ".aiad/specs/SPEC-019-1-skeleton-generator.md",
+            "title": "SPEC-019-1-skeleton-generator",
+            "parentIntent": "INTENT-019",
+            "status": "done",
+            "format": "EARS",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/test-skeleton-generator.js",
+              "line": 2
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/suggest-tests.test.js",
+              "line": 1
+            },
+            {
+              "path": "test/${shortId}.test.js`,",
+              "line": 45,
+              "viaCode": true
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-019-2-trace-ears-gap",
+            "file": ".aiad/specs/SPEC-019-2-trace-ears-gap.md",
+            "title": "SPEC-019-2-trace-ears-gap",
+            "parentIntent": "INTENT-019",
+            "status": "done",
+            "format": "EARS",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/sdd-trace.js",
+              "line": 572
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/trace-ears-gap.test.js",
+              "line": 2
+            },
+            {
+              "path": "test/trace.test.js",
+              "line": 15,
+              "viaCode": true
+            },
+            {
+              "path": "chemin/relatif/test.ts",
+              "line": 44,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
     },
     {
       "intent": {
@@ -1493,6 +1596,7 @@
             "title": "Exemption de traçabilité pour SPECs sans code applicatif",
             "parentIntent": "INTENT-024",
             "status": "done",
+            "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
@@ -1532,6 +1636,7 @@
             "title": "Correction du contraste --gold-600 (.kicker + .pill.gold)",
             "parentIntent": "INTENT-025",
             "status": "done",
+            "format": "EARS",
             "traceability": "exempt",
             "traceabilityReason": "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
           },
@@ -1539,6 +1644,24 @@
           "tests": []
         }
       ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "title": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-027-ci-metrics-automation",
+        "file": ".aiad/intents/INTENT-027-ci-metrics-automation.md",
+        "title": "INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow",
+        "status": "draft"
+      },
+      "specs": []
     }
   ],
   "backward": [
@@ -1553,6 +1676,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -1605,6 +1729,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -1664,6 +1789,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -1723,6 +1849,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -1766,6 +1893,7 @@
         "title": "Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)",
         "parentIntent": "INTENT-005",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -1797,6 +1925,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -1849,6 +1978,7 @@
         "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
         "parentIntent": "INTENT-009",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2029,6 +2159,7 @@
         "title": "SPEC-016-4 — Budgets de poids RGESN par page + CI",
         "parentIntent": "INTENT-016",
         "status": "done",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2101,6 +2232,7 @@
         "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
         "parentIntent": "INTENT-015",
         "status": "done",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2213,6 +2345,7 @@
         "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
         "parentIntent": "INTENT-016",
         "status": "done",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2303,6 +2436,7 @@
         "title": "SPEC-017-3 — Digest delta + snapshots persistants",
         "parentIntent": "INTENT-017",
         "status": "validation",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2391,6 +2525,7 @@
         "title": "SPEC-018-3 — Hill charts calculés depuis l'état SDD",
         "parentIntent": "INTENT-018",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2398,7 +2533,7 @@
         "id": "INTENT-018-valeur-boussole",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -2422,6 +2557,7 @@
         "title": "SPEC-018-5 — Matrice Impact × Effort des Intents en attente",
         "parentIntent": "INTENT-018",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2429,7 +2565,7 @@
         "id": "INTENT-018-valeur-boussole",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -2453,6 +2589,7 @@
         "title": "SPEC-017-2 — Inbox de triage facts/drifts (localStorage)",
         "parentIntent": "INTENT-017",
         "status": "done",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2484,6 +2621,7 @@
         "title": "SPEC-018-4 — Bilan humains/agents par Intent",
         "parentIntent": "INTENT-018",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2491,7 +2629,7 @@
         "id": "INTENT-018-valeur-boussole",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -2542,6 +2680,7 @@
         "title": "SPEC-018-1 — Matrice outcomes ↔ Intents",
         "parentIntent": "INTENT-018",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2549,7 +2688,7 @@
         "id": "INTENT-018-valeur-boussole",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -2897,6 +3036,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -2940,6 +3080,7 @@
         "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
         "parentIntent": "INTENT-002",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -3168,6 +3309,7 @@
         "title": "SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)",
         "parentIntent": "INTENT-017",
         "status": "done",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -3234,6 +3376,7 @@
         "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
         "parentIntent": "INTENT-017",
         "status": "done",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -3279,6 +3422,7 @@
         "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
         "parentIntent": "INTENT-017",
         "status": "done",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -3306,6 +3450,7 @@
         "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
         "parentIntent": "INTENT-017",
         "status": "done",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -3333,6 +3478,7 @@
         "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
         "parentIntent": "INTENT-016",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -3364,6 +3510,7 @@
         "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
         "parentIntent": "INTENT-015",
         "status": "done",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -3467,6 +3614,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -3797,6 +3945,7 @@
         "title": "SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable",
         "parentIntent": "INTENT-015",
         "status": "done",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -3927,6 +4076,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -3986,6 +4136,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4037,6 +4188,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4197,6 +4349,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4240,6 +4393,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4283,6 +4437,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4326,6 +4481,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4369,6 +4525,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4412,6 +4569,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4455,6 +4613,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4498,6 +4657,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4541,6 +4701,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4584,6 +4745,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4635,6 +4797,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4694,6 +4857,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4737,6 +4901,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4780,6 +4945,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4823,6 +4989,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -4866,6 +5033,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5236,6 +5404,7 @@
         "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)",
         "parentIntent": "INTENT-007",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5279,6 +5448,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5402,6 +5572,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5445,6 +5616,7 @@
         "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
         "parentIntent": "INTENT-002",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5484,6 +5656,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5527,6 +5700,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5558,6 +5732,42 @@
           "line": 2
         }
       ]
+    },
+    {
+      "test": {
+        "path": "test/suggest-tests.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-019-1-skeleton-generator",
+        "file": ".aiad/specs/SPEC-019-1-skeleton-generator.md",
+        "title": "SPEC-019-1-skeleton-generator",
+        "parentIntent": "INTENT-019",
+        "status": "done",
+        "format": "EARS",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-019-verification-first",
+        "file": ".aiad/intents/INTENT-019-verification-first.md",
+        "title": "Verification-first — dériver des tests des critères EARS",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/test-skeleton-generator.js",
+          "line": 2
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/suggest-tests.test.js",
+        "line": 77
+      },
+      "intent": null,
+      "code": []
     },
     {
       "test": {
@@ -5597,6 +5807,7 @@
         "title": "SPEC-015-1-telemetrie-usage — Agrégat d'usage per-command (local, opt-in)",
         "parentIntent": "INTENT-015",
         "status": "done",
+        "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5660,6 +5871,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5703,6 +5915,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5746,6 +5959,7 @@
         "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
         "parentIntent": "INTENT-002",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5776,6 +5990,50 @@
     },
     {
       "test": {
+        "path": "test/trace-ears-gap.test.js",
+        "line": 2
+      },
+      "spec": {
+        "id": "SPEC-019-2-trace-ears-gap",
+        "file": ".aiad/specs/SPEC-019-2-trace-ears-gap.md",
+        "title": "SPEC-019-2-trace-ears-gap",
+        "parentIntent": "INTENT-019",
+        "status": "done",
+        "format": "EARS",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-019-verification-first",
+        "file": ".aiad/intents/INTENT-019-verification-first.md",
+        "title": "Verification-first — dériver des tests des critères EARS",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/sdd-trace.js",
+          "line": 572
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/trace-ears-gap.test.js",
+        "line": 71
+      },
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/trace-ears-gap.test.js",
+        "line": 75
+      },
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
         "path": "test/trace-git.test.js",
         "line": 96
       },
@@ -5785,6 +6043,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5836,6 +6095,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5879,6 +6139,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5922,6 +6183,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -5965,6 +6227,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -6017,6 +6280,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -6060,6 +6324,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -6156,6 +6421,7 @@
         "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
         "parentIntent": "INTENT-016",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -6205,6 +6471,7 @@
         "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
         "parentIntent": "INTENT-001",
         "status": "done",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -6286,12 +6553,6 @@
   "gaps": {
     "intentsSansSpec": [
       {
-        "id": "INTENT-019-verification-first",
-        "file": ".aiad/intents/INTENT-019-verification-first.md",
-        "title": "Verification-first — dériver des tests des critères EARS",
-        "status": "draft"
-      },
-      {
         "id": "INTENT-020-spec-anchored-deltas",
         "file": ".aiad/intents/INTENT-020-spec-anchored-deltas.md",
         "title": "Spec-anchored par construction — deltas et redevabilité bidirectionnelle",
@@ -6314,6 +6575,18 @@
         "file": ".aiad/intents/INTENT-023-rayonnement-honnete.md",
         "title": "Rayonnement honnête — comparatif public et runtimes élargis",
         "status": "draft"
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "title": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-027-ci-metrics-automation",
+        "file": ".aiad/intents/INTENT-027-ci-metrics-automation.md",
+        "title": "INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow",
+        "status": "draft"
       }
     ],
     "specsSansCode": [
@@ -6323,6 +6596,7 @@
         "title": "Déploiement site v1.18 + résolution « 6 vs 7 valeurs »",
         "parentIntent": "INTENT-013",
         "status": "split",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -6332,6 +6606,7 @@
         "title": "Déploiement du site aiad.ovh en v1.18",
         "parentIntent": "INTENT-013",
         "status": "done",
+        "format": "PROSE",
         "traceability": "exempt",
         "traceabilityReason": "Livrable = contenu de site/ publié sur gh-pages (.html non scanné) — FACT-004 / SPEC-024-1"
       },
@@ -6341,6 +6616,7 @@
         "title": "Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site",
         "parentIntent": "INTENT-013",
         "status": "archived",
+        "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
@@ -6350,6 +6626,7 @@
         "title": "Unification des docs racine + archivage de SDDMode.md",
         "parentIntent": "INTENT-013",
         "status": "done",
+        "format": "PROSE",
         "traceability": "exempt",
         "traceabilityReason": "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
       },
@@ -6359,6 +6636,7 @@
         "title": "Correction du contraste --gold-600 (.kicker + .pill.gold)",
         "parentIntent": "INTENT-025",
         "status": "done",
+        "format": "EARS",
         "traceability": "exempt",
         "traceabilityReason": "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
       }
@@ -6764,7 +7042,7 @@
           "verifiedBy": [
             {
               "path": "(Human",
-              "line": 332
+              "line": 333
             }
           ],
           "governance": [
@@ -6772,7 +7050,7 @@
               "tags": [
                 "ou"
               ],
-              "line": 1167
+              "line": 1169
             }
           ]
         },
@@ -10495,7 +10773,8 @@
       }
     ],
     "intentsOrphelinsSurCode": [],
-    "specsOrphelinsSurCode": []
+    "specsOrphelinsSurCode": [],
+    "earsSpecsSansTests": []
   },
   "specsExemptees": [
     {
@@ -10504,6 +10783,7 @@
       "title": "Déploiement du site aiad.ovh en v1.18",
       "parentIntent": "INTENT-013",
       "status": "done",
+      "format": "PROSE",
       "traceability": "exempt",
       "traceabilityReason": "Livrable = contenu de site/ publié sur gh-pages (.html non scanné) — FACT-004 / SPEC-024-1"
     },
@@ -10513,6 +10793,7 @@
       "title": "Unification des docs racine + archivage de SDDMode.md",
       "parentIntent": "INTENT-013",
       "status": "done",
+      "format": "PROSE",
       "traceability": "exempt",
       "traceabilityReason": "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
     },
@@ -10522,6 +10803,7 @@
       "title": "Workflow de déploiement site/ → gh-pages + gate version",
       "parentIntent": "INTENT-013",
       "status": "done",
+      "format": "PROSE",
       "traceability": "exempt",
       "traceabilityReason": "Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1"
     },
@@ -10531,6 +10813,7 @@
       "title": "Correction du contraste --gold-600 (.kicker + .pill.gold)",
       "parentIntent": "INTENT-025",
       "status": "done",
+      "format": "EARS",
       "traceability": "exempt",
       "traceabilityReason": "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
     }

@@ -99,7 +99,7 @@ test('invalid tier exits 1', () => {
 test('tier mapping snapshot', () => {
   const SNAPSHOT = {
     core: ['audit', 'commands', 'dashboard', 'doctor', 'dpia', 'emit-rules', 'export', 'feedback', 'gouvernance', 'guardrails', 'help', 'hooks', 'import', 'init', 'new', 'review', 'sbom', 'score', 'skills', 'status', 'telemetry', 'template', 'trace', 'uninstall', 'update', 'version'],
-    extended: ['adrs', 'ai-act', 'anonymize', 'archive', 'azure', 'backup', 'badge', 'bench', 'bitbucket', 'brief', 'cert', 'ci-template', 'completion', 'dinum', 'docs', 'dora', 'github-app', 'gitlab', 'hook-stats', 'hooks-init', 'marketplace', 'migrate', 'migrate-v2', 'negotiate', 'obsidian', 'offline', 'org', 'pii-scan', 'plugin', 'provenance', 'rbac', 'refactor-spec', 'reflect', 'repl', 'restore', 'schema', 'self-update', 'sla', 'sovereignty', 'spec-version', 'standup', 'storybook', 'suggest-annotations', 'tour', 'tutorial', 'verify-reproducibility', 'webhooks', 'workspace'],
+    extended: ['adrs', 'ai-act', 'anonymize', 'archive', 'azure', 'backup', 'badge', 'bench', 'bitbucket', 'brief', 'cert', 'ci-template', 'completion', 'dinum', 'docs', 'dora', 'github-app', 'gitlab', 'hook-stats', 'hooks-init', 'marketplace', 'migrate', 'migrate-v2', 'negotiate', 'obsidian', 'offline', 'org', 'pii-scan', 'plugin', 'provenance', 'rbac', 'refactor-spec', 'reflect', 'repl', 'restore', 'schema', 'self-update', 'sla', 'sovereignty', 'spec-version', 'standup', 'storybook', 'suggest-annotations', 'suggest-tests', 'tour', 'tutorial', 'verify-reproducibility', 'webhooks', 'workspace'],
     experimental: ['canary', 'cross-model', 'cycle', 'hooks-config', 'memory', 'proportionality', 'statusline', 'sunset'],
   };
   const actual = {};

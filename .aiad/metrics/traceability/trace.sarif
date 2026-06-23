@@ -101,25 +101,6 @@
           "ruleId": "AIAD-TRACE-001",
           "level": "warning",
           "message": {
-            "text": "Intent INTENT-019-verification-first (« Verification-first — dériver des tests des critères EARS ») n'a pas de SPEC associée."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".aiad/intents/INTENT-019-verification-first.md"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-001",
-          "level": "warning",
-          "message": {
             "text": "Intent INTENT-020-spec-anchored-deltas (« Spec-anchored par construction — deltas et redevabilité bidirectionnelle ») n'a pas de SPEC associée."
           },
           "locations": [
@@ -184,6 +165,44 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": ".aiad/intents/INTENT-023-rayonnement-honnete.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-026-archivage-artefacts-done (« Archivage automatique des artefacts done (Intents + SPECs) ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-026-archivage-artefacts-done.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-027-ci-metrics-automation (« INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-027-ci-metrics-automation.md"
                 },
                 "region": {
                   "startLine": 1
@@ -6561,7 +6580,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-23T11:50:52.412Z"
+          "endTimeUtc": "2026-06-23T15:12:24.437Z"
         }
       ]
     }

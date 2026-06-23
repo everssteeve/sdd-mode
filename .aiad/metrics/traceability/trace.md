@@ -1,15 +1,15 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-23T11:50:52.412Z
+> Généré le 2026-06-23T15:12:24.437Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 25 |
-| SPECs | 41 |
-| Fichiers code | 384 (annotés : 76) |
-| Fichiers test | 262 (annotés : 40) |
+| Intents | 27 |
+| SPECs | 43 |
+| Fichiers code | 385 (annotés : 77) |
+| Fichiers test | 264 (annotés : 42) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -54,13 +54,16 @@
 | INTENT-018-valeur-boussole | SPEC-018-3-hill-charts-sdd | `lib/dashboard/hill-charts.js`<br/>`lib/dashboard/model/index.js` | `test/dashboard-hill-charts.test.js` | ✅ |
 | INTENT-018-valeur-boussole | SPEC-018-4-bilan-humains-agents | `lib/dashboard/intent-humans-agents.js`<br/>`lib/dashboard/model/index.js` | `test/dashboard-intent-humans-agents.test.js` | ✅ |
 | INTENT-018-valeur-boussole | SPEC-018-5-impact-effort-en-attente | `lib/dashboard/model/index.js`<br/>`lib/dashboard/rice-matrix.js` | `test/dashboard-impact-effort.test.js` | ✅ |
-| INTENT-019-verification-first | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-019-verification-first | SPEC-019-1-skeleton-generator | `lib/test-skeleton-generator.js` | `test/suggest-tests.test.js`<br/>`test/${shortId}.test.js`,` | ✅ |
+| INTENT-019-verification-first | SPEC-019-2-trace-ears-gap | `lib/sdd-trace.js` | `test/trace-ears-gap.test.js`<br/>`test/trace.test.js`<br/>`chemin/relatif/test.ts` | ✅ |
 | INTENT-020-spec-anchored-deltas | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-021-empreinte-mesuree | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-022-dogfooding-cli | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-023-rayonnement-honnete | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-024-trace-exemption-specs-sans-code | SPEC-024-1-trace-exemption | `lib/sdd-trace.js` | `test/trace.test.js`<br/>`chemin/relatif/test.ts` | ✅ |
 | INTENT-025-contraste-kicker | SPEC-025-1-gold-contrast-fix | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-026-archivage-artefacts-done | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-027-ci-metrics-automation | _(aucune SPEC)_ | — | — | ❌ orphelin |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
 
@@ -345,6 +348,8 @@
 | `test/suggest-annotations.test.js` | SPEC-002-1-gouvernance-enforced | INTENT-002-gouvernance-enforced | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
 | `test/suggest-annotations.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/suggest-annotations.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/suggest-tests.test.js` | SPEC-019-1-skeleton-generator | INTENT-019-verification-first | `lib/test-skeleton-generator.js` |
+| `test/suggest-tests.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/suggest.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/sunset.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/tarball-hygiene.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -356,6 +361,9 @@
 | `test/trace-cache.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-cache.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-cache.test.js` | SPEC-002-1-gouvernance-enforced | INTENT-002-gouvernance-enforced | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
+| `test/trace-ears-gap.test.js` | SPEC-019-2-trace-ears-gap | INTENT-019-verification-first | `lib/sdd-trace.js` |
+| `test/trace-ears-gap.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/trace-ears-gap.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/trace-git.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-git.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/trace-git.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -384,12 +392,13 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **5**
-  - INTENT-019-verification-first — Verification-first — dériver des tests des critères EARS
+- Intents sans SPEC : **6**
   - INTENT-020-spec-anchored-deltas — Spec-anchored par construction — deltas et redevabilité bidirectionnelle
   - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
   - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
   - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
+  - INTENT-026-archivage-artefacts-done — Archivage automatique des artefacts done (Intents + SPECs)
+  - INTENT-027-ci-metrics-automation — INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow
 - SPECs sans code (hors draft/review) : **5**
   - SPEC-013-1-deploiement-site-valeurs (statut : split)
   - SPEC-013-1a-deploiement-site (statut : done)
@@ -401,6 +410,9 @@
 
 ### Non-implémentés
 - SPECs validées sans code (statut ready/validation/done) : **0**
+
+### EARS sans tests
+- SPECs EARS sans tests liés (statut ≠ draft/archived) : **0**
 
 ### Non-tracés
 - Code sans `@spec` : **324**

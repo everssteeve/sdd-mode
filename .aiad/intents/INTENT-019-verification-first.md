@@ -1,7 +1,7 @@
 ---
 id: INTENT-019
 title: Verification-first — dériver des tests des critères EARS
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-11
 specs:

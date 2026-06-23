@@ -24,13 +24,13 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-06-23T11:50:52.412Z</em></p>
+<p><em>Généré le 2026-06-23T15:12:24.437Z</em></p>
 
 <div class="stats">
-  <div class="stat"><div class="v">25</div><div class="k">Intents</div></div>
-  <div class="stat"><div class="v">41</div><div class="k">SPECs</div></div>
-  <div class="stat"><div class="v">76 / 384</div><div class="k">Code annoté</div></div>
-  <div class="stat"><div class="v">40 / 262</div><div class="k">Tests annotés</div></div>
+  <div class="stat"><div class="v">27</div><div class="k">Intents</div></div>
+  <div class="stat"><div class="v">43</div><div class="k">SPECs</div></div>
+  <div class="stat"><div class="v">77 / 385</div><div class="k">Code annoté</div></div>
+  <div class="stat"><div class="v">42 / 264</div><div class="k">Tests annotés</div></div>
   <div class="stat"><div class="v">324</div><div class="k">Code sans @spec</div></div>
   <div class="stat"><div class="v">0</div><div class="k">SPECs non-implémentées</div></div>
 </div>
@@ -77,13 +77,16 @@
 <tr class="ok"><td>INTENT-018-valeur-boussole</td><td>SPEC-018-3-hill-charts-sdd</td><td><code>lib/dashboard/hill-charts.js</code><br/><code>lib/dashboard/model/index.js</code></td><td><code>test/dashboard-hill-charts.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="ok"><td>INTENT-018-valeur-boussole</td><td>SPEC-018-4-bilan-humains-agents</td><td><code>lib/dashboard/intent-humans-agents.js</code><br/><code>lib/dashboard/model/index.js</code></td><td><code>test/dashboard-intent-humans-agents.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="ok"><td>INTENT-018-valeur-boussole</td><td>SPEC-018-5-impact-effort-en-attente</td><td><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/rice-matrix.js</code></td><td><code>test/dashboard-impact-effort.test.js</code></td><td><span class="ok">✅</span></td></tr>
-<tr><td>INTENT-019-verification-first</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
+<tr class="ok"><td>INTENT-019-verification-first</td><td>SPEC-019-1-skeleton-generator</td><td><code>lib/test-skeleton-generator.js</code></td><td><code>test/suggest-tests.test.js</code><br/><code>test/${shortId}.test.js`,</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-019-verification-first</td><td>SPEC-019-2-trace-ears-gap</td><td><code>lib/sdd-trace.js</code></td><td><code>test/trace-ears-gap.test.js</code><br/><code>test/trace.test.js</code><br/><code>chemin/relatif/test.ts</code></td><td><span class="ok">✅</span></td></tr>
 <tr><td>INTENT-020-spec-anchored-deltas</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-021-empreinte-mesuree</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-022-dogfooding-cli</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-023-rayonnement-honnete</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr class="ok"><td>INTENT-024-trace-exemption-specs-sans-code</td><td>SPEC-024-1-trace-exemption</td><td><code>lib/sdd-trace.js</code></td><td><code>test/trace.test.js</code><br/><code>chemin/relatif/test.ts</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="warn"><td>INTENT-025-contraste-kicker</td><td>SPEC-025-1-gold-contrast-fix</td><td><em>(aucun)</em></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
+<tr><td>INTENT-026-archivage-artefacts-done</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
+<tr><td>INTENT-027-ci-metrics-automation</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 </tbody></table>
 
 <h2>Matrice Backward</h2>
@@ -368,6 +371,8 @@
 <tr class="ok"><td><code>test/suggest-annotations.test.js</code></td><td>SPEC-002-1-gouvernance-enforced</td><td>INTENT-002-gouvernance-enforced</td><td><code>lib/drift-verdict.js</code><br/><code>lib/jnsp.js</code><br/><code>lib/verdict.js</code><br/><code>lib/veto.js</code></td></tr>
 <tr class="ok"><td><code>test/suggest-annotations.test.js</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="ok"><td><code>test/suggest-annotations.test.js</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
+<tr class="ok"><td><code>test/suggest-tests.test.js</code></td><td>SPEC-019-1-skeleton-generator</td><td>INTENT-019-verification-first</td><td><code>lib/test-skeleton-generator.js</code></td></tr>
+<tr class="bad"><td><code>test/suggest-tests.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/suggest.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/sunset.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/tarball-hygiene.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -379,6 +384,9 @@
 <tr class="ok"><td><code>test/trace-cache.test.js</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="ok"><td><code>test/trace-cache.test.js</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="ok"><td><code>test/trace-cache.test.js</code></td><td>SPEC-002-1-gouvernance-enforced</td><td>INTENT-002-gouvernance-enforced</td><td><code>lib/drift-verdict.js</code><br/><code>lib/jnsp.js</code><br/><code>lib/verdict.js</code><br/><code>lib/veto.js</code></td></tr>
+<tr class="ok"><td><code>test/trace-ears-gap.test.js</code></td><td>SPEC-019-2-trace-ears-gap</td><td>INTENT-019-verification-first</td><td><code>lib/sdd-trace.js</code></td></tr>
+<tr class="bad"><td><code>test/trace-ears-gap.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="bad"><td><code>test/trace-ears-gap.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="ok"><td><code>test/trace-git.test.js</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/trace-git.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="ok"><td><code>test/trace-git.test.js</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
