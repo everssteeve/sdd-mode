@@ -3,9 +3,9 @@
 **Intent parent** : INTENT-018
 **Auteur** : Steeve Evers
 **Date** : 2026-06-23
-**Statut** : draft
+**Statut** : validation
 **Format** : prose
-**SQS** : [À évaluer via /sdd gate]
+**SQS** : 5/5
 
 ---
 

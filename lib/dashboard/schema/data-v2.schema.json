@@ -112,6 +112,33 @@
         "messageJnsp": { "type": ["string", "null"] }
       }
     },
+    "impactEffortEnAttente": {
+      "type": "object",
+      "description": "Backlog en attente filtré depuis riceMatrix — SPEC-018-5",
+      "additionalProperties": false,
+      "required": ["items", "total", "message"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "titre", "statut", "scoreImpact", "scoreEffort", "scoreRice", "quadrant"],
+            "properties": {
+              "id":          { "type": "string" },
+              "titre":       { "type": "string" },
+              "statut":      { "type": "string" },
+              "scoreImpact": { "type": "number" },
+              "scoreEffort": { "type": "number" },
+              "scoreRice":   { "type": "number" },
+              "quadrant":    { "type": "string", "enum": ["quick-win", "big-bet", "fill-in", "time-sink"] }
+            }
+          }
+        },
+        "total":   { "type": "number" },
+        "message": { "type": ["string", "null"] }
+      }
+    },
     "bilanHumainsAgents": {
       "type": "array",
       "description": "Bilan humains/agents par Intent — SPEC-018-4",
