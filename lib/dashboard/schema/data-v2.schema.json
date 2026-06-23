@@ -112,6 +112,24 @@
         "messageJnsp": { "type": ["string", "null"] }
       }
     },
+    "bilanHumainsAgents": {
+      "type": "array",
+      "description": "Bilan humains/agents par Intent — SPEC-018-4",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "titre", "statut", "formulateur", "executor", "validator", "agentsGouvernance"],
+        "properties": {
+          "id":    { "type": "string" },
+          "titre": { "type": "string" },
+          "statut": { "type": "string" },
+          "formulateur": { "$ref": "#/$defs/acteurRole" },
+          "executor":    { "$ref": "#/$defs/acteurRole" },
+          "validator":   { "$ref": "#/$defs/acteurRole" },
+          "agentsGouvernance": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
     "investmentBalance": {
       "type": "object",
       "description": "Investment Balance par type d'Intent — SPEC-018-2",
@@ -144,6 +162,15 @@
     }
   },
   "$defs": {
+    "acteurRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nom", "type"],
+      "properties": {
+        "nom":  { "type": ["string", "null"] },
+        "type": { "type": "string", "enum": ["human", "agent", "inconnu"] }
+      }
+    },
     "aireEbm": {
       "type": "object",
       "additionalProperties": false,
