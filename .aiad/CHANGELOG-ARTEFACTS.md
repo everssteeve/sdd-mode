@@ -295,6 +295,12 @@ gate RGAA, renforcement hors périmètre original, conservé en `draft`.
 `GUIDE.md` et corps `CLAUDE.md` rendus version-agnostiques ; provenance historique
 préservée. SPEC-013-2 → `done`.
 
+## 2026-06-23 — INTENT-017 — Drift Lock OK (done)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd drift-check INTENT-017` après validation SPEC-017-2 + SPEC-017-3 — toutes les SPECs liées sont done, 0 gap traçabilité bloquant, `trace --fail-on-gap` exit 0.
+**Impact** : `lib/dashboard/views/inbox.js` (nouveau, 173 LOC), `lib/dashboard/digest-delta.js` (nouveau, 171 LOC), `test/dashboard-inbox.test.js` (11 cas), `test/dashboard-digest.test.js` (10 cas), `render.js` + `today.js` + `model/index.js` (wiring additif), `.aiad/metrics/digest/` (répertoire snapshot créé). INTENT-017 → `done`.
+
 ## 2026-06-11 — SPEC-013-3 — Drift Lock OK (done)
 
 **Auteur** : Steeve Evers

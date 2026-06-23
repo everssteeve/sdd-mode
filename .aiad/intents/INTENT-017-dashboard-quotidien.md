@@ -1,10 +1,11 @@
 ---
 id: INTENT-017
 title: Vivre le projet au quotidien — Aujourd'hui, triage, digest
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-11
 activated: 2026-06-22
+closed: 2026-06-23
 specs:
   - SPEC-017-1
   - SPEC-017-2
