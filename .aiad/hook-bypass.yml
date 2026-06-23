@@ -114,6 +114,12 @@ patterns:
   # changement de comportement applicatif, pas de SPEC à mettre à jour
   - "test/dashboard-sre.test.js"
 
+  # Alignement scanner JNSP avec le hook jnsp-scan.js : exclusion .md + dossiers
+  # de fixtures (test/, bench/, docs/, templates/) pour éliminer les faux positifs.
+  # Correction interne de l'outil, pas une nouvelle fonctionnalité régie par une SPEC.
+  - "lib/dashboard/tech-debt.js"
+  - "test/dashboard-tech-debt.test.js"
+
   # Renforcement de la couverture mutation (workflow « Mutation testing ») —
   # ajout de tests tuant des mutants survivants, aucun comportement applicatif
   # nouveau, pas de SPEC à mettre à jour

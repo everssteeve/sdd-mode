@@ -2,8 +2,8 @@
   "date": "2026-06-23",
   "seuilLoc": 200,
   "seuilLocWarn": 100,
-  "jnsp": 39,
-  "jnspStale": 16,
+  "jnsp": 0,
+  "jnspStale": 0,
   "specsGrosses": 0,
   "specsWarning": 2
 }
