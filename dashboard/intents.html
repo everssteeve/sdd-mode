@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T11:51:49.527Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T12:11:27.982Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Intent Statements — aiad-sdd</title>
 <meta name="description" content="Intent Statements — Le POURQUOI capturé avant toute spécification · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
@@ -93,7 +93,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 23/06/2026 13:51:49<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 23/06/2026 14:11:27<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -102,7 +102,7 @@
       <div class="subtitle">Le POURQUOI capturé avant toute spécification</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 13:51:49. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 14:11:27. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -121,7 +121,7 @@
     </div>
     <div class="kpi">
       <div class="label">draft</div>
-      <div class="value">5</div>
+      <div class="value">6</div>
     </div>
     <div class="kpi">
       <div class="label">done</div>
@@ -134,11 +134,11 @@
 
 <section>
   <h2>Répartition par statut</h2>
-  <div class="card"><div class="dist-bar"><span class="dist-seg seg-ok" style="width:4%" title="active : 1"></span><span class="dist-seg seg-warn" style="width:20%" title="draft : 5">5</span><span class="dist-seg seg-muted" style="width:76%" title="done : 19">19</span></div><div class="dist-leg"><span class="dist-leg-item"><span class="dist-leg-dot seg-ok"></span>active <strong>1</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>in-progress <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>draft <strong>5</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-muted"></span>done <strong>19</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-muted"></span>archived <strong>0</strong></span></div></div>
+  <div class="card"><div class="dist-bar"><span class="dist-seg seg-ok" style="width:3.8461538461538463%" title="active : 1"></span><span class="dist-seg seg-warn" style="width:23.076923076923077%" title="draft : 6">6</span><span class="dist-seg seg-muted" style="width:73.07692307692307%" title="done : 19">19</span></div><div class="dist-leg"><span class="dist-leg-item"><span class="dist-leg-dot seg-ok"></span>active <strong>1</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>in-progress <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>draft <strong>6</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-muted"></span>done <strong>19</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-muted"></span>archived <strong>0</strong></span></div></div>
 </section>
 
 <section>
-  <h2>Catalogue <span class="count">25 intent(s)</span></h2>
+  <h2>Catalogue <span class="count">26 intent(s)</span></h2>
   <div class="pm-filter-chips" data-pm-filter-target="tIntents" role="toolbar" aria-label="Filtres rapides PM">
     <button type="button" data-pm-filter="*" aria-pressed="true">Tous</button>
     <button type="button" data-pm-filter="zombie" aria-pressed="false">Zombies</button>
@@ -633,6 +633,44 @@ laisser son propre outil de traçabilité afficher du faux wip. - **nous-mêmes*
   </div></td>
       <td class="muted">Steeve Evers</td>
       <td class="muted" data-sort="2026-06-22">2026-06-22</td>
+    </tr><tr data-tags="" data-statut="draft" data-search-blob="après la clôture de intent-018 (5 specs, cycle complet le 2026-06-23), les répertoires
+`.aiad/intents/` et `.aiad/specs/` continuent d&#39;accumuler des artefacts au statut `done`.
+fact-006 documente l&#39;écart : aucun mécanisme ne déplace ou ne sépare ces artefacts des
+éléments actifs. à mesure que le projet avance (26 intents, 49 specs), la lisibilité des
+répertoires actifs se dégrade et le signal/bruit (actif vs clôturé) augmente. le product engineer qui travaille quotidiennement avec le cycle sdd — il doit pouvoir
+identifier en un coup d&#39;œil les artefacts qui nécessitent encore de l&#39;attention (draft,
+active, in-progress, validation) sans se noyer dans les artefacts déjà livrés. - après passage d&#39;un intent à `done`, ses fichiers et ceux de ses specs associées
+  sont physiquement séparés des artefacts actifs (ex. déplacés dans un répertoire
+  `archive/` ou via une commande dédiée).
+- les répertoires `.aiad/intents/` et `.aiad/specs/` actifs ne contiennent plus que
+  les artefacts non terminés (draft, active, in-progress, validation, ready).
+- métrique : 0 fichier `status: done` dans les répertoires actifs après exécution
+  de la commande d&#39;archivage. - **zéro dépendance** : toute mécanique d&#39;archivage doit rester en vanilla node.js esm,
+  sans npm runtime deps.
+- **rétrocompatibilité des annotations** : les annotations `@spec spec-nnn-*` dans le
+  code source pointent vers des ids, pas des chemins — l&#39;archivage ne casse pas les
+  résolutions de `npx aiad-sdd trace`.
+- **dashboard et trace non cassés** : `collect.js` doit être capable de lire les artefacts
+  depuis les répertoires archive.
+- **pas d&#39;archivage automatique silencieux** : l&#39;humain doit valider (commande explicite
+  ou confirmation interactive) — on n&#39;archive pas derrière le dos du pe.
+- **répertoire `archive/` déjà partiellement existant** dans `.aiad/intents/archive/`
+  (présent à l&#39;état vide ou quasi-vide) — s&#39;y conformer. un intent passe à `done`, le drift-check valide, mais ses fichiers artefacts restent
+dans les répertoires actifs sans que la commande d&#39;archivage ait été proposée ou
+exécutée → drift de l&#39;intention (encombrement silencieux des répertoires).
+
+signal observable : `find .aiad/intents .aiad/specs -maxdepth 1 -name &quot;*.md&quot; | xargs grep -l &quot;^status: done&quot;` retourne des fichiers après la séquence drift-check + archivage.">
+      <td><a class="src-link" href="../.aiad/intents/INTENT-026-archivage-artefacts-done.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-026-archivage-artefacts-done.md">INTENT-026-archivage-artefacts-done</a></td>
+      <td><strong>Archivage automatique des artefacts done (Intents + SPECs)</strong>
+        <details class="intents-row-details"><summary>Voir détail Intent (POURQUOI / OBJECTIF / …)</summary>
+          <div class="intents-details"><div class="pm-sections"><div class="pm-section"><strong>POURQUOI MAINTENANT</strong><div class="md-light"><p>Après la clôture de <code>INTENT-018</code> (5 SPECs, cycle complet le 2026-06-23), les répertoires <code>.aiad/intents/</code> et <code>.aiad/specs/</code> continuent d&#39;accumuler des artefacts au statut <code>done</code>. <code>FACT-006</code> documente l&#39;écart : aucun mécanisme ne déplace ou ne sépare ces artefacts des éléments actifs. À mesure que le projet avance (26 INTENTs, 49 SPECs), la lisibilité des répertoires actifs se dégrade et le signal/bruit (actif vs clôturé) augmente.</p></div></div><div class="pm-section"><strong>POUR QUI</strong><div class="md-light"><p>Le Product Engineer qui travaille quotidiennement avec le cycle SDD — il doit pouvoir identifier en un coup d&#39;œil les artefacts qui nécessitent encore de l&#39;attention (draft, active, in-progress, validation) sans se noyer dans les artefacts déjà livrés.</p></div></div><div class="pm-section"><strong>OBJECTIF</strong><div class="md-light"><ul><li>Après passage d&#39;un INTENT à <code>done</code>, ses fichiers et ceux de ses SPECs associées</li></ul><p>sont physiquement séparés des artefacts actifs (ex. déplacés dans un répertoire <code>archive/</code> ou via une commande dédiée).</p><ul><li>Les répertoires <code>.aiad/intents/</code> et <code>.aiad/specs/</code> actifs ne contiennent plus que</li></ul><p>les artefacts non terminés (draft, active, in-progress, validation, ready).</p><ul><li>Métrique : 0 fichier <code>status: done</code> dans les répertoires actifs après exécution</li></ul><p>de la commande d&#39;archivage.</p></div></div><div class="pm-section"><strong>CONTRAINTES</strong><div class="md-light"><ul><li><strong>Zéro dépendance</strong> : toute mécanique d&#39;archivage doit rester en vanilla Node.js ESM,</li></ul><p>sans npm runtime deps.</p><ul><li><strong>Rétrocompatibilité des annotations</strong> : les annotations <code>@spec <code>SPEC-NNN</code>-*</code> dans le</li></ul><p>code source pointent vers des IDs, pas des chemins — l&#39;archivage ne casse pas les résolutions de <code>npx aiad-sdd trace</code>.</p><ul><li><strong>Dashboard et trace non cassés</strong> : <code>collect.js</code> doit être capable de lire les artefacts</li></ul><p>depuis les répertoires archive.</p><ul><li><strong>Pas d&#39;archivage automatique silencieux</strong> : l&#39;humain doit valider (commande explicite</li></ul><p>ou confirmation interactive) — on n&#39;archive pas derrière le dos du PE.</p><ul><li><strong>Répertoire <code>archive/</code> déjà partiellement existant</strong> dans <code>.aiad/intents/archive/</code></li></ul><p>(présent à l&#39;état vide ou quasi-vide) — s&#39;y conformer.</p></div></div><div class="pm-section"><strong>CRITÈRE DE DRIFT</strong><div class="md-light"><p>Un Intent passe à <code>done</code>, le drift-check valide, mais ses fichiers artefacts restent dans les répertoires actifs sans que la commande d&#39;archivage ait été proposée ou exécutée → drift de l&#39;intention (encombrement silencieux des répertoires).</p><p>Signal observable : <code>find .aiad/intents .aiad/specs -maxdepth 1 -name &quot;*.md&quot; | xargs grep -l &quot;^status: done&quot;</code> retourne des fichiers après la séquence drift-check + archivage.</p></div></div></div></div>
+        </details></td>
+      <td data-sort="99"><span class="muted">—</span></td>
+      <td data-sort="draft"><span class="badge badge-warn">draft</span></td>
+      <td><em class="muted">aucune</em></td>
+      <td data-sort="-1"><span class="muted" title="Aucune SPEC liée">—</span></td>
+      <td class="muted">Steeve Evers</td>
+      <td class="muted" data-sort="2026-06-23">2026-06-23</td>
     </tr></tbody>
   </table>
 </section>

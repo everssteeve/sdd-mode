@@ -2,10 +2,10 @@
 description: AIAD-AI-ACT — Conformité EU AI Act (Règlement 2024/1689)
 globs: ["**/ai/**","**/ml/**","**/llm/**","**/models/**","**/agents/**"]
 alwaysApply: false
-intent_id: INTENT-024
+intent_id: INTENT-026
 tier: 1
 generated-by: aiad-emit-rules v1.18.0
-source-hash: 11b55fc32b148988
+source-hash: 6e04af6007d19962
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->

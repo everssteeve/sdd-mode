@@ -2,7 +2,7 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.18.0",
-    "generated": "2026-06-23T11:51:49.527Z",
+    "generated": "2026-06-23T12:11:27.982Z",
     "schema_version": "2.0",
     "slim": true
   },
@@ -14,7 +14,7 @@
     "nom": "aiad-sdd",
     "version": "1.18.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd",
-    "genere": "2026-06-23T11:51:49.527Z"
+    "genere": "2026-06-23T12:11:27.982Z"
   },
   "fondamentaux": [
     {
@@ -470,6 +470,26 @@
         "critereDrift": null
       },
       "mtime": 1782115963089.1055
+    },
+    {
+      "id": "INTENT-026-archivage-artefacts-done",
+      "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+      "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+      "statut": "draft",
+      "auteur": "Steeve Evers",
+      "date": "2026-06-23",
+      "executor": null,
+      "validator": null,
+      "activatedAt": null,
+      "problem": null,
+      "sections": {
+        "pourquoi": "Après la clôture de INTENT-018 (5 SPECs, cycle complet le 2026-06-23), les répertoires\n`.aiad/intents/` et `.aiad/specs/` continuent d'accumuler des artefacts au statut `done`.\nFACT-006 documente l'écart : aucun mécanisme ne déplace ou ne sépare ces artefacts des\néléments actifs. À mesure que le projet avance (26 INTENTs, 49 SPECs), la lisibilité des\nrépertoires actifs se dégrade et le signal/bruit (actif vs clôturé) augmente.",
+        "pourQui": "Le Product Engineer qui travaille quotidiennement avec le cycle SDD — il doit pouvoir\nidentifier en un coup d'œil les artefacts qui nécessitent encore de l'attention (draft,\nactive, in-progress, validation) sans se noyer dans les artefacts déjà livrés.",
+        "objectif": "- Après passage d'un INTENT à `done`, ses fichiers et ceux de ses SPECs associées\n  sont physiquement séparés des artefacts actifs (ex. déplacés dans un répertoire\n  `archive/` ou via une commande dédiée).\n- Les répertoires `.aiad/intents/` et `.aiad/specs/` actifs ne contiennent plus que\n  les artefacts non terminés (draft, active, in-progress, validation, ready).\n- Métrique : 0 fichier `status: done` dans les répertoires actifs après exécution\n  de la commande d'archivage.",
+        "contraintes": "- **Zéro dépendance** : toute mécanique d'archivage doit rester en vanilla Node.js ESM,\n  sans npm runtime deps.\n- **Rétrocompatibilité des annotations** : les annotations `@spec SPEC-NNN-*` dans le\n  code source pointent vers des IDs, pas des chemins — l'archivage ne casse pas les\n  résolutions de `npx aiad-sdd trace`.\n- **Dashboard et trace non cassés** : `collect.js` doit être capable de lire les artefacts\n  depuis les répertoires archive.\n- **Pas d'archivage automatique silencieux** : l'humain doit valider (commande explicite\n  ou confirmation interactive) — on n'archive pas derrière le dos du PE.\n- **Répertoire `archive/` déjà partiellement existant** dans `.aiad/intents/archive/`\n  (présent à l'état vide ou quasi-vide) — s'y conformer.",
+        "critereDrift": "Un Intent passe à `done`, le drift-check valide, mais ses fichiers artefacts restent\ndans les répertoires actifs sans que la commande d'archivage ait été proposée ou\nexécutée → drift de l'intention (encombrement silencieux des répertoires).\n\nSignal observable : `find .aiad/intents .aiad/specs -maxdepth 1 -name \"*.md\" | xargs grep -l \"^status: done\"` retourne des fichiers après la séquence drift-check + archivage."
+      },
+      "mtime": 1782215995204.8591
     }
   ],
   "specs": [
@@ -2977,6 +2997,15 @@
       "gravite": "critique (A) + majeur (B)",
       "statut": "partiellement résolu",
       "cause": null
+    },
+    {
+      "id": "FACT-006-intent-done-no-archive",
+      "file": ".aiad/facts/FACT-006-intent-done-no-archive.md",
+      "titre": "FACT-006 — INTENT `done` ne déclenche pas d'archivage automatique",
+      "date": "2026-06-23",
+      "gravite": null,
+      "statut": "ouvert",
+      "cause": null
     }
   ],
   "changelog": {
@@ -3287,9 +3316,9 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-06-23T11:51:49.561Z",
+    "generatedAt": "2026-06-23T12:11:28.014Z",
     "summary": {
-      "intents": 25,
+      "intents": 26,
       "specs": 41,
       "codeFiles": 384,
       "annotatedCodeFiles": 76,
@@ -4822,6 +4851,15 @@
             "tests": []
           }
         ]
+      },
+      {
+        "intent": {
+          "id": "INTENT-026-archivage-artefacts-done",
+          "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+          "title": "Archivage automatique des artefacts done (Intents + SPECs)",
+          "status": "draft"
+        },
+        "specs": []
       }
     ],
     "backward": [
@@ -6200,6 +6238,12 @@
           "id": "INTENT-023-rayonnement-honnete",
           "file": ".aiad/intents/INTENT-023-rayonnement-honnete.md",
           "title": "Rayonnement honnête — comparatif public et runtimes élargis",
+          "status": "draft"
+        },
+        {
+          "id": "INTENT-026-archivage-artefacts-done",
+          "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+          "title": "Archivage automatique des artefacts done (Intents + SPECs)",
           "status": "draft"
         }
       ],
@@ -7836,8 +7880,8 @@
     "hooks": true,
     "leadership": {
       "humanAuthorshipRatio": {
-        "total": 25,
-        "sufficient": 25,
+        "total": 26,
+        "sufficient": 26,
         "ratio": 1,
         "seuilCharsMinimum": 50
       },
@@ -7852,11 +7896,11 @@
         "ratio": 0.7560975609756098
       },
       "langueArtefacts": {
-        "fr": 41,
+        "fr": 42,
         "en": 2,
         "mixed": 0,
         "neutral": 23,
-        "total": 66
+        "total": 67
       }
     },
     "leadershipHistory": [
@@ -7876,16 +7920,16 @@
       },
       {
         "mois": "2026-06",
-        "ts": 1782215509588,
+        "ts": 1782216688042,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": 0.75,
         "traceCompleteness": 0.7560975609756098,
         "langueArtefacts": {
-          "fr": 41,
+          "fr": 42,
           "en": 2,
           "mixed": 0,
           "neutral": 23,
-          "total": 66
+          "total": 67
         }
       }
     ]
@@ -7911,7 +7955,7 @@
     },
     "sovereignty": {
       "available": true,
-      "score": 45,
+      "score": 46,
       "maxScore": 100,
       "level": "Silver",
       "levelColor": "gris",
@@ -7938,13 +7982,13 @@
           ]
         },
         "langueFr": {
-          "score": 12,
-          "ratioFr": 0.6212121212121212,
-          "fr": 41,
+          "score": 13,
+          "ratioFr": 0.6268656716417911,
+          "fr": 42,
           "mixed": 0,
           "en": 2,
           "neutral": 23,
-          "total": 66
+          "total": 67
         },
         "autorites": {
           "score": 15,
@@ -7966,11 +8010,11 @@
     },
     "hookStats": {
       "available": true,
-      "count": 158,
+      "count": 165,
       "p50": 0,
       "p95": 1000,
       "max": 1000,
-      "ratioFail": 0.189873417721519,
+      "ratioFail": 0.2,
       "timeouts": 0,
       "scopeLeaks": 0,
       "sante": "attention"
@@ -11064,6 +11108,10 @@
     },
     "testsRecents": [
       {
+        "path": "test/dashboard-tech-debt.test.js",
+        "mtime": 1782216574579.8782
+      },
+      {
         "path": "test/dashboard-impact-effort.test.js",
         "mtime": 1782208192074.8022
       },
@@ -11652,10 +11700,20 @@
         "done": 1,
         "enCours": 0,
         "ratio": 1
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "statut": "draft",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "total": 0,
+        "done": 0,
+        "enCours": 0,
+        "ratio": null
       }
     ],
     "funnel": {
-      "idea": 5,
+      "idea": 6,
       "validated": 0,
       "inDelivery": 1,
       "done": 19,
@@ -12003,12 +12061,18 @@
         "file": ".aiad/intents/INTENT-025-contraste-kicker.md",
         "titre": "Corriger le contraste des kickers et pills gold (WCAG 1.4.3)",
         "statut": "done"
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "statut": "draft"
       }
     ],
     "totaux": {
       "planifies": 0,
-      "nonDates": 25,
-      "total": 25
+      "nonDates": 26,
+      "total": 26
     }
   },
   "adrs": {
@@ -12607,286 +12671,12 @@
     "seuilLocWarn": 100,
     "sourceSeuil": "default",
     "jnsp": {
-      "total": 39,
-      "markers": [
-        {
-          "file": "AGENTS.md",
-          "line": 87,
-          "question": "<question>` ; le pre-commit bloque si présent",
-          "ageDays": 4,
-          "age": "recent"
-        },
-        {
-          "file": "CHANGELOG.md",
-          "line": 2083,
-          "question": "` dans le code.",
-          "ageDays": 14,
-          "age": "medium"
-        },
-        {
-          "file": "CHANGELOG.md",
-          "line": 2088,
-          "question": "` non résolu (mode `block`) ou avertit",
-          "ageDays": 14,
-          "age": "medium"
-        },
-        {
-          "file": "CLAUDE.md",
-          "line": 247,
-          "question": "<question précise à l'humain>",
-          "ageDays": 4,
-          "age": "recent"
-        },
-        {
-          "file": "CLAUDE.md",
-          "line": 251,
-          "question": "` non résolu. Le bypass `git commit --no-verify`",
-          "ageDays": 4,
-          "age": "recent"
-        },
-        {
-          "file": "GEMINI.md",
-          "line": 31,
-          "question": "<question>` ; le pre-commit bloque si présent",
-          "ageDays": 4,
-          "age": "recent"
-        },
-        {
-          "file": "README.md",
-          "line": 117,
-          "question": "<question précise pour l'humain>",
-          "ageDays": 8,
-          "age": "medium"
-        },
-        {
-          "file": "README.md",
-          "line": 120,
-          "question": "` non",
-          "ageDays": 8,
-          "age": "medium"
-        },
-        {
-          "file": "bench/scenario-autonomous-run/url-shortener/AGENTS.md",
-          "line": 85,
-          "question": "<question précise pour l'humain>` ; le hook pre-commit bloque tout diff qui en contient",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "bench/scenario-autonomous-run/url-shortener/CLAUDE.md",
-          "line": 244,
-          "question": "<question précise à l'humain>",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "bench/scenario-autonomous-run/url-shortener/CLAUDE.md",
-          "line": 248,
-          "question": "` non résolu. Le bypass `git commit --no-verify`",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "docs/analyse-claude-code-best-practice.md",
-          "line": 38,
-          "question": "`).",
-          "ageDays": 15,
-          "age": "medium"
-        },
-        {
-          "file": "docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md",
-          "line": 17,
-          "question": "` | `.aiad/hooks/pre-commit.sh` | git CLI uniquement |",
-          "ageDays": 15,
-          "age": "medium"
-        },
-        {
-          "file": "docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md",
-          "line": 20,
-          "question": "<question>` + exit codes 0/1/2 | définie |",
-          "ageDays": 15,
-          "age": "medium"
-        },
-        {
-          "file": "docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md",
-          "line": 25,
-          "question": "` non résolu,",
-          "ageDays": 15,
-          "age": "medium"
-        },
-        {
-          "file": "docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md",
-          "line": 34,
-          "question": "` ajoutés (lignes `+`),",
-          "ageDays": 15,
-          "age": "medium"
-        },
-        {
-          "file": "docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md",
-          "line": 79,
-          "question": "` non résolu **avant** l'exécution.",
-          "ageDays": 15,
-          "age": "medium"
-        },
-        {
-          "file": "docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md",
-          "line": 80,
-          "question": "` non résolu est présent, **the system SHALL** refuser l'outil avec `permissionDecision: \"deny\"` et exit code 2.",
-          "ageDays": 15,
-          "age": "medium"
-        },
-        {
-          "file": "docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md",
-          "line": 86,
-          "question": "` → exit 2 + JSON ; diff propre → exit 0.",
-          "ageDays": 15,
-          "age": "medium"
-        },
-        {
-          "file": "docs/release-notes/v1.18.0.md",
-          "line": 69,
-          "question": "` non résolu est **refusé**.",
-          "ageDays": 14,
-          "age": "medium"
-        },
-        {
-          "file": "templates/CLAUDE.md",
-          "line": 236,
-          "question": "<question précise à l'humain>",
-          "ageDays": 14,
-          "age": "medium"
-        },
-        {
-          "file": "templates/CLAUDE.md",
-          "line": 240,
-          "question": "` non résolu. Le bypass `git commit --no-verify`",
-          "ageDays": 14,
-          "age": "medium"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 22,
-          "question": "dans .js .ts .py .md', () => {",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 26,
-          "question": "choisir entre Redis et Postgres\\nconst x = 1;\\n');",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 27,
-          "question": "format date ISO ou UNIX ?\\n');",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 28,
-          "question": "niveau de log par défaut ?\\n');",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 29,
-          "question": "validation par qui ?\\n');",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 45,
-          "question": "noise\\n');",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 46,
-          "question": "noise\\n');",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 58,
-          "question": "marker ${i}\\n`;",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 125,
-          "question": "déléguer ?\\n');",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 188,
-          "question": "récent\\n');",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 189,
-          "question": "medium\\n');",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 190,
-          "question": "ancien\\n');",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/dashboard-tech-debt.test.js",
-          "line": 303,
-          "question": "q1\\n');",
-          "ageDays": 40,
-          "age": "stale"
-        },
-        {
-          "file": "test/pre-commit.test.js",
-          "line": 25,
-          "question": "» en clair, sinon le hook",
-          "ageDays": 22,
-          "age": "medium"
-        },
-        {
-          "file": "test/pre-commit.test.js",
-          "line": 249,
-          "question": "→ pas de blocage attendu.",
-          "ageDays": 22,
-          "age": "medium"
-        },
-        {
-          "file": "test/research.test.js",
-          "line": 66,
-          "question": "quel SLA cible ?'], verdict: 'GO (confidence: 90 %)' }));",
-          "ageDays": 15,
-          "age": "medium"
-        },
-        {
-          "file": "test/research.test.js",
-          "line": 115,
-          "question": "seuil ?'], verdict: 'GO (confidence: 90 %)' })));",
-          "ageDays": 15,
-          "age": "medium"
-        }
-      ],
+      "total": 0,
+      "markers": [],
       "parAge": {
-        "recent": 4,
-        "medium": 19,
-        "stale": 16,
+        "recent": 0,
+        "medium": 0,
+        "stale": 0,
         "unknown": 0
       }
     },
@@ -12945,8 +12735,8 @@
       {
         "semaine": "2026-06-22",
         "samples": 2,
-        "jnsp": 39,
-        "jnspStale": 16,
+        "jnsp": 0,
+        "jnspStale": 0,
         "specsGrosses": 0,
         "specsWarning": 2
       }
@@ -13339,11 +13129,11 @@
   "sre": {
     "hookStats": {
       "available": true,
-      "count": 158,
+      "count": 165,
       "p50": 0,
       "p95": 1000,
       "max": 1000,
-      "ratioFail": 0.189873417721519,
+      "ratioFail": 0.2,
       "timeouts": 0,
       "scopeLeaks": 0,
       "sante": "attention"
@@ -13959,6 +13749,15 @@
           "target": null,
           "target_date": null,
           "joursRestants": null
+        },
+        {
+          "id": "INTENT-026-archivage-artefacts-done",
+          "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+          "statut": "draft",
+          "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+          "target": null,
+          "target_date": null,
+          "joursRestants": null
         }
       ],
       "livre": [
@@ -14140,14 +13939,19 @@
       "urgent": 0,
       "proche": 0,
       "planifie": 0,
-      "sansCible": 6,
+      "sansCible": 7,
       "livre": 19
     }
   },
   "pmDiff": {
     "diff": {
       "intents": {
-        "nouveaux": [],
+        "nouveaux": [
+          {
+            "id": "INTENT-026-archivage-artefacts-done",
+            "statut": "draft"
+          }
+        ],
         "passesActifs": [],
         "passesDone": [
           {
@@ -14526,7 +14330,7 @@
         ]
       },
       "mtime": 1782140407187.7754,
-      "delta": 6
+      "delta": 5
     },
     "courant": {
       "date": "2026-06-23",
@@ -14633,6 +14437,10 @@
           {
             "id": "INTENT-025-contraste-kicker",
             "statut": "done"
+          },
+          {
+            "id": "INTENT-026-archivage-artefacts-done",
+            "statut": "draft"
           }
         ],
         "specs": [
@@ -14843,9 +14651,9 @@
           }
         ]
       },
-      "mtime": 1782215509697.908
+      "mtime": 1782216688088.663
     },
-    "totalChangements": 10
+    "totalChangements": 11
   },
   "intentDeps": {
     "intents": [
@@ -15073,6 +14881,15 @@
         "bloquePar": [],
         "bloque": [],
         "bloqueActif": false
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "statut": "draft",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "bloquePar": [],
+        "bloque": [],
+        "bloqueActif": false
       }
     ],
     "avecDeps": [],
@@ -15237,18 +15054,24 @@
             "titre": "Corriger le contraste des kickers et pills gold (WCAG 1.4.3)",
             "statut": "done",
             "file": ".aiad/intents/INTENT-025-contraste-kicker.md"
+          },
+          {
+            "id": "INTENT-026-archivage-artefacts-done",
+            "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+            "statut": "draft",
+            "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md"
           }
         ],
         "totaux": {
-          "total": 25,
-          "actifs": 6,
+          "total": 26,
+          "actifs": 7,
           "livres": 19
         }
       }
     ],
     "totaux": {
       "ownersReels": 0,
-      "sansOwner": 25
+      "sansOwner": 26
     }
   },
   "bottlenecks": {
@@ -15294,7 +15117,7 @@
     "sponsors": [],
     "totaux": {
       "sponsors": 0,
-      "sansSponsor": 25
+      "sansSponsor": 26
     }
   },
   "cycleTime": {
@@ -15465,7 +15288,7 @@
         "id": "INTENT-016-dashboard-fondations",
         "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "ageJours": 1,
+        "ageJours": 2,
         "statut": "active"
       }
     ],
@@ -15516,7 +15339,7 @@
         "id": "INTENT-016-dashboard-fondations",
         "titre": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
         "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "ageJours": 1,
+        "ageJours": 2,
         "statut": "active"
       }
     ]
@@ -15630,13 +15453,31 @@
         ],
         "countExplicites": 0,
         "countHeuristiques": 1
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "niveau": "medium",
+        "risques": [
+          {
+            "texte": "Dépendance (mot-clé \"depend\")",
+            "source": "heuristique",
+            "niveau": "medium",
+            "categorie": "Dépendance",
+            "motCle": "depend"
+          }
+        ],
+        "countExplicites": 0,
+        "countHeuristiques": 1
       }
     ],
     "totaux": {
-      "intentsAvecRisques": 6,
+      "intentsAvecRisques": 7,
       "critical": 0,
       "high": 0,
-      "medium": 6,
+      "medium": 7,
       "low": 0,
       "unknown": 0
     }
@@ -15723,6 +15564,16 @@
         "mtime": null
       },
       {
+        "id": "FACT-006-intent-done-no-archive",
+        "titre": "FACT-006 — INTENT `done` ne déclenche pas d'archivage automatique",
+        "gravite": null,
+        "statut": "ouvert",
+        "cause": "",
+        "file": ".aiad/facts/FACT-006-intent-done-no-archive.md",
+        "date": "2026-06-23",
+        "mtime": null
+      },
+      {
         "id": "FACT-003-docs-deploy-incompatible-pages",
         "titre": "FACT-003 — docs-deploy.yml incompatible avec la topologie Pages (gh-pages)",
         "gravite": null,
@@ -15735,8 +15586,8 @@
     ],
     "totaux": {
       "decisionsPrd": 0,
-      "facts": 5,
-      "factsOuverts": 4
+      "facts": 6,
+      "factsOuverts": 5
     }
   },
   "stickyAlerts": {
@@ -15749,13 +15600,23 @@
     "items": [
       {
         "type": "Intent",
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "mtime": 1782215995204.8591,
+        "ageMs": 692885.1408691406,
+        "ageHumain": "il y a 12 min"
+      },
+      {
+        "type": "Intent",
         "id": "INTENT-018-valeur-boussole",
         "titre": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
         "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
         "statut": "done",
         "mtime": 1782215495394.5276,
-        "ageMs": 14306.472412109375,
-        "ageHumain": "à l'instant"
+        "ageMs": 1192695.4724121094,
+        "ageHumain": "il y a 20 min"
       },
       {
         "type": "SPEC",
@@ -15765,7 +15626,7 @@
         "statut": "done",
         "mtime": 1782209657701.1543,
         "parentIntent": "INTENT-018",
-        "ageMs": 5851999.845703125,
+        "ageMs": 7030388.845703125,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -15776,7 +15637,7 @@
         "statut": "done",
         "mtime": 1782209653702.137,
         "parentIntent": "INTENT-018",
-        "ageMs": 5855998.863037109,
+        "ageMs": 7034387.863037109,
         "ageHumain": "il y a 2 h"
       },
       {
@@ -15787,7 +15648,7 @@
         "statut": "done",
         "mtime": 1782205830939.904,
         "parentIntent": "INTENT-018",
-        "ageMs": 9678761.095947266,
+        "ageMs": 10857150.095947266,
         "ageHumain": "il y a 3 h"
       },
       {
@@ -15798,8 +15659,8 @@
         "statut": "done",
         "mtime": 1782204009055.574,
         "parentIntent": "INTENT-018",
-        "ageMs": 11500645.42602539,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 12679034.42602539,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "Intent",
@@ -15808,7 +15669,7 @@
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
         "statut": "done",
         "mtime": 1782202627769.8833,
-        "ageMs": 12881931.116699219,
+        "ageMs": 14060320.116699219,
         "ageHumain": "il y a 4 h"
       },
       {
@@ -15819,7 +15680,7 @@
         "statut": "done",
         "mtime": 1782200936965.559,
         "parentIntent": "INTENT-018",
-        "ageMs": 14572735.440917969,
+        "ageMs": 15751124.440917969,
         "ageHumain": "il y a 4 h"
       },
       {
@@ -15830,7 +15691,7 @@
         "statut": "done",
         "mtime": 1782143362861.8252,
         "parentIntent": "INTENT-017",
-        "ageMs": 72146839.17480469,
+        "ageMs": 73325228.17480469,
         "ageHumain": "il y a 20 h"
       },
       {
@@ -15841,23 +15702,12 @@
         "statut": "validation",
         "mtime": 1782141950442.2166,
         "parentIntent": "INTENT-017",
-        "ageMs": 73559258.78344727,
-        "ageHumain": "il y a 20 h"
-      },
-      {
-        "type": "SPEC",
-        "id": "SPEC-017-2-inbox-triage",
-        "titre": "SPEC-017-2 — Inbox de triage facts/drifts (localStorage)",
-        "file": ".aiad/specs/SPEC-017-2-inbox-triage.md",
-        "statut": "done",
-        "mtime": 1782140443713.4868,
-        "parentIntent": "INTENT-017",
-        "ageMs": 75065987.5131836,
+        "ageMs": 74737647.78344727,
         "ageHumain": "il y a 21 h"
       }
     ],
     "totaux": {
-      "intents": 25,
+      "intents": 26,
       "specs": 41,
       "facts": 0
     }
@@ -15880,7 +15730,7 @@
       {
         "date": "2026-06-23",
         "par": {
-          "draft": 5,
+          "draft": 6,
           "active": 1,
           "review": 0,
           "in-progress": 0,
@@ -15906,7 +15756,7 @@
       "objectifs": 0,
       "keyResults": 0,
       "intentsAlignes": 0,
-      "intentsTotal": 25,
+      "intentsTotal": 26,
       "orphelines": 0
     }
   },
@@ -16116,12 +15966,20 @@
         "statut": "done",
         "hypothese": null,
         "hypothesisStatus": null
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "hypothese": null,
+        "hypothesisStatus": null
       }
     ],
     "totaux": {
       "discovery": 0,
-      "delivery": 25,
-      "total": 25
+      "delivery": 26,
+      "total": 26
     }
   },
   "tagCloud": {
@@ -16129,7 +15987,7 @@
     "totaux": {
       "tagsUniques": 0,
       "intentsAvecTag": 0,
-      "intentsTotal": 25
+      "intentsTotal": 26
     }
   },
   "burnupChart": {
@@ -16141,14 +15999,14 @@
       },
       {
         "date": "2026-06-23",
-        "total": 25,
+        "total": 26,
         "done": 19
       }
     ],
     "estimation": {
-      "vitesse": 2.3148148148148148e-8,
-      "date": "2026-06-26",
-      "restant": 6
+      "vitesse": 1.1574074074074074e-8,
+      "date": "2026-06-30",
+      "restant": 7
     },
     "snapshots": 2
   },
@@ -16245,6 +16103,27 @@
         "pireGravite": "medium"
       },
       {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "raisons": [
+          {
+            "key": "objectif-lourd",
+            "gravite": "medium",
+            "label": "Objectif > 200 chars",
+            "action": "Lancer `/sdd split` ou raffiner le scope."
+          },
+          {
+            "key": "no-owner",
+            "gravite": "low",
+            "label": "Aucun owner / sponsor",
+            "action": "Ajouter `owner:` et `sponsor:` dans le frontmatter."
+          }
+        ],
+        "pireGravite": "medium"
+      },
+      {
         "id": "INTENT-019-verification-first",
         "titre": "Verification-first — dériver des tests des critères EARS",
         "file": ".aiad/intents/INTENT-019-verification-first.md",
@@ -16276,9 +16155,9 @@
       }
     ],
     "totaux": {
-      "total": 6,
+      "total": 7,
       "high": 0,
-      "medium": 4,
+      "medium": 5,
       "low": 2
     }
   },
@@ -16354,7 +16233,7 @@
     ],
     "totaux": {
       "satures": 0,
-      "sansQuarter": 6
+      "sansQuarter": 7
     }
   },
   "confidenceTracker": {
@@ -16679,12 +16558,12 @@
       {
         "date": "2026-06-23",
         "dow": 2,
-        "count": 7
+        "count": 8
       }
     ],
     "nbJours": 60,
     "max": 22,
-    "total": 66,
+    "total": 67,
     "joursActifs": 9,
     "streak": 2
   },
@@ -16819,6 +16698,16 @@
         "bande": "frais"
       },
       {
+        "type": "Intent",
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "mtime": 1782215995204.8591,
+        "ageJours": 0,
+        "bande": "frais"
+      },
+      {
         "type": "SPEC",
         "id": "SPEC-017-3-digest-delta",
         "titre": "SPEC-017-3 — Digest delta + snapshots persistants",
@@ -16830,11 +16719,11 @@
       }
     ],
     "totaux": {
-      "total": 7,
+      "total": 8,
       "abandonne": 0,
       "stale": 0,
       "tiede": 0,
-      "frais": 7
+      "frais": 8
     }
   },
   "goalTree": {
@@ -17289,12 +17178,19 @@
             "file": ".aiad/specs/SPEC-025-1-gold-contrast-fix.md"
           }
         ]
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "statut": "draft",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "specs": []
       }
     ],
     "totaux": {
       "outcomes": 1,
       "intentsLies": 0,
-      "intentsOrphelins": 25
+      "intentsOrphelins": 26
     }
   },
   "abTestTracker": {
@@ -17315,12 +17211,12 @@
       },
       {
         "date": "2026-06-23",
-        "ouverts": 3
+        "ouverts": 4
       }
     ],
     "snapshots": 2,
-    "totalRisques": 6,
-    "courantsOuverts": 3,
+    "totalRisques": 7,
+    "courantsOuverts": 4,
     "tendance": "down"
   },
   "outcomeLeaderboard": {
@@ -17738,15 +17634,30 @@
           "scored": 0
         },
         "specsFaibles": []
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "priority": null,
+        "etat": "no-spec",
+        "total": 0,
+        "score": {
+          "min": null,
+          "avg": null,
+          "scored": 0
+        },
+        "specsFaibles": []
       }
     ],
     "totaux": {
-      "total": 6,
+      "total": 7,
       "ready": 0,
       "partial": 1,
       "needsWork": 0,
       "toScore": 0,
-      "noSpec": 5
+      "noSpec": 6
     },
     "seuil": 4
   },
@@ -17864,7 +17775,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1782209666314.1248
+        "mtime": 1782215509715.8735
       }
     ],
     "tendance": {
@@ -19035,11 +18946,57 @@
         ],
         "score": 100,
         "etat": "complete"
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "priority": null,
+        "cellules": [
+          {
+            "cle": "pourquoi",
+            "label": "POURQUOI MAINTENANT",
+            "etat": "mature",
+            "points": 20,
+            "chars": 430
+          },
+          {
+            "cle": "pourQui",
+            "label": "POUR QUI",
+            "etat": "mature",
+            "points": 20,
+            "chars": 252
+          },
+          {
+            "cle": "objectif",
+            "label": "OBJECTIF",
+            "etat": "mature",
+            "points": 20,
+            "chars": 479
+          },
+          {
+            "cle": "contraintes",
+            "label": "CONTRAINTES",
+            "etat": "mature",
+            "points": 20,
+            "chars": 751
+          },
+          {
+            "cle": "critereDrift",
+            "label": "CRITÈRE DE DRIFT",
+            "etat": "mature",
+            "points": 20,
+            "chars": 416
+          }
+        ],
+        "score": 100,
+        "etat": "complete"
       }
     ],
     "totaux": {
-      "total": 25,
-      "complete": 11,
+      "total": 26,
+      "complete": 12,
       "structured": 1,
       "skeleton": 1,
       "incomplete": 12
@@ -19298,6 +19255,44 @@
         "score": 34,
         "poids": 3,
         "bonus": 4
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "statut": "draft",
+        "auteur": "Steeve Evers",
+        "date": "2026-06-23",
+        "executor": null,
+        "validator": null,
+        "activatedAt": null,
+        "problem": null,
+        "sections": {
+          "pourquoi": "Après la clôture de INTENT-018 (5 SPECs, cycle complet le 2026-06-23), les répertoires\n`.aiad/intents/` et `.aiad/specs/` continuent d'accumuler des artefacts au statut `done`.\nFACT-006 documente l'écart : aucun mécanisme ne déplace ou ne sépare ces artefacts des\néléments actifs. À mesure que le projet avance (26 INTENTs, 49 SPECs), la lisibilité des\nrépertoires actifs se dégrade et le signal/bruit (actif vs clôturé) augmente.",
+          "pourQui": "Le Product Engineer qui travaille quotidiennement avec le cycle SDD — il doit pouvoir\nidentifier en un coup d'œil les artefacts qui nécessitent encore de l'attention (draft,\nactive, in-progress, validation) sans se noyer dans les artefacts déjà livrés.",
+          "objectif": "- Après passage d'un INTENT à `done`, ses fichiers et ceux de ses SPECs associées\n  sont physiquement séparés des artefacts actifs (ex. déplacés dans un répertoire\n  `archive/` ou via une commande dédiée).\n- Les répertoires `.aiad/intents/` et `.aiad/specs/` actifs ne contiennent plus que\n  les artefacts non terminés (draft, active, in-progress, validation, ready).\n- Métrique : 0 fichier `status: done` dans les répertoires actifs après exécution\n  de la commande d'archivage.",
+          "contraintes": "- **Zéro dépendance** : toute mécanique d'archivage doit rester en vanilla Node.js ESM,\n  sans npm runtime deps.\n- **Rétrocompatibilité des annotations** : les annotations `@spec SPEC-NNN-*` dans le\n  code source pointent vers des IDs, pas des chemins — l'archivage ne casse pas les\n  résolutions de `npx aiad-sdd trace`.\n- **Dashboard et trace non cassés** : `collect.js` doit être capable de lire les artefacts\n  depuis les répertoires archive.\n- **Pas d'archivage automatique silencieux** : l'humain doit valider (commande explicite\n  ou confirmation interactive) — on n'archive pas derrière le dos du PE.\n- **Répertoire `archive/` déjà partiellement existant** dans `.aiad/intents/archive/`\n  (présent à l'état vide ou quasi-vide) — s'y conformer.",
+          "critereDrift": "Un Intent passe à `done`, le drift-check valide, mais ses fichiers artefacts restent\ndans les répertoires actifs sans que la commande d'archivage ait été proposée ou\nexécutée → drift de l'intention (encombrement silencieux des répertoires).\n\nSignal observable : `find .aiad/intents .aiad/specs -maxdepth 1 -name \"*.md\" | xargs grep -l \"^status: done\"` retourne des fichiers après la séquence drift-check + archivage."
+        },
+        "mtime": 1782215995204.8591,
+        "readiness": {
+          "id": "INTENT-026-archivage-artefacts-done",
+          "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+          "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+          "statut": "draft",
+          "priority": null,
+          "etat": "no-spec",
+          "total": 0,
+          "score": {
+            "min": null,
+            "avg": null,
+            "scored": 0
+          },
+          "specsFaibles": []
+        },
+        "score": 34,
+        "poids": 3,
+        "bonus": 4
       }
     ],
     "capacite": {
@@ -19307,7 +19302,7 @@
       "label": "Q1-2026",
       "source": "défaut (2 Intents × 5 PE)"
     },
-    "seuilCommit": 6
+    "seuilCommit": 7
   },
   "strategicNarrative": {
     "texte": "**aiad-sdd** — état 2026-06-23 : 1 Intent(s) actif(s), 1 en delivery, 19 livré(s). Vélocité **5.8 SPECs/sem** en accélération (projection 6sem : 165.6 SPECs), ETA backlog ~1 sem. Santé du projet **65/100** en amélioration (+15 pts) sur 3 snapshots.",
@@ -19650,67 +19645,80 @@
         "derniereComm": null,
         "etat": "silencieux",
         "jours": null
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "sponsor": null,
+        "lastDemo": null,
+        "lastSync": null,
+        "lastJournal": null,
+        "derniereComm": null,
+        "etat": "silencieux",
+        "jours": null
       }
     ],
     "totaux": {
-      "total": 25,
+      "total": 26,
       "recent": 0,
       "tiede": 0,
-      "silencieux": 25
+      "silencieux": 26
     },
     "lastDemo": null,
     "lastSync": null,
     "mentions": 0
   },
   "decisionVelocity": {
-    "total": 5,
+    "total": 6,
     "buckets": [
       {
         "idx": 0,
-        "debut": 1777377109705,
-        "fin": 1777981909705,
+        "debut": 1777378288096,
+        "fin": 1777983088096,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1777981909705,
-        "fin": 1778586709705,
+        "debut": 1777983088096,
+        "fin": 1778587888096,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1778586709705,
-        "fin": 1779191509705,
+        "debut": 1778587888096,
+        "fin": 1779192688096,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1779191509705,
-        "fin": 1779796309705,
+        "debut": 1779192688096,
+        "fin": 1779797488096,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1779796309705,
-        "fin": 1780401109705,
+        "debut": 1779797488096,
+        "fin": 1780402288096,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1780401109705,
-        "fin": 1781005909705,
+        "debut": 1780402288096,
+        "fin": 1781007088096,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1781005909705,
-        "fin": 1781610709705,
+        "debut": 1781007088096,
+        "fin": 1781611888096,
         "count": 3,
         "decisions": [
           {
@@ -19732,9 +19740,9 @@
       },
       {
         "idx": 7,
-        "debut": 1781610709705,
-        "fin": 1782215509705,
-        "count": 2,
+        "debut": 1781611888096,
+        "fin": 1782216688096,
+        "count": 3,
         "decisions": [
           {
             "source": "fact",
@@ -19745,16 +19753,21 @@
             "source": "fact",
             "ts": 1782115130440.1494,
             "fichier": "FACT-005-contraste-kicker.md"
+          },
+          {
+            "source": "fact",
+            "ts": 1782215905580.0718,
+            "fichier": "FACT-006-intent-done-no-archive.md"
           }
         ]
       }
     ],
-    "moyenne": 0.6,
-    "slope": 0.35,
+    "moyenne": 0.8,
+    "slope": 0.43,
     "tendance": "stable",
     "inertie": false,
     "nbJournal": 0,
-    "nbFacts": 5
+    "nbFacts": 6
   },
   "weeklyChecklist": {
     "semaine": "2026-W26",
@@ -19859,7 +19872,7 @@
       "discovery": 0,
       "delivery": 1,
       "enabler": 0,
-      "inconnu": 24
+      "inconnu": 25
     },
     "pcts": {
       "discovery": 0,
@@ -19905,7 +19918,7 @@
         }
       ]
     },
-    "total": 25,
+    "total": 26,
     "sante": {
       "delivery": {
         "etat": "desequilibre",
@@ -19939,7 +19952,7 @@
     },
     "timeToMarket": {
       "valeur": 0,
-      "label": "0 Intent(s) delivery actif(s) / 25 total",
+      "label": "0 Intent(s) delivery actif(s) / 26 total",
       "jnsp": false
     },
     "abilityToInnovate": {
@@ -19953,7 +19966,7 @@
       "features": 0,
       "enabler": 0,
       "conformite": 0,
-      "inconnu": 25
+      "inconnu": 26
     },
     "pcts": {
       "features": 0,
@@ -19961,7 +19974,7 @@
       "conformite": 0,
       "inconnu": 100
     },
-    "total": 25,
+    "total": 26,
     "sante": "critique"
   },
   "hillCharts": {
@@ -20427,6 +20440,24 @@
         "type": "inconnu"
       },
       "agentsGouvernance": []
+    },
+    {
+      "id": "INTENT-026-archivage-artefacts-done",
+      "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+      "statut": "draft",
+      "formulateur": {
+        "nom": "Steeve Evers",
+        "type": "human"
+      },
+      "executor": {
+        "nom": null,
+        "type": "inconnu"
+      },
+      "validator": {
+        "nom": null,
+        "type": "inconnu"
+      },
+      "agentsGouvernance": []
     }
   ],
   "velocityBySponsor": {
@@ -20497,6 +20528,13 @@
   },
   "whatsNew": {
     "items": [
+      {
+        "type": "intent",
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "mtime": 1782215995204.8591,
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md"
+      },
       {
         "type": "intent",
         "id": "INTENT-018-valeur-boussole",
@@ -20949,16 +20987,9 @@
         "mtime": 1781169258453.1562,
         "parentIntent": "INTENT-013",
         "statut": "split"
-      },
-      {
-        "type": "intent",
-        "id": "INTENT-023-rayonnement-honnete",
-        "titre": "Rayonnement honnête — comparatif public et runtimes élargis",
-        "mtime": 1781164246871.5986,
-        "file": ".aiad/intents/INTENT-023-rayonnement-honnete.md"
       }
     ],
-    "nowMs": 1782215509706
+    "nowMs": 1782216688098
   },
   "hypothesisLifecycle": {
     "items": [],
@@ -20978,7 +21009,7 @@
   "roadmapTimeline": {
     "items": [],
     "plage": null,
-    "now": 1782215509707,
+    "now": 1782216688098,
     "totaux": {
       "total": 0,
       "retard": 0,
@@ -20992,10 +21023,10 @@
       {
         "cle": "intents-crees",
         "label": "Intents capturés",
-        "courant": 25,
+        "courant": 26,
         "precedent": 0,
         "icone": "💡",
-        "delta": 25,
+        "delta": 26,
         "direction": "up"
       },
       {
@@ -21019,10 +21050,10 @@
       {
         "cle": "facts",
         "label": "Facts capturés",
-        "courant": 5,
+        "courant": 6,
         "precedent": 0,
         "icone": "📊",
-        "delta": 5,
+        "delta": 6,
         "direction": "up"
       },
       {
@@ -21045,14 +21076,14 @@
       }
     ],
     "fenetre": {
-      "debut": 1779623509707,
-      "fin": 1782215509707
+      "debut": 1779624688098,
+      "fin": 1782216688098
     },
     "fenetrePrecedente": {
-      "debut": 1777031509707,
-      "fin": 1779623509707
+      "debut": 1777032688098,
+      "fin": 1779624688098
     },
-    "totalActivite": 66,
+    "totalActivite": 68,
     "totalPrecedent": 0,
     "directionGlobale": "up"
   },
@@ -21198,7 +21229,7 @@
       "INTENT-019-verification-first",
       "INTENT-020-spec-anchored-deltas"
     ],
-    "totalIntentsDispo": 25
+    "totalIntentsDispo": 26
   },
   "sponsorPrep": {
     "items": [],
@@ -21269,6 +21300,16 @@
         "file": ".aiad/intents/INTENT-023-rayonnement-honnete.md",
         "statut": "draft",
         "mtime": 1781164246871.5986,
+        "premiereSpec": null,
+        "ttfsJours": null,
+        "etat": "non-decompose"
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "mtime": 1782215995204.8591,
         "premiereSpec": null,
         "ttfsJours": null,
         "etat": "non-decompose"
@@ -21535,12 +21576,12 @@
       }
     ],
     "totaux": {
-      "total": 25,
+      "total": 26,
       "rapide": 20,
       "normal": 0,
       "lent": 0,
       "tresLent": 0,
-      "nonDecompose": 5
+      "nonDecompose": 6
     },
     "ttfsMoyen": 0
   },
@@ -21739,7 +21780,7 @@
       "total": 55,
       "specs": 36,
       "intents": 19,
-      "now": 1782215509708
+      "now": 1782216688099
     }
   },
   "stateTransitions": {
@@ -21997,7 +22038,7 @@
     "clusters": [],
     "topTags": [],
     "totaux": {
-      "intents": 25,
+      "intents": 26,
       "tagsUniques": 0,
       "clusters": 0
     }
@@ -22044,7 +22085,7 @@
         "urgenceMult": 0.7,
         "statutMult": 0.6,
         "cod": 4.2,
-        "tier": "eleve"
+        "tier": "critical"
       },
       {
         "id": "INTENT-021-empreinte-mesuree",
@@ -22072,7 +22113,7 @@
         "urgenceMult": 0.7,
         "statutMult": 0.6,
         "cod": 4.2,
-        "tier": "standard"
+        "tier": "eleve"
       },
       {
         "id": "INTENT-023-rayonnement-honnete",
@@ -22087,11 +22128,25 @@
         "statutMult": 0.6,
         "cod": 4.2,
         "tier": "standard"
+      },
+      {
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "priority": null,
+        "poidsPrio": 10,
+        "target": null,
+        "urgenceClasse": "aucun-target",
+        "urgenceMult": 0.7,
+        "statutMult": 0.6,
+        "cod": 4.2,
+        "tier": "standard"
       }
     ],
     "totaux": {
-      "total": 6,
-      "critical": 2,
+      "total": 7,
+      "critical": 3,
       "eleve": 2,
       "standard": 2
     },
@@ -22111,9 +22166,16 @@
             "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
             "jours": 0,
             "statut": "active"
+          },
+          {
+            "id": "INTENT-026-archivage-artefacts-done",
+            "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+            "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+            "jours": 0,
+            "statut": "draft"
           }
         ],
-        "count": 1
+        "count": 2
       },
       {
         "cle": "recent",
@@ -22184,8 +22246,8 @@
         "count": 0
       }
     ],
-    "total": 6,
-    "ageMoyen": 10
+    "total": 7,
+    "ageMoyen": 9
   },
   "specCrossIntent": {
     "items": [],
@@ -22228,54 +22290,54 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1779191509709,
+        "finSem": 1779192688100,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1779796309709,
+        "finSem": 1779797488100,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1780401109709,
+        "finSem": 1780402288100,
         "intake": 1,
         "delivery": 1,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1781005909709,
+        "finSem": 1781007088100,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1781610709709,
+        "finSem": 1781611888100,
         "intake": 18,
         "delivery": 13,
         "delta": 5
       },
       {
         "idx": 5,
-        "finSem": 1782215509709,
-        "intake": 6,
+        "finSem": 1782216688100,
+        "intake": 7,
         "delivery": 5,
-        "delta": 1
+        "delta": 2
       }
     ],
     "nbSem": 6,
     "cumul": {
-      "intake": 25,
+      "intake": 26,
       "delivery": 19
     },
     "dernieres3": {
-      "intake": 24,
+      "intake": 25,
       "delivery": 18
     },
     "direction": "gonfle"
@@ -22313,6 +22375,16 @@
   },
   "readingTime": {
     "items": [
+      {
+        "type": "intent",
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "mots": 337,
+        "minutes": 2,
+        "trop_long": false
+      },
       {
         "type": "intent",
         "id": "INTENT-001-feedback-qualitatif",
@@ -23224,6 +23296,16 @@
         "mots": 51,
         "minutes": 1,
         "trop_long": false
+      },
+      {
+        "type": "intent",
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
+        "statut": "draft",
+        "mots": 337,
+        "minutes": 2,
+        "trop_long": false
       }
     ],
     "specs": [
@@ -23639,10 +23721,10 @@
       }
     ],
     "totaux": {
-      "total": 66,
-      "intents": 25,
+      "total": 67,
+      "intents": 26,
       "specs": 41,
-      "totalMinutes": 66,
+      "totalMinutes": 68,
       "moyenneMinutes": 1,
       "tropLongs": 0,
       "vitesseMotsParMin": 220
@@ -24598,10 +24680,10 @@
     }
   },
   "cumulativeAchievements": {
-    "intentsTotal": 25,
+    "intentsTotal": 26,
     "intentsActifs": 1,
     "intentsLivres": 19,
-    "intentsDraft": 5,
+    "intentsDraft": 6,
     "specsTotal": 41,
     "specsLivrees": 36,
     "specsEnCours": 1,
@@ -24622,7 +24704,7 @@
   },
   "quarterlyRetroDraft": {
     "trim": "Q2-2026",
-    "texte": "# Rétrospective Q2-2026 — aiad-sdd\n\n_Brouillon généré automatiquement le 23/06/2026 depuis le dashboard PM. À enrichir en atelier équipe._\n\n## 1. 🎉 Livraisons du trimestre\n### SPECs livrées (36)\n- SPEC-001-1-feedback-qualitatif — Feedback qualitatif opt-in — commande CLI et invitation périodique\n- SPEC-002-1-gouvernance-enforced — Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)\n- SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)\n- SPEC-004-1-execution-phasee — Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)\n- SPEC-005-1-context-pull — Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)\n- SPEC-006-1-canary-suite — Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)\n- SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)\n- SPEC-008-1-cycle-graph — Cycle SDD comme graphe de Tasks (§3.9)\n- SPEC-009-1-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)\n- SPEC-010-1-cross-model-review — Cross-model review additive-only (§3.12)\n- _… +26 autres_\n\n### Intents archivés (19)\n- INTENT-001-feedback-qualitatif — Feedback qualitatif utilisateurs SDD Mode\n- INTENT-002-gouvernance-enforced — Gouvernance SDD enforced par le harness (advisory → enforced)\n- INTENT-003-research-phase — Phase Research + Discovery obligatoire avant la SPEC (§3.5)\n- INTENT-004-execution-phasee — Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)\n- INTENT-005-context-pull — Budget d'instructions push → pull (gouvernance par paths, §3.7)\n- INTENT-006-canary-suite — Canary suite + alignement des références modèles (§3.10)\n\n## 2. 📊 Métriques clés\n- Vélocité moyenne : **5.8 SPECs/sem** (slope 3.63)\n- Throughput backlog : 25 intake vs 19 delivery sur 6 sem (direction : gonfle)\n\n## 3. 🧪 Hypothèses (apprentissages)\n_Aucune hypothèse formulée — opportunité d'instaurer la pratique._\n\n## 4. ⚠ Risques marquants\n_Aucun risque critical/high — portefeuille en bon état._\n\n## 5. 🤝 Sujets pour la rétro humaine\nÀ remplir en atelier :\n- Qu'est-ce qui a bien fonctionné ?\n- Qu'est-ce qui a mal fonctionné ?\n- Quelle action concrète pour le prochain trimestre ?\n\n---\n_Généré par aiad-sdd dashboard — humain garde la paternité de la rétro réelle._",
+    "texte": "# Rétrospective Q2-2026 — aiad-sdd\n\n_Brouillon généré automatiquement le 23/06/2026 depuis le dashboard PM. À enrichir en atelier équipe._\n\n## 1. 🎉 Livraisons du trimestre\n### SPECs livrées (36)\n- SPEC-001-1-feedback-qualitatif — Feedback qualitatif opt-in — commande CLI et invitation périodique\n- SPEC-002-1-gouvernance-enforced — Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)\n- SPEC-003-1-research-phase — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)\n- SPEC-004-1-execution-phasee — Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)\n- SPEC-005-1-context-pull — Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)\n- SPEC-006-1-canary-suite — Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)\n- SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)\n- SPEC-008-1-cycle-graph — Cycle SDD comme graphe de Tasks (§3.9)\n- SPEC-009-1-observabilite-native — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)\n- SPEC-010-1-cross-model-review — Cross-model review additive-only (§3.12)\n- _… +26 autres_\n\n### Intents archivés (19)\n- INTENT-001-feedback-qualitatif — Feedback qualitatif utilisateurs SDD Mode\n- INTENT-002-gouvernance-enforced — Gouvernance SDD enforced par le harness (advisory → enforced)\n- INTENT-003-research-phase — Phase Research + Discovery obligatoire avant la SPEC (§3.5)\n- INTENT-004-execution-phasee — Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)\n- INTENT-005-context-pull — Budget d'instructions push → pull (gouvernance par paths, §3.7)\n- INTENT-006-canary-suite — Canary suite + alignement des références modèles (§3.10)\n\n## 2. 📊 Métriques clés\n- Vélocité moyenne : **5.8 SPECs/sem** (slope 3.63)\n- Throughput backlog : 26 intake vs 19 delivery sur 6 sem (direction : gonfle)\n\n## 3. 🧪 Hypothèses (apprentissages)\n_Aucune hypothèse formulée — opportunité d'instaurer la pratique._\n\n## 4. ⚠ Risques marquants\n_Aucun risque critical/high — portefeuille en bon état._\n\n## 5. 🤝 Sujets pour la rétro humaine\nÀ remplir en atelier :\n- Qu'est-ce qui a bien fonctionné ?\n- Qu'est-ce qui a mal fonctionné ?\n- Quelle action concrète pour le prochain trimestre ?\n\n---\n_Généré par aiad-sdd dashboard — humain garde la paternité de la rétro réelle._",
     "meta": {
       "specsLivrees": 36,
       "intentsArchives": 19,
@@ -25355,8 +25437,8 @@
       {
         "jour": "Mar",
         "idx": 1,
-        "total": 10,
-        "intents": 3,
+        "total": 11,
+        "intents": 4,
         "specs": 7
       },
       {
@@ -25395,10 +25477,10 @@
         "specs": 0
       }
     ],
-    "total": 66,
+    "total": 67,
     "maxTotal": 34,
     "weekend": 0,
-    "semaine": 66,
+    "semaine": 67,
     "fenetreJours": 90,
     "pourcentageWeekend": 0,
     "plusActif": "Lun"
@@ -25509,8 +25591,8 @@
     "enCoursAuDebutSample": [],
     "totaux": {
       "duree": 14,
-      "debutSprint": 1781005909711,
-      "finSprint": 1782215509711,
+      "debutSprint": 1781007088103,
+      "finSprint": 1782216688103,
       "livrees": 35,
       "enCoursAuDebut": 0,
       "ajoutees": 5,
@@ -25576,7 +25658,7 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1777981909712,
+        "finSem": 1777983088103,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25585,7 +25667,7 @@
       },
       {
         "idx": 1,
-        "finSem": 1778586709712,
+        "finSem": 1778587888103,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25594,7 +25676,7 @@
       },
       {
         "idx": 2,
-        "finSem": 1779191509712,
+        "finSem": 1779192688103,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25603,7 +25685,7 @@
       },
       {
         "idx": 3,
-        "finSem": 1779796309712,
+        "finSem": 1779797488103,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25612,7 +25694,7 @@
       },
       {
         "idx": 4,
-        "finSem": 1780401109712,
+        "finSem": 1780402288103,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25621,7 +25703,7 @@
       },
       {
         "idx": 5,
-        "finSem": 1781005909712,
+        "finSem": 1781007088103,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25630,7 +25712,7 @@
       },
       {
         "idx": 6,
-        "finSem": 1781610709712,
+        "finSem": 1781611888103,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25639,7 +25721,7 @@
       },
       {
         "idx": 7,
-        "finSem": 1782215509712,
+        "finSem": 1782216688103,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -25860,6 +25942,10 @@
           {
             "fichier": "FACT-005-contraste-kicker.md",
             "ts": 1782115130440.1494
+          },
+          {
+            "fichier": "FACT-006-intent-done-no-archive.md",
+            "ts": 1782215905580.0718
           }
         ]
       }
@@ -25867,7 +25953,7 @@
     "totaux": {
       "trimestres": 1,
       "totalDecisions": 0,
-      "totalFacts": 5
+      "totalFacts": 6
     }
   },
   "specQualityScore": {
@@ -26048,6 +26134,19 @@
   },
   "activityFeed": {
     "events": [
+      {
+        "type": "intent",
+        "id": "INTENT-026-archivage-artefacts-done",
+        "titre": "Archivage automatique des artefacts done (Intents + SPECs)",
+        "statut": "draft",
+        "mtime": 1782215995204.8591
+      },
+      {
+        "type": "fact",
+        "id": "FACT-006-intent-done-no-archive.md",
+        "titre": "",
+        "mtime": 1782215905580.0718
+      },
       {
         "type": "intent",
         "id": "INTENT-018-valeur-boussole",
@@ -26241,28 +26340,14 @@
         "titre": "SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable",
         "statut": "done",
         "mtime": 1781875442786.245
-      },
-      {
-        "type": "intent",
-        "id": "INTENT-015-sobriete-cli",
-        "titre": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "statut": "done",
-        "mtime": 1781875442785.975
-      },
-      {
-        "type": "spec",
-        "id": "SPEC-015-2-2-cycle-depreciation",
-        "titre": "SPEC-015-2-2-cycle-depreciation — Cycle de dépréciation soft (mécanisme)",
-        "statut": "done",
-        "mtime": 1781873814503.2864
       }
     ],
     "totaux": {
-      "total": 32,
-      "intents": 6,
+      "total": 34,
+      "intents": 7,
       "specs": 24,
       "journal": 0,
-      "facts": 2,
+      "facts": 3,
       "demos": 0
     }
   },
@@ -26834,6 +26919,12 @@
         "type": "fact",
         "titre": "FACT-005 — Contraste insuffisant sur `.kicker` et `.install`",
         "statut": "new"
+      },
+      {
+        "id": "FACT-006-intent-done-no-archive",
+        "type": "fact",
+        "titre": "FACT-006 — INTENT `done` ne déclenche pas d'archivage automatique",
+        "statut": "new"
       }
     ]
   },
@@ -26844,10 +26935,10 @@
       "zombies": 0,
       "santeScore": 0
     },
-    "depuis": "2026-06-23T10:14:26.364Z",
+    "depuis": "2026-06-23T11:51:49.769Z",
     "message": "Aucun changement depuis la dernière génération."
   },
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-06-23T11:51:49.527Z"
+  "generatedAt": "2026-06-23T12:11:27.982Z"
 }
