@@ -157,6 +157,7 @@ Une nouvelle capacité CLI s'ajoute par : un module `lib/<nom>.js` annoté, un `
 | 2026-06-19 | Activer un Intent sans régénérer les rendus multi-runtime | Lancer `emit-rules` dans la même PR | Évite une CI rouge sur le check de divergence |
 | 2026-06-19 | Toucher l'aide/couverture CLI sans régénérer doc + badge | `aiad-sdd docs` + `npm run coverage:badge` | Évite une CI rouge (doc/badge désynchronisés) |
 | 2026-06-19 | Débugger le test perf « gain cold/warm scanCode » qui échoue | C'est un flaky de timing — relancer le job, ne pas modifier le diff | Évite de chasser un faux bug |
+| 2026-06-23 | Annoter le code d'une SPEC sans couvrir tous les modules — trace completeness bloquée à 75,6 % | Vérifier `npx aiad-sdd trace --fail-on-gap` avant de clore chaque PR de feature | Évite un gap structurel détecté trop tard par la CI |
 
 ---
 
@@ -168,4 +169,5 @@ Une nouvelle capacité CLI s'ajoute par : un module `lib/<nom>.js` annoté, un `
 
 | Date | Intention exprimée | Résultat obtenu | Apprentissage |
 |------|--------------------|-----------------|---------------|
-| | | | |
+| 2026-06-23 | INTENT-018 déclaré implicitement « terminé » au fil des PRs | L'index restait `draft` — découvert 12 jours après la dernière SPEC | Clore explicitement l'Intent dans `_index.md` à la même PR que la dernière SPEC liée (même réflexe que le Drift Lock) |
+| 2026-06-23 | 6 Intents `draft` créés le même jour sans priorisation | Backlog draft qui vieillit → risque de « draft oublié » à J+14 | Chaque session de création groupée d'Intents doit se terminer par une décision de priorisation (`active` / `archived`), pas laisser tout en `draft` |
