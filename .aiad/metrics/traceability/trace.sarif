@@ -6390,6 +6390,25 @@
           "ruleId": "AIAD-TRACE-006",
           "level": "warning",
           "message": {
+            "text": "Code lib/dashboard/ebm-aires.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/dashboard/ebm-aires.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
             "text": "Code lib/dashboard/render.js annoté @spec mais sans test lié."
           },
           "locations": [
@@ -6561,7 +6580,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-23T08:15:29.436Z"
+          "endTimeUtc": "2026-06-23T09:07:14.223Z"
         }
       ]
     }

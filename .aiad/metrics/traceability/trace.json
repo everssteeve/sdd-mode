@@ -2,16 +2,16 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-23T08:15:29.436Z"
+    "generated": "2026-06-23T09:07:14.224Z"
   },
-  "generatedAt": "2026-06-23T08:15:29.436Z",
+  "generatedAt": "2026-06-23T09:07:14.223Z",
   "summary": {
     "intents": 25,
     "specs": 41,
-    "codeFiles": 381,
-    "annotatedCodeFiles": 72,
-    "testFiles": 258,
-    "annotatedTestFiles": 37
+    "codeFiles": 383,
+    "annotatedCodeFiles": 74,
+    "testFiles": 260,
+    "annotatedTestFiles": 38
   },
   "forward": [
     {
@@ -1139,7 +1139,7 @@
         "id": "INTENT-017-dashboard-quotidien",
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
         "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -1181,12 +1181,12 @@
           },
           "code": [
             {
-              "path": "lib/dashboard/views/inbox.js",
-              "line": 3
+              "path": "lib/dashboard/model/index.js",
+              "line": 144
             },
             {
-              "path": "lib/dashboard/model/index.js",
-              "line": 142
+              "path": "lib/dashboard/views/inbox.js",
+              "line": 3
             }
           ],
           "tests": [
@@ -1208,20 +1208,20 @@
           },
           "code": [
             {
-              "path": "lib/dashboard/digest-delta.js",
-              "line": 2
-            },
-            {
               "path": "lib/dashboard.js",
               "line": 48
             },
             {
+              "path": "lib/dashboard/digest-delta.js",
+              "line": 2
+            },
+            {
               "path": "lib/dashboard/model/index.js",
               "line": 2
             },
             {
               "path": "lib/dashboard/model/index.js",
-              "line": 144
+              "line": 146
             },
             {
               "path": "lib/dashboard/views/today.js",
@@ -1298,7 +1298,7 @@
           "code": [
             {
               "path": "lib/dashboard/model/index.js",
-              "line": 236
+              "line": 238
             },
             {
               "path": "lib/dashboard/outcome-attribution.js",
@@ -1318,11 +1318,36 @@
             "file": ".aiad/specs/SPEC-018-2-aires-ebm-investment-balance.md",
             "title": "SPEC-018-2 — Aires EBM + Investment Balance",
             "parentIntent": "INTENT-018",
-            "status": "draft",
+            "status": "done",
             "traceability": "",
             "traceabilityReason": ""
           },
-          "code": [],
+          "code": [
+            {
+              "path": "lib/dashboard/ebm-aires.js",
+              "line": 18
+            },
+            {
+              "path": "lib/dashboard/ebm-aires.js",
+              "line": 62
+            },
+            {
+              "path": "lib/dashboard/ebm-aires.js",
+              "line": 144
+            },
+            {
+              "path": "lib/dashboard/ebm-aires.js",
+              "line": 194
+            },
+            {
+              "path": "lib/dashboard/ebm-aires.js",
+              "line": 228
+            },
+            {
+              "path": "lib/dashboard/model/index.js",
+              "line": 241
+            }
+          ],
           "tests": []
         },
         {
@@ -1331,12 +1356,26 @@
             "file": ".aiad/specs/SPEC-018-3-hill-charts-sdd.md",
             "title": "SPEC-018-3 — Hill charts calculés depuis l'état SDD",
             "parentIntent": "INTENT-018",
-            "status": "draft",
+            "status": "validation",
             "traceability": "",
             "traceabilityReason": ""
           },
-          "code": [],
-          "tests": []
+          "code": [
+            {
+              "path": "lib/dashboard/hill-charts.js",
+              "line": 14
+            },
+            {
+              "path": "lib/dashboard/model/index.js",
+              "line": 244
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/dashboard-hill-charts.test.js",
+              "line": 1
+            }
+          ]
         },
         {
           "spec": {
@@ -1477,75 +1516,32 @@
   "backward": [
     {
       "test": {
-        "path": "test/dashboard-digest.test.js",
+        "path": "test/dashboard-hill-charts.test.js",
         "line": 1
       },
       "spec": {
-        "id": "SPEC-017-3-digest-delta",
-        "file": ".aiad/specs/SPEC-017-3-digest-delta.md",
-        "title": "SPEC-017-3 — Digest delta + snapshots persistants",
-        "parentIntent": "INTENT-017",
+        "id": "SPEC-018-3-hill-charts-sdd",
+        "file": ".aiad/specs/SPEC-018-3-hill-charts-sdd.md",
+        "title": "SPEC-018-3 — Hill charts calculés depuis l'état SDD",
+        "parentIntent": "INTENT-018",
         "status": "validation",
         "traceability": "",
         "traceabilityReason": ""
       },
       "intent": {
-        "id": "INTENT-017-dashboard-quotidien",
-        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
-        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
+        "id": "INTENT-018-valeur-boussole",
+        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
+        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
         "status": "active"
       },
       "code": [
         {
-          "path": "lib/dashboard/digest-delta.js",
-          "line": 2
-        },
-        {
-          "path": "lib/dashboard.js",
-          "line": 48
+          "path": "lib/dashboard/hill-charts.js",
+          "line": 14
         },
         {
           "path": "lib/dashboard/model/index.js",
-          "line": 2
-        },
-        {
-          "path": "lib/dashboard/model/index.js",
-          "line": 144
-        },
-        {
-          "path": "lib/dashboard/views/today.js",
-          "line": 3
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/dashboard-inbox.test.js",
-        "line": 1
-      },
-      "spec": {
-        "id": "SPEC-017-2-inbox-triage",
-        "file": ".aiad/specs/SPEC-017-2-inbox-triage.md",
-        "title": "SPEC-017-2 — Inbox de triage facts/drifts (localStorage)",
-        "parentIntent": "INTENT-017",
-        "status": "done",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-017-dashboard-quotidien",
-        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
-        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/dashboard/views/inbox.js",
-          "line": 3
-        },
-        {
-          "path": "lib/dashboard/model/index.js",
-          "line": 142
+          "line": 244
         }
       ]
     },
@@ -2301,7 +2297,59 @@
     },
     {
       "test": {
+        "path": "test/dashboard-digest.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-017-3-digest-delta",
+        "file": ".aiad/specs/SPEC-017-3-digest-delta.md",
+        "title": "SPEC-017-3 — Digest delta + snapshots persistants",
+        "parentIntent": "INTENT-017",
+        "status": "validation",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-017-dashboard-quotidien",
+        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard.js",
+          "line": 48
+        },
+        {
+          "path": "lib/dashboard/digest-delta.js",
+          "line": 2
+        },
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 2
+        },
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 146
+        },
+        {
+          "path": "lib/dashboard/views/today.js",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/dashboard-dpo.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-ebm-aires.test.js",
         "line": 0
       },
       "spec": null,
@@ -2334,6 +2382,37 @@
       "spec": null,
       "intent": null,
       "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-inbox.test.js",
+        "line": 1
+      },
+      "spec": {
+        "id": "SPEC-017-2-inbox-triage",
+        "file": ".aiad/specs/SPEC-017-2-inbox-triage.md",
+        "title": "SPEC-017-2 — Inbox de triage facts/drifts (localStorage)",
+        "parentIntent": "INTENT-017",
+        "status": "done",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-017-dashboard-quotidien",
+        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
+        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 144
+        },
+        {
+          "path": "lib/dashboard/views/inbox.js",
+          "line": 3
+        }
+      ]
     },
     {
       "test": {
@@ -2385,7 +2464,7 @@
       "code": [
         {
           "path": "lib/dashboard/model/index.js",
-          "line": 236
+          "line": 238
         },
         {
           "path": "lib/dashboard/outcome-attribution.js",
@@ -3006,7 +3085,7 @@
         "id": "INTENT-017-dashboard-quotidien",
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
         "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -3072,7 +3151,7 @@
         "id": "INTENT-017-dashboard-quotidien",
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
         "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -3117,7 +3196,7 @@
         "id": "INTENT-017-dashboard-quotidien",
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
         "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -3144,7 +3223,7 @@
         "id": "INTENT-017-dashboard-quotidien",
         "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
         "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -10048,6 +10127,59 @@
               "line": 60
             }
           ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/dashboard/ebm-aires.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-018",
+              "line": 17
+            },
+            {
+              "id": "INTENT-018",
+              "line": 61
+            },
+            {
+              "id": "INTENT-018",
+              "line": 143
+            },
+            {
+              "id": "INTENT-018",
+              "line": 193
+            },
+            {
+              "id": "INTENT-018",
+              "line": 227
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-018-2-aires-ebm-investment-balance",
+              "line": 18
+            },
+            {
+              "id": "SPEC-018-2-aires-ebm-investment-balance",
+              "line": 62
+            },
+            {
+              "id": "SPEC-018-2-aires-ebm-investment-balance",
+              "line": 144
+            },
+            {
+              "id": "SPEC-018-2-aires-ebm-investment-balance",
+              "line": 194
+            },
+            {
+              "id": "SPEC-018-2-aires-ebm-investment-balance",
+              "line": 228
+            }
+          ],
+          "verifiedBy": [],
+          "governance": []
         },
         "annotated": true
       },

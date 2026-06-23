@@ -3,9 +3,9 @@
 **Intent parent** : INTENT-018
 **Auteur** : Steeve Evers
 **Date** : 2026-06-23
-**Statut** : draft
+**Statut** : done
 **Format** : prose
-**SQS** : [À évaluer via /sdd gate]
+**SQS** : 5/5
 
 ---
 
@@ -30,9 +30,18 @@ L'infrastructure temporelle existe déjà (pm-snapshots quotidiens + `cumulative
 1. Compter les SPECs liées : `nbTotal`, `nbDiscovery` (statut `draft`|`review`), `nbDoing` (statut `ready`|`in-progress`|`validation`), `nbDone` (statut `done`).
 2. Calculer `positionX` (0–100) :
    - `0` = aucune SPEC connue (début de l'exploration)
-   - `0–49` = Discovery (montée) : `(nbDiscovery / nbTotal) * 49` inversé — plus de drafts = plus tôt dans la montée
+   - `0–49` = Discovery (montée) :
+     `positionX = Math.round(((nbDoing + nbDone) / nbTotal) * 49)`
+     (ratio de SPECs sorties de Discovery — 0 si tout est draft, 49 si toutes en Doing/Done mais pas encore toutes done)
    - `50` = pic (toutes les SPECs connues, exécution commence)
-   - `51–100` = Doing/Done (descente) : `50 + (nbDone / nbTotal) * 50`
+   - `51–100` = Doing/Done (descente) : `50 + Math.round((nbDone / nbTotal) * 50)`
+
+   **Règle de branche :**
+   - Si `nbDiscovery === 0` et `nbDone === nbTotal` : `positionX = 100`
+   - Si `nbDiscovery === 0` et `nbDoing + nbDone > 0` : phase Doing/Done → formule 50–100
+   - Si `nbDiscovery > 0` et `nbTotal > 0` : phase Discovery → formule 0–49
+   - Si `nbTotal === 0` : `positionX = 0`, flag `jnsp = true` (pas de SPECs → position inconnue)
+
 3. Si `nbTotal === 0` : `positionX = 0`, flag `jnsp = true` (pas de SPECs → position inconnue).
 4. Si données temporelles disponibles (≥ 3 snapshots, ≥ 3 Intents actifs) : tracer la trajectoire historique (pointillé) en plus du point actuel.
 5. Si données temporelles insuffisantes (< 3 snapshots ou < 3 Intents actifs) : afficher uniquement le point actuel, avec note « Historique insuffisant — trajectoire disponible après 3 jours de données ».
@@ -83,7 +92,8 @@ donnees.hillCharts = {
 - [ ] `blocHillCharts(donnees)` produit un `<svg>` avec `<title>`, `<desc>`, et un `aria-label` sur chaque point de données.
 - [ ] axe-core signale 0 violation RGAA AA sur le rendu HTML du bloc.
 - [ ] `@media (prefers-reduced-motion: reduce)` présent si une transition CSS est utilisée.
-- [ ] Test unitaire : 3 Intents (0 SPEC, 2/4 SPECs done, 4/4 SPECs done) → positions [0, ~75, 100].
+- [ ] Test unitaire : 3 Intents (0 SPEC, 2/4 SPECs done, 4/4 SPECs done) → positions [0, 75, 100].
+  (2/4 done, 0 draft → phase Doing/Done : 50 + (2/4)×50 = 75)
 
 ## 4. Interface / API
 
@@ -98,6 +108,10 @@ donnees.hillCharts = {
 export function calculerHillCharts(donnees) { /* … */ }
 export function blocHillCharts(donnees) { /* → string HTML (SVG inline) */ }
 ```
+
+> **SVG** : réutiliser le template `buildSvgPath()` de `lib/dashboard/cumulative-flow.js:43`
+> — même viewBox (800×300), même style de courbe Bézier cubique, même palette CSS.
+> Adapter uniquement les points de données (positions 0–100 mappées sur l'axe X du viewBox).
 
 Injection dans `model/index.js` :
 ```js
@@ -122,12 +136,12 @@ donnees.hillCharts = calculerHillCharts(donnees);
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] `lib/dashboard/hill-charts.js` créé avec `calculerHillCharts()` + `blocHillCharts()`
-- [ ] Injection dans `model/index.js`
-- [ ] Schéma `data-v2.schema.json` étendu (`hillCharts`)
-- [ ] Test unitaire `test/dashboard-hill-charts.test.js` : 3 Intents, dégradé < 3 snapshots
-- [ ] axe-core 0 violation sur le SVG généré
-- [ ] `@media (prefers-reduced-motion)` présent si animation utilisée
-- [ ] `@spec SPEC-018-3` posé dans les fichiers touchés
-- [ ] `_index.md` mis à jour
-- [ ] `npx aiad-sdd drift-check` OK
+- [x] `lib/dashboard/hill-charts.js` créé avec `calculerHillCharts()` + `blocHillCharts()`
+- [x] Injection dans `model/index.js`
+- [x] Schéma `data-v2.schema.json` étendu (`hillCharts`)
+- [x] Test unitaire `test/dashboard-hill-charts.test.js` : 3 Intents, dégradé < 3 snapshots
+- [ ] axe-core 0 violation sur le SVG généré *(CI uniquement — condition merge)*
+- [x] `@media (prefers-reduced-motion)` présent si animation utilisée
+- [x] `@spec SPEC-018-3` posé dans les fichiers touchés
+- [x] `_index.md` mis à jour
+- [x] `npx aiad-sdd drift-check` OK

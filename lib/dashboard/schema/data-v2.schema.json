@@ -76,6 +76,42 @@
         "abilityToInnovate": { "$ref": "#/$defs/aireEbm" }
       }
     },
+    "hillCharts": {
+      "type": "object",
+      "description": "Hill charts calculés depuis l'état SDD — SPEC-018-3",
+      "additionalProperties": false,
+      "required": ["intents", "historiqueDisponible", "messageJnsp"],
+      "properties": {
+        "intents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "titre", "positionX", "jnsp", "trajectoire"],
+            "properties": {
+              "id":         { "type": "string" },
+              "titre":      { "type": "string" },
+              "positionX":  { "type": "number", "minimum": 0, "maximum": 100 },
+              "jnsp":       { "type": "boolean" },
+              "trajectoire": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["date", "positionX"],
+                  "properties": {
+                    "date":      { "type": "string" },
+                    "positionX": { "type": "number", "minimum": 0, "maximum": 100 }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "historiqueDisponible": { "type": "boolean" },
+        "messageJnsp": { "type": ["string", "null"] }
+      }
+    },
     "investmentBalance": {
       "type": "object",
       "description": "Investment Balance par type d'Intent — SPEC-018-2",

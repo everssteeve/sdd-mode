@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-23T08:15:29.436Z
+> Généré le 2026-06-23T09:07:14.223Z
 
 ## Synthèse
 
@@ -8,8 +8,8 @@
 |----------|--------|
 | Intents | 25 |
 | SPECs | 41 |
-| Fichiers code | 381 (annotés : 72) |
-| Fichiers test | 258 (annotés : 37) |
+| Fichiers code | 383 (annotés : 74) |
+| Fichiers test | 260 (annotés : 38) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -46,12 +46,12 @@
 | INTENT-016-dashboard-fondations | SPEC-016-3-data-json-v2 | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` | `test/dashboard.test.js`<br/>`test/validate-data-schema.test.js` | ✅ |
 | INTENT-016-dashboard-fondations | SPEC-016-4-rgesn-budgets | `scripts/check-page-budgets.js` | `test/check-page-budgets.test.js` | ✅ |
 | INTENT-017-dashboard-quotidien | SPEC-017-1-page-aujourdhui | `lib/dashboard/views/today.js` | `test/dashboard-today.test.js`<br/>`test/dashboard.test.js` | ✅ |
-| INTENT-017-dashboard-quotidien | SPEC-017-2-inbox-triage | `lib/dashboard/views/inbox.js`<br/>`lib/dashboard/model/index.js` | `test/dashboard-inbox.test.js` | ✅ |
-| INTENT-017-dashboard-quotidien | SPEC-017-3-digest-delta | `lib/dashboard/digest-delta.js`<br/>`lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/today.js` | `test/dashboard-digest.test.js`<br/>`test/dashboard-today.test.js` | ✅ |
+| INTENT-017-dashboard-quotidien | SPEC-017-2-inbox-triage | `lib/dashboard/model/index.js`<br/>`lib/dashboard/views/inbox.js` | `test/dashboard-inbox.test.js` | ✅ |
+| INTENT-017-dashboard-quotidien | SPEC-017-3-digest-delta | `lib/dashboard.js`<br/>`lib/dashboard/digest-delta.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/today.js` | `test/dashboard-digest.test.js`<br/>`test/dashboard-today.test.js` | ✅ |
 | INTENT-017-dashboard-quotidien | SPEC-017-4-pages-detail-spec | `lib/dashboard.js`<br/>`lib/dashboard/collect.js`<br/>`lib/dashboard/spec-page.js`<br/>`lib/dashboard/views/specs.js` | `test/dashboard-spec-pages.test.js` | ✅ |
 | INTENT-018-valeur-boussole | SPEC-018-1-matrice-outcomes-intents | `lib/dashboard/model/index.js`<br/>`lib/dashboard/outcome-attribution.js` | `test/dashboard-matrice-outcomes.test.js` | ✅ |
-| INTENT-018-valeur-boussole | SPEC-018-2-aires-ebm-investment-balance | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-018-valeur-boussole | SPEC-018-3-hill-charts-sdd | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-018-valeur-boussole | SPEC-018-2-aires-ebm-investment-balance | `lib/dashboard/ebm-aires.js`<br/>`lib/dashboard/ebm-aires.js`<br/>`lib/dashboard/ebm-aires.js`<br/>`lib/dashboard/ebm-aires.js`<br/>`lib/dashboard/ebm-aires.js`<br/>`lib/dashboard/model/index.js` | _(aucun)_ | ⚠ non-testée |
+| INTENT-018-valeur-boussole | SPEC-018-3-hill-charts-sdd | `lib/dashboard/hill-charts.js`<br/>`lib/dashboard/model/index.js` | `test/dashboard-hill-charts.test.js` | ✅ |
 | INTENT-018-valeur-boussole | SPEC-018-4-bilan-humains-agents | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-018-valeur-boussole | SPEC-018-5-impact-effort-en-attente | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-019-verification-first | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -66,8 +66,7 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/dashboard-digest.test.js` | SPEC-017-3-digest-delta | INTENT-017-dashboard-quotidien | `lib/dashboard/digest-delta.js`<br/>`lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/today.js` |
-| `test/dashboard-inbox.test.js` | SPEC-017-2-inbox-triage | INTENT-017-dashboard-quotidien | `lib/dashboard/views/inbox.js`<br/>`lib/dashboard/model/index.js` |
+| `test/dashboard-hill-charts.test.js` | SPEC-018-3-hill-charts-sdd | INTENT-018-valeur-boussole | `lib/dashboard/hill-charts.js`<br/>`lib/dashboard/model/index.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -118,10 +117,13 @@
 | `test/dashboard-audit-trail.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-collect-supplementary.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-collect.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-digest.test.js` | SPEC-017-3-digest-delta | INTENT-017-dashboard-quotidien | `lib/dashboard.js`<br/>`lib/dashboard/digest-delta.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/today.js` |
 | `test/dashboard-dpo.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-ebm-aires.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-edge-cases.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-glossaire.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-graph.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-inbox.test.js` | SPEC-017-2-inbox-triage | INTENT-017-dashboard-quotidien | `lib/dashboard/model/index.js`<br/>`lib/dashboard/views/inbox.js` |
 | `test/dashboard-kanban.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-learnings.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-legal.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -451,8 +453,9 @@
   - lib/cli-schema.js
   - lib/coldstart.js
   - … (+275 autres)
-- Code annoté sans tests liés : **10**
+- Code annoté sans tests liés : **11**
   - .github/workflows/site-deploy.yml
+  - lib/dashboard/ebm-aires.js
   - lib/dashboard/render.js
   - lib/dashboard/ui/badges.js
   - lib/dashboard/ui/helpers.js
