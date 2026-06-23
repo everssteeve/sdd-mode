@@ -32,6 +32,7 @@
 | INTENT-024 | Traçabilité honnête des SPECs sans code applicatif — exemption explicite (FACT-004) | Steeve Evers | 2026-06-19 | SPEC-024-1 | done |
 | INTENT-025 | Corriger le contraste des kickers et pills gold (WCAG 1.4.3) | Steeve Evers | 2026-06-22 | SPEC-025-1 | done |
 | INTENT-026 | Archivage automatique des artefacts done (Intents + SPECs) | Steeve Evers | 2026-06-23 | — | draft |
+| INTENT-027 | Automatisation CI de la collecte de métriques DORA/Flow | Steeve Evers | 2026-06-23 | — | draft |
 
 ## Cycle de vie d'un Intent Statement
 
