@@ -39,9 +39,9 @@
 | SPEC-016-3 | data.json v2 versionné (JSON schema publié) | INTENT-016 | prose | 5/5 | done | — |
 | SPEC-016-4 | Budgets de poids RGESN par page + CI | INTENT-016 | EARS | 5/5 | done | — |
 | SPEC-017-1 | Page "Aujourd'hui" (radiator ≤ 4 sections) | INTENT-017 | EARS | 5/5 | done | 2026-06-22 |
-| SPEC-017-2 | Inbox de triage facts/drifts (localStorage) | INTENT-017 | EARS | 5/5 (gate OK) | draft | — |
-| SPEC-017-3 | Digest delta + snapshots persistants | INTENT-017 | EARS | 5/5 (gate OK) | draft | — |
-| SPEC-017-4 | Pages détail SPEC (drill-down depuis specs.html) | INTENT-017 | EARS | 5/5 (gate OK) | draft | — |
+| SPEC-017-2 | Inbox de triage facts/drifts (localStorage) | INTENT-017 | EARS | 5/5 (gate OK) | done | 2026-06-22 |
+| SPEC-017-3 | Digest delta + snapshots persistants | INTENT-017 | EARS | 5/5 | done | 2026-06-22 |
+| SPEC-017-4 | Pages détail SPEC (drill-down depuis specs.html) | INTENT-017 | EARS | 5/5 (gate OK) | done | 2026-06-22 |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 
