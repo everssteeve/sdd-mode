@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T12:52:26.549Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>SPECs — aiad-sdd</title>
 <meta name="description" content="SPECs — Spécifications techniques atomiques liées aux Intents · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
@@ -36,6 +36,12 @@
     <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
     </a></li>
@@ -87,7 +93,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 22/06/2026 14:52:26<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +102,7 @@
       <div class="subtitle">Spécifications techniques atomiques liées aux Intents</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 14:52:26. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -105,21 +111,21 @@
   </header>
   
 <div class="kpis">
-    <div class="kpi"><div class="label">Total</div><div class="value">32</div></div>
+    <div class="kpi"><div class="label">Total</div><div class="value">36</div></div>
     <div class="kpi ok"><div class="label">SQS moyen</div><div class="value">4.4/5</div></div>
-    <div class="kpi"><div class="label">Done</div><div class="value">25</div></div>
-    <div class="kpi"><div class="label">In progress</div><div class="value">1</div></div>
-    <div class="kpi"><div class="label">Draft / Review</div><div class="value">1</div></div>
-    <div class="kpi"><div class="label">Format EARS</div><div class="value">8</div></div>
+    <div class="kpi"><div class="label">Done</div><div class="value">30</div></div>
+    <div class="kpi"><div class="label">In progress</div><div class="value">0</div></div>
+    <div class="kpi"><div class="label">Draft / Review</div><div class="value">0</div></div>
+    <div class="kpi"><div class="label">Format EARS</div><div class="value">12</div></div>
   </div>
 
 <section>
   <h2>Répartition par statut</h2>
-  <div class="card"><div class="dist-bar"><span class="dist-seg seg-ok" style="width:89.28571428571429%" title="done : 25">25</span><span class="dist-seg seg-info" style="width:3.571428571428571%" title="in-progress : 1"></span><span class="dist-seg seg-warn" style="width:3.571428571428571%" title="draft : 1"></span><span class="dist-seg seg-muted" style="width:3.571428571428571%" title="archived : 1"></span></div><div class="dist-leg"><span class="dist-leg-item"><span class="dist-leg-dot seg-ok"></span>done <strong>25</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>in-progress <strong>1</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>validation <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>ready <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>review <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>draft <strong>1</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-muted"></span>archived <strong>1</strong></span></div></div>
+  <div class="card"><div class="dist-bar"><span class="dist-seg seg-ok" style="width:93.75%" title="done : 30">30</span><span class="dist-seg seg-info" style="width:3.125%" title="validation : 1"></span><span class="dist-seg seg-muted" style="width:3.125%" title="archived : 1"></span></div><div class="dist-leg"><span class="dist-leg-item"><span class="dist-leg-dot seg-ok"></span>done <strong>30</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>in-progress <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>validation <strong>1</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>ready <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>review <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>draft <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-muted"></span>archived <strong>1</strong></span></div></div>
 </section>
 
 <section>
-  <h2>Catalogue <span class="count">32 spec(s)</span></h2>
+  <h2>Catalogue <span class="count">36 spec(s)</span></h2>
   <div class="filter"><input type="search" id="qSpecs" data-filter-target="tSpecs" placeholder="Filtrer par ID, titre, intent, format…"/></div>
   <table id="tSpecs" data-sortable="true" data-a11y-caption="SPECs techniques du projet">
     <thead><tr><th>ID</th><th>Titre</th><th>Intent parent</th><th>Format</th><th>SQS</th><th>Statut</th><th>Date</th></tr></thead>
@@ -469,7 +475,7 @@
     <td><code>INTENT-016</code></td>
     <td data-sort="prose"><span class="badge badge-muted">prose</span></td>
     <td data-sort=""><span class="badge badge-muted">—</span></td>
-    <td data-sort="in-progress"><span class="badge badge-info">in-progress</span></td>
+    <td data-sort="done"><span class="badge badge-ok">done</span></td>
     <td class="muted" data-sort="2026-06-22">2026-06-22</td>
   </tr><tr>
     <td><a class="src-link" href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-4-rgesn-budgets.md">SPEC-016-4-rgesn-budgets</a></td>
@@ -481,7 +487,55 @@
     <td><code>INTENT-016</code></td>
     <td data-sort="ears"><span class="badge badge-info">ears</span></td>
     <td data-sort=""><span class="badge badge-muted">—</span></td>
-    <td data-sort="draft"><span class="badge badge-warn">draft</span></td>
+    <td data-sort="done"><span class="badge badge-ok">done</span></td>
+    <td class="muted" data-sort="2026-06-22">2026-06-22</td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/specs/SPEC-017-1-page-aujourdhui.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-1-page-aujourdhui.md">SPEC-017-1-page-aujourdhui</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections)</strong>
+      </div>
+    </td>
+    <td><code>INTENT-017</code></td>
+    <td data-sort="ears"><span class="badge badge-info">ears</span></td>
+    <td data-sort=""><span class="badge badge-muted">—</span></td>
+    <td data-sort="done"><span class="badge badge-ok">done</span></td>
+    <td class="muted" data-sort="2026-06-22">2026-06-22</td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/specs/SPEC-017-2-inbox-triage.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-2-inbox-triage.md">SPEC-017-2-inbox-triage</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>SPEC-017-2 — Inbox de triage facts/drifts (localStorage)</strong>
+      </div>
+    </td>
+    <td><code>INTENT-017</code></td>
+    <td data-sort="ears"><span class="badge badge-info">ears</span></td>
+    <td data-sort=""><span class="badge badge-muted">—</span></td>
+    <td data-sort="done"><span class="badge badge-ok">done</span></td>
+    <td class="muted" data-sort="2026-06-22">2026-06-22</td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/specs/SPEC-017-3-digest-delta.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-3-digest-delta.md">SPEC-017-3-digest-delta</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>SPEC-017-3 — Digest delta + snapshots persistants</strong>
+      </div>
+    </td>
+    <td><code>INTENT-017</code></td>
+    <td data-sort="ears"><span class="badge badge-info">ears</span></td>
+    <td data-sort=""><span class="badge badge-muted">—</span></td>
+    <td data-sort="validation"><span class="badge badge-info">validation</span></td>
+    <td class="muted" data-sort="2026-06-22">2026-06-22</td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/specs/SPEC-017-4-pages-detail-spec.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-4-pages-detail-spec.md">SPEC-017-4-pages-detail-spec</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)</strong>
+      </div>
+    </td>
+    <td><code>INTENT-017</code></td>
+    <td data-sort="ears"><span class="badge badge-info">ears</span></td>
+    <td data-sort=""><span class="badge badge-muted">—</span></td>
+    <td data-sort="done"><span class="badge badge-ok">done</span></td>
     <td class="muted" data-sort="2026-06-22">2026-06-22</td>
   </tr><tr>
     <td><a class="src-link" href="../.aiad/specs/SPEC-024-1-trace-exemption.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-024-1-trace-exemption.md">SPEC-024-1-trace-exemption</a></td>
@@ -509,6 +563,16 @@
     <td class="muted" data-sort="2026-06-22">2026-06-22</td>
   </tr></tbody>
   </table>
+</section>
+
+<style>
+.sp-list-links { display:grid; gap:.3rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); margin:.5rem 0; }
+.sp-list-link { padding:.35rem .55rem; background:rgba(127,127,127,.05); border-radius:.25rem; font-size:.85rem; text-decoration:none; color:inherit; border:1px solid var(--border,#ddd); }
+.sp-list-link:hover { background:rgba(76,110,245,.06); border-color:rgba(76,110,245,.3); }
+</style><section aria-label="Pages détaillées SPEC">
+  <h2>Pages détaillées SPEC <span class="count">36 pages générées</span></h2>
+  <p class="muted" style="font-size:.85rem">Chaque SPEC dispose de sa propre page HTML avec ses critères d'acceptation, interface, dépendances et DoOD.</p>
+  <div class="sp-list-links"><a class="sp-list-link" href="spec-001-1-feedback-qualitatif.html" aria-label="Page détail de la SPEC SPEC-001-1-feedback-qualitatif : Feedback qualitatif opt-in — commande CLI et invitation périodique"><code>SPEC-001-1-feedback-qualitatif</code> — Feedback qualitatif opt-in — commande CLI et invitation périodique</a><a class="sp-list-link" href="spec-002-1-gouvernance-enforced.html" aria-label="Page détail de la SPEC SPEC-002-1-gouvernance-enforced : Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)"><code>SPEC-002-1-gouvernance-enforced</code> — Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)</a><a class="sp-list-link" href="spec-003-1-research-phase.html" aria-label="Page détail de la SPEC SPEC-003-1-research-phase : Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)"><code>SPEC-003-1-research-phase</code> — Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)</a><a class="sp-list-link" href="spec-004-1-execution-phasee.html" aria-label="Page détail de la SPEC SPEC-004-1-execution-phasee : Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)"><code>SPEC-004-1-execution-phasee</code> — Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)</a><a class="sp-list-link" href="spec-005-1-context-pull.html" aria-label="Page détail de la SPEC SPEC-005-1-context-pull : Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)"><code>SPEC-005-1-context-pull</code> — Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)</a><a class="sp-list-link" href="spec-006-1-canary-suite.html" aria-label="Page détail de la SPEC SPEC-006-1-canary-suite : Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)"><code>SPEC-006-1-canary-suite</code> — Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)</a><a class="sp-list-link" href="spec-007-1-memory-native.html" aria-label="Page détail de la SPEC SPEC-007-1-memory-native : Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)"><code>SPEC-007-1-memory-native</code> — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)</a><a class="sp-list-link" href="spec-008-1-cycle-graph.html" aria-label="Page détail de la SPEC SPEC-008-1-cycle-graph : Cycle SDD comme graphe de Tasks (§3.9)"><code>SPEC-008-1-cycle-graph</code> — Cycle SDD comme graphe de Tasks (§3.9)</a><a class="sp-list-link" href="spec-009-1-observabilite-native.html" aria-label="Page détail de la SPEC SPEC-009-1-observabilite-native : Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)"><code>SPEC-009-1-observabilite-native</code> — Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)</a><a class="sp-list-link" href="spec-010-1-cross-model-review.html" aria-label="Page détail de la SPEC SPEC-010-1-cross-model-review : Cross-model review additive-only (§3.12)"><code>SPEC-010-1-cross-model-review</code> — Cross-model review additive-only (§3.12)</a><a class="sp-list-link" href="spec-011-1-hooks-toggles.html" aria-label="Page détail de la SPEC SPEC-011-1-hooks-toggles : Toggles de hooks + boucles /goal + packaging plugin (§3.13 SPEC-A + SPEC-B)"><code>SPEC-011-1-hooks-toggles</code> — Toggles de hooks + boucles /goal + packaging plugin (§3.13 SPEC-A + SPEC-B)</a><a class="sp-list-link" href="spec-012-1-garde-fous.html" aria-label="Page détail de la SPEC SPEC-012-1-garde-fous : Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)"><code>SPEC-012-1-garde-fous</code> — Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)</a><a class="sp-list-link" href="spec-013-1-deploiement-site-valeurs.html" aria-label="Page détail de la SPEC SPEC-013-1-deploiement-site-valeurs : Déploiement site v1.18 + résolution « 6 vs 7 valeurs »"><code>SPEC-013-1-deploiement-site-valeurs</code> — Déploiement site v1.18 + résolution « 6 vs 7 valeurs »</a><a class="sp-list-link" href="spec-013-1a-deploiement-site.html" aria-label="Page détail de la SPEC SPEC-013-1a-deploiement-site : Déploiement du site aiad.ovh en v1.18"><code>SPEC-013-1a-deploiement-site</code> — Déploiement du site aiad.ovh en v1.18</a><a class="sp-list-link" href="spec-013-1b-unification-7-valeurs.html" aria-label="Page détail de la SPEC SPEC-013-1b-unification-7-valeurs : Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site"><code>SPEC-013-1b-unification-7-valeurs</code> — Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site</a><a class="sp-list-link" href="spec-013-2-unification-docs-racine.html" aria-label="Page détail de la SPEC SPEC-013-2-unification-docs-racine : Unification des docs racine + archivage de SDDMode.md"><code>SPEC-013-2-unification-docs-racine</code> — Unification des docs racine + archivage de SDDMode.md</a><a class="sp-list-link" href="spec-013-3-sync-version-zones-marquees.html" aria-label="Page détail de la SPEC SPEC-013-3-sync-version-zones-marquees : Synchronisation automatique des versions sur zones marquées + check CI"><code>SPEC-013-3-sync-version-zones-marquees</code> — Synchronisation automatique des versions sur zones marquées + check CI</a><a class="sp-list-link" href="spec-013-4-deploy-site-workflow.html" aria-label="Page détail de la SPEC SPEC-013-4-deploy-site-workflow : Workflow de déploiement site/ → gh-pages (gate version + RGAA)"><code>SPEC-013-4-deploy-site-workflow</code> — Workflow de déploiement site/ → gh-pages (gate version + RGAA)</a><a class="sp-list-link" href="spec-013-4a-deploy-workflow.html" aria-label="Page détail de la SPEC SPEC-013-4a-deploy-workflow : Workflow de déploiement site/ → gh-pages + gate version"><code>SPEC-013-4a-deploy-workflow</code> — Workflow de déploiement site/ → gh-pages + gate version</a><a class="sp-list-link" href="spec-013-4b-gate-rgaa.html" aria-label="Page détail de la SPEC SPEC-013-4b-gate-rgaa : Gate RGAA AA avant publication du site"><code>SPEC-013-4b-gate-rgaa</code> — Gate RGAA AA avant publication du site</a><a class="sp-list-link" href="spec-014-1-gates-bloquants-badge.html" aria-label="Page détail de la SPEC SPEC-014-1-gates-bloquants-badge : SPEC-014-1-gates-bloquants-badge"><code>SPEC-014-1-gates-bloquants-badge</code> — SPEC-014-1-gates-bloquants-badge</a><a class="sp-list-link" href="spec-014-2-sourcing-claims.html" aria-label="Page détail de la SPEC SPEC-014-2-sourcing-claims : SPEC-014-2-sourcing-claims"><code>SPEC-014-2-sourcing-claims</code> — SPEC-014-2-sourcing-claims</a><a class="sp-list-link" href="spec-015-1-telemetrie-usage.html" aria-label="Page détail de la SPEC SPEC-015-1-telemetrie-usage : SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in)"><code>SPEC-015-1-telemetrie-usage</code> — SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in)</a><a class="sp-list-link" href="spec-015-2-1-registre-commandes.html" aria-label="Page détail de la SPEC SPEC-015-2-1-registre-commandes : SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)"><code>SPEC-015-2-1-registre-commandes</code> — SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)</a><a class="sp-list-link" href="spec-015-2-2-cycle-depreciation.html" aria-label="Page détail de la SPEC SPEC-015-2-2-cycle-depreciation : SPEC-015-2-2-cycle-depreciation — Cycle de dépréciation soft (mécanisme)"><code>SPEC-015-2-2-cycle-depreciation</code> — SPEC-015-2-2-cycle-depreciation — Cycle de dépréciation soft (mécanisme)</a><a class="sp-list-link" href="spec-015-3-matrice-garde-fous.html" aria-label="Page détail de la SPEC SPEC-015-3-matrice-garde-fous : SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable"><code>SPEC-015-3-matrice-garde-fous</code> — SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable</a><a class="sp-list-link" href="spec-016-1-architecture-4-couches.html" aria-label="Page détail de la SPEC SPEC-016-1-architecture-4-couches : SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)"><code>SPEC-016-1-architecture-4-couches</code> — SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)</a><a class="sp-list-link" href="spec-016-2-design-system-rgaa.html" aria-label="Page détail de la SPEC SPEC-016-2-design-system-rgaa : SPEC-016-2 — Design system accessible + axe-core en CI"><code>SPEC-016-2-design-system-rgaa</code> — SPEC-016-2 — Design system accessible + axe-core en CI</a><a class="sp-list-link" href="spec-016-3-data-json-v2.html" aria-label="Page détail de la SPEC SPEC-016-3-data-json-v2 : SPEC-016-3 — data.json v2 versionné (JSON schema publié)"><code>SPEC-016-3-data-json-v2</code> — SPEC-016-3 — data.json v2 versionné (JSON schema publié)</a><a class="sp-list-link" href="spec-016-4-rgesn-budgets.html" aria-label="Page détail de la SPEC SPEC-016-4-rgesn-budgets : SPEC-016-4 — Budgets de poids RGESN par page + CI"><code>SPEC-016-4-rgesn-budgets</code> — SPEC-016-4 — Budgets de poids RGESN par page + CI</a><a class="sp-list-link" href="spec-017-1-page-aujourdhui.html" aria-label="Page détail de la SPEC SPEC-017-1-page-aujourdhui : SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections)"><code>SPEC-017-1-page-aujourdhui</code> — SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections)</a><a class="sp-list-link" href="spec-017-2-inbox-triage.html" aria-label="Page détail de la SPEC SPEC-017-2-inbox-triage : SPEC-017-2 — Inbox de triage facts/drifts (localStorage)"><code>SPEC-017-2-inbox-triage</code> — SPEC-017-2 — Inbox de triage facts/drifts (localStorage)</a><a class="sp-list-link" href="spec-017-3-digest-delta.html" aria-label="Page détail de la SPEC SPEC-017-3-digest-delta : SPEC-017-3 — Digest delta + snapshots persistants"><code>SPEC-017-3-digest-delta</code> — SPEC-017-3 — Digest delta + snapshots persistants</a><a class="sp-list-link" href="spec-017-4-pages-detail-spec.html" aria-label="Page détail de la SPEC SPEC-017-4-pages-detail-spec : SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)"><code>SPEC-017-4-pages-detail-spec</code> — SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)</a><a class="sp-list-link" href="spec-024-1-trace-exemption.html" aria-label="Page détail de la SPEC SPEC-024-1-trace-exemption : Exemption de traçabilité pour SPECs sans code applicatif"><code>SPEC-024-1-trace-exemption</code> — Exemption de traçabilité pour SPECs sans code applicatif</a><a class="sp-list-link" href="spec-025-1-gold-contrast-fix.html" aria-label="Page détail de la SPEC SPEC-025-1-gold-contrast-fix : Correction du contraste --gold-600 (.kicker + .pill.gold)"><code>SPEC-025-1-gold-contrast-fix</code> — Correction du contraste --gold-600 (.kicker + .pill.gold)</a></div>
 </section>
 
 </main>

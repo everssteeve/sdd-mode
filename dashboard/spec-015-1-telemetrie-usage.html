@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>SPEC-015-1-telemetrie-usage — SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in) — aiad-sdd</title>
+<meta name="description" content="SPEC-015-1-telemetrie-usage — SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Mat…"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SPEC-015-1-telemetrie-usage — SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in) — aiad-sdd"/>
+<meta property="og:description" content="SPEC-015-1-telemetrie-usage — SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Mat…"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPEC-015-1-telemetrie-usage — SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in) — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-015-1-telemetrie-usage — SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Mat…"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.18.0</div>
+  </div>
+  <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>SPEC-015-1-telemetrie-usage — SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in)</h1>
+      <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+  .sp-cols { display:grid; grid-template-columns: 1fr 260px; gap: 1.5rem; align-items: start; }
+  @media (max-width: 900px) { .sp-cols { grid-template-columns: 1fr; } }
+  .sp-meta table { width:100%; font-size:.85rem; }
+  .sp-meta td { padding:.25rem .4rem; vertical-align:top; }
+  .sp-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+  .sp-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+  .sp-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+  .ca-item { margin-bottom:.75rem; padding:.5rem; background:rgba(127,127,127,.03); border-left:2px solid var(--border,#ddd); border-radius:.2rem; }
+  .ca-texte { margin:.4rem 0 0; padding:.4rem .6rem; background:rgba(76,110,245,.04); border-left:3px solid rgba(76,110,245,.3); font-size:.88rem; font-family:monospace; white-space:pre-wrap; }
+  .dood-list { list-style:none; padding:0; }
+  .dood-list li { padding:.15rem 0; font-size:.88rem; }
+  .sp-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+  .sp-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+  .sp-actions a:hover { background:rgba(76,110,245,.18); }
+  /* Masque le doublon h1 du page-header pour les pages détail SPEC */
+  body:has(.sp-cols) .page-header h1 { display:none; }
+</style>
+<div class="sp-cols">
+  <div class="sp-sections">
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-015-1-telemetrie-usage.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-1-telemetrie-usage.md">SPEC-015-1-telemetrie-usage</a> — SPEC-015-1-telemetrie-usage — Agrégat d&#39;usage per-command (local, opt-in)</h1>
+
+    <section aria-label="Contexte">
+      <h3>§1 — Contexte</h3>
+      <p>INTENT-015 veut décider du noyau/longue-traîne du CLI **sur données d&#39;usage**, pas à l&#39;intuition. La télémétrie opt-in RGPD existe déjà (`lib/telemetry.js`) et logge chaque exécution dans `~/.aiad-sdd/events.jsonl` (`event: command_run`, champ `command`). Ce qui manque : **lire et agréger** ce log local en un classement per-command. Cette SPEC ajoute la lecture/agrégation — **aucune nouvelle collecte**, donc condition C1 servie (la donnée informe le noyau provisoire).</p>
+    </section>
+
+    <section aria-label="Critères d'acceptation">
+      <h3>§3 — Critères d'acceptation</h3>
+      <div class="ca-item">
+      <p><strong>CA-001</strong> — Agrégat per-command sur le log local <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the operator runs &quot;aiad-sdd telemetry usage&quot; while telemetry is opted-in and the events log contains at least one command_run record, the Telemetry Usage command SHALL display one row per distinct command with its absolute count, its percentage share of the total, and its rank, sorted by descending count.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-002</strong> — Aucune collecte ni accès réseau <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The Telemetry Usage command SHALL read the local file ~/.aiad-sdd/events.jsonl as its only data source, opening no network connection and writing no telemetry record.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-003</strong> — Sortie JSON sur demande <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the operator passes the --json flag, the Telemetry Usage command SHALL emit on stdout exactly one JSON object { total, since, until, commands: [{ rank, command, count, share, class }] } and no other text.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-004</strong> — Classification core / longue-traîne <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the aggregate is computed, the Telemetry Usage command SHALL tag each command &quot;longue-traîne&quot; WHEN it belongs to the descending-sorted tail whose cumulative share is less than or equal to 20 percent, and &quot;core&quot; otherwise.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-005</strong> — Absence de données signalée <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF telemetry is opted-out or the events log is absent or empty, THEN the Telemetry Usage command SHALL display a message stating that no usage data is available.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-006</strong> — Lignes corrompues ignorées sans interruption <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF a line in ~/.aiad-sdd/events.jsonl is not valid JSON or lacks a non-empty command field, THEN the Telemetry Usage command SHALL exclude that line from the aggregate without interrupting the processing of the remaining lines.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-007</strong> — Ordre déterministe sur égalité <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN two commands have the same count, the Telemetry Usage command SHALL order them alphabetically by command name.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-008</strong> — Sortie en succès <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the Telemetry Usage command finishes rendering either a usage report or an empty-dataset message, the Telemetry Usage command SHALL exit with status code 0.</blockquote>
+    </div>
+    </section>
+
+    <section aria-label="Interface / API">
+      <h3>§4 — Interface / API</h3>
+      <pre><code>```
+CLI :  aiad-sdd telemetry usage [--json]
+
+lib/telemetry.js (ajouts, ESM) :
+  export function readEvents(): Array&lt;{ command: string, timestamp: string }&gt;
+    // lit LOCAL_LOG, filtre event===&#39;command_run&#39; &amp; command non vide,
+    // ignore lignes invalides. [] si opt-out / fichier absent.
+
+  export function aggregateUsage(events): {
+    total: number,
+    since: string|null,
+    until: string|null,
+    commands: Array&lt;{ rank: number, command: string, count: number,
+                      share: number, class: &#39;core&#39;|&#39;longue-traîne&#39; }&gt;
+  }
+
+  export async function showUsage(options?: { json?: boolean }): Promise&lt;...&gt;
+    // orchestration + rendu texte/JSON, exit codes 0/1.
+
+bin/aiad-sdd.js : ajout branche `else if (sub === &#39;usage&#39;)` dans case &#39;telemetry&#39; (~ligne 962),
+                  + mention dans le bloc AIDE (ligne 389) et COMMANDES_VALIDES inchangé (sous-commande).
+```</code></pre>
+    </section>
+
+    <section aria-label="Dépendances">
+      <h3>§5 — Dépendances</h3>
+      <ul><li>lib/telemetry.js (état opt-in, constantes LOCAL_LOG/STATE_FILE, readState) — réutilisé, pas dupliqué.</li><li>lib/term.js (C, log, logHeader) pour le rendu cohérent.</li><li>Aucune dépendance externe (contrainte zéro-dep du projet).</li><li>Pas de dépendance vers SPEC-015-2/3 : cette SPEC est en Wave 1, elle débloque la décision de tiering.</li></ul>
+    </section>
+
+    <section aria-label="Definition of Output Done">
+      <h3>§7 — Definition of Output Done</h3>
+      <ul class="dood-list"><li>☑ Code + lint passing (lints node/deps/size/esm/claims verts)</li><li>☑ Tests unitaires sur les cas limites (test/telemetry-usage.test.js — 8/8, dont CA-008)</li><li>☑ **EARS lint : 0 violation** (skill ears-validator, 8 critères)</li><li>☑ SPEC mise à jour si écart (Drift Lock — trace 0 gap bloquant)</li><li>☑ Annotations machine-vérifiables posées (@intent INTENT-015, @spec SPEC-015-1-telemetrie-usage, @verified-by, @governance AIAD-RGPD)</li><li>☑ Code review passée (PR #8)</li><li>☑ Gouvernance vérifiée : **RGPD** (lecture locale de données déjà consenties, aucune nouvelle collecte, aucun envoi réseau, pas de PII) ; **RGESN** (sobriété : zéro dépendance, lecture séquentielle). AI-ACT / RGAA non déclenchés (pas d&#39;IA, pas d&#39;UI).</li></ul>
+    </section>
+
+    <div class="sp-actions">
+      <a href="specs.html">← Retour à la liste des SPECs</a>
+      <a href="../.aiad/specs/SPEC-015-1-telemetrie-usage.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="sp-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-ok">done</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-muted">—</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-info">ears</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-015</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-06-16</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

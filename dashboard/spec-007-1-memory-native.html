@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B) — aiad-sdd</title>
+<meta name="description" content="SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Sant…"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B) — aiad-sdd"/>
+<meta property="og:description" content="SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Sant…"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B) — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Sant…"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.18.0</div>
+  </div>
+  <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>SPEC-007-1-memory-native — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)</h1>
+      <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+  .sp-cols { display:grid; grid-template-columns: 1fr 260px; gap: 1.5rem; align-items: start; }
+  @media (max-width: 900px) { .sp-cols { grid-template-columns: 1fr; } }
+  .sp-meta table { width:100%; font-size:.85rem; }
+  .sp-meta td { padding:.25rem .4rem; vertical-align:top; }
+  .sp-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+  .sp-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+  .sp-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+  .ca-item { margin-bottom:.75rem; padding:.5rem; background:rgba(127,127,127,.03); border-left:2px solid var(--border,#ddd); border-radius:.2rem; }
+  .ca-texte { margin:.4rem 0 0; padding:.4rem .6rem; background:rgba(76,110,245,.04); border-left:3px solid rgba(76,110,245,.3); font-size:.88rem; font-family:monospace; white-space:pre-wrap; }
+  .dood-list { list-style:none; padding:0; }
+  .dood-list li { padding:.15rem 0; font-size:.88rem; }
+  .sp-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+  .sp-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+  .sp-actions a:hover { background:rgba(76,110,245,.18); }
+  /* Masque le doublon h1 du page-header pour les pages détail SPEC */
+  body:has(.sp-cols) .page-header h1 { display:none; }
+</style>
+<div class="sp-cols">
+  <div class="sp-sections">
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-007-1-memory-native.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-007-1-memory-native.md">SPEC-007-1-memory-native</a> — Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)</h1>
+
+    <section aria-label="Contexte">
+      <h3>§1 — Contexte</h3>
+      <p class="muted">Non renseigné.</p>
+    </section>
+
+    <section aria-label="Critères d'acceptation">
+      <h3>§3 — Critères d'acceptation</h3>
+      <p>Aucun critère d'acceptation défini.</p>
+    </section>
+
+    <section aria-label="Interface / API">
+      <h3>§4 — Interface / API</h3>
+      <p class="muted">Non définie.</p>
+    </section>
+
+    <section aria-label="Dépendances">
+      <h3>§5 — Dépendances</h3>
+      <p class="muted">Aucune dépendance déclarée.</p>
+    </section>
+
+    <section aria-label="Definition of Output Done">
+      <h3>§7 — Definition of Output Done</h3>
+      <p class="muted">Non définie.</p>
+    </section>
+
+    <div class="sp-actions">
+      <a href="specs.html">← Retour à la liste des SPECs</a>
+      <a href="../.aiad/specs/SPEC-007-1-memory-native.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="sp-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-ok">done</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-ok">SQS 4.2/5</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-muted">prose</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-007</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-06-09</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

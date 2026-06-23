@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>SPEC-017-2-inbox-triage — SPEC-017-2 — Inbox de triage facts/drifts (localStorage) — aiad-sdd</title>
+<meta name="description" content="SPEC-017-2-inbox-triage — SPEC-017-2 — Inbox de triage facts/drifts (localStorage) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SPEC-017-2-inbox-triage — SPEC-017-2 — Inbox de triage facts/drifts (localStorage) — aiad-sdd"/>
+<meta property="og:description" content="SPEC-017-2-inbox-triage — SPEC-017-2 — Inbox de triage facts/drifts (localStorage) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPEC-017-2-inbox-triage — SPEC-017-2 — Inbox de triage facts/drifts (localStorage) — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-017-2-inbox-triage — SPEC-017-2 — Inbox de triage facts/drifts (localStorage) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.18.0</div>
+  </div>
+  <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>SPEC-017-2-inbox-triage — SPEC-017-2 — Inbox de triage facts/drifts (localStorage)</h1>
+      <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+  .sp-cols { display:grid; grid-template-columns: 1fr 260px; gap: 1.5rem; align-items: start; }
+  @media (max-width: 900px) { .sp-cols { grid-template-columns: 1fr; } }
+  .sp-meta table { width:100%; font-size:.85rem; }
+  .sp-meta td { padding:.25rem .4rem; vertical-align:top; }
+  .sp-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+  .sp-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+  .sp-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+  .ca-item { margin-bottom:.75rem; padding:.5rem; background:rgba(127,127,127,.03); border-left:2px solid var(--border,#ddd); border-radius:.2rem; }
+  .ca-texte { margin:.4rem 0 0; padding:.4rem .6rem; background:rgba(76,110,245,.04); border-left:3px solid rgba(76,110,245,.3); font-size:.88rem; font-family:monospace; white-space:pre-wrap; }
+  .dood-list { list-style:none; padding:0; }
+  .dood-list li { padding:.15rem 0; font-size:.88rem; }
+  .sp-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+  .sp-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+  .sp-actions a:hover { background:rgba(76,110,245,.18); }
+  /* Masque le doublon h1 du page-header pour les pages détail SPEC */
+  body:has(.sp-cols) .page-header h1 { display:none; }
+</style>
+<div class="sp-cols">
+  <div class="sp-sections">
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-017-2-inbox-triage.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-2-inbox-triage.md">SPEC-017-2-inbox-triage</a> — SPEC-017-2 — Inbox de triage facts/drifts (localStorage)</h1>
+
+    <section aria-label="Contexte">
+      <h3>§1 — Contexte</h3>
+      <p>Les facts et drifts s&#39;accumulent dans `.aiad/facts/` sans point de triage centralisé.
+INTENT-017 introduit une page `inbox.html` dédiée permettant d&#39;accepter ou différer
+chaque élément via des actions client-side persistées en localStorage (C1 RESEARCH-023 :
+pas de backend, site statique). La limitation de portabilité entre navigateurs est
+documentée et assumée.</p>
+    </section>
+
+    <section aria-label="Critères d'acceptation">
+      <h3>§3 — Critères d'acceptation</h3>
+      <div class="ca-item">
+      <p><strong>CA-001</strong> — Liste unifiée facts et drifts <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The inbox calculator SHALL produce a unified list combining all items from `donnees.facts` and `donnees.drifts`, each with fields `{ id, type, titre, statut: &quot;new&quot; }`.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-002a</strong> — Persistance &quot;Accepter&quot; dans localStorage <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the user clicks the &quot;Accepter&quot; button for item `{id}`, the inbox client script SHALL write `localStorage.setItem(&quot;aiad-inbox-{id}&quot;, &quot;accepted&quot;)`.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-002b</strong> — Mise à jour label &quot;Accepté&quot; <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the user clicks the &quot;Accepter&quot; button for item `{id}`, the inbox client script SHALL update the row status label to &quot;Accepté&quot; without reloading the page.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-003a</strong> — Persistance &quot;Différer&quot; dans localStorage <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the user clicks the &quot;Différer&quot; button for item `{id}`, the inbox client script SHALL write `localStorage.setItem(&quot;aiad-inbox-{id}&quot;, &quot;deferred&quot;)`.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-003b</strong> — Mise à jour label &quot;Différé&quot; <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the user clicks the &quot;Différer&quot; button for item `{id}`, the inbox client script SHALL update the row status label to &quot;Différé&quot; without reloading the page.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-004a</strong> — Avertissement si localStorage indisponible <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF `localStorage` throws on write, THEN the inbox client script SHALL display a `&lt;p aria-live=&quot;polite&quot;&gt;` warning &quot;Actions de triage indisponibles (navigation privée ou quota dépassé).&quot;.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-004b</strong> — Pas d&#39;exception non interceptée si localStorage indisponible <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF `localStorage` throws on write, THEN the inbox client script SHALL catch the exception without propagating it to the browser&#39;s uncaught-error handler.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-005</strong> — Filtrage par onglet client-side <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the user clicks a filter tab (Tout / Nouveau / Accepté / Différé), the inbox client script SHALL hide all rows whose status does not match the selected filter without reloading the page.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-006</strong> — Inbox vide <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF the unified list contains 0 items, THEN the inbox renderer SHALL display &quot;Aucun élément en attente de triage.&quot; instead of an empty table.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-007a</strong> — Lecture localStorage au chargement <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the inbox page loads, the inbox client script SHALL read `localStorage` for each rendered item&#39;s key `aiad-inbox-{id}`.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-007b</strong> — Application des labels stockés au chargement <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the inbox page loads, the inbox client script SHALL apply the stored status label from `localStorage` to each matching row before the first user interaction.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-008</strong> — Accessibilité RGAA AA <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The inbox renderer SHALL produce a `&lt;table&gt;` with a `&lt;caption&gt;`, `&lt;th scope=&quot;col&quot;&gt;` for each column, and each action button with an `aria-label` containing the item ID.</blockquote>
+    </div>
+    </section>
+
+    <section aria-label="Interface / API">
+      <h3>§4 — Interface / API</h3>
+      <pre><code>```js
+// lib/dashboard/views/inbox.js
+export function calculerInboxTriage(donnees)         // → { items: [{id, type, titre, statut}] }
+export function blocInboxTriage(donnees)             // → string HTML (section + table + script inline)
+export function pageInbox(donnees, { layout })       // → string HTML (page complète)
+```
+
+Entrée dans `render.js` PAGES :
+```js
+{ slug: &#39;inbox&#39;, titre: &#39;Inbox&#39;, icone: &#39;📥&#39;, file: &#39;inbox.html&#39;,
+  builder: (d, opts) =&gt; pageInbox(d, opts) }
+```
+
+localStorage schema :
+```
+clé   : &quot;aiad-inbox-{id}&quot;        (ex: &quot;aiad-inbox-FACT-003&quot;)
+valeur: &quot;accepted&quot; | &quot;deferred&quot;  (absent = &quot;new&quot;)
+```</code></pre>
+    </section>
+
+    <section aria-label="Dépendances">
+      <h3>§5 — Dépendances</h3>
+      <ul><li>lib/dashboard/collect.js — donnees.facts</li><li>lib/dashboard/model/index.js — donnees.drifts, wiring calculateur inbox</li><li>lib/dashboard/render.js — intégration PAGES</li><li>lib/dashboard/ui/helpers.js — escape()</li><li>SPEC-016-1 (architecture 4 couches) — prérequis livré</li><li>RESEARCH-023 condition C1 — localStorage assumé, limitation documentée</li></ul>
+    </section>
+
+    <section aria-label="Definition of Output Done">
+      <h3>§7 — Definition of Output Done</h3>
+      <ul class="dood-list"><li>☑ lib/dashboard/views/inbox.js créé (≤ 220 LOC)</li><li>☑ render.js PAGES mis à jour (1 ligne additive)</li><li>☑ model/index.js — calculateur calculerInboxTriage ajouté</li><li>☑ test/dashboard-inbox.test.js — 8 cas CA-001 à CA-008</li><li>☑ **EARS lint : 0 violation** (skill ears-validator)</li><li>☑ lint + tests passing (npm test)</li><li>☑ Annotations @spec SPEC-017-2 + @verified-by posées</li><li>☑ Limitation localStorage documentée dans la page HTML (&lt;details&gt; ou note de bas de page)</li><li>☑ Gouvernance vérifiée : RGAA (CA-008), RGPD (localStorage ne stocke pas de données personnelles)</li></ul>
+    </section>
+
+    <div class="sp-actions">
+      <a href="specs.html">← Retour à la liste des SPECs</a>
+      <a href="../.aiad/specs/SPEC-017-2-inbox-triage.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="sp-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-ok">done</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-muted">—</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-info">ears</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-017</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-06-22</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

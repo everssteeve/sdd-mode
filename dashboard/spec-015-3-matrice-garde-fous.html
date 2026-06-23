@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>SPEC-015-3-matrice-garde-fous — SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable — aiad-sdd</title>
+<meta name="description" content="SPEC-015-3-matrice-garde-fous — SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable — Vue détaillée SPEC — critères, interface, dépendances, DoOD · ai…"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SPEC-015-3-matrice-garde-fous — SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable — aiad-sdd"/>
+<meta property="og:description" content="SPEC-015-3-matrice-garde-fous — SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable — Vue détaillée SPEC — critères, interface, dépendances, DoOD · ai…"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPEC-015-3-matrice-garde-fous — SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-015-3-matrice-garde-fous — SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable — Vue détaillée SPEC — critères, interface, dépendances, DoOD · ai…"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.18.0</div>
+  </div>
+  <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>SPEC-015-3-matrice-garde-fous — SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable</h1>
+      <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+  .sp-cols { display:grid; grid-template-columns: 1fr 260px; gap: 1.5rem; align-items: start; }
+  @media (max-width: 900px) { .sp-cols { grid-template-columns: 1fr; } }
+  .sp-meta table { width:100%; font-size:.85rem; }
+  .sp-meta td { padding:.25rem .4rem; vertical-align:top; }
+  .sp-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+  .sp-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+  .sp-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+  .ca-item { margin-bottom:.75rem; padding:.5rem; background:rgba(127,127,127,.03); border-left:2px solid var(--border,#ddd); border-radius:.2rem; }
+  .ca-texte { margin:.4rem 0 0; padding:.4rem .6rem; background:rgba(76,110,245,.04); border-left:3px solid rgba(76,110,245,.3); font-size:.88rem; font-family:monospace; white-space:pre-wrap; }
+  .dood-list { list-style:none; padding:0; }
+  .dood-list li { padding:.15rem 0; font-size:.88rem; }
+  .sp-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+  .sp-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+  .sp-actions a:hover { background:rgba(76,110,245,.18); }
+  /* Masque le doublon h1 du page-header pour les pages détail SPEC */
+  body:has(.sp-cols) .page-header h1 { display:none; }
+</style>
+<div class="sp-cols">
+  <div class="sp-sections">
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-015-3-matrice-garde-fous.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-3-matrice-garde-fous.md">SPEC-015-3-matrice-garde-fous</a> — SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable</h1>
+
+    <section aria-label="Contexte">
+      <h3>§1 — Contexte</h3>
+      <p>INTENT-015 veut **publier la matrice enforced/advisory des garde-fous** et **resserrer les bypass**. RESEARCH-018 a révélé que le veto Tier 1 fail-closed est aujourd&#39;hui **bypassable** : `.aiad/hooks/veto.js:28` honore `AIAD_HOOK_SILENT=1` (early-return `0`), et aucun test ne garde ce trou. Cette SPEC : (1) **ferme le bypass du veto** (C3), (2) publie une **matrice machine-vérifiable** des garde-fous adossée à un test d&#39;audit qui échoue si la sévérité déclarée diverge du code (C-MATRICE), (3) se borne au veto pour le resserrage — le drift-lock garde sa soupape, documentée (C-SCOPE).</p>
+    </section>
+
+    <section aria-label="Critères d'acceptation">
+      <h3>§3 — Critères d'acceptation</h3>
+      <div class="ca-item">
+      <p><strong>CA-001</strong> — Veto non-bypassable par AIAD_HOOK_SILENT <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The veto Tier 1 hook SHALL run the governance veto irrespective of the AIAD_HOOK_SILENT environment variable, containing no AIAD_HOOK_SILENT early-return in its source.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-002</strong> — Garde-fous advisory conservent leur bypass <span class="badge badge-info ca-pattern" style="font-size:.72rem">Optional feature</span></p>
+      <blockquote class="ca-texte">WHERE a guardrail is declared advisory, the guardrail SHALL keep honouring the AIAD_HOOK_SILENT bypass.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-003</strong> — Matrice exhaustive sur les hooks réels <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The guardrails matrix SHALL declare one entry for every hook file present in .aiad/hooks/.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-004</strong> — Audit de cohérence sévérité ↔ code <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF a guardrail declared bypassable false contains an AIAD_HOOK_SILENT early-return in its hook source, THEN the audit SHALL report the matrix as inconsistent.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-005</strong> — Listing de la matrice <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the operator runs &quot;aiad-sdd guardrails&quot;, the Guardrails command SHALL display each guardrail grouped by type with its layer, blocking flag, and bypassable flag.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-006</strong> — Sortie JSON stable <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the operator passes the --json flag, the Guardrails command SHALL emit on stdout exactly one JSON object { total, enforced, advisory, guardrails } and no other text.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-007</strong> — Schéma de chaque entrée <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The guardrails matrix SHALL define for every entry an id, a layer in {hook, ci}, a type in {enforced, advisory}, a boolean blocking, and a boolean bypassable.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-008</strong> — Lecture seule <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The Guardrails command SHALL read only the in-memory matrix and the hook source files, writing no file and opening no network connection.</blockquote>
+    </div>
+    </section>
+
+    <section aria-label="Interface / API">
+      <h3>§4 — Interface / API</h3>
+      <pre><code>```
+CLI :  aiad-sdd guardrails [--json]
+
+lib/guardrails.js (ESM, zéro-dep) :
+  export const GUARDRAILS = [
+    { id: &#39;veto&#39;, layer: &#39;hook&#39;, event: &#39;PreToolUse&#39;, type: &#39;enforced&#39;,
+      blocking: true, bypassable: false, bypass: null, test: &#39;test/guardrails.test.js&#39; },
+    { id: &#39;drift-lock&#39;, layer: &#39;hook&#39;, event: &#39;Stop&#39;, type: &#39;enforced&#39;,
+      blocking: true, bypassable: true, bypass: &#39;disableStopHook | AIAD_HOOK_SILENT&#39;, test: &#39;test/pre-commit.test.js&#39; },
+    { id: &#39;discovery-gate&#39;, layer: &#39;hook&#39;, event: &#39;UserPromptSubmit&#39;, type: &#39;advisory&#39;,
+      blocking: false, bypassable: true, bypass: &#39;AIAD_HOOK_SILENT&#39;, test: &#39;test/discovery-gate.test.js&#39; },
+    { id: &#39;sdd-trace&#39;, layer: &#39;ci&#39;, event: &#39;pull_request&#39;, type: &#39;enforced&#39;,
+      blocking: true, bypassable: false, bypass: null, test: &#39;.github/workflows/sdd-trace.yml&#39; },
+    // … un enregistrement par hook .aiad/hooks/*.js + chaque gate CI bloquant
+  ];
+  export function auditGuardrails(readHookSource): { ok: boolean, violations: [...] };
+    // confronte bypassable:false ↔ absence de AIAD_HOOK_SILENT dans la source du hook,
+    // et exhaustivité (tout hook de .aiad/hooks/ a une entrée).
+  export function showGuardrails(options?): ...;   // rendu texte/JSON, exit 0.
+
+.aiad/hooks/veto.js :
+  - Suppression de `if (process.env.AIAD_HOOK_SILENT === &#39;1&#39;) return 0;` (ligne ~28).
+  - En-tête mis à jour : veto non silençable ; dernier recours `git commit --no-verify` (hors-harness, tracé).
+
+bin/aiad-sdd.js :
+  - case &#39;guardrails&#39; : dispatch (parse --json), exit 0.
+  - &#39;guardrails&#39; ajouté à COMMANDES_VALIDES + AIDE + COMMANDS_REGISTRY (tier core, catégorie gouvernance).
+```</code></pre>
+    </section>
+
+    <section aria-label="Dépendances">
+      <h3>§5 — Dépendances</h3>
+      <ul><li>.aiad/hooks/veto.js (correctif bypass).</li><li>lib/hooks-config.js (HOOKS_GOUVERNANCE — cohérence : le veto reste protégé des toggles ET de AIAD_HOOK_SILENT).</li><li>lib/commands-registry.js (ajouter guardrails au registre — cohérence snapshot SPEC-015-2-1).</li><li>lib/term.js (rendu). Aucune dépendance externe (zéro-dep).</li><li>**Amont** : RESEARCH-018. Clôt INTENT-015 (dernière SPEC).</li></ul>
+    </section>
+
+    <section aria-label="Definition of Output Done">
+      <h3>§7 — Definition of Output Done</h3>
+      <ul class="dood-list"><li>☑ Code + lint passing (lints node/deps/size/esm/claims verts)</li><li>☑ Tests unitaires sur les 8 critères + audit anti-régression (test/guardrails.test.js — 8/8)</li><li>☑ **EARS lint : 0 violation** (skill ears-validator)</li><li>☑ Snapshot registre (SPEC-015-2-1) mis à jour : guardrails ajoutée (core/gouvernance)</li><li>☑ DOCUMENTATION.md + badge couverture régénérés (nouvelle commande)</li><li>☑ SPEC mise à jour si écart (Drift Lock — trace 0 gap bloquant)</li><li>☑ Annotations machine-vérifiables posées (@intent INTENT-015, @spec SPEC-015-3-matrice-garde-fous, @governance sur le correctif veto)</li><li>☑ Code review passée (PR #14)</li><li>☐ Gouvernance vérifiée : **méta-gouvernance** — le correctif renforce la robustesse du veto Tier 1 (AI-ACT/RGPD/RGAA). RGESN aligné (matrice = lisibilité). Pas de données perso / IA / UI.</li></ul>
+    </section>
+
+    <div class="sp-actions">
+      <a href="specs.html">← Retour à la liste des SPECs</a>
+      <a href="../.aiad/specs/SPEC-015-3-matrice-garde-fous.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="sp-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-ok">done</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-muted">—</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-info">ears</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-015</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-06-19</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

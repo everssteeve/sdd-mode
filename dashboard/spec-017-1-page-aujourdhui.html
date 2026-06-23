@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>SPEC-017-1-page-aujourdhui — SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections) — aiad-sdd</title>
+<meta name="description" content="SPEC-017-1-page-aujourdhui — SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SPEC-017-1-page-aujourdhui — SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections) — aiad-sdd"/>
+<meta property="og:description" content="SPEC-017-1-page-aujourdhui — SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPEC-017-1-page-aujourdhui — SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections) — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-017-1-page-aujourdhui — SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.18.0</div>
+  </div>
+  <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>SPEC-017-1-page-aujourdhui — SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections)</h1>
+      <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+  .sp-cols { display:grid; grid-template-columns: 1fr 260px; gap: 1.5rem; align-items: start; }
+  @media (max-width: 900px) { .sp-cols { grid-template-columns: 1fr; } }
+  .sp-meta table { width:100%; font-size:.85rem; }
+  .sp-meta td { padding:.25rem .4rem; vertical-align:top; }
+  .sp-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+  .sp-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+  .sp-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+  .ca-item { margin-bottom:.75rem; padding:.5rem; background:rgba(127,127,127,.03); border-left:2px solid var(--border,#ddd); border-radius:.2rem; }
+  .ca-texte { margin:.4rem 0 0; padding:.4rem .6rem; background:rgba(76,110,245,.04); border-left:3px solid rgba(76,110,245,.3); font-size:.88rem; font-family:monospace; white-space:pre-wrap; }
+  .dood-list { list-style:none; padding:0; }
+  .dood-list li { padding:.15rem 0; font-size:.88rem; }
+  .sp-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+  .sp-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+  .sp-actions a:hover { background:rgba(76,110,245,.18); }
+  /* Masque le doublon h1 du page-header pour les pages détail SPEC */
+  body:has(.sp-cols) .page-header h1 { display:none; }
+</style>
+<div class="sp-cols">
+  <div class="sp-sections">
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-017-1-page-aujourdhui.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-1-page-aujourdhui.md">SPEC-017-1-page-aujourdhui</a> — SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections)</h1>
+
+    <section aria-label="Contexte">
+      <h3>§1 — Contexte</h3>
+      <p>INTENT-017 veut transformer le dashboard encyclopédie en radiateur quotidien.
+La page &quot;Aujourd&#39;hui&quot; est la page d&#39;entrée du dashboard — lisible en 10 secondes,
+limitée à 4 sections, sans scroll vertical sur un écran 1080p standard (1920×1080).
+Dépend de INTENT-016 (architecture 4 couches livrée).</p>
+    </section>
+
+    <section aria-label="Critères d'acceptation">
+      <h3>§3 — Critères d'acceptation</h3>
+      <div class="ca-item">
+      <p><strong>CA-001</strong> — Exactement 4 sections <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The today-page renderer SHALL produce exactly 4 `&lt;section&gt;` elements inside the page body.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-002</strong> — Priorités triées P0 avant P1 <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The today-page renderer SHALL list top-3 active Intents ordered by priority (P0 before P1, then by date ascending).</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-003</strong> — Aucun bloquant quand liste vide <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF no active P0 or P1 Intent exists, THEN the today-page renderer SHALL display &quot;Aucun bloquant aujourd&#39;hui.&quot; in the Priorités section.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-004</strong> — Échéances filtrées à 7 jours <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The today-page renderer SHALL include only Intents whose `targetDate` falls within 7 calendar days of the generation date in the Échéances section.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-005</strong> — Placeholder standup absent <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF the standup script text is empty or undefined, THEN the today-page renderer SHALL display &quot;Script non disponible — relance le dashboard.&quot; in the Script standup section.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-006a</strong> — Sections accessibles (aria-label) <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The today-page renderer SHALL produce HTML where every `&lt;section&gt;` element has an `aria-label` attribute.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-006b</strong> — Hiérarchie de titres séquentielle <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The today-page renderer SHALL produce HTML where every heading element follows a sequential hierarchy (h1 then h2, no skipped levels).</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-007a</strong> — Wiring PAGES array <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The dashboard generator SHALL include an entry with slug &quot;today&quot; in the PAGES array.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-007b</strong> — Écriture today.html <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The dashboard generator SHALL write `today.html` to the output directory on each run.</blockquote>
+    </div>
+    </section>
+
+    <section aria-label="Interface / API">
+      <h3>§4 — Interface / API</h3>
+      <pre><code>```js
+// lib/dashboard/views/today.js
+export function construirePageAujourdhui(donnees)  // → string HTML (body uniquement)
+export function pageAujourdhui(donnees, { layout }) // → string HTML (page complète)
+```
+
+Entrée dans `render.js` PAGES :
+```js
+{ slug: &#39;today&#39;, titre: &quot;Aujourd&#39;hui&quot;, icone: &#39;⊙&#39;, file: &#39;today.html&#39;,
+  builder: (d, opts) =&gt; pageAujourdhui(d, opts) }
+```</code></pre>
+    </section>
+
+    <section aria-label="Dépendances">
+      <h3>§5 — Dépendances</h3>
+      <ul><li>lib/dashboard/model/index.js — donnees.standupScript, donnees.deadlines, donnees.riskTransparency</li><li>lib/dashboard/intent-priority.js — topPriorites(), lirePriorite() (import direct dans today.js)</li><li>lib/dashboard/render.js — intégration PAGES</li><li>lib/dashboard/ui/helpers.js — escape()</li><li>SPEC-016-1 (architecture 4 couches) — prérequis livré</li></ul>
+    </section>
+
+    <section aria-label="Definition of Output Done">
+      <h3>§7 — Definition of Output Done</h3>
+      <ul class="dood-list"><li>☐ lib/dashboard/views/today.js créé (≤ 180 LOC)</li><li>☐ render.js PAGES mis à jour (1 ligne additive)</li><li>☐ Aucune modification de model/index.js (topPriorites importée directement dans today.js)</li><li>☐ test/dashboard-today.test.js — 7 cas CA-001 à CA-007</li><li>☐ **EARS lint : 0 violation** (skill ears-validator)</li><li>☐ lint + tests passing (npm test)</li><li>☐ Annotations @spec SPEC-017-1 + @verified-by posées</li><li>☐ Gouvernance vérifiée : RGAA (CA-006), RGESN (budget SPEC-016-4 non impacté)</li></ul>
+    </section>
+
+    <div class="sp-actions">
+      <a href="specs.html">← Retour à la liste des SPECs</a>
+      <a href="../.aiad/specs/SPEC-017-1-page-aujourdhui.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="sp-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-ok">done</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-muted">—</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-info">ears</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-017</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-06-22</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

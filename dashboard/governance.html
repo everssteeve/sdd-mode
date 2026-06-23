@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T12:52:26.549Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Gouvernance Tier 1 — aiad-sdd</title>
 <meta name="description" content="Gouvernance Tier 1 — AI-ACT · RGPD · RGAA · RGESN — droit de veto · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
@@ -36,6 +36,12 @@
     <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
     </a></li>
@@ -87,7 +93,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 22/06/2026 14:52:26<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +102,7 @@
       <div class="subtitle">AI-ACT · RGPD · RGAA · RGESN — droit de veto</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 14:52:26. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -167,14 +173,14 @@
   </div>
 </section>
 <section>
-    <h2>Violations Tier 1 <span class="count">31</span></h2>
+    <h2>Violations Tier 1 <span class="count">39</span></h2>
     <div class="kpis">
-      <div class="kpi"><div class="label">Annotations orphelines</div><div class="value">29</div><div class="delta">code dit X · SPEC ne le déclare pas</div></div>
+      <div class="kpi"><div class="label">Annotations orphelines</div><div class="value">37</div><div class="delta">code dit X · SPEC ne le déclare pas</div></div>
       <div class="kpi"><div class="label">SPECs non implémentées</div><div class="value">2</div><div class="delta">SPEC promet X · code ne le matérialise pas</div></div>
     </div>
-    <p class="muted" style="font-size:.85rem">Par agent : <ul style="display:inline-flex;gap:.6rem;padding:0;margin:0;list-style:none"><li><span class="badge badge-info" style="font-size:.7rem">AIAD-RGAA</span> <strong>19</strong></li><li><span class="badge badge-info" style="font-size:.7rem">AIAD-RGESN</span> <strong>6</strong></li><li><span class="badge badge-info" style="font-size:.7rem">AIAD-RGPD</span> <strong>4</strong></li><li><span class="badge badge-info" style="font-size:.7rem">AIAD-AI-ACT</span> <strong>2</strong></li></ul></p>
+    <p class="muted" style="font-size:.85rem">Par agent : <ul style="display:inline-flex;gap:.6rem;padding:0;margin:0;list-style:none"><li><span class="badge badge-info" style="font-size:.7rem">AIAD-RGAA</span> <strong>24</strong></li><li><span class="badge badge-info" style="font-size:.7rem">AIAD-RGESN</span> <strong>8</strong></li><li><span class="badge badge-info" style="font-size:.7rem">AIAD-RGPD</span> <strong>5</strong></li><li><span class="badge badge-info" style="font-size:.7rem">AIAD-AI-ACT</span> <strong>2</strong></li></ul></p>
     <details open>
-      <summary><strong>Annotations orphelines (Type A)</strong> — 29</summary>
+      <summary><strong>Annotations orphelines (Type A)</strong> — 37</summary>
       <p class="muted" style="font-size:.85rem">Le code est annoté pour un agent Tier 1 mais la SPEC associée ne le déclare pas dans son frontmatter <code>governance:</code>. Ajoute le tag à la SPEC ou retire-le du code.</p>
       <table>
         <thead><tr><th>Agent</th><th>SPEC</th><th>Code</th></tr></thead>
@@ -257,7 +263,7 @@
     <tr>
       <td><span class="badge badge-info" style="font-size:.7rem">AIAD-RGAA</span></td>
       <td><code>SPEC-016-1-architecture-4-couches</code></td>
-      <td><a class="src-link" href="../lib/dashboard/views/specs.js#L3" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/specs.js à la ligne 3">lib/dashboard/views/specs.js</a><span class="muted" style="font-size:.75rem"> <a class="src-link" href="../lib/dashboard/views/specs.js#L3" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/specs.js à la ligne 3">L3</a></span></td>
+      <td><a class="src-link" href="../lib/dashboard/views/specs.js#L5" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/specs.js à la ligne 5">lib/dashboard/views/specs.js</a><span class="muted" style="font-size:.75rem"> <a class="src-link" href="../lib/dashboard/views/specs.js#L5" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/specs.js à la ligne 5">L5</a></span></td>
     </tr>
     <tr>
       <td><span class="badge badge-info" style="font-size:.7rem">AIAD-RGAA</span></td>
@@ -315,14 +321,19 @@
       <td><a class="src-link" href="../lib/dashboard/ui/sparklines.js#L3" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/ui/sparklines.js à la ligne 3">lib/dashboard/ui/sparklines.js</a><span class="muted" style="font-size:.75rem"> <a class="src-link" href="../lib/dashboard/ui/sparklines.js#L3" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/ui/sparklines.js à la ligne 3">L3</a></span></td>
     </tr>
     <tr>
-      <td><span class="badge badge-info" style="font-size:.7rem">AIAD-AI-ACT</span></td>
-      <td><code>SPEC-024-1-trace-exemption</code></td>
-      <td><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><span class="muted" style="font-size:.75rem"> <a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">L45</a></span></td>
+      <td><span class="badge badge-info" style="font-size:.7rem">AIAD-RGESN</span></td>
+      <td><code>SPEC-016-4-rgesn-budgets</code></td>
+      <td><a class="src-link" href="../scripts/check-page-budgets.js#L4" target="_blank" rel="noopener" title="Ouvrir scripts/check-page-budgets.js à la ligne 4">scripts/check-page-budgets.js</a><span class="muted" style="font-size:.75rem"> <a class="src-link" href="../scripts/check-page-budgets.js#L4" target="_blank" rel="noopener" title="Ouvrir scripts/check-page-budgets.js à la ligne 4">L4</a></span></td>
     </tr>
     <tr>
-      <td><span class="badge badge-info" style="font-size:.7rem">AIAD-RGPD</span></td>
-      <td><code>SPEC-024-1-trace-exemption</code></td>
-      <td><a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">lib/sdd-trace.js</a><span class="muted" style="font-size:.75rem"> <a class="src-link" href="../lib/sdd-trace.js#L45" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 45">L45</a></span></td>
+      <td><span class="badge badge-info" style="font-size:.7rem">AIAD-RGAA</span></td>
+      <td><code>SPEC-017-1-page-aujourdhui</code></td>
+      <td><a class="src-link" href="../lib/dashboard/views/today.js#L6" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/today.js à la ligne 6">lib/dashboard/views/today.js</a><span class="muted" style="font-size:.75rem"> <a class="src-link" href="../lib/dashboard/views/today.js#L6" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/today.js à la ligne 6">L6</a></span></td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-info" style="font-size:.7rem">AIAD-RGAA</span></td>
+      <td><code>SPEC-017-2-inbox-triage</code></td>
+      <td><a class="src-link" href="../lib/dashboard/views/inbox.js#L5" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/inbox.js à la ligne 5">lib/dashboard/views/inbox.js</a><span class="muted" style="font-size:.75rem"> <a class="src-link" href="../lib/dashboard/views/inbox.js#L5" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/inbox.js à la ligne 5">L5</a></span></td>
     </tr></tbody>
       </table>
     </details>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T12:52:26.549Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Changelog des artefacts — aiad-sdd</title>
 <meta name="description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
@@ -36,6 +36,12 @@
     <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
     </a></li>
@@ -87,7 +93,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 22/06/2026 14:52:26<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +102,7 @@
       <div class="subtitle">Historique des mises à jour SDD Mode</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 14:52:26. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -105,7 +111,7 @@
   </header>
   
 <div class="kpis">
-  <div class="kpi"><div class="label">Entrées</div><div class="value">18</div></div>
+  <div class="kpi"><div class="label">Entrées</div><div class="value">23</div></div>
 </div>
 <section>
   <h2>Historique <span class="count">source : <a class="src-link" href="../.aiad/CHANGELOG-ARTEFACTS.md" target="_blank" rel="noopener" title="Ouvrir .aiad/CHANGELOG-ARTEFACTS.md">.aiad/CHANGELOG-ARTEFACTS.md</a></span></h2>
@@ -113,6 +119,41 @@
   <table id="tCl" data-sortable="true" data-a11y-caption="Changelog des artefacts SDD">
     <thead><tr><th>Date</th><th>Artefact</th><th>Type</th><th>Auteur</th><th>Raison</th><th>Impact</th></tr></thead>
     <tbody><tr>
+    <td class="muted">2026-06-22</td>
+    <td><strong>INTENT-016 → done</strong></td>
+    <td>Dashboard exemplaire (toutes SPECs clôturées)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>Clôture de l&#39;intent après livraison des 4 SPECs. SPEC-016-1 et SPEC-016-2 livrées lors du commit `85b8415` et `0a186d4` …</td>
+    <td class="muted">INTENT-016 → `done` · SPEC-016-1 → `done` · SPEC-016-2 → `done` · _index.md sync…</td>
+  </tr><tr>
+    <td class="muted">2026-06-22</td>
+    <td><strong>SPEC-016-1 → done</strong></td>
+    <td>Architecture 4 couches (drift lock rétroactif)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>DoOD cochés rétrospectivement — livrables vérifiés : render.js 112 LOC, views/ ≤ 299 LOC, lint:size/esm/deps ✓, tests 39…</td>
+    <td class="muted">`lib/dashboard/{model,views,ui}/` — 10 fichiers extraits de render.js</td>
+  </tr><tr>
+    <td class="muted">2026-06-22</td>
+    <td><strong>SPEC-016-2 → done</strong></td>
+    <td>Design system accessible + axe-core CI (drift lock rétroactif)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>DoODs déjà cochés dans la SPEC, statut `done`, _index.md resté en `in-progress` par omission.</td>
+    <td class="muted">`lib/dashboard/assets.js`, `lib/dashboard/ui/sparklines.js`, job CI `a11y` — 0 v…</td>
+  </tr><tr>
+    <td class="muted">2026-06-22</td>
+    <td><strong>SPEC-016-4 → done</strong></td>
+    <td>Budgets de poids RGESN par page + CI</td>
+    <td class="muted">Steeve Evers</td>
+    <td>SPEC-016-4 (INTENT-016) — cycle complet Research (RESEARCH-022) → Gate 5/5 → Exec → Validate → Drift Lock. Extension par…</td>
+    <td class="muted">- `lib/dashboard/perf-budgets.js` — extension D1-B : colonnes Page/Fichier/Budge…</td>
+  </tr><tr>
+    <td class="muted">2026-06-22</td>
+    <td><strong>SPEC-016-3 → done</strong></td>
+    <td>data.json v2 versionné (JSON schema publié)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>SPEC-016-3 (INTENT-016) — cycle complet Research → Gate → Exec → Validate → Drift Lock. Livraison de `_meta.schema_versi…</td>
+    <td class="muted">- `lib/dashboard.js:343-353` — `serializerDonnees()` injecte `schema_version` + …</td>
+  </tr><tr>
     <td class="muted">2026-06-19</td>
     <td><strong>INTENT-024 + SPEC-024-1 → done</strong></td>
     <td>Exemption de traçabilité (FACT-004 résolu)</td>

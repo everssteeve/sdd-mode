@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T12:52:26.549Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Architecture Decision Records — aiad-sdd</title>
 <meta name="description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
@@ -36,6 +36,12 @@
     <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
     </a></li>
@@ -87,7 +93,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 22/06/2026 14:52:26<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +102,7 @@
       <div class="subtitle">ADRs extraits de ARCHITECTURE.md (persona Tech Lead)</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 14:52:26. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -107,6 +113,132 @@
       <strong>Aucun ADR détecté dans <a class="src-link" href="../.aiad/ARCHITECTURE.md" target="_blank" rel="noopener" title="Ouvrir .aiad/ARCHITECTURE.md">.aiad/ARCHITECTURE.md</a>.</strong>
       Convention : ajoute des lignes <code>- **ADR-NNN** : décision</code> dans ARCHITECTURE.md pour les capturer ici.
     </div><section>
+    <h2>Performance budgets <span class="count">0/19</span></h2>
+    <p class="muted" style="font-size:.85rem">Budgets perf déclarés dans <a class="src-link" href="../.aiad/perf-budgets.md" target="_blank" rel="noopener" title="Ouvrir .aiad/perf-budgets.md">.aiad/perf-budgets.md</a>. Source unique pour bundle size, latence p95, hot paths.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="label">Budgets total</div><div class="value">19</div><div class="delta">0 mesurés</div></div>
+      <div class="kpi"><div class="label">Dans le budget</div><div class="value">0</div><div class="delta">✓ atteints</div></div>
+      <div class="kpi"><div class="label">Hors budget</div><div class="value">0</div><div class="delta">⚠ à traiter</div></div>
+    </div>
+    <table>
+      <thead><tr><th>Metric</th><th>Budget</th><th>Actuel</th><th>Date</th></tr></thead>
+      <tbody>
+    <tr>
+      <td><strong>Overview</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">30</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>PM Cockpit</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">630</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Intents</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">90</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Specs</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">35</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Traceability</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">255</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Graph</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">45</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Metrics</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">11</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>QA</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">40</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>ADRs</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">35</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Legal</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">15</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Governance</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">33</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Drifts</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">11</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Changelog</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">15</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Onboarding</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">25</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Kanban</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">55</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>SRE</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">8</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>DPO</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">11</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Intent-pages (par page)</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">17</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr>
+    <tr>
+      <td><strong>Assets partagés (total)</strong></td>
+      <td><span class="badge badge-info" style="font-size:.75rem">45</span></td>
+      <td><span class="muted" style="font-size:.85rem">—</span></td>
+      <td class="muted" style="font-size:.85rem">—</td>
+    </tr></tbody>
+    </table>
+  </section><section>
     <h2>Dette technique <span class="count">41</span></h2>
     <div class="kpis">
       <div class="kpi"><div class="label">JNSP non résolus</div><div class="value">39</div><div class="delta"><span class="badge badge-bad" style="font-size:.7rem">16 oubliés</span></div></div>
@@ -128,7 +260,7 @@
       <line x1="28" y1="62" x2="316" y2="62" stroke="currentColor" opacity="0.2"/><text x="24" y="14.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">39</text><text x="24" y="62.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">0</text>
       <text x="61.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-01</text><text x="132.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-08</text><text x="203.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-15</text><rect x="243.0" y="6.0" width="31.5" height="56.0" fill="#4c6ef5" rx="1"><title>JNSP 39 · semaine du 2026-06-22</title></rect><rect x="278.5" y="62.0" width="31.5" height="0.0" fill="#fa5252" rx="1"><title>SPECs grosses 0 · semaine du 2026-06-22</title></rect><text x="274.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-22</text>
     </svg>
-    <p class="muted" style="font-size:.8rem;margin-top:.25rem">2 snapshot(s) total · 1 par jour persisté dans <code>.aiad/metrics/tech-debt/</code>.</p>
+    <p class="muted" style="font-size:.8rem;margin-top:.25rem">3 snapshot(s) total · 1 par jour persisté dans <code>.aiad/metrics/tech-debt/</code>.</p>
   </div>
     
     <h3>JNSP non résolus <span class="count">39</span></h3>
@@ -140,19 +272,19 @@
       <td><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/AGENTS.md#L85" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/AGENTS.md à la ligne 85">bench/scenario-autonomous-run/url-shortener/AGENTS.md</a></td>
       <td class="muted"><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/AGENTS.md#L85" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/AGENTS.md à la ligne 85">L85</a></td>
       <td>&lt;question précise pour l&#39;humain&gt;` ; le hook pre-commit bloque tout diff qui en contient</td>
-      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(40j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/CLAUDE.md#L244" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/CLAUDE.md à la ligne 244">bench/scenario-autonomous-run/url-shortener/CLAUDE.md</a></td>
       <td class="muted"><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/CLAUDE.md#L244" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/CLAUDE.md à la ligne 244">L244</a></td>
       <td>&lt;question précise à l&#39;humain&gt;</td>
-      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(40j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/CLAUDE.md#L248" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/CLAUDE.md à la ligne 248">bench/scenario-autonomous-run/url-shortener/CLAUDE.md</a></td>
       <td class="muted"><a class="src-link" href="../bench/scenario-autonomous-run/url-shortener/CLAUDE.md#L248" target="_blank" rel="noopener" title="Ouvrir bench/scenario-autonomous-run/url-shortener/CLAUDE.md à la ligne 248">L248</a></td>
       <td>` non résolu. Le bypass `git commit --no-verify`</td>
-      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(39j)</span></td>
+      <td class="muted"><span class="badge badge-bad" style="font-size:.7rem">&gt; 30j</span> <span class="muted" style="font-size:.7rem">(40j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../test/dashboard-tech-debt.test.js#L22" target="_blank" rel="noopener" title="Ouvrir test/dashboard-tech-debt.test.js à la ligne 22">test/dashboard-tech-debt.test.js</a></td>
@@ -236,85 +368,85 @@
       <td><a class="src-link" href="../CHANGELOG.md#L2083" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 2083">CHANGELOG.md</a></td>
       <td class="muted"><a class="src-link" href="../CHANGELOG.md#L2083" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 2083">L2083</a></td>
       <td>` dans le code.</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(13j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../CHANGELOG.md#L2088" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 2088">CHANGELOG.md</a></td>
       <td class="muted"><a class="src-link" href="../CHANGELOG.md#L2088" target="_blank" rel="noopener" title="Ouvrir CHANGELOG.md à la ligne 2088">L2088</a></td>
       <td>` non résolu (mode `block`) ou avertit</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(13j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../README.md#L117" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 117">README.md</a></td>
       <td class="muted"><a class="src-link" href="../README.md#L117" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 117">L117</a></td>
       <td>&lt;question précise pour l&#39;humain&gt;</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(7j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(8j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../README.md#L120" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 120">README.md</a></td>
       <td class="muted"><a class="src-link" href="../README.md#L120" target="_blank" rel="noopener" title="Ouvrir README.md à la ligne 120">L120</a></td>
       <td>` non</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(7j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(8j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../docs/analyse-claude-code-best-practice.md#L38" target="_blank" rel="noopener" title="Ouvrir docs/analyse-claude-code-best-practice.md à la ligne 38">docs/analyse-claude-code-best-practice.md</a></td>
       <td class="muted"><a class="src-link" href="../docs/analyse-claude-code-best-practice.md#L38" target="_blank" rel="noopener" title="Ouvrir docs/analyse-claude-code-best-practice.md à la ligne 38">L38</a></td>
       <td>`).</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(15j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L17" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 17">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
       <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L17" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 17">L17</a></td>
       <td>` | `.aiad/hooks/pre-commit.sh` | git CLI uniquement |</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(15j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L20" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 20">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
       <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L20" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 20">L20</a></td>
       <td>&lt;question&gt;` + exit codes 0/1/2 | définie |</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(15j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L25" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 25">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
       <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L25" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 25">L25</a></td>
       <td>` non résolu,</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(15j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L34" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 34">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
       <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L34" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 34">L34</a></td>
       <td>` ajoutés (lignes `+`),</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(15j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L79" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 79">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
       <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L79" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 79">L79</a></td>
       <td>` non résolu **avant** l&#39;exécution.</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(15j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L80" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 80">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
       <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L80" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 80">L80</a></td>
       <td>` non résolu est présent, **the system SHALL** refuser l&#39;outil avec `permissionDecision: &quot;deny&quot;` et exit code 2.</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(15j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L86" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 86">docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md</a></td>
       <td class="muted"><a class="src-link" href="../docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md#L86" target="_blank" rel="noopener" title="Ouvrir docs/plans-cc-best-practice/P0-3.2-jnsp-pretooluse.md à la ligne 86">L86</a></td>
       <td>` → exit 2 + JSON ; diff propre → exit 0.</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(15j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../docs/release-notes/v1.18.0.md#L69" target="_blank" rel="noopener" title="Ouvrir docs/release-notes/v1.18.0.md à la ligne 69">docs/release-notes/v1.18.0.md</a></td>
       <td class="muted"><a class="src-link" href="../docs/release-notes/v1.18.0.md#L69" target="_blank" rel="noopener" title="Ouvrir docs/release-notes/v1.18.0.md à la ligne 69">L69</a></td>
       <td>` non résolu est **refusé**.</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(13j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
     </tr>
     <tr>
       <td><a class="src-link" href="../templates/CLAUDE.md#L236" target="_blank" rel="noopener" title="Ouvrir templates/CLAUDE.md à la ligne 236">templates/CLAUDE.md</a></td>
       <td class="muted"><a class="src-link" href="../templates/CLAUDE.md#L236" target="_blank" rel="noopener" title="Ouvrir templates/CLAUDE.md à la ligne 236">L236</a></td>
       <td>&lt;question précise à l&#39;humain&gt;</td>
-      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(13j)</span></td>
+      <td class="muted"><span class="badge badge-warn" style="font-size:.7rem">7-30j</span> <span class="muted" style="font-size:.7rem">(14j)</span></td>
     </tr></tbody>
     </table>
     

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>SPEC-015-2-1-registre-commandes — SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental) — aiad-sdd</title>
+<meta name="description" content="SPEC-015-2-1-registre-commandes — SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental) — Vue détaillée SPEC — critères, interface, dépendances, DoOD …"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SPEC-015-2-1-registre-commandes — SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental) — aiad-sdd"/>
+<meta property="og:description" content="SPEC-015-2-1-registre-commandes — SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental) — Vue détaillée SPEC — critères, interface, dépendances, DoOD …"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPEC-015-2-1-registre-commandes — SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental) — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-015-2-1-registre-commandes — SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental) — Vue détaillée SPEC — critères, interface, dépendances, DoOD …"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.18.0</div>
+  </div>
+  <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>SPEC-015-2-1-registre-commandes — SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)</h1>
+      <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+  .sp-cols { display:grid; grid-template-columns: 1fr 260px; gap: 1.5rem; align-items: start; }
+  @media (max-width: 900px) { .sp-cols { grid-template-columns: 1fr; } }
+  .sp-meta table { width:100%; font-size:.85rem; }
+  .sp-meta td { padding:.25rem .4rem; vertical-align:top; }
+  .sp-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+  .sp-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+  .sp-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+  .ca-item { margin-bottom:.75rem; padding:.5rem; background:rgba(127,127,127,.03); border-left:2px solid var(--border,#ddd); border-radius:.2rem; }
+  .ca-texte { margin:.4rem 0 0; padding:.4rem .6rem; background:rgba(76,110,245,.04); border-left:3px solid rgba(76,110,245,.3); font-size:.88rem; font-family:monospace; white-space:pre-wrap; }
+  .dood-list { list-style:none; padding:0; }
+  .dood-list li { padding:.15rem 0; font-size:.88rem; }
+  .sp-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+  .sp-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+  .sp-actions a:hover { background:rgba(76,110,245,.18); }
+  /* Masque le doublon h1 du page-header pour les pages détail SPEC */
+  body:has(.sp-cols) .page-header h1 { display:none; }
+</style>
+<div class="sp-cols">
+  <div class="sp-sections">
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-015-2-1-registre-commandes.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-2-1-registre-commandes.md">SPEC-015-2-1-registre-commandes</a> — SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)</h1>
+
+    <section aria-label="Contexte">
+      <h3>§1 — Contexte</h3>
+      <p>INTENT-015 veut un **noyau assumé** et une longue traîne identifiée. Aujourd&#39;hui les 85 commandes vivent dans un switch inline (`bin/aiad-sdd.js:589-3599`) et une liste plate `COMMANDES_VALIDES` (`bin/aiad-sdd.js:3586-3594`), sans aucune métadonnée de tier. Cette SPEC crée le **registre catégorisé** — source unique de vérité tier/catégorie/statut par commande — et le rend **anti-régression par un snapshot test** (= critère de drift de l&#39;intent rendu exécutoire, condition C2). Le tiering est posé à **dire d&#39;expert provisoire** (C1) ; aucune dépendance à la donnée d&#39;usage (C-DATA). Périmètre borné au registre + surface de lecture + tests (C-SCOPE) ; dépréciation = SPEC-015-2-2, lazy-loading hors périmètre.</p>
+    </section>
+
+    <section aria-label="Critères d'acceptation">
+      <h3>§3 — Critères d'acceptation</h3>
+      <div class="ca-item">
+      <p><strong>CA-001</strong> — Registre exhaustif et cohérent avec la liste canonique <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The Commands Registry SHALL expose exactly one entry for each command listed in COMMANDES_VALIDES, with no entry absent and no extra entry.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-002</strong> — Schéma de chaque entrée <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The Commands Registry SHALL define for every entry a tier in {core, extended, experimental}, a status in {active, deprecated}, and a non-empty category string.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-003</strong> — Listing groupé par tier <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the operator runs &quot;aiad-sdd commands&quot; without a tier filter, the Commands command SHALL display every command grouped by tier in the order core, extended, experimental, sorted alphabetically within each tier.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-004</strong> — Filtre par tier <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the operator passes --tier with a value in {core, extended, experimental}, the Commands command SHALL display only the commands whose tier equals that value.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-005</strong> — Sortie JSON stable <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the operator passes the --json flag, the Commands command SHALL emit on stdout exactly one JSON object { total, tiers, commands } and no other text.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-006</strong> — Tier invalide rejeté <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF the operator passes a --tier value outside {core, extended, experimental}, THEN the Commands command SHALL reject the invocation with exit code 1 and an error message listing the valid tiers.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-007</strong> — Snapshot de tiering figé (anti-drift) <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The Commands Registry test suite SHALL assert the full command-to-tier mapping against a committed snapshot, so that adding, removing, or re-tiering a command without updating the snapshot fails the suite.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-008</strong> — Lecture seule <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The Commands command SHALL read only the in-memory registry, writing no file and opening no network connection.</blockquote>
+    </div>
+    </section>
+
+    <section aria-label="Interface / API">
+      <h3>§4 — Interface / API</h3>
+      <pre><code>```
+CLI :  aiad-sdd commands [--tier core|extended|experimental] [--json]
+
+lib/commands-registry.js (ESM, zéro-dep) :
+  export const COMMANDS_REGISTRY = [
+    { command: &#39;init&#39;,     tier: &#39;core&#39;,         category: &#39;cadrage&#39;,     status: &#39;active&#39; },
+    { command: &#39;obsidian&#39;, tier: &#39;extended&#39;,     category: &#39;export&#39;,      status: &#39;active&#39; },
+    { command: &#39;canary&#39;,   tier: &#39;experimental&#39;, category: &#39;qualité&#39;,     status: &#39;active&#39; },
+    // … une entrée par commande de COMMANDES_VALIDES
+  ];
+  export function tierOf(command): &#39;core&#39;|&#39;extended&#39;|&#39;experimental&#39;|null;
+  export function listByTier(tier?): COMMANDS_REGISTRY[];
+
+bin/aiad-sdd.js :
+  - case &#39;commands&#39; : dispatch (parse --tier / --json, rendu via lib/term.js), exit 0/1.
+  - &#39;commands&#39; ajouté à COMMANDES_VALIDES + ligne d&#39;AIDE.
+
+Schéma JSON de sortie :
+  { total: number,
+    tiers: { core: string[], extended: string[], experimental: string[] },
+    commands: [{ command, tier, category, status }] }
+```</code></pre>
+    </section>
+
+    <section aria-label="Dépendances">
+      <h3>§5 — Dépendances</h3>
+      <ul><li>bin/aiad-sdd.js (COMMANDES_VALIDES comme liste canonique de référence du test de cohérence).</li><li>lib/term.js (rendu cohérent).</li><li>Aucune dépendance externe (zéro-dep).</li><li>**Aval** : SPEC-015-2-2 (dépréciation) consomme status + tierOf() de ce registre.</li></ul>
+    </section>
+
+    <section aria-label="Definition of Output Done">
+      <h3>§7 — Definition of Output Done</h3>
+      <ul class="dood-list"><li>☑ Code + lint passing (lints node/deps/size/esm/claims verts)</li><li>☑ Tests unitaires sur les 8 critères + cas limites (test/commands-registry.test.js — 8/8)</li><li>☑ **EARS lint : 0 violation** (skill ears-validator)</li><li>☑ DOCUMENTATION.md régénéré (aiad-sdd docs) + badge couverture (coverage:badge) — gotcha CI nouvelle commande</li><li>☑ SPEC mise à jour si écart (Drift Lock — trace 0 gap bloquant)</li><li>☑ Annotations machine-vérifiables posées (@intent INTENT-015, @spec SPEC-015-2-1-registre-commandes, @verified-by)</li><li>☑ Code review passée (PR #10)</li><li>☐ Gouvernance vérifiée : **RGESN** (sobriété : registre statique zéro-dep, rend la longue traîne visible et donc réductible). Pas de données personnelles (RGPD n/a), pas d&#39;IA (AI-ACT n/a), pas d&#39;UI web (RGAA n/a).</li></ul>
+    </section>
+
+    <div class="sp-actions">
+      <a href="specs.html">← Retour à la liste des SPECs</a>
+      <a href="../.aiad/specs/SPEC-015-2-1-registre-commandes.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="sp-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-ok">done</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-muted">—</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-info">ears</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-015</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-06-17</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

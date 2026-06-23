@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T12:52:26.549Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Quality Assurance — aiad-sdd</title>
 <meta name="description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
@@ -36,6 +36,12 @@
     <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
     </a></li>
@@ -87,7 +93,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 22/06/2026 14:52:26<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +102,7 @@
       <div class="subtitle">Queue, coverage, audit, EARS lint, régressions</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 14:52:26. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -127,12 +133,12 @@
     </div>
     <div class="kpi warn">
       <div class="label">SPECs EARS à re-linter</div>
-      <div class="value">6</div>
-      <div class="delta">8 SPEC(s) EARS</div>
+      <div class="value">10</div>
+      <div class="delta">12 SPEC(s) EARS</div>
     </div>
     <div class="kpi">
       <div class="label">Tests ajoutés cette semaine</div>
-      <div class="value">12</div>
+      <div class="value">16</div>
       <div class="delta">fichiers .test/.spec mtime &lt; 7j</div>
     </div>
   </div>
@@ -171,7 +177,7 @@
 </section>
 
 <section>
-  <h2>Coverage par SPEC <span class="count">32 SPEC(s)</span></h2>
+  <h2>Coverage par SPEC <span class="count">36 SPEC(s)</span></h2>
   <p class="muted">Coverage heuristique (ratio tests/code). Pour un coverage réel, écris <code>.aiad/metrics/tests/coverage-summary.json</code> en sortie de c8/istanbul.</p>
   <div class="filter"><input type="search" id="qQaCoverage" data-filter-target="tQaCoverage" placeholder="Filtrer par ID, titre, bande…" autocomplete="off"/></div>
       <table id="tQaCoverage" data-sortable="true" data-a11y-caption="Couverture EARS par SPEC">
@@ -191,6 +197,12 @@
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-016-2-design-system-rgaa.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-2-design-system-rgaa.md">SPEC-016-2-design-system-rgaa</a></td><td>SPEC-016-2 — Design system accessible + axe-core en CI</td>
       <td class="muted">10</td><td class="muted">2</td>
       <td><span class="badge warn">20%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-017-3-digest-delta.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-3-digest-delta.md">SPEC-017-3-digest-delta</a></td><td>SPEC-017-3 — Digest delta + snapshots persistants</td>
+      <td class="muted">5</td><td class="muted">2</td>
+      <td><span class="badge warn">40%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-017-4-pages-detail-spec.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-4-pages-detail-spec.md">SPEC-017-4-pages-detail-spec</a></td><td>SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)</td>
+      <td class="muted">4</td><td class="muted">1</td>
+      <td><span class="badge warn">25%</span></td>
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td><td>Feedback qualitatif opt-in — commande CLI et invitation périodique</td>
       <td class="muted">5</td><td class="muted">18</td>
       <td><span class="badge ok">360%</span></td>
@@ -251,6 +263,15 @@
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a></td><td>SPEC-016-3 — data.json v2 versionné (JSON schema publié)</td>
       <td class="muted">2</td><td class="muted">2</td>
       <td><span class="badge ok">100%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-4-rgesn-budgets.md">SPEC-016-4-rgesn-budgets</a></td><td>SPEC-016-4 — Budgets de poids RGESN par page + CI</td>
+      <td class="muted">1</td><td class="muted">1</td>
+      <td><span class="badge ok">100%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-017-1-page-aujourdhui.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-1-page-aujourdhui.md">SPEC-017-1-page-aujourdhui</a></td><td>SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections)</td>
+      <td class="muted">1</td><td class="muted">2</td>
+      <td><span class="badge ok">200%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-017-2-inbox-triage.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-2-inbox-triage.md">SPEC-017-2-inbox-triage</a></td><td>SPEC-017-2 — Inbox de triage facts/drifts (localStorage)</td>
+      <td class="muted">2</td><td class="muted">1</td>
+      <td><span class="badge ok">50%</span></td>
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-024-1-trace-exemption.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-024-1-trace-exemption.md">SPEC-024-1-trace-exemption</a></td><td>Exemption de traçabilité pour SPECs sans code applicatif</td>
       <td class="muted">1</td><td class="muted">2</td>
       <td><span class="badge ok">200%</span></td>
@@ -266,9 +287,6 @@
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-013-2-unification-docs-racine.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-2-unification-docs-racine.md">SPEC-013-2-unification-docs-racine</a></td><td>Unification des docs racine + archivage de SDDMode.md</td>
       <td class="muted">0</td><td class="muted">0</td>
       <td><span class="badge ">—</span></td>
-      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-4-rgesn-budgets.md">SPEC-016-4-rgesn-budgets</a></td><td>SPEC-016-4 — Budgets de poids RGESN par page + CI</td>
-      <td class="muted">0</td><td class="muted">0</td>
-      <td><span class="badge ">—</span></td>
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-025-1-gold-contrast-fix.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-025-1-gold-contrast-fix.md">SPEC-025-1-gold-contrast-fix</a></td><td>Correction du contraste --gold-600 (.kicker + .pill.gold)</td>
       <td class="muted">0</td><td class="muted">0</td>
       <td><span class="badge ">—</span></td>
@@ -277,7 +295,7 @@
 </section>
 
 <section>
-  <h2>EARS lint <span class="count">8 SPEC(s) EARS · 6 à re-linter</span></h2>
+  <h2>EARS lint <span class="count">12 SPEC(s) EARS · 10 à re-linter</span></h2>
   <div class="filter"><input type="search" id="qQaEars" data-filter-target="tQaEars" placeholder="Filtrer par ID, titre, SQS…" autocomplete="off"/></div>
       <table id="tQaEars" data-sortable="true" data-a11y-caption="SPECs EARS — résultats du lint">
         <thead><tr><th>ID</th><th>Titre</th><th>SQS</th><th>Lint</th></tr></thead>
@@ -300,6 +318,18 @@
     <tr><td><a class="src-link" href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-4-rgesn-budgets.md">SPEC-016-4-rgesn-budgets</a></td><td>SPEC-016-4 — Budgets de poids RGESN par page + CI</td>
     <td><em class="muted">—</em></td>
     <td><span class="badge warn">à re-linter</span></td></tr>
+    <tr><td><a class="src-link" href="../.aiad/specs/SPEC-017-1-page-aujourdhui.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-1-page-aujourdhui.md">SPEC-017-1-page-aujourdhui</a></td><td>SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections)</td>
+    <td><em class="muted">—</em></td>
+    <td><span class="badge warn">à re-linter</span></td></tr>
+    <tr><td><a class="src-link" href="../.aiad/specs/SPEC-017-2-inbox-triage.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-2-inbox-triage.md">SPEC-017-2-inbox-triage</a></td><td>SPEC-017-2 — Inbox de triage facts/drifts (localStorage)</td>
+    <td><em class="muted">—</em></td>
+    <td><span class="badge warn">à re-linter</span></td></tr>
+    <tr><td><a class="src-link" href="../.aiad/specs/SPEC-017-3-digest-delta.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-3-digest-delta.md">SPEC-017-3-digest-delta</a></td><td>SPEC-017-3 — Digest delta + snapshots persistants</td>
+    <td><em class="muted">—</em></td>
+    <td><span class="badge warn">à re-linter</span></td></tr>
+    <tr><td><a class="src-link" href="../.aiad/specs/SPEC-017-4-pages-detail-spec.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-4-pages-detail-spec.md">SPEC-017-4-pages-detail-spec</a></td><td>SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)</td>
+    <td><em class="muted">—</em></td>
+    <td><span class="badge warn">à re-linter</span></td></tr>
     <tr><td><a class="src-link" href="../.aiad/specs/SPEC-024-1-trace-exemption.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-024-1-trace-exemption.md">SPEC-024-1-trace-exemption</a></td><td>Exemption de traçabilité pour SPECs sans code applicatif</td>
     <td><span class="badge badge-ok">SQS 5.0/5</span></td>
     <td><span class="badge ok">passant</span></td></tr>
@@ -310,12 +340,17 @@
 </section>
 
 <section>
-  <h2>Tests ajoutés cette semaine <span class="count">12 fichier(s)</span></h2>
+  <h2>Tests ajoutés cette semaine <span class="count">16 fichier(s)</span></h2>
   <table data-sortable="true">
         <thead><tr><th>Fichier</th><th>Modifié</th></tr></thead>
         <tbody>
+    <tr><td><a class="src-link" href="../test/dashboard-spec-pages.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-spec-pages.test.js">test/dashboard-spec-pages.test.js</a></td><td class="muted">22/06/2026 17:42:48</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard-digest.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-digest.test.js">test/dashboard-digest.test.js</a></td><td class="muted">22/06/2026 17:22:00</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard-inbox.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-inbox.test.js">test/dashboard-inbox.test.js</a></td><td class="muted">22/06/2026 16:59:19</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard-today.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-today.test.js">test/dashboard-today.test.js</a></td><td class="muted">22/06/2026 16:46:53</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js">test/dashboard.test.js</a></td><td class="muted">22/06/2026 16:43:43</td></tr>
+    <tr><td><a class="src-link" href="../test/check-page-budgets.test.js" target="_blank" rel="noopener" title="Ouvrir test/check-page-budgets.test.js">test/check-page-budgets.test.js</a></td><td class="muted">22/06/2026 15:19:12</td></tr>
     <tr><td><a class="src-link" href="../test/validate-data-schema.test.js" target="_blank" rel="noopener" title="Ouvrir test/validate-data-schema.test.js">test/validate-data-schema.test.js</a></td><td class="muted">22/06/2026 14:49:01</td></tr>
-    <tr><td><a class="src-link" href="../test/dashboard.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js">test/dashboard.test.js</a></td><td class="muted">22/06/2026 14:46:25</td></tr>
     <tr><td><a class="src-link" href="../test/dashboard-render.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-render.test.js">test/dashboard-render.test.js</a></td><td class="muted">22/06/2026 12:13:22</td></tr>
     <tr><td><a class="src-link" href="../test/dashboard-assets.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-assets.test.js">test/dashboard-assets.test.js</a></td><td class="muted">22/06/2026 12:12:59</td></tr>
     <tr><td><a class="src-link" href="../test/docs-dora-flow.test.js" target="_blank" rel="noopener" title="Ouvrir test/docs-dora-flow.test.js">test/docs-dora-flow.test.js</a></td><td class="muted">22/06/2026 11:39:59</td></tr>
@@ -324,8 +359,7 @@
     <tr><td><a class="src-link" href="../test/commands-registry.test.js" target="_blank" rel="noopener" title="Ouvrir test/commands-registry.test.js">test/commands-registry.test.js</a></td><td class="muted">19/06/2026 15:19:45</td></tr>
     <tr><td><a class="src-link" href="../test/deprecation.test.js" target="_blank" rel="noopener" title="Ouvrir test/deprecation.test.js">test/deprecation.test.js</a></td><td class="muted">19/06/2026 14:51:01</td></tr>
     <tr><td><a class="src-link" href="../test/telemetry-usage.test.js" target="_blank" rel="noopener" title="Ouvrir test/telemetry-usage.test.js">test/telemetry-usage.test.js</a></td><td class="muted">17/06/2026 09:06:20</td></tr>
-    <tr><td><a class="src-link" href="../test/lint-claims.test.js" target="_blank" rel="noopener" title="Ouvrir test/lint-claims.test.js">test/lint-claims.test.js</a></td><td class="muted">16/06/2026 10:58:44</td></tr>
-    <tr><td><a class="src-link" href="../test/coverage-threshold.test.js" target="_blank" rel="noopener" title="Ouvrir test/coverage-threshold.test.js">test/coverage-threshold.test.js</a></td><td class="muted">15/06/2026 18:00:53</td></tr></tbody>
+    <tr><td><a class="src-link" href="../test/lint-claims.test.js" target="_blank" rel="noopener" title="Ouvrir test/lint-claims.test.js">test/lint-claims.test.js</a></td><td class="muted">16/06/2026 10:58:44</td></tr></tbody>
       </table>
 </section>
 

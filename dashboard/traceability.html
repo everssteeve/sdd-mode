@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T12:52:26.549Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Traçabilité — aiad-sdd</title>
 <meta name="description" content="Traçabilité — Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
@@ -36,6 +36,12 @@
     <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
     </a></li>
@@ -87,7 +93,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 22/06/2026 14:52:26<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +102,7 @@
       <div class="subtitle">Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 14:52:26. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -106,10 +112,10 @@
   
 <div class="kpis">
   <div class="kpi"><div class="label">Intents</div><div class="value">25</div></div>
-  <div class="kpi"><div class="label">SPECs</div><div class="value">32</div></div>
-  <div class="kpi"><div class="label">Code annoté</div><div class="value small">65 / 376</div></div>
-  <div class="kpi"><div class="label">Tests annotés</div><div class="value small">31 / 252</div></div>
-  <div class="kpi warn"><div class="label">Gaps détectés</div><div class="value">351</div></div>
+  <div class="kpi"><div class="label">SPECs</div><div class="value">36</div></div>
+  <div class="kpi"><div class="label">Code annoté</div><div class="value small">71 / 381</div></div>
+  <div class="kpi"><div class="label">Tests annotés</div><div class="value small">36 / 257</div></div>
+  <div class="kpi warn"><div class="label">Gaps détectés</div><div class="value">347</div></div>
 </div>
 
 <section class="matrix-tab">
@@ -288,16 +294,40 @@
       </tr><tr>
         
         <td><a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a><br/><small class="muted">SPEC-016-3 — data.json v2 versionné (JSON schema publié)</small></td>
-        <td><a class="src-link" href="../scripts/validate-data-schema.js#L10" target="_blank" rel="noopener" title="Ouvrir scripts/validate-data-schema.js à la ligne 10">scripts/validate-data-schema.js</a><br/><a class="src-link" href="../lib/dashboard.js#L343" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 343">lib/dashboard.js</a></td>
-        <td><a class="src-link" href="../test/validate-data-schema.test.js#L4" target="_blank" rel="noopener" title="Ouvrir test/validate-data-schema.test.js à la ligne 4">test/validate-data-schema.test.js</a><br/><a class="src-link" href="../test/dashboard.test.js#L113" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js à la ligne 113">test/dashboard.test.js</a></td>
+        <td><a class="src-link" href="../lib/dashboard.js#L363" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 363">lib/dashboard.js</a><br/><a class="src-link" href="../scripts/validate-data-schema.js#L10" target="_blank" rel="noopener" title="Ouvrir scripts/validate-data-schema.js à la ligne 10">scripts/validate-data-schema.js</a></td>
+        <td><a class="src-link" href="../test/dashboard.test.js#L131" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js à la ligne 131">test/dashboard.test.js</a><br/><a class="src-link" href="../test/validate-data-schema.test.js#L4" target="_blank" rel="noopener" title="Ouvrir test/validate-data-schema.test.js à la ligne 4">test/validate-data-schema.test.js</a></td>
         <td><span class="badge badge-ok">ok</span></td>
       </tr><tr>
         
         <td><a class="src-link" href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-4-rgesn-budgets.md">SPEC-016-4-rgesn-budgets</a><br/><small class="muted">SPEC-016-4 — Budgets de poids RGESN par page + CI</small></td>
-        <td><em class="muted">aucun</em></td>
-        <td><em class="muted">aucun</em></td>
-        <td><span class="badge badge-warn">non-implémentée</span></td>
-      </tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-018-valeur-boussole.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-018-valeur-boussole.md">INTENT-018-valeur-boussole</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-019-verification-first.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-019-verification-first.md">INTENT-019-verification-first</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-020-spec-anchored-deltas.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-020-spec-anchored-deltas.md">INTENT-020-spec-anchored-deltas</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-021-empreinte-mesuree.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-021-empreinte-mesuree.md">INTENT-021-empreinte-mesuree</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-022-dogfooding-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-022-dogfooding-cli.md">INTENT-022-dogfooding-cli</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-023-rayonnement-honnete.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-023-rayonnement-honnete.md">INTENT-023-rayonnement-honnete</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr>
+        <td><a class="src-link" href="../scripts/check-page-budgets.js#L2" target="_blank" rel="noopener" title="Ouvrir scripts/check-page-budgets.js à la ligne 2">scripts/check-page-budgets.js</a></td>
+        <td><a class="src-link" href="../test/check-page-budgets.test.js#L2" target="_blank" rel="noopener" title="Ouvrir test/check-page-budgets.test.js à la ligne 2">test/check-page-budgets.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        <td rowspan="4" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></td>
+        <td><a class="src-link" href="../.aiad/specs/SPEC-017-1-page-aujourdhui.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-1-page-aujourdhui.md">SPEC-017-1-page-aujourdhui</a><br/><small class="muted">SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections)</small></td>
+        <td><a class="src-link" href="../lib/dashboard/views/today.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/today.js à la ligne 2">lib/dashboard/views/today.js</a></td>
+        <td><a class="src-link" href="../test/dashboard-today.test.js#L1" target="_blank" rel="noopener" title="Ouvrir test/dashboard-today.test.js à la ligne 1">test/dashboard-today.test.js</a><br/><a class="src-link" href="../test/dashboard.test.js#L113" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js à la ligne 113">test/dashboard.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-017-2-inbox-triage.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-2-inbox-triage.md">SPEC-017-2-inbox-triage</a><br/><small class="muted">SPEC-017-2 — Inbox de triage facts/drifts (localStorage)</small></td>
+        <td><a class="src-link" href="../lib/dashboard/views/inbox.js#L3" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/inbox.js à la ligne 3">lib/dashboard/views/inbox.js</a><br/><a class="src-link" href="../lib/dashboard/model/index.js#L142" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/model/index.js à la ligne 142">lib/dashboard/model/index.js</a></td>
+        <td><a class="src-link" href="../test/dashboard-inbox.test.js#L1" target="_blank" rel="noopener" title="Ouvrir test/dashboard-inbox.test.js à la ligne 1">test/dashboard-inbox.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-017-3-digest-delta.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-3-digest-delta.md">SPEC-017-3-digest-delta</a><br/><small class="muted">SPEC-017-3 — Digest delta + snapshots persistants</small></td>
+        <td><a class="src-link" href="../lib/dashboard/digest-delta.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/digest-delta.js à la ligne 2">lib/dashboard/digest-delta.js</a><br/><a class="src-link" href="../lib/dashboard.js#L48" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 48">lib/dashboard.js</a><br/><a class="src-link" href="../lib/dashboard/model/index.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/model/index.js à la ligne 2">lib/dashboard/model/index.js</a><br/><a class="src-link" href="../lib/dashboard/model/index.js#L144" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/model/index.js à la ligne 144">lib/dashboard/model/index.js</a><br/><a class="src-link" href="../lib/dashboard/views/today.js#L3" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/today.js à la ligne 3">lib/dashboard/views/today.js</a></td>
+        <td><a class="src-link" href="../test/dashboard-digest.test.js#L1" target="_blank" rel="noopener" title="Ouvrir test/dashboard-digest.test.js à la ligne 1">test/dashboard-digest.test.js</a><br/><a class="src-link" href="../test/dashboard-today.test.js#L5" target="_blank" rel="noopener" title="Ouvrir test/dashboard-today.test.js à la ligne 5">test/dashboard-today.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr>
+        
+        <td><a class="src-link" href="../.aiad/specs/SPEC-017-4-pages-detail-spec.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-4-pages-detail-spec.md">SPEC-017-4-pages-detail-spec</a><br/><small class="muted">SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)</small></td>
+        <td><a class="src-link" href="../lib/dashboard.js#L53" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 53">lib/dashboard.js</a><br/><a class="src-link" href="../lib/dashboard/collect.js#L306" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/collect.js à la ligne 306">lib/dashboard/collect.js</a><br/><a class="src-link" href="../lib/dashboard/spec-page.js#L9" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/spec-page.js à la ligne 9">lib/dashboard/spec-page.js</a><br/><a class="src-link" href="../lib/dashboard/views/specs.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/specs.js à la ligne 2">lib/dashboard/views/specs.js</a></td>
+        <td><a class="src-link" href="../test/dashboard-spec-pages.test.js#L1" target="_blank" rel="noopener" title="Ouvrir test/dashboard-spec-pages.test.js à la ligne 1">test/dashboard-spec-pages.test.js</a></td>
+        <td><span class="badge badge-ok">ok</span></td>
+      </tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-018-valeur-boussole.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-018-valeur-boussole.md">INTENT-018-valeur-boussole</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-019-verification-first.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-019-verification-first.md">INTENT-019-verification-first</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-020-spec-anchored-deltas.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-020-spec-anchored-deltas.md">INTENT-020-spec-anchored-deltas</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-021-empreinte-mesuree.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-021-empreinte-mesuree.md">INTENT-021-empreinte-mesuree</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-022-dogfooding-cli.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-022-dogfooding-cli.md">INTENT-022-dogfooding-cli</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr><td><a class="src-link" href="../.aiad/intents/INTENT-023-rayonnement-honnete.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-023-rayonnement-honnete.md">INTENT-023-rayonnement-honnete</a></td><td><em class="muted">(aucune SPEC)</em></td><td>—</td><td>—</td><td><span class="badge badge-bad">orphelin</span></td></tr><tr>
         <td rowspan="1" class="rowspan"><a class="src-link" href="../.aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md">INTENT-024-trace-exemption-specs-sans-code</a></td>
         <td><a class="src-link" href="../.aiad/specs/SPEC-024-1-trace-exemption.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-024-1-trace-exemption.md">SPEC-024-1-trace-exemption</a><br/><small class="muted">Exemption de traçabilité pour SPECs sans code applicatif</small></td>
         <td><a class="src-link" href="../lib/sdd-trace.js#L14" target="_blank" rel="noopener" title="Ouvrir lib/sdd-trace.js à la ligne 14">lib/sdd-trace.js</a></td>
@@ -319,10 +349,15 @@
        <table id="tBwd" data-a11y-caption="Matrice de traçabilité — Backward (Tests → Code → SPEC → Intent)">
          <thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead>
          <tbody><tr>
-      <td><a class="src-link" href="../test/validate-data-schema.test.js#L4" target="_blank" rel="noopener" title="Ouvrir test/validate-data-schema.test.js à la ligne 4">test/validate-data-schema.test.js</a></td>
-      <td><a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a></td>
-      <td><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></td>
-      <td><a class="src-link" href="../scripts/validate-data-schema.js#L10" target="_blank" rel="noopener" title="Ouvrir scripts/validate-data-schema.js à la ligne 10">scripts/validate-data-schema.js</a><br/><a class="src-link" href="../lib/dashboard.js#L343" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 343">lib/dashboard.js</a></td>
+      <td><a class="src-link" href="../test/dashboard-digest.test.js#L1" target="_blank" rel="noopener" title="Ouvrir test/dashboard-digest.test.js à la ligne 1">test/dashboard-digest.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-017-3-digest-delta.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-3-digest-delta.md">SPEC-017-3-digest-delta</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></td>
+      <td><a class="src-link" href="../lib/dashboard/digest-delta.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/digest-delta.js à la ligne 2">lib/dashboard/digest-delta.js</a><br/><a class="src-link" href="../lib/dashboard.js#L48" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 48">lib/dashboard.js</a><br/><a class="src-link" href="../lib/dashboard/model/index.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/model/index.js à la ligne 2">lib/dashboard/model/index.js</a><br/><a class="src-link" href="../lib/dashboard/model/index.js#L144" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/model/index.js à la ligne 144">lib/dashboard/model/index.js</a><br/><a class="src-link" href="../lib/dashboard/views/today.js#L3" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/today.js à la ligne 3">lib/dashboard/views/today.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-inbox.test.js#L1" target="_blank" rel="noopener" title="Ouvrir test/dashboard-inbox.test.js à la ligne 1">test/dashboard-inbox.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-017-2-inbox-triage.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-2-inbox-triage.md">SPEC-017-2-inbox-triage</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></td>
+      <td><a class="src-link" href="../lib/dashboard/views/inbox.js#L3" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/inbox.js à la ligne 3">lib/dashboard/views/inbox.js</a><br/><a class="src-link" href="../lib/dashboard/model/index.js#L142" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/model/index.js à la ligne 142">lib/dashboard/model/index.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../templates/projects/fastapi-aiad/tests/test_main.py#L3" target="_blank" rel="noopener" title="Ouvrir templates/projects/fastapi-aiad/tests/test_main.py à la ligne 3">templates/projects/fastapi-aiad/tests/test_main.py</a></td>
       <td><a class="src-link" href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-001-1-feedback-qualitatif.md">SPEC-001-1-feedback-qualitatif</a></td>
@@ -473,6 +508,11 @@
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/check-page-budgets.test.js#L2" target="_blank" rel="noopener" title="Ouvrir test/check-page-budgets.test.js à la ligne 2">test/check-page-budgets.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-4-rgesn-budgets.md">SPEC-016-4-rgesn-budgets</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></td>
+      <td><a class="src-link" href="../scripts/check-page-budgets.js#L2" target="_blank" rel="noopener" title="Ouvrir scripts/check-page-budgets.js à la ligne 2">scripts/check-page-budgets.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/ci-templates.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/ci-templates.test.js à la ligne 0">test/ci-templates.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
@@ -899,6 +939,11 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-spec-pages.test.js#L1" target="_blank" rel="noopener" title="Ouvrir test/dashboard-spec-pages.test.js à la ligne 1">test/dashboard-spec-pages.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-017-4-pages-detail-spec.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-4-pages-detail-spec.md">SPEC-017-4-pages-detail-spec</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></td>
+      <td><a class="src-link" href="../lib/dashboard.js#L53" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 53">lib/dashboard.js</a><br/><a class="src-link" href="../lib/dashboard/collect.js#L306" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/collect.js à la ligne 306">lib/dashboard/collect.js</a><br/><a class="src-link" href="../lib/dashboard/spec-page.js#L9" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/spec-page.js à la ligne 9">lib/dashboard/spec-page.js</a><br/><a class="src-link" href="../lib/dashboard/views/specs.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/specs.js à la ligne 2">lib/dashboard/views/specs.js</a></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/dashboard-sre.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-sre.test.js à la ligne 0">test/dashboard-sre.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
@@ -914,6 +959,11 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/dashboard-today.test.js#L1" target="_blank" rel="noopener" title="Ouvrir test/dashboard-today.test.js à la ligne 1">test/dashboard-today.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-017-1-page-aujourdhui.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-1-page-aujourdhui.md">SPEC-017-1-page-aujourdhui</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></td>
+      <td><a class="src-link" href="../lib/dashboard/views/today.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/today.js à la ligne 2">lib/dashboard/views/today.js</a></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/dashboard-violations.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/dashboard-violations.test.js à la ligne 0">test/dashboard-violations.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
@@ -925,9 +975,19 @@
       <td><em class="muted">aucun</em></td>
     </tr><tr>
       <td><a class="src-link" href="../test/dashboard.test.js#L113" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js à la ligne 113">test/dashboard.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-017-1-page-aujourdhui.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-1-page-aujourdhui.md">SPEC-017-1-page-aujourdhui</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></td>
+      <td><a class="src-link" href="../lib/dashboard/views/today.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/today.js à la ligne 2">lib/dashboard/views/today.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard.test.js#L120" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js à la ligne 120">test/dashboard.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-017-1-page-aujourdhui.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-017-1-page-aujourdhui.md">SPEC-017-1-page-aujourdhui</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></td>
+      <td><a class="src-link" href="../lib/dashboard/views/today.js#L2" target="_blank" rel="noopener" title="Ouvrir lib/dashboard/views/today.js à la ligne 2">lib/dashboard/views/today.js</a></td>
+    </tr><tr>
+      <td><a class="src-link" href="../test/dashboard.test.js#L131" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js à la ligne 131">test/dashboard.test.js</a></td>
       <td><a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a></td>
       <td><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></td>
-      <td><a class="src-link" href="../scripts/validate-data-schema.js#L10" target="_blank" rel="noopener" title="Ouvrir scripts/validate-data-schema.js à la ligne 10">scripts/validate-data-schema.js</a><br/><a class="src-link" href="../lib/dashboard.js#L343" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 343">lib/dashboard.js</a></td>
+      <td><a class="src-link" href="../lib/dashboard.js#L363" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 363">lib/dashboard.js</a><br/><a class="src-link" href="../scripts/validate-data-schema.js#L10" target="_blank" rel="noopener" title="Ouvrir scripts/validate-data-schema.js à la ligne 10">scripts/validate-data-schema.js</a></td>
     </tr><tr>
       <td><a class="src-link" href="../test/deprecation.test.js#L3" target="_blank" rel="noopener" title="Ouvrir test/deprecation.test.js à la ligne 3">test/deprecation.test.js</a></td>
       <td><a class="src-link" href="../.aiad/specs/SPEC-015-2-1-registre-commandes.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-015-2-1-registre-commandes.md">SPEC-015-2-1-registre-commandes</a></td>
@@ -1789,6 +1849,11 @@
       <td><em class="muted">—</em></td>
       <td><em class="muted">aucun</em></td>
     </tr><tr>
+      <td><a class="src-link" href="../test/validate-data-schema.test.js#L4" target="_blank" rel="noopener" title="Ouvrir test/validate-data-schema.test.js à la ligne 4">test/validate-data-schema.test.js</a></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-016-3-data-json-v2.md">SPEC-016-3-data-json-v2</a></td>
+      <td><a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></td>
+      <td><a class="src-link" href="../lib/dashboard.js#L363" target="_blank" rel="noopener" title="Ouvrir lib/dashboard.js à la ligne 363">lib/dashboard.js</a><br/><a class="src-link" href="../scripts/validate-data-schema.js#L10" target="_blank" rel="noopener" title="Ouvrir scripts/validate-data-schema.js à la ligne 10">scripts/validate-data-schema.js</a></td>
+    </tr><tr>
       <td><a class="src-link" href="../test/verdict.test.js#L0" target="_blank" rel="noopener" title="Ouvrir test/verdict.test.js à la ligne 0">test/verdict.test.js</a></td>
       <td><span class="badge badge-bad">non-tracé</span></td>
       <td><em class="muted">—</em></td>
@@ -1838,7 +1903,7 @@
     <div class="card">
       <h3>Orphelins</h3>
       <ul class="compact">
-        <li><strong>7</strong> intent(s) sans SPEC</li>
+        <li><strong>6</strong> intent(s) sans SPEC</li>
         <li><strong>5</strong> SPEC(s) sans code (hors draft/review)</li>
         <li><strong>0</strong> SPEC(s) référencé(s) dans le code mais absent(s) des artefacts</li>
         <li><strong>0</strong> Intent(s) référencé(s) dans le code mais absent(s) des artefacts</li>
@@ -1848,8 +1913,8 @@
       <h3>Non-implémentés / non-tracés</h3>
       <ul class="compact">
         <li><strong>0</strong> SPEC(s) validée(s) sans code</li>
-        <li><strong>327</strong> fichier(s) code sans <code>@spec</code></li>
-        <li><strong>12</strong> fichier(s) annoté(s) sans test lié</li>
+        <li><strong>326</strong> fichier(s) code sans <code>@spec</code></li>
+        <li><strong>10</strong> fichier(s) annoté(s) sans test lié</li>
       </ul>
     </div>
   </div>

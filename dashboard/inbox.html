@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Inbox — aiad-sdd</title>
+<meta name="description" content="Inbox — Triage facts &amp; drifts · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Inbox — aiad-sdd"/>
+<meta property="og:description" content="Inbox — Triage facts &amp; drifts · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta property="og:url" content="inbox.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Inbox — aiad-sdd"/>
+<meta name="twitter:description" content="Inbox — Triage facts &amp; drifts · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.18.0</div>
+  </div>
+  <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="active">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li></ul>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>Inbox</h1>
+      <div class="subtitle">Triage facts & drifts</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <section aria-label="Inbox de triage">
+  <h2>Inbox <span class="badge badge-warn">5 nouveaux</span></h2>
+  <p aria-live="polite" id="inbox-ls-warn" hidden>Actions de triage indisponibles (navigation privée ou quota dépassé).</p>
+  <div role="tablist" aria-label="Filtrer l'inbox">
+    <button role="tab" aria-selected="true" data-inbox-filter="all">Tout</button>
+    <button role="tab" aria-selected="false" data-inbox-filter="new">Nouveau</button>
+    <button role="tab" aria-selected="false" data-inbox-filter="accepted">Accepté</button>
+    <button role="tab" aria-selected="false" data-inbox-filter="deferred">Différé</button>
+  </div>
+  <table>
+    <caption>Éléments en attente de triage (facts et drifts)</caption>
+    <thead><tr>
+      <th scope="col">ID</th>
+      <th scope="col">Type</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Statut</th>
+      <th scope="col">Actions</th>
+    </tr></thead>
+    <tbody><tr data-inbox-id="FACT-001-seuil-50k-non-source" data-inbox-statut="new">
+    <td><code>FACT-001-seuil-50k-non-source</code></td>
+    <td>Fact</td>
+    <td>FACT-001 — Seuil 50K tokens (context rot) non sourcé</td>
+    <td class="inbox-statut">Nouveau</td>
+    <td>
+      <button type="button" data-inbox-action="accept" aria-label="Accepter FACT-001-seuil-50k-non-source">Accepter</button>
+      <button type="button" data-inbox-action="defer" aria-label="Différer FACT-001-seuil-50k-non-source">Différer</button>
+    </td>
+  </tr><tr data-inbox-id="FACT-002-gate-ready-vs-drift-lock" data-inbox-statut="new">
+    <td><code>FACT-002-gate-ready-vs-drift-lock</code></td>
+    <td>Fact</td>
+    <td>FACT-002 — Contradiction `gate.md` (statut `ready`) ↔ Drift Lock</td>
+    <td class="inbox-statut">Nouveau</td>
+    <td>
+      <button type="button" data-inbox-action="accept" aria-label="Accepter FACT-002-gate-ready-vs-drift-lock">Accepter</button>
+      <button type="button" data-inbox-action="defer" aria-label="Différer FACT-002-gate-ready-vs-drift-lock">Différer</button>
+    </td>
+  </tr><tr data-inbox-id="FACT-003-docs-deploy-incompatible-pages" data-inbox-statut="new">
+    <td><code>FACT-003-docs-deploy-incompatible-pages</code></td>
+    <td>Fact</td>
+    <td>FACT-003 — docs-deploy.yml incompatible avec la topologie Pages (gh-pages)</td>
+    <td class="inbox-statut">Nouveau</td>
+    <td>
+      <button type="button" data-inbox-action="accept" aria-label="Accepter FACT-003-docs-deploy-incompatible-pages">Accepter</button>
+      <button type="button" data-inbox-action="defer" aria-label="Différer FACT-003-docs-deploy-incompatible-pages">Différer</button>
+    </td>
+  </tr><tr data-inbox-id="FACT-004-trace-specs-sans-code" data-inbox-statut="new">
+    <td><code>FACT-004-trace-specs-sans-code</code></td>
+    <td>Fact</td>
+    <td>FACT-004 — Le trace ne sait pas marquer `done` une SPEC sans code applicatif</td>
+    <td class="inbox-statut">Nouveau</td>
+    <td>
+      <button type="button" data-inbox-action="accept" aria-label="Accepter FACT-004-trace-specs-sans-code">Accepter</button>
+      <button type="button" data-inbox-action="defer" aria-label="Différer FACT-004-trace-specs-sans-code">Différer</button>
+    </td>
+  </tr><tr data-inbox-id="FACT-005-contraste-kicker" data-inbox-statut="new">
+    <td><code>FACT-005-contraste-kicker</code></td>
+    <td>Fact</td>
+    <td>FACT-005 — Contraste insuffisant sur `.kicker` et `.install`</td>
+    <td class="inbox-statut">Nouveau</td>
+    <td>
+      <button type="button" data-inbox-action="accept" aria-label="Accepter FACT-005-contraste-kicker">Accepter</button>
+      <button type="button" data-inbox-action="defer" aria-label="Différer FACT-005-contraste-kicker">Différer</button>
+    </td>
+  </tr></tbody>
+  </table>
+  <details>
+    <summary>Note sur la persistance</summary>
+    <p>Les décisions de triage (Accepter / Différer) sont stockées dans le <code>localStorage</code> du navigateur.
+    Elles sont propres à ce navigateur et ne sont pas partagées entre appareils ou sessions privées.</p>
+  </details>
+  <script>
+(function () {
+  var KEY_PREFIX = 'aiad-inbox-';
+  var rows = document.querySelectorAll('[data-inbox-id]');
+  var warnEl = document.getElementById('inbox-ls-warn');
+
+  function lsGet(id) {
+    try { return localStorage.getItem(KEY_PREFIX + id); } catch (_) { return null; }
+  }
+
+  function lsSet(id, val) {
+    try {
+      localStorage.setItem(KEY_PREFIX + id, val);
+      return true;
+    } catch (_) {
+      if (warnEl) warnEl.hidden = false;
+      return false;
+    }
+  }
+
+  function labelFor(val) {
+    if (val === 'accepted') return 'Accepté';
+    if (val === 'deferred') return 'Différé';
+    return 'Nouveau';
+  }
+
+  function applyRow(row, val) {
+    var lbl = row.querySelector('.inbox-statut');
+    if (lbl) lbl.textContent = labelFor(val);
+    row.dataset.inboxStatut = val || 'new';
+  }
+
+  // CA-007a/b — restaurer état au chargement
+  rows.forEach(function (row) {
+    var id = row.dataset.inboxId;
+    var stored = lsGet(id);
+    if (stored) applyRow(row, stored);
+  });
+
+  // CA-002a/b, CA-003a/b — boutons Accept / Différer
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-inbox-action]');
+    if (!btn) return;
+    var row = btn.closest('[data-inbox-id]');
+    if (!row) return;
+    var id = row.dataset.inboxId;
+    var action = btn.dataset.inboxAction;
+    var val = action === 'accept' ? 'accepted' : 'deferred';
+    lsSet(id, val);
+    applyRow(row, val);
+  });
+
+  // CA-005 — filtres onglets
+  document.addEventListener('click', function (e) {
+    var tab = e.target.closest('[data-inbox-filter]');
+    if (!tab) return;
+    var filter = tab.dataset.inboxFilter;
+    document.querySelectorAll('[data-inbox-filter]').forEach(function (t) {
+      t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+    });
+    rows.forEach(function (row) {
+      var st = row.dataset.inboxStatut || 'new';
+      row.hidden = filter !== 'all' && st !== filter;
+    });
+  });
+})();
+</script>
+</section>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

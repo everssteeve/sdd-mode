@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T12:52:26.549Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Vue d&#39;ensemble — aiad-sdd</title>
 <meta name="description" content="Vue d&#39;ensemble — Pulse global du projet SDD Mode · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
@@ -36,6 +36,12 @@
     <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
     <li><a href="index.html" class="active">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
     </a></li>
@@ -87,7 +93,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 22/06/2026 14:52:26<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +102,7 @@
       <div class="subtitle">Pulse global du projet SDD Mode</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 14:52:26. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -113,12 +119,12 @@
   </div>
   <div class="kpi">
     <div class="label">Intents actifs</div>
-    <div class="value">1<span class="muted" style="font-size:1rem;font-weight:400;"> / 25</span></div>
+    <div class="value">2<span class="muted" style="font-size:1rem;font-weight:400;"> / 25</span></div>
     <div class="delta">total</div>
   </div>
   <div class="kpi">
     <div class="label">SPECs prêtes+</div>
-    <div class="value">26<span class="muted" style="font-size:1rem;font-weight:400;"> / 32</span></div>
+    <div class="value">31<span class="muted" style="font-size:1rem;font-weight:400;"> / 36</span></div>
     <div class="delta">ready / in-progress / done</div>
   </div>
   <div class="kpi ok">
@@ -128,7 +134,7 @@
   </div>
   <div class="kpi bad">
     <div class="label">Gaps traçabilité</div>
-    <div class="value">351</div>
+    <div class="value">347</div>
     <div class="delta">tous types confondus</div>
   </div>
   <div class="kpi warn">
@@ -145,12 +151,12 @@
   <a class="kpi warn" href="sre.html" style="text-decoration:none;color:inherit;display:block">
     <div class="label">Hook pre-commit p95</div>
     <div class="value">1000<span class="muted" style="font-size:.7rem">ms</span></div>
-    <div class="delta">attention · 144 run(s) · voir SRE</div>
+    <div class="delta">attention · 150 run(s) · voir SRE</div>
   </a>
   <a class="kpi bad" href="governance.html" style="text-decoration:none;color:inherit;display:block">
     <div class="label">Violations Tier 1</div>
-    <div class="value">31</div>
-    <div class="delta">29 orpheline(s) · 2 non implémentée(s) · voir gouvernance</div>
+    <div class="value">39</div>
+    <div class="delta">37 orpheline(s) · 2 non implémentée(s) · voir gouvernance</div>
   </a>
 </div>
 
@@ -220,7 +226,7 @@
       <polyline points="146.0,36.0 314.0,27.6" fill="none" stroke="#4c6ef5" stroke-width="1.5"/>
       <circle cx="146.0" cy="36.0" r="3" fill="#e8590c"><title>2026-05-11 : 50/100 (attention)</title></circle><circle cx="314.0" cy="27.6" r="3" fill="#e8590c"><title>2026-06-22 : 65/100 (attention)</title></circle>
     </svg>
-    <p class="muted" style="font-size:.75rem;margin-top:.25rem">2 snapshot(s) · seuils ●85 excellent · ●70 sain · ●50 attention</p>
+    <p class="muted" style="font-size:.75rem;margin-top:.25rem">3 snapshot(s) · seuils ●85 excellent · ●70 sain · ●50 attention</p>
   </div>
   </section>
 
@@ -237,20 +243,20 @@
     </div>
     <div class="kpi warn">
       <div class="label">Governance Coverage</div>
-      <div class="value">70%</div>
-      <div class="delta">7/10 fichiers sensibles annotés</div>
+      <div class="value">75%</div>
+      <div class="delta">9/12 fichiers sensibles annotés</div>
       <div class="spark-row"><svg class="spark" width="120" height="18" viewBox="0 0 120 18" aria-hidden="true"><polyline points="0.0,16.0 120.0,2.0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </div>
     <div class="kpi warn">
       <div class="label">Trace Completeness</div>
-      <div class="value">69%</div>
-      <div class="delta">22/32 SPECs avec code+tests</div>
+      <div class="value">75%</div>
+      <div class="delta">27/36 SPECs avec code+tests</div>
       
     </div>
     <div class="kpi">
       <div class="label">Langue artefacts</div>
-      <div class="value">FR 38</div>
-      <div class="delta">38 FR · 2 EN · 0 mixte · 17 neutre</div>
+      <div class="value">FR 39</div>
+      <div class="delta">39 FR · 2 EN · 0 mixte · 20 neutre</div>
     </div>
   </div>
 </section>
@@ -288,7 +294,7 @@
 </section>
 
 <section>
-  <h2>À valider cette semaine <span class="badge warn">25 action(s)</span></h2>
+  <h2>À valider cette semaine <span class="badge warn">30 action(s)</span></h2>
   <div class="split">
     <div>
       <h3>Intents zombies <span class="count">0 (active &gt; 30j sans SPEC remuée)</span></h3>
@@ -301,7 +307,7 @@
   </div>
   <h3 style="margin-top:1.5rem">SPECs done non démontrées</h3>
   
-    <p class="muted"><span class="badge warn">SPECs done non démontrées : 25</span></p>
+    <p class="muted"><span class="badge warn">SPECs done non démontrées : 30</span></p>
     <p class="muted"><em>Aucune trace de <code>/aiad demo</code> dans <code>.aiad/metrics/demo/</code> — toutes les SPECs <code>done</code> sont listées.</em></p>
     <table>
       <thead><tr><th>ID</th><th>Titre</th><th>Done depuis</th></tr></thead>
@@ -449,33 +455,33 @@
           <thead><tr><th>Date</th><th>Artefact</th><th>Type</th><th>Auteur</th></tr></thead>
           <tbody>
     <tr>
-      <td class="muted">2026-06-19</td>
-      <td><strong>INTENT-024 + SPEC-024-1 → done</strong></td>
-      <td>Exemption de traçabilité (FACT-004 résolu)</td>
+      <td class="muted">2026-06-22</td>
+      <td><strong>INTENT-016 → done</strong></td>
+      <td>Dashboard exemplaire (toutes SPECs clôturées)</td>
       <td class="muted">Steeve Evers</td>
     </tr>
     <tr>
-      <td class="muted">2026-06-19</td>
-      <td><strong>AGENT-GUIDE.md</strong></td>
-      <td>Remplissage initial (sortie du template)</td>
+      <td class="muted">2026-06-22</td>
+      <td><strong>SPEC-016-1 → done</strong></td>
+      <td>Architecture 4 couches (drift lock rétroactif)</td>
       <td class="muted">Steeve Evers</td>
     </tr>
     <tr>
-      <td class="muted">2026-06-19</td>
-      <td><strong>INTENT-015 + SPEC-015-3 → done</strong></td>
-      <td>Clôture de l&#39;intention</td>
+      <td class="muted">2026-06-22</td>
+      <td><strong>SPEC-016-2 → done</strong></td>
+      <td>Design system accessible + axe-core CI (drift lock rétroactif)</td>
       <td class="muted">Steeve Evers</td>
     </tr>
     <tr>
-      <td class="muted">2026-06-19</td>
-      <td><strong>SPEC-015-3</strong></td>
-      <td>Drift Check OK (matrice garde-fous + veto non-bypassable)</td>
+      <td class="muted">2026-06-22</td>
+      <td><strong>SPEC-016-4 → done</strong></td>
+      <td>Budgets de poids RGESN par page + CI</td>
       <td class="muted">Steeve Evers</td>
     </tr>
     <tr>
-      <td class="muted">2026-06-19</td>
-      <td><strong>SPEC-015-2-2 → done</strong></td>
-      <td>Clôture de board</td>
+      <td class="muted">2026-06-22</td>
+      <td><strong>SPEC-016-3 → done</strong></td>
+      <td>data.json v2 versionné (JSON schema publié)</td>
       <td class="muted">Steeve Evers</td>
     </tr></tbody>
         </table>

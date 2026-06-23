@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-22T12:52:26.549Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T06:44:30.785Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Kanban SPECs — aiad-sdd</title>
 <meta name="description" content="Kanban SPECs — Vue kanban 4 colonnes — To-Do / In-Progress / Review / Done · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
@@ -36,6 +36,12 @@
     <div class="brand-version">v1.18.0</div>
   </div>
   <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
     <li><a href="index.html" class="">
       <span class="nav-icon">◐</span>Vue d&#39;ensemble
     </a></li>
@@ -87,7 +93,7 @@
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
     </a></li></ul>
-  <div class="footer">Généré 22/06/2026 14:52:26<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 23/06/2026 08:44:30<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -96,7 +102,7 @@
       <div class="subtitle">Vue kanban 4 colonnes — To-Do / In-Progress / Review / Done</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 22/06/2026 14:52:26. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 08:44:30. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -105,44 +111,104 @@
   </header>
   
 
-<section class="focus-banner" data-focus="empty" data-lens="all" hidden>
-      <div class="alerte alerte-ok">
-        <div class="alerte-titre">🎯 Focus du jour — Rien d'urgent</div>
-        <div class="alerte-detail">Backlog propre côté standup. Continuer le flux SPEC normal.</div>
+<section class="focus-banner" data-focus="active" data-lens="all" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P2 — 1 SPEC(s) à valider</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-017-3-digest-delta</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ PM/QA passe en revue pour fermer la boucle Drift Lock.</div>
+    </li></ul>
       </div>
-    </section>
-<section class="focus-banner" data-focus="empty" data-lens="pm" hidden>
-      <div class="alerte alerte-ok">
-        <div class="alerte-titre">🎯 Focus du jour — Rien d'urgent</div>
-        <div class="alerte-detail">Backlog propre côté standup. Continuer le flux SPEC normal.</div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=all" style="font-size:.85rem">← Sortir du focus</a>
       </div>
-    </section>
-<section class="focus-banner" data-focus="empty" data-lens="pe" hidden>
-      <div class="alerte alerte-ok">
-        <div class="alerte-titre">🎯 Focus du jour — Rien d'urgent</div>
-        <div class="alerte-detail">Backlog propre côté standup. Continuer le flux SPEC normal.</div>
+    </div>
+  </section>
+<section class="focus-banner" data-focus="active" data-lens="pm" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour · lens PM — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P2 — 1 SPEC(s) à valider</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-017-3-digest-delta</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ PM/QA passe en revue pour fermer la boucle Drift Lock.</div>
+    </li></ul>
       </div>
-    </section>
-<section class="focus-banner" data-focus="empty" data-lens="ae" hidden>
-      <div class="alerte alerte-ok">
-        <div class="alerte-titre">🎯 Focus du jour — Rien d'urgent</div>
-        <div class="alerte-detail">Backlog propre côté standup. Continuer le flux SPEC normal.</div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=pm" style="font-size:.85rem">← Sortir du focus</a>
       </div>
-    </section>
-<section class="focus-banner" data-focus="empty" data-lens="qa" hidden>
-      <div class="alerte alerte-ok">
-        <div class="alerte-titre">🎯 Focus du jour — Rien d'urgent</div>
-        <div class="alerte-detail">Backlog propre côté standup. Continuer le flux SPEC normal.</div>
+    </div>
+  </section>
+<section class="focus-banner" data-focus="active" data-lens="pe" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour · lens PE — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P2 — 1 SPEC(s) à valider</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-017-3-digest-delta</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ PM/QA passe en revue pour fermer la boucle Drift Lock.</div>
+    </li></ul>
       </div>
-    </section>
-<section class="focus-banner" data-focus="empty" data-lens="tl" hidden>
-      <div class="alerte alerte-ok">
-        <div class="alerte-titre">🎯 Focus du jour — Rien d'urgent</div>
-        <div class="alerte-detail">Backlog propre côté standup. Continuer le flux SPEC normal.</div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=pe" style="font-size:.85rem">← Sortir du focus</a>
       </div>
-    </section>
+    </div>
+  </section>
+<section class="focus-banner" data-focus="active" data-lens="ae" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour · lens AE — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P2 — 1 SPEC(s) à valider</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-017-3-digest-delta</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ PM/QA passe en revue pour fermer la boucle Drift Lock.</div>
+    </li></ul>
+      </div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=ae" style="font-size:.85rem">← Sortir du focus</a>
+      </div>
+    </div>
+  </section>
+<section class="focus-banner" data-focus="active" data-lens="qa" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour · lens QA — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P2 — 1 SPEC(s) à valider</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-017-3-digest-delta</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ PM/QA passe en revue pour fermer la boucle Drift Lock.</div>
+    </li></ul>
+      </div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=qa" style="font-size:.85rem">← Sortir du focus</a>
+      </div>
+    </div>
+  </section>
+<section class="focus-banner" data-focus="active" data-lens="tl" hidden>
+    <div class="alerte alerte-warn" style="margin-bottom:1rem">
+      <div class="alerte-titre">🎯 Focus du jour · lens TL — 1 alerte(s) prioritaire(s)</div>
+      <div class="alerte-detail" style="margin-top:.5rem">
+        <ul style="margin:0;padding-left:1.2rem">
+    <li style="margin-bottom:.5rem">
+      <strong>P2 — 1 SPEC(s) à valider</strong>
+      <div class="muted" style="font-size:.85rem">SPEC-017-3-digest-delta</div>
+      <div style="font-size:.85rem;margin-top:.2rem">→ PM/QA passe en revue pour fermer la boucle Drift Lock.</div>
+    </li></ul>
+      </div>
+      <div class="alerte-action" style="margin-top:.5rem">
+        <a href="?lens=tl" style="font-size:.85rem">← Sortir du focus</a>
+      </div>
+    </div>
+  </section>
 <section>
-  <p class="muted">Vue Kanban des SPECs du projet. 27 carte(s) au total — clique sur une carte pour ouvrir le fichier source.</p>
+  <p class="muted">Vue Kanban des SPECs du projet. 31 carte(s) au total — clique sur une carte pour ouvrir le fichier source.</p>
   
   <div class="kanban-lens" role="tablist" aria-label="Filtrer par rôle" style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.75rem">
     <button type="button" role="tab" data-lens="all" class="lens-btn active">Tout</button>
@@ -162,42 +228,35 @@
     <div class="kanban-col" data-col="todo" style="flex:1;min-width:240px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem">
       <h3 style="margin-top:0;display:flex;justify-content:space-between;align-items:baseline">
         <span>To-Do</span>
-        <span class="muted" style="font-size:.85rem">1</span>
-      </h3>
-      <div class="kanban-card" data-roles="" data-statut="draft" data-id="SPEC-016-4-rgesn-budgets" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
-    <a href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-016-4-rgesn-budgets</code></div>
-    <div style="font-weight:600;margin-top:.25rem">SPEC-016-4 — Budgets de poids RGESN par page + CI</div></a>
-    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></div>
-    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
-      <span class="badge badge-warn" style="font-size:.7rem">SQS [À évaluer via /sdd gate]</span><span class="badge badge-warn" style="font-size:.7rem">0 test</span>
-    </div>
-  </div>
-    </div>
-    <div class="kanban-col" data-col="in-progress" style="flex:1;min-width:240px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem">
-      <h3 style="margin-top:0;display:flex;justify-content:space-between;align-items:baseline">
-        <span>In-Progress</span>
-        <span class="muted" style="font-size:.85rem">1</span>
-      </h3>
-      <div class="kanban-card" data-roles="pe" data-statut="in-progress" data-id="SPEC-016-3-data-json-v2" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
-    <a href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-016-3-data-json-v2</code></div>
-    <div style="font-weight:600;margin-top:.25rem">SPEC-016-3 — data.json v2 versionné (JSON schema publié)</div></a>
-    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></div>
-    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
-      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 — Gate OUVERTE (2026-06-22)</span><span class="badge badge-ok" style="font-size:.7rem">2 test(s)</span>
-    </div>
-  </div>
-    </div>
-    <div class="kanban-col" data-col="review" style="flex:1;min-width:240px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem">
-      <h3 style="margin-top:0;display:flex;justify-content:space-between;align-items:baseline">
-        <span>Review</span>
         <span class="muted" style="font-size:.85rem">0</span>
       </h3>
       <p class="muted" style="font-size:.85rem;text-align:center;padding:1rem 0">—</p>
     </div>
+    <div class="kanban-col" data-col="in-progress" style="flex:1;min-width:240px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem">
+      <h3 style="margin-top:0;display:flex;justify-content:space-between;align-items:baseline">
+        <span>In-Progress</span>
+        <span class="muted" style="font-size:.85rem">0</span>
+      </h3>
+      <p class="muted" style="font-size:.85rem;text-align:center;padding:1rem 0">—</p>
+    </div>
+    <div class="kanban-col" data-col="review" style="flex:1;min-width:240px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem">
+      <h3 style="margin-top:0;display:flex;justify-content:space-between;align-items:baseline">
+        <span>Review</span>
+        <span class="muted" style="font-size:.85rem">1</span>
+      </h3>
+      <div class="kanban-card" data-roles="pm qa" data-statut="validation" data-id="SPEC-017-3-digest-delta" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-017-3-digest-delta.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-017-3-digest-delta</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-017-3 — Digest delta + snapshots persistants</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 — Gate OUVERTE (2026-06-22) — exécuté 2026-06-22</span><span class="badge badge-ok" style="font-size:.7rem">2 test(s)</span>
+    </div>
+  </div>
+    </div>
     <div class="kanban-col" data-col="done" style="flex:1;min-width:240px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem">
       <h3 style="margin-top:0;display:flex;justify-content:space-between;align-items:baseline">
         <span>Done</span>
-        <span class="muted" style="font-size:.85rem">25</span>
+        <span class="muted" style="font-size:.85rem">30</span>
       </h3>
       <div class="kanban-card" data-roles="pm ae" data-statut="done" data-id="SPEC-001-1-feedback-qualitatif" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
     <a href="../.aiad/specs/SPEC-001-1-feedback-qualitatif.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-001-1-feedback-qualitatif</code></div>
@@ -359,6 +418,41 @@
     <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></div>
     <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
       <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 — Gate OUVERTE (EARS 11/11 · Étranger PASS · 2026-06-22)</span><span class="badge badge-ok" style="font-size:.7rem">2 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-016-3-data-json-v2" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-016-3-data-json-v2.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-016-3-data-json-v2</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-016-3 — data.json v2 versionné (JSON schema publié)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 — Gate OUVERTE (2026-06-22)</span><span class="badge badge-ok" style="font-size:.7rem">2 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-016-4-rgesn-budgets" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-016-4-rgesn-budgets.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-016-4-rgesn-budgets</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-016-4 — Budgets de poids RGESN par page + CI</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-016-dashboard-fondations.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-016-dashboard-fondations.md">INTENT-016-dashboard-fondations</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 — Gate OUVERTE (2026-06-22)</span><span class="badge badge-ok" style="font-size:.7rem">1 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-017-1-page-aujourdhui" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-017-1-page-aujourdhui.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-017-1-page-aujourdhui</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-017-1 — Page &quot;Aujourd&#39;hui&quot; (radiator ≤ 4 sections)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 (gate 2026-06-22 — EARS 0 violation)</span><span class="badge badge-ok" style="font-size:.7rem">2 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-017-2-inbox-triage" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-017-2-inbox-triage.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-017-2-inbox-triage</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-017-2 — Inbox de triage facts/drifts (localStorage)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 — Gate OUVERTE (2026-06-22) — en attente de /sdd exec</span><span class="badge badge-ok" style="font-size:.7rem">1 test(s)</span>
+    </div>
+  </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-017-4-pages-detail-spec" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
+    <a href="../.aiad/specs/SPEC-017-4-pages-detail-spec.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-017-4-pages-detail-spec</code></div>
+    <div style="font-weight:600;margin-top:.25rem">SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)</div></a>
+    <div class="muted" style="font-size:.8rem;margin-top:.25rem">⤴ <a class="src-link" href="../.aiad/intents/INTENT-017-dashboard-quotidien.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-017-dashboard-quotidien.md">INTENT-017-dashboard-quotidien</a></div>
+    <div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.5rem">
+      <span class="badge badge-warn" style="font-size:.7rem">SQS 5/5 — Gate OUVERTE (2026-06-22) — validé 2026-06-22</span><span class="badge badge-ok" style="font-size:.7rem">1 test(s)</span>
     </div>
   </div><div class="kanban-card" data-roles="pm" data-statut="done" data-id="SPEC-024-1-trace-exemption" style="background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;padding:.65rem;margin-bottom:.5rem">
     <a href="../.aiad/specs/SPEC-024-1-trace-exemption.md" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div style="font-size:.85rem"><code>SPEC-024-1-trace-exemption</code></div>
