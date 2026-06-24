@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-24T09:49:37.005Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: FACT-008 — SPECs done sans frontmatter YAML détectées via fallback body
+---
 # SPEC-018-4 — Bilan humains/agents par Intent
 
 **Intent parent** : INTENT-018

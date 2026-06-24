@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-24T09:49:36.981Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: FACT-008 — SPECs done sans frontmatter YAML détectées via fallback body
+---
 # SPEC-017-1 — Page "Aujourd'hui" (radiator ≤ 4 sections)
 
 **Intent parent** : INTENT-017

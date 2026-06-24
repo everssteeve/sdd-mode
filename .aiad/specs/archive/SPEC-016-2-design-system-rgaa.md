@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-24T09:49:36.971Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: FACT-008 — SPECs done sans frontmatter YAML détectées via fallback body
+---
 # SPEC-016-2 — Design system accessible + axe-core en CI
 
 **Intent parent** : INTENT-016

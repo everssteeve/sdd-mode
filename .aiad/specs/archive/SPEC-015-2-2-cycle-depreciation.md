@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-24T09:49:36.959Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: FACT-008 — SPECs done sans frontmatter YAML détectées via fallback body
+---
 # SPEC-015-2-2-cycle-depreciation — Cycle de dépréciation soft (mécanisme)
 
 **Intent parent** : INTENT-015

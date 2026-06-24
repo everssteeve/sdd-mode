@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-24T09:49:36.974Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: FACT-008 — SPECs done sans frontmatter YAML détectées via fallback body
+---
 # SPEC-016-3 — data.json v2 versionné (JSON schema publié)
 
 **Intent parent** : INTENT-016

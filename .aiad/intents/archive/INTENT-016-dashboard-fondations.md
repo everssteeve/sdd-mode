@@ -1,12 +1,14 @@
 ---
 id: INTENT-016
 title: Dashboard exemplaire — fondations accessibles, sobres, maintenables
-status: active
+status: archived
 author: Steeve Evers
-date: 2026-06-11
-specs:
+date: "2026-06-11"
+specs: null
+archivedAt: "2026-06-24T09:49:12.553Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: Fondations dashboard livrées (SPEC-016-1..4 done) — prérequis INTENT-017/018 archivés
 ---
-
 # INTENT-016 — Dashboard exemplaire (fondations)
 
 > ⚠ Draft issu de l'analyse du 2026-06-11. POURQUOI à approprier par un humain

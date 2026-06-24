@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-24T09:49:36.956Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: FACT-008 — SPECs done sans frontmatter YAML détectées via fallback body
+---
 # SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)
 
 **Intent parent** : INTENT-015

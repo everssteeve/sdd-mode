@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-24T09:49:37.012Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: FACT-008 — SPECs done sans frontmatter YAML détectées via fallback body
+---
 **Intent parent** : INTENT-019
 **Auteur** : Steeve Evers
 **Date** : 2026-06-23
