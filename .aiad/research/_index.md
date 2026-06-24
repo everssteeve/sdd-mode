@@ -22,6 +22,7 @@
 | RESEARCH-024 | La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents | INTENT-018 | Steeve Evers | 2026-06-23 | GO (90 %) | tranché — /sdd spec autorisé ; R1 (executor: frontmatter vs git-blame) à trancher avant SPEC-018-4 ; R2 (≥ 3 snapshots) à vérifier avant SPEC-018-3 |
 | RESEARCH-025 | Verification-first — dériver des squelettes de tests depuis des SPECs EARS | INTENT-019 | Steeve Evers | 2026-06-23 | GO (80 %) | tranché — /sdd spec autorisé ; R3 (node:test par défaut, --framework en phase 2) |
 | RESEARCH-026 | Trace EARS gap — earsSpecsSansTests dans compterGapsBloquants | INTENT-019 | Steeve Evers | 2026-06-23 | GO (95 %) | tranché — /sdd gate autorisé sur SPEC-019-2 |
+| RESEARCH-027 | Archivage automatique des artefacts done (Intents + SPECs) | INTENT-026 | Steeve Evers | 2026-06-24 | GO (90 %) | tranché — /sdd spec autorisé ; option A (safe: false ignorés silencieusement) |
 
 ## Verdicts du gate Research
 

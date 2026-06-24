@@ -222,3 +222,31 @@ test('construireMatrice — exemption n’affecte que specsValideesNonImplemente
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+// CA-009 — SPEC-026-1-archive-done : lireIntents/lireSpecs excluent archive/
+test('construireMatrice — CA-009 exclut les artefacts dans archive/', () => {
+  const dir = fixture();
+  try {
+    mkdirSync(join(dir, '.aiad', 'intents', 'archive'), { recursive: true });
+    mkdirSync(join(dir, '.aiad', 'specs', 'archive'), { recursive: true });
+    writeFileSync(
+      join(dir, '.aiad', 'intents', 'archive', 'INTENT-OLD.md'),
+      '---\nstatus: archived\n---\n# Old intent\n',
+    );
+    writeFileSync(
+      join(dir, '.aiad', 'specs', 'archive', 'SPEC-OLD-1-x.md'),
+      '---\nstatus: archived\n---\n# Old spec\n',
+    );
+    writeFileSync(
+      join(dir, '.aiad', 'intents', 'INTENT-001.md'),
+      '---\nstatus: active\n---\n# Active intent\n',
+    );
+    const m = construireMatrice(dir);
+    assert.equal(m.summary.intents, 1, 'seul 1 intent actif attendu (archive/ ignoré)');
+    assert.equal(m.summary.specs, 0, 'zéro spec active attendue (archive/ ignoré)');
+    const allIntentIds = m.forward.map((e) => e.id);
+    assert.ok(!allIntentIds.includes('INTENT-OLD'), 'INTENT-OLD dans archive/ ne doit pas apparaître');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

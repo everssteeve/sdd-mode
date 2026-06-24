@@ -88,6 +88,37 @@ test('lireIntents / lireSpecs — extraction id + parent', () => {
   }
 });
 
+// CA-010 — SPEC-026-1-archive-done : lireIntents/lireSpecs excluent archive/
+test('lireIntents — CA-010 exclut les fichiers dans archive/', () => {
+  const d = tmp();
+  try {
+    setupAiad(d);
+    mkdirSync(join(d, '.aiad', 'intents', 'archive'), { recursive: true });
+    writeFileSync(join(d, '.aiad', 'intents', 'archive', 'INTENT-OLD-archived.md'), '# Old\nstatus: archived\n', 'utf-8');
+    writeFileSync(join(d, '.aiad', 'intents', 'INTENT-001-active.md'), '# Active\nstatus: active\n', 'utf-8');
+    const intents = lireIntents(d);
+    assert.equal(intents.length, 1);
+    assert.equal(intents[0].id, 'INTENT-001-active');
+  } finally {
+    rmSync(d, { recursive: true, force: true });
+  }
+});
+
+test('lireSpecs — CA-010 exclut les fichiers dans archive/', () => {
+  const d = tmp();
+  try {
+    setupAiad(d);
+    mkdirSync(join(d, '.aiad', 'specs', 'archive'), { recursive: true });
+    writeFileSync(join(d, '.aiad', 'specs', 'archive', 'SPEC-OLD-1-archived.md'), '# Old\nstatus: archived\n', 'utf-8');
+    writeFileSync(join(d, '.aiad', 'specs', 'SPEC-042-1-active.md'), '# Active\nstatus: done\n', 'utf-8');
+    const specs = lireSpecs(d);
+    assert.equal(specs.length, 1);
+    assert.equal(specs[0].id, 'SPEC-042-1-active');
+  } finally {
+    rmSync(d, { recursive: true, force: true });
+  }
+});
+
 test('lireSpecs — exclut le template EARS', () => {
   const d = tmp();
   try {

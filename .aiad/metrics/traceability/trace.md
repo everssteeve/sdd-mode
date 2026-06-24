@@ -1,14 +1,14 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-23T15:12:24.437Z
+> Généré le 2026-06-24T07:12:56.000Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
 | Intents | 27 |
-| SPECs | 43 |
-| Fichiers code | 385 (annotés : 77) |
+| SPECs | 44 |
+| Fichiers code | 385 (annotés : 78) |
 | Fichiers test | 264 (annotés : 42) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
@@ -62,7 +62,7 @@
 | INTENT-023-rayonnement-honnete | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-024-trace-exemption-specs-sans-code | SPEC-024-1-trace-exemption | `lib/sdd-trace.js` | `test/trace.test.js`<br/>`chemin/relatif/test.ts` | ✅ |
 | INTENT-025-contraste-kicker | SPEC-025-1-gold-contrast-fix | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-026-archivage-artefacts-done | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-026-archivage-artefacts-done | SPEC-026-1-archive-done | `bin/aiad-sdd.js`<br/>`lib/archive.js`<br/>`lib/sdd-trace.js`<br/>`lib/sdd-trace.js` | `(Human`<br/>`test/trace.test.js`<br/>`chemin/relatif/test.ts` | ✅ |
 | INTENT-027-ci-metrics-automation | _(aucune SPEC)_ | — | — | ❌ orphelin |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
@@ -81,6 +81,7 @@
 | `test/annotations.test.js` | SPEC-005-1-context-pull | INTENT-005-context-pull | `lib/emit-rules.js`<br/>`lib/skills.js` |
 | `test/annotations.test.js` | SPEC-001-1-feedback-qualitatif | INTENT-001-feedback-qualitatif | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/anonymize.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/archive.test.js` | SPEC-009-1-observabilite-native | INTENT-009-observabilite-native | `lib/statusline.js` |
 | `test/archive.test.js` | SPEC-009-1-observabilite-native | INTENT-009-observabilite-native | `lib/statusline.js` |
 | `test/audit.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/azure-devops.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -392,12 +393,11 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **6**
+- Intents sans SPEC : **5**
   - INTENT-020-spec-anchored-deltas — Spec-anchored par construction — deltas et redevabilité bidirectionnelle
   - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
   - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
   - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
-  - INTENT-026-archivage-artefacts-done — Archivage automatique des artefacts done (Intents + SPECs)
   - INTENT-027-ci-metrics-automation — INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow
 - SPECs sans code (hors draft/review) : **5**
   - SPEC-013-1-deploiement-site-valeurs (statut : split)
@@ -415,7 +415,7 @@
 - SPECs EARS sans tests liés (statut ≠ draft/archived) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **324**
+- Code sans `@spec` : **322**
   - .aiad/config.yml
   - .aiad/hook-bypass.yml
   - .aiad/hooks/discovery-gate.js
@@ -450,11 +450,9 @@
   - bench/scenario-autonomous-run/url-shortener/dashboard/assets/app.js
   - bench/scenario-autonomous-run/url-shortener/docker-compose.prod.yml
   - bench/scenario-autonomous-run/url-shortener/docker-compose.yml
-  - bin/aiad-sdd.js
   - docs/_config.yml
   - lib/ai-act-audit.js
   - lib/anonymize.js
-  - lib/archive.js
   - lib/audit.js
   - lib/azure-devops.js
   - lib/backup.js
@@ -466,9 +464,12 @@
   - lib/ci-templates.js
   - lib/cli-schema.js
   - lib/coldstart.js
-  - … (+274 autres)
-- Code annoté sans tests liés : **11**
+  - lib/command-hooks.js
+  - lib/completion.js
+  - … (+272 autres)
+- Code annoté sans tests liés : **12**
   - .github/workflows/site-deploy.yml
+  - lib/archive.js
   - lib/dashboard/ebm-aires.js
   - lib/dashboard/render.js
   - lib/dashboard/ui/badges.js

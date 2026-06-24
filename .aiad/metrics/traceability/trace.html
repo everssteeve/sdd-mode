@@ -24,14 +24,14 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-06-23T15:12:24.437Z</em></p>
+<p><em>Généré le 2026-06-24T07:12:56.000Z</em></p>
 
 <div class="stats">
   <div class="stat"><div class="v">27</div><div class="k">Intents</div></div>
-  <div class="stat"><div class="v">43</div><div class="k">SPECs</div></div>
-  <div class="stat"><div class="v">77 / 385</div><div class="k">Code annoté</div></div>
+  <div class="stat"><div class="v">44</div><div class="k">SPECs</div></div>
+  <div class="stat"><div class="v">78 / 385</div><div class="k">Code annoté</div></div>
   <div class="stat"><div class="v">42 / 264</div><div class="k">Tests annotés</div></div>
-  <div class="stat"><div class="v">324</div><div class="k">Code sans @spec</div></div>
+  <div class="stat"><div class="v">322</div><div class="k">Code sans @spec</div></div>
   <div class="stat"><div class="v">0</div><div class="k">SPECs non-implémentées</div></div>
 </div>
 
@@ -85,7 +85,7 @@
 <tr><td>INTENT-023-rayonnement-honnete</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr class="ok"><td>INTENT-024-trace-exemption-specs-sans-code</td><td>SPEC-024-1-trace-exemption</td><td><code>lib/sdd-trace.js</code></td><td><code>test/trace.test.js</code><br/><code>chemin/relatif/test.ts</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="warn"><td>INTENT-025-contraste-kicker</td><td>SPEC-025-1-gold-contrast-fix</td><td><em>(aucun)</em></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
-<tr><td>INTENT-026-archivage-artefacts-done</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
+<tr class="ok"><td>INTENT-026-archivage-artefacts-done</td><td>SPEC-026-1-archive-done</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/archive.js</code><br/><code>lib/sdd-trace.js</code><br/><code>lib/sdd-trace.js</code></td><td><code>(Human</code><br/><code>test/trace.test.js</code><br/><code>chemin/relatif/test.ts</code></td><td><span class="ok">✅</span></td></tr>
 <tr><td>INTENT-027-ci-metrics-automation</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 </tbody></table>
 
@@ -104,6 +104,7 @@
 <tr class="ok"><td><code>test/annotations.test.js</code></td><td>SPEC-005-1-context-pull</td><td>INTENT-005-context-pull</td><td><code>lib/emit-rules.js</code><br/><code>lib/skills.js</code></td></tr>
 <tr class="ok"><td><code>test/annotations.test.js</code></td><td>SPEC-001-1-feedback-qualitatif</td><td>INTENT-001-feedback-qualitatif</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/anonymize.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/archive.test.js</code></td><td>SPEC-009-1-observabilite-native</td><td>INTENT-009-observabilite-native</td><td><code>lib/statusline.js</code></td></tr>
 <tr class="ok"><td><code>test/archive.test.js</code></td><td>SPEC-009-1-observabilite-native</td><td>INTENT-009-observabilite-native</td><td><code>lib/statusline.js</code></td></tr>
 <tr class="bad"><td><code>test/audit.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/azure-devops.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>

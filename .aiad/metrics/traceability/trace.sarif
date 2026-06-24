@@ -177,25 +177,6 @@
           "ruleId": "AIAD-TRACE-001",
           "level": "warning",
           "message": {
-            "text": "Intent INTENT-026-archivage-artefacts-done (« Archivage automatique des artefacts done (Intents + SPECs) ») n'a pas de SPEC associée."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".aiad/intents/INTENT-026-archivage-artefacts-done.md"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-001",
-          "level": "warning",
-          "message": {
             "text": "Intent INTENT-027-ci-metrics-automation (« INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow ») n'a pas de SPEC associée."
           },
           "locations": [
@@ -861,25 +842,6 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
-            "text": "Aucune annotation @spec dans bin/aiad-sdd.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "bin/aiad-sdd.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
             "text": "Aucune annotation @spec dans docs/_config.yml."
           },
           "locations": [
@@ -925,25 +887,6 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "lib/anonymize.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
-            "text": "Aucune annotation @spec dans lib/archive.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/archive.js"
                 },
                 "region": {
                   "startLine": 1
@@ -6390,6 +6333,25 @@
           "ruleId": "AIAD-TRACE-006",
           "level": "warning",
           "message": {
+            "text": "Code lib/archive.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/archive.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
             "text": "Code lib/dashboard/ebm-aires.js annoté @spec mais sans test lié."
           },
           "locations": [
@@ -6580,7 +6542,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-23T15:12:24.437Z"
+          "endTimeUtc": "2026-06-24T07:12:56.000Z"
         }
       ]
     }

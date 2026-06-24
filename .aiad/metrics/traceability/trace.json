@@ -2,14 +2,14 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-23T15:12:24.438Z"
+    "generated": "2026-06-24T07:12:56.000Z"
   },
-  "generatedAt": "2026-06-23T15:12:24.437Z",
+  "generatedAt": "2026-06-24T07:12:56.000Z",
   "summary": {
     "intents": 27,
-    "specs": 43,
+    "specs": 44,
     "codeFiles": 385,
-    "annotatedCodeFiles": 77,
+    "annotatedCodeFiles": 78,
     "testFiles": 264,
     "annotatedTestFiles": 42
   },
@@ -1477,7 +1477,7 @@
         "id": "INTENT-019-verification-first",
         "file": ".aiad/intents/INTENT-019-verification-first.md",
         "title": "Verification-first — dériver des tests des critères EARS",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -1523,7 +1523,7 @@
           "code": [
             {
               "path": "lib/sdd-trace.js",
-              "line": 572
+              "line": 574
             }
           ],
           "tests": [
@@ -1650,9 +1650,57 @@
         "id": "INTENT-026-archivage-artefacts-done",
         "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
         "title": "Archivage automatique des artefacts done (Intents + SPECs)",
-        "status": "draft"
+        "status": "done"
       },
-      "specs": []
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-026-1-archive-done",
+            "file": ".aiad/specs/SPEC-026-1-archive-done.md",
+            "title": "Commande `archive done` — archivage des artefacts done (Intents + SPECs)",
+            "parentIntent": "INTENT-026",
+            "status": "validation",
+            "format": "EARS",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "bin/aiad-sdd.js",
+              "line": 2563
+            },
+            {
+              "path": "lib/archive.js",
+              "line": 373
+            },
+            {
+              "path": "lib/sdd-trace.js",
+              "line": 230
+            },
+            {
+              "path": "lib/sdd-trace.js",
+              "line": 256
+            }
+          ],
+          "tests": [
+            {
+              "path": "(Human",
+              "line": 333,
+              "viaCode": true
+            },
+            {
+              "path": "test/trace.test.js",
+              "line": 15,
+              "viaCode": true
+            },
+            {
+              "path": "chemin/relatif/test.ts",
+              "line": 44,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
     },
     {
       "intent": {
@@ -1971,6 +2019,34 @@
       "test": {
         "path": "test/archive.test.js",
         "line": 319
+      },
+      "spec": {
+        "id": "SPEC-009-1-observabilite-native",
+        "file": ".aiad/specs/SPEC-009-1-observabilite-native.md",
+        "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
+        "parentIntent": "INTENT-009",
+        "status": "done",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-009-observabilite-native",
+        "file": ".aiad/intents/INTENT-009-observabilite-native.md",
+        "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "lib/statusline.js",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/archive.test.js",
+        "line": 408
       },
       "spec": {
         "id": "SPEC-009-1-observabilite-native",
@@ -5752,7 +5828,7 @@
         "id": "INTENT-019-verification-first",
         "file": ".aiad/intents/INTENT-019-verification-first.md",
         "title": "Verification-first — dériver des tests des critères EARS",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
@@ -6007,12 +6083,12 @@
         "id": "INTENT-019-verification-first",
         "file": ".aiad/intents/INTENT-019-verification-first.md",
         "title": "Verification-first — dériver des tests des critères EARS",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
           "path": "lib/sdd-trace.js",
-          "line": 572
+          "line": 574
         }
       ]
     },
@@ -6577,12 +6653,6 @@
         "status": "draft"
       },
       {
-        "id": "INTENT-026-archivage-artefacts-done",
-        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
-        "title": "Archivage automatique des artefacts done (Intents + SPECs)",
-        "status": "draft"
-      },
-      {
         "id": "INTENT-027-ci-metrics-automation",
         "file": ".aiad/intents/INTENT-027-ci-metrics-automation.md",
         "title": "INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow",
@@ -7034,29 +7104,6 @@
         "annotated": false
       },
       {
-        "path": "bin/aiad-sdd.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [
-            {
-              "path": "(Human",
-              "line": 333
-            }
-          ],
-          "governance": [
-            {
-              "tags": [
-                "ou"
-              ],
-              "line": 1169
-            }
-          ]
-        },
-        "annotated": true
-      },
-      {
         "path": "docs/_config.yml",
         "isTest": false,
         "annotations": {
@@ -7117,17 +7164,6 @@
       },
       {
         "path": "lib/anonymize.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/archive.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -10484,6 +10520,27 @@
               "line": 60
             }
           ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/archive.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-026",
+              "line": 374
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-026-1-archive-done",
+              "line": 373
+            }
+          ],
+          "verifiedBy": [],
+          "governance": []
         },
         "annotated": true
       },

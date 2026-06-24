@@ -2559,7 +2559,40 @@ async function main() {
           }
           break;
         }
-        if (values.delivered || (positionals[1] === 'delivered')) {
+        if (positionals[1] === 'done') {
+          // @spec SPEC-026-1-archive-done
+          // @intent INTENT-026
+          const { listerLivrables, archiverTous } = await import('../lib/archive.js');
+          const json = Boolean(values.json);
+          const apply = Boolean(values.apply);
+          if (!apply) {
+            const candidats = listerLivrables(cwd()).filter((a) => a.safe);
+            if (json) {
+              process.stdout.write(JSON.stringify({ total: candidats.length, candidats }, null, 2) + '\n');
+            } else if (candidats.length === 0) {
+              console.log('\n  Aucun artefact éligible à archiver.\n');
+            } else {
+              console.log('\n  Artefacts éligibles à archiver (safe: true, status: done) :\n');
+              for (const a of candidats) console.log(`    ${C.cyan}${a.id}${C.reset} — ${a.title}`);
+              console.log(`\n  Total : ${candidats.length} artefact(s). Lance --apply pour archiver.\n`);
+            }
+          } else {
+            const result = await archiverTous(cwd(), {
+              raison: values.reason || 'archive done',
+              dryRun: false,
+            });
+            if (json) {
+              process.stdout.write(JSON.stringify(result, null, 2) + '\n');
+            } else if (result.total === 0) {
+              console.log('\n  Aucun artefact éligible à archiver.\n');
+            } else {
+              for (const a of result.items) {
+                console.log(`  ${C.vert}✓${C.reset} ${a.id} archivé → .aiad/${a.kind}/archive/${a.fichier}`);
+              }
+              console.log(`\n  Archivage terminé : ${result.archived} artefact(s) déplacé(s).\n`);
+            }
+          }
+        } else if (values.delivered || (positionals[1] === 'delivered')) {
           // Cycle anti dock rot (§3.8 SPEC-B) : liste les artefacts livrés/clos.
           // Par défaut → liste seule (dry-run) ; `--apply` archive les `safe`.
           const { listerLivrables } = await import('../lib/archive.js');

@@ -340,3 +340,114 @@ test('alias EN — exports canoniques', () => {
 test('CONSTANTS — exposées', () => {
   assert.deepEqual(CONSTANTS.SOUS_DOSSIERS, ['intents', 'specs']);
 });
+
+// ─── archiverTous (SPEC-026-1) ───────────────────────────────────────────────
+
+test('archive done — CA-001 affiche la liste des candidats safe', async () => {
+  const { archiverTous } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireIntent(d, 'INTENT-001-x', 'status: done\ntitle: Titre intent');
+    ecrireSpec(d, 'SPEC-001-1-x', 'status: done\ntitle: Titre spec');
+    ecrireIntent(d, 'INTENT-002-y', 'status: active\ntitle: Encore chaud');
+    const result = await archiverTous(d, { dryRun: true });
+    assert.equal(result.total, 2);
+    assert.equal(result.archived, 0);
+    const ids = result.items.map((i) => i.id);
+    assert.ok(ids.includes('INTENT-001-x'));
+    assert.ok(ids.includes('SPEC-001-1-x'));
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('archive done — CA-002 sans --apply aucune mutation', silent(async () => {
+  const { archiverTous } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireIntent(d, 'INTENT-001-x', 'status: done\ntitle: T');
+    await archiverTous(d, { dryRun: true });
+    assert.ok(existsSync(join(d, '.aiad', 'intents', 'INTENT-001-x.md')));
+    assert.ok(!existsSync(join(d, '.aiad', 'intents', 'archive')));
+  } finally { rmSync(d, { recursive: true, force: true }); }
+}));
+
+test('archive done — CA-003 --apply déplace les fichiers', silent(async () => {
+  const { archiverTous } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireIntent(d, 'INTENT-001-x', 'status: done\ntitle: T');
+    ecrireSpec(d, 'SPEC-001-1-x', 'status: done\ntitle: T');
+    const result = await archiverTous(d, { dryRun: false, raison: 'test' });
+    assert.equal(result.archived, 2);
+    assert.ok(!existsSync(join(d, '.aiad', 'intents', 'INTENT-001-x.md')));
+    assert.ok(existsSync(join(d, '.aiad', 'intents', 'archive', 'INTENT-001-x.md')));
+    assert.ok(!existsSync(join(d, '.aiad', 'specs', 'SPEC-001-1-x.md')));
+    assert.ok(existsSync(join(d, '.aiad', 'specs', 'archive', 'SPEC-001-1-x.md')));
+  } finally { rmSync(d, { recursive: true, force: true }); }
+}));
+
+test('archive done — CA-004 patch frontmatter', silent(async () => {
+  const { archiverTous } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireIntent(d, 'INTENT-001-x', 'status: done\ntitle: T');
+    await archiverTous(d, { dryRun: false, raison: 'archive done' });
+    const contenu = readFileSync(join(d, '.aiad', 'intents', 'archive', 'INTENT-001-x.md'), 'utf-8');
+    assert.match(contenu, /status: archived/);
+    assert.match(contenu, /archivedAt:/);
+    assert.match(contenu, /archivedReason: archive done/);
+  } finally { rmSync(d, { recursive: true, force: true }); }
+}));
+
+test('archive done — CA-005 safe: false exclu silencieusement', async () => {
+  const { archiverTous } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    mkdirSync(join(d, '.aiad', 'specs'), { recursive: true });
+    mkdirSync(join(d, 'lib'), { recursive: true });
+    writeFileSync(join(d, '.aiad', 'specs', 'SPEC-009-1-live.md'), '---\nstatus: done\ntitle: Live\n---\n');
+    writeFileSync(join(d, 'lib', 'live.js'), '// @spec SPEC-009-1-live\nexport const x = 1;\n');
+    const result = await archiverTous(d, { dryRun: true });
+    assert.equal(result.total, 0);
+    assert.equal(result.items.length, 0);
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('archive done — CA-006 crée archive/ si absent', silent(async () => {
+  const { archiverTous } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireIntent(d, 'INTENT-001-x', 'status: done\ntitle: T');
+    assert.ok(!existsSync(join(d, '.aiad', 'intents', 'archive')));
+    await archiverTous(d, { dryRun: false });
+    assert.ok(existsSync(join(d, '.aiad', 'intents', 'archive')));
+  } finally { rmSync(d, { recursive: true, force: true }); }
+}));
+
+test('archive done — CA-007 zéro candidat → total 0', async () => {
+  const { archiverTous } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    mkdirSync(join(d, '.aiad', 'intents'), { recursive: true });
+    writeFileSync(join(d, '.aiad', 'intents', 'INTENT-001-x.md'), '---\nstatus: active\ntitle: T\n---\n');
+    const result = await archiverTous(d, { dryRun: true });
+    assert.equal(result.total, 0);
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('archive done — CA-008 audit entry par artefact archivé', silent(async () => {
+  const { archiverTous } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireIntent(d, 'INTENT-001-x', 'status: done\ntitle: T');
+    ecrireSpec(d, 'SPEC-001-1-x', 'status: done\ntitle: T');
+    await archiverTous(d, { dryRun: false });
+    const auditPath = join(d, '.aiad', 'audit', 'audit.jsonl');
+    assert.ok(existsSync(auditPath));
+    const lignes = readFileSync(auditPath, 'utf-8').trim().split('\n').filter(Boolean);
+    assert.equal(lignes.length, 2);
+    for (const l of lignes) {
+      const ev = JSON.parse(l);
+      assert.equal(ev.action, 'archived');
+    }
+  } finally { rmSync(d, { recursive: true, force: true }); }
+}));

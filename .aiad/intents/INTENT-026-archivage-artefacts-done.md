@@ -1,7 +1,7 @@
 ---
 id: INTENT-026
 title: Archivage automatique des artefacts done (Intents + SPECs)
-status: draft
+status: done
 author: Steeve Evers
 date: 2026-06-23
 ---
@@ -56,7 +56,7 @@ Signal observable : `find .aiad/intents .aiad/specs -maxdepth 1 -name "*.md" | x
 
 ## SPECs liées
 
-- [ ] À créer via `/sdd spec`
+- [x] SPEC-026-1 — Commande `archive done` (validation)
 
 ## Lien FACT
 

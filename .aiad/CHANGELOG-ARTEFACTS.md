@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-24 — INTENT-026 / SPEC-026-1 — Drift Lock OK (done)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd drift-check` après validation SPEC-026-1 — code + SPEC synchronisés, 0 violation EARS, 64/64 tests verts, `trace --fail-on-gap` exit 0. Correction RGPD Art. 6.1.f ajoutée sur `detecterActeur()` (base légale `archivedBy`).
+**Impact** : `lib/archive.js` — `archiverTous()` + commentaire RGPD (l.88–97) ; `bin/aiad-sdd.js:2562` — branche `archive done` ; `lib/sdd-trace.js:230,256` — guard `archive/` dans `lireIntents()` et `lireSpecs()` ; `test/archive.test.js` CA-001→CA-008 ; `test/trace.test.js` CA-009 ; `test/dashboard-collect.test.js` CA-010. SPEC-026-1 → `done`. INTENT-026 → `done`.
+
 ## Format
 
 ```
