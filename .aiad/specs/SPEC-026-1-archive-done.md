@@ -263,4 +263,5 @@ for (const nom of readdirSync(dir)) {
 - [x] **EARS lint : 0 violation** (validé à la gate, SQS 5/5)
 - [x] `npx aiad-sdd trace --fail-on-gap` exit 0 — SPECs validées non-implémentées : 0
 - [x] Annotations `@spec SPEC-026-1-archive-done` posées sur les fonctions modifiées
+- [x] Fix post-livraison : `import { C } from '../lib/term.js'` ajouté dans `bin/aiad-sdd.js` (ReferenceError au runtime — `C` utilisé mais non importé dans le bin)
 - [x] Gouvernance vérifiée : PASS (AI-ACT/RGPD/RGAA/RGESN)

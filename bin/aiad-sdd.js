@@ -93,6 +93,7 @@ import { negotiate } from '../lib/negotiate.js';
 import { refactorSpec, refactorAll } from '../lib/refactor-spec.js';
 import { bumpSpec, verifierVersion } from '../lib/spec-version.js';
 import { archiver, restaurer, afficherListe as afficherArchives, TYPES_ARTEFACTS as ARCHIVE_TYPES } from '../lib/archive.js';
+import { C } from '../lib/term.js';
 import { show as slaShow, check as slaCheck, update as slaUpdate, POLITIQUE_DEFAUT as SLA_POLITIQUE } from '../lib/sla.js';
 import { emettre as completionEmettre, CONSTANTS as COMPLETION_CONSTANTS } from '../lib/completion.js';
 import { tour as guidedTour } from '../lib/tour.js';
