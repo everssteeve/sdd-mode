@@ -158,6 +158,8 @@ Une nouvelle capacité CLI s'ajoute par : un module `lib/<nom>.js` annoté, un `
 | 2026-06-19 | Toucher l'aide/couverture CLI sans régénérer doc + badge | `aiad-sdd docs` + `npm run coverage:badge` | Évite une CI rouge (doc/badge désynchronisés) |
 | 2026-06-19 | Débugger le test perf « gain cold/warm scanCode » qui échoue | C'est un flaky de timing — relancer le job, ne pas modifier le diff | Évite de chasser un faux bug |
 | 2026-06-23 | Annoter le code d'une SPEC sans couvrir tous les modules — trace completeness bloquée à 75,6 % | Vérifier `npx aiad-sdd trace --fail-on-gap` avant de clore chaque PR de feature | Évite un gap structurel détecté trop tard par la CI |
+| 2026-06-24 | Import nommé `C` depuis `term.js` absent dans un nouveau handler `bin/` → ReferenceError runtime | Tester `node -e "require('./bin/aiad-sdd')"` (dry-run import) avant de committer un nouveau handler | Détecte les imports cassés avant CI |
+| 2026-06-24 | Garde `safe: false` basée sur l'invariant "annoté dans lib/ = actif" — devenu caduc après le patch `78d3b9b` de `construireMatrice()` | Quand on modifie `construireMatrice()` ou un invariant du système de traçabilité, auditer immédiatement les consommateurs de ce résultat (`listerLivrables`, `drift-check`, etc.) | Évite des gardes silencieusement caduques après un fix de traçabilité |
 
 ---
 
@@ -170,4 +172,5 @@ Une nouvelle capacité CLI s'ajoute par : un module `lib/<nom>.js` annoté, un `
 | Date | Intention exprimée | Résultat obtenu | Apprentissage |
 |------|--------------------|-----------------|---------------|
 | 2026-06-23 | INTENT-018 déclaré implicitement « terminé » au fil des PRs | L'index restait `draft` — découvert 12 jours après la dernière SPEC | Clore explicitement l'Intent dans `_index.md` à la même PR que la dernière SPEC liée (même réflexe que le Drift Lock) |
+| 2026-06-24 | SPEC-026-1 conçue sans anticiper la dépendance avec `78d3b9b` (patch traçabilité en cours dans la même session) — la garde `safe` était basée sur un invariant que le patch venait de changer | Quand deux changements portent sur des systèmes interdépendants (archive + traçabilité), rédiger les SPECs ou les patches en ordre topologique, ou noter explicitement la dépendance dans la SPEC | Évite les bugs d'intégration intra-session invisibles à la review |
 | 2026-06-23 | 6 Intents `draft` créés le même jour sans priorisation | Backlog draft qui vieillit → risque de « draft oublié » à J+14 | Chaque session de création groupée d'Intents doit se terminer par une décision de priorisation (`active` / `archived`), pas laisser tout en `draft` |
