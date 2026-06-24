@@ -2,974 +2,18 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-24T07:12:56.000Z"
+    "generated": "2026-06-24T07:18:33.491Z"
   },
-  "generatedAt": "2026-06-24T07:12:56.000Z",
+  "generatedAt": "2026-06-24T07:18:33.491Z",
   "summary": {
-    "intents": 27,
-    "specs": 44,
+    "intents": 6,
+    "specs": 39,
     "codeFiles": 385,
     "annotatedCodeFiles": 78,
     "testFiles": 264,
     "annotatedTestFiles": 42
   },
   "forward": [
-    {
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-001-1-feedback-qualitatif",
-            "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-            "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-            "parentIntent": "INTENT-001",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/feedback.js",
-              "line": 2
-            },
-            {
-              "path": "lib/tour.js",
-              "line": 146
-            },
-            {
-              "path": "scripts/bench-trace.js",
-              "line": 55
-            },
-            {
-              "path": "templates/projects/fastapi-aiad/app/main.py",
-              "line": 4
-            },
-            {
-              "path": "templates/projects/node-aiad/src/index.js",
-              "line": 2
-            }
-          ],
-          "tests": [
-            {
-              "path": "templates/projects/fastapi-aiad/tests/test_main.py",
-              "line": 3
-            },
-            {
-              "path": "test/ai-act-audit.test.js",
-              "line": 94
-            },
-            {
-              "path": "test/annotations.test.js",
-              "line": 26
-            },
-            {
-              "path": "test/dashboard-pm-v39.test.js",
-              "line": 118
-            },
-            {
-              "path": "test/dpia.test.js",
-              "line": 113
-            },
-            {
-              "path": "test/leadership-metrics.test.js",
-              "line": 60
-            },
-            {
-              "path": "test/multi-language.test.js",
-              "line": 23
-            },
-            {
-              "path": "test/spec-suggester.test.js",
-              "line": 140
-            },
-            {
-              "path": "test/suggest-annotations.test.js",
-              "line": 197
-            },
-            {
-              "path": "test/trace-cache.test.js",
-              "line": 110
-            },
-            {
-              "path": "test/trace-git.test.js",
-              "line": 96
-            },
-            {
-              "path": "test/trace-perf.test.js",
-              "line": 35
-            },
-            {
-              "path": "test/trace-watch.test.js",
-              "line": 74
-            },
-            {
-              "path": "test/trace.test.js",
-              "line": 33
-            },
-            {
-              "path": "test/veto.test.js",
-              "line": 83
-            },
-            {
-              "path": "tests/export.test.ts',",
-              "line": 147,
-              "viaCode": true
-            },
-            {
-              "path": "tests/test_main.py",
-              "line": 5,
-              "viaCode": true
-            },
-            {
-              "path": "test/index.test.js",
-              "line": 3,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-002-gouvernance-enforced",
-        "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
-        "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-002-1-gouvernance-enforced",
-            "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
-            "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
-            "parentIntent": "INTENT-002",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/drift-verdict.js",
-              "line": 21
-            },
-            {
-              "path": "lib/jnsp.js",
-              "line": 20
-            },
-            {
-              "path": "lib/verdict.js",
-              "line": 27
-            },
-            {
-              "path": "lib/veto.js",
-              "line": 19
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/dashboard-pm-v39.test.js",
-              "line": 119
-            },
-            {
-              "path": "test/suggest-annotations.test.js",
-              "line": 198
-            },
-            {
-              "path": "test/trace-cache.test.js",
-              "line": 150
-            },
-            {
-              "path": "test/drift-verdict.test.js",
-              "line": 22,
-              "viaCode": true
-            },
-            {
-              "path": "test/jnsp.test.js",
-              "line": 21,
-              "viaCode": true
-            },
-            {
-              "path": "test/verdict.test.js",
-              "line": 28,
-              "viaCode": true
-            },
-            {
-              "path": "test/veto.test.js",
-              "line": 20,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-003-research-phase",
-        "file": ".aiad/intents/INTENT-003-research-phase.md",
-        "title": "Phase Research + Discovery obligatoire avant la SPEC (§3.5)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-003-1-research-phase",
-            "file": ".aiad/specs/SPEC-003-1-research-phase.md",
-            "title": "Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)",
-            "parentIntent": "INTENT-003",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/research.js",
-              "line": 33
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/research.test.js",
-              "line": 34,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-004-execution-phasee",
-        "file": ".aiad/intents/INTENT-004-execution-phasee.md",
-        "title": "Exécution phasée + mini-gates + 3e verdict CONDITIONAL (§3.6)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-004-1-execution-phasee",
-            "file": ".aiad/specs/SPEC-004-1-execution-phasee.md",
-            "title": "Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)",
-            "parentIntent": "INTENT-004",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/exec-status.js",
-              "line": 20
-            },
-            {
-              "path": "lib/mini-gate.js",
-              "line": 27
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/exec-status.test.js",
-              "line": 21,
-              "viaCode": true
-            },
-            {
-              "path": "test/mini-gate.test.js",
-              "line": 28,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-005-context-pull",
-        "file": ".aiad/intents/INTENT-005-context-pull.md",
-        "title": "Budget d'instructions push → pull (gouvernance par paths, §3.7)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-005-1-context-pull",
-            "file": ".aiad/specs/SPEC-005-1-context-pull.md",
-            "title": "Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)",
-            "parentIntent": "INTENT-005",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/emit-rules.js",
-              "line": 188
-            },
-            {
-              "path": "lib/skills.js",
-              "line": 33
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/annotations.test.js",
-              "line": 96
-            },
-            {
-              "path": "test/emit-rules-pull.test.js",
-              "line": 189,
-              "viaCode": true
-            },
-            {
-              "path": "tests/path/file.test.ts",
-              "line": 388,
-              "viaCode": true
-            },
-            {
-              "path": "test/skills.test.js",
-              "line": 34,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-006-canary-suite",
-        "file": ".aiad/intents/INTENT-006-canary-suite.md",
-        "title": "Canary suite + alignement des références modèles (§3.10)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-006-1-canary-suite",
-            "file": ".aiad/specs/SPEC-006-1-canary-suite.md",
-            "title": "Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)",
-            "parentIntent": "INTENT-006",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/canary.js",
-              "line": 27
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/canary.test.js",
-              "line": 28,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-007-memory-native",
-        "file": ".aiad/intents/INTENT-007-memory-native.md",
-        "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-007-1-memory-native",
-            "file": ".aiad/specs/SPEC-007-1-memory-native.md",
-            "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)",
-            "parentIntent": "INTENT-007",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/memory.js",
-              "line": 23
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/spec-suggester.test.js",
-              "line": 93
-            },
-            {
-              "path": "test/memory.test.js",
-              "line": 24,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-008-cycle-graph",
-        "file": ".aiad/intents/INTENT-008-cycle-graph.md",
-        "title": "Cycle SDD comme graphe de Tasks (§3.9)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-008-1-cycle-graph",
-            "file": ".aiad/specs/SPEC-008-1-cycle-graph.md",
-            "title": "Cycle SDD comme graphe de Tasks (§3.9)",
-            "parentIntent": "INTENT-008",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/cycle-graph.js",
-              "line": 26
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/cycle-graph.test.js",
-              "line": 27,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-009-observabilite-native",
-        "file": ".aiad/intents/INTENT-009-observabilite-native.md",
-        "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-009-1-observabilite-native",
-            "file": ".aiad/specs/SPEC-009-1-observabilite-native.md",
-            "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
-            "parentIntent": "INTENT-009",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/statusline.js",
-              "line": 15
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/archive.test.js",
-              "line": 319
-            },
-            {
-              "path": "test/statusline.test.js",
-              "line": 16,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-010-cross-model-review",
-        "file": ".aiad/intents/INTENT-010-cross-model-review.md",
-        "title": "Cross-model review additive-only (§3.12)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-010-1-cross-model-review",
-            "file": ".aiad/specs/SPEC-010-1-cross-model-review.md",
-            "title": "Cross-model review additive-only (§3.12)",
-            "parentIntent": "INTENT-010",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/cross-model.js",
-              "line": 29
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/cross-model.test.js",
-              "line": 30,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-011-distribution-plugin-goal",
-        "file": ".aiad/intents/INTENT-011-distribution-plugin-goal.md",
-        "title": "Distribution plugin + boucles /goal + toggles de hooks (§3.13)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-011-1-hooks-toggles",
-            "file": ".aiad/specs/SPEC-011-1-hooks-toggles.md",
-            "title": "Toggles de hooks + boucles /goal + packaging plugin (§3.13 SPEC-A + SPEC-B)",
-            "parentIntent": "INTENT-011",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/hooks-config.js",
-              "line": 21
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/hooks-config.test.js",
-              "line": 22,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-012-garde-fous",
-        "file": ".aiad/intents/INTENT-012-garde-fous.md",
-        "title": "Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-012-1-garde-fous",
-            "file": ".aiad/specs/SPEC-012-1-garde-fous.md",
-            "title": "Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)",
-            "parentIntent": "INTENT-012",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/grill.js",
-              "line": 16
-            },
-            {
-              "path": "lib/proportionality.js",
-              "line": 19
-            },
-            {
-              "path": "lib/sunset.js",
-              "line": 21
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/grill.test.js",
-              "line": 17,
-              "viaCode": true
-            },
-            {
-              "path": "test/proportionality.test.js",
-              "line": 20,
-              "viaCode": true
-            },
-            {
-              "path": "test/sunset.test.js",
-              "line": 22,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-013-zero-drift-sur-soi",
-        "file": ".aiad/intents/INTENT-013-zero-drift-sur-soi.md",
-        "title": "Zéro drift sur soi-même — site et docs alignés sur la version livrée",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-013-1-deploiement-site-valeurs",
-            "file": ".aiad/specs/SPEC-013-1-deploiement-site-valeurs.md",
-            "title": "Déploiement site v1.18 + résolution « 6 vs 7 valeurs »",
-            "parentIntent": "INTENT-013",
-            "status": "split",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [],
-          "tests": []
-        },
-        {
-          "spec": {
-            "id": "SPEC-013-1a-deploiement-site",
-            "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
-            "title": "Déploiement du site aiad.ovh en v1.18",
-            "parentIntent": "INTENT-013",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "exempt",
-            "traceabilityReason": "Livrable = contenu de site/ publié sur gh-pages (.html non scanné) — FACT-004 / SPEC-024-1"
-          },
-          "code": [],
-          "tests": []
-        },
-        {
-          "spec": {
-            "id": "SPEC-013-1b-unification-7-valeurs",
-            "file": ".aiad/specs/SPEC-013-1b-unification-7-valeurs.md",
-            "title": "Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site",
-            "parentIntent": "INTENT-013",
-            "status": "archived",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [],
-          "tests": []
-        },
-        {
-          "spec": {
-            "id": "SPEC-013-2-unification-docs-racine",
-            "file": ".aiad/specs/SPEC-013-2-unification-docs-racine.md",
-            "title": "Unification des docs racine + archivage de SDDMode.md",
-            "parentIntent": "INTENT-013",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "exempt",
-            "traceabilityReason": "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
-          },
-          "code": [],
-          "tests": []
-        },
-        {
-          "spec": {
-            "id": "SPEC-013-3-sync-version-zones-marquees",
-            "file": ".aiad/specs/SPEC-013-3-sync-version-zones-marquees.md",
-            "title": "Synchronisation automatique des versions sur zones marquées + check CI",
-            "parentIntent": "INTENT-013",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/version-sync.js",
-              "line": 4
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/version-sync.test.js",
-              "line": 5,
-              "viaCode": true
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-013-4-deploy-site-workflow",
-            "file": ".aiad/specs/SPEC-013-4-deploy-site-workflow.md",
-            "title": "Workflow de déploiement site/ → gh-pages (gate version + RGAA)",
-            "parentIntent": "INTENT-013",
-            "status": "split",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": ".github/workflows/site-deploy.yml",
-              "line": 2
-            },
-            {
-              "path": ".github/workflows/site-deploy.yml",
-              "line": 3
-            },
-            {
-              "path": ".github/workflows/site-deploy.yml",
-              "line": 59
-            }
-          ],
-          "tests": []
-        },
-        {
-          "spec": {
-            "id": "SPEC-013-4a-deploy-workflow",
-            "file": ".aiad/specs/SPEC-013-4a-deploy-workflow.md",
-            "title": "Workflow de déploiement site/ → gh-pages + gate version",
-            "parentIntent": "INTENT-013",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "exempt",
-            "traceabilityReason": "Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1"
-          },
-          "code": [
-            {
-              "path": ".github/workflows/site-deploy.yml",
-              "line": 2
-            },
-            {
-              "path": ".github/workflows/site-deploy.yml",
-              "line": 3
-            },
-            {
-              "path": ".github/workflows/site-deploy.yml",
-              "line": 59
-            }
-          ],
-          "tests": []
-        },
-        {
-          "spec": {
-            "id": "SPEC-013-4b-gate-rgaa",
-            "file": ".aiad/specs/SPEC-013-4b-gate-rgaa.md",
-            "title": "Gate RGAA AA avant publication du site",
-            "parentIntent": "INTENT-013",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": ".github/workflows/site-deploy.yml",
-              "line": 2
-            },
-            {
-              "path": ".github/workflows/site-deploy.yml",
-              "line": 3
-            },
-            {
-              "path": ".github/workflows/site-deploy.yml",
-              "line": 59
-            }
-          ],
-          "tests": []
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-014-empirisme-prouve",
-        "file": ".aiad/intents/INTENT-014-empirisme-prouve.md",
-        "title": "Empirisme prouvé — gates qualité actifs et claims sourcés",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-014-1-gates-bloquants-badge",
-            "file": ".aiad/specs/SPEC-014-1-gates-bloquants-badge.md",
-            "title": "SPEC-014-1-gates-bloquants-badge",
-            "parentIntent": "INTENT-014",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "scripts/coverage-threshold.js",
-              "line": 17
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/coverage-threshold.test.js",
-              "line": 18,
-              "viaCode": true
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-014-2-sourcing-claims",
-            "file": ".aiad/specs/SPEC-014-2-sourcing-claims.md",
-            "title": "SPEC-014-2-sourcing-claims",
-            "parentIntent": "INTENT-014",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "scripts/lint-claims.js",
-              "line": 17
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/lint-claims.test.js",
-              "line": 18,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-015-sobriete-cli",
-        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
-        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-015-1-telemetrie-usage",
-            "file": ".aiad/specs/SPEC-015-1-telemetrie-usage.md",
-            "title": "SPEC-015-1-telemetrie-usage — Agrégat d'usage per-command (local, opt-in)",
-            "parentIntent": "INTENT-015",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/telemetry.js",
-              "line": 169
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/telemetry-usage.test.js",
-              "line": 3
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-015-2-1-registre-commandes",
-            "file": ".aiad/specs/SPEC-015-2-1-registre-commandes.md",
-            "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
-            "parentIntent": "INTENT-015",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/commands-registry.js",
-              "line": 4
-            },
-            {
-              "path": "lib/deprecation.js",
-              "line": 4
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/commands-registry.test.js",
-              "line": 3
-            },
-            {
-              "path": "test/deprecation.test.js",
-              "line": 3
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-015-2-2-cycle-depreciation",
-            "file": ".aiad/specs/SPEC-015-2-2-cycle-depreciation.md",
-            "title": "SPEC-015-2-2-cycle-depreciation — Cycle de dépréciation soft (mécanisme)",
-            "parentIntent": "INTENT-015",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/commands-registry.js",
-              "line": 4
-            },
-            {
-              "path": "lib/deprecation.js",
-              "line": 4
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/commands-registry.test.js",
-              "line": 3
-            },
-            {
-              "path": "test/deprecation.test.js",
-              "line": 3
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-015-3-matrice-garde-fous",
-            "file": ".aiad/specs/SPEC-015-3-matrice-garde-fous.md",
-            "title": "SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable",
-            "parentIntent": "INTENT-015",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": ".aiad/hooks/veto.js",
-              "line": 14
-            },
-            {
-              "path": "lib/guardrails.js",
-              "line": 4
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/guardrails.test.js",
-              "line": 3
-            }
-          ]
-        }
-      ]
-    },
     {
       "intent": {
         "id": "INTENT-016-dashboard-fondations",
@@ -1166,387 +210,6 @@
     },
     {
       "intent": {
-        "id": "INTENT-017-dashboard-quotidien",
-        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
-        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-017-1-page-aujourdhui",
-            "file": ".aiad/specs/SPEC-017-1-page-aujourdhui.md",
-            "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
-            "parentIntent": "INTENT-017",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/dashboard/views/today.js",
-              "line": 2
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/dashboard-today.test.js",
-              "line": 1
-            },
-            {
-              "path": "test/dashboard.test.js",
-              "line": 113
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-017-2-inbox-triage",
-            "file": ".aiad/specs/SPEC-017-2-inbox-triage.md",
-            "title": "SPEC-017-2 — Inbox de triage facts/drifts (localStorage)",
-            "parentIntent": "INTENT-017",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/dashboard/model/index.js",
-              "line": 145
-            },
-            {
-              "path": "lib/dashboard/views/inbox.js",
-              "line": 3
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/dashboard-inbox.test.js",
-              "line": 1
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-017-3-digest-delta",
-            "file": ".aiad/specs/SPEC-017-3-digest-delta.md",
-            "title": "SPEC-017-3 — Digest delta + snapshots persistants",
-            "parentIntent": "INTENT-017",
-            "status": "validation",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/dashboard.js",
-              "line": 48
-            },
-            {
-              "path": "lib/dashboard/digest-delta.js",
-              "line": 2
-            },
-            {
-              "path": "lib/dashboard/model/index.js",
-              "line": 2
-            },
-            {
-              "path": "lib/dashboard/model/index.js",
-              "line": 147
-            },
-            {
-              "path": "lib/dashboard/views/today.js",
-              "line": 3
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/dashboard-digest.test.js",
-              "line": 1
-            },
-            {
-              "path": "test/dashboard-today.test.js",
-              "line": 5,
-              "viaCode": true
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-017-4-pages-detail-spec",
-            "file": ".aiad/specs/SPEC-017-4-pages-detail-spec.md",
-            "title": "SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)",
-            "parentIntent": "INTENT-017",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/dashboard.js",
-              "line": 53
-            },
-            {
-              "path": "lib/dashboard/collect.js",
-              "line": 308
-            },
-            {
-              "path": "lib/dashboard/spec-page.js",
-              "line": 9
-            },
-            {
-              "path": "lib/dashboard/views/specs.js",
-              "line": 2
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/dashboard-spec-pages.test.js",
-              "line": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-018-valeur-boussole",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-018-1-matrice-outcomes-intents",
-            "file": ".aiad/specs/SPEC-018-1-matrice-outcomes-intents.md",
-            "title": "SPEC-018-1 — Matrice outcomes ↔ Intents",
-            "parentIntent": "INTENT-018",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/dashboard/model/index.js",
-              "line": 241
-            },
-            {
-              "path": "lib/dashboard/outcome-attribution.js",
-              "line": 149
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/dashboard-matrice-outcomes.test.js",
-              "line": 1
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-018-2-aires-ebm-investment-balance",
-            "file": ".aiad/specs/SPEC-018-2-aires-ebm-investment-balance.md",
-            "title": "SPEC-018-2 — Aires EBM + Investment Balance",
-            "parentIntent": "INTENT-018",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/dashboard/ebm-aires.js",
-              "line": 18
-            },
-            {
-              "path": "lib/dashboard/ebm-aires.js",
-              "line": 62
-            },
-            {
-              "path": "lib/dashboard/ebm-aires.js",
-              "line": 144
-            },
-            {
-              "path": "lib/dashboard/ebm-aires.js",
-              "line": 194
-            },
-            {
-              "path": "lib/dashboard/ebm-aires.js",
-              "line": 228
-            },
-            {
-              "path": "lib/dashboard/model/index.js",
-              "line": 244
-            }
-          ],
-          "tests": []
-        },
-        {
-          "spec": {
-            "id": "SPEC-018-3-hill-charts-sdd",
-            "file": ".aiad/specs/SPEC-018-3-hill-charts-sdd.md",
-            "title": "SPEC-018-3 — Hill charts calculés depuis l'état SDD",
-            "parentIntent": "INTENT-018",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/dashboard/hill-charts.js",
-              "line": 14
-            },
-            {
-              "path": "lib/dashboard/model/index.js",
-              "line": 247
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/dashboard-hill-charts.test.js",
-              "line": 1
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-018-4-bilan-humains-agents",
-            "file": ".aiad/specs/SPEC-018-4-bilan-humains-agents.md",
-            "title": "SPEC-018-4 — Bilan humains/agents par Intent",
-            "parentIntent": "INTENT-018",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/dashboard/intent-humans-agents.js",
-              "line": 3
-            },
-            {
-              "path": "lib/dashboard/model/index.js",
-              "line": 249
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/dashboard-intent-humans-agents.test.js",
-              "line": 1
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-018-5-impact-effort-en-attente",
-            "file": ".aiad/specs/SPEC-018-5-impact-effort-en-attente.md",
-            "title": "SPEC-018-5 — Matrice Impact × Effort des Intents en attente",
-            "parentIntent": "INTENT-018",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/dashboard/model/index.js",
-              "line": 204
-            },
-            {
-              "path": "lib/dashboard/rice-matrix.js",
-              "line": 229
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/dashboard-impact-effort.test.js",
-              "line": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-019-verification-first",
-        "file": ".aiad/intents/INTENT-019-verification-first.md",
-        "title": "Verification-first — dériver des tests des critères EARS",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-019-1-skeleton-generator",
-            "file": ".aiad/specs/SPEC-019-1-skeleton-generator.md",
-            "title": "SPEC-019-1-skeleton-generator",
-            "parentIntent": "INTENT-019",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/test-skeleton-generator.js",
-              "line": 2
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/suggest-tests.test.js",
-              "line": 1
-            },
-            {
-              "path": "test/${shortId}.test.js`,",
-              "line": 45,
-              "viaCode": true
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-019-2-trace-ears-gap",
-            "file": ".aiad/specs/SPEC-019-2-trace-ears-gap.md",
-            "title": "SPEC-019-2-trace-ears-gap",
-            "parentIntent": "INTENT-019",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/sdd-trace.js",
-              "line": 574
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/trace-ears-gap.test.js",
-              "line": 2
-            },
-            {
-              "path": "test/trace.test.js",
-              "line": 15,
-              "viaCode": true
-            },
-            {
-              "path": "chemin/relatif/test.ts",
-              "line": 44,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
         "id": "INTENT-020-spec-anchored-deltas",
         "file": ".aiad/intents/INTENT-020-spec-anchored-deltas.md",
         "title": "Spec-anchored par construction — deltas et redevabilité bidirectionnelle",
@@ -1583,127 +246,6 @@
     },
     {
       "intent": {
-        "id": "INTENT-024-trace-exemption-specs-sans-code",
-        "file": ".aiad/intents/INTENT-024-trace-exemption-specs-sans-code.md",
-        "title": "Traçabilité honnête des SPECs sans code applicatif — exemption explicite",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-024-1-trace-exemption",
-            "file": ".aiad/specs/SPEC-024-1-trace-exemption.md",
-            "title": "Exemption de traçabilité pour SPECs sans code applicatif",
-            "parentIntent": "INTENT-024",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/sdd-trace.js",
-              "line": 14
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/trace.test.js",
-              "line": 15,
-              "viaCode": true
-            },
-            {
-              "path": "chemin/relatif/test.ts",
-              "line": 44,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-025-contraste-kicker",
-        "file": ".aiad/intents/INTENT-025-contraste-kicker.md",
-        "title": "Corriger le contraste des kickers et pills gold (WCAG 1.4.3)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-025-1-gold-contrast-fix",
-            "file": ".aiad/specs/SPEC-025-1-gold-contrast-fix.md",
-            "title": "Correction du contraste --gold-600 (.kicker + .pill.gold)",
-            "parentIntent": "INTENT-025",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "exempt",
-            "traceabilityReason": "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
-          },
-          "code": [],
-          "tests": []
-        }
-      ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-026-archivage-artefacts-done",
-        "file": ".aiad/intents/INTENT-026-archivage-artefacts-done.md",
-        "title": "Archivage automatique des artefacts done (Intents + SPECs)",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-026-1-archive-done",
-            "file": ".aiad/specs/SPEC-026-1-archive-done.md",
-            "title": "Commande `archive done` — archivage des artefacts done (Intents + SPECs)",
-            "parentIntent": "INTENT-026",
-            "status": "validation",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "bin/aiad-sdd.js",
-              "line": 2563
-            },
-            {
-              "path": "lib/archive.js",
-              "line": 373
-            },
-            {
-              "path": "lib/sdd-trace.js",
-              "line": 230
-            },
-            {
-              "path": "lib/sdd-trace.js",
-              "line": 256
-            }
-          ],
-          "tests": [
-            {
-              "path": "(Human",
-              "line": 333,
-              "viaCode": true
-            },
-            {
-              "path": "test/trace.test.js",
-              "line": 15,
-              "viaCode": true
-            },
-            {
-              "path": "chemin/relatif/test.ts",
-              "line": 44,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
         "id": "INTENT-027-ci-metrics-automation",
         "file": ".aiad/intents/INTENT-027-ci-metrics-automation.md",
         "title": "INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow",
@@ -1727,12 +269,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -1780,12 +316,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -1841,12 +371,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -1901,12 +425,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -1945,12 +463,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-005-context-pull",
-        "file": ".aiad/intents/INTENT-005-context-pull.md",
-        "title": "Budget d'instructions push → pull (gouvernance par paths, §3.7)",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/emit-rules.js",
@@ -1976,12 +488,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -2030,12 +536,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-009-observabilite-native",
-        "file": ".aiad/intents/INTENT-009-observabilite-native.md",
-        "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/statusline.js",
@@ -2057,12 +557,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-009-observabilite-native",
-        "file": ".aiad/intents/INTENT-009-observabilite-native.md",
-        "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
-        "status": "done"
       },
       "code": [
         {
@@ -2312,12 +806,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-015-sobriete-cli",
-        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
-        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/commands-registry.js",
@@ -2516,12 +1004,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-017-dashboard-quotidien",
-        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
-        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/dashboard.js",
@@ -2605,12 +1087,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-018-valeur-boussole",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/dashboard/hill-charts.js",
@@ -2636,12 +1112,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-018-valeur-boussole",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "done"
       },
       "code": [
         {
@@ -2669,12 +1139,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-017-dashboard-quotidien",
-        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
-        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/dashboard/model/index.js",
@@ -2700,12 +1164,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-018-valeur-boussole",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "done"
       },
       "code": [
         {
@@ -2759,12 +1217,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-018-valeur-boussole",
-        "file": ".aiad/intents/INTENT-018-valeur-boussole.md",
-        "title": "La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents",
-        "status": "done"
       },
       "code": [
         {
@@ -3116,12 +1568,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3159,12 +1605,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-002-gouvernance-enforced",
-        "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
-        "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
-        "status": "done"
       },
       "code": [
         {
@@ -3389,12 +1829,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-017-dashboard-quotidien",
-        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
-        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/dashboard.js",
@@ -3456,12 +1890,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-017-dashboard-quotidien",
-        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
-        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/dashboard/views/today.js",
@@ -3502,12 +1930,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-017-dashboard-quotidien",
-        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
-        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/dashboard/views/today.js",
@@ -3529,12 +1951,6 @@
         "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-017-dashboard-quotidien",
-        "file": ".aiad/intents/INTENT-017-dashboard-quotidien.md",
-        "title": "Vivre le projet au quotidien — Aujourd'hui, triage, digest",
-        "status": "done"
       },
       "code": [
         {
@@ -3589,12 +2005,6 @@
         "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-015-sobriete-cli",
-        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
-        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "done"
       },
       "code": [
         {
@@ -3693,12 +2103,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -4025,12 +2429,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-015-sobriete-cli",
-        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
-        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "done"
-      },
       "code": [
         {
           "path": ".aiad/hooks/veto.js",
@@ -4156,12 +2554,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4216,12 +2608,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4267,12 +2653,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -4429,12 +2809,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4472,12 +2846,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -4517,12 +2885,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4560,12 +2922,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -4605,12 +2961,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4648,12 +2998,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -4693,12 +3037,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4736,12 +3074,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -4781,12 +3113,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4824,12 +3150,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -4876,12 +3196,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -4937,12 +3251,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4980,12 +3288,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -5025,12 +3327,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -5069,12 +3365,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -5112,12 +3402,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -5484,12 +3768,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-007-memory-native",
-        "file": ".aiad/intents/INTENT-007-memory-native.md",
-        "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8)",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/memory.js",
@@ -5527,12 +3805,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -5652,12 +3924,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -5696,12 +3962,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-002-gouvernance-enforced",
-        "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
-        "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/drift-verdict.js",
@@ -5735,12 +3995,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -5780,12 +4034,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -5823,12 +4071,6 @@
         "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-019-verification-first",
-        "file": ".aiad/intents/INTENT-019-verification-first.md",
-        "title": "Verification-first — dériver des tests des critères EARS",
-        "status": "done"
       },
       "code": [
         {
@@ -5886,12 +4128,6 @@
         "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-015-sobriete-cli",
-        "file": ".aiad/intents/INTENT-015-sobriete-cli.md",
-        "title": "Sobriété du CLI — noyau assumé, longue traîne extraite",
-        "status": "done"
       },
       "code": [
         {
@@ -5951,12 +4187,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -5994,12 +4224,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -6039,12 +4263,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-002-gouvernance-enforced",
-        "file": ".aiad/intents/INTENT-002-gouvernance-enforced.md",
-        "title": "Gouvernance SDD enforced par le harness (advisory → enforced)",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/drift-verdict.js",
@@ -6078,12 +4296,6 @@
         "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-019-verification-first",
-        "file": ".aiad/intents/INTENT-019-verification-first.md",
-        "title": "Verification-first — dériver des tests des critères EARS",
-        "status": "done"
       },
       "code": [
         {
@@ -6122,12 +4334,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -6175,12 +4381,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -6218,12 +4418,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -6263,12 +4457,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -6306,12 +4494,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -6360,12 +4542,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -6403,12 +4579,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
       },
       "code": [
         {
@@ -6551,12 +4721,6 @@
         "traceability": "",
         "traceabilityReason": ""
       },
-      "intent": {
-        "id": "INTENT-001-feedback-qualitatif",
-        "file": ".aiad/intents/INTENT-001-feedback-qualitatif.md",
-        "title": "Feedback qualitatif utilisateurs SDD Mode",
-        "status": "done"
-      },
       "code": [
         {
           "path": "lib/feedback.js",
@@ -6671,16 +4835,6 @@
         "traceabilityReason": ""
       },
       {
-        "id": "SPEC-013-1a-deploiement-site",
-        "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
-        "title": "Déploiement du site aiad.ovh en v1.18",
-        "parentIntent": "INTENT-013",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "exempt",
-        "traceabilityReason": "Livrable = contenu de site/ publié sur gh-pages (.html non scanné) — FACT-004 / SPEC-024-1"
-      },
-      {
         "id": "SPEC-013-1b-unification-7-valeurs",
         "file": ".aiad/specs/SPEC-013-1b-unification-7-valeurs.md",
         "title": "Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site",
@@ -6689,26 +4843,6 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
-      },
-      {
-        "id": "SPEC-013-2-unification-docs-racine",
-        "file": ".aiad/specs/SPEC-013-2-unification-docs-racine.md",
-        "title": "Unification des docs racine + archivage de SDDMode.md",
-        "parentIntent": "INTENT-013",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "exempt",
-        "traceabilityReason": "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
-      },
-      {
-        "id": "SPEC-025-1-gold-contrast-fix",
-        "file": ".aiad/specs/SPEC-025-1-gold-contrast-fix.md",
-        "title": "Correction du contraste --gold-600 (.kicker + .pill.gold)",
-        "parentIntent": "INTENT-025",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "exempt",
-        "traceabilityReason": "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
       }
     ],
     "specsValideesNonImplementees": [],
@@ -10833,46 +8967,5 @@
     "specsOrphelinsSurCode": [],
     "earsSpecsSansTests": []
   },
-  "specsExemptees": [
-    {
-      "id": "SPEC-013-1a-deploiement-site",
-      "file": ".aiad/specs/SPEC-013-1a-deploiement-site.md",
-      "title": "Déploiement du site aiad.ovh en v1.18",
-      "parentIntent": "INTENT-013",
-      "status": "done",
-      "format": "PROSE",
-      "traceability": "exempt",
-      "traceabilityReason": "Livrable = contenu de site/ publié sur gh-pages (.html non scanné) — FACT-004 / SPEC-024-1"
-    },
-    {
-      "id": "SPEC-013-2-unification-docs-racine",
-      "file": ".aiad/specs/SPEC-013-2-unification-docs-racine.md",
-      "title": "Unification des docs racine + archivage de SDDMode.md",
-      "parentIntent": "INTENT-013",
-      "status": "done",
-      "format": "PROSE",
-      "traceability": "exempt",
-      "traceabilityReason": "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
-    },
-    {
-      "id": "SPEC-013-4a-deploy-workflow",
-      "file": ".aiad/specs/SPEC-013-4a-deploy-workflow.md",
-      "title": "Workflow de déploiement site/ → gh-pages + gate version",
-      "parentIntent": "INTENT-013",
-      "status": "done",
-      "format": "PROSE",
-      "traceability": "exempt",
-      "traceabilityReason": "Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1"
-    },
-    {
-      "id": "SPEC-025-1-gold-contrast-fix",
-      "file": ".aiad/specs/SPEC-025-1-gold-contrast-fix.md",
-      "title": "Correction du contraste --gold-600 (.kicker + .pill.gold)",
-      "parentIntent": "INTENT-025",
-      "status": "done",
-      "format": "EARS",
-      "traceability": "exempt",
-      "traceabilityReason": "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
-    }
-  ]
+  "specsExemptees": []
 }

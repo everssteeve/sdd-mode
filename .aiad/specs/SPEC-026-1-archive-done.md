@@ -264,4 +264,5 @@ for (const nom of readdirSync(dir)) {
 - [x] `npx aiad-sdd trace --fail-on-gap` exit 0 — SPECs validées non-implémentées : 0
 - [x] Annotations `@spec SPEC-026-1-archive-done` posées sur les fonctions modifiées
 - [x] Fix post-livraison : `import { C } from '../lib/term.js'` ajouté dans `bin/aiad-sdd.js` (ReferenceError au runtime — `C` utilisé mais non importé dans le bin)
+- [x] Fix post-archivage : `construireMatrice` enrichit `intentsConnus`/`specsConnus` avec les IDs de `archive/` — les annotations `@intent`/`@spec` pointant vers des artefacts archivés ne sont plus détectées comme orphelins (`lib/sdd-trace.js`)
 - [x] Gouvernance vérifiée : PASS (AI-ACT/RGPD/RGAA/RGESN)
