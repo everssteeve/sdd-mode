@@ -3,14 +3,16 @@ id: SPEC-024-1
 title: Exemption de traçabilité pour SPECs sans code applicatif
 parent_intent: INTENT-024
 research: court-circuitée (cf. §2)
-status: done
+status: archived
 format: EARS
-sqs: 5.0
+sqs: 5
 author: Steeve Evers
-date: 2026-06-19
-governance:
+date: "2026-06-19"
+governance: null
+archivedAt: "2026-06-24T07:31:15.564Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-024-1 — Exemption de traçabilité pour SPECs sans code applicatif
 
 **Intent parent** : INTENT-024 · **Origine** : [[FACT-004]]

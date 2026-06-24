@@ -3,14 +3,16 @@ id: SPEC-013-3
 title: Synchronisation automatique des versions sur zones marquées + check CI
 parent_intent: INTENT-013
 research: RESEARCH-013
-status: done
+status: archived
 format: prose
-sqs: 5.0
+sqs: 5
 author: Steeve Evers
-date: 2026-06-11
+date: "2026-06-11"
 governance: AIAD-RGESN
+archivedAt: "2026-06-24T07:31:15.561Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-013-3 — Sync auto des versions (zones marquées) + check CI
 
 **Intent parent** : INTENT-013 — Zéro drift sur soi-même

@@ -2,13 +2,15 @@
 id: SPEC-004-1
 title: Exécution phasée + mini-gates + statut visuel (§3.6 SPEC-A + SPEC-B)
 parent_intent: INTENT-004
-status: done
+status: archived
 format: prose
 sqs: 4.4
 author: Steeve Evers
-date: 2026-06-08
+date: "2026-06-08"
+archivedAt: "2026-06-24T07:31:15.531Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-004-1 — Exécution phasée + mini-gates + statut visuel
 
 **Intent parent** : INTENT-004

@@ -2,13 +2,15 @@
 id: SPEC-007-1
 title: Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)
 parent_intent: INTENT-007
-status: done
+status: archived
 format: prose
 sqs: 4.2
 author: Steeve Evers
-date: 2026-06-09
+date: "2026-06-09"
+archivedAt: "2026-06-24T07:31:15.541Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-007-1 — Memory native
 
 **Intent parent** : INTENT-007

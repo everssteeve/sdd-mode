@@ -2,13 +2,15 @@
 id: SPEC-012-1
 title: Garde-fous de conception — doctrine + proportionnalité + grill-me + sunset (§4)
 parent_intent: INTENT-012
-status: done
+status: archived
 format: prose
-sqs: 4.0
+sqs: 4
 author: Steeve Evers
-date: 2026-06-09
+date: "2026-06-09"
+archivedAt: "2026-06-24T07:31:15.558Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-012-1 — Garde-fous de conception
 
 **Intent parent** : INTENT-012

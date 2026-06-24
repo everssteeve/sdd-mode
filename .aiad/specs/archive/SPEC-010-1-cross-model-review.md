@@ -2,13 +2,15 @@
 id: SPEC-010-1
 title: Cross-model review additive-only (§3.12)
 parent_intent: INTENT-010
-status: done
+status: archived
 format: prose
 sqs: 4.1
 author: Steeve Evers
-date: 2026-06-09
+date: "2026-06-09"
+archivedAt: "2026-06-24T07:31:15.551Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-010-1 — Cross-model review additive-only
 
 **Intent parent** : INTENT-010

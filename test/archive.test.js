@@ -309,7 +309,9 @@ test('listerLivrables — ne retient que les artefacts status done', async () =>
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 
-test('listerLivrables — une SPEC done encore référencée par du code est unsafe', async () => {
+test('listerLivrables — une SPEC done référencée par du code est safe (FACT-007)', async () => {
+  // @spec annotations are permanent; construireMatrice() includes archive/ in specsConnus
+  // so archiving a referenced done spec no longer creates orphan gaps (fix 78d3b9b).
   const { listerLivrables } = await import('../lib/archive.js');
   const d = tmp();
   try {
@@ -319,8 +321,7 @@ test('listerLivrables — une SPEC done encore référencée par du code est uns
     writeFileSync(join(d, 'lib', 'live.js'), '// @spec SPEC-009-1-live\nexport const x = 1;\n');
     const liste = listerLivrables(d);
     assert.equal(liste.length, 1);
-    assert.equal(liste[0].safe, false);
-    assert.ok(/référencée/.test(liste[0].raison));
+    assert.equal(liste[0].safe, true);
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 
@@ -398,7 +399,9 @@ test('archive done — CA-004 patch frontmatter', silent(async () => {
   } finally { rmSync(d, { recursive: true, force: true }); }
 }));
 
-test('archive done — CA-005 safe: false exclu silencieusement', async () => {
+test('archive done — CA-005 spec référencée par @spec est archivable (FACT-007)', async () => {
+  // Since construireMatrice() includes archive/ in specsConnus (fix 78d3b9b),
+  // archiving a spec still annotated in code no longer creates orphan gaps.
   const { archiverTous } = await import('../lib/archive.js');
   const d = tmp();
   try {
@@ -407,8 +410,8 @@ test('archive done — CA-005 safe: false exclu silencieusement', async () => {
     writeFileSync(join(d, '.aiad', 'specs', 'SPEC-009-1-live.md'), '---\nstatus: done\ntitle: Live\n---\n');
     writeFileSync(join(d, 'lib', 'live.js'), '// @spec SPEC-009-1-live\nexport const x = 1;\n');
     const result = await archiverTous(d, { dryRun: true });
-    assert.equal(result.total, 0);
-    assert.equal(result.items.length, 0);
+    assert.equal(result.total, 1);
+    assert.equal(result.items[0].id, 'SPEC-009-1-live');
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 

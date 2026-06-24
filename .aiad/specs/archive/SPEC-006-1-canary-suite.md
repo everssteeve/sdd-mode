@@ -2,13 +2,15 @@
 id: SPEC-006-1
 title: Canary suite + alignement des références modèles (§3.10 SPEC-A + SPEC-B)
 parent_intent: INTENT-006
-status: done
+status: archived
 format: prose
 sqs: 4.2
 author: Steeve Evers
-date: 2026-06-09
+date: "2026-06-09"
+archivedAt: "2026-06-24T07:31:15.538Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-006-1 — Canary suite + alignement des références modèles
 
 **Intent parent** : INTENT-006

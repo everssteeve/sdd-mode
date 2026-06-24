@@ -2,13 +2,15 @@
 id: SPEC-008-1
 title: Cycle SDD comme graphe de Tasks (§3.9)
 parent_intent: INTENT-008
-status: done
+status: archived
 format: prose
 sqs: 4.2
 author: Steeve Evers
-date: 2026-06-09
+date: "2026-06-09"
+archivedAt: "2026-06-24T07:31:15.545Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-008-1 — Cycle SDD comme graphe de Tasks
 
 **Intent parent** : INTENT-008

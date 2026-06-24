@@ -2,14 +2,16 @@
 id: SPEC-001-1
 title: Feedback qualitatif opt-in — commande CLI et invitation périodique
 parent_intent: INTENT-001
-status: done
+status: archived
 format: prose
 sqs: 4.4
 author: Steeve Evers
-date: 2026-05-29
+date: "2026-05-29"
 governance: AIAD-RGPD
+archivedAt: "2026-06-24T07:31:15.518Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-001-1 — Feedback qualitatif opt-in
 
 **Intent parent** : INTENT-001

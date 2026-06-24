@@ -2,13 +2,15 @@
 id: SPEC-011-1
 title: Toggles de hooks + boucles /goal + packaging plugin (§3.13 SPEC-A + SPEC-B)
 parent_intent: INTENT-011
-status: done
+status: archived
 format: prose
 sqs: 4.1
 author: Steeve Evers
-date: 2026-06-09
+date: "2026-06-09"
+archivedAt: "2026-06-24T07:31:15.555Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-011-1 — Toggles de hooks + /goal + packaging plugin
 
 **Intent parent** : INTENT-011

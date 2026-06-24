@@ -2,14 +2,16 @@
 id: SPEC-002-1
 title: Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)
 parent_intent: INTENT-002
-status: done
+status: archived
 format: prose
 sqs: 4.4
 author: Steeve Evers
-date: 2026-06-08
+date: "2026-06-08"
 governance: AIAD-RGPD, AIAD-AI-ACT, AIAD-RGAA, AIAD-RGESN
+archivedAt: "2026-06-24T07:31:15.523Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-002-1 — Socle P0 : gouvernance enforced
 
 **Intent parent** : INTENT-002

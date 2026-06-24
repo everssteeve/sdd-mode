@@ -2,13 +2,15 @@
 id: SPEC-003-1
 title: Phase Research GO/NO-GO + prérequis Discovery enforced (§3.5 SPEC-A + SPEC-B)
 parent_intent: INTENT-003
-status: done
+status: archived
 format: prose
 sqs: 4.4
 author: Steeve Evers
-date: 2026-06-08
+date: "2026-06-08"
+archivedAt: "2026-06-24T07:31:15.527Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-003-1 — Phase Research GO/NO-GO + prérequis Discovery
 
 **Intent parent** : INTENT-003

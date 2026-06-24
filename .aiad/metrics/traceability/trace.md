@@ -1,13 +1,13 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-24T07:18:33.491Z
+> Généré le 2026-06-24T07:31:30.459Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
 | Intents | 6 |
-| SPECs | 39 |
+| SPECs | 25 |
 | Fichiers code | 385 (annotés : 78) |
 | Fichiers test | 264 (annotés : 42) |
 
@@ -29,20 +29,20 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `templates/projects/fastapi-aiad/tests/test_main.py` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `templates/projects/fastapi-aiad/tests/test_main.py` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/ai-act-audit.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/ai-act-audit.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/ai-act-audit.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/annotations.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/annotations.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/annotations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/annotations.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/annotations.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/annotations.test.js` | SPEC-005-1-context-pull | — | `lib/emit-rules.js`<br/>`lib/skills.js` |
-| `test/annotations.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/annotations.test.js` | ❌ non-tracé | — | `lib/emit-rules.js`<br/>`lib/skills.js` |
+| `test/annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/anonymize.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/archive.test.js` | SPEC-009-1-observabilite-native | — | `lib/statusline.js` |
-| `test/archive.test.js` | SPEC-009-1-observabilite-native | — | `lib/statusline.js` |
+| `test/archive.test.js` | ❌ non-tracé | — | `lib/statusline.js` |
+| `test/archive.test.js` | ❌ non-tracé | — | `lib/statusline.js` |
 | `test/audit.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/azure-devops.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/backup.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -130,8 +130,8 @@
 | `test/dashboard-pm-v36.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-pm-v37.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-pm-v38.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dashboard-pm-v39.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/dashboard-pm-v39.test.js` | SPEC-002-1-gouvernance-enforced | — | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
+| `test/dashboard-pm-v39.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/dashboard-pm-v39.test.js` | ❌ non-tracé | — | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
 | `test/dashboard-pm-v4.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-pm-v40.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-pm-v41.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -172,7 +172,7 @@
 | `test/doctor-supplementaire.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/doctor.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dora-record.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dpia.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/dpia.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/dpia.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/drift-verdict.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dry-run.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -217,12 +217,12 @@
 | `test/init.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/jnsp.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/json-output.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/leadership-metrics.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/leadership-metrics.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/leadership-metrics.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/leadership-metrics.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/leadership-metrics.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/leadership-metrics.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/leadership-metrics.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/leadership-metrics.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/leadership-metrics.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/lint-claims.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/lint-deps.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/lint-esm.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -236,25 +236,25 @@
 | `test/migrate-v2.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/migrate.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/mini-gate.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/multi-language.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/multi-language.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/multi-language.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/multi-language.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/multi-language.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/multi-language.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/mutation-batch.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/mutation-test.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -292,10 +292,10 @@
 | `test/sovereignty-score.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/spec-suggester.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/spec-suggester.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/spec-suggester.test.js` | SPEC-007-1-memory-native | — | `lib/memory.js` |
+| `test/spec-suggester.test.js` | ❌ non-tracé | — | `lib/memory.js` |
 | `test/spec-suggester.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/spec-suggester.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/spec-suggester.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/spec-suggester.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/spec-suggester.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/spec-version.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/specs-library-vague2.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -305,10 +305,10 @@
 | `test/status.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/statusline.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/storybook.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/suggest-annotations.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/suggest-annotations.test.js` | SPEC-002-1-gouvernance-enforced | — | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
-| `test/suggest-annotations.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/suggest-annotations.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
+| `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/suggest-tests.test.js` | SPEC-019-1-skeleton-generator | — | `lib/test-skeleton-generator.js` |
 | `test/suggest-tests.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/suggest.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -319,21 +319,21 @@
 | `test/templates.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/term.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/tour.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/trace-cache.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/trace-cache.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/trace-cache.test.js` | SPEC-002-1-gouvernance-enforced | — | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
+| `test/trace-cache.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/trace-cache.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/trace-cache.test.js` | ❌ non-tracé | — | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
 | `test/trace-ears-gap.test.js` | SPEC-019-2-trace-ears-gap | — | `lib/sdd-trace.js` |
 | `test/trace-ears-gap.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/trace-ears-gap.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/trace-git.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/trace-git.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-git.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/trace-git.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/trace-perf.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/trace-watch.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/trace-watch.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/trace-git.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/trace-perf.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/trace-watch.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/trace-watch.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-worker.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/trace.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/trace.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/trace.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/trace.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/tutorial.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/uninstall.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -343,7 +343,7 @@
 | `test/validate-data-schema.test.js` | SPEC-016-3-data-json-v2 | INTENT-016-dashboard-fondations | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` |
 | `test/verdict.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/version-sync.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/veto.test.js` | SPEC-001-1-feedback-qualitatif | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
+| `test/veto.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/vscode-extension.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/vscode-snippets.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/webhooks.test.js` | ❌ non-tracé | — | _(aucun)_ |

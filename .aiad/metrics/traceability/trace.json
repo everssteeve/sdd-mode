@@ -2,12 +2,12 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-24T07:18:33.491Z"
+    "generated": "2026-06-24T07:31:30.459Z"
   },
-  "generatedAt": "2026-06-24T07:18:33.491Z",
+  "generatedAt": "2026-06-24T07:31:30.459Z",
   "summary": {
     "intents": 6,
-    "specs": 39,
+    "specs": 25,
     "codeFiles": 385,
     "annotatedCodeFiles": 78,
     "testFiles": 264,
@@ -260,16 +260,7 @@
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
         "line": 3
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -307,16 +298,7 @@
         "path": "test/ai-act-audit.test.js",
         "line": 94
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -361,16 +343,7 @@
         "path": "test/annotations.test.js",
         "line": 26
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -415,16 +388,7 @@
         "path": "test/annotations.test.js",
         "line": 65
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -453,16 +417,7 @@
         "path": "test/annotations.test.js",
         "line": 96
       },
-      "spec": {
-        "id": "SPEC-005-1-context-pull",
-        "file": ".aiad/specs/SPEC-005-1-context-pull.md",
-        "title": "Gouvernance en pull (.claude/rules paths:) + réglages de budget (§3.7 SPEC-A + SPEC-B)",
-        "parentIntent": "INTENT-005",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/emit-rules.js",
@@ -479,16 +434,7 @@
         "path": "test/annotations.test.js",
         "line": 105
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -524,18 +470,9 @@
     {
       "test": {
         "path": "test/archive.test.js",
-        "line": 319
+        "line": 321
       },
-      "spec": {
-        "id": "SPEC-009-1-observabilite-native",
-        "file": ".aiad/specs/SPEC-009-1-observabilite-native.md",
-        "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
-        "parentIntent": "INTENT-009",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/statusline.js",
@@ -546,18 +483,9 @@
     {
       "test": {
         "path": "test/archive.test.js",
-        "line": 408
+        "line": 411
       },
-      "spec": {
-        "id": "SPEC-009-1-observabilite-native",
-        "file": ".aiad/specs/SPEC-009-1-observabilite-native.md",
-        "title": "Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)",
-        "parentIntent": "INTENT-009",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/statusline.js",
@@ -1558,16 +1486,7 @@
         "path": "test/dashboard-pm-v39.test.js",
         "line": 118
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -1596,16 +1515,7 @@
         "path": "test/dashboard-pm-v39.test.js",
         "line": 119
       },
-      "spec": {
-        "id": "SPEC-002-1-gouvernance-enforced",
-        "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
-        "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
-        "parentIntent": "INTENT-002",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/drift-verdict.js",
@@ -2094,16 +2004,7 @@
         "path": "test/dpia.test.js",
         "line": 113
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -2544,16 +2445,7 @@
         "path": "test/leadership-metrics.test.js",
         "line": 60
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -2598,16 +2490,7 @@
         "path": "test/leadership-metrics.test.js",
         "line": 103
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -2644,16 +2527,7 @@
         "path": "test/leadership-metrics.test.js",
         "line": 105
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -2799,16 +2673,7 @@
         "path": "test/multi-language.test.js",
         "line": 23
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -2837,16 +2702,7 @@
         "path": "test/multi-language.test.js",
         "line": 24
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -2875,16 +2731,7 @@
         "path": "test/multi-language.test.js",
         "line": 25
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -2913,16 +2760,7 @@
         "path": "test/multi-language.test.js",
         "line": 26
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -2951,16 +2789,7 @@
         "path": "test/multi-language.test.js",
         "line": 27
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -2989,16 +2818,7 @@
         "path": "test/multi-language.test.js",
         "line": 28
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3027,16 +2847,7 @@
         "path": "test/multi-language.test.js",
         "line": 29
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3065,16 +2876,7 @@
         "path": "test/multi-language.test.js",
         "line": 30
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3103,16 +2905,7 @@
         "path": "test/multi-language.test.js",
         "line": 31
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3141,16 +2934,7 @@
         "path": "test/multi-language.test.js",
         "line": 32
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3187,16 +2971,7 @@
         "path": "test/multi-language.test.js",
         "line": 65
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3241,16 +3016,7 @@
         "path": "test/multi-language.test.js",
         "line": 90
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3279,16 +3045,7 @@
         "path": "test/multi-language.test.js",
         "line": 92
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3317,16 +3074,7 @@
         "path": "test/multi-language.test.js",
         "line": 94
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3355,16 +3103,7 @@
         "path": "test/multi-language.test.js",
         "line": 96
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3393,16 +3132,7 @@
         "path": "test/multi-language.test.js",
         "line": 98
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3758,16 +3488,7 @@
         "path": "test/spec-suggester.test.js",
         "line": 93
       },
-      "spec": {
-        "id": "SPEC-007-1-memory-native",
-        "file": ".aiad/specs/SPEC-007-1-memory-native.md",
-        "title": "Memory native — promotion from logs + auto-curation + anti dock rot (§3.8 SPEC-A + SPEC-B)",
-        "parentIntent": "INTENT-007",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/memory.js",
@@ -3796,16 +3517,7 @@
         "path": "test/spec-suggester.test.js",
         "line": 140
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3914,16 +3626,7 @@
         "path": "test/suggest-annotations.test.js",
         "line": 197
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -3952,16 +3655,7 @@
         "path": "test/suggest-annotations.test.js",
         "line": 198
       },
-      "spec": {
-        "id": "SPEC-002-1-gouvernance-enforced",
-        "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
-        "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
-        "parentIntent": "INTENT-002",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/drift-verdict.js",
@@ -3986,16 +3680,7 @@
         "path": "test/suggest-annotations.test.js",
         "line": 210
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4024,16 +3709,7 @@
         "path": "test/suggest-annotations.test.js",
         "line": 261
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4177,16 +3853,7 @@
         "path": "test/trace-cache.test.js",
         "line": 110
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4215,16 +3882,7 @@
         "path": "test/trace-cache.test.js",
         "line": 111
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4253,16 +3911,7 @@
         "path": "test/trace-cache.test.js",
         "line": 150
       },
-      "spec": {
-        "id": "SPEC-002-1-gouvernance-enforced",
-        "file": ".aiad/specs/SPEC-002-1-gouvernance-enforced.md",
-        "title": "Socle P0 — gouvernance enforced (verdicts, hooks JNSP/Drift/Veto, subagents Tier 1)",
-        "parentIntent": "INTENT-002",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/drift-verdict.js",
@@ -4325,16 +3974,7 @@
         "path": "test/trace-git.test.js",
         "line": 96
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4371,16 +4011,7 @@
         "path": "test/trace-git.test.js",
         "line": 128
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4409,16 +4040,7 @@
         "path": "test/trace-perf.test.js",
         "line": 35
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4447,16 +4069,7 @@
         "path": "test/trace-watch.test.js",
         "line": 74
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4485,16 +4098,7 @@
         "path": "test/trace-watch.test.js",
         "line": 114
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4532,16 +4136,7 @@
         "path": "test/trace.test.js",
         "line": 33
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4570,16 +4165,7 @@
         "path": "test/trace.test.js",
         "line": 37
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -4711,16 +4297,7 @@
         "path": "test/veto.test.js",
         "line": 83
       },
-      "spec": {
-        "id": "SPEC-001-1-feedback-qualitatif",
-        "file": ".aiad/specs/SPEC-001-1-feedback-qualitatif.md",
-        "title": "Feedback qualitatif opt-in — commande CLI et invitation périodique",
-        "parentIntent": "INTENT-001",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/feedback.js",
@@ -8664,13 +8241,13 @@
           "intents": [
             {
               "id": "INTENT-026",
-              "line": 374
+              "line": 372
             }
           ],
           "specs": [
             {
               "id": "SPEC-026-1-archive-done",
-              "line": 373
+              "line": 371
             }
           ],
           "verifiedBy": [],
