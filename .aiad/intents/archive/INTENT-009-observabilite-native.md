@@ -1,12 +1,14 @@
 ---
 id: INTENT-009
 title: Observabilité native — statusLine + OTel + usage skills + attribution (§3.11)
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-09
+date: "2026-06-09"
 specs: SPEC-009-1
+archivedAt: "2026-06-24T07:17:03.669Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-009 — Observabilité native
 
 ## Pourquoi

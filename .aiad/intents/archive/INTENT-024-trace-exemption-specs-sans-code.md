@@ -1,13 +1,15 @@
 ---
 id: INTENT-024
 title: Traçabilité honnête des SPECs sans code applicatif — exemption explicite
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-19
+date: "2026-06-19"
 specs: SPEC-024-1
 origin: FACT-004
+archivedAt: "2026-06-24T07:17:03.704Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-024 — Traçabilité honnête des SPECs sans code applicatif
 
 ## Pourquoi maintenant

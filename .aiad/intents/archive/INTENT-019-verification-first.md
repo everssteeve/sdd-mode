@@ -1,12 +1,14 @@
 ---
 id: INTENT-019
 title: Verification-first — dériver des tests des critères EARS
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-11
-specs:
+date: "2026-06-11"
+specs: null
+archivedAt: "2026-06-24T07:17:03.700Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-019 — Verification-first
 
 > ⚠ Draft issu de l'analyse du 2026-06-11. POURQUOI à approprier par un humain

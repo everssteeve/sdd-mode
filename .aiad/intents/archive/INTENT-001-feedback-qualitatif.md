@@ -1,12 +1,14 @@
 ---
 id: INTENT-001
 title: Feedback qualitatif utilisateurs SDD Mode
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-05-29
+date: "2026-05-29"
 specs: SPEC-001-1
+archivedAt: "2026-06-24T07:17:03.642Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-001 — Feedback qualitatif utilisateurs SDD Mode
 
 ## Pourquoi

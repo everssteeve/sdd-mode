@@ -1,12 +1,14 @@
 ---
 id: INTENT-010
 title: Cross-model review additive-only (§3.12)
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-09
+date: "2026-06-09"
 specs: SPEC-010-1
+archivedAt: "2026-06-24T07:17:03.672Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-010 — Cross-model review additive-only
 
 ## Pourquoi

@@ -4,16 +4,18 @@ title: Workflow de déploiement site/ → gh-pages + gate version
 parent_intent: INTENT-013
 parent_spec: SPEC-013-4
 research: RESEARCH-014
-status: done
+status: archived
 format: prose
-sqs: 5.0
+sqs: 5
 author: Steeve Evers
-date: 2026-06-11
+date: "2026-06-11"
 governance: AIAD-RGESN
 traceability: exempt
-traceability_reason: "Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1"
+traceability_reason: Livrable = workflow CI site-deploy.yml (.yml non scanné par EXTENSIONS_CODE) — FACT-004 / SPEC-024-1
+archivedAt: "2026-06-24T07:17:03.721Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-013-4a — Déploiement `site/` → `gh-pages` + gate version
 
 **SPEC parent** : SPEC-013-4 (découpée)

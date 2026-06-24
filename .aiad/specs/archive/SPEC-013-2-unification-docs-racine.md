@@ -2,16 +2,18 @@
 id: SPEC-013-2
 title: Unification des docs racine + archivage de SDDMode.md
 parent_intent: INTENT-013
-status: done
+status: archived
 format: prose
-sqs: 4.0
+sqs: 4
 author: Steeve Evers
-date: 2026-06-11
+date: "2026-06-11"
 governance: AIAD-RGESN
 traceability: exempt
-traceability_reason: "Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1"
+traceability_reason: Livrable documentaire (docs racine .md, archivage) — aucun code applicatif scanné — FACT-004 / SPEC-024-1
+archivedAt: "2026-06-24T07:17:03.718Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-013-2 — Unification des docs racine + archivage de SDDMode.md
 
 **Intent parent** : INTENT-013

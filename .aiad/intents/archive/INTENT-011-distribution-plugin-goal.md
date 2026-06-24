@@ -1,12 +1,14 @@
 ---
 id: INTENT-011
 title: Distribution plugin + boucles /goal + toggles de hooks (§3.13)
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-09
+date: "2026-06-09"
 specs: SPEC-011-1
+archivedAt: "2026-06-24T07:17:03.676Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-011 — Distribution plugin + /goal + toggles de hooks
 
 ## Pourquoi

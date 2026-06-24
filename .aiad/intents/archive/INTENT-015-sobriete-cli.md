@@ -1,16 +1,14 @@
 ---
 id: INTENT-015
 title: Sobriété du CLI — noyau assumé, longue traîne extraite
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-11
-specs:
-  - SPEC-015-1
-  - SPEC-015-2-1
-  - SPEC-015-2-2
-  - SPEC-015-3
+date: "2026-06-11"
+specs: [SPEC-015-1, SPEC-015-2-1, SPEC-015-2-2, SPEC-015-3]
+archivedAt: "2026-06-24T07:17:03.689Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-015 — Sobriété du CLI
 
 > POURQUOI approprié par Steeve Evers le 2026-06-16 (Human Authorship) — passage

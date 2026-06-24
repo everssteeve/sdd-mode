@@ -2,15 +2,17 @@
 id: SPEC-025-1
 title: Correction du contraste --gold-600 (.kicker + .pill.gold)
 parent_intent: INTENT-025
-status: done
+status: archived
 format: EARS
-sqs: 5.0
+sqs: 5
 author: Steeve Evers
-date: 2026-06-22
+date: "2026-06-22"
 traceability: exempt
 traceability_reason: "Livrable CSS/JSON uniquement (site/assets/css/main.css, .pa11yci.json) — extensions non scannées par EXTENSIONS_CODE. Ratios vérifiés par calcul WCAG (6.72:1 blanc, 5.83:1 #fbeecd). Gate CI validera à la PR."
+archivedAt: "2026-06-24T07:17:03.728Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-025-1 — Correction du contraste `--gold-600` (`.kicker` + `.pill.gold`)
 
 **Intent parent** : INTENT-025

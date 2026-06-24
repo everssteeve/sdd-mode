@@ -4,14 +4,16 @@ title: Gate RGAA AA avant publication du site
 parent_intent: INTENT-013
 parent_spec: SPEC-013-4
 research: RESEARCH-019
-status: done
+status: archived
 format: prose
-sqs: 5/5
+sqs: "5/5"
 author: Steeve Evers
-date: 2026-06-22
+date: "2026-06-22"
 governance: AIAD-RGAA, AIAD-RGESN
+archivedAt: "2026-06-24T07:17:03.725Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-013-4b — Gate RGAA AA avant publication
 
 **SPEC parent** : SPEC-013-4 (découpée)

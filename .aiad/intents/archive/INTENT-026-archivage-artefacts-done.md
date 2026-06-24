@@ -1,11 +1,13 @@
 ---
 id: INTENT-026
 title: Archivage automatique des artefacts done (Intents + SPECs)
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-23
+date: "2026-06-23"
+archivedAt: "2026-06-24T07:17:03.711Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-026 — Archivage automatique des artefacts done
 
 ## POURQUOI MAINTENANT

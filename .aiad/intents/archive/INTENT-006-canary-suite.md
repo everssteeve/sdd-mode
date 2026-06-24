@@ -1,12 +1,14 @@
 ---
 id: INTENT-006
 title: Canary suite + alignement des références modèles (§3.10)
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-09
+date: "2026-06-09"
 specs: SPEC-006-1
+archivedAt: "2026-06-24T07:17:03.660Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-006 — Canary suite + alignement des références modèles
 
 ## Pourquoi

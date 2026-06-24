@@ -2,11 +2,13 @@
 id: INTENT-025
 title: Corriger le contraste des kickers et pills gold (WCAG 1.4.3)
 author: Steeve Evers
-date: 2026-06-22
-status: done
+date: "2026-06-22"
+status: archived
 source: FACT-005
+archivedAt: "2026-06-24T07:17:03.707Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-025 — Corriger le contraste des kickers et pills gold
 
 ## Intention

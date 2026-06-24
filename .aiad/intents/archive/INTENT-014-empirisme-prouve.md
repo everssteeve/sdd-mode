@@ -1,12 +1,14 @@
 ---
 id: INTENT-014
 title: Empirisme prouvé — gates qualité actifs et claims sourcés
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-11
+date: "2026-06-11"
 specs: SPEC-014-1, SPEC-014-2
+archivedAt: "2026-06-24T07:17:03.686Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-014 — Empirisme prouvé
 
 > POURQUOI approprié par Steeve Evers le 2026-06-15 (Human Authorship) →

@@ -1,12 +1,14 @@
 ---
 id: INTENT-013
 title: Zéro drift sur soi-même — site et docs alignés sur la version livrée
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-11
-specs:
+date: "2026-06-11"
+specs: null
+archivedAt: "2026-06-24T07:17:03.682Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-013 — Zéro drift sur soi-même
 
 ## Pourquoi maintenant

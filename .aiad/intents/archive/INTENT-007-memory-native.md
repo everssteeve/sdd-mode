@@ -1,12 +1,14 @@
 ---
 id: INTENT-007
 title: Memory native — promotion from logs + auto-curation + anti dock rot (§3.8)
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-09
+date: "2026-06-09"
 specs: SPEC-007-1
+archivedAt: "2026-06-24T07:17:03.663Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-007 — Memory native
 
 ## Pourquoi

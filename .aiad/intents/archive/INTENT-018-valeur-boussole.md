@@ -1,19 +1,16 @@
 ---
 id: INTENT-018
 title: La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-11
-activated: 2026-06-23
+date: "2026-06-11"
+activated: "2026-06-23"
 research: RESEARCH-024
-specs:
-  - SPEC-018-1
-  - SPEC-018-2
-  - SPEC-018-3
-  - SPEC-018-4
-  - SPEC-018-5
+specs: [SPEC-018-1, SPEC-018-2, SPEC-018-3, SPEC-018-4, SPEC-018-5]
+archivedAt: "2026-06-24T07:17:03.696Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-018 — La valeur réalisée comme boussole
 
 > ⚠ Draft issu de l'analyse du 2026-06-11. POURQUOI à approprier par un humain
