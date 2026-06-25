@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-25 — SPEC-013-1/1b/4, SPEC-017-3, SPEC-026-1 — Archivage (FACT-013)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd fact` — FACT-013 : 5 SPECs `done`/`archived`/`split` physiquement hors du dossier archive alors que leurs INTENTs parents (INTENT-013, INTENT-017, INTENT-026) étaient archivés. Patch immédiat.
+**Impact** : SPEC-013-1, SPEC-013-1b, SPEC-013-4, SPEC-017-3, SPEC-026-1 → `.aiad/specs/archive/`. Dossier `.aiad/specs/` maintenant propre (aucune SPEC active orpheline).
+
 ## 2026-06-25 — INTENT-030 + SPEC-030-x — Archivage (FACT-012)
 
 **Auteur** : Steeve Evers
