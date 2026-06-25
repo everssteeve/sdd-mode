@@ -194,4 +194,10 @@ patterns:
   - "lib/statusline.js"
   - "test/statusline.test.js"
   - ".aiad/hooks/statusline.js"
+
+  # Routeur CLI — la logique métier est dans lib/ avec ses annotations @spec.
+  # Règle architecturale : aucune logique dans bin/, tout ajout de comportement
+  # doit aller dans un module lib/ annoté. Le bypass ne couvre que le câblage
+  # mécanique (case → délégation). Toute violation de cette règle affaiblit le
+  # Drift Lock sans le contourner ici.
   - "bin/aiad-sdd.js"
