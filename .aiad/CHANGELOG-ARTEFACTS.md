@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-25 — INTENT-032 — Archivage rattrapé (FACT-016)
+
+**Auteur** : Steeve Evers
+**Raison** : FACT-016 — SPEC-032-1 avait été archivée manuellement (commit `17ffd9d`) sans passer par `archive done`, laissant INTENT-032 hors archive. `npx aiad-sdd archive done --apply` exécuté. INTENT-032 → `archived`.
+**Impact** : `.aiad/intents/archive/INTENT-032-model-recommendation-actionnable.md`. `_index.md` mis à jour.
+
 ## 2026-06-25 — SPEC-032-1 — `/model` actionnable dans 33 commandes `/sdd` et `/aiad` (Drift Lock)
 
 **Auteur** : Steeve Evers

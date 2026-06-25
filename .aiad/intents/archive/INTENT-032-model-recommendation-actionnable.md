@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-25T09:13:46.092Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
+---
 # INTENT-032-model-recommendation-actionnable
 
 **Auteur** : Steeve Evers
