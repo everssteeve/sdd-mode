@@ -1,14 +1,14 @@
 ---
 id: INTENT-020
 title: Spec-anchored par construction — deltas et redevabilité bidirectionnelle
-status: active
+status: archived
 author: Steeve Evers
-date: 2026-06-11
-specs:
-  - SPEC-020-1
-  - SPEC-020-2
+date: "2026-06-11"
+specs: [SPEC-020-1, SPEC-020-2]
+archivedAt: "2026-06-25T14:16:00.084Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: Intent done — SPEC-020-1/2 livrées (spec-anchored deltas + redevabilité bidirectionnelle)
 ---
-
 # INTENT-020 — Spec-anchored par construction
 
 > ⚠ Draft issu de l'analyse du 2026-06-11. POURQUOI à approprier par un humain
@@ -45,4 +45,4 @@ associé → drift.
 ## SPECs liées
 
 - [x] SPEC-020-1 — Modèle deltas/archive (specs = état courant) → `.aiad/specs/SPEC-020-1-modele-deltas-archive.md`
-- [ ] SPEC-020-2 — Redevabilité bidirectionnelle agent → SPEC → `.aiad/specs/SPEC-020-2-redevabilite-bidirectionnelle.md`
+- [x] SPEC-020-2 — Redevabilité bidirectionnelle agent → SPEC → `.aiad/specs/SPEC-020-2-redevabilite-bidirectionnelle.md`

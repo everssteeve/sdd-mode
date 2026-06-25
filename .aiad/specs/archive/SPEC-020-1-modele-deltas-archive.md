@@ -2,16 +2,18 @@
 id: SPEC-020-1
 title: Modèle deltas/archive — specs = état courant, petits changements tracés
 parent_intent: INTENT-020
-status: done
+status: archived
 format: prose
-sqs: 5/5
+sqs: "5/5"
 author: Steeve Evers
 date: "2026-06-25"
 research: RESEARCH-033
 traceability: exempt
-traceability_reason: "Livrable 100% éditorial (spec-template.md, spec-ears-template.md, AGENT-GUIDE.md) — aucun fichier .js produit, pas d'annotation @spec applicable."
+traceability_reason: Livrable 100% éditorial (spec-template.md, spec-ears-template.md, AGENT-GUIDE.md) — aucun fichier .js produit, pas d'annotation @spec applicable.
+archivedAt: "2026-06-25T14:16:00.174Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: done — modèle deltas/archive livré (INTENT-020)
 ---
-
 # SPEC-020-1-modele-deltas-archive
 
 **Intent parent** : INTENT-020

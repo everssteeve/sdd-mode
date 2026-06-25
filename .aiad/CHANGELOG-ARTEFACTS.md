@@ -3,6 +3,15 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-25 — INTENT-020 — Clôture + archivage (spec-anchored deltas + redevabilité bidirectionnelle)
+
+**Auteur** : Steeve Evers
+**Raison** : INTENT-020 complété — 2 SPECs livrées (`done`, trace-exempt car livrables 100 % éditoriaux) :
+- SPEC-020-1 : modèle deltas/archive (specs = état courant) — templates + AGENT-GUIDE
+- SPEC-020-2 : redevabilité bidirectionnelle (FACT enrichi + signal `constraint-violated`)
+**Action** : passage `status: active → done`, case SPEC-020-2 cochée, puis `archive` des 3 artefacts (INTENT-020 + SPEC-020-1/2) via la CLI (audit + `archivedAt/By/Reason`).
+**Impact** : fichiers déplacés vers `.aiad/intents/archive/` et `.aiad/specs/archive/` ; index mis à jour (`archived`). INTENT-020 → `archived`.
+
 ## 2026-06-25 — INTENT-031 — Chaînage automatique conditionnel + correctif hook Stop (Drift Lock)
 
 **Auteur** : Steeve Evers

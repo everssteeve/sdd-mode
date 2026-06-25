@@ -2,16 +2,18 @@
 id: SPEC-020-2
 title: Redevabilité bidirectionnelle — FACT enrichi + signal constraint-violated
 parent_intent: INTENT-020
-status: done
+status: archived
 format: prose
-sqs: 5/5
+sqs: "5/5"
 traceability: exempt
-traceability_reason: "Livrable 100% éditorial (.claude/sdd/fact.md, .claude/skills/drift-detection/SKILL.md, .aiad/AGENT-GUIDE.md) — aucun fichier .js produit, pas d'annotation @spec applicable."
+traceability_reason: Livrable 100% éditorial (.claude/sdd/fact.md, .claude/skills/drift-detection/SKILL.md, .aiad/AGENT-GUIDE.md) — aucun fichier .js produit, pas d'annotation @spec applicable.
 author: Steeve Evers
 date: "2026-06-25"
 research: RESEARCH-033
+archivedAt: "2026-06-25T14:16:00.261Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: done — redevabilité bidirectionnelle livrée (INTENT-020)
 ---
-
 # SPEC-020-2-redevabilite-bidirectionnelle
 
 **Intent parent** : INTENT-020

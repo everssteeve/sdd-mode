@@ -59,8 +59,8 @@
 | SPEC-031-2 | Moteur de chaînage automatique conditionnel (lib/auto-chain.js) | INTENT-031 | prose | 5/5 | archived | — |
 | SPEC-031-3 | Paramètre auto_chain dans .aiad/config.yml + parser | INTENT-031 | prose | 5/5 | archived | — |
 | SPEC-032-1 | /model actionnable — uniformisation 33 commandes /sdd et /aiad (FACT-015) | INTENT-032 | prose | 5/5 | archived | — |
-| SPEC-020-1 | Modèle deltas/archive — specs = état courant, petits changements tracés | INTENT-020 | prose | 5/5 | done (trace-exempt) | — |
-| SPEC-020-2 | Redevabilité bidirectionnelle — FACT enrichi + signal constraint-violated | INTENT-020 | prose | 5/5 | done (trace-exempt) | — |
+| SPEC-020-1 | Modèle deltas/archive — specs = état courant, petits changements tracés | INTENT-020 | prose | 5/5 | archived | — |
+| SPEC-020-2 | Redevabilité bidirectionnelle — FACT enrichi + signal constraint-violated | INTENT-020 | prose | 5/5 | archived | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 
