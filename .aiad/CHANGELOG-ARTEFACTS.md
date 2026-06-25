@@ -417,3 +417,10 @@ la même PR, 0 gap de traçabilité bloquant, `@spec SPEC-013-3` tracé, CI 7/7 
 `version-sync`), `.github/workflows/aiad-version-check.yml` (nouveau),
 `test/version-sync.test.js`, 57 pages `site/` (zones marquées), `package.json`
 bumpé 1.17.0 → 1.18.0 + cascade emit-rules/docs. SPEC-013-3 → `done`.
+
+---
+
+## 2026-06-25 — Archivage INTENT-031 + SPEC-031-1/2/3
+
+**Artefacts archivés** : INTENT-031, SPEC-031-1, SPEC-031-2, SPEC-031-3.
+**Motif** : toutes les SPECs liées sont `done`, implémentation livrée et validée (chaînage auto conditionnel + correctif hook Stop).

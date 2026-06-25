@@ -36,7 +36,7 @@
 | INTENT-028 | Fiabilité CI bin/ + cartographie consommateurs traçabilité | Steeve Evers | 2026-06-24 | — | draft |
 | INTENT-029 | Archivage automatique des FACTs résolus | Steeve Evers | 2026-06-24 | — | draft |
 | INTENT-030 | EcoLogits — mesure et réduction de l'impact écologique du cycle SDD | Steeve Evers | 2026-06-24 | SPEC-030-1/2/3/4 done | done |
-| INTENT-031 | Chaînage automatique conditionnel du cycle SDD + correctif hook Stop | Steeve Evers | 2026-06-25 | SPEC-031-1/2/3 done | done |
+| INTENT-031 | Chaînage automatique conditionnel du cycle SDD + correctif hook Stop | Steeve Evers | 2026-06-25 | SPEC-031-1/2/3 done | archived |
 | INTENT-032 | Recommandation modèle actionnable dans toutes les commandes /sdd et /aiad (FACT-015) | Steeve Evers | 2026-06-25 | SPEC-032-1 | archived |
 
 ## Cycle de vie d'un Intent Statement
