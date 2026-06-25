@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-25 — INTENT-030 + SPEC-030-x — Archivage (FACT-012)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd fact` — FACT-012 : artefacts `done` non archivés. Patch SPEC-030-2 (`review → done`). Archivage des 5 artefacts INTENT-030 via `archive done --apply`.
+**Impact** : INTENT-030 + SPEC-030-1/2/3/4 → `.aiad/intents/archive/` + `.aiad/specs/archive/`. FACT-012 résolu (patch immédiat). Problème structurel (absence de déclenchement auto) → INTENT-029 à étendre.
+
 ## 2026-06-25 — INTENT-030 — Drift Lock artefact → done
 
 **Auteur** : Steeve Evers
