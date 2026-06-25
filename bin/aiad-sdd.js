@@ -2547,6 +2547,41 @@ async function main() {
       break;
     }
 
+    case 'track': {
+      // @spec SPEC-021-1-attribution-tokens-artefact
+      // @intent INTENT-021
+      // @verified-by test/track-cli.test.js
+      // @governance AIAD-RGPD
+      const sub = positionals[1];
+      const metricsDir = join(cwd(), '.aiad', 'metrics');
+      const artifactPath = join(metricsDir, 'active-artifact.json');
+      if (sub === 'set') {
+        const specId = positionals[2];
+        if (!specId) {
+          console.error('\n  Usage : aiad-sdd track set <SPEC-ID> [--intent <INTENT-ID>]\n');
+          exit(1);
+        }
+        const intentId = values.intent || null;
+        const { mkdirSync: mkdir, writeFileSync } = await import('node:fs');
+        mkdir(metricsDir, { recursive: true });
+        const payload = { specId, since: new Date().toISOString() };
+        if (intentId) payload.intentId = intentId;
+        writeFileSync(artifactPath, JSON.stringify(payload, null, 2) + '\n', 'utf8');
+        console.log(`\n  ✓ Artefact actif : ${specId}${intentId ? ` (${intentId})` : ''}\n`);
+      } else if (sub === 'clear') {
+        const { existsSync, rmSync } = await import('node:fs');
+        if (existsSync(artifactPath)) {
+          rmSync(artifactPath);
+          console.log('\n  ✓ Artefact actif effacé.\n');
+        }
+        // Idempotent — exit 0 même si absent (CA-009)
+      } else {
+        console.error('\n  Usage : aiad-sdd track <set <SPEC-ID> [--intent <INTENT-ID>] | clear>\n');
+        exit(1);
+      }
+      break;
+    }
+
     case 'archive': {
       try {
         if (positionals[1] === 'types') {
@@ -3697,6 +3732,7 @@ async function main() {
         'review', 'suggest-annotations', 'suggest-tests', 'export', 'storybook', 'cert',
         'marketplace', 'audit', 'provenance', 'hook-stats', 'dinum', 'sovereignty', 'adrs', 'dora', 'self-update', 'standup', 'brief', 'badge', 'gitlab', 'azure', 'webhooks', 'reflect', 'negotiate', 'refactor-spec', 'spec-version', 'archive', 'sla', 'completion', 'tour', 'pii-scan', 'backup', 'restore', 'offline', 'bitbucket', 'ci-template', 'github-app', 'anonymize', 'plugin', 'hooks-init', 'schema', 'org', 'rbac', 'tutorial', 'help', 'version',
         'canary', 'memory', 'cycle', 'statusline', 'cross-model', 'hooks-config', 'proportionality', 'sunset',
+        'track',
       ];
       const indice = indiceVoulaisTuDire(command, COMMANDES_VALIDES, { max: 2 });
       const ligneIndice = indice ? `  ${indice}\n\n` : '';

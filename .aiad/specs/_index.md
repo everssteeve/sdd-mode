@@ -61,6 +61,8 @@
 | SPEC-032-1 | /model actionnable — uniformisation 33 commandes /sdd et /aiad (FACT-015) | INTENT-032 | prose | 5/5 | archived | — |
 | SPEC-020-1 | Modèle deltas/archive — specs = état courant, petits changements tracés | INTENT-020 | prose | 5/5 | archived | — |
 | SPEC-020-2 | Redevabilité bidirectionnelle — FACT enrichi + signal constraint-violated | INTENT-020 | prose | 5/5 | archived | — |
+| SPEC-021-1 | Attribution tokens ↔ Intent/SPEC (hook Stop enrichi rétro-compatible) | INTENT-021 | EARS | 5/5 | done | — |
+| SPEC-021-2 | Restitution empreinte par artefact dans /sdd context | INTENT-021 | EARS | 5/5 | ready | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

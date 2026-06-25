@@ -1,23 +1,22 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-25T14:07:31.194Z
+> Généré le 2026-06-25T14:58:54.293Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 7 |
+| Intents | 6 |
 | SPECs | 2 |
-| Fichiers code | 390 (annotés : 84) |
-| Fichiers test | 269 (annotés : 45) |
+| Fichiers code | 391 (annotés : 85) |
+| Fichiers test | 272 (annotés : 48) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
 | Intent | SPEC | Code | Tests | Verdict |
 |--------|------|------|-------|---------|
-| INTENT-020-spec-anchored-deltas | SPEC-020-1-modele-deltas-archive | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-020-spec-anchored-deltas | SPEC-020-2-redevabilite-bidirectionnelle | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-021-empreinte-mesuree | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-021-empreinte-mesuree | SPEC-021-1-attribution-tokens-artefact | `lib/empreinte-artefact.js`<br/>`bin/aiad-sdd.js` | `test/eco-hook-attribution.test.js`<br/>`test/empreinte-artefact.test.js`<br/>`test/track-cli.test.js`<br/>`(Human` | ✅ |
+| INTENT-021-empreinte-mesuree | SPEC-021-2-restitution-empreinte-context | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-022-dogfooding-cli | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-023-rayonnement-honnete | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-027-ci-metrics-automation | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -28,6 +27,9 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
+| `test/eco-hook-attribution.test.js` | SPEC-021-1-attribution-tokens-artefact | INTENT-021-empreinte-mesuree | `lib/empreinte-artefact.js`<br/>`bin/aiad-sdd.js` |
+| `test/empreinte-artefact.test.js` | SPEC-021-1-attribution-tokens-artefact | INTENT-021-empreinte-mesuree | `lib/empreinte-artefact.js`<br/>`bin/aiad-sdd.js` |
+| `test/track-cli.test.js` | SPEC-021-1-attribution-tokens-artefact | INTENT-021-empreinte-mesuree | `lib/empreinte-artefact.js`<br/>`bin/aiad-sdd.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -360,16 +362,14 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **6**
-  - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
+- Intents sans SPEC : **5**
   - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
   - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
   - INTENT-027-ci-metrics-automation — INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow
   - INTENT-028-fiabilite-ci-bin-cartographie-trace — INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité
   - INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus
-- SPECs sans code (hors draft/review) : **2**
-  - SPEC-020-1-modele-deltas-archive (statut : done)
-  - SPEC-020-2-redevabilite-bidirectionnelle (statut : done)
+- SPECs sans code (hors draft/review) : **1**
+  - SPEC-021-2-restitution-empreinte-context (statut : ready)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
@@ -377,7 +377,8 @@
 - SPECs validées sans code (statut ready/validation/done) : **0**
 
 ### EARS sans tests
-- SPECs EARS sans tests liés (statut ≠ draft/archived) : **0**
+- SPECs EARS sans tests liés (statut ≠ draft/archived) : **1**
+  - SPEC-021-2-restitution-empreinte-context (EARS, statut : ready)
 
 ### Non-tracés
 - Code sans `@spec` : **321**

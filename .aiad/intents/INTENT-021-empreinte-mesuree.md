@@ -5,6 +5,8 @@ status: active
 author: Steeve Evers
 date: 2026-06-11
 specs:
+  - SPEC-021-1
+  - SPEC-021-2
 research: RESEARCH-034
 ---
 
@@ -42,5 +44,5 @@ disponible → drift de l'engagement Art. IV.
 
 ## SPECs liées
 
-- [ ] SPEC-021-1 — Attribution tokens ↔ Intent/SPEC (enrichissement hook Stop, rétro-compatible)
-- [ ] SPEC-021-2 — Restitution dans `/sdd context` (page dashboard « Valeur » reportée — dépend d'INTENT-018)
+- [x] SPEC-021-1 — Attribution tokens ↔ Intent/SPEC (enrichissement hook Stop, rétro-compatible) → `.aiad/specs/SPEC-021-1-attribution-tokens-artefact.md`
+- [ ] SPEC-021-2 — Restitution dans `/sdd context` (page dashboard « Valeur » reportée — dépend d'INTENT-018) → `.aiad/specs/SPEC-021-2-restitution-empreinte-context.md`
