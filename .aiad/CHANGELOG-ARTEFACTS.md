@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-25 — FACT-014 — Gap `archive done` : SPECs `split` + originaux orphelins
+
+**Auteur** : Steeve Evers
+**Raison** : Cause racine identifiée lors de FACT-013 — `archive done` ne couvre ni les SPECs `split` (toutes sous-SPECs done) ni les originaux orphelins (copiés en archive sans suppression). Action : SPEC-026-2 à rédiger.
+**Impact** : FACT-014 ouvert → déclenche `/sdd spec` pour SPEC-026-2.
+
 ## 2026-06-25 — SPEC-013-1/1b/4, SPEC-017-3, SPEC-026-1 — Archivage (FACT-013)
 
 **Auteur** : Steeve Evers
