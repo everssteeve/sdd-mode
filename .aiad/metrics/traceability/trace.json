@@ -2,15 +2,15 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-25T09:04:15.127Z"
+    "generated": "2026-06-25T13:20:41.310Z"
   },
-  "generatedAt": "2026-06-25T09:04:15.127Z",
+  "generatedAt": "2026-06-25T13:20:41.309Z",
   "summary": {
-    "intents": 9,
-    "specs": 1,
-    "codeFiles": 388,
-    "annotatedCodeFiles": 81,
-    "testFiles": 267,
+    "intents": 8,
+    "specs": 3,
+    "codeFiles": 390,
+    "annotatedCodeFiles": 84,
+    "testFiles": 269,
     "annotatedTestFiles": 45
   },
   "forward": [
@@ -82,36 +82,122 @@
         "id": "INTENT-031-auto-chaining-cycle-sdd",
         "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
         "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
-        "status": "draft"
-      },
-      "specs": []
-    },
-    {
-      "intent": {
-        "id": "INTENT-032-model-recommendation-actionnable",
-        "file": ".aiad/intents/INTENT-032-model-recommendation-actionnable.md",
-        "title": "INTENT-032-model-recommendation-actionnable",
-        "status": "done"
+        "status": "active"
       },
       "specs": [
         {
           "spec": {
-            "id": "SPEC-032-1-model-actionnable",
-            "file": ".aiad/specs/SPEC-032-1-model-actionnable.md",
-            "title": "/model actionnable — uniformisation 33 commandes /sdd et /aiad (FACT-015)",
-            "parentIntent": "INTENT-032",
+            "id": "SPEC-031-1-hook-stop-ready-fix",
+            "file": ".aiad/specs/SPEC-031-1-hook-stop-ready-fix.md",
+            "title": "Correctif hook Stop — exclusion du gap spec_validated_not_implemented pour statut ready",
+            "parentIntent": "INTENT-031",
             "status": "done",
             "format": "PROSE",
-            "traceability": "exempt",
-            "traceabilityReason": "Livrable purement éditorial — 33 fichiers Markdown (.claude/sdd/*.md, .claude/aiad/*.md) sans code applicatif annoatable. Aucune extension .js/.ts/.py dans le scope. Vérification : grep -rL '/model ' .claude/sdd/ .claude/aiad/ → 0 fichier."
+            "traceability": "",
+            "traceabilityReason": ""
           },
-          "code": [],
-          "tests": []
+          "code": [
+            {
+              "path": "lib/sdd-trace.js",
+              "line": 560
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/sarif.test.js",
+              "line": 87
+            },
+            {
+              "path": "test/trace.test.js",
+              "line": 84
+            },
+            {
+              "path": "chemin/relatif/test.ts",
+              "line": 44,
+              "viaCode": true
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-031-2-auto-chain-engine",
+            "file": ".aiad/specs/SPEC-031-2-auto-chain-engine.md",
+            "title": "Moteur de chaînage automatique conditionnel du cycle SDD",
+            "parentIntent": "INTENT-031",
+            "status": "done",
+            "format": "PROSE",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/auto-chain.js",
+              "line": 23
+            },
+            {
+              "path": "lib/auto-chain.js",
+              "line": 61
+            },
+            {
+              "path": "lib/command-hooks.js",
+              "line": 108
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/auto-chain.test.js",
+              "line": 24,
+              "viaCode": true
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-031-3-auto-chain-config",
+            "file": ".aiad/specs/SPEC-031-3-auto-chain-config.md",
+            "title": "Paramètre auto_chain dans .aiad/config.yml + parser",
+            "parentIntent": "INTENT-031",
+            "status": "done",
+            "format": "PROSE",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/auto-chain-config.js",
+              "line": 21
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/auto-chain-config.test.js",
+              "line": 22,
+              "viaCode": true
+            }
+          ]
         }
       ]
     }
   ],
   "backward": [
+    {
+      "test": {
+        "path": "test/auto-chain-config.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/auto-chain.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -3135,7 +3221,35 @@
     {
       "test": {
         "path": "test/sarif.test.js",
-        "line": 111
+        "line": 87
+      },
+      "spec": {
+        "id": "SPEC-031-1-hook-stop-ready-fix",
+        "file": ".aiad/specs/SPEC-031-1-hook-stop-ready-fix.md",
+        "title": "Correctif hook Stop — exclusion du gap spec_validated_not_implemented pour statut ready",
+        "parentIntent": "INTENT-031",
+        "status": "done",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-031-auto-chaining-cycle-sdd",
+        "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
+        "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/sdd-trace.js",
+          "line": 560
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/sarif.test.js",
+        "line": 112
       },
       "intent": null,
       "code": []
@@ -3684,7 +3798,7 @@
       "code": [
         {
           "path": "lib/sdd-trace.js",
-          "line": 574
+          "line": 576
         }
       ]
     },
@@ -3934,6 +4048,62 @@
     },
     {
       "test": {
+        "path": "test/trace.test.js",
+        "line": 84
+      },
+      "spec": {
+        "id": "SPEC-031-1-hook-stop-ready-fix",
+        "file": ".aiad/specs/SPEC-031-1-hook-stop-ready-fix.md",
+        "title": "Correctif hook Stop — exclusion du gap spec_validated_not_implemented pour statut ready",
+        "parentIntent": "INTENT-031",
+        "status": "done",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-031-auto-chaining-cycle-sdd",
+        "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
+        "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/sdd-trace.js",
+          "line": 560
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/trace.test.js",
+        "line": 104
+      },
+      "spec": {
+        "id": "SPEC-031-1-hook-stop-ready-fix",
+        "file": ".aiad/specs/SPEC-031-1-hook-stop-ready-fix.md",
+        "title": "Correctif hook Stop — exclusion du gap spec_validated_not_implemented pour statut ready",
+        "parentIntent": "INTENT-031",
+        "status": "done",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-031-auto-chaining-cycle-sdd",
+        "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
+        "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/sdd-trace.js",
+          "line": 560
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/tutorial.test.js",
         "line": 0
       },
@@ -4130,26 +4300,9 @@
         "file": ".aiad/intents/INTENT-029-archivage-facts-resolus.md",
         "title": "INTENT-029 — Archivage automatique des FACTs résolus",
         "status": "draft"
-      },
-      {
-        "id": "INTENT-031-auto-chaining-cycle-sdd",
-        "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
-        "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
-        "status": "draft"
       }
     ],
-    "specsSansCode": [
-      {
-        "id": "SPEC-032-1-model-actionnable",
-        "file": ".aiad/specs/SPEC-032-1-model-actionnable.md",
-        "title": "/model actionnable — uniformisation 33 commandes /sdd et /aiad (FACT-015)",
-        "parentIntent": "INTENT-032",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "exempt",
-        "traceabilityReason": "Livrable purement éditorial — 33 fichiers Markdown (.claude/sdd/*.md, .claude/aiad/*.md) sans code applicatif annoatable. Aucune extension .js/.ts/.py dans le scope. Vérification : grep -rL '/model ' .claude/sdd/ .claude/aiad/ → 0 fichier."
-      }
-    ],
+    "specsSansCode": [],
     "specsValideesNonImplementees": [],
     "codeSansSpec": [
       {
@@ -4724,17 +4877,6 @@
       },
       {
         "path": "lib/coldstart.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/command-hooks.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -8008,6 +8150,27 @@
         "annotated": true
       },
       {
+        "path": "lib/command-hooks.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-031",
+              "line": 107
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-031-2-auto-chain-engine",
+              "line": 108
+            }
+          ],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": true
+      },
+      {
         "path": "lib/dashboard/ebm-aires.js",
         "isTest": false,
         "annotations": {
@@ -8268,16 +8431,5 @@
     "specsOrphelinsSurCode": [],
     "earsSpecsSansTests": []
   },
-  "specsExemptees": [
-    {
-      "id": "SPEC-032-1-model-actionnable",
-      "file": ".aiad/specs/SPEC-032-1-model-actionnable.md",
-      "title": "/model actionnable — uniformisation 33 commandes /sdd et /aiad (FACT-015)",
-      "parentIntent": "INTENT-032",
-      "status": "done",
-      "format": "PROSE",
-      "traceability": "exempt",
-      "traceabilityReason": "Livrable purement éditorial — 33 fichiers Markdown (.claude/sdd/*.md, .claude/aiad/*.md) sans code applicatif annoatable. Aucune extension .js/.ts/.py dans le scope. Vérification : grep -rL '/model ' .claude/sdd/ .claude/aiad/ → 0 fichier."
-    }
-  ]
+  "specsExemptees": []
 }

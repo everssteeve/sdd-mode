@@ -84,8 +84,9 @@ test('rendreSarif — SPEC validée sans code → AIAD-TRACE-002 error', () => {
   try {
     writeFileSync(join(d, '.aiad', 'intents', 'INTENT-101.md'),
       '---\nstatus: active\n---\n\n# Intent\n');
+    // @spec SPEC-031-1-hook-stop-ready-fix — ready exclu du gap ; validation reste bloquant
     writeFileSync(join(d, '.aiad', 'specs', 'SPEC-101-1-vide.md'),
-      '---\nparent_intent: INTENT-101\nstatus: ready\n---\n\n# Spec sans code\n');
+      '---\nparent_intent: INTENT-101\nstatus: validation\n---\n\n# Spec sans code\n');
     const modele = construireMatrice(d);
     const sarif = rendreSarif(modele);
     const r = sarif.runs[0].results.find((x) => x.ruleId === 'AIAD-TRACE-002');

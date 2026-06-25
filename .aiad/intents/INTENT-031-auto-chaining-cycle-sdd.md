@@ -3,7 +3,7 @@ id: INTENT-031
 title: Chaînage automatique conditionnel du cycle SDD + correctif hook Stop
 author: Steeve Evers
 date: 2026-06-25
-status: draft
+status: done
 facts: FACT-010, FACT-011
 ---
 
@@ -11,7 +11,7 @@ facts: FACT-010, FACT-011
 
 **Auteur** : Steeve Evers
 **Date** : 2026-06-25
-**Statut** : draft
+**Statut** : done
 
 ---
 
@@ -75,6 +75,6 @@ pour une SPEC en statut `ready` sans exec démarré.
 
 ## SPECs liées
 
-- [ ] SPEC-031-1 — Correctif hook Stop : exclusion du gap `spec_validated_not_implemented` pour fenêtre `ready` pré-exec
-- [ ] SPEC-031-2 — Moteur de chaînage automatique conditionnel (conditions + registre de transitions)
-- [ ] SPEC-031-3 — Paramètre `auto_chain` dans `.aiad/config.yml` + intégration commandes SDD
+- [x] SPEC-031-1 — Correctif hook Stop : exclusion du gap `spec_validated_not_implemented` pour fenêtre `ready` pré-exec → done
+- [x] SPEC-031-2 — Moteur de chaînage automatique conditionnel (conditions + registre de transitions) → done
+- [x] SPEC-031-3 — Paramètre `auto_chain` dans `.aiad/config.yml` + intégration commandes SDD → done

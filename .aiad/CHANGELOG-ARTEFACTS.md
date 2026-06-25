@@ -3,6 +3,17 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-25 — INTENT-031 — Chaînage automatique conditionnel + correctif hook Stop (Drift Lock)
+
+**Auteur** : Steeve Evers
+**Raison** : INTENT-031 complété — 3 SPECs livrées et validées :
+- SPEC-031-1 : exclusion du statut `ready` des gaps bloquants `spec_validated_not_implemented` dans `lib/sdd-trace.js`
+- SPEC-031-2 : moteur de chaînage automatique `lib/auto-chain.js` + intégration dans `lib/command-hooks.js:executerAfter` + retrait guard bin
+- SPEC-031-3 : paramètre `auto_chain` dans `.aiad/config.yml` + `templates/.aiad/config.yml` + parser zero-dep `lib/auto-chain-config.js`
+**Résultat** : cycle SDD `spec→gate→exec→validate→drift-check` réduit de 5-7 à ≤ 2 interruptions manuelles.
+**Vérification** : 4137 tests pass, `trace --fail-on-gap` exit 0, RGESN CONFORME, zéro TODO-JNSP.
+**Impact** : `lib/auto-chain.js` (new), `lib/auto-chain-config.js` (new), `lib/command-hooks.js`, `bin/aiad-sdd.js`, `lib/sdd-trace.js`, configs. INTENT-031 → `done`.
+
 ## 2026-06-25 — INTENT-032 — Archivage rattrapé (FACT-016)
 
 **Auteur** : Steeve Evers

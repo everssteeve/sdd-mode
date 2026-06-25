@@ -55,6 +55,9 @@
 | SPEC-030-2 | hook-stop — capture harness Stop → hook-runs.jsonl enrichi | INTENT-030 | prose | 5/5 | done | — |
 | SPEC-030-3 | validate-badge — badge CO₂ dans /sdd validate | INTENT-030 | prose | 5/5 | done | — |
 | SPEC-030-4 | dashboard-eco — page eco.html + widget metrics.html | INTENT-030 | prose | 5/5 | done | 2026-06-25 |
+| SPEC-031-1 | Correctif hook Stop — exclusion gap ready pré-exec | INTENT-031 | prose | 5/5 | done | — |
+| SPEC-031-2 | Moteur de chaînage automatique conditionnel (lib/auto-chain.js) | INTENT-031 | prose | 5/5 | done | — |
+| SPEC-031-3 | Paramètre auto_chain dans .aiad/config.yml + parser | INTENT-031 | prose | 5/5 | done | — |
 | SPEC-032-1 | /model actionnable — uniformisation 33 commandes /sdd et /aiad (FACT-015) | INTENT-032 | prose | 5/5 | archived | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).

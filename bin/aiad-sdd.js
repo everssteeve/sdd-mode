@@ -3709,12 +3709,10 @@ async function main() {
 const _aiadStart = Date.now();
 main()
   .then(async () => {
-    // Hook utilisateur afterCommand — best-effort
-    if (commandHooksDisponibles(cwd())) {
-      await commandHookAfter(cwd(), {
-        command, args: values, exitCode: 0, durationMs: Date.now() - _aiadStart,
-      });
-    }
+    // Hook utilisateur afterCommand + moteur de chaînage auto (INTENT-031) — best-effort
+    await commandHookAfter(cwd(), {
+      command, args: values, exitCode: 0, durationMs: Date.now() - _aiadStart,
+    });
     // Invitation feedback périodique (toutes les 15 sessions, TTY uniquement, fail-safe)
     if (command !== 'feedback') {
       await feedbackTryInvite(VERSION);
@@ -3722,10 +3720,8 @@ main()
   })
   .catch(async (err) => {
     console.error('\n  Erreur :', err.message);
-    if (commandHooksDisponibles(cwd())) {
-      await commandHookAfter(cwd(), {
-        command, args: values, exitCode: 1, durationMs: Date.now() - _aiadStart,
-      });
-    }
+    await commandHookAfter(cwd(), {
+      command, args: values, exitCode: 1, durationMs: Date.now() - _aiadStart,
+    });
     exit(1);
   });

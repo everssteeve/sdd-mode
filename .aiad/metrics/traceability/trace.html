@@ -24,14 +24,14 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-06-25T09:04:15.127Z</em></p>
+<p><em>Généré le 2026-06-25T13:20:41.309Z</em></p>
 
 <div class="stats">
-  <div class="stat"><div class="v">9</div><div class="k">Intents</div></div>
-  <div class="stat"><div class="v">1</div><div class="k">SPECs</div></div>
-  <div class="stat"><div class="v">81 / 388</div><div class="k">Code annoté</div></div>
-  <div class="stat"><div class="v">45 / 267</div><div class="k">Tests annotés</div></div>
-  <div class="stat"><div class="v">322</div><div class="k">Code sans @spec</div></div>
+  <div class="stat"><div class="v">8</div><div class="k">Intents</div></div>
+  <div class="stat"><div class="v">3</div><div class="k">SPECs</div></div>
+  <div class="stat"><div class="v">84 / 390</div><div class="k">Code annoté</div></div>
+  <div class="stat"><div class="v">45 / 269</div><div class="k">Tests annotés</div></div>
+  <div class="stat"><div class="v">321</div><div class="k">Code sans @spec</div></div>
   <div class="stat"><div class="v">0</div><div class="k">SPECs non-implémentées</div></div>
 </div>
 
@@ -45,13 +45,16 @@
 <tr><td>INTENT-027-ci-metrics-automation</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-028-fiabilite-ci-bin-cartographie-trace</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-029-archivage-facts-resolus</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
-<tr><td>INTENT-031-auto-chaining-cycle-sdd</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
-<tr class="warn"><td>INTENT-032-model-recommendation-actionnable</td><td>SPEC-032-1-model-actionnable</td><td><em>(aucun)</em></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
+<tr class="ok"><td>INTENT-031-auto-chaining-cycle-sdd</td><td>SPEC-031-1-hook-stop-ready-fix</td><td><code>lib/sdd-trace.js</code></td><td><code>test/sarif.test.js</code><br/><code>test/trace.test.js</code><br/><code>chemin/relatif/test.ts</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-031-auto-chaining-cycle-sdd</td><td>SPEC-031-2-auto-chain-engine</td><td><code>lib/auto-chain.js</code><br/><code>lib/auto-chain.js</code><br/><code>lib/command-hooks.js</code></td><td><code>test/auto-chain.test.js</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-031-auto-chaining-cycle-sdd</td><td>SPEC-031-3-auto-chain-config</td><td><code>lib/auto-chain-config.js</code></td><td><code>test/auto-chain-config.test.js</code></td><td><span class="ok">✅</span></td></tr>
 </tbody></table>
 
 <h2>Matrice Backward</h2>
 <div class="filter"><input type="search" id="qbwd" placeholder="Filtrer Backward…" /></div>
 <table id="bwd"><thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead><tbody>
+<tr class="bad"><td><code>test/auto-chain-config.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="bad"><td><code>test/auto-chain.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>templates/projects/fastapi-aiad/tests/test_main.py</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>templates/projects/node-aiad/test/index.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/ai-act-audit.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
@@ -305,6 +308,7 @@
 <tr class="bad"><td><code>test/research.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/review.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/sarif.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/sarif.test.js</code></td><td>SPEC-031-1-hook-stop-ready-fix</td><td>INTENT-031-auto-chaining-cycle-sdd</td><td><code>lib/sdd-trace.js</code></td></tr>
 <tr class="bad"><td><code>test/sarif.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/sbom.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/score.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -361,6 +365,8 @@
 <tr class="bad"><td><code>test/trace.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/trace.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/trace.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/trace.test.js</code></td><td>SPEC-031-1-hook-stop-ready-fix</td><td>INTENT-031-auto-chaining-cycle-sdd</td><td><code>lib/sdd-trace.js</code></td></tr>
+<tr class="ok"><td><code>test/trace.test.js</code></td><td>SPEC-031-1-hook-stop-ready-fix</td><td>INTENT-031-auto-chaining-cycle-sdd</td><td><code>lib/sdd-trace.js</code></td></tr>
 <tr class="bad"><td><code>test/tutorial.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/uninstall.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/update-check.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>

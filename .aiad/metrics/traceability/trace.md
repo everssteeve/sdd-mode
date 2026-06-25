@@ -1,15 +1,15 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-25T09:04:15.127Z
+> Généré le 2026-06-25T13:20:41.309Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 9 |
-| SPECs | 1 |
-| Fichiers code | 388 (annotés : 81) |
-| Fichiers test | 267 (annotés : 45) |
+| Intents | 8 |
+| SPECs | 3 |
+| Fichiers code | 390 (annotés : 84) |
+| Fichiers test | 269 (annotés : 45) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -22,13 +22,16 @@
 | INTENT-027-ci-metrics-automation | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-028-fiabilite-ci-bin-cartographie-trace | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-029-archivage-facts-resolus | _(aucune SPEC)_ | — | — | ❌ orphelin |
-| INTENT-031-auto-chaining-cycle-sdd | _(aucune SPEC)_ | — | — | ❌ orphelin |
-| INTENT-032-model-recommendation-actionnable | SPEC-032-1-model-actionnable | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-031-auto-chaining-cycle-sdd | SPEC-031-1-hook-stop-ready-fix | `lib/sdd-trace.js` | `test/sarif.test.js`<br/>`test/trace.test.js`<br/>`chemin/relatif/test.ts` | ✅ |
+| INTENT-031-auto-chaining-cycle-sdd | SPEC-031-2-auto-chain-engine | `lib/auto-chain.js`<br/>`lib/auto-chain.js`<br/>`lib/command-hooks.js` | `test/auto-chain.test.js` | ✅ |
+| INTENT-031-auto-chaining-cycle-sdd | SPEC-031-3-auto-chain-config | `lib/auto-chain-config.js` | `test/auto-chain-config.test.js` | ✅ |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
+| `test/auto-chain-config.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/auto-chain.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -282,6 +285,7 @@
 | `test/research.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/review.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/sarif.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/sarif.test.js` | SPEC-031-1-hook-stop-ready-fix | INTENT-031-auto-chaining-cycle-sdd | `lib/sdd-trace.js` |
 | `test/sarif.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/sbom.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/score.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -338,6 +342,8 @@
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/trace.test.js` | SPEC-031-1-hook-stop-ready-fix | INTENT-031-auto-chaining-cycle-sdd | `lib/sdd-trace.js` |
+| `test/trace.test.js` | SPEC-031-1-hook-stop-ready-fix | INTENT-031-auto-chaining-cycle-sdd | `lib/sdd-trace.js` |
 | `test/tutorial.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/uninstall.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/update-check.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -356,7 +362,7 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **8**
+- Intents sans SPEC : **7**
   - INTENT-020-spec-anchored-deltas — Spec-anchored par construction — deltas et redevabilité bidirectionnelle
   - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
   - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
@@ -364,9 +370,7 @@
   - INTENT-027-ci-metrics-automation — INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow
   - INTENT-028-fiabilite-ci-bin-cartographie-trace — INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité
   - INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus
-  - INTENT-031-auto-chaining-cycle-sdd — Chaînage automatique conditionnel du cycle SDD + correctif hook Stop
-- SPECs sans code (hors draft/review) : **1**
-  - SPEC-032-1-model-actionnable (statut : done)
+- SPECs sans code (hors draft/review) : **0**
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
@@ -377,7 +381,7 @@
 - SPECs EARS sans tests liés (statut ≠ draft/archived) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **322**
+- Code sans `@spec` : **321**
   - .aiad/config.yml
   - .aiad/hook-bypass.yml
   - .aiad/hooks/discovery-gate.js
@@ -426,12 +430,13 @@
   - lib/ci-templates.js
   - lib/cli-schema.js
   - lib/coldstart.js
-  - lib/command-hooks.js
   - lib/completion.js
-  - … (+272 autres)
-- Code annoté sans tests liés : **11**
+  - lib/confluence.js
+  - … (+271 autres)
+- Code annoté sans tests liés : **12**
   - .github/workflows/site-deploy.yml
   - lib/archive.js
+  - lib/command-hooks.js
   - lib/dashboard/ebm-aires.js
   - lib/dashboard/render.js
   - lib/dashboard/ui/badges.js

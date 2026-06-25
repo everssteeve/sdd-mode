@@ -81,7 +81,8 @@ test('construireMatrice — Intent sans SPEC = orphelin', () => {
   }
 });
 
-test('construireMatrice — SPEC ready sans code applicatif = non-implémentée', () => {
+// @spec SPEC-031-1-hook-stop-ready-fix — CA-1 : ready pré-exec n'est pas un gap bloquant
+test('construireMatrice — SPEC ready sans code = pré-exec normal, non bloquant', () => {
   const dir = fixture();
   try {
     writeFileSync(
@@ -93,7 +94,27 @@ test('construireMatrice — SPEC ready sans code applicatif = non-implémentée'
       `# Spec sans code\n\n**Intent parent** : INTENT-002\nstatut: ready\n`,
     );
     const m = construireMatrice(dir);
-    assert.equal(m.gaps.specsValideesNonImplementees.length, 1);
+    assert.equal(m.gaps.specsValideesNonImplementees.length, 0, 'ready ne génère pas de gap bloquant (SPEC-031-1)');
+    assert.equal(m.gaps.specsSansCode.length, 1, 'mais reste visible via specsSansCode');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// @spec SPEC-031-1-hook-stop-ready-fix — CA-2 : validation sans code reste bloquant
+test('construireMatrice — SPEC validation sans code = gap bloquant', () => {
+  const dir = fixture();
+  try {
+    writeFileSync(
+      join(dir, '.aiad', 'intents', 'INTENT-002.md'),
+      `# Intent\n\nstatus: active\n`,
+    );
+    writeFileSync(
+      join(dir, '.aiad', 'specs', 'SPEC-002-1-vide.md'),
+      `# Spec sans code\n\n**Intent parent** : INTENT-002\nstatut: validation\n`,
+    );
+    const m = construireMatrice(dir);
+    assert.equal(m.gaps.specsValideesNonImplementees.length, 1, 'validation sans code = gap bloquant');
     assert.equal(m.gaps.specsValideesNonImplementees[0].id, 'SPEC-002-1-vide');
   } finally {
     rmSync(dir, { recursive: true, force: true });

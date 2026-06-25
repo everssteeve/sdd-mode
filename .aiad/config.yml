@@ -5,6 +5,17 @@
 #
 # Documentation : https://aiad.ovh
 
+auto_chain:
+  # Chaînage automatique conditionnel du cycle SDD (INTENT-031).
+  # true  : les transitions automatiques (spec→gate, exec→validate, …) se
+  #         déclenchent sans prompt si les conditions sont satisfaites.
+  # false : comportement manuel pré-v1.19, aucune transition auto.
+  enabled: true
+
+  # Seuil max du budget contexte (%) pour autoriser la prochaine étape.
+  # Si le budget dépasse ce seuil, le chaînage s'arrête et remonte au PE.
+  max_context_pct: 40
+
 hooks:
   # Hook pre-commit : vérifie le Drift Lock (code modifié sans SPEC mise à jour).
   #   block : refuse le commit en cas de drift potentiel (défaut, recommandé)
