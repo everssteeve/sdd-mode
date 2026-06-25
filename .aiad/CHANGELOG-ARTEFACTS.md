@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-25 — SPEC-026-2 — `listerLivrables(split)` + `listerOrphelins` + tests (Drift Lock)
+
+**Auteur** : Steeve Evers
+**Raison** : FACT-014 — `archive done` ne couvrait pas les SPECs `split` ni les originaux orphelins. SPEC-026-2 implémentée : `listerSousSpecs` interne, extension de `listerLivrables`, nouvelle fonction `listerOrphelins` exportée, affichage section orphelins dans CLI (warning uniquement, jamais déplacés). 9 tests ajoutés (CA-001 à CA-007b), 45/45 pass.
+**Impact** : `lib/archive.js` + `bin/aiad-sdd.js` + `test/archive.test.js`. SPEC-026-2 → `done`. FACT-014 → résolu.
+
 ## 2026-06-25 — FACT-014 — Gap `archive done` : SPECs `split` + originaux orphelins
 
 **Auteur** : Steeve Evers

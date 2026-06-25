@@ -6,7 +6,7 @@ research: RESEARCH-027
 fact: FACT-014
 author: Steeve Evers
 date: 2026-06-25
-status: ready
+status: done
 format: EARS
 sqs: 5/5
 ---
@@ -18,7 +18,7 @@ sqs: 5/5
 **Fact déclencheur** : FACT-014
 **Auteur** : Steeve Evers
 **Date** : 2026-06-25
-**Statut** : ready
+**Statut** : done
 **Format** : EARS
 **SQS** : 5/5
 

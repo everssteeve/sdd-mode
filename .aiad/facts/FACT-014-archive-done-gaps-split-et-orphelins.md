@@ -3,7 +3,7 @@
 **Date** : 2026-06-25
 **Auteur** : Steeve Evers (PE)
 **SPEC concernée** : SPEC-026-1 (`archive done`)
-**Statut** : ouvert
+**Statut** : résolu (2026-06-25 — SPEC-026-2 implémentée)
 
 ## Écart constaté
 
@@ -30,7 +30,7 @@ Les deux gaps ont été constatés lors de la résolution de FACT-013 : 5 SPECs 
 
 ## Critères de résolution
 
-- [ ] SPEC-026-2 rédigée et passant SQS ≥ 4/5
-- [ ] `archive done` liste les SPECs `split` dont toutes les sous-SPECs sont `done`/`archived`
-- [ ] `archive done` détecte les originaux orphelins (présents en `_index.md` avec `status: archived` mais hors `archive/`) et les signale (sans archivage auto — décision PE)
-- [ ] Tests unitaires couvrant les deux nouveaux cas
+- [x] SPEC-026-2 rédigée et passant SQS ≥ 4/5
+- [x] `archive done` liste les SPECs `split` dont toutes les sous-SPECs sont `done`/`archived`
+- [x] `archive done` détecte les originaux orphelins (présents en `_index.md` avec `status: archived` mais hors `archive/`) et les signale (sans archivage auto — décision PE)
+- [x] Tests unitaires couvrant les deux nouveaux cas (9 tests, 45/45 pass)

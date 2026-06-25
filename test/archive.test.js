@@ -454,3 +454,113 @@ test('archive done — CA-008 audit entry par artefact archivé', silent(async (
     }
   } finally { rmSync(d, { recursive: true, force: true }); }
 }));
+
+// ─── SPEC-026-2 — listerLivrables(split) + listerOrphelins ──────────────────
+
+test('listerLivrables — CA-001 SPEC split toutes sous-SPECs done', async () => {
+  const { listerLivrables } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireSpec(d, 'SPEC-007-1-parent', 'id: SPEC-007-1\nstatus: split\ntitle: Parent split');
+    ecrireSpec(d, 'SPEC-007-1a-sous-a', 'id: SPEC-007-1a\nstatus: done\ntitle: Sous A');
+    ecrireSpec(d, 'SPEC-007-1b-sous-b', 'id: SPEC-007-1b\nstatus: archived\ntitle: Sous B');
+    const candidats = listerLivrables(d);
+    const parent = candidats.find((c) => c.fichier === 'SPEC-007-1-parent.md');
+    assert.ok(parent, 'SPEC split terminée absente de listerLivrables');
+    assert.equal(parent.safe, true);
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('listerLivrables — CA-002 SPEC split sous-SPEC non terminée exclue', async () => {
+  const { listerLivrables } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireSpec(d, 'SPEC-008-1-parent', 'id: SPEC-008-1\nstatus: split\ntitle: Parent split');
+    ecrireSpec(d, 'SPEC-008-1a-ok', 'id: SPEC-008-1a\nstatus: done\ntitle: Sous OK');
+    ecrireSpec(d, 'SPEC-008-1b-wip', 'id: SPEC-008-1b\nstatus: in-progress\ntitle: Sous WIP');
+    const candidats = listerLivrables(d);
+    const parent = candidats.find((c) => c.fichier === 'SPEC-008-1-parent.md');
+    assert.ok(!parent, 'SPEC split partielle ne devrait pas être dans listerLivrables');
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('listerLivrables — CA-003 SPEC split sans sous-SPECs exclue', async () => {
+  const { listerLivrables } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireSpec(d, 'SPEC-009-1-parent', 'id: SPEC-009-1\nstatus: split\ntitle: Parent sans sous-SPECs');
+    const candidats = listerLivrables(d);
+    const parent = candidats.find((c) => c.fichier === 'SPEC-009-1-parent.md');
+    assert.ok(!parent, 'SPEC split sans sous-SPECs ne devrait pas être dans listerLivrables');
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('listerOrphelins — CA-004 détecte original avec status archived', async () => {
+  const { listerOrphelins } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireIntent(d, 'INTENT-099-stale', 'status: archived\ntitle: Intent orphelin');
+    ecrireSpec(d, 'SPEC-099-1-stale', 'status: active\ntitle: Spec normale');
+    const orphelins = listerOrphelins(d);
+    assert.equal(orphelins.length, 1);
+    assert.equal(orphelins[0].id, 'INTENT-099-stale');
+    assert.equal(orphelins[0].kind, 'intents');
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('archive done --apply — CA-005a affiche avertissement orphelins (listerOrphelins non vide)', async () => {
+  const { listerOrphelins } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireIntent(d, 'INTENT-098-orphan', 'status: archived\ntitle: Orphelin CLI');
+    const orphelins = listerOrphelins(d);
+    assert.ok(orphelins.length > 0, 'listerOrphelins doit retourner des entrées pour déclencher le warning CLI');
+    assert.ok(orphelins[0].raison, 'chaque orphelin doit avoir une raison');
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('archive done --apply — CA-005b orphelins non touchés', silent(async () => {
+  const { archiverTous, listerOrphelins } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireIntent(d, 'INTENT-097-orphan', 'status: archived\ntitle: Orphelin');
+    await archiverTous(d, { dryRun: false });
+    assert.ok(existsSync(join(d, '.aiad', 'intents', 'INTENT-097-orphan.md')), 'orphelin ne doit pas être déplacé');
+    assert.ok(!existsSync(join(d, '.aiad', 'intents', 'archive', 'INTENT-097-orphan.md')), 'orphelin ne doit pas être dans archive/');
+    const orphelins = listerOrphelins(d);
+    assert.equal(orphelins.length, 1, 'orphelin toujours détectable après --apply');
+  } finally { rmSync(d, { recursive: true, force: true }); }
+}));
+
+test('archive done — CA-006 affiche section orphelins en preview (listerOrphelins retourne des entrées)', async () => {
+  const { listerOrphelins } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireSpec(d, 'SPEC-096-1-orphan', 'status: archived\ntitle: Spec orpheline');
+    const orphelins = listerOrphelins(d);
+    assert.equal(orphelins.length, 1);
+    assert.equal(orphelins[0].kind, 'specs');
+    assert.ok(orphelins[0].titre, 'titre présent pour affichage CLI');
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('archive done — CA-007a message vide aucun candidat (archiverTous retourne total 0)', async () => {
+  const { archiverTous } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    mkdirSync(join(d, '.aiad', 'intents'), { recursive: true });
+    writeFileSync(join(d, '.aiad', 'intents', 'INTENT-001.md'), '---\nstatus: active\ntitle: T\n---\n');
+    const result = await archiverTous(d, { dryRun: true });
+    assert.equal(result.total, 0, 'aucun candidat → total doit être 0');
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('archive done — CA-007b exit 0 aucun candidat (listerOrphelins retourne [] quand dossier vide)', async () => {
+  const { listerOrphelins } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    mkdirSync(join(d, '.aiad', 'specs'), { recursive: true });
+    const orphelins = listerOrphelins(d);
+    assert.equal(orphelins.length, 0, 'aucun orphelin → listerOrphelins retourne []');
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
