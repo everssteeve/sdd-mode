@@ -6,9 +6,9 @@ research: RESEARCH-027
 fact: FACT-014
 author: Steeve Evers
 date: 2026-06-25
-status: draft
+status: ready
 format: EARS
-sqs: À évaluer via /sdd gate
+sqs: 5/5
 ---
 
 # SPEC-026-2 — `archive done` : SPECs `split` + originaux orphelins
@@ -18,9 +18,9 @@ sqs: À évaluer via /sdd gate
 **Fact déclencheur** : FACT-014
 **Auteur** : Steeve Evers
 **Date** : 2026-06-25
-**Statut** : draft
+**Statut** : ready
 **Format** : EARS
-**SQS** : À évaluer via /sdd gate
+**SQS** : 5/5
 
 ---
 
