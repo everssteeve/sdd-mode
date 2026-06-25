@@ -187,3 +187,11 @@ patterns:
   - "lib/commands-registry.js"
   - "lib/cli-schema.js"
   - "test/commands-registry.test.js"
+
+  # Évolution itérative de la statusline (SPEC-009-1 archivée) : ajout thinking,
+  # quota rate-limit et note de session — pas de nouvelle SPEC pour un enrichissement
+  # d'affichage sans impact comportemental sur le cycle SDD.
+  - "lib/statusline.js"
+  - "test/statusline.test.js"
+  - ".aiad/hooks/statusline.js"
+  - "bin/aiad-sdd.js"

@@ -2797,13 +2797,14 @@ async function main() {
       // statusLine native (§3.11) : lit le JSON Claude Code sur stdin, enrichit
       // d'un état SDD (SPEC active, Gate, étape de cycle) → une ligne. Jamais
       // d'échec : une statusLine ne doit pas casser l'UI.
-      const { etatSdd, prochaineEtapeCycle, construireStatusline, parserStdin } = await import('../lib/statusline.js');
+      const { etatSdd, prochaineEtapeCycle, construireStatusline, parserStdin, lireNoteSession } = await import('../lib/statusline.js');
       let brut = '';
       try { brut = readFileSync(0, 'utf-8'); } catch { /* pas de stdin */ }
       try {
         const cc = parserStdin(brut);
         const sdd = etatSdd(cwd());
         sdd.etape = prochaineEtapeCycle(cwd(), sdd.spec);
+        sdd.note = lireNoteSession(cwd());
         process.stdout.write(construireStatusline(cc, sdd) + '\n');
       } catch {
         process.stdout.write('SDD\n');

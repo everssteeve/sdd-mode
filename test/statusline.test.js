@@ -10,6 +10,7 @@ import {
   prochaineEtapeCycle,
   construireStatusline,
   parserStdin,
+  lireNoteSession,
   // alias EN
   buildStatusline,
   sddState,
@@ -92,6 +93,45 @@ test('construireStatusline — sans SPEC → libellé SDD', () => {
 test('construireStatusline — coût affiché si > 0', () => {
   const l = construireStatusline({ cost: { total_cost_usd: 1.5 } }, { spec: 'SPEC-1', sqs: 4 });
   assert.ok(l.includes('$1.50'));
+});
+
+test('construireStatusline — 🧠 si thinking.enabled', () => {
+  const l = construireStatusline({ thinking: { enabled: true } }, { spec: 'SPEC-1', sqs: 4 });
+  assert.ok(l.includes('🧠'));
+});
+
+test('construireStatusline — pas de 🧠 si thinking.enabled false', () => {
+  const l = construireStatusline({ thinking: { enabled: false } }, { spec: 'SPEC-1', sqs: 4 });
+  assert.ok(!l.includes('🧠'));
+});
+
+test('construireStatusline — rate limit 5h affiché', () => {
+  const l = construireStatusline({ rate_limits: { five_hour: { used_percentage: 45 } } }, { spec: 'SPEC-1', sqs: 4 });
+  assert.ok(l.includes('quota 45%'));
+});
+
+test('construireStatusline — rate limit ⚠ si ≥ 80%', () => {
+  const l = construireStatusline({ rate_limits: { five_hour: { used_percentage: 85 } } }, { spec: 'SPEC-1', sqs: 4 });
+  assert.ok(l.includes('quota 85%⚠'));
+});
+
+test('construireStatusline — note de session affichée en premier', () => {
+  const l = construireStatusline({}, { spec: 'SPEC-1', sqs: 4, note: 'refacto auth' });
+  assert.ok(l.startsWith('📌 refacto auth'));
+});
+
+// ─── lireNoteSession ────────────────────────────────────────────────────────
+
+test('lireNoteSession — lit la première ligne du fichier', () => {
+  const d = tmp();
+  mkdirSync(join(d, '.aiad'), { recursive: true });
+  writeFileSync(join(d, '.aiad', 'session-note'), 'migration auth\nseconde ligne ignorée\n');
+  assert.equal(lireNoteSession(d), 'migration auth');
+  rmSync(d, { recursive: true, force: true });
+});
+
+test('lireNoteSession — absent → null', () => {
+  assert.equal(lireNoteSession('/nope-xyz'), null);
 });
 
 // ─── prochaineEtapeCycle ────────────────────────────────────────────────────
