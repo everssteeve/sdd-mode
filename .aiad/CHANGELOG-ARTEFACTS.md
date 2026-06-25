@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-25 — SPEC-032-1 — `/model` actionnable dans 33 commandes `/sdd` et `/aiad` (Drift Lock)
+
+**Auteur** : Steeve Evers
+**Raison** : FACT-015 — les commandes documentaient un modèle recommandé en texte libre sans instruction `/model <id>` copiable. SPEC-032-1 implémentée : ligne `👉 /model <id>` ajoutée après chaque `**Recommandation modèle**` dans les 33 fichiers `.claude/sdd/*.md` + `.claude/aiad/*.md`. 4 doubles modèles résolus avec critère de choix explicite (`audit` / `security` / `gouvernance` / `research`). Vérification : `grep -rL '/model ' .claude/sdd/ .claude/aiad/` → 0 fichier.
+**Impact** : 33 fichiers Markdown éditoriaux. SPEC-032-1 → `done (trace-exempt)`. FACT-015 → résolu. INTENT-032 → done.
+
 ## 2026-06-25 — SPEC-026-2 — `listerLivrables(split)` + `listerOrphelins` + tests (Drift Lock)
 
 **Auteur** : Steeve Evers

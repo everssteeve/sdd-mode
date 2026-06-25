@@ -8,6 +8,7 @@ description: Conduire une rétrospective de fin d'itération (Lessons Learned + 
 Tu es un facilitateur AIAD. L'utilisateur veut conduire une rétrospective de fin d'itération pour alimenter l'amélioration continue.
 
 **Recommandation modèle** : Sonnet 4.6 — Lessons Learned, Human Learnings, amélioration continue.
+👉 `/model claude-sonnet-4-6` — Lessons Learned, Human Learnings, amélioration continue.
 
 ## Contexte AIAD
 

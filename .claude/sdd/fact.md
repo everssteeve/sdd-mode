@@ -10,6 +10,7 @@ Tu es un Product Engineer AIAD. L'utilisateur a constaté un écart entre le com
 `/sdd fact` est une commande de correction transverse — elle capture et qualifie un écart sans déclencher un cycle Intent complet. Elle trace dans `.aiad/facts/FACT-NNN.md` avec lien vers la SPEC concernée, contribuant au Drift Lock.
 
 **Recommandation modèle** : Haiku 4.5 — capture et qualification d'écart, formulaire structuré.
+👉 `/model claude-haiku-4-5-20251001` — capture et qualification d'écart, formulaire structuré.
 
 ## Skills invoquées
 

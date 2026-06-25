@@ -8,6 +8,7 @@ description: Générer le dashboard HTML multi-pages du projet SDD Mode (dossier
 Tu es un Product Engineer AIAD. L'utilisateur veut produire le **dashboard HTML multi-pages** du projet — la vue d'ensemble pilotable d'un projet SDD Mode, complémentaire du `/aiad dashboard` ASCII utilisé en rituel d'équipe.
 
 **Recommandation modèle** : Haiku 4.5 — génération HTML depuis les données métriques persistées.
+👉 `/model claude-haiku-4-5-20251001` — génération HTML depuis les métriques persistées.
 
 ## Différence avec `/aiad dashboard`
 

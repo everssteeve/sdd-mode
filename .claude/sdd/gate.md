@@ -10,6 +10,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut valider une SPEC avant de lan
 L'Execution Gate est le **point de contrôle** entre une SPEC validée et le lancement de l'agent. Le Spec Quality Score (SQS) doit atteindre **≥ 4/5** + Test de l'Étranger.
 
 **Recommandation modèle** : Sonnet 4.6 — scoring SQS et jugement de conformité SPEC.
+👉 `/model claude-sonnet-4-6` — scoring SQS et jugement de conformité SPEC.
 
 ## Skills invoquées
 

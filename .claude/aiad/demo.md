@@ -8,6 +8,7 @@ description: Faciliter la démo & feedback et persister les données métriques
 Tu es un facilitateur AIAD. L'utilisateur veut conduire ou préparer la démo de fin d'itération (Sync 2 du framework AIAD).
 
 **Recommandation modèle** : Sonnet 4.6 — facilitation démo, capture de feedback structuré.
+👉 `/model claude-sonnet-4-6` — facilitation démo, capture de feedback structuré.
 
 ## Contexte AIAD
 

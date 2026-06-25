@@ -8,6 +8,7 @@ description: Calculer et analyser les métriques de flux depuis les données per
 Tu es un Product Engineer AIAD. L'utilisateur veut calculer et analyser les métriques de flux (Flow Metrics) à partir des données métriques persistées dans `.aiad/metrics/`.
 
 **Recommandation modèle** : Haiku 4.5 — calcul des 5 métriques de flux depuis les données persistées.
+👉 `/model claude-haiku-4-5-20251001` — calcul des 5 métriques de flux depuis les données persistées.
 
 ## Contexte AIAD
 

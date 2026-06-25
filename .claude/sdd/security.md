@@ -10,6 +10,8 @@ Tu es un Product Engineer AIAD. L'utilisateur veut un audit de sécurité du cod
 `/sdd security` est un audit structuré sur 4 axes — recommandé après toute implémentation impliquant des accès, des données utilisateur, des secrets ou un composant IA, et avant toute PR critique. Le rapport est persisté dans `.aiad/metrics/security/`.
 
 **Recommandation modèle** : Opus 4.8 ou équivalent frontier pour maximiser la détection.
+👉 `/model claude-opus-4-8` — audit de sécurité haute précision (recommandé).
+> Fallback : `/model claude-sonnet-4-6` pour un pré-audit ou une revue rapide.
 
 ## Skills invoquées
 

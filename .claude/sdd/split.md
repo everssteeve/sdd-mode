@@ -10,6 +10,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut découper une SPEC trop volum
 Une SPEC doit être **atomique** (1 SPEC = 1 PR = 1 tâche livrable). Quand l'Execution Gate échoue sur l'atomicité, ou > 200 lignes, ou > 2 relances agent, ou budget > ≈ 50K (heuristique de sobriété assumée, non sourcée — cf. FACT-001) → découper.
 
 **Recommandation modèle** : Sonnet 4.6 — découpage atomique, jugement de cohérence sémantique.
+👉 `/model claude-sonnet-4-6` — découpage atomique, jugement de cohérence sémantique.
 
 ## Skills invoquées
 

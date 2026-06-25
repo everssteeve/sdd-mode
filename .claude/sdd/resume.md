@@ -10,6 +10,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut reprendre une session agent i
 Les sessions agent sont interrompues en pratique. Le risque : recommencer de zéro, ou pire, produire des incohérences. Cette commande reconstruit le contexte minimal nécessaire.
 
 **Recommandation modèle** : Haiku 4.5 — reconstruction de contexte minimal, tâche mécanique.
+👉 `/model claude-haiku-4-5-20251001` — reconstruction de contexte minimal, tâche mécanique.
 
 ## Skills invoquées
 

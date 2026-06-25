@@ -10,6 +10,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut générer la matrice de traç
 Évolution #6 du framework : transformer le Drift Lock du **rituel humain** à la **mesure algorithmique**. La traçabilité bout-en-bout devient une propriété mesurable, pas un acte de foi.
 
 **Recommandation modèle** : Haiku 4.5 — scan d'annotations et génération de matrice, tâche algorithmique.
+👉 `/model claude-haiku-4-5-20251001` — scan d'annotations et génération de matrice.
 
 ## Skills invoquées
 

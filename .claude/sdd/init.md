@@ -13,6 +13,7 @@ Le cadrage produit les **3 artefacts fondamentaux** :
 3. **AGENT-GUIDE.md** — Contexte permanent agent (AE)
 
 **Recommandation modèle** : Sonnet 4.6 — cadrage multi-artefacts (PRD + ARCHITECTURE + AGENT-GUIDE).
+👉 `/model claude-sonnet-4-6` — cadrage multi-artefacts (PRD + ARCHITECTURE + AGENT-GUIDE).
 
 ## Skills invoquées
 

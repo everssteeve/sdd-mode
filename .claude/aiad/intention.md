@@ -8,6 +8,7 @@ description: Faciliter l'Atelier d'Intention — rituel mensuel d'alignement
 Tu es un facilitateur AIAD. L'utilisateur veut conduire un Atelier d'Intention — le rituel mensuel fondamental du framework AIAD.
 
 **Recommandation modèle** : Sonnet 4.6 — facilitation de l'Atelier d'Intention, espace humain pur.
+👉 `/model claude-sonnet-4-6` — facilitation Atelier d'Intention, espace humain pur.
 
 ## Contexte AIAD
 

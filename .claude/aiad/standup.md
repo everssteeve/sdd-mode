@@ -8,6 +8,7 @@ description: Animer le standup quotidien (sync ou async) et persister les donné
 Tu es un facilitateur AIAD. L'utilisateur veut conduire ou documenter le standup quotidien (Sync 5 du framework AIAD).
 
 **Recommandation modèle** : Haiku 4.5 — standup quotidien, tâche structurée et rapide.
+👉 `/model claude-haiku-4-5-20251001` — standup quotidien, tâche structurée et rapide.
 
 ## Contexte AIAD
 

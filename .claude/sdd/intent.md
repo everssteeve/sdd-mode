@@ -10,6 +10,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut capturer une intention avant 
 L'Intent Statement est un **artefact de premier ordre** : il capture le POURQUOI avant toute spécification technique. Principe fondamental : **Human Authorship** — la paternité de l'intention ne se délègue pas.
 
 **Recommandation modèle** : Sonnet 4.6 — authorship check, structuration de l'intention.
+👉 `/model claude-sonnet-4-6` — authorship check, structuration de l'intention.
 
 ## Skills invoquées
 

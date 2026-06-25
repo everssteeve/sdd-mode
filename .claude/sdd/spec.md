@@ -10,6 +10,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut rédiger une SPEC technique d
 La SPEC est un **invariant vivant** — source de vérité entre l'intention humaine et le code agent. **Une SPEC = une tâche atomique**.
 
 **Recommandation modèle** : Sonnet 4.6 — rédaction SPEC, critères EARS, jugement sémantique.
+👉 `/model claude-sonnet-4-6` — rédaction SPEC, critères EARS, jugement sémantique.
 
 ## Skills invoquées
 

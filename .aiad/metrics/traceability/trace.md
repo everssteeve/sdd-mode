@@ -1,12 +1,12 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-25T08:22:22.129Z
+> Généré le 2026-06-25T09:04:15.127Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 8 |
+| Intents | 9 |
 | SPECs | 1 |
 | Fichiers code | 388 (annotés : 81) |
 | Fichiers test | 267 (annotés : 45) |
@@ -23,6 +23,7 @@
 | INTENT-028-fiabilite-ci-bin-cartographie-trace | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-029-archivage-facts-resolus | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-031-auto-chaining-cycle-sdd | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-032-model-recommendation-actionnable | SPEC-032-1-model-actionnable | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
 
@@ -364,7 +365,8 @@
   - INTENT-028-fiabilite-ci-bin-cartographie-trace — INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité
   - INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus
   - INTENT-031-auto-chaining-cycle-sdd — Chaînage automatique conditionnel du cycle SDD + correctif hook Stop
-- SPECs sans code (hors draft/review) : **0**
+- SPECs sans code (hors draft/review) : **1**
+  - SPEC-032-1-model-actionnable (statut : done)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 

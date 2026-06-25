@@ -8,6 +8,7 @@ description: État des lieux complet du projet en mode SDD
 Tu es un Product Engineer AIAD. L'utilisateur veut un état des lieux complet du projet en mode SDD.
 
 **Recommandation modèle** : Haiku 4.5 — lecture d'artefacts, état des lieux structuré.
+👉 `/model claude-haiku-4-5-20251001` — lecture d'artefacts, état des lieux structuré.
 
 ## Mode d'exécution
 

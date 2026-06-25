@@ -2,11 +2,11 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-25T08:22:22.130Z"
+    "generated": "2026-06-25T09:04:15.127Z"
   },
-  "generatedAt": "2026-06-25T08:22:22.129Z",
+  "generatedAt": "2026-06-25T09:04:15.127Z",
   "summary": {
-    "intents": 8,
+    "intents": 9,
     "specs": 1,
     "codeFiles": 388,
     "annotatedCodeFiles": 81,
@@ -85,6 +85,30 @@
         "status": "draft"
       },
       "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-032-model-recommendation-actionnable",
+        "file": ".aiad/intents/INTENT-032-model-recommendation-actionnable.md",
+        "title": "INTENT-032-model-recommendation-actionnable",
+        "status": "done"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-032-1-model-actionnable",
+            "file": ".aiad/specs/SPEC-032-1-model-actionnable.md",
+            "title": "/model actionnable — uniformisation 33 commandes /sdd et /aiad (FACT-015)",
+            "parentIntent": "INTENT-032",
+            "status": "done",
+            "format": "PROSE",
+            "traceability": "exempt",
+            "traceabilityReason": "Livrable purement éditorial — 33 fichiers Markdown (.claude/sdd/*.md, .claude/aiad/*.md) sans code applicatif annoatable. Aucune extension .js/.ts/.py dans le scope. Vérification : grep -rL '/model ' .claude/sdd/ .claude/aiad/ → 0 fichier."
+          },
+          "code": [],
+          "tests": []
+        }
+      ]
     }
   ],
   "backward": [
@@ -4114,7 +4138,18 @@
         "status": "draft"
       }
     ],
-    "specsSansCode": [],
+    "specsSansCode": [
+      {
+        "id": "SPEC-032-1-model-actionnable",
+        "file": ".aiad/specs/SPEC-032-1-model-actionnable.md",
+        "title": "/model actionnable — uniformisation 33 commandes /sdd et /aiad (FACT-015)",
+        "parentIntent": "INTENT-032",
+        "status": "done",
+        "format": "PROSE",
+        "traceability": "exempt",
+        "traceabilityReason": "Livrable purement éditorial — 33 fichiers Markdown (.claude/sdd/*.md, .claude/aiad/*.md) sans code applicatif annoatable. Aucune extension .js/.ts/.py dans le scope. Vérification : grep -rL '/model ' .claude/sdd/ .claude/aiad/ → 0 fichier."
+      }
+    ],
     "specsValideesNonImplementees": [],
     "codeSansSpec": [
       {
@@ -8233,5 +8268,16 @@
     "specsOrphelinsSurCode": [],
     "earsSpecsSansTests": []
   },
-  "specsExemptees": []
+  "specsExemptees": [
+    {
+      "id": "SPEC-032-1-model-actionnable",
+      "file": ".aiad/specs/SPEC-032-1-model-actionnable.md",
+      "title": "/model actionnable — uniformisation 33 commandes /sdd et /aiad (FACT-015)",
+      "parentIntent": "INTENT-032",
+      "status": "done",
+      "format": "PROSE",
+      "traceability": "exempt",
+      "traceabilityReason": "Livrable purement éditorial — 33 fichiers Markdown (.claude/sdd/*.md, .claude/aiad/*.md) sans code applicatif annoatable. Aucune extension .js/.ts/.py dans le scope. Vérification : grep -rL '/model ' .claude/sdd/ .claude/aiad/ → 0 fichier."
+    }
+  ]
 }

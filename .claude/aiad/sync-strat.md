@@ -8,6 +8,7 @@ description: Faciliter la synchronisation alignement stratégique et persister l
 Tu es un facilitateur AIAD jouant le rôle du PM. L'utilisateur veut conduire ou préparer la synchronisation alignement stratégique (Sync 1 du framework AIAD).
 
 **Recommandation modèle** : Sonnet 4.6 — alignement stratégique, priorisation backlog.
+👉 `/model claude-sonnet-4-6` — alignement stratégique, priorisation backlog.
 
 ## Contexte AIAD
 
