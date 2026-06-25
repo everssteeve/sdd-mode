@@ -1,16 +1,18 @@
 ---
 id: INTENT-021
 title: Empreinte mesurée — tokens et coût par fonctionnalité
-status: draft
+status: active
 author: Steeve Evers
 date: 2026-06-11
 specs:
+research: RESEARCH-034
 ---
 
 # INTENT-021 — Empreinte mesurée
 
-> ⚠ Draft issu de l'analyse du 2026-06-11. POURQUOI à approprier par un humain
-> avant passage en `active` (Human Authorship).
+> ✅ Approprié par Steeve Evers le 2026-06-25 via RESEARCH-034 (CONDITIONAL GO, 85 %).
+> Périmètre recentré : attribution tokens ↔ Intent/SPEC + restitution `/sdd context`.
+> Coût € et page dashboard « Valeur » hors périmètre (cf. conditions C1/C2).
 
 ## Pourquoi maintenant
 
@@ -40,5 +42,5 @@ disponible → drift de l'engagement Art. IV.
 
 ## SPECs liées
 
-- [ ] SPEC-021-1 — Comptage des tokens par artefact (Intent/SPEC)
-- [ ] SPEC-021-2 — Restitution dans `/sdd context` + dashboard
+- [ ] SPEC-021-1 — Attribution tokens ↔ Intent/SPEC (enrichissement hook Stop, rétro-compatible)
+- [ ] SPEC-021-2 — Restitution dans `/sdd context` (page dashboard « Valeur » reportée — dépend d'INTENT-018)

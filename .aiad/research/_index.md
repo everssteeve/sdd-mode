@@ -27,6 +27,7 @@
 | RESEARCH-031 | Chaînage automatique conditionnel + correctif hook Stop | INTENT-031 | Steeve Evers | 2026-06-25 | CONDITIONAL GO (85 %) | tranché — /sdd spec autorisé (C1 afterCommand, C2 stuck-in-ready accepté) |
 | RESEARCH-032 | Recommandation modèle actionnable dans toutes les commandes /sdd et /aiad | INTENT-032 | Steeve Evers | 2026-06-25 | GO (95 %) | tranché — /sdd spec autorisé |
 | RESEARCH-033 | Spec-anchored par construction : deltas et redevabilité bidirectionnelle | INTENT-020 | Steeve Evers | 2026-06-25 | CONDITIONAL GO (85 %) | tranché — /sdd spec autorisé (C1 FACT enrichi sans écriture directe SPEC, C2 frontière delta quantifiée) |
+| RESEARCH-034 | Empreinte mesurée : tokens et coût par fonctionnalité | INTENT-021 | Steeve Evers | 2026-06-25 | CONDITIONAL GO (85 %) | tranché — /sdd spec autorisé (C1 périmètre A+B, C2 tokens sans coût €, C3 hook rétro-compatible) ; recouvrement INTENT-030 acté |
 
 ## Verdicts du gate Research
 
