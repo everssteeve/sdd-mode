@@ -2,7 +2,7 @@
 
 **Auteur** : Steeve Evers
 **Date** : 2026-06-24
-**Statut** : draft
+**Statut** : done
 
 ---
 
@@ -38,7 +38,7 @@ L'implémentation a dérivé si l'un de ces signaux est absent :
 
 | SPEC | Titre | Statut |
 |------|-------|--------|
-| SPEC-030-1 | eco-estimator — algorithme JS natif + eco-models.json | draft |
-| SPEC-030-2 | hook-stop — capture harness Stop → hook-runs.jsonl | draft |
-| SPEC-030-3 | validate-badge — badge CO₂ dans /sdd validate | draft |
-| SPEC-030-4 | dashboard-eco — page eco.html + widget metrics.html | draft |
+| SPEC-030-1 | eco-estimator — algorithme JS natif + eco-models.json | done |
+| SPEC-030-2 | hook-stop — capture harness Stop → hook-runs.jsonl | done |
+| SPEC-030-3 | validate-badge — badge CO₂ dans /sdd validate | done |
+| SPEC-030-4 | dashboard-eco — page eco.html + widget metrics.html | done |

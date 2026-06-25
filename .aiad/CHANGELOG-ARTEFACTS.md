@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-25 — INTENT-030 — Drift Lock artefact → done
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd drift-check INTENT-030` — drift artefact détecté : INTENT-030 restait `draft` alors que les 4 SPECs liées (030-1/2/3/4) étaient toutes `done` dans `specs/_index.md`. Mise à jour du fichier INTENT-030 (statut + tableau SPECs) et de `intents/_index.md`.
+**Impact** : INTENT-030 → `done`. `intents/_index.md` mis à jour.
+
 ## 2026-06-25 — SPEC-030-4 — Drift Lock OK → done
 
 **Auteur** : Steeve Evers
