@@ -2,12 +2,12 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-25T07:37:13.167Z"
+    "generated": "2026-06-25T08:22:22.130Z"
   },
-  "generatedAt": "2026-06-25T07:37:13.166Z",
+  "generatedAt": "2026-06-25T08:22:22.129Z",
   "summary": {
-    "intents": 9,
-    "specs": 9,
+    "intents": 8,
+    "specs": 1,
     "codeFiles": 388,
     "annotatedCodeFiles": 81,
     "testFiles": 267,
@@ -79,130 +79,6 @@
     },
     {
       "intent": {
-        "id": "INTENT-030-ecologits-impact-ecologique",
-        "file": ".aiad/intents/INTENT-030-ecologits-impact-ecologique.md",
-        "title": "INTENT-030-ecologits-impact-ecologique",
-        "status": "draft"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-030-1-eco-estimator",
-            "file": ".aiad/specs/SPEC-030-1-eco-estimator.md",
-            "title": "SPEC-030-1-eco-estimator",
-            "parentIntent": "INTENT-030",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/eco-estimator.js",
-              "line": 3
-            },
-            {
-              "path": "lib/eco-estimator.js",
-              "line": 54
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/eco-estimator.test.js",
-              "line": 4
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-030-2-hook-stop",
-            "file": ".aiad/specs/SPEC-030-2-hook-stop.md",
-            "title": "SPEC-030-2-hook-stop",
-            "parentIntent": "INTENT-030",
-            "status": "review",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/eco-hook.js",
-              "line": 4
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/eco-hook.test.js",
-              "line": 4
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-030-3-validate-badge",
-            "file": ".aiad/specs/SPEC-030-3-validate-badge.md",
-            "title": "validate-badge — badge CO₂ dans /sdd validate",
-            "parentIntent": "INTENT-030",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "exempt",
-            "traceabilityReason": "Livrable = directive agent .claude/sdd/validate.md (répertoire .claude/ exclu de EXTENSIONS_CODE par design). Implémentation vérifiée manuellement via /sdd validate — SPEC-024-1 / FACT-004."
-          },
-          "code": [],
-          "tests": []
-        },
-        {
-          "spec": {
-            "id": "SPEC-030-4-dashboard-eco",
-            "file": ".aiad/specs/SPEC-030-4-dashboard-eco.md",
-            "title": "SPEC-030-4-dashboard-eco",
-            "parentIntent": "INTENT-030",
-            "status": "validation",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/eco-dashboard.js",
-              "line": 3
-            },
-            {
-              "path": "lib/eco-dashboard.js",
-              "line": 31
-            },
-            {
-              "path": "lib/eco-dashboard.js",
-              "line": 120
-            },
-            {
-              "path": "lib/eco-dashboard.js",
-              "line": 149
-            },
-            {
-              "path": "lib/dashboard.js",
-              "line": 61
-            },
-            {
-              "path": "lib/dashboard/model/index.js",
-              "line": 149
-            },
-            {
-              "path": "lib/dashboard/views/metrics.js",
-              "line": 9
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/eco-dashboard.test.js",
-              "line": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "intent": {
         "id": "INTENT-031-auto-chaining-cycle-sdd",
         "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
         "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
@@ -212,118 +88,6 @@
     }
   ],
   "backward": [
-    {
-      "test": {
-        "path": "test/eco-dashboard.test.js",
-        "line": 2
-      },
-      "spec": {
-        "id": "SPEC-030-4-dashboard-eco",
-        "file": ".aiad/specs/SPEC-030-4-dashboard-eco.md",
-        "title": "SPEC-030-4-dashboard-eco",
-        "parentIntent": "INTENT-030",
-        "status": "validation",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-030-ecologits-impact-ecologique",
-        "file": ".aiad/intents/INTENT-030-ecologits-impact-ecologique.md",
-        "title": "INTENT-030-ecologits-impact-ecologique",
-        "status": "draft"
-      },
-      "code": [
-        {
-          "path": "lib/eco-dashboard.js",
-          "line": 3
-        },
-        {
-          "path": "lib/eco-dashboard.js",
-          "line": 31
-        },
-        {
-          "path": "lib/eco-dashboard.js",
-          "line": 120
-        },
-        {
-          "path": "lib/eco-dashboard.js",
-          "line": 149
-        },
-        {
-          "path": "lib/dashboard.js",
-          "line": 61
-        },
-        {
-          "path": "lib/dashboard/model/index.js",
-          "line": 149
-        },
-        {
-          "path": "lib/dashboard/views/metrics.js",
-          "line": 9
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/eco-estimator.test.js",
-        "line": 4
-      },
-      "spec": {
-        "id": "SPEC-030-1-eco-estimator",
-        "file": ".aiad/specs/SPEC-030-1-eco-estimator.md",
-        "title": "SPEC-030-1-eco-estimator",
-        "parentIntent": "INTENT-030",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-030-ecologits-impact-ecologique",
-        "file": ".aiad/intents/INTENT-030-ecologits-impact-ecologique.md",
-        "title": "INTENT-030-ecologits-impact-ecologique",
-        "status": "draft"
-      },
-      "code": [
-        {
-          "path": "lib/eco-estimator.js",
-          "line": 3
-        },
-        {
-          "path": "lib/eco-estimator.js",
-          "line": 54
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/eco-hook.test.js",
-        "line": 4
-      },
-      "spec": {
-        "id": "SPEC-030-2-hook-stop",
-        "file": ".aiad/specs/SPEC-030-2-hook-stop.md",
-        "title": "SPEC-030-2-hook-stop",
-        "parentIntent": "INTENT-030",
-        "status": "review",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-030-ecologits-impact-ecologique",
-        "file": ".aiad/intents/INTENT-030-ecologits-impact-ecologique.md",
-        "title": "INTENT-030-ecologits-impact-ecologique",
-        "status": "draft"
-      },
-      "code": [
-        {
-          "path": "lib/eco-hook.js",
-          "line": 4
-        }
-      ]
-    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -952,16 +716,7 @@
         "path": "test/dashboard-digest.test.js",
         "line": 1
       },
-      "spec": {
-        "id": "SPEC-017-3-digest-delta",
-        "file": ".aiad/specs/SPEC-017-3-digest-delta.md",
-        "title": "SPEC-017-3 — Digest delta + snapshots persistants",
-        "parentIntent": "INTENT-017",
-        "status": "validation",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard.js",
@@ -1978,6 +1733,73 @@
       "spec": null,
       "intent": null,
       "code": []
+    },
+    {
+      "test": {
+        "path": "test/eco-dashboard.test.js",
+        "line": 2
+      },
+      "intent": null,
+      "code": [
+        {
+          "path": "lib/dashboard.js",
+          "line": 61
+        },
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 149
+        },
+        {
+          "path": "lib/dashboard/views/metrics.js",
+          "line": 9
+        },
+        {
+          "path": "lib/eco-dashboard.js",
+          "line": 3
+        },
+        {
+          "path": "lib/eco-dashboard.js",
+          "line": 31
+        },
+        {
+          "path": "lib/eco-dashboard.js",
+          "line": 120
+        },
+        {
+          "path": "lib/eco-dashboard.js",
+          "line": 149
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/eco-estimator.test.js",
+        "line": 4
+      },
+      "intent": null,
+      "code": [
+        {
+          "path": "lib/eco-estimator.js",
+          "line": 3
+        },
+        {
+          "path": "lib/eco-estimator.js",
+          "line": 54
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/eco-hook.test.js",
+        "line": 4
+      },
+      "intent": null,
+      "code": [
+        {
+          "path": "lib/eco-hook.js",
+          "line": 4
+        }
+      ]
     },
     {
       "test": {
@@ -4292,38 +4114,7 @@
         "status": "draft"
       }
     ],
-    "specsSansCode": [
-      {
-        "id": "SPEC-013-1-deploiement-site-valeurs",
-        "file": ".aiad/specs/SPEC-013-1-deploiement-site-valeurs.md",
-        "title": "Déploiement site v1.18 + résolution « 6 vs 7 valeurs »",
-        "parentIntent": "INTENT-013",
-        "status": "split",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      {
-        "id": "SPEC-013-1b-unification-7-valeurs",
-        "file": ".aiad/specs/SPEC-013-1b-unification-7-valeurs.md",
-        "title": "Unification à 7 valeurs sur Constitution / Vision / AGENT-GUIDE / site",
-        "parentIntent": "INTENT-013",
-        "status": "archived",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      {
-        "id": "SPEC-030-3-validate-badge",
-        "file": ".aiad/specs/SPEC-030-3-validate-badge.md",
-        "title": "validate-badge — badge CO₂ dans /sdd validate",
-        "parentIntent": "INTENT-030",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "exempt",
-        "traceabilityReason": "Livrable = directive agent .claude/sdd/validate.md (répertoire .claude/ exclu de EXTENSIONS_CODE par design). Implémentation vérifiée manuellement via /sdd validate — SPEC-024-1 / FACT-004."
-      }
-    ],
+    "specsSansCode": [],
     "specsValideesNonImplementees": [],
     "codeSansSpec": [
       {
@@ -8143,13 +7934,37 @@
           "intents": [
             {
               "id": "INTENT-026",
-              "line": 378
+              "line": 364
+            },
+            {
+              "id": "INTENT-026",
+              "line": 430
+            },
+            {
+              "id": "INTENT-026",
+              "line": 459
             }
           ],
           "specs": [
             {
+              "id": "SPEC-026-2-archive-done-split-orphelins",
+              "line": 336
+            },
+            {
               "id": "SPEC-026-1-archive-done",
-              "line": 377
+              "line": 362
+            },
+            {
+              "id": "SPEC-026-2-archive-done-split-orphelins",
+              "line": 363
+            },
+            {
+              "id": "SPEC-026-2-archive-done-split-orphelins",
+              "line": 429
+            },
+            {
+              "id": "SPEC-026-1-archive-done",
+              "line": 458
             }
           ],
           "verifiedBy": [],
@@ -8418,16 +8233,5 @@
     "specsOrphelinsSurCode": [],
     "earsSpecsSansTests": []
   },
-  "specsExemptees": [
-    {
-      "id": "SPEC-030-3-validate-badge",
-      "file": ".aiad/specs/SPEC-030-3-validate-badge.md",
-      "title": "validate-badge — badge CO₂ dans /sdd validate",
-      "parentIntent": "INTENT-030",
-      "status": "done",
-      "format": "PROSE",
-      "traceability": "exempt",
-      "traceabilityReason": "Livrable = directive agent .claude/sdd/validate.md (répertoire .claude/ exclu de EXTENSIONS_CODE par design). Implémentation vérifiée manuellement via /sdd validate — SPEC-024-1 / FACT-004."
-    }
-  ]
+  "specsExemptees": []
 }

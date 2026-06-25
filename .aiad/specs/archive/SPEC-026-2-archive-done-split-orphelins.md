@@ -1,16 +1,18 @@
 ---
 id: SPEC-026-2
-title: "`archive done` — éligibilité SPECs `split` + détection originaux orphelins"
+title: `archive done` — éligibilité SPECs `split` + détection originaux orphelins
 intent: INTENT-026
 research: RESEARCH-027
 fact: FACT-014
 author: Steeve Evers
-date: 2026-06-25
-status: done
+date: "2026-06-25"
+status: archived
 format: EARS
-sqs: 5/5
+sqs: "5/5"
+archivedAt: "2026-06-25T08:23:29.128Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-026-2 — `archive done` : SPECs `split` + originaux orphelins
 
 **Intent parent** : INTENT-026

@@ -24,11 +24,11 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-06-25T07:37:13.166Z</em></p>
+<p><em>Généré le 2026-06-25T08:22:22.129Z</em></p>
 
 <div class="stats">
-  <div class="stat"><div class="v">9</div><div class="k">Intents</div></div>
-  <div class="stat"><div class="v">9</div><div class="k">SPECs</div></div>
+  <div class="stat"><div class="v">8</div><div class="k">Intents</div></div>
+  <div class="stat"><div class="v">1</div><div class="k">SPECs</div></div>
   <div class="stat"><div class="v">81 / 388</div><div class="k">Code annoté</div></div>
   <div class="stat"><div class="v">45 / 267</div><div class="k">Tests annotés</div></div>
   <div class="stat"><div class="v">322</div><div class="k">Code sans @spec</div></div>
@@ -45,19 +45,12 @@
 <tr><td>INTENT-027-ci-metrics-automation</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-028-fiabilite-ci-bin-cartographie-trace</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-029-archivage-facts-resolus</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
-<tr class="ok"><td>INTENT-030-ecologits-impact-ecologique</td><td>SPEC-030-1-eco-estimator</td><td><code>lib/eco-estimator.js</code><br/><code>lib/eco-estimator.js</code></td><td><code>test/eco-estimator.test.js</code></td><td><span class="ok">✅</span></td></tr>
-<tr class="ok"><td>INTENT-030-ecologits-impact-ecologique</td><td>SPEC-030-2-hook-stop</td><td><code>lib/eco-hook.js</code></td><td><code>test/eco-hook.test.js</code></td><td><span class="ok">✅</span></td></tr>
-<tr class="warn"><td>INTENT-030-ecologits-impact-ecologique</td><td>SPEC-030-3-validate-badge</td><td><em>(aucun)</em></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
-<tr class="ok"><td>INTENT-030-ecologits-impact-ecologique</td><td>SPEC-030-4-dashboard-eco</td><td><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/dashboard.js</code><br/><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/views/metrics.js</code></td><td><code>test/eco-dashboard.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr><td>INTENT-031-auto-chaining-cycle-sdd</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 </tbody></table>
 
 <h2>Matrice Backward</h2>
 <div class="filter"><input type="search" id="qbwd" placeholder="Filtrer Backward…" /></div>
 <table id="bwd"><thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead><tbody>
-<tr class="ok"><td><code>test/eco-dashboard.test.js</code></td><td>SPEC-030-4-dashboard-eco</td><td>INTENT-030-ecologits-impact-ecologique</td><td><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/dashboard.js</code><br/><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/views/metrics.js</code></td></tr>
-<tr class="ok"><td><code>test/eco-estimator.test.js</code></td><td>SPEC-030-1-eco-estimator</td><td>INTENT-030-ecologits-impact-ecologique</td><td><code>lib/eco-estimator.js</code><br/><code>lib/eco-estimator.js</code></td></tr>
-<tr class="ok"><td><code>test/eco-hook.test.js</code></td><td>SPEC-030-2-hook-stop</td><td>INTENT-030-ecologits-impact-ecologique</td><td><code>lib/eco-hook.js</code></td></tr>
 <tr class="bad"><td><code>templates/projects/fastapi-aiad/tests/test_main.py</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>templates/projects/node-aiad/test/index.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/ai-act-audit.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
@@ -109,7 +102,7 @@
 <tr class="bad"><td><code>test/dashboard-audit-trail.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-collect-supplementary.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-collect.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
-<tr class="ok"><td><code>test/dashboard-digest.test.js</code></td><td>SPEC-017-3-digest-delta</td><td>—</td><td><code>lib/dashboard.js</code><br/><code>lib/dashboard/digest-delta.js</code><br/><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/views/today.js</code></td></tr>
+<tr class="bad"><td><code>test/dashboard-digest.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/dashboard.js</code><br/><code>lib/dashboard/digest-delta.js</code><br/><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/views/today.js</code></td></tr>
 <tr class="bad"><td><code>test/dashboard-dpo.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-ebm-aires.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-edge-cases.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -205,6 +198,9 @@
 <tr class="bad"><td><code>test/dpia.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/drift-verdict.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dry-run.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="bad"><td><code>test/eco-dashboard.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/dashboard.js</code><br/><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/views/metrics.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code></td></tr>
+<tr class="bad"><td><code>test/eco-estimator.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/eco-estimator.js</code><br/><code>lib/eco-estimator.js</code></td></tr>
+<tr class="bad"><td><code>test/eco-hook.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/eco-hook.js</code></td></tr>
 <tr class="bad"><td><code>test/emit-rules-agents.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/emit-rules-concurrent.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/emit-rules-pull.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>

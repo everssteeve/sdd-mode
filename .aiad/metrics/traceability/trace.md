@@ -1,13 +1,13 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-25T07:37:13.166Z
+> Généré le 2026-06-25T08:22:22.129Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 9 |
-| SPECs | 9 |
+| Intents | 8 |
+| SPECs | 1 |
 | Fichiers code | 388 (annotés : 81) |
 | Fichiers test | 267 (annotés : 45) |
 
@@ -22,19 +22,12 @@
 | INTENT-027-ci-metrics-automation | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-028-fiabilite-ci-bin-cartographie-trace | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-029-archivage-facts-resolus | _(aucune SPEC)_ | — | — | ❌ orphelin |
-| INTENT-030-ecologits-impact-ecologique | SPEC-030-1-eco-estimator | `lib/eco-estimator.js`<br/>`lib/eco-estimator.js` | `test/eco-estimator.test.js` | ✅ |
-| INTENT-030-ecologits-impact-ecologique | SPEC-030-2-hook-stop | `lib/eco-hook.js` | `test/eco-hook.test.js` | ✅ |
-| INTENT-030-ecologits-impact-ecologique | SPEC-030-3-validate-badge | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-030-ecologits-impact-ecologique | SPEC-030-4-dashboard-eco | `lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/metrics.js` | `test/eco-dashboard.test.js` | ✅ |
 | INTENT-031-auto-chaining-cycle-sdd | _(aucune SPEC)_ | — | — | ❌ orphelin |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/eco-dashboard.test.js` | SPEC-030-4-dashboard-eco | INTENT-030-ecologits-impact-ecologique | `lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/metrics.js` |
-| `test/eco-estimator.test.js` | SPEC-030-1-eco-estimator | INTENT-030-ecologits-impact-ecologique | `lib/eco-estimator.js`<br/>`lib/eco-estimator.js` |
-| `test/eco-hook.test.js` | SPEC-030-2-hook-stop | INTENT-030-ecologits-impact-ecologique | `lib/eco-hook.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -86,7 +79,7 @@
 | `test/dashboard-audit-trail.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-collect-supplementary.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-collect.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dashboard-digest.test.js` | SPEC-017-3-digest-delta | — | `lib/dashboard.js`<br/>`lib/dashboard/digest-delta.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/today.js` |
+| `test/dashboard-digest.test.js` | ❌ non-tracé | — | `lib/dashboard.js`<br/>`lib/dashboard/digest-delta.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/today.js` |
 | `test/dashboard-dpo.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-ebm-aires.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-edge-cases.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -182,6 +175,9 @@
 | `test/dpia.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/drift-verdict.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dry-run.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/eco-dashboard.test.js` | ❌ non-tracé | — | `lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/metrics.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js` |
+| `test/eco-estimator.test.js` | ❌ non-tracé | — | `lib/eco-estimator.js`<br/>`lib/eco-estimator.js` |
+| `test/eco-hook.test.js` | ❌ non-tracé | — | `lib/eco-hook.js` |
 | `test/emit-rules-agents.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/emit-rules-concurrent.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/emit-rules-pull.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -368,10 +364,7 @@
   - INTENT-028-fiabilite-ci-bin-cartographie-trace — INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité
   - INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus
   - INTENT-031-auto-chaining-cycle-sdd — Chaînage automatique conditionnel du cycle SDD + correctif hook Stop
-- SPECs sans code (hors draft/review) : **3**
-  - SPEC-013-1-deploiement-site-valeurs (statut : split)
-  - SPEC-013-1b-unification-7-valeurs (statut : archived)
-  - SPEC-030-3-validate-badge (statut : done)
+- SPECs sans code (hors draft/review) : **0**
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
