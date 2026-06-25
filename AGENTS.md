@@ -1,8 +1,8 @@
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 ---
 generated-by: aiad-emit-rules v1.18.0
-source-hash: 6e04af6007d19962
-intent_id: INTENT-026
+source-hash: 9d8b188d4692076f
+intent_id: INTENT-031
 ---
 
 # AGENTS.md
@@ -32,7 +32,7 @@ Intent Statement → Research (GO/NO-GO) → SPEC → Execution Gate (SQS ≥ 4/
 
 ### Intent actif
 
-- **INTENT-026** — INTENT-026-archivage-artefacts-done.md
+- **INTENT-031** — INTENT-031-auto-chaining-cycle-sdd.md
 
 
 ## Architecture documentaire

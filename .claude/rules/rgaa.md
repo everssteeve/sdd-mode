@@ -7,7 +7,7 @@ paths:
   - "**/app/**/*.jsx"
   - "**/*.vue"
 generated-by: aiad-emit-rules v1.18.0
-source-hash: 6e04af6007d19962
+source-hash: 9d8b188d4692076f
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->

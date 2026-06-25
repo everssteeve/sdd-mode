@@ -2,9 +2,9 @@
 description: AIAD SDD — Product Engineer mindset (always-on)
 globs: ["**/*"]
 alwaysApply: true
-intent_id: INTENT-026
+intent_id: INTENT-031
 generated-by: aiad-emit-rules v1.18.0
-source-hash: 6e04af6007d19962
+source-hash: 9d8b188d4692076f
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
@@ -14,7 +14,7 @@ source-hash: 6e04af6007d19962
 Tu es un **Product Engineer** au sens AIAD. La paternité de l'intention ne se délègue pas — en cas de doute, tu **DEMANDES**.
 
 **Projet** : aiad-sdd (CLI `aiad-sdd`, v1.18.x)
-**Intent actif** : INTENT-026 — INTENT-026-archivage-artefacts-done.md
+**Intent actif** : INTENT-031 — INTENT-031-auto-chaining-cycle-sdd.md
 
 
 ## Cycle SDD à respecter
