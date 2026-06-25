@@ -107,6 +107,11 @@
 - [ ] Code review passée
 - [ ] Gouvernance vérifiée (AI-ACT / RGPD / RGAA / RGESN si applicable)
 
+## Historique des modifications
+
+<!-- Ajouté à la première modification. Un item par delta, ordre chronologique. -->
+<!-- - YYYY-MM-DD [auteur] — description (déclencheur : FACT-NNN | décision PE | exécution) -->
+
 ---
 
 ## Anti-patterns EARS (à corriger avant `/sdd gate`)

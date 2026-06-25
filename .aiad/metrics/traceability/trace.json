@@ -2,12 +2,12 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-25T13:20:41.310Z"
+    "generated": "2026-06-25T14:07:31.195Z"
   },
-  "generatedAt": "2026-06-25T13:20:41.309Z",
+  "generatedAt": "2026-06-25T14:07:31.194Z",
   "summary": {
-    "intents": 8,
-    "specs": 3,
+    "intents": 7,
+    "specs": 2,
     "codeFiles": 390,
     "annotatedCodeFiles": 84,
     "testFiles": 269,
@@ -19,9 +19,38 @@
         "id": "INTENT-020-spec-anchored-deltas",
         "file": ".aiad/intents/INTENT-020-spec-anchored-deltas.md",
         "title": "Spec-anchored par construction — deltas et redevabilité bidirectionnelle",
-        "status": "draft"
+        "status": "active"
       },
-      "specs": []
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-020-1-modele-deltas-archive",
+            "file": ".aiad/specs/SPEC-020-1-modele-deltas-archive.md",
+            "title": "Modèle deltas/archive — specs = état courant, petits changements tracés",
+            "parentIntent": "INTENT-020",
+            "status": "done",
+            "format": "PROSE",
+            "traceability": "exempt",
+            "traceabilityReason": "Livrable 100% éditorial (spec-template.md, spec-ears-template.md, AGENT-GUIDE.md) — aucun fichier .js produit, pas d'annotation @spec applicable."
+          },
+          "code": [],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-020-2-redevabilite-bidirectionnelle",
+            "file": ".aiad/specs/SPEC-020-2-redevabilite-bidirectionnelle.md",
+            "title": "Redevabilité bidirectionnelle — FACT enrichi + signal constraint-violated",
+            "parentIntent": "INTENT-020",
+            "status": "done",
+            "format": "PROSE",
+            "traceability": "exempt",
+            "traceabilityReason": "Livrable 100% éditorial (.claude/sdd/fact.md, .claude/skills/drift-detection/SKILL.md, .aiad/AGENT-GUIDE.md) — aucun fichier .js produit, pas d'annotation @spec applicable."
+          },
+          "code": [],
+          "tests": []
+        }
+      ]
     },
     {
       "intent": {
@@ -76,128 +105,9 @@
         "status": "draft"
       },
       "specs": []
-    },
-    {
-      "intent": {
-        "id": "INTENT-031-auto-chaining-cycle-sdd",
-        "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
-        "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
-        "status": "active"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-031-1-hook-stop-ready-fix",
-            "file": ".aiad/specs/SPEC-031-1-hook-stop-ready-fix.md",
-            "title": "Correctif hook Stop — exclusion du gap spec_validated_not_implemented pour statut ready",
-            "parentIntent": "INTENT-031",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/sdd-trace.js",
-              "line": 560
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/sarif.test.js",
-              "line": 87
-            },
-            {
-              "path": "test/trace.test.js",
-              "line": 84
-            },
-            {
-              "path": "chemin/relatif/test.ts",
-              "line": 44,
-              "viaCode": true
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-031-2-auto-chain-engine",
-            "file": ".aiad/specs/SPEC-031-2-auto-chain-engine.md",
-            "title": "Moteur de chaînage automatique conditionnel du cycle SDD",
-            "parentIntent": "INTENT-031",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/auto-chain.js",
-              "line": 23
-            },
-            {
-              "path": "lib/auto-chain.js",
-              "line": 61
-            },
-            {
-              "path": "lib/command-hooks.js",
-              "line": 108
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/auto-chain.test.js",
-              "line": 24,
-              "viaCode": true
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-031-3-auto-chain-config",
-            "file": ".aiad/specs/SPEC-031-3-auto-chain-config.md",
-            "title": "Paramètre auto_chain dans .aiad/config.yml + parser",
-            "parentIntent": "INTENT-031",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/auto-chain-config.js",
-              "line": 21
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/auto-chain-config.test.js",
-              "line": 22,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
     }
   ],
   "backward": [
-    {
-      "test": {
-        "path": "test/auto-chain-config.test.js",
-        "line": 0
-      },
-      "spec": null,
-      "intent": null,
-      "code": []
-    },
-    {
-      "test": {
-        "path": "test/auto-chain.test.js",
-        "line": 0
-      },
-      "spec": null,
-      "intent": null,
-      "code": []
-    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -439,6 +349,24 @@
     {
       "test": {
         "path": "test/audit.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/auto-chain-config.test.js",
+        "line": 0
+      },
+      "spec": null,
+      "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/auto-chain.test.js",
         "line": 0
       },
       "spec": null,
@@ -3223,22 +3151,7 @@
         "path": "test/sarif.test.js",
         "line": 87
       },
-      "spec": {
-        "id": "SPEC-031-1-hook-stop-ready-fix",
-        "file": ".aiad/specs/SPEC-031-1-hook-stop-ready-fix.md",
-        "title": "Correctif hook Stop — exclusion du gap spec_validated_not_implemented pour statut ready",
-        "parentIntent": "INTENT-031",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-031-auto-chaining-cycle-sdd",
-        "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
-        "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
-        "status": "active"
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/sdd-trace.js",
@@ -4051,22 +3964,7 @@
         "path": "test/trace.test.js",
         "line": 84
       },
-      "spec": {
-        "id": "SPEC-031-1-hook-stop-ready-fix",
-        "file": ".aiad/specs/SPEC-031-1-hook-stop-ready-fix.md",
-        "title": "Correctif hook Stop — exclusion du gap spec_validated_not_implemented pour statut ready",
-        "parentIntent": "INTENT-031",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-031-auto-chaining-cycle-sdd",
-        "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
-        "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
-        "status": "active"
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/sdd-trace.js",
@@ -4079,22 +3977,7 @@
         "path": "test/trace.test.js",
         "line": 104
       },
-      "spec": {
-        "id": "SPEC-031-1-hook-stop-ready-fix",
-        "file": ".aiad/specs/SPEC-031-1-hook-stop-ready-fix.md",
-        "title": "Correctif hook Stop — exclusion du gap spec_validated_not_implemented pour statut ready",
-        "parentIntent": "INTENT-031",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-031-auto-chaining-cycle-sdd",
-        "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
-        "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
-        "status": "active"
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/sdd-trace.js",
@@ -4260,12 +4143,6 @@
   "gaps": {
     "intentsSansSpec": [
       {
-        "id": "INTENT-020-spec-anchored-deltas",
-        "file": ".aiad/intents/INTENT-020-spec-anchored-deltas.md",
-        "title": "Spec-anchored par construction — deltas et redevabilité bidirectionnelle",
-        "status": "draft"
-      },
-      {
         "id": "INTENT-021-empreinte-mesuree",
         "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
         "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
@@ -4302,7 +4179,28 @@
         "status": "draft"
       }
     ],
-    "specsSansCode": [],
+    "specsSansCode": [
+      {
+        "id": "SPEC-020-1-modele-deltas-archive",
+        "file": ".aiad/specs/SPEC-020-1-modele-deltas-archive.md",
+        "title": "Modèle deltas/archive — specs = état courant, petits changements tracés",
+        "parentIntent": "INTENT-020",
+        "status": "done",
+        "format": "PROSE",
+        "traceability": "exempt",
+        "traceabilityReason": "Livrable 100% éditorial (spec-template.md, spec-ears-template.md, AGENT-GUIDE.md) — aucun fichier .js produit, pas d'annotation @spec applicable."
+      },
+      {
+        "id": "SPEC-020-2-redevabilite-bidirectionnelle",
+        "file": ".aiad/specs/SPEC-020-2-redevabilite-bidirectionnelle.md",
+        "title": "Redevabilité bidirectionnelle — FACT enrichi + signal constraint-violated",
+        "parentIntent": "INTENT-020",
+        "status": "done",
+        "format": "PROSE",
+        "traceability": "exempt",
+        "traceabilityReason": "Livrable 100% éditorial (.claude/sdd/fact.md, .claude/skills/drift-detection/SKILL.md, .aiad/AGENT-GUIDE.md) — aucun fichier .js produit, pas d'annotation @spec applicable."
+      }
+    ],
     "specsValideesNonImplementees": [],
     "codeSansSpec": [
       {
@@ -8431,5 +8329,26 @@
     "specsOrphelinsSurCode": [],
     "earsSpecsSansTests": []
   },
-  "specsExemptees": []
+  "specsExemptees": [
+    {
+      "id": "SPEC-020-1-modele-deltas-archive",
+      "file": ".aiad/specs/SPEC-020-1-modele-deltas-archive.md",
+      "title": "Modèle deltas/archive — specs = état courant, petits changements tracés",
+      "parentIntent": "INTENT-020",
+      "status": "done",
+      "format": "PROSE",
+      "traceability": "exempt",
+      "traceabilityReason": "Livrable 100% éditorial (spec-template.md, spec-ears-template.md, AGENT-GUIDE.md) — aucun fichier .js produit, pas d'annotation @spec applicable."
+    },
+    {
+      "id": "SPEC-020-2-redevabilite-bidirectionnelle",
+      "file": ".aiad/specs/SPEC-020-2-redevabilite-bidirectionnelle.md",
+      "title": "Redevabilité bidirectionnelle — FACT enrichi + signal constraint-violated",
+      "parentIntent": "INTENT-020",
+      "status": "done",
+      "format": "PROSE",
+      "traceability": "exempt",
+      "traceabilityReason": "Livrable 100% éditorial (.claude/sdd/fact.md, .claude/skills/drift-detection/SKILL.md, .aiad/AGENT-GUIDE.md) — aucun fichier .js produit, pas d'annotation @spec applicable."
+    }
+  ]
 }

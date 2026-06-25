@@ -136,6 +136,42 @@ Une nouvelle capacité CLI s'ajoute par : un module `lib/<nom>.js` annoté, un `
 
 ---
 
+## DRIFT LOCK
+
+> Synchroniser SPEC + code dans la même PR est non négociable. Cette section documente le **modèle de deltas** pour réduire la friction sur les petits changements (SPEC-020-1).
+
+### Modèle deltas (SPEC-020-1)
+
+Tout changement apporté à une SPEC existante (`ready`, `in-progress`, `validation`) suit l'une des deux routes :
+
+| Chemin | Critères | Actions |
+|--------|----------|---------|
+| **A — Petit delta** | ≤ 5 lignes modifiées **ET** ne touche ni §3 (CA) ni §4 (API) | Mettre à jour la SPEC + ajouter entrée `## Historique des modifications`. Pas d'entrée `CHANGELOG-ARTEFACTS`. |
+| **B — Changement significatif** | > 5 lignes **OU** touche ≥ 1 CA ou l'Interface/API | Mettre à jour la SPEC + entrée `## Historique` + entrée `CHANGELOG-ARTEFACTS`. |
+
+**Règle §3/§4 prime sur le compte de lignes** : un changement ≤ 5 lignes touchant un CA est toujours chemin B.
+
+**En cas de doute** : chemin B (conservateur).
+
+**Format entrée Historique** (section en pied de SPEC, après §7 DoOD) :
+```
+- YYYY-MM-DD [auteur] — <description 1 ligne> (déclencheur : FACT-NNN | décision PE | exécution)
+```
+
+**Delta sur SPEC archivée** : interdit — restaurer via `aiad-sdd archive restore <ID>` d'abord.
+
+### Redevabilité bidirectionnelle (SPEC-020-2)
+
+Quand l'agent découvre en exécution une contrainte non documentée dans la SPEC (timeout implicite, invariant de domaine, ordre de traitement), il peut proposer un patch de SPEC **sans jamais modifier la SPEC directement** :
+
+1. Créer un FACT enrichi (`.aiad/facts/FACT-NNN.md`) avec le champ optionnel `spec-patch-proposal`.
+2. Le PE examine la proposition et choisit : appliquer (chemin A ou B) / rejeter / modifier.
+3. Un FACT avec `spec-patch-proposal` et `statut: ouvert` est signalé par `/sdd drift-check` comme "à statuer avant merge".
+
+Nouveau type de drift détecté par la skill `drift-detection` : `constraint-violated-without-fact` (niveau `WARN` par défaut).
+
+---
+
 ## ANTI-PATTERNS
 
 | Anti-pattern | Pourquoi éviter | Alternative |

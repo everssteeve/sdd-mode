@@ -101,25 +101,6 @@
           "ruleId": "AIAD-TRACE-001",
           "level": "warning",
           "message": {
-            "text": "Intent INTENT-020-spec-anchored-deltas (« Spec-anchored par construction — deltas et redevabilité bidirectionnelle ») n'a pas de SPEC associée."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".aiad/intents/INTENT-020-spec-anchored-deltas.md"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-001",
-          "level": "warning",
-          "message": {
             "text": "Intent INTENT-021-empreinte-mesuree (« Empreinte mesurée — tokens et coût par fonctionnalité ») n'a pas de SPEC associée."
           },
           "locations": [
@@ -6561,7 +6542,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-25T13:20:41.309Z"
+          "endTimeUtc": "2026-06-25T14:07:31.194Z"
         }
       ]
     }

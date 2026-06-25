@@ -41,6 +41,7 @@ Pour chaque SPEC en statut `in-progress` ou `validation` (lire `.aiad/specs/_ind
 | **spec-ahead-of-code** | SPEC modifiée, code non aligné |
 | **orphan-change** | Modification code sans SPEC référente |
 | **architecture-drift** | Convention AGENT-GUIDE violée par le nouveau code |
+| **constraint-violated-without-fact** | Commentaire `// CONSTRAINT:` ou `// INVARIANT:` dans le code sans `@spec` associé ET sans FACT ouvert référençant cette zone. Niveau : `WARN` par défaut (configurable en `ERROR` via `.aiad/drift-config.yml`). |
 
 ### Étape 4 — Vérifier les artefacts globaux (si pertinent)
 
@@ -65,6 +66,7 @@ DRIFT REPORT — branche: <branch>
 ═══════════════════════════════
 Fichiers modifiés : <X>
 SPECs actives    : <list>
+FACTs ouverts avec spec-patch-proposal : <list ou vide>
 
 | SPEC      | Fichiers     | Code MAJ | SPEC MAJ | Verdict       |
 |-----------|--------------|----------|----------|---------------|
@@ -74,10 +76,14 @@ SPECs actives    : <list>
 Verdict global : OK / DRIFT / INCONNU
 
 Si DRIFT :
-- Type           : code-ahead-of-spec | spec-ahead-of-code | orphan-change | architecture-drift
+- Type           : code-ahead-of-spec | spec-ahead-of-code | orphan-change | architecture-drift | constraint-violated-without-fact
 - Action requise : (a) mettre à jour la SPEC pour refléter le code livré
                    (b) corriger le code pour respecter la SPEC
                    ⚠ NE JAMAIS merger en état de drift.
+
+Signaux redevabilité bidirectionnelle (SPEC-020-2) :
+  [WARN] FACT-NNN : spec-patch-proposal ouvert sur SPEC-NNN-N — à statuer avant merge.
+  [WARN] constraint-violated-without-fact : zone chemin:ligne sans @spec ni FACT associé.
 
 Si INCONNU :
 - Motif          : <annotations absentes | fichier illisible | SPEC manquante>
