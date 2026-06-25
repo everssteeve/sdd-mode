@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-25T07:32:08.725Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus — aiad-sdd</title>
+<meta name="description" content="INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 70/100 · Matur…"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus — aiad-sdd"/>
+<meta property="og:description" content="INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 70/100 · Matur…"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus — aiad-sdd"/>
+<meta name="twitter:description" content="INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 70/100 · Matur…"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.18.0</div>
+  </div>
+  <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li>
+    <li><a href="eco.html" class="">
+      <span class="nav-icon">🌱</span>Éco
+    </a></li></ul>
+  <div class="footer">Généré 25/06/2026 09:32:08<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus</h1>
+      <div class="subtitle">Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 25/06/2026 09:32:08. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+    .ip-cols { display:grid; grid-template-columns: 1fr 280px; gap: 1.5rem; align-items: start; }
+    @media (max-width: 900px) { .ip-cols { grid-template-columns: 1fr; } }
+    .ip-meta table { width:100%; font-size:.85rem; }
+    .ip-meta td { padding:.25rem .4rem; vertical-align:top; }
+    .ip-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+    .ip-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+    .ip-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+    .ip-sections pre { margin:0; white-space:pre-wrap; font-family: inherit; font-size:.88rem; line-height:1.45; }
+    .ip-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+    .ip-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+    .ip-actions a:hover { background:rgba(76,110,245,.18); }
+  </style>
+<div class="ip-cols">
+  <div class="ip-sections">
+    <h2><a class="src-link" href="../.aiad/intents/INTENT-029-archivage-facts-resolus.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-029-archivage-facts-resolus.md">INTENT-029-archivage-facts-resolus</a> — INTENT-029 — Archivage automatique des FACTs résolus</h2>
+    <section><h3>POURQUOI MAINTENANT</h3><div class="md-light"><p><code>FACT-009</code> (2026-06-24) documente que <code>listerLivrables()</code> (<code>lib/archive.js:321</code>) ne balaie pas le dossier <code>facts/</code> et que <code>TYPES_ARTEFACTS</code> ne connaît pas le préfixe <code>FACT-</code>. <code>INTENT-026</code> a livré l&#39;archivage automatique des Intents et SPECs done, mais les FACTs ont été oubliés. <code>.aiad/facts/</code> accumule indéfiniment les FACTs résolus, polluant le contexte chaud de l&#39;agent et l&#39;index de traçabilité.</p></div></section><section><h3>POUR QUI</h3><div class="md-light"><p>Product Engineer AIAD utilisant le CLI <code>aiad-sdd</code> en dogfooding quotidien — en particulier lors du cycle <code>/sdd fact</code> → résolution → <code>/sdd archive --all</code>.</p></div></section><section><h3>OBJECTIF</h3><div class="md-light"><p>Après <code>aiad-sdd archive --all</code>, <strong>zéro FACT avec <code>status: résolu</code> (ou <code>done</code>) ne reste dans <code>.aiad/facts/</code></strong> — ils sont déplacés vers <code>.aiad/facts/archive/</code> avec le même patch frontmatter que les intents/specs (<code>archivedAt</code>, <code>archivedBy</code>, <code>archivedReason</code>).</p><p>Métrique de succès : <code>ls .aiad/facts/*.md | xargs grep -l &quot;résolu\|done&quot;</code> → 0 résultat après la commande.</p></div></section><section><h3>CONTRAINTES</h3><div class="md-light"><ul><li>Zéro dépendance npm (contrainte non négociable — <code>lint:deps</code> bloque).</li><li>JS pur, ESM natif, pas d&#39;étape de build.</li><li>Patch cohérent avec <code>TYPES_ARTEFACTS</code> et <code>listerLivrables()</code> existants — pas de refactoring profond.</li><li><code>aiad-sdd trace</code> doit ignorer <code>facts/archive/</code> (symétrie avec <code>intents/archive/</code> et <code>specs/archive/</code>).</li><li>Rétrocompatibilité : <code>aiad-sdd archive <code>FACT-NNN</code></code> doit fonctionner (extension de <code>detecterSousDossier()</code>).</li></ul></div></section><section><h3>CRITÈRE DE DRIFT</h3><div class="md-light"><p>Signal observable : après <code>aiad-sdd archive --all</code> sur un projet contenant au moins un FACT <code>status: résolu</code>, la commande rapporte au moins 1 FACT archivé ET <code>ls .aiad/facts/*.md</code> ne liste plus ce FACT. Si <code>facts/archive/</code> contient le fichier avec <code>status: archived</code> dans le frontmatter → archivage conforme. Si le FACT reste dans <code>facts/</code> → drift détecté.</p></div></section>
+    <section><h3>SPECs liées</h3><p class="muted">Aucune SPEC liée. Lance <code>/sdd spec</code> dans Claude Code pour décomposer cet Intent.</p></section>
+    <section><h3>Risques</h3><p>Niveau global : <strong>medium</strong></p><div><span class="badge badge-warn" style="font-size:.78rem">Dépendance (mot-clé &quot;depend&quot;)</span></div></section>
+    <section><h3>Hypothèse</h3><p class="muted">Aucune hypothèse déclarée (frontmatter <code>hypothesis:</code>).</p></section>
+    <section><h3>Dépendances</h3><p><strong>Bloqué par</strong> : <em class="muted">aucune</em></p><p><strong>Bloque</strong> : <em class="muted">aucun</em></p></section>
+    <div class="ip-actions">
+      <a href="pm.html">← Cockpit PM</a>
+      <a href="intents.html">← Catalogue Intents</a>
+      <a href="../.aiad/intents/INTENT-029-archivage-facts-resolus.md" target="_blank">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="ip-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .3rem">Métadonnées</h3>
+    <table><tr><td><strong>Statut</strong></td><td><span class="badge badge-warn">draft</span></td></tr><tr><td><strong>Date</strong></td><td>2026-06-24</td></tr><tr><td><strong>Auteur</strong></td><td>Steeve Evers</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -91,6 +91,43 @@ npx aiad-sdd cross-model merge <SPEC-id> --base <verdict-de-base> --output-forma
 
 **Dégradation propre** : si le runtime tiers est indisponible (headless/CI), saute cette étape avec une note — ne jamais bloquer. Le verdict final reste **déterministe** ; des Findings hauts non résolus forcent au plus `CONDITIONAL` (§3.6), jamais un FAIL inventé.
 
+### Étape 6c — Badge EcoLogits (§ INTENT-030)
+
+<!--
+@spec SPEC-030-3-validate-badge
+@intent INTENT-030
+@governance AIAD-AI-ACT,AIAD-RGPD
+-->
+
+Après la section gouvernance (Étape 5), lis `.aiad/metrics/hook-runs.jsonl`.
+Filtre les 5 dernières entrées contenant un champ `ecoMetrics`.
+Calcule :
+- `co2Total` : somme des `co2g` non-null (en g)
+- `tokensTotal` : somme des `totalTokens`
+- `sessionCount` : nombre d'entrées lues
+
+Émets le bloc suivant dans le rapport :
+
+```
+## Impact écologique (estimation indicative — non certifiée)
+
+| Métrique        | Valeur              |
+|-----------------|---------------------|
+| Sessions        | N                   |
+| Tokens totaux   | X                   |
+| CO₂ estimé      | Y.YY g CO₂eq        |
+| Méthode         | estimation indicative (EcoLogits JS port) |
+
+> ⚠ Ces valeurs sont des estimations indicatives basées sur des modèles
+> d'énergie publiés. Elles ne constituent pas une mesure certifiée.
+```
+
+Cas limites :
+- Fichier absent ou aucune entrée `ecoMetrics` → `⚠ Aucune donnée EcoLogits — hook Stop non configuré ou sessions insuffisantes.` (non-bloquant, validation poursuit).
+- Toutes les entrées `method: 'unknown'` → `CO₂ estimé : N/D (modèle non référencé)`.
+- Mix `estimated`/`unknown` → sommer uniquement les `co2g` non-null, indiquer `(N sessions sur M ont pu être estimées)`.
+- Lignes `hook-runs.jsonl` malformées → ignorer les lignes invalides, continuer avec les valides.
+
 ### Étape 7 — Décision
 
 | Résultat | Action |

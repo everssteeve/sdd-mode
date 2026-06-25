@@ -1,0 +1,92 @@
+{
+  "date": "2026-06-25",
+  "intents": [
+    {
+      "id": "ATELIER-INTENTION-2026-06",
+      "statut": "unknown"
+    },
+    {
+      "id": "INTENT-020-spec-anchored-deltas",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-021-empreinte-mesuree",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-022-dogfooding-cli",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-023-rayonnement-honnete",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-027-ci-metrics-automation",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-028-fiabilite-ci-bin-cartographie-trace",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-029-archivage-facts-resolus",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-030-ecologits-impact-ecologique",
+      "statut": "draft"
+    },
+    {
+      "id": "INTENT-031-auto-chaining-cycle-sdd",
+      "statut": "draft"
+    }
+  ],
+  "specs": [
+    {
+      "id": "SPEC-013-1-deploiement-site-valeurs",
+      "statut": "split",
+      "parentIntent": "INTENT-013"
+    },
+    {
+      "id": "SPEC-013-1b-unification-7-valeurs",
+      "statut": "archived",
+      "parentIntent": "INTENT-013"
+    },
+    {
+      "id": "SPEC-013-4-deploy-site-workflow",
+      "statut": "split",
+      "parentIntent": "INTENT-013"
+    },
+    {
+      "id": "SPEC-017-3-digest-delta",
+      "statut": "validation",
+      "parentIntent": "INTENT-017"
+    },
+    {
+      "id": "SPEC-026-1-archive-done",
+      "statut": "validation",
+      "parentIntent": "INTENT-026"
+    },
+    {
+      "id": "SPEC-030-1-eco-estimator",
+      "statut": "done",
+      "parentIntent": "INTENT-030"
+    },
+    {
+      "id": "SPEC-030-2-hook-stop",
+      "statut": "review",
+      "parentIntent": "INTENT-030"
+    },
+    {
+      "id": "SPEC-030-3-validate-badge",
+      "statut": "done",
+      "parentIntent": "INTENT-030"
+    },
+    {
+      "id": "SPEC-030-4-dashboard-eco",
+      "statut": "in-progress",
+      "parentIntent": "INTENT-030"
+    }
+  ]
+}

@@ -1,34 +1,40 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-24T07:31:30.459Z
+> Généré le 2026-06-25T07:37:13.166Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 6 |
-| SPECs | 25 |
-| Fichiers code | 385 (annotés : 78) |
-| Fichiers test | 264 (annotés : 42) |
+| Intents | 9 |
+| SPECs | 9 |
+| Fichiers code | 388 (annotés : 81) |
+| Fichiers test | 267 (annotés : 45) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
 | Intent | SPEC | Code | Tests | Verdict |
 |--------|------|------|-------|---------|
-| INTENT-016-dashboard-fondations | SPEC-016-1-architecture-4-couches | `lib/dashboard/model/index.js`<br/>`lib/dashboard/render.js`<br/>`lib/dashboard/ui/badges.js`<br/>`lib/dashboard/ui/helpers.js`<br/>`lib/dashboard/ui/sparklines.js`<br/>`lib/dashboard/views/changelog.js`<br/>`lib/dashboard/views/drifts.js`<br/>`lib/dashboard/views/intents.js`<br/>`lib/dashboard/views/metrics.js`<br/>`lib/dashboard/views/overview.js`<br/>`lib/dashboard/views/specs.js`<br/>`lib/dashboard/views/traceability.js` | _(aucun)_ | ⚠ non-testée |
-| INTENT-016-dashboard-fondations | SPEC-016-2-design-system-rgaa | `dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/ui/sparklines.js` | `test/dashboard-assets.test.js`<br/>`dans` | ✅ |
-| INTENT-016-dashboard-fondations | SPEC-016-3-data-json-v2 | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` | `test/dashboard.test.js`<br/>`test/validate-data-schema.test.js` | ✅ |
-| INTENT-016-dashboard-fondations | SPEC-016-4-rgesn-budgets | `scripts/check-page-budgets.js` | `test/check-page-budgets.test.js` | ✅ |
 | INTENT-020-spec-anchored-deltas | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-021-empreinte-mesuree | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-022-dogfooding-cli | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-023-rayonnement-honnete | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-027-ci-metrics-automation | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-028-fiabilite-ci-bin-cartographie-trace | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-029-archivage-facts-resolus | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-030-ecologits-impact-ecologique | SPEC-030-1-eco-estimator | `lib/eco-estimator.js`<br/>`lib/eco-estimator.js` | `test/eco-estimator.test.js` | ✅ |
+| INTENT-030-ecologits-impact-ecologique | SPEC-030-2-hook-stop | `lib/eco-hook.js` | `test/eco-hook.test.js` | ✅ |
+| INTENT-030-ecologits-impact-ecologique | SPEC-030-3-validate-badge | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-030-ecologits-impact-ecologique | SPEC-030-4-dashboard-eco | `lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/metrics.js` | `test/eco-dashboard.test.js` | ✅ |
+| INTENT-031-auto-chaining-cycle-sdd | _(aucune SPEC)_ | — | — | ❌ orphelin |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
+| `test/eco-dashboard.test.js` | SPEC-030-4-dashboard-eco | INTENT-030-ecologits-impact-ecologique | `lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/metrics.js` |
+| `test/eco-estimator.test.js` | SPEC-030-1-eco-estimator | INTENT-030-ecologits-impact-ecologique | `lib/eco-estimator.js`<br/>`lib/eco-estimator.js` |
+| `test/eco-hook.test.js` | SPEC-030-2-hook-stop | INTENT-030-ecologits-impact-ecologique | `lib/eco-hook.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -60,13 +66,13 @@
 | `test/bun-parity.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/canary.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/cert.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/check-page-budgets.test.js` | SPEC-016-4-rgesn-budgets | INTENT-016-dashboard-fondations | `scripts/check-page-budgets.js` |
+| `test/check-page-budgets.test.js` | ❌ non-tracé | — | `scripts/check-page-budgets.js` |
 | `test/ci-templates.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/cli-adrs.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/cli-parsing.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/cli-schema.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/command-hooks.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/commands-registry.test.js` | SPEC-015-2-1-registre-commandes | — | `lib/commands-registry.js`<br/>`lib/deprecation.js` |
+| `test/commands-registry.test.js` | ❌ non-tracé | — | `lib/commands-registry.js`<br/>`lib/deprecation.js` |
 | `test/completion.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/confluence.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/coverage-threshold.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -76,7 +82,7 @@
 | `test/dashboard-_history-utils.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-adrs.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-assets-autotag.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dashboard-assets.test.js` | SPEC-016-2-design-system-rgaa | INTENT-016-dashboard-fondations | `dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/ui/sparklines.js` |
+| `test/dashboard-assets.test.js` | ❌ non-tracé | — | `dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/ui/sparklines.js` |
 | `test/dashboard-audit-trail.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-collect-supplementary.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-collect.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -86,14 +92,14 @@
 | `test/dashboard-edge-cases.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-glossaire.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-graph.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dashboard-hill-charts.test.js` | SPEC-018-3-hill-charts-sdd | — | `lib/dashboard/hill-charts.js`<br/>`lib/dashboard/model/index.js` |
-| `test/dashboard-impact-effort.test.js` | SPEC-018-5-impact-effort-en-attente | — | `lib/dashboard/model/index.js`<br/>`lib/dashboard/rice-matrix.js` |
-| `test/dashboard-inbox.test.js` | SPEC-017-2-inbox-triage | — | `lib/dashboard/model/index.js`<br/>`lib/dashboard/views/inbox.js` |
-| `test/dashboard-intent-humans-agents.test.js` | SPEC-018-4-bilan-humains-agents | — | `lib/dashboard/intent-humans-agents.js`<br/>`lib/dashboard/model/index.js` |
+| `test/dashboard-hill-charts.test.js` | ❌ non-tracé | — | `lib/dashboard/hill-charts.js`<br/>`lib/dashboard/model/index.js` |
+| `test/dashboard-impact-effort.test.js` | ❌ non-tracé | — | `lib/dashboard/model/index.js`<br/>`lib/dashboard/rice-matrix.js` |
+| `test/dashboard-inbox.test.js` | ❌ non-tracé | — | `lib/dashboard/model/index.js`<br/>`lib/dashboard/views/inbox.js` |
+| `test/dashboard-intent-humans-agents.test.js` | ❌ non-tracé | — | `lib/dashboard/intent-humans-agents.js`<br/>`lib/dashboard/model/index.js` |
 | `test/dashboard-kanban.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-learnings.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-legal.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dashboard-matrice-outcomes.test.js` | SPEC-018-1-matrice-outcomes-intents | — | `lib/dashboard/model/index.js`<br/>`lib/dashboard/outcome-attribution.js` |
+| `test/dashboard-matrice-outcomes.test.js` | ❌ non-tracé | — | `lib/dashboard/model/index.js`<br/>`lib/dashboard/outcome-attribution.js` |
 | `test/dashboard-onboarding.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-outcomes-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-outcomes.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -153,17 +159,17 @@
 | `test/dashboard-sante-globale-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-sante-globale.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-source-base.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dashboard-spec-pages.test.js` | SPEC-017-4-pages-detail-spec | — | `lib/dashboard.js`<br/>`lib/dashboard/collect.js`<br/>`lib/dashboard/spec-page.js`<br/>`lib/dashboard/views/specs.js` |
+| `test/dashboard-spec-pages.test.js` | ❌ non-tracé | — | `lib/dashboard.js`<br/>`lib/dashboard/collect.js`<br/>`lib/dashboard/spec-page.js`<br/>`lib/dashboard/views/specs.js` |
 | `test/dashboard-sre.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-tech-debt-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-tech-debt.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dashboard-today.test.js` | SPEC-017-1-page-aujourdhui | — | `lib/dashboard/views/today.js` |
+| `test/dashboard-today.test.js` | ❌ non-tracé | — | `lib/dashboard/views/today.js` |
 | `test/dashboard-violations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-watch.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dashboard.test.js` | SPEC-017-1-page-aujourdhui | — | `lib/dashboard/views/today.js` |
-| `test/dashboard.test.js` | SPEC-017-1-page-aujourdhui | — | `lib/dashboard/views/today.js` |
-| `test/dashboard.test.js` | SPEC-016-3-data-json-v2 | INTENT-016-dashboard-fondations | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` |
-| `test/deprecation.test.js` | SPEC-015-2-1-registre-commandes | — | `lib/commands-registry.js`<br/>`lib/deprecation.js` |
+| `test/dashboard.test.js` | ❌ non-tracé | — | `lib/dashboard/views/today.js` |
+| `test/dashboard.test.js` | ❌ non-tracé | — | `lib/dashboard/views/today.js` |
+| `test/dashboard.test.js` | ❌ non-tracé | — | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` |
+| `test/deprecation.test.js` | ❌ non-tracé | — | `lib/commands-registry.js`<br/>`lib/deprecation.js` |
 | `test/dinum.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/discovery-gate.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/docs-dora-flow.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -205,7 +211,7 @@
 | `test/governance-marketplace.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/governance-packs.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/grill.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/guardrails.test.js` | SPEC-015-3-matrice-garde-fous | — | `.aiad/hooks/veto.js`<br/>`lib/guardrails.js` |
+| `test/guardrails.test.js` | ❌ non-tracé | — | `.aiad/hooks/veto.js`<br/>`lib/guardrails.js` |
 | `test/hook-sandbox.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/hooks-config.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/i18n-coverage.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -309,12 +315,12 @@
 | `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
 | `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/suggest-tests.test.js` | SPEC-019-1-skeleton-generator | — | `lib/test-skeleton-generator.js` |
+| `test/suggest-tests.test.js` | ❌ non-tracé | — | `lib/test-skeleton-generator.js` |
 | `test/suggest-tests.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/suggest.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/sunset.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/tarball-hygiene.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/telemetry-usage.test.js` | SPEC-015-1-telemetrie-usage | — | `lib/telemetry.js` |
+| `test/telemetry-usage.test.js` | ❌ non-tracé | — | `lib/telemetry.js` |
 | `test/telemetry.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/templates.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/term.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -322,7 +328,7 @@
 | `test/trace-cache.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-cache.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-cache.test.js` | ❌ non-tracé | — | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
-| `test/trace-ears-gap.test.js` | SPEC-019-2-trace-ears-gap | — | `lib/sdd-trace.js` |
+| `test/trace-ears-gap.test.js` | ❌ non-tracé | — | `lib/sdd-trace.js` |
 | `test/trace-ears-gap.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/trace-ears-gap.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/trace-git.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -340,7 +346,7 @@
 | `test/update-check.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/update.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/upgrade.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/validate-data-schema.test.js` | SPEC-016-3-data-json-v2 | INTENT-016-dashboard-fondations | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` |
+| `test/validate-data-schema.test.js` | ❌ non-tracé | — | `lib/dashboard.js`<br/>`scripts/validate-data-schema.js` |
 | `test/verdict.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/version-sync.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/veto.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -353,15 +359,19 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **5**
+- Intents sans SPEC : **8**
   - INTENT-020-spec-anchored-deltas — Spec-anchored par construction — deltas et redevabilité bidirectionnelle
   - INTENT-021-empreinte-mesuree — Empreinte mesurée — tokens et coût par fonctionnalité
   - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
   - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
   - INTENT-027-ci-metrics-automation — INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow
-- SPECs sans code (hors draft/review) : **2**
+  - INTENT-028-fiabilite-ci-bin-cartographie-trace — INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité
+  - INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus
+  - INTENT-031-auto-chaining-cycle-sdd — Chaînage automatique conditionnel du cycle SDD + correctif hook Stop
+- SPECs sans code (hors draft/review) : **3**
   - SPEC-013-1-deploiement-site-valeurs (statut : split)
   - SPEC-013-1b-unification-7-valeurs (statut : archived)
+  - SPEC-030-3-validate-badge (statut : done)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
@@ -424,7 +434,7 @@
   - lib/command-hooks.js
   - lib/completion.js
   - … (+272 autres)
-- Code annoté sans tests liés : **12**
+- Code annoté sans tests liés : **11**
   - .github/workflows/site-deploy.yml
   - lib/archive.js
   - lib/dashboard/ebm-aires.js
@@ -434,6 +444,5 @@
   - lib/dashboard/views/changelog.js
   - lib/dashboard/views/drifts.js
   - lib/dashboard/views/intents.js
-  - lib/dashboard/views/metrics.js
   - lib/dashboard/views/overview.js
   - lib/dashboard/views/traceability.js

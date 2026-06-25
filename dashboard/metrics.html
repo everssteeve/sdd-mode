@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T12:11:27.982Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-25T07:32:08.725Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Métriques — aiad-sdd</title>
-<meta name="description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta name="description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Métriques — aiad-sdd"/>
-<meta property="og:description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta property="og:description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta property="og:url" content="metrics.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Métriques — aiad-sdd"/>
-<meta name="twitter:description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta name="twitter:description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -92,8 +92,11 @@
     </a></li>
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li>
+    <li><a href="eco.html" class="">
+      <span class="nav-icon">🌱</span>Éco
     </a></li></ul>
-  <div class="footer">Généré 23/06/2026 14:11:27<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 25/06/2026 09:32:08<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -102,7 +105,7 @@
       <div class="subtitle">DORA, Flow et qualité — agrégés depuis .aiad/metrics/</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 14:11:27. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 25/06/2026 09:32:08. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -114,8 +117,8 @@
 <section>
   <a href="qa.html" class="alerte alerte-warn" style="display:flex;justify-content:space-between;align-items:center;">
     <div>
-      <div class="alerte-titre">Queue QA active — 17 action(s) en attente</div>
-      <div class="alerte-detail"><strong>7</strong> SPEC(s) ready sans test · <strong>10</strong> SPEC(s) EARS à re-linter</div>
+      <div class="alerte-titre">Queue QA active — 3 action(s) en attente</div>
+      <div class="alerte-detail"><strong>1</strong> SPEC(s) ready sans test · <strong>2</strong> SPEC(s) EARS à re-linter</div>
     </div>
     <div class="alerte-action">→ ouvrir qa.html</div>
   </a>
@@ -123,13 +126,15 @@
 
 <section>
   <h2>DORA</h2>
-  <div class="empty">
-        <strong>Données DORA absentes</strong>
-        Aucun déploiement enregistré dans <code>.aiad/metrics/deployments/</code>. Pour activer les 4 indicateurs DORA (Deployment Frequency, Lead Time, Change Failure Rate, MTTR), exécute <code>/aiad dora</code> après chaque mise en production — ou écris directement un fichier <code>YYYY-MM-DD-deploy-NN.md</code> avec les clés <code>status: success|hotfix</code>, <code>cycle_time_days: N</code>, <code>lead_time_days: N</code>.
-        <div class="actions" style="justify-content:center;margin-top:1rem;">
-          <a href="https://aiad.ovh/docs/dora-format" target="_blank" rel="noopener">→ Format d'alimentation détaillé</a>
-        </div>
-      </div>
+  <div class="kpis">
+    <div class="kpi"><div class="label">Déploiements</div><div class="value">7</div><div class="delta">7 OK · 0 hotfix</div></div>
+    <div class="kpi"><div class="label">Cycle Time moyen</div><div class="value">—</div><div class="spark-row"><svg class="spark" role="img" aria-label="Données non disponibles" width="120" height="32"></svg></div></div>
+    <div class="kpi"><div class="label">Lead Time moyen</div><div class="value">4 j</div></div>
+    <div class="kpi ok">
+      <div class="label">Change Failure Rate</div>
+      <div class="value">0%</div>
+    </div>
+  </div>
 </section>
 
 <section>
@@ -140,7 +145,7 @@
     <div class="kpi ok">
       <div class="label">Human Authorship</div>
       <div class="value">100%</div>
-      <div class="delta">26/26 Intents ≥ 50 caractères</div>
+      <div class="delta">10/10 Intents ≥ 50 caractères</div>
       
     </div>
     <div class="kpi warn">
@@ -151,14 +156,14 @@
     </div>
     <div class="kpi warn">
       <div class="label">Trace Completeness</div>
-      <div class="value">76%</div>
-      <div class="delta">31/41 SPECs avec code+tests</div>
+      <div class="value">75%</div>
+      <div class="delta">3/4 SPECs avec code+tests</div>
       
     </div>
     <div class="kpi">
       <div class="label">Langue artefacts</div>
-      <div class="value">FR 42</div>
-      <div class="delta">42 FR · 2 EN · 0 mixte · 23 neutre</div>
+      <div class="value">FR 11</div>
+      <div class="delta">11 FR · 0 EN · 0 mixte · 8 neutre</div>
     </div>
   </div>
 </section>
@@ -182,6 +187,55 @@
   </div>
 </section>
 <section>
+  <h2>🌱 EcoLogits — Impact écologique</h2>
+  <div class="kpi-eco">
+  <div class="kpi-eco-header">🌱 Impact écologique (30 dernières)</div>
+  <table class="kpi-eco-table" aria-label="Résumé impact écologique">
+    <tbody>
+      <tr><th scope="row">CO₂ total</th><td>0.00 g CO₂eq</td></tr>
+      <tr><th scope="row">Tendance</th><td>Données insuffisantes pour calculer la tendance</td></tr>
+      <tr><th scope="row">Tokens</th><td>—</td></tr>
+    </tbody>
+  </table>
+  <p class="kpi-eco-note">estimation indicative (non certifiée)</p>
+</div>
+  <div class="actions" style="margin-top:0.75rem;"><a href="eco.html">→ Détail 30 sessions</a></div>
+</section>
+<section>
+      <h2>deployments <span class="count">7 fichier(s) · .aiad/metrics/deployments</span></h2>
+      <table>
+        <thead><tr><th>Fichier</th><th>Date</th><th>Métriques détectées</th></tr></thead>
+        <tbody><tr>
+      <td><a class="src-link" href="../.aiad/metrics/deployments/2026-06-23-site-valeur-outcomes.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/deployments/2026-06-23-site-valeur-outcomes.md">2026-06-23-site-valeur-outcomes.md</a></td>
+      <td class="muted">23/06/2026</td>
+      <td><code>date: 2026-06-23</code> <code>version: site-valeur-outcomes</code> <code>target: gh-pages</code> <code>status: success</code> <code>lead_time_days: 12</code> <code>intent_oldest: INTENT-017</code></td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/metrics/deployments/2026-06-22-site-dashboard-a11y.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/deployments/2026-06-22-site-dashboard-a11y.md">2026-06-22-site-dashboard-a11y.md</a></td>
+      <td class="muted">23/06/2026</td>
+      <td><code>date: 2026-06-22</code> <code>version: site-dashboard-a11y</code> <code>target: gh-pages</code> <code>status: success</code> <code>lead_time_days: 11</code> <code>intent_oldest: INTENT-016</code></td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/metrics/deployments/2026-06-12-site-v1.18.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/deployments/2026-06-12-site-v1.18.md">2026-06-12-site-v1.18.md</a></td>
+      <td class="muted">23/06/2026</td>
+      <td><code>date: 2026-06-12</code> <code>version: site-v1.18</code> <code>target: gh-pages</code> <code>status: success</code> <code>lead_time_days: 1</code> <code>intent_oldest: INTENT-013</code></td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/metrics/deployments/2026-06-09-npm-v1.18.0.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/deployments/2026-06-09-npm-v1.18.0.md">2026-06-09-npm-v1.18.0.md</a></td>
+      <td class="muted">23/06/2026</td>
+      <td><code>date: 2026-06-09</code> <code>version: 1.18.0</code> <code>target: npm</code> <code>status: success</code> <code>lead_time_days: 1</code> <code>intent_oldest: INTENT-002</code></td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/metrics/deployments/2026-06-01-npm-v1.17.0.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/deployments/2026-06-01-npm-v1.17.0.md">2026-06-01-npm-v1.17.0.md</a></td>
+      <td class="muted">23/06/2026</td>
+      <td><code>date: 2026-06-01</code> <code>version: 1.17.0</code> <code>target: npm</code> <code>status: success</code> <code>lead_time_days: 0</code> <code>intent_oldest: INTENT-001</code></td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/metrics/deployments/2026-06-01-npm-v1.16.0.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/deployments/2026-06-01-npm-v1.16.0.md">2026-06-01-npm-v1.16.0.md</a></td>
+      <td class="muted">23/06/2026</td>
+      <td><code>date: 2026-06-01</code> <code>version: 1.16.0</code> <code>target: npm</code> <code>status: success</code> <code>lead_time_days: 0</code> <code>intent_oldest: INTENT-001</code></td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/metrics/deployments/2026-06-01-npm-v1.15.0.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/deployments/2026-06-01-npm-v1.15.0.md">2026-06-01-npm-v1.15.0.md</a></td>
+      <td class="muted">23/06/2026</td>
+      <td><code>date: 2026-06-01</code> <code>version: 1.15.0</code> <code>target: npm</code> <code>status: success</code> <code>lead_time_days: 3</code> <code>intent_oldest: INTENT-001</code></td>
+    </tr></tbody>
+      </table>
+    </section><section>
       <h2>standup <span class="count">1 fichier(s) · .aiad/metrics/standup</span></h2>
       <table>
         <thead><tr><th>Fichier</th><th>Date</th><th>Métriques détectées</th></tr></thead>

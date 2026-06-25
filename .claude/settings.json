@@ -74,6 +74,11 @@
             "statusMessage": "Drift Lock — vérification traçabilité…",
             "asyncRewake": true,
             "timeout": 180
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PROJECT_DIR}/lib/eco-hook.js",
+            "statusMessage": "Eco — estimation CO₂ session…"
           }
         ]
       }

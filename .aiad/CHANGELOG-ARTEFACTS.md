@@ -3,6 +3,43 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-25 — SPEC-030-4 — Drift Lock OK → done
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd drift-check SPEC-030-4` — heuristique git OK, matrice trace exit 0, 12/12 tests. Tous les critères d'acceptation vérifiés : `dashboard/eco.html` généré, widget EcoLogits dans `metrics.html`, RGAA `<th scope="col">` présent, libellé anti-greenwashing obligatoire, cas limites couverts. Annotations `@intent INTENT-030`, `@spec SPEC-030-4-dashboard-eco`, `@governance AIAD-RGAA,AIAD-RGESN` posées sur `lib/eco-dashboard.js`.
+**Impact** : SPEC-030-4 → `done`. `_index.md` mis à jour (PR : 2026-06-25).
+
+## 2026-06-25 — INTENT-030 / SPEC-030-3 — Gate OUVERTE + Drift Lock (done)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd gate SPEC-030-3` — SQS 5/5, Gate OUVERTE. Exécution immédiate (session courte, directive uniquement). `.claude/sdd/validate.md` enrichi avec la section `## Badge EcoLogits` (Étape 6c) : lecture de `hook-runs.jsonl`, calcul co2Total/tokensTotal/sessionCount, émission du bloc `## Impact écologique` avec libellé anti-greenwashing obligatoire. Annotation `@spec SPEC-030-3-validate-badge` posée dans la directive.
+**Impact** : `.claude/sdd/validate.md` — section Étape 6c ajoutée (~35 lignes). SPEC-030-3 → `done`.
+
+
+## 2026-06-25 — INTENT-031 — Chaînage automatique conditionnel du cycle SDD + correctif hook Stop (draft)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd intent` — couvre FACT-010 + FACT-011. Objectif : ≤ 2 interruptions manuelles/cycle (de 5-7). Transitions auto : spec→gate, exec→validate, validate→drift-check, drift-check→trace. Confirmation légère conservée pour research→spec et gate→exec. Seuil contexte 40% partout. Paramètre `auto_chain.enabled = true` par défaut.
+**Impact** : `.aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md` créé. `_index.md` mis à jour.
+
+## 2026-06-25 — FACT-011 — Absence de chaînage automatique conditionnel entre étapes SDD (ouvert)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd fact` — lacune structurelle : chaque étape du cycle SDD requiert une intervention manuelle du PE même quand la décision est algorithmiquement déterminable. Généralisation de FACT-010. → Intent INTENT-031 à créer (peut couvrir FACT-010 + FACT-011 conjointement).
+**Impact** : `.aiad/facts/FACT-011-auto-chaining-sdd-steps.md` créé.
+
+## 2026-06-25 — FACT-010 — Friction gate → exec (ouvert)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd fact` — écart constaté entre prescription gate.md (MAJ statut → `ready` + `_index.md`) et comportement réel (statut non mis à jour, étape manuelle requise avant `/sdd exec`). → Intent INTENT-031 à créer pour fiabiliser + explorer chaînage gate → exec.
+**Impact** : `.aiad/facts/FACT-010-gate-to-exec-friction.md` créé.
+
+## 2026-06-24 — INTENT-030 / SPEC-030-1 — Drift Lock OK (done)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd validate SPEC-030-1` après exec — 8/8 CA verts, lint OK, 4 075/4 075 tests, `trace --fail-on-gap` exit 0, gouvernance PASS (AI-ACT NON · RGPD NON · RGAA NON · RGESN PASS). CO2_LABEL anti-greenwashing constant. Zéro dépendance production.
+**Impact** : `lib/eco-estimator.js` — `estimerImpact()` + `EcoModelsNotFoundError`, annotations @intent/@spec/@governance ; `lib/eco-models.json` — 4 modèles Claude (haiku/sonnet/opus/fable) valeurs EcoLogits Apache-2.0 ; `test/eco-estimator.test.js` CA-1→CA-8. SPEC-030-1 → `done`.
+
 ## 2026-06-24 — INTENT-026 / SPEC-026-1 — Drift Lock OK (done)
 
 **Auteur** : Steeve Evers

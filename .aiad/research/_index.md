@@ -23,6 +23,7 @@
 | RESEARCH-025 | Verification-first — dériver des squelettes de tests depuis des SPECs EARS | INTENT-019 | Steeve Evers | 2026-06-23 | GO (80 %) | tranché — /sdd spec autorisé ; R3 (node:test par défaut, --framework en phase 2) |
 | RESEARCH-026 | Trace EARS gap — earsSpecsSansTests dans compterGapsBloquants | INTENT-019 | Steeve Evers | 2026-06-23 | GO (95 %) | tranché — /sdd gate autorisé sur SPEC-019-2 |
 | RESEARCH-027 | Archivage automatique des artefacts done (Intents + SPECs) | INTENT-026 | Steeve Evers | 2026-06-24 | GO (90 %) | tranché — /sdd spec autorisé ; option A (safe: false ignorés silencieusement) |
+| RESEARCH-028 | EcoLogits — mesure et réduction impact écologique cycle SDD | INTENT-030 | Steeve Evers | 2026-06-24 | CONDITIONAL GO (80 %) | tranché — périmètre B (harness Stop hook) · stratégie B (JS natif, JSON modèles) · /sdd spec autorisé |
 
 ## Verdicts du gate Research
 

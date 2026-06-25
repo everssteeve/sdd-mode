@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-06-25T07:32:08.901Z",
+  "specsCount": {
+    "done": 2,
+    "draft": 0,
+    "active": 1
+  },
+  "intentsCount": {
+    "done": 0,
+    "active": 0,
+    "archived": 0
+  },
+  "zombiesCount": 0,
+  "santeScore": 70
+}

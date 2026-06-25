@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T12:11:27.982Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-25T07:32:08.725Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Inbox — aiad-sdd</title>
-<meta name="description" content="Inbox — Triage facts &amp; drifts · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta name="description" content="Inbox — Triage facts &amp; drifts · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Inbox — aiad-sdd"/>
-<meta property="og:description" content="Inbox — Triage facts &amp; drifts · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta property="og:description" content="Inbox — Triage facts &amp; drifts · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta property="og:url" content="inbox.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Inbox — aiad-sdd"/>
-<meta name="twitter:description" content="Inbox — Triage facts &amp; drifts · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta name="twitter:description" content="Inbox — Triage facts &amp; drifts · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -92,8 +92,11 @@
     </a></li>
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li>
+    <li><a href="eco.html" class="">
+      <span class="nav-icon">🌱</span>Éco
     </a></li></ul>
-  <div class="footer">Généré 23/06/2026 14:11:27<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 25/06/2026 09:32:08<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -102,7 +105,7 @@
       <div class="subtitle">Triage facts & drifts</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 14:11:27. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 25/06/2026 09:32:08. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -110,7 +113,7 @@
     </div>
   </header>
   <section aria-label="Inbox de triage">
-  <h2>Inbox <span class="badge badge-warn">6 nouveaux</span></h2>
+  <h2>Inbox <span class="badge badge-warn">11 nouveaux</span></h2>
   <p aria-live="polite" id="inbox-ls-warn" hidden>Actions de triage indisponibles (navigation privée ou quota dépassé).</p>
   <div role="tablist" aria-label="Filtrer l'inbox">
     <button role="tab" aria-selected="true" data-inbox-filter="all">Tout</button>
@@ -180,6 +183,51 @@
     <td>
       <button type="button" data-inbox-action="accept" aria-label="Accepter FACT-006-intent-done-no-archive">Accepter</button>
       <button type="button" data-inbox-action="defer" aria-label="Différer FACT-006-intent-done-no-archive">Différer</button>
+    </td>
+  </tr><tr data-inbox-id="FACT-007-safe-false-trop-conservateur" data-inbox-statut="new">
+    <td><code>FACT-007-safe-false-trop-conservateur</code></td>
+    <td>Fact</td>
+    <td>FACT-007 — `safe: false` trop conservateur bloque l&#39;archivage des specs done</td>
+    <td class="inbox-statut">Nouveau</td>
+    <td>
+      <button type="button" data-inbox-action="accept" aria-label="Accepter FACT-007-safe-false-trop-conservateur">Accepter</button>
+      <button type="button" data-inbox-action="defer" aria-label="Différer FACT-007-safe-false-trop-conservateur">Différer</button>
+    </td>
+  </tr><tr data-inbox-id="FACT-008-specs-sans-frontmatter-non-archivees" data-inbox-statut="new">
+    <td><code>FACT-008-specs-sans-frontmatter-non-archivees</code></td>
+    <td>Fact</td>
+    <td>FACT-008 — SPECs &quot;done&quot; non archivées + INTENT-016 non archivé</td>
+    <td class="inbox-statut">Nouveau</td>
+    <td>
+      <button type="button" data-inbox-action="accept" aria-label="Accepter FACT-008-specs-sans-frontmatter-non-archivees">Accepter</button>
+      <button type="button" data-inbox-action="defer" aria-label="Différer FACT-008-specs-sans-frontmatter-non-archivees">Différer</button>
+    </td>
+  </tr><tr data-inbox-id="FACT-009-facts-non-archives" data-inbox-statut="new">
+    <td><code>FACT-009-facts-non-archives</code></td>
+    <td>Fact</td>
+    <td>FACT-009 — FACTs résolus non archivés automatiquement</td>
+    <td class="inbox-statut">Nouveau</td>
+    <td>
+      <button type="button" data-inbox-action="accept" aria-label="Accepter FACT-009-facts-non-archives">Accepter</button>
+      <button type="button" data-inbox-action="defer" aria-label="Différer FACT-009-facts-non-archives">Différer</button>
+    </td>
+  </tr><tr data-inbox-id="FACT-010-gate-to-exec-friction" data-inbox-statut="new">
+    <td><code>FACT-010-gate-to-exec-friction</code></td>
+    <td>Fact</td>
+    <td>FACT-010 — Friction gate → exec — boucle ready/review causée par le hook Stop</td>
+    <td class="inbox-statut">Nouveau</td>
+    <td>
+      <button type="button" data-inbox-action="accept" aria-label="Accepter FACT-010-gate-to-exec-friction">Accepter</button>
+      <button type="button" data-inbox-action="defer" aria-label="Différer FACT-010-gate-to-exec-friction">Différer</button>
+    </td>
+  </tr><tr data-inbox-id="FACT-011-auto-chaining-sdd-steps" data-inbox-statut="new">
+    <td><code>FACT-011-auto-chaining-sdd-steps</code></td>
+    <td>Fact</td>
+    <td>FACT-011 — Absence de chaînage automatique conditionnel entre étapes SDD</td>
+    <td class="inbox-statut">Nouveau</td>
+    <td>
+      <button type="button" data-inbox-action="accept" aria-label="Accepter FACT-011-auto-chaining-sdd-steps">Accepter</button>
+      <button type="button" data-inbox-action="defer" aria-label="Différer FACT-011-auto-chaining-sdd-steps">Différer</button>
     </td>
   </tr></tbody>
   </table>

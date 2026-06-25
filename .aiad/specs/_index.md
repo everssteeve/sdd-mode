@@ -50,6 +50,10 @@
 | SPEC-019-1 | Générateur de squelettes de tests depuis EARS (suggest-tests) | INTENT-019 | EARS | 5/5 | done | — |
 | SPEC-019-2 | Gap earsSpecsSansTests dans trace --fail-on-gap | INTENT-019 | EARS | 5/5 | done | — |
 | SPEC-026-1 | Commande `archive done` — archivage des artefacts done | INTENT-026 | EARS | 5/5 | done | — |
+| SPEC-030-1 | eco-estimator — algorithme JS natif + base modèles JSON | INTENT-030 | prose | 5/5 | done | — |
+| SPEC-030-2 | hook-stop — capture harness Stop → hook-runs.jsonl enrichi | INTENT-030 | prose | 5/5 | done | — |
+| SPEC-030-3 | validate-badge — badge CO₂ dans /sdd validate | INTENT-030 | prose | 5/5 | done | — |
+| SPEC-030-4 | dashboard-eco — page eco.html + widget metrics.html | INTENT-030 | prose | 5/5 | done | 2026-06-25 |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

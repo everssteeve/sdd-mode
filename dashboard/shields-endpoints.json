@@ -3,23 +3,23 @@
     "type": "sante",
     "schemaVersion": 1,
     "label": "AIAD SDD",
-    "message": "65/100 attention",
-    "color": "dfb317",
+    "message": "70/100 sain",
+    "color": "97ca00",
     "cacheSeconds": 300
   },
   {
     "type": "maturite",
     "schemaVersion": 1,
     "label": "AIAD Maturité",
-    "message": "3/5 Opérationnel",
-    "color": "dfb317",
+    "message": "4/5 Actif",
+    "color": "97ca00",
     "cacheSeconds": 300
   },
   {
     "type": "violations",
     "schemaVersion": 1,
     "label": "AIAD Violations",
-    "message": "42 Tier 1",
+    "message": "20 Tier 1",
     "color": "e05d44",
     "cacheSeconds": 300
   }

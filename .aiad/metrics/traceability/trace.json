@@ -2,212 +2,18 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-24T07:31:30.459Z"
+    "generated": "2026-06-25T07:37:13.167Z"
   },
-  "generatedAt": "2026-06-24T07:31:30.459Z",
+  "generatedAt": "2026-06-25T07:37:13.166Z",
   "summary": {
-    "intents": 6,
-    "specs": 25,
-    "codeFiles": 385,
-    "annotatedCodeFiles": 78,
-    "testFiles": 264,
-    "annotatedTestFiles": 42
+    "intents": 9,
+    "specs": 9,
+    "codeFiles": 388,
+    "annotatedCodeFiles": 81,
+    "testFiles": 267,
+    "annotatedTestFiles": 45
   },
   "forward": [
-    {
-      "intent": {
-        "id": "INTENT-016-dashboard-fondations",
-        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
-        "status": "active"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-016-1-architecture-4-couches",
-            "file": ".aiad/specs/SPEC-016-1-architecture-4-couches.md",
-            "title": "SPEC-016-1 — Architecture 4 couches (collect / model / views / ui)",
-            "parentIntent": "INTENT-016",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/dashboard/model/index.js",
-              "line": 1
-            },
-            {
-              "path": "lib/dashboard/render.js",
-              "line": 1
-            },
-            {
-              "path": "lib/dashboard/ui/badges.js",
-              "line": 1
-            },
-            {
-              "path": "lib/dashboard/ui/helpers.js",
-              "line": 1
-            },
-            {
-              "path": "lib/dashboard/ui/sparklines.js",
-              "line": 1
-            },
-            {
-              "path": "lib/dashboard/views/changelog.js",
-              "line": 1
-            },
-            {
-              "path": "lib/dashboard/views/drifts.js",
-              "line": 1
-            },
-            {
-              "path": "lib/dashboard/views/intents.js",
-              "line": 1
-            },
-            {
-              "path": "lib/dashboard/views/metrics.js",
-              "line": 1
-            },
-            {
-              "path": "lib/dashboard/views/overview.js",
-              "line": 1
-            },
-            {
-              "path": "lib/dashboard/views/specs.js",
-              "line": 1
-            },
-            {
-              "path": "lib/dashboard/views/traceability.js",
-              "line": 1
-            }
-          ],
-          "tests": []
-        },
-        {
-          "spec": {
-            "id": "SPEC-016-2-design-system-rgaa",
-            "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-            "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
-            "parentIntent": "INTENT-016",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "dashboard/assets/app.js",
-              "line": 5
-            },
-            {
-              "path": "dashboard/assets/app.js",
-              "line": 29
-            },
-            {
-              "path": "dashboard/assets/app.js",
-              "line": 283
-            },
-            {
-              "path": "lib/dashboard/assets.js",
-              "line": 487
-            },
-            {
-              "path": "lib/dashboard/assets.js",
-              "line": 594
-            },
-            {
-              "path": "lib/dashboard/assets.js",
-              "line": 600
-            },
-            {
-              "path": "lib/dashboard/assets.js",
-              "line": 610
-            },
-            {
-              "path": "lib/dashboard/assets.js",
-              "line": 634
-            },
-            {
-              "path": "lib/dashboard/assets.js",
-              "line": 888
-            },
-            {
-              "path": "lib/dashboard/ui/sparklines.js",
-              "line": 1
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/dashboard-assets.test.js",
-              "line": 1
-            },
-            {
-              "path": "dans",
-              "line": 189,
-              "viaCode": true
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-016-3-data-json-v2",
-            "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
-            "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
-            "parentIntent": "INTENT-016",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/dashboard.js",
-              "line": 363
-            },
-            {
-              "path": "scripts/validate-data-schema.js",
-              "line": 10
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/dashboard.test.js",
-              "line": 131
-            },
-            {
-              "path": "test/validate-data-schema.test.js",
-              "line": 4
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-016-4-rgesn-budgets",
-            "file": ".aiad/specs/SPEC-016-4-rgesn-budgets.md",
-            "title": "SPEC-016-4 — Budgets de poids RGESN par page + CI",
-            "parentIntent": "INTENT-016",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "scripts/check-page-budgets.js",
-              "line": 2
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/check-page-budgets.test.js",
-              "line": 2
-            }
-          ]
-        }
-      ]
-    },
     {
       "intent": {
         "id": "INTENT-020-spec-anchored-deltas",
@@ -252,9 +58,272 @@
         "status": "draft"
       },
       "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-028-fiabilite-ci-bin-cartographie-trace",
+        "file": ".aiad/intents/INTENT-028-fiabilite-ci-bin-cartographie-trace.md",
+        "title": "INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-029-archivage-facts-resolus",
+        "file": ".aiad/intents/INTENT-029-archivage-facts-resolus.md",
+        "title": "INTENT-029 — Archivage automatique des FACTs résolus",
+        "status": "draft"
+      },
+      "specs": []
+    },
+    {
+      "intent": {
+        "id": "INTENT-030-ecologits-impact-ecologique",
+        "file": ".aiad/intents/INTENT-030-ecologits-impact-ecologique.md",
+        "title": "INTENT-030-ecologits-impact-ecologique",
+        "status": "draft"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-030-1-eco-estimator",
+            "file": ".aiad/specs/SPEC-030-1-eco-estimator.md",
+            "title": "SPEC-030-1-eco-estimator",
+            "parentIntent": "INTENT-030",
+            "status": "done",
+            "format": "PROSE",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/eco-estimator.js",
+              "line": 3
+            },
+            {
+              "path": "lib/eco-estimator.js",
+              "line": 54
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/eco-estimator.test.js",
+              "line": 4
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-030-2-hook-stop",
+            "file": ".aiad/specs/SPEC-030-2-hook-stop.md",
+            "title": "SPEC-030-2-hook-stop",
+            "parentIntent": "INTENT-030",
+            "status": "review",
+            "format": "PROSE",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/eco-hook.js",
+              "line": 4
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/eco-hook.test.js",
+              "line": 4
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-030-3-validate-badge",
+            "file": ".aiad/specs/SPEC-030-3-validate-badge.md",
+            "title": "validate-badge — badge CO₂ dans /sdd validate",
+            "parentIntent": "INTENT-030",
+            "status": "done",
+            "format": "PROSE",
+            "traceability": "exempt",
+            "traceabilityReason": "Livrable = directive agent .claude/sdd/validate.md (répertoire .claude/ exclu de EXTENSIONS_CODE par design). Implémentation vérifiée manuellement via /sdd validate — SPEC-024-1 / FACT-004."
+          },
+          "code": [],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-030-4-dashboard-eco",
+            "file": ".aiad/specs/SPEC-030-4-dashboard-eco.md",
+            "title": "SPEC-030-4-dashboard-eco",
+            "parentIntent": "INTENT-030",
+            "status": "validation",
+            "format": "PROSE",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/eco-dashboard.js",
+              "line": 3
+            },
+            {
+              "path": "lib/eco-dashboard.js",
+              "line": 31
+            },
+            {
+              "path": "lib/eco-dashboard.js",
+              "line": 120
+            },
+            {
+              "path": "lib/eco-dashboard.js",
+              "line": 149
+            },
+            {
+              "path": "lib/dashboard.js",
+              "line": 61
+            },
+            {
+              "path": "lib/dashboard/model/index.js",
+              "line": 149
+            },
+            {
+              "path": "lib/dashboard/views/metrics.js",
+              "line": 9
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/eco-dashboard.test.js",
+              "line": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-031-auto-chaining-cycle-sdd",
+        "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
+        "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
+        "status": "draft"
+      },
+      "specs": []
     }
   ],
   "backward": [
+    {
+      "test": {
+        "path": "test/eco-dashboard.test.js",
+        "line": 2
+      },
+      "spec": {
+        "id": "SPEC-030-4-dashboard-eco",
+        "file": ".aiad/specs/SPEC-030-4-dashboard-eco.md",
+        "title": "SPEC-030-4-dashboard-eco",
+        "parentIntent": "INTENT-030",
+        "status": "validation",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-030-ecologits-impact-ecologique",
+        "file": ".aiad/intents/INTENT-030-ecologits-impact-ecologique.md",
+        "title": "INTENT-030-ecologits-impact-ecologique",
+        "status": "draft"
+      },
+      "code": [
+        {
+          "path": "lib/eco-dashboard.js",
+          "line": 3
+        },
+        {
+          "path": "lib/eco-dashboard.js",
+          "line": 31
+        },
+        {
+          "path": "lib/eco-dashboard.js",
+          "line": 120
+        },
+        {
+          "path": "lib/eco-dashboard.js",
+          "line": 149
+        },
+        {
+          "path": "lib/dashboard.js",
+          "line": 61
+        },
+        {
+          "path": "lib/dashboard/model/index.js",
+          "line": 149
+        },
+        {
+          "path": "lib/dashboard/views/metrics.js",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/eco-estimator.test.js",
+        "line": 4
+      },
+      "spec": {
+        "id": "SPEC-030-1-eco-estimator",
+        "file": ".aiad/specs/SPEC-030-1-eco-estimator.md",
+        "title": "SPEC-030-1-eco-estimator",
+        "parentIntent": "INTENT-030",
+        "status": "done",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-030-ecologits-impact-ecologique",
+        "file": ".aiad/intents/INTENT-030-ecologits-impact-ecologique.md",
+        "title": "INTENT-030-ecologits-impact-ecologique",
+        "status": "draft"
+      },
+      "code": [
+        {
+          "path": "lib/eco-estimator.js",
+          "line": 3
+        },
+        {
+          "path": "lib/eco-estimator.js",
+          "line": 54
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/eco-hook.test.js",
+        "line": 4
+      },
+      "spec": {
+        "id": "SPEC-030-2-hook-stop",
+        "file": ".aiad/specs/SPEC-030-2-hook-stop.md",
+        "title": "SPEC-030-2-hook-stop",
+        "parentIntent": "INTENT-030",
+        "status": "review",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-030-ecologits-impact-ecologique",
+        "file": ".aiad/intents/INTENT-030-ecologits-impact-ecologique.md",
+        "title": "INTENT-030-ecologits-impact-ecologique",
+        "status": "draft"
+      },
+      "code": [
+        {
+          "path": "lib/eco-hook.js",
+          "line": 4
+        }
+      ]
+    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -651,22 +720,7 @@
         "path": "test/check-page-budgets.test.js",
         "line": 2
       },
-      "spec": {
-        "id": "SPEC-016-4-rgesn-budgets",
-        "file": ".aiad/specs/SPEC-016-4-rgesn-budgets.md",
-        "title": "SPEC-016-4 — Budgets de poids RGESN par page + CI",
-        "parentIntent": "INTENT-016",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-016-dashboard-fondations",
-        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
-        "status": "active"
-      },
+      "intent": null,
       "code": [
         {
           "path": "scripts/check-page-budgets.js",
@@ -724,16 +778,7 @@
         "path": "test/commands-registry.test.js",
         "line": 3
       },
-      "spec": {
-        "id": "SPEC-015-2-1-registre-commandes",
-        "file": ".aiad/specs/SPEC-015-2-1-registre-commandes.md",
-        "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
-        "parentIntent": "INTENT-015",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/commands-registry.js",
@@ -831,22 +876,7 @@
         "path": "test/dashboard-assets.test.js",
         "line": 1
       },
-      "spec": {
-        "id": "SPEC-016-2-design-system-rgaa",
-        "file": ".aiad/specs/SPEC-016-2-design-system-rgaa.md",
-        "title": "SPEC-016-2 — Design system accessible + axe-core en CI",
-        "parentIntent": "INTENT-016",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-016-dashboard-fondations",
-        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
-        "status": "active"
-      },
+      "intent": null,
       "code": [
         {
           "path": "dashboard/assets/app.js",
@@ -1005,16 +1035,7 @@
         "path": "test/dashboard-hill-charts.test.js",
         "line": 1
       },
-      "spec": {
-        "id": "SPEC-018-3-hill-charts-sdd",
-        "file": ".aiad/specs/SPEC-018-3-hill-charts-sdd.md",
-        "title": "SPEC-018-3 — Hill charts calculés depuis l'état SDD",
-        "parentIntent": "INTENT-018",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard/hill-charts.js",
@@ -1022,7 +1043,7 @@
         },
         {
           "path": "lib/dashboard/model/index.js",
-          "line": 247
+          "line": 249
         }
       ]
     },
@@ -1031,20 +1052,11 @@
         "path": "test/dashboard-impact-effort.test.js",
         "line": 1
       },
-      "spec": {
-        "id": "SPEC-018-5-impact-effort-en-attente",
-        "file": ".aiad/specs/SPEC-018-5-impact-effort-en-attente.md",
-        "title": "SPEC-018-5 — Matrice Impact × Effort des Intents en attente",
-        "parentIntent": "INTENT-018",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard/model/index.js",
-          "line": 204
+          "line": 206
         },
         {
           "path": "lib/dashboard/rice-matrix.js",
@@ -1057,16 +1069,7 @@
         "path": "test/dashboard-inbox.test.js",
         "line": 1
       },
-      "spec": {
-        "id": "SPEC-017-2-inbox-triage",
-        "file": ".aiad/specs/SPEC-017-2-inbox-triage.md",
-        "title": "SPEC-017-2 — Inbox de triage facts/drifts (localStorage)",
-        "parentIntent": "INTENT-017",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard/model/index.js",
@@ -1083,16 +1086,7 @@
         "path": "test/dashboard-intent-humans-agents.test.js",
         "line": 1
       },
-      "spec": {
-        "id": "SPEC-018-4-bilan-humains-agents",
-        "file": ".aiad/specs/SPEC-018-4-bilan-humains-agents.md",
-        "title": "SPEC-018-4 — Bilan humains/agents par Intent",
-        "parentIntent": "INTENT-018",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard/intent-humans-agents.js",
@@ -1100,7 +1094,7 @@
         },
         {
           "path": "lib/dashboard/model/index.js",
-          "line": 249
+          "line": 251
         }
       ]
     },
@@ -1136,20 +1130,11 @@
         "path": "test/dashboard-matrice-outcomes.test.js",
         "line": 1
       },
-      "spec": {
-        "id": "SPEC-018-1-matrice-outcomes-intents",
-        "file": ".aiad/specs/SPEC-018-1-matrice-outcomes-intents.md",
-        "title": "SPEC-018-1 — Matrice outcomes ↔ Intents",
-        "parentIntent": "INTENT-018",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard/model/index.js",
-          "line": 241
+          "line": 243
         },
         {
           "path": "lib/dashboard/outcome-attribution.js",
@@ -1729,16 +1714,7 @@
         "path": "test/dashboard-spec-pages.test.js",
         "line": 1
       },
-      "spec": {
-        "id": "SPEC-017-4-pages-detail-spec",
-        "file": ".aiad/specs/SPEC-017-4-pages-detail-spec.md",
-        "title": "SPEC-017-4 — Pages détail SPEC (drill-down depuis specs.html)",
-        "parentIntent": "INTENT-017",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard.js",
@@ -1790,16 +1766,7 @@
         "path": "test/dashboard-today.test.js",
         "line": 1
       },
-      "spec": {
-        "id": "SPEC-017-1-page-aujourdhui",
-        "file": ".aiad/specs/SPEC-017-1-page-aujourdhui.md",
-        "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
-        "parentIntent": "INTENT-017",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard/views/today.js",
@@ -1830,16 +1797,7 @@
         "path": "test/dashboard.test.js",
         "line": 113
       },
-      "spec": {
-        "id": "SPEC-017-1-page-aujourdhui",
-        "file": ".aiad/specs/SPEC-017-1-page-aujourdhui.md",
-        "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
-        "parentIntent": "INTENT-017",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard/views/today.js",
@@ -1852,16 +1810,7 @@
         "path": "test/dashboard.test.js",
         "line": 120
       },
-      "spec": {
-        "id": "SPEC-017-1-page-aujourdhui",
-        "file": ".aiad/specs/SPEC-017-1-page-aujourdhui.md",
-        "title": "SPEC-017-1 — Page \"Aujourd'hui\" (radiator ≤ 4 sections)",
-        "parentIntent": "INTENT-017",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard/views/today.js",
@@ -1874,26 +1823,11 @@
         "path": "test/dashboard.test.js",
         "line": 131
       },
-      "spec": {
-        "id": "SPEC-016-3-data-json-v2",
-        "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
-        "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
-        "parentIntent": "INTENT-016",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-016-dashboard-fondations",
-        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
-        "status": "active"
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard.js",
-          "line": 363
+          "line": 366
         },
         {
           "path": "scripts/validate-data-schema.js",
@@ -1906,16 +1840,7 @@
         "path": "test/deprecation.test.js",
         "line": 3
       },
-      "spec": {
-        "id": "SPEC-015-2-1-registre-commandes",
-        "file": ".aiad/specs/SPEC-015-2-1-registre-commandes.md",
-        "title": "SPEC-015-2-1-registre-commandes — Registre catégorisé des commandes CLI (core/extended/experimental)",
-        "parentIntent": "INTENT-015",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/commands-registry.js",
@@ -2320,16 +2245,7 @@
         "path": "test/guardrails.test.js",
         "line": 3
       },
-      "spec": {
-        "id": "SPEC-015-3-matrice-garde-fous",
-        "file": ".aiad/specs/SPEC-015-3-matrice-garde-fous.md",
-        "title": "SPEC-015-3-matrice-garde-fous — Matrice enforced/advisory machine-vérifiable + veto non-bypassable",
-        "parentIntent": "INTENT-015",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": ".aiad/hooks/veto.js",
@@ -3738,16 +3654,7 @@
         "path": "test/suggest-tests.test.js",
         "line": 1
       },
-      "spec": {
-        "id": "SPEC-019-1-skeleton-generator",
-        "file": ".aiad/specs/SPEC-019-1-skeleton-generator.md",
-        "title": "SPEC-019-1-skeleton-generator",
-        "parentIntent": "INTENT-019",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/test-skeleton-generator.js",
@@ -3795,16 +3702,7 @@
         "path": "test/telemetry-usage.test.js",
         "line": 3
       },
-      "spec": {
-        "id": "SPEC-015-1-telemetrie-usage",
-        "file": ".aiad/specs/SPEC-015-1-telemetrie-usage.md",
-        "title": "SPEC-015-1-telemetrie-usage — Agrégat d'usage per-command (local, opt-in)",
-        "parentIntent": "INTENT-015",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/telemetry.js",
@@ -3936,16 +3834,7 @@
         "path": "test/trace-ears-gap.test.js",
         "line": 2
       },
-      "spec": {
-        "id": "SPEC-019-2-trace-ears-gap",
-        "file": ".aiad/specs/SPEC-019-2-trace-ears-gap.md",
-        "title": "SPEC-019-2-trace-ears-gap",
-        "parentIntent": "INTENT-019",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/sdd-trace.js",
@@ -4247,26 +4136,11 @@
         "path": "test/validate-data-schema.test.js",
         "line": 4
       },
-      "spec": {
-        "id": "SPEC-016-3-data-json-v2",
-        "file": ".aiad/specs/SPEC-016-3-data-json-v2.md",
-        "title": "SPEC-016-3 — data.json v2 versionné (JSON schema publié)",
-        "parentIntent": "INTENT-016",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-016-dashboard-fondations",
-        "file": ".aiad/intents/INTENT-016-dashboard-fondations.md",
-        "title": "Dashboard exemplaire — fondations accessibles, sobres, maintenables",
-        "status": "active"
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/dashboard.js",
-          "line": 363
+          "line": 366
         },
         {
           "path": "scripts/validate-data-schema.js",
@@ -4398,6 +4272,24 @@
         "file": ".aiad/intents/INTENT-027-ci-metrics-automation.md",
         "title": "INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow",
         "status": "draft"
+      },
+      {
+        "id": "INTENT-028-fiabilite-ci-bin-cartographie-trace",
+        "file": ".aiad/intents/INTENT-028-fiabilite-ci-bin-cartographie-trace.md",
+        "title": "INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-029-archivage-facts-resolus",
+        "file": ".aiad/intents/INTENT-029-archivage-facts-resolus.md",
+        "title": "INTENT-029 — Archivage automatique des FACTs résolus",
+        "status": "draft"
+      },
+      {
+        "id": "INTENT-031-auto-chaining-cycle-sdd",
+        "file": ".aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md",
+        "title": "Chaînage automatique conditionnel du cycle SDD + correctif hook Stop",
+        "status": "draft"
       }
     ],
     "specsSansCode": [
@@ -4420,6 +4312,16 @@
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
+      },
+      {
+        "id": "SPEC-030-3-validate-badge",
+        "file": ".aiad/specs/SPEC-030-3-validate-badge.md",
+        "title": "validate-badge — badge CO₂ dans /sdd validate",
+        "parentIntent": "INTENT-030",
+        "status": "done",
+        "format": "PROSE",
+        "traceability": "exempt",
+        "traceabilityReason": "Livrable = directive agent .claude/sdd/validate.md (répertoire .claude/ exclu de EXTENSIONS_CODE par design). Implémentation vérifiée manuellement via /sdd validate — SPEC-024-1 / FACT-004."
       }
     ],
     "specsValideesNonImplementees": [],
@@ -8241,13 +8143,13 @@
           "intents": [
             {
               "id": "INTENT-026",
-              "line": 372
+              "line": 378
             }
           ],
           "specs": [
             {
               "id": "SPEC-026-1-archive-done",
-              "line": 371
+              "line": 377
             }
           ],
           "verifiedBy": [],
@@ -8456,34 +8358,6 @@
         "annotated": true
       },
       {
-        "path": "lib/dashboard/views/metrics.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [
-            {
-              "id": "INTENT-016",
-              "line": 2
-            }
-          ],
-          "specs": [
-            {
-              "id": "SPEC-016-1-architecture-4-couches",
-              "line": 1
-            }
-          ],
-          "verifiedBy": [],
-          "governance": [
-            {
-              "tags": [
-                "AIAD-RGAA"
-              ],
-              "line": 3
-            }
-          ]
-        },
-        "annotated": true
-      },
-      {
         "path": "lib/dashboard/views/overview.js",
         "isTest": false,
         "annotations": {
@@ -8544,5 +8418,16 @@
     "specsOrphelinsSurCode": [],
     "earsSpecsSansTests": []
   },
-  "specsExemptees": []
+  "specsExemptees": [
+    {
+      "id": "SPEC-030-3-validate-badge",
+      "file": ".aiad/specs/SPEC-030-3-validate-badge.md",
+      "title": "validate-badge — badge CO₂ dans /sdd validate",
+      "parentIntent": "INTENT-030",
+      "status": "done",
+      "format": "PROSE",
+      "traceability": "exempt",
+      "traceabilityReason": "Livrable = directive agent .claude/sdd/validate.md (répertoire .claude/ exclu de EXTENSIONS_CODE par design). Implémentation vérifiée manuellement via /sdd validate — SPEC-024-1 / FACT-004."
+    }
+  ]
 }

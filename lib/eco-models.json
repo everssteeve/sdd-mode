@@ -1,0 +1,26 @@
+{
+  "claude-haiku-4-5-20251001": {
+    "energyPerInputToken": 1.3e-7,
+    "energyPerOutputToken": 5.0e-7,
+    "source": "ecologits-inspired-v0.6",
+    "updatedAt": "2026-06-24"
+  },
+  "claude-sonnet-4-6": {
+    "energyPerInputToken": 2.8e-7,
+    "energyPerOutputToken": 1.1e-6,
+    "source": "ecologits-inspired-v0.6",
+    "updatedAt": "2026-06-24"
+  },
+  "claude-opus-4-8": {
+    "energyPerInputToken": 7.5e-7,
+    "energyPerOutputToken": 3.0e-6,
+    "source": "ecologits-inspired-v0.6",
+    "updatedAt": "2026-06-24"
+  },
+  "claude-fable-5": {
+    "energyPerInputToken": 3.2e-7,
+    "energyPerOutputToken": 1.3e-6,
+    "source": "ecologits-inspired-v0.6",
+    "updatedAt": "2026-06-24"
+  }
+}

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-23T12:11:27.982Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-25T07:32:08.725Z"/><meta name="aiad-version" content="1.18.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Changelog des artefacts — aiad-sdd</title>
-<meta name="description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta name="description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Changelog des artefacts — aiad-sdd"/>
-<meta property="og:description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta property="og:description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta property="og:url" content="changelog.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Changelog des artefacts — aiad-sdd"/>
-<meta name="twitter:description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 65/100 · Maturité 3/5"/>
+<meta name="twitter:description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -92,8 +92,11 @@
     </a></li>
     <li><a href="dpo.html" class="">
       <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li>
+    <li><a href="eco.html" class="">
+      <span class="nav-icon">🌱</span>Éco
     </a></li></ul>
-  <div class="footer">Généré 23/06/2026 14:11:27<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 25/06/2026 09:32:08<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -102,7 +105,7 @@
       <div class="subtitle">Historique des mises à jour SDD Mode</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 23/06/2026 14:11:27. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 25/06/2026 09:32:08. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
       <div class="meta">aiad-sdd · v1.18.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
@@ -111,7 +114,7 @@
   </header>
   
 <div class="kpis">
-  <div class="kpi"><div class="label">Entrées</div><div class="value">26</div></div>
+  <div class="kpi"><div class="label">Entrées</div><div class="value">32</div></div>
 </div>
 <section>
   <h2>Historique <span class="count">source : <a class="src-link" href="../.aiad/CHANGELOG-ARTEFACTS.md" target="_blank" rel="noopener" title="Ouvrir .aiad/CHANGELOG-ARTEFACTS.md">.aiad/CHANGELOG-ARTEFACTS.md</a></span></h2>
@@ -119,6 +122,48 @@
   <table id="tCl" data-sortable="true" data-a11y-caption="Changelog des artefacts SDD">
     <thead><tr><th>Date</th><th>Artefact</th><th>Type</th><th>Auteur</th><th>Raison</th><th>Impact</th></tr></thead>
     <tbody><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>INTENT-030 / SPEC-030-3</strong></td>
+    <td>Gate OUVERTE + Drift Lock (done)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd gate SPEC-030-3` — SQS 5/5, Gate OUVERTE. Exécution immédiate (session courte, directive uniquement). `.claude/sdd…</td>
+    <td class="muted">`.claude/sdd/validate.md` — section Étape 6c ajoutée (~35 lignes). SPEC-030-3 → …</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>INTENT-031</strong></td>
+    <td>Chaînage automatique conditionnel du cycle SDD + correctif hook Stop (draft)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd intent` — couvre FACT-010 + FACT-011. Objectif : ≤ 2 interruptions manuelles/cycle (de 5-7). Transitions auto : sp…</td>
+    <td class="muted">`.aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md` créé. `_index.md` mis à jo…</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>FACT-011</strong></td>
+    <td>Absence de chaînage automatique conditionnel entre étapes SDD (ouvert)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd fact` — lacune structurelle : chaque étape du cycle SDD requiert une intervention manuelle du PE même quand la déc…</td>
+    <td class="muted">`.aiad/facts/FACT-011-auto-chaining-sdd-steps.md` créé.</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>FACT-010</strong></td>
+    <td>Friction gate → exec (ouvert)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd fact` — écart constaté entre prescription gate.md (MAJ statut → `ready` + `_index.md`) et comportement réel (statu…</td>
+    <td class="muted">`.aiad/facts/FACT-010-gate-to-exec-friction.md` créé.</td>
+  </tr><tr>
+    <td class="muted">2026-06-24</td>
+    <td><strong>INTENT-030 / SPEC-030-1</strong></td>
+    <td>Drift Lock OK (done)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd validate SPEC-030-1` après exec — 8/8 CA verts, lint OK, 4 075/4 075 tests, `trace --fail-on-gap` exit 0, gouverna…</td>
+    <td class="muted">`lib/eco-estimator.js` — `estimerImpact()` + `EcoModelsNotFoundError`, annotatio…</td>
+  </tr><tr>
+    <td class="muted">2026-06-24</td>
+    <td><strong>INTENT-026 / SPEC-026-1</strong></td>
+    <td>Drift Lock OK (done)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd drift-check` après validation SPEC-026-1 — code + SPEC synchronisés, 0 violation EARS, 64/64 tests verts, `trace -…</td>
+    <td class="muted">`lib/archive.js` — `archiverTous()` + commentaire RGPD (l.88–97) ; `bin/aiad-sdd…</td>
+  </tr><tr>
     <td class="muted">2026-06-23</td>
     <td><strong>INTENT-018 → done</strong></td>
     <td>Drift Lock cycle complet</td>

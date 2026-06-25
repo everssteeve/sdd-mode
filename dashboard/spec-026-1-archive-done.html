@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-25T07:32:08.725Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>SPEC-026-1-archive-done — Commande `archive done` — archivage des artefacts done (Intents + SPECs) — aiad-sdd</title>
+<meta name="description" content="SPEC-026-1-archive-done — Commande `archive done` — archivage des artefacts done (Intents + SPECs) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 70/100 · Maturité…"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SPEC-026-1-archive-done — Commande `archive done` — archivage des artefacts done (Intents + SPECs) — aiad-sdd"/>
+<meta property="og:description" content="SPEC-026-1-archive-done — Commande `archive done` — archivage des artefacts done (Intents + SPECs) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 70/100 · Maturité…"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPEC-026-1-archive-done — Commande `archive done` — archivage des artefacts done (Intents + SPECs) — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-026-1-archive-done — Commande `archive done` — archivage des artefacts done (Intents + SPECs) — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 70/100 · Maturité…"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.18.0</div>
+  </div>
+  <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li>
+    <li><a href="eco.html" class="">
+      <span class="nav-icon">🌱</span>Éco
+    </a></li></ul>
+  <div class="footer">Généré 25/06/2026 09:32:08<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>SPEC-026-1-archive-done — Commande `archive done` — archivage des artefacts done (Intents + SPECs)</h1>
+      <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 25/06/2026 09:32:08. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.18.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+  .sp-cols { display:grid; grid-template-columns: 1fr 260px; gap: 1.5rem; align-items: start; }
+  @media (max-width: 900px) { .sp-cols { grid-template-columns: 1fr; } }
+  .sp-meta table { width:100%; font-size:.85rem; }
+  .sp-meta td { padding:.25rem .4rem; vertical-align:top; }
+  .sp-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+  .sp-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+  .sp-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+  .ca-item { margin-bottom:.75rem; padding:.5rem; background:rgba(127,127,127,.03); border-left:2px solid var(--border,#ddd); border-radius:.2rem; }
+  .ca-texte { margin:.4rem 0 0; padding:.4rem .6rem; background:rgba(76,110,245,.04); border-left:3px solid rgba(76,110,245,.3); font-size:.88rem; font-family:monospace; white-space:pre-wrap; }
+  .dood-list { list-style:none; padding:0; }
+  .dood-list li { padding:.15rem 0; font-size:.88rem; }
+  .sp-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+  .sp-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+  .sp-actions a:hover { background:rgba(76,110,245,.18); }
+  /* Masque le doublon h1 du page-header pour les pages détail SPEC */
+  body:has(.sp-cols) .page-header h1 { display:none; }
+</style>
+<div class="sp-cols">
+  <div class="sp-sections">
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-026-1-archive-done.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-026-1-archive-done.md">SPEC-026-1-archive-done</a> — Commande `archive done` — archivage des artefacts done (Intents + SPECs)</h1>
+
+    <section aria-label="Contexte">
+      <h3>§1 — Contexte</h3>
+      <p>Les répertoires `.aiad/intents/` et `.aiad/specs/` accumulent des artefacts au
+statut `done` sans mécanisme de déplacement. Après 27 intents et ~49 specs,
+le signal/bruit (actif vs clôturé) dégrade la lisibilité du cycle SDD. Cette
+SPEC introduit la commande `aiad-sdd archive done` qui déplace les artefacts
+éligibles vers leurs répertoires `archive/` respectifs, sur décision explicite
+du PE (pas d&#39;archivage silencieux).</p>
+    </section>
+
+    <section aria-label="Critères d'acceptation">
+      <h3>§3 — Critères d'acceptation</h3>
+      <div class="ca-item">
+      <p><strong>CA-001</strong> — Listing des candidats <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the user runs `aiad-sdd archive done`, the CLI SHALL display the ID and title of each `.aiad/intents/` and `.aiad/specs/` artefact with frontmatter `status: done` and `safe: true`.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-002</strong> — Pas de mutation sans --apply <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF `aiad-sdd archive done` is invoked without `--apply`, THEN the CLI SHALL preserve all artefact files in their original directories.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-003</strong> — Déplacement des fichiers avec --apply <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the user runs `aiad-sdd archive done --apply`, the CLI SHALL move each eligible artefact file to the `archive/` subdirectory of its parent directory (`.aiad/intents/archive/` or `.aiad/specs/archive/`).</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-004</strong> — Patch frontmatter à l&#39;archivage <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN `aiad-sdd archive done --apply` moves an artefact, the CLI SHALL update its frontmatter with `status: archived`, `archivedAt` (ISO 8601 timestamp), `archivedBy` (git user email), and `archivedReason`.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-005</strong> — Exclusion silencieuse des safe: false <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF an artefact has frontmatter `status: done` and `safe: false`, THEN the CLI SHALL exclude it from the candidate list without displaying any warning.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-006</strong> — Création du répertoire archive/ si absent <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF the `archive/` subdirectory does not exist when `aiad-sdd archive done --apply` runs, THEN the CLI SHALL create it before moving any file.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-007</strong> — Aucun candidat éligible <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN `aiad-sdd archive done` finds zero eligible artefacts, the CLI SHALL display &quot;Aucun artefact éligible à archiver.&quot;</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-008</strong> — Entrée audit par artefact archivé <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN `aiad-sdd archive done --apply` archives an artefact, the CLI SHALL append one event entry to `.aiad/audit/audit.jsonl` per archived artefact.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-009</strong> — Robustesse trace : exclusion explicite de archive/ <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The artefact reader in `lib/sdd-trace.js` SHALL skip directory entries named `archive` when iterating over `.aiad/intents/` and `.aiad/specs/` with `readdirSync()`.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-010</strong> — collect.js : archive/ exclue des artefacts actifs <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The `lireIntents()` and `lireSpecs()` functions in `lib/dashboard/collect.js` SHALL return only files located in the root of their respective directory, excluding any file inside an `archive/` subdirectory.</blockquote>
+    </div>
+    </section>
+
+    <section aria-label="Interface / API">
+      <h3>§4 — Interface / API</h3>
+      <pre><code>```
+# Preview (aucune mutation)
+aiad-sdd archive done
+aiad-sdd archive done --dry-run
+
+# Archivage effectif
+aiad-sdd archive done --apply
+aiad-sdd archive done --apply --reason &quot;Atelier intention 2026-06&quot;
+
+# Sortie JSON (pour CI / scripts)
+aiad-sdd archive done --json
+aiad-sdd archive done --apply --json
+```
+
+Nouvelles fonctions dans `lib/archive.js` :
+
+```js
+/**
+ * Archive tous les artefacts éligibles (safe: true, status: done).
+ * @param {string} racine   — racine projet
+ * @param {object} options  — { raison, dryRun, json }
+ * @returns {{ total: number, archived: number, skipped: number, items: object[] }}
+ */
+export function archiverTous(racine, options = {}) { … }
+```
+
+Dispatch dans `bin/aiad-sdd.js` — branche ajoutée dans `case &#39;archive&#39;` (ligne ~2549) :
+
+```js
+if (positionals[1] === &#39;done&#39; || values.done) {
+  const { archiverTous } = await import(&#39;../lib/archive.js&#39;);
+  const r = archiverTous(cwd(), {
+    raison: values.reason || &#39;archive done&#39;,
+    dryRun: !values.apply,
+    json: values.json,
+  });
+  // affichage + exit
+}
+```
+
+Modification dans `lib/sdd-trace.js` (×2, `lireIntents` et `lireSpecs`) :
+
+```js
+for (const nom of readdirSync(dir)) {
+  if (nom === &#39;archive&#39; || !nom.endsWith(&#39;.md&#39;) || nom.startsWith(&#39;_&#39;)) continue;
+  …
+}
+```</code></pre>
+    </section>
+
+    <section aria-label="Dépendances">
+      <h3>§5 — Dépendances</h3>
+      <ul><li>lib/archive.js — archiver(), listerLivrables(), STATUTS_LIVRES (existants)</li><li>bin/aiad-sdd.js:2549 — case &#39;archive&#39; (existant, à étendre)</li><li>lib/sdd-trace.js:226 — lireIntents() (existant, à renforcer)</li><li>lib/sdd-trace.js:251 — lireSpecs() (existant, à renforcer)</li><li>test/archive.test.js — tests existants (à compléter)</li><li>test/dashboard-collect.test.js — tests existants (à compléter)</li><li>test/trace.test.js — tests existants (à compléter)</li></ul>
+    </section>
+
+    <section aria-label="Definition of Output Done">
+      <h3>§7 — Definition of Output Done</h3>
+      <ul class="dood-list"><li>☑ lib/archive.js — archiverTous() implémentée et exportée (lib/archive.js:365)</li><li>☑ bin/aiad-sdd.js — branche done dans case &#39;archive&#39; opérationnelle (bin/aiad-sdd.js:2563)</li><li>☑ lib/sdd-trace.js — guard archive/ explicite dans lireIntents() et lireSpecs()</li><li>☑ Tests CA-001 à CA-010 verts (node --test) — 64 tests verts (36 + 12 + 16)</li><li>☑ **EARS lint : 0 violation** (validé à la gate, SQS 5/5)</li><li>☑ npx aiad-sdd trace --fail-on-gap exit 0 — SPECs validées non-implémentées : 0</li><li>☑ Annotations @spec SPEC-026-1-archive-done posées sur les fonctions modifiées</li><li>☑ Fix post-livraison : import { C } from &#39;../lib/term.js&#39; ajouté dans bin/aiad-sdd.js (ReferenceError au runtime — C utilisé mais non importé dans le bin)</li><li>☑ Fix post-archivage : construireMatrice enrichit intentsConnus/specsConnus avec les IDs de archive/ — les annotations @intent/@spec pointant vers des artefacts archivés ne sont plus détectées comme orphelins (lib/sdd-trace.js)</li><li>☑ Gouvernance vérifiée : PASS (AI-ACT/RGPD/RGAA/RGESN)</li></ul>
+    </section>
+
+    <div class="sp-actions">
+      <a href="specs.html">← Retour à la liste des SPECs</a>
+      <a href="../.aiad/specs/SPEC-026-1-archive-done.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="sp-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-info">validation</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-muted">—</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-info">ears</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-026</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-06-24</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>
