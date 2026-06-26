@@ -1,15 +1,15 @@
 ---
 id: INTENT-021
 title: Empreinte mesurée — tokens et coût par fonctionnalité
-status: done
+status: archived
 author: Steeve Evers
-date: 2026-06-11
-specs:
-  - SPEC-021-1
-  - SPEC-021-2
+date: "2026-06-11"
+specs: [SPEC-021-1, SPEC-021-2]
 research: RESEARCH-034
+archivedAt: "2026-06-26T12:02:40.769Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: INTENT-021 complété — SPEC-021-1 (attribution tokens) + SPEC-021-2 (restitution /sdd context) livrées, 4170 tests, drift lock OK
 ---
-
 # INTENT-021 — Empreinte mesurée
 
 > ✅ Approprié par Steeve Evers le 2026-06-25 via RESEARCH-034 (CONDITIONAL GO, 85 %).

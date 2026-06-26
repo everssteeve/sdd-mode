@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-26T12:02:40.777Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: INTENT-021 complété — SPEC-021-1 (attribution tokens) + SPEC-021-2 (restitution /sdd context) livrées, 4170 tests, drift lock OK
+---
 # SPEC-021-1-attribution-tokens-artefact — variante EARS
 
 **Intent parent** : INTENT-021
