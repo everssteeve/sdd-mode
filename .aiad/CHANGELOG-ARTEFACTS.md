@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-25 — SPEC-021-2 — Drift Lock OK (done) + INTENT-021 → done
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd drift-check INTENT-021` après validation SPEC-021-2 — toutes les SPECs liées sont done (SPEC-021-1 + SPEC-021-2), 0 gap de traçabilité bloquant, `trace --fail-on-gap` exit 0.
+**Impact** : `lib/empreinte-artefact.js` (formaterEmpreinte + collecterEmpreinteParArtefact — CA-001 à CA-010), `bin/aiad-sdd.js` (sous-commande `footprint`), `.claude/sdd/context.md` (étape empreinte mesurée), 3 suites de tests nouvelles (footprint-cli, footprint-context-directive, footprint-formatter — 16 cas). SPEC-021-2 → `done`. INTENT-021 → `done`.
+
 ## 2026-06-25 — INTENT-020 — Clôture + archivage (spec-anchored deltas + redevabilité bidirectionnelle)
 
 **Auteur** : Steeve Evers

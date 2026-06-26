@@ -2547,6 +2547,26 @@ async function main() {
       break;
     }
 
+    case 'footprint': {
+      // @spec SPEC-021-2-restitution-empreinte-context
+      // @intent INTENT-021
+      // @verified-by test/footprint-cli.test.js
+      // @governance AIAD-RGPD
+      const racine = cwd();
+      const cibleId = positionals[1] || null;
+      const { collecterEmpreinteParArtefact, formaterEmpreinte } = await import('../lib/empreinte-artefact.js');
+      const empreinte = collecterEmpreinteParArtefact(racine);
+      const totalSessions =
+        Object.values(empreinte.parSpec).reduce((s, v) => s + v.sessions, 0) +
+        empreinte.nonAttribues.sessions;
+      if (totalSessions === 0) {
+        console.log('\n  aucune empreinte mesurée (active la mesure via /sdd exec)\n');
+        break;
+      }
+      console.log('\n' + formaterEmpreinte(empreinte, { cible: cibleId }) + '\n');
+      break;
+    }
+
     case 'track': {
       // @spec SPEC-021-1-attribution-tokens-artefact
       // @intent INTENT-021
@@ -3732,7 +3752,7 @@ async function main() {
         'review', 'suggest-annotations', 'suggest-tests', 'export', 'storybook', 'cert',
         'marketplace', 'audit', 'provenance', 'hook-stats', 'dinum', 'sovereignty', 'adrs', 'dora', 'self-update', 'standup', 'brief', 'badge', 'gitlab', 'azure', 'webhooks', 'reflect', 'negotiate', 'refactor-spec', 'spec-version', 'archive', 'sla', 'completion', 'tour', 'pii-scan', 'backup', 'restore', 'offline', 'bitbucket', 'ci-template', 'github-app', 'anonymize', 'plugin', 'hooks-init', 'schema', 'org', 'rbac', 'tutorial', 'help', 'version',
         'canary', 'memory', 'cycle', 'statusline', 'cross-model', 'hooks-config', 'proportionality', 'sunset',
-        'track',
+        'track', 'footprint',
       ];
       const indice = indiceVoulaisTuDire(command, COMMANDES_VALIDES, { max: 2 });
       const ligneIndice = indice ? `  ${indice}\n\n` : '';

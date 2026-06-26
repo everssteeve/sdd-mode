@@ -3,7 +3,7 @@
 **Intent parent** : INTENT-021
 **Auteur** : Steeve Evers
 **Date** : 2026-06-25
-**Statut** : ready
+**Statut** : done
 **Format** : EARS
 **SQS** : 5/5
 **Research** : RESEARCH-034 (CONDITIONAL GO, conditions C1/C2/C3)
@@ -46,8 +46,8 @@ SPEC-021-1 produit l'attribution des tokens par Intent/SPEC (`collecterEmpreinte
 
 `WHEN aiad-sdd footprint is invoked without argument, the CLI SHALL display total tokens grouped by specId, sorted by descending tokens.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/footprint-cli.test.js::aggregate`
+- [x] Implémenté
+- [x] Testé : `test/footprint-cli.test.js::aggregate`
 
 ### CA-002 — Ciblage d'un artefact
 
@@ -55,8 +55,8 @@ SPEC-021-1 produit l'attribution des tokens par Intent/SPEC (`collecterEmpreinte
 
 `WHEN aiad-sdd footprint <SPEC-ID> is invoked, the CLI SHALL display the cumulative tokens and session count attributed to that specId.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/footprint-cli.test.js::targeted`
+- [x] Implémenté
+- [x] Testé : `test/footprint-cli.test.js::targeted`
 
 ### CA-003 — Absence de données (message)
 
@@ -64,8 +64,8 @@ SPEC-021-1 produit l'attribution des tokens par Intent/SPEC (`collecterEmpreinte
 
 `IF hook-runs.jsonl is absent or empty, THEN aiad-sdd footprint SHALL print "aucune empreinte mesurée".`
 
-- [ ] Implémenté
-- [ ] Testé : `test/footprint-cli.test.js::empty-message`
+- [x] Implémenté
+- [x] Testé : `test/footprint-cli.test.js::empty-message`
 
 ### CA-004 — Absence de données (code de sortie)
 
@@ -73,8 +73,8 @@ SPEC-021-1 produit l'attribution des tokens par Intent/SPEC (`collecterEmpreinte
 
 `IF hook-runs.jsonl is absent or empty, THEN aiad-sdd footprint SHALL exit 0.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/footprint-cli.test.js::empty-exit`
+- [x] Implémenté
+- [x] Testé : `test/footprint-cli.test.js::empty-exit`
 
 ### CA-005 — Avertissement de couverture
 
@@ -82,8 +82,8 @@ SPEC-021-1 produit l'attribution des tokens par Intent/SPEC (`collecterEmpreinte
 
 `WHILE the nonAttribues bucket holds more than 50 percent of total tokens, aiad-sdd footprint SHALL display a coverage warning line.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/footprint-cli.test.js::coverage-warning`
+- [x] Implémenté
+- [x] Testé : `test/footprint-cli.test.js::coverage-warning`
 
 ### CA-006 — Intégration dans /sdd context
 
@@ -91,8 +91,8 @@ SPEC-021-1 produit l'attribution des tokens par Intent/SPEC (`collecterEmpreinte
 
 `The /sdd context directive SHALL include a step that displays the measured token footprint of the audited SPEC alongside the section 6 estimate.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/footprint-context-directive.test.js::context-step`
+- [x] Implémenté
+- [x] Testé : `test/footprint-context-directive.test.js::context-step`
 
 ### CA-007 — Tri principal déterministe
 
@@ -100,8 +100,8 @@ SPEC-021-1 produit l'attribution des tokens par Intent/SPEC (`collecterEmpreinte
 
 `The footprint formatter SHALL order artefacts by descending tokens.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/footprint-cli.test.js::sort-tokens`
+- [x] Implémenté
+- [x] Testé : `test/footprint-cli.test.js::sort-tokens`
 
 ### CA-008 — Départage stable
 
@@ -109,8 +109,8 @@ SPEC-021-1 produit l'attribution des tokens par Intent/SPEC (`collecterEmpreinte
 
 `The footprint formatter SHALL break equal-token ties by ascending specId.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/footprint-cli.test.js::stable-tiebreak`
+- [x] Implémenté
+- [x] Testé : `test/footprint-cli.test.js::stable-tiebreak`
 
 ### CA-009 — Restitution des tokens
 
@@ -118,8 +118,8 @@ SPEC-021-1 produit l'attribution des tokens par Intent/SPEC (`collecterEmpreinte
 
 `WHEN an artefact footprint is displayed, the footprint formatter SHALL report its token count.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/footprint-cli.test.js::reports-tokens`
+- [x] Implémenté
+- [x] Testé : `test/footprint-cli.test.js::reports-tokens`
 
 ### CA-010 — Coût € exclu (condition C2)
 
@@ -127,8 +127,8 @@ SPEC-021-1 produit l'attribution des tokens par Intent/SPEC (`collecterEmpreinte
 
 `IF an artefact footprint is displayed, THEN aiad-sdd footprint SHALL report no monetary cost value.`
 
-- [ ] Implémenté
-- [ ] Testé : `test/footprint-cli.test.js::no-euro-cost`
+- [x] Implémenté
+- [x] Testé : `test/footprint-cli.test.js::no-euro-cost`
 
 ## 4. Interface / API
 
@@ -165,14 +165,14 @@ Empreinte mesurée (tokens, local opt-in)
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] Code + lint passing
-- [ ] Tests unitaires sur cas limites (vide, couverture, ciblage absent)
-- [ ] **EARS lint : 0 violation** (skill `ears-validator`)
-- [ ] SPEC mise à jour si écart (Drift Lock)
-- [ ] Annotations machine-vérifiables posées (`@spec SPEC-021-2`, `@intent INTENT-021`, `@verified-by`)
-- [ ] Code review passée
-- [ ] Gouvernance vérifiée (RGPD : local-only ; RGESN : lecture seule, pas de surcoût)
+- [x] Code + lint passing
+- [x] Tests unitaires sur cas limites (vide, couverture, ciblage absent)
+- [x] **EARS lint : 0 violation** (skill `ears-validator`)
+- [x] SPEC mise à jour si écart (Drift Lock)
+- [x] Annotations machine-vérifiables posées (`@spec SPEC-021-2`, `@intent INTENT-021`, `@verified-by`)
+- [x] Code review passée
+- [x] Gouvernance vérifiée (RGPD : local-only ; RGESN : lecture seule, pas de surcoût)
 
 ## Historique des modifications
 
-<!-- Ajouté à la première modification. Un item par delta, ordre chronologique. -->
+- **2026-06-25** — Implémentation complète (3 phases) : `formaterEmpreinte` (CA-007/008/009/010/005), CLI `footprint` (CA-001/002/003/004), directive `/sdd context` enrichie (CA-006). 16/16 tests passent. Suite complète : 4170/4171 sans régression.

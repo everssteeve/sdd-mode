@@ -1,7 +1,7 @@
 ---
 id: INTENT-021
 title: Empreinte mesurée — tokens et coût par fonctionnalité
-status: active
+status: done
 author: Steeve Evers
 date: 2026-06-11
 specs:
@@ -45,4 +45,4 @@ disponible → drift de l'engagement Art. IV.
 ## SPECs liées
 
 - [x] SPEC-021-1 — Attribution tokens ↔ Intent/SPEC (enrichissement hook Stop, rétro-compatible) → `.aiad/specs/SPEC-021-1-attribution-tokens-artefact.md`
-- [ ] SPEC-021-2 — Restitution dans `/sdd context` (page dashboard « Valeur » reportée — dépend d'INTENT-018) → `.aiad/specs/SPEC-021-2-restitution-empreinte-context.md`
+- [x] SPEC-021-2 — Restitution dans `/sdd context` (page dashboard « Valeur » reportée — dépend d'INTENT-018) → `.aiad/specs/SPEC-021-2-restitution-empreinte-context.md`

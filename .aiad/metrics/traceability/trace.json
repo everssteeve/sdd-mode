@@ -2,16 +2,16 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-25T14:58:54.293Z"
+    "generated": "2026-06-26T11:57:53.926Z"
   },
-  "generatedAt": "2026-06-25T14:58:54.293Z",
+  "generatedAt": "2026-06-26T11:57:53.926Z",
   "summary": {
     "intents": 6,
     "specs": 2,
     "codeFiles": 391,
     "annotatedCodeFiles": 85,
-    "testFiles": 272,
-    "annotatedTestFiles": 48
+    "testFiles": 275,
+    "annotatedTestFiles": 51
   },
   "forward": [
     {
@@ -19,7 +19,7 @@
         "id": "INTENT-021-empreinte-mesuree",
         "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
         "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
-        "status": "active"
+        "status": "done"
       },
       "specs": [
         {
@@ -28,19 +28,23 @@
             "file": ".aiad/specs/SPEC-021-1-attribution-tokens-artefact.md",
             "title": "SPEC-021-1-attribution-tokens-artefact — variante EARS",
             "parentIntent": "INTENT-021",
-            "status": "validation",
+            "status": "done",
             "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
           "code": [
             {
-              "path": "lib/empreinte-artefact.js",
-              "line": 3
+              "path": "bin/aiad-sdd.js",
+              "line": 2571
             },
             {
-              "path": "bin/aiad-sdd.js",
-              "line": 2551
+              "path": "lib/eco-hook.js",
+              "line": 5
+            },
+            {
+              "path": "lib/empreinte-artefact.js",
+              "line": 3
             }
           ],
           "tests": [
@@ -60,6 +64,16 @@
               "path": "(Human",
               "line": 334,
               "viaCode": true
+            },
+            {
+              "path": "test/footprint-cli.test.js",
+              "line": 2553,
+              "viaCode": true
+            },
+            {
+              "path": "test/footprint-formatter.test.js",
+              "line": 6,
+              "viaCode": true
             }
           ]
         },
@@ -69,13 +83,50 @@
             "file": ".aiad/specs/SPEC-021-2-restitution-empreinte-context.md",
             "title": "SPEC-021-2-restitution-empreinte-context — variante EARS",
             "parentIntent": "INTENT-021",
-            "status": "ready",
+            "status": "done",
             "format": "EARS",
             "traceability": "",
             "traceabilityReason": ""
           },
-          "code": [],
-          "tests": []
+          "code": [
+            {
+              "path": "bin/aiad-sdd.js",
+              "line": 2551
+            },
+            {
+              "path": "lib/empreinte-artefact.js",
+              "line": 4
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/footprint-cli.test.js",
+              "line": 3
+            },
+            {
+              "path": "test/footprint-context-directive.test.js",
+              "line": 3
+            },
+            {
+              "path": "test/footprint-formatter.test.js",
+              "line": 3
+            },
+            {
+              "path": "(Human",
+              "line": 334,
+              "viaCode": true
+            },
+            {
+              "path": "test/track-cli.test.js",
+              "line": 2573,
+              "viaCode": true
+            },
+            {
+              "path": "test/empreinte-artefact.test.js",
+              "line": 5,
+              "viaCode": true
+            }
+          ]
         }
       ]
     },
@@ -128,15 +179,15 @@
   "backward": [
     {
       "test": {
-        "path": "test/eco-hook-attribution.test.js",
+        "path": "test/footprint-cli.test.js",
         "line": 3
       },
       "spec": {
-        "id": "SPEC-021-1-attribution-tokens-artefact",
-        "file": ".aiad/specs/SPEC-021-1-attribution-tokens-artefact.md",
-        "title": "SPEC-021-1-attribution-tokens-artefact — variante EARS",
+        "id": "SPEC-021-2-restitution-empreinte-context",
+        "file": ".aiad/specs/SPEC-021-2-restitution-empreinte-context.md",
+        "title": "SPEC-021-2-restitution-empreinte-context — variante EARS",
         "parentIntent": "INTENT-021",
-        "status": "validation",
+        "status": "done",
         "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
@@ -145,30 +196,30 @@
         "id": "INTENT-021-empreinte-mesuree",
         "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
         "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
-          "path": "lib/empreinte-artefact.js",
-          "line": 3
-        },
-        {
           "path": "bin/aiad-sdd.js",
           "line": 2551
+        },
+        {
+          "path": "lib/empreinte-artefact.js",
+          "line": 4
         }
       ]
     },
     {
       "test": {
-        "path": "test/empreinte-artefact.test.js",
+        "path": "test/footprint-context-directive.test.js",
         "line": 3
       },
       "spec": {
-        "id": "SPEC-021-1-attribution-tokens-artefact",
-        "file": ".aiad/specs/SPEC-021-1-attribution-tokens-artefact.md",
-        "title": "SPEC-021-1-attribution-tokens-artefact — variante EARS",
+        "id": "SPEC-021-2-restitution-empreinte-context",
+        "file": ".aiad/specs/SPEC-021-2-restitution-empreinte-context.md",
+        "title": "SPEC-021-2-restitution-empreinte-context — variante EARS",
         "parentIntent": "INTENT-021",
-        "status": "validation",
+        "status": "done",
         "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
@@ -177,30 +228,30 @@
         "id": "INTENT-021-empreinte-mesuree",
         "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
         "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
-          "path": "lib/empreinte-artefact.js",
-          "line": 3
-        },
-        {
           "path": "bin/aiad-sdd.js",
           "line": 2551
+        },
+        {
+          "path": "lib/empreinte-artefact.js",
+          "line": 4
         }
       ]
     },
     {
       "test": {
-        "path": "test/track-cli.test.js",
+        "path": "test/footprint-formatter.test.js",
         "line": 3
       },
       "spec": {
-        "id": "SPEC-021-1-attribution-tokens-artefact",
-        "file": ".aiad/specs/SPEC-021-1-attribution-tokens-artefact.md",
-        "title": "SPEC-021-1-attribution-tokens-artefact — variante EARS",
+        "id": "SPEC-021-2-restitution-empreinte-context",
+        "file": ".aiad/specs/SPEC-021-2-restitution-empreinte-context.md",
+        "title": "SPEC-021-2-restitution-empreinte-context — variante EARS",
         "parentIntent": "INTENT-021",
-        "status": "validation",
+        "status": "done",
         "format": "EARS",
         "traceability": "",
         "traceabilityReason": ""
@@ -209,16 +260,16 @@
         "id": "INTENT-021-empreinte-mesuree",
         "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
         "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
-        "status": "active"
+        "status": "done"
       },
       "code": [
         {
-          "path": "lib/empreinte-artefact.js",
-          "line": 3
-        },
-        {
           "path": "bin/aiad-sdd.js",
           "line": 2551
+        },
+        {
+          "path": "lib/empreinte-artefact.js",
+          "line": 4
         }
       ]
     },
@@ -1942,6 +1993,42 @@
     },
     {
       "test": {
+        "path": "test/eco-hook-attribution.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-021-1-attribution-tokens-artefact",
+        "file": ".aiad/specs/SPEC-021-1-attribution-tokens-artefact.md",
+        "title": "SPEC-021-1-attribution-tokens-artefact — variante EARS",
+        "parentIntent": "INTENT-021",
+        "status": "done",
+        "format": "EARS",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-021-empreinte-mesuree",
+        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
+        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "bin/aiad-sdd.js",
+          "line": 2571
+        },
+        {
+          "path": "lib/eco-hook.js",
+          "line": 5
+        },
+        {
+          "path": "lib/empreinte-artefact.js",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/eco-hook.test.js",
         "line": 4
       },
@@ -1988,6 +2075,42 @@
       "spec": null,
       "intent": null,
       "code": []
+    },
+    {
+      "test": {
+        "path": "test/empreinte-artefact.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-021-1-attribution-tokens-artefact",
+        "file": ".aiad/specs/SPEC-021-1-attribution-tokens-artefact.md",
+        "title": "SPEC-021-1-attribution-tokens-artefact — variante EARS",
+        "parentIntent": "INTENT-021",
+        "status": "done",
+        "format": "EARS",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-021-empreinte-mesuree",
+        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
+        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "bin/aiad-sdd.js",
+          "line": 2571
+        },
+        {
+          "path": "lib/eco-hook.js",
+          "line": 5
+        },
+        {
+          "path": "lib/empreinte-artefact.js",
+          "line": 3
+        }
+      ]
     },
     {
       "test": {
@@ -4101,6 +4224,42 @@
     },
     {
       "test": {
+        "path": "test/track-cli.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-021-1-attribution-tokens-artefact",
+        "file": ".aiad/specs/SPEC-021-1-attribution-tokens-artefact.md",
+        "title": "SPEC-021-1-attribution-tokens-artefact — variante EARS",
+        "parentIntent": "INTENT-021",
+        "status": "done",
+        "format": "EARS",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-021-empreinte-mesuree",
+        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
+        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "bin/aiad-sdd.js",
+          "line": 2571
+        },
+        {
+          "path": "lib/eco-hook.js",
+          "line": 5
+        },
+        {
+          "path": "lib/empreinte-artefact.js",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/tutorial.test.js",
         "line": 0
       },
@@ -4287,18 +4446,7 @@
         "status": "draft"
       }
     ],
-    "specsSansCode": [
-      {
-        "id": "SPEC-021-2-restitution-empreinte-context",
-        "file": ".aiad/specs/SPEC-021-2-restitution-empreinte-context.md",
-        "title": "SPEC-021-2-restitution-empreinte-context — variante EARS",
-        "parentIntent": "INTENT-021",
-        "status": "ready",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      }
-    ],
+    "specsSansCode": [],
     "specsValideesNonImplementees": [],
     "codeSansSpec": [
       {
@@ -8425,18 +8573,7 @@
     ],
     "intentsOrphelinsSurCode": [],
     "specsOrphelinsSurCode": [],
-    "earsSpecsSansTests": [
-      {
-        "id": "SPEC-021-2-restitution-empreinte-context",
-        "file": ".aiad/specs/SPEC-021-2-restitution-empreinte-context.md",
-        "title": "SPEC-021-2-restitution-empreinte-context — variante EARS",
-        "parentIntent": "INTENT-021",
-        "status": "ready",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      }
-    ]
+    "earsSpecsSansTests": []
   },
   "specsExemptees": []
 }
