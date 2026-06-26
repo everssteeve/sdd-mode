@@ -41,5 +41,5 @@ dogfooding.
 
 ## SPECs liées
 
-- [ ] SPEC-022-1 — SPECs rétroactives des modules cœur
-- [ ] SPEC-022-2 — Campagne d'annotation `@spec` progressive
+- [x] SPEC-022-1 — Spec rétroactive lib/init.js + annotations modules cœur (`draft`)
+- [x] SPEC-022-2 — Campagne d'annotation progressive — enforcement new modules lib/ (`draft`)

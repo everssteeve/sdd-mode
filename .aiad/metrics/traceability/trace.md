@@ -1,23 +1,22 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-26T11:57:53.926Z
+> Généré le 2026-06-26T16:26:12.862Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 6 |
+| Intents | 5 |
 | SPECs | 2 |
-| Fichiers code | 391 (annotés : 85) |
+| Fichiers code | 391 (annotés : 91) |
 | Fichiers test | 275 (annotés : 51) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
 | Intent | SPEC | Code | Tests | Verdict |
 |--------|------|------|-------|---------|
-| INTENT-021-empreinte-mesuree | SPEC-021-1-attribution-tokens-artefact | `bin/aiad-sdd.js`<br/>`lib/eco-hook.js`<br/>`lib/empreinte-artefact.js` | `test/eco-hook-attribution.test.js`<br/>`test/empreinte-artefact.test.js`<br/>`test/track-cli.test.js`<br/>`(Human`<br/>`test/footprint-cli.test.js`<br/>`test/footprint-formatter.test.js` | ✅ |
-| INTENT-021-empreinte-mesuree | SPEC-021-2-restitution-empreinte-context | `bin/aiad-sdd.js`<br/>`lib/empreinte-artefact.js` | `test/footprint-cli.test.js`<br/>`test/footprint-context-directive.test.js`<br/>`test/footprint-formatter.test.js`<br/>`(Human`<br/>`test/track-cli.test.js`<br/>`test/empreinte-artefact.test.js` | ✅ |
-| INTENT-022-dogfooding-cli | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-022-dogfooding-cli | SPEC-022-1-retro-annotations-core | `lib/frontmatter.js`<br/>`lib/fs-ops.js`<br/>`lib/init.js` | `test/init.test.js` | ✅ |
+| INTENT-022-dogfooding-cli | SPEC-022-2-campagne-annotation-progressive | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-023-rayonnement-honnete | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-027-ci-metrics-automation | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-028-fiabilite-ci-bin-cartographie-trace | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -27,9 +26,6 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/footprint-cli.test.js` | SPEC-021-2-restitution-empreinte-context | INTENT-021-empreinte-mesuree | `bin/aiad-sdd.js`<br/>`lib/empreinte-artefact.js` |
-| `test/footprint-context-directive.test.js` | SPEC-021-2-restitution-empreinte-context | INTENT-021-empreinte-mesuree | `bin/aiad-sdd.js`<br/>`lib/empreinte-artefact.js` |
-| `test/footprint-formatter.test.js` | SPEC-021-2-restitution-empreinte-context | INTENT-021-empreinte-mesuree | `bin/aiad-sdd.js`<br/>`lib/empreinte-artefact.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/ai-act-audit.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
@@ -39,7 +35,7 @@
 | `test/annotations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/annotations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/annotations.test.js` | ❌ non-tracé | — | `lib/emit-rules.js`<br/>`lib/skills.js` |
+| `test/annotations.test.js` | ❌ non-tracé | — | `lib/emit-rules.js`<br/>`lib/emit-rules.js`<br/>`lib/skills.js` |
 | `test/annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/anonymize.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/archive.test.js` | ❌ non-tracé | — | `lib/statusline.js` |
@@ -134,7 +130,7 @@
 | `test/dashboard-pm-v37.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-pm-v38.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-pm-v39.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/dashboard-pm-v39.test.js` | ❌ non-tracé | — | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
+| `test/dashboard-pm-v39.test.js` | ❌ non-tracé | — | `lib/drift-verdict.js`<br/>`lib/governance.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
 | `test/dashboard-pm-v4.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-pm-v40.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-pm-v41.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -181,16 +177,19 @@
 | `test/dry-run.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/eco-dashboard.test.js` | ❌ non-tracé | — | `lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/metrics.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js` |
 | `test/eco-estimator.test.js` | ❌ non-tracé | — | `lib/eco-estimator.js`<br/>`lib/eco-estimator.js` |
-| `test/eco-hook-attribution.test.js` | SPEC-021-1-attribution-tokens-artefact | INTENT-021-empreinte-mesuree | `bin/aiad-sdd.js`<br/>`lib/eco-hook.js`<br/>`lib/empreinte-artefact.js` |
+| `test/eco-hook-attribution.test.js` | ❌ non-tracé | — | `bin/aiad-sdd.js`<br/>`lib/eco-hook.js`<br/>`lib/empreinte-artefact.js` |
 | `test/eco-hook.test.js` | ❌ non-tracé | — | `lib/eco-hook.js` |
 | `test/emit-rules-agents.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/emit-rules-concurrent.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/emit-rules-pull.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/emit-rules.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/empreinte-artefact.test.js` | SPEC-021-1-attribution-tokens-artefact | INTENT-021-empreinte-mesuree | `bin/aiad-sdd.js`<br/>`lib/eco-hook.js`<br/>`lib/empreinte-artefact.js` |
+| `test/empreinte-artefact.test.js` | ❌ non-tracé | — | `bin/aiad-sdd.js`<br/>`lib/eco-hook.js`<br/>`lib/empreinte-artefact.js` |
 | `test/en-aliases.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/exec-status.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/favicon.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/footprint-cli.test.js` | ❌ non-tracé | — | `bin/aiad-sdd.js`<br/>`lib/empreinte-artefact.js` |
+| `test/footprint-context-directive.test.js` | ❌ non-tracé | — | `bin/aiad-sdd.js`<br/>`lib/empreinte-artefact.js` |
+| `test/footprint-formatter.test.js` | ❌ non-tracé | — | `bin/aiad-sdd.js`<br/>`lib/empreinte-artefact.js` |
 | `test/forges-ci.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/frontmatter-integration.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/frontmatter.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -315,7 +314,7 @@
 | `test/statusline.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/storybook.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
+| `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/drift-verdict.js`<br/>`lib/governance.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
 | `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/suggest-annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/suggest-tests.test.js` | ❌ non-tracé | — | `lib/test-skeleton-generator.js` |
@@ -330,7 +329,7 @@
 | `test/tour.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/trace-cache.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-cache.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
-| `test/trace-cache.test.js` | ❌ non-tracé | — | `lib/drift-verdict.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
+| `test/trace-cache.test.js` | ❌ non-tracé | — | `lib/drift-verdict.js`<br/>`lib/governance.js`<br/>`lib/jnsp.js`<br/>`lib/verdict.js`<br/>`lib/veto.js` |
 | `test/trace-ears-gap.test.js` | ❌ non-tracé | — | `lib/sdd-trace.js` |
 | `test/trace-ears-gap.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/trace-ears-gap.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -346,7 +345,7 @@
 | `test/trace.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/sdd-trace.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/sdd-trace.js` |
-| `test/track-cli.test.js` | SPEC-021-1-attribution-tokens-artefact | INTENT-021-empreinte-mesuree | `bin/aiad-sdd.js`<br/>`lib/eco-hook.js`<br/>`lib/empreinte-artefact.js` |
+| `test/track-cli.test.js` | ❌ non-tracé | — | `bin/aiad-sdd.js`<br/>`lib/eco-hook.js`<br/>`lib/empreinte-artefact.js` |
 | `test/tutorial.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/uninstall.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/update-check.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -365,13 +364,13 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **5**
-  - INTENT-022-dogfooding-cli — Dogfooding complet — le CLI sous SPEC
+- Intents sans SPEC : **4**
   - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
   - INTENT-027-ci-metrics-automation — INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow
   - INTENT-028-fiabilite-ci-bin-cartographie-trace — INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité
   - INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus
-- SPECs sans code (hors draft/review) : **0**
+- SPECs sans code (hors draft/review) : **1**
+  - SPEC-022-2-campagne-annotation-progressive (statut : ready)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
@@ -382,7 +381,7 @@
 - SPECs EARS sans tests liés (statut ≠ draft/archived) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **321**
+- Code sans `@spec` : **315**
   - .aiad/config.yml
   - .aiad/hook-bypass.yml
   - .aiad/hooks/discovery-gate.js
@@ -433,8 +432,8 @@
   - lib/coldstart.js
   - lib/completion.js
   - lib/confluence.js
-  - … (+271 autres)
-- Code annoté sans tests liés : **12**
+  - … (+265 autres)
+- Code annoté sans tests liés : **14**
   - .github/workflows/site-deploy.yml
   - lib/archive.js
   - lib/command-hooks.js
@@ -447,3 +446,5 @@
   - lib/dashboard/views/intents.js
   - lib/dashboard/views/overview.js
   - lib/dashboard/views/traceability.js
+  - lib/frontmatter.js
+  - lib/fs-ops.js

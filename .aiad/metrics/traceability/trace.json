@@ -2,134 +2,18 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-26T11:57:53.926Z"
+    "generated": "2026-06-26T16:26:12.862Z"
   },
-  "generatedAt": "2026-06-26T11:57:53.926Z",
+  "generatedAt": "2026-06-26T16:26:12.862Z",
   "summary": {
-    "intents": 6,
+    "intents": 5,
     "specs": 2,
     "codeFiles": 391,
-    "annotatedCodeFiles": 85,
+    "annotatedCodeFiles": 91,
     "testFiles": 275,
     "annotatedTestFiles": 51
   },
   "forward": [
-    {
-      "intent": {
-        "id": "INTENT-021-empreinte-mesuree",
-        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
-        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
-        "status": "done"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-021-1-attribution-tokens-artefact",
-            "file": ".aiad/specs/SPEC-021-1-attribution-tokens-artefact.md",
-            "title": "SPEC-021-1-attribution-tokens-artefact — variante EARS",
-            "parentIntent": "INTENT-021",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "bin/aiad-sdd.js",
-              "line": 2571
-            },
-            {
-              "path": "lib/eco-hook.js",
-              "line": 5
-            },
-            {
-              "path": "lib/empreinte-artefact.js",
-              "line": 3
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/eco-hook-attribution.test.js",
-              "line": 3
-            },
-            {
-              "path": "test/empreinte-artefact.test.js",
-              "line": 3
-            },
-            {
-              "path": "test/track-cli.test.js",
-              "line": 3
-            },
-            {
-              "path": "(Human",
-              "line": 334,
-              "viaCode": true
-            },
-            {
-              "path": "test/footprint-cli.test.js",
-              "line": 2553,
-              "viaCode": true
-            },
-            {
-              "path": "test/footprint-formatter.test.js",
-              "line": 6,
-              "viaCode": true
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-021-2-restitution-empreinte-context",
-            "file": ".aiad/specs/SPEC-021-2-restitution-empreinte-context.md",
-            "title": "SPEC-021-2-restitution-empreinte-context — variante EARS",
-            "parentIntent": "INTENT-021",
-            "status": "done",
-            "format": "EARS",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "bin/aiad-sdd.js",
-              "line": 2551
-            },
-            {
-              "path": "lib/empreinte-artefact.js",
-              "line": 4
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/footprint-cli.test.js",
-              "line": 3
-            },
-            {
-              "path": "test/footprint-context-directive.test.js",
-              "line": 3
-            },
-            {
-              "path": "test/footprint-formatter.test.js",
-              "line": 3
-            },
-            {
-              "path": "(Human",
-              "line": 334,
-              "viaCode": true
-            },
-            {
-              "path": "test/track-cli.test.js",
-              "line": 2573,
-              "viaCode": true
-            },
-            {
-              "path": "test/empreinte-artefact.test.js",
-              "line": 5,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
     {
       "intent": {
         "id": "INTENT-022-dogfooding-cli",
@@ -137,7 +21,55 @@
         "title": "Dogfooding complet — le CLI sous SPEC",
         "status": "draft"
       },
-      "specs": []
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-022-1-retro-annotations-core",
+            "file": ".aiad/specs/SPEC-022-1-retro-annotations-core.md",
+            "title": "Spec rétroactive lib/init.js + annotations modules cœur",
+            "parentIntent": "INTENT-022",
+            "status": "validation",
+            "format": "PROSE",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/frontmatter.js",
+              "line": 3
+            },
+            {
+              "path": "lib/fs-ops.js",
+              "line": 3
+            },
+            {
+              "path": "lib/init.js",
+              "line": 3
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/init.test.js",
+              "line": 4,
+              "viaCode": true
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-022-2-campagne-annotation-progressive",
+            "file": ".aiad/specs/SPEC-022-2-campagne-annotation-progressive.md",
+            "title": "Campagne d'annotation progressive — enforcement new modules lib/",
+            "parentIntent": "INTENT-022",
+            "status": "ready",
+            "format": "PROSE",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [],
+          "tests": []
+        }
+      ]
     },
     {
       "intent": {
@@ -177,102 +109,6 @@
     }
   ],
   "backward": [
-    {
-      "test": {
-        "path": "test/footprint-cli.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-021-2-restitution-empreinte-context",
-        "file": ".aiad/specs/SPEC-021-2-restitution-empreinte-context.md",
-        "title": "SPEC-021-2-restitution-empreinte-context — variante EARS",
-        "parentIntent": "INTENT-021",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-021-empreinte-mesuree",
-        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
-        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
-        "status": "done"
-      },
-      "code": [
-        {
-          "path": "bin/aiad-sdd.js",
-          "line": 2551
-        },
-        {
-          "path": "lib/empreinte-artefact.js",
-          "line": 4
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/footprint-context-directive.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-021-2-restitution-empreinte-context",
-        "file": ".aiad/specs/SPEC-021-2-restitution-empreinte-context.md",
-        "title": "SPEC-021-2-restitution-empreinte-context — variante EARS",
-        "parentIntent": "INTENT-021",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-021-empreinte-mesuree",
-        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
-        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
-        "status": "done"
-      },
-      "code": [
-        {
-          "path": "bin/aiad-sdd.js",
-          "line": 2551
-        },
-        {
-          "path": "lib/empreinte-artefact.js",
-          "line": 4
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/footprint-formatter.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-021-2-restitution-empreinte-context",
-        "file": ".aiad/specs/SPEC-021-2-restitution-empreinte-context.md",
-        "title": "SPEC-021-2-restitution-empreinte-context — variante EARS",
-        "parentIntent": "INTENT-021",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-021-empreinte-mesuree",
-        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
-        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
-        "status": "done"
-      },
-      "code": [
-        {
-          "path": "bin/aiad-sdd.js",
-          "line": 2551
-        },
-        {
-          "path": "lib/empreinte-artefact.js",
-          "line": 4
-        }
-      ]
-    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -439,7 +275,11 @@
       "code": [
         {
           "path": "lib/emit-rules.js",
-          "line": 188
+          "line": 3
+        },
+        {
+          "path": "lib/emit-rules.js",
+          "line": 194
         },
         {
           "path": "lib/skills.js",
@@ -1465,6 +1305,10 @@
           "line": 21
         },
         {
+          "path": "lib/governance.js",
+          "line": 3
+        },
+        {
           "path": "lib/jnsp.js",
           "line": 20
         },
@@ -1996,22 +1840,7 @@
         "path": "test/eco-hook-attribution.test.js",
         "line": 3
       },
-      "spec": {
-        "id": "SPEC-021-1-attribution-tokens-artefact",
-        "file": ".aiad/specs/SPEC-021-1-attribution-tokens-artefact.md",
-        "title": "SPEC-021-1-attribution-tokens-artefact — variante EARS",
-        "parentIntent": "INTENT-021",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-021-empreinte-mesuree",
-        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
-        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
-        "status": "done"
-      },
+      "intent": null,
       "code": [
         {
           "path": "bin/aiad-sdd.js",
@@ -2081,22 +1910,7 @@
         "path": "test/empreinte-artefact.test.js",
         "line": 3
       },
-      "spec": {
-        "id": "SPEC-021-1-attribution-tokens-artefact",
-        "file": ".aiad/specs/SPEC-021-1-attribution-tokens-artefact.md",
-        "title": "SPEC-021-1-attribution-tokens-artefact — variante EARS",
-        "parentIntent": "INTENT-021",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-021-empreinte-mesuree",
-        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
-        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
-        "status": "done"
-      },
+      "intent": null,
       "code": [
         {
           "path": "bin/aiad-sdd.js",
@@ -2138,6 +1952,57 @@
       "spec": null,
       "intent": null,
       "code": []
+    },
+    {
+      "test": {
+        "path": "test/footprint-cli.test.js",
+        "line": 3
+      },
+      "intent": null,
+      "code": [
+        {
+          "path": "bin/aiad-sdd.js",
+          "line": 2551
+        },
+        {
+          "path": "lib/empreinte-artefact.js",
+          "line": 4
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/footprint-context-directive.test.js",
+        "line": 3
+      },
+      "intent": null,
+      "code": [
+        {
+          "path": "bin/aiad-sdd.js",
+          "line": 2551
+        },
+        {
+          "path": "lib/empreinte-artefact.js",
+          "line": 4
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/footprint-formatter.test.js",
+        "line": 3
+      },
+      "intent": null,
+      "code": [
+        {
+          "path": "bin/aiad-sdd.js",
+          "line": 2551
+        },
+        {
+          "path": "lib/empreinte-artefact.js",
+          "line": 4
+        }
+      ]
     },
     {
       "test": {
@@ -3688,6 +3553,10 @@
           "line": 21
         },
         {
+          "path": "lib/governance.js",
+          "line": 3
+        },
+        {
           "path": "lib/jnsp.js",
           "line": 20
         },
@@ -3924,6 +3793,10 @@
         {
           "path": "lib/drift-verdict.js",
           "line": 21
+        },
+        {
+          "path": "lib/governance.js",
+          "line": 3
         },
         {
           "path": "lib/jnsp.js",
@@ -4227,22 +4100,7 @@
         "path": "test/track-cli.test.js",
         "line": 3
       },
-      "spec": {
-        "id": "SPEC-021-1-attribution-tokens-artefact",
-        "file": ".aiad/specs/SPEC-021-1-attribution-tokens-artefact.md",
-        "title": "SPEC-021-1-attribution-tokens-artefact — variante EARS",
-        "parentIntent": "INTENT-021",
-        "status": "done",
-        "format": "EARS",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-021-empreinte-mesuree",
-        "file": ".aiad/intents/INTENT-021-empreinte-mesuree.md",
-        "title": "Empreinte mesurée — tokens et coût par fonctionnalité",
-        "status": "done"
-      },
+      "intent": null,
       "code": [
         {
           "path": "bin/aiad-sdd.js",
@@ -4416,12 +4274,6 @@
   "gaps": {
     "intentsSansSpec": [
       {
-        "id": "INTENT-022-dogfooding-cli",
-        "file": ".aiad/intents/INTENT-022-dogfooding-cli.md",
-        "title": "Dogfooding complet — le CLI sous SPEC",
-        "status": "draft"
-      },
-      {
         "id": "INTENT-023-rayonnement-honnete",
         "file": ".aiad/intents/INTENT-023-rayonnement-honnete.md",
         "title": "Rayonnement honnête — comparatif public et runtimes élargis",
@@ -4446,7 +4298,18 @@
         "status": "draft"
       }
     ],
-    "specsSansCode": [],
+    "specsSansCode": [
+      {
+        "id": "SPEC-022-2-campagne-annotation-progressive",
+        "file": ".aiad/specs/SPEC-022-2-campagne-annotation-progressive.md",
+        "title": "Campagne d'annotation progressive — enforcement new modules lib/",
+        "parentIntent": "INTENT-022",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      }
+    ],
     "specsValideesNonImplementees": [],
     "codeSansSpec": [
       {
@@ -7071,17 +6934,6 @@
         "annotated": false
       },
       {
-        "path": "lib/doctor.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
         "path": "lib/dora-record.js",
         "isTest": false,
         "annotations": {
@@ -7130,28 +6982,6 @@
       },
       {
         "path": "lib/esm-import.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/frontmatter.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/fs-ops.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -7217,29 +7047,7 @@
         "annotated": false
       },
       {
-        "path": "lib/governance.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
         "path": "lib/hook-sandbox.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/hooks.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -7273,17 +7081,6 @@
       },
       {
         "path": "lib/init-tui.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [],
-          "specs": [],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": false
-      },
-      {
-        "path": "lib/init.js",
         "isTest": false,
         "annotations": {
           "intents": [],
@@ -8567,6 +8364,48 @@
               "line": 3
             }
           ]
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/frontmatter.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-022",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-022-1-retro-annotations-core",
+              "line": 3
+            }
+          ],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": true
+      },
+      {
+        "path": "lib/fs-ops.js",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-022",
+              "line": 2
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-022-1-retro-annotations-core",
+              "line": 3
+            }
+          ],
+          "verifiedBy": [],
+          "governance": []
         },
         "annotated": true
       }

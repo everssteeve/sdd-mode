@@ -101,25 +101,6 @@
           "ruleId": "AIAD-TRACE-001",
           "level": "warning",
           "message": {
-            "text": "Intent INTENT-022-dogfooding-cli (« Dogfooding complet — le CLI sous SPEC ») n'a pas de SPEC associée."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".aiad/intents/INTENT-022-dogfooding-cli.md"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-001",
-          "level": "warning",
-          "message": {
             "text": "Intent INTENT-023-rayonnement-honnete (« Rayonnement honnête — comparatif public et runtimes élargis ») n'a pas de SPEC associée."
           },
           "locations": [
@@ -4452,25 +4433,6 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
-            "text": "Aucune annotation @spec dans lib/doctor.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/doctor.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
             "text": "Aucune annotation @spec dans lib/dora-record.js."
           },
           "locations": [
@@ -4516,44 +4478,6 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "lib/esm-import.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
-            "text": "Aucune annotation @spec dans lib/frontmatter.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/frontmatter.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
-            "text": "Aucune annotation @spec dans lib/fs-ops.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/fs-ops.js"
                 },
                 "region": {
                   "startLine": 1
@@ -4661,25 +4585,6 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
-            "text": "Aucune annotation @spec dans lib/governance.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/governance.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
             "text": "Aucune annotation @spec dans lib/hook-sandbox.js."
           },
           "locations": [
@@ -4687,25 +4592,6 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "lib/hook-sandbox.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
-            "text": "Aucune annotation @spec dans lib/hooks.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/hooks.js"
                 },
                 "region": {
                   "startLine": 1
@@ -4763,25 +4649,6 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "lib/init-tui.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
-            "text": "Aucune annotation @spec dans lib/init.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/init.js"
                 },
                 "region": {
                   "startLine": 1
@@ -6518,12 +6385,50 @@
               }
             }
           ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/frontmatter.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/frontmatter.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-006",
+          "level": "warning",
+          "message": {
+            "text": "Code lib/fs-ops.js annoté @spec mais sans test lié."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "lib/fs-ops.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
         }
       ],
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-26T11:57:53.926Z"
+          "endTimeUtc": "2026-06-26T16:26:12.862Z"
         }
       ]
     }

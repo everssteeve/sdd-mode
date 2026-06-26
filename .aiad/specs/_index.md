@@ -63,6 +63,8 @@
 | SPEC-020-2 | Redevabilité bidirectionnelle — FACT enrichi + signal constraint-violated | INTENT-020 | prose | 5/5 | archived | — |
 | SPEC-021-1 | Attribution tokens ↔ Intent/SPEC (hook Stop enrichi rétro-compatible) | INTENT-021 | EARS | 5/5 | done | — |
 | SPEC-021-2 | Restitution empreinte par artefact dans /sdd context | INTENT-021 | EARS | 5/5 | done | — |
+| SPEC-022-1 | Spec rétroactive lib/init.js + annotations modules cœur | INTENT-022 | prose | 5/5 | done | — |
+| SPEC-022-2 | Campagne d'annotation progressive — enforcement new modules lib/ | INTENT-022 | prose | 5/5 | ready | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

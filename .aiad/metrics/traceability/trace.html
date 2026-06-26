@@ -24,23 +24,22 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-06-26T11:57:53.926Z</em></p>
+<p><em>Généré le 2026-06-26T16:26:12.862Z</em></p>
 
 <div class="stats">
-  <div class="stat"><div class="v">6</div><div class="k">Intents</div></div>
+  <div class="stat"><div class="v">5</div><div class="k">Intents</div></div>
   <div class="stat"><div class="v">2</div><div class="k">SPECs</div></div>
-  <div class="stat"><div class="v">85 / 391</div><div class="k">Code annoté</div></div>
+  <div class="stat"><div class="v">91 / 391</div><div class="k">Code annoté</div></div>
   <div class="stat"><div class="v">51 / 275</div><div class="k">Tests annotés</div></div>
-  <div class="stat"><div class="v">321</div><div class="k">Code sans @spec</div></div>
+  <div class="stat"><div class="v">315</div><div class="k">Code sans @spec</div></div>
   <div class="stat"><div class="v">0</div><div class="k">SPECs non-implémentées</div></div>
 </div>
 
 <h2>Matrice Forward</h2>
 <div class="filter"><input type="search" id="qfwd" placeholder="Filtrer Forward…" /></div>
 <table id="fwd"><thead><tr><th>Intent</th><th>SPEC</th><th>Code</th><th>Tests</th><th>Verdict</th></tr></thead><tbody>
-<tr class="ok"><td>INTENT-021-empreinte-mesuree</td><td>SPEC-021-1-attribution-tokens-artefact</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/eco-hook.js</code><br/><code>lib/empreinte-artefact.js</code></td><td><code>test/eco-hook-attribution.test.js</code><br/><code>test/empreinte-artefact.test.js</code><br/><code>test/track-cli.test.js</code><br/><code>(Human</code><br/><code>test/footprint-cli.test.js</code><br/><code>test/footprint-formatter.test.js</code></td><td><span class="ok">✅</span></td></tr>
-<tr class="ok"><td>INTENT-021-empreinte-mesuree</td><td>SPEC-021-2-restitution-empreinte-context</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/empreinte-artefact.js</code></td><td><code>test/footprint-cli.test.js</code><br/><code>test/footprint-context-directive.test.js</code><br/><code>test/footprint-formatter.test.js</code><br/><code>(Human</code><br/><code>test/track-cli.test.js</code><br/><code>test/empreinte-artefact.test.js</code></td><td><span class="ok">✅</span></td></tr>
-<tr><td>INTENT-022-dogfooding-cli</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
+<tr class="ok"><td>INTENT-022-dogfooding-cli</td><td>SPEC-022-1-retro-annotations-core</td><td><code>lib/frontmatter.js</code><br/><code>lib/fs-ops.js</code><br/><code>lib/init.js</code></td><td><code>test/init.test.js</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="warn"><td>INTENT-022-dogfooding-cli</td><td>SPEC-022-2-campagne-annotation-progressive</td><td><em>(aucun)</em></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
 <tr><td>INTENT-023-rayonnement-honnete</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-027-ci-metrics-automation</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-028-fiabilite-ci-bin-cartographie-trace</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
@@ -50,9 +49,6 @@
 <h2>Matrice Backward</h2>
 <div class="filter"><input type="search" id="qbwd" placeholder="Filtrer Backward…" /></div>
 <table id="bwd"><thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead><tbody>
-<tr class="ok"><td><code>test/footprint-cli.test.js</code></td><td>SPEC-021-2-restitution-empreinte-context</td><td>INTENT-021-empreinte-mesuree</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
-<tr class="ok"><td><code>test/footprint-context-directive.test.js</code></td><td>SPEC-021-2-restitution-empreinte-context</td><td>INTENT-021-empreinte-mesuree</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
-<tr class="ok"><td><code>test/footprint-formatter.test.js</code></td><td>SPEC-021-2-restitution-empreinte-context</td><td>INTENT-021-empreinte-mesuree</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
 <tr class="bad"><td><code>templates/projects/fastapi-aiad/tests/test_main.py</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>templates/projects/node-aiad/test/index.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/ai-act-audit.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
@@ -62,7 +58,7 @@
 <tr class="bad"><td><code>test/annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
-<tr class="bad"><td><code>test/annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/emit-rules.js</code><br/><code>lib/skills.js</code></td></tr>
+<tr class="bad"><td><code>test/annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/emit-rules.js</code><br/><code>lib/emit-rules.js</code><br/><code>lib/skills.js</code></td></tr>
 <tr class="bad"><td><code>test/annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/anonymize.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/archive.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/statusline.js</code></td></tr>
@@ -157,7 +153,7 @@
 <tr class="bad"><td><code>test/dashboard-pm-v37.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-pm-v38.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-pm-v39.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
-<tr class="bad"><td><code>test/dashboard-pm-v39.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/drift-verdict.js</code><br/><code>lib/jnsp.js</code><br/><code>lib/verdict.js</code><br/><code>lib/veto.js</code></td></tr>
+<tr class="bad"><td><code>test/dashboard-pm-v39.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/drift-verdict.js</code><br/><code>lib/governance.js</code><br/><code>lib/jnsp.js</code><br/><code>lib/verdict.js</code><br/><code>lib/veto.js</code></td></tr>
 <tr class="bad"><td><code>test/dashboard-pm-v4.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-pm-v40.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-pm-v41.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -204,16 +200,19 @@
 <tr class="bad"><td><code>test/dry-run.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/eco-dashboard.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/dashboard.js</code><br/><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/views/metrics.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code></td></tr>
 <tr class="bad"><td><code>test/eco-estimator.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/eco-estimator.js</code><br/><code>lib/eco-estimator.js</code></td></tr>
-<tr class="ok"><td><code>test/eco-hook-attribution.test.js</code></td><td>SPEC-021-1-attribution-tokens-artefact</td><td>INTENT-021-empreinte-mesuree</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/eco-hook.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
+<tr class="bad"><td><code>test/eco-hook-attribution.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/eco-hook.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
 <tr class="bad"><td><code>test/eco-hook.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/eco-hook.js</code></td></tr>
 <tr class="bad"><td><code>test/emit-rules-agents.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/emit-rules-concurrent.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/emit-rules-pull.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/emit-rules.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
-<tr class="ok"><td><code>test/empreinte-artefact.test.js</code></td><td>SPEC-021-1-attribution-tokens-artefact</td><td>INTENT-021-empreinte-mesuree</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/eco-hook.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
+<tr class="bad"><td><code>test/empreinte-artefact.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/eco-hook.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
 <tr class="bad"><td><code>test/en-aliases.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/exec-status.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/favicon.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="bad"><td><code>test/footprint-cli.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
+<tr class="bad"><td><code>test/footprint-context-directive.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
+<tr class="bad"><td><code>test/footprint-formatter.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
 <tr class="bad"><td><code>test/forges-ci.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/frontmatter-integration.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/frontmatter.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -338,7 +337,7 @@
 <tr class="bad"><td><code>test/statusline.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/storybook.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/suggest-annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
-<tr class="bad"><td><code>test/suggest-annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/drift-verdict.js</code><br/><code>lib/jnsp.js</code><br/><code>lib/verdict.js</code><br/><code>lib/veto.js</code></td></tr>
+<tr class="bad"><td><code>test/suggest-annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/drift-verdict.js</code><br/><code>lib/governance.js</code><br/><code>lib/jnsp.js</code><br/><code>lib/verdict.js</code><br/><code>lib/veto.js</code></td></tr>
 <tr class="bad"><td><code>test/suggest-annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/suggest-annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/suggest-tests.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/test-skeleton-generator.js</code></td></tr>
@@ -353,7 +352,7 @@
 <tr class="bad"><td><code>test/tour.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/trace-cache.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/trace-cache.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
-<tr class="bad"><td><code>test/trace-cache.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/drift-verdict.js</code><br/><code>lib/jnsp.js</code><br/><code>lib/verdict.js</code><br/><code>lib/veto.js</code></td></tr>
+<tr class="bad"><td><code>test/trace-cache.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/drift-verdict.js</code><br/><code>lib/governance.js</code><br/><code>lib/jnsp.js</code><br/><code>lib/verdict.js</code><br/><code>lib/veto.js</code></td></tr>
 <tr class="bad"><td><code>test/trace-ears-gap.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/sdd-trace.js</code></td></tr>
 <tr class="bad"><td><code>test/trace-ears-gap.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/trace-ears-gap.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -369,7 +368,7 @@
 <tr class="bad"><td><code>test/trace.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/trace.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/sdd-trace.js</code></td></tr>
 <tr class="bad"><td><code>test/trace.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/sdd-trace.js</code></td></tr>
-<tr class="ok"><td><code>test/track-cli.test.js</code></td><td>SPEC-021-1-attribution-tokens-artefact</td><td>INTENT-021-empreinte-mesuree</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/eco-hook.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
+<tr class="bad"><td><code>test/track-cli.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/eco-hook.js</code><br/><code>lib/empreinte-artefact.js</code></td></tr>
 <tr class="bad"><td><code>test/tutorial.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/uninstall.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/update-check.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>

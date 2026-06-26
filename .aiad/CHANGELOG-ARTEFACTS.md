@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-26 — SPEC-022-1 — Drift Lock OK (done)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd drift-check SPEC-022-1` après validation — 7 modules `lib/` annotés, 0 gap de traçabilité bloquant, `trace --fail-on-gap` exit 0. SPEC-022-2 (campagne progressive) reste `ready`.
+**Impact** : `lib/init.js` (`@intent INTENT-022 @spec SPEC-022-1-retro-annotations-core @verified-by test/init.test.js`), `lib/fs-ops.js` + `lib/frontmatter.js` (→ SPEC-022-1), `lib/governance.js` (→ SPEC-002-1), `lib/hooks.js` (→ SPEC-011-1), `lib/emit-rules.js` (→ SPEC-005-1, header complété), `lib/doctor.js` (→ SPEC-004-1). Tests : 4/4 init.test.js. SPEC-022-1 → `done`.
+
 ## 2026-06-25 — SPEC-021-2 — Drift Lock OK (done) + INTENT-021 → done
 
 **Auteur** : Steeve Evers
