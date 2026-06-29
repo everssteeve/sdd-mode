@@ -4,9 +4,10 @@
 **Research** : RESEARCH-039 (GO 95 %)
 **Auteur** : Steeve Evers
 **Date** : 2026-06-29
-**Statut** : draft
+**Statut** : ready
 **Format** : prose
-**SQS** : [À évaluer via /sdd gate]
+**SQS** : 5/5
+**validated_at** : 2026-06-29
 
 ---
 

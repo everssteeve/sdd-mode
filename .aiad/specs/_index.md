@@ -68,7 +68,7 @@
 | SPEC-027-1 | Stamp `validated_at` dans le frontmatter SPEC lors du passage `done` | INTENT-027 | EARS | 5/5 | archived | — |
 | SPEC-027-2 | Fonction `calculateCycleTimeDaysFromSpec()` + flag CLI `--auto` | INTENT-027 | EARS | 5/5 | archived | — |
 | SPEC-027-3 | Steps CI post-deploy (`site-deploy.yml` + `release.yml`) | INTENT-027 | EARS | 5/5 | archived | — |
-| SPEC-029-1 | Extension de l'archivage aux FACTs résolus | INTENT-029 | prose | — | draft | — |
+| SPEC-029-1 | Extension de l'archivage aux FACTs résolus | INTENT-029 | prose | 5/5 | ready | — |
 | SPEC-028-1 | Smoke test ESM bin/ (package.json + ci.yml) | INTENT-028 | prose | 5/5 | archived | — |
 | SPEC-028-2 | AGENT-GUIDE : section consommateurs de construireMatrice() | INTENT-028 | prose | 5/5 | archived | — |
 | SPEC-023-1 | Page comparative publique honnête (AIAD vs concurrents) | INTENT-023 | prose | 5/5 | archived | — |

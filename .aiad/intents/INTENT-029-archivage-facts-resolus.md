@@ -41,4 +41,4 @@ Signal observable : après `aiad-sdd archive --all` sur un projet contenant au m
 
 ## SPECs liées
 
-- [ ] SPEC-029-1 — Extension de l'archivage aux FACTs résolus — draft
+- [ ] SPEC-029-1 — Extension de l'archivage aux FACTs résolus — ready (5/5)
