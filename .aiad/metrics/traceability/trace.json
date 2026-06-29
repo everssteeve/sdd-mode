@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-29T06:00:43.292Z"
+    "generated": "2026-06-29T06:06:15.279Z"
   },
-  "generatedAt": "2026-06-29T06:00:43.291Z",
+  "generatedAt": "2026-06-29T06:06:15.278Z",
   "summary": {
     "intents": 5,
     "specs": 2,
@@ -61,7 +61,7 @@
             "file": ".aiad/specs/SPEC-022-2-campagne-annotation-progressive.md",
             "title": "Campagne d'annotation progressive — enforcement new modules lib/",
             "parentIntent": "INTENT-022",
-            "status": "in-progress",
+            "status": "done",
             "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
@@ -4028,7 +4028,7 @@
         "file": ".aiad/specs/SPEC-022-2-campagne-annotation-progressive.md",
         "title": "Campagne d'annotation progressive — enforcement new modules lib/",
         "parentIntent": "INTENT-022",
-        "status": "in-progress",
+        "status": "done",
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
