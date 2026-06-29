@@ -447,7 +447,7 @@ const AIDE = `
                           pour aperçu, ou exécution directe pour générer les squelettes.
 
   Options emit-rules :
-    --runtime <list>      Runtimes ciblés — claude-code|cursor|codex|copilot|gemini|all
+    --runtime <list>      Runtimes ciblés — claude-code|cursor|codex|copilot|gemini|kiro|all
                           (séparés par virgule, défaut : all)
     --check               Mode CI — exit 1 si divergence avec AGENT-GUIDE
 

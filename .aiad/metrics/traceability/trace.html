@@ -24,24 +24,22 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-06-29T06:06:15.278Z</em></p>
+<p><em>Généré le 2026-06-29T08:38:22.777Z</em></p>
 
 <div class="stats">
-  <div class="stat"><div class="v">5</div><div class="k">Intents</div></div>
+  <div class="stat"><div class="v">3</div><div class="k">Intents</div></div>
   <div class="stat"><div class="v">2</div><div class="k">SPECs</div></div>
-  <div class="stat"><div class="v">91 / 391</div><div class="k">Code annoté</div></div>
-  <div class="stat"><div class="v">51 / 275</div><div class="k">Tests annotés</div></div>
-  <div class="stat"><div class="v">315</div><div class="k">Code sans @spec</div></div>
+  <div class="stat"><div class="v">94 / 392</div><div class="k">Code annoté</div></div>
+  <div class="stat"><div class="v">53 / 277</div><div class="k">Tests annotés</div></div>
+  <div class="stat"><div class="v">313</div><div class="k">Code sans @spec</div></div>
   <div class="stat"><div class="v">0</div><div class="k">SPECs non-implémentées</div></div>
 </div>
 
 <h2>Matrice Forward</h2>
 <div class="filter"><input type="search" id="qfwd" placeholder="Filtrer Forward…" /></div>
 <table id="fwd"><thead><tr><th>Intent</th><th>SPEC</th><th>Code</th><th>Tests</th><th>Verdict</th></tr></thead><tbody>
-<tr class="ok"><td>INTENT-022-dogfooding-cli</td><td>SPEC-022-1-retro-annotations-core</td><td><code>lib/frontmatter.js</code><br/><code>lib/fs-ops.js</code><br/><code>lib/init.js</code></td><td><code>test/init.test.js</code></td><td><span class="ok">✅</span></td></tr>
-<tr class="ok"><td>INTENT-022-dogfooding-cli</td><td>SPEC-022-2-campagne-annotation-progressive</td><td><code>lib/sdd-trace.js</code></td><td><code>test/trace.test.js</code><br/><code>chemin/relatif/test.ts</code></td><td><span class="ok">✅</span></td></tr>
-<tr><td>INTENT-023-rayonnement-honnete</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
-<tr><td>INTENT-027-ci-metrics-automation</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
+<tr class="warn"><td>INTENT-023-rayonnement-honnete</td><td>SPEC-023-1-comparatif-public</td><td><em>(aucun)</em></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
+<tr class="ok"><td>INTENT-023-rayonnement-honnete</td><td>SPEC-023-2-emit-rules-nouveaux-runtimes</td><td><code>lib/emit-rules.js</code></td><td><code>test/emit-rules.test.js</code><br/><code>test/emit-rules-pull.test.js</code><br/><code>tests/path/file.test.ts</code></td><td><span class="ok">✅</span></td></tr>
 <tr><td>INTENT-028-fiabilite-ci-bin-cartographie-trace</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 <tr><td>INTENT-029-archivage-facts-resolus</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
 </tbody></table>
@@ -193,6 +191,7 @@
 <tr class="bad"><td><code>test/doctor-fix.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/doctor-supplementaire.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/doctor.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="bad"><td><code>test/dora-auto.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/dora-record.js</code></td></tr>
 <tr class="bad"><td><code>test/dora-record.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dpia.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/dpia.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -321,6 +320,7 @@
 <tr class="bad"><td><code>test/skills.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/sla.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/sovereignty-score.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="bad"><td><code>test/spec-stamp.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>bin/aiad-sdd.js</code><br/><code>lib/spec-stamp.js</code></td></tr>
 <tr class="bad"><td><code>test/spec-suggester.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/spec-suggester.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/spec-suggester.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/memory.js</code></td></tr>
@@ -363,7 +363,7 @@
 <tr class="bad"><td><code>test/trace-watch.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/trace-watch.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/trace-worker.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
-<tr class="ok"><td><code>test/trace.test.js</code></td><td>SPEC-022-2-campagne-annotation-progressive</td><td>INTENT-022-dogfooding-cli</td><td><code>lib/sdd-trace.js</code></td></tr>
+<tr class="bad"><td><code>test/trace.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/sdd-trace.js</code></td></tr>
 <tr class="bad"><td><code>test/trace.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/trace.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/trace.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>

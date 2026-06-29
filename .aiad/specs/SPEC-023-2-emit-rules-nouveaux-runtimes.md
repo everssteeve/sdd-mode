@@ -3,14 +3,15 @@
 **Intent parent** : INTENT-023
 **Auteur** : Steeve Evers
 **Date** : 2026-06-29
-**Statut** : draft
+**Statut** : done
 **Format** : prose
-**SQS** : [À évaluer via /sdd gate]
+**SQS** : 5/5
 **Research** : RESEARCH-037 (GO 80 %)
 
-> **Condition à lever avant exec (R3)** : le format de configuration des steering rules Kiro
-> (YAML ? Markdown ? `.kiro/steering/`) doit être investigué et documenté dans cette SPEC
-> avant le passage en Gate. Ajouter le format retenu dans § 4 Interface/API.
+> **R3 levée (2026-06-29)** : format Kiro confirmé via [kiro.dev/docs/steering](https://kiro.dev/docs/steering/).
+> Chemin `.kiro/steering/*.md`, frontmatter YAML, champ `inclusion` requis (valeurs : `always` | `fileMatch` | `manual` | `auto`).
+> Pour les fichiers Tier 1 scopés : `inclusion: fileMatch` + `fileMatchPattern` (glob).
+> Voir §4 Interface/API pour le format exact.
 
 ---
 
@@ -59,23 +60,22 @@ Mettre à jour `lib/init.js` si `emit-rules` est appelé automatiquement après 
 
 ### Output
 
-Fichiers générés dans le projet cible (selon le format Kiro — à préciser post-R3) :
+Fichiers générés dans le projet cible :
 
 ```
-.kiro/steering/aiad.md           ← règles AIAD (TOUJOURS/JAMAIS/INCERTITUDE)
-.kiro/steering/aiad-rgpd.md      ← gouvernance RGPD condensée   (si Kiro supporte le scopage)
-.kiro/steering/aiad-rgaa.md      ← gouvernance RGAA condensée
-.kiro/steering/aiad-ai-act.md    ← gouvernance AI-ACT condensée
-.kiro/steering/aiad-rgesn.md     ← gouvernance RGESN condensée
+.kiro/steering/aiad.md           ← règles AIAD (TOUJOURS/JAMAIS/INCERTITUDE) — inclusion: always
+.kiro/steering/aiad-rgpd.md      ← gouvernance RGPD condensée — inclusion: fileMatch
+.kiro/steering/aiad-rgaa.md      ← gouvernance RGAA condensée — inclusion: fileMatch
+.kiro/steering/aiad-ai-act.md    ← gouvernance AI-ACT condensée — inclusion: fileMatch
+.kiro/steering/aiad-rgesn.md     ← gouvernance RGESN condensée — inclusion: fileMatch
 ```
 
-> TODO-JNSP: le format exact des steering files Kiro (chemin, extension, frontmatter) doit être
-> confirmé avant Gate. Si Kiro ne supporte pas le scopage par globs, les 4 fichiers Tier 1
-> sont fusionnés dans `aiad.md` avec des sections dédiées.
+Les fichiers Tier 1 utilisent `inclusion: fileMatch` (scopage par globs natif Kiro — confirmé kiro.dev/docs/steering).
+Si un projet cible ne requiert pas le scopage (pas de globs pertinents), les 4 fichiers Tier 1 peuvent être fusionnés dans `aiad.md` avec `inclusion: always` et des sections dédiées — décision à la génération.
 
 ### Cas limites
 
-- **Format Kiro inconnu au moment de la Gate** → Gate fermée jusqu'à levée de R3 (condition RESEARCH-037)
+- **Scopage Tier 1 non pertinent** → fusionner les 4 fichiers Tier 1 dans `aiad.md` avec `inclusion: always` et des sections dédiées
 - **Amazon Q format incompatible** → périmètre réduit à Kiro seul, Amazon Q reporté à une SPEC ultérieure
 - **`--runtime all` inclut kiro** → comportement automatique dès l'ajout dans `RUNTIMES_VALIDES`
 - **Projet cible sans `.kiro/`** → `emit-rules` crée le répertoire (pattern identique à `.cursor/rules/`)
@@ -100,8 +100,9 @@ Fichiers générés dans le projet cible (selon le format Kiro — à préciser 
 aiad-sdd emit-rules [--runtime claude-code|cursor|codex|copilot|gemini|kiro|all]
 ```
 
-**Format Kiro attendu (à confirmer post-R3)**
+**Format Kiro (confirmé — [kiro.dev/docs/steering](https://kiro.dev/docs/steering/))**
 
+Fichier principal (`inclusion: always`) :
 ```
 .kiro/steering/aiad.md
 ---
@@ -116,6 +117,23 @@ inclusion: always
 ## INCERTITUDE
 …
 ```
+
+Fichiers Tier 1 (`inclusion: fileMatch`, scopage par globs) :
+```
+.kiro/steering/aiad-rgpd.md
+---
+inclusion: fileMatch
+fileMatchPattern: "**/*.{ts,js,py}"
+---
+# Gouvernance RGPD — AIAD
+…
+```
+
+Champs frontmatter Kiro disponibles :
+- `inclusion` (requis) : `always` | `fileMatch` | `manual` | `auto`
+- `fileMatchPattern` (requis si `fileMatch`) : string ou tableau de globs
+- `name` (requis si `auto`) : identifiant string
+- `description` (requis si `auto`) : description en langage naturel
 
 *Si le frontmatter `inclusion:` n'est pas le bon champ Kiro, mettre à jour lors de la levée de R3.*
 

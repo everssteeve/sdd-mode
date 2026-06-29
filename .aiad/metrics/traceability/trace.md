@@ -1,24 +1,22 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-29T06:06:15.278Z
+> Généré le 2026-06-29T08:38:22.777Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 5 |
+| Intents | 3 |
 | SPECs | 2 |
-| Fichiers code | 391 (annotés : 91) |
-| Fichiers test | 275 (annotés : 51) |
+| Fichiers code | 392 (annotés : 94) |
+| Fichiers test | 277 (annotés : 53) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
 | Intent | SPEC | Code | Tests | Verdict |
 |--------|------|------|-------|---------|
-| INTENT-022-dogfooding-cli | SPEC-022-1-retro-annotations-core | `lib/frontmatter.js`<br/>`lib/fs-ops.js`<br/>`lib/init.js` | `test/init.test.js` | ✅ |
-| INTENT-022-dogfooding-cli | SPEC-022-2-campagne-annotation-progressive | `lib/sdd-trace.js` | `test/trace.test.js`<br/>`chemin/relatif/test.ts` | ✅ |
-| INTENT-023-rayonnement-honnete | _(aucune SPEC)_ | — | — | ❌ orphelin |
-| INTENT-027-ci-metrics-automation | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-023-rayonnement-honnete | SPEC-023-1-comparatif-public | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-023-rayonnement-honnete | SPEC-023-2-emit-rules-nouveaux-runtimes | `lib/emit-rules.js` | `test/emit-rules.test.js`<br/>`test/emit-rules-pull.test.js`<br/>`tests/path/file.test.ts` | ✅ |
 | INTENT-028-fiabilite-ci-bin-cartographie-trace | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-029-archivage-facts-resolus | _(aucune SPEC)_ | — | — | ❌ orphelin |
 
@@ -170,6 +168,7 @@
 | `test/doctor-fix.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/doctor-supplementaire.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/doctor.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dora-auto.test.js` | ❌ non-tracé | — | `bin/aiad-sdd.js`<br/>`lib/dora-record.js` |
 | `test/dora-record.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dpia.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/dpia.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -298,6 +297,7 @@
 | `test/skills.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/sla.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/sovereignty-score.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/spec-stamp.test.js` | ❌ non-tracé | — | `bin/aiad-sdd.js`<br/>`lib/spec-stamp.js` |
 | `test/spec-suggester.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/spec-suggester.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/spec-suggester.test.js` | ❌ non-tracé | — | `lib/memory.js` |
@@ -340,7 +340,7 @@
 | `test/trace-watch.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-watch.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-worker.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/trace.test.js` | SPEC-022-2-campagne-annotation-progressive | INTENT-022-dogfooding-cli | `lib/sdd-trace.js` |
+| `test/trace.test.js` | ❌ non-tracé | — | `lib/sdd-trace.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -367,12 +367,11 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **4**
-  - INTENT-023-rayonnement-honnete — Rayonnement honnête — comparatif public et runtimes élargis
-  - INTENT-027-ci-metrics-automation — INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow
+- Intents sans SPEC : **2**
   - INTENT-028-fiabilite-ci-bin-cartographie-trace — INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité
   - INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus
-- SPECs sans code (hors draft/review) : **0**
+- SPECs sans code (hors draft/review) : **1**
+  - SPEC-023-1-comparatif-public (statut : done)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
@@ -383,7 +382,7 @@
 - SPECs EARS sans tests liés (statut ≠ draft/archived) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **315** (bloquant : 0, non-bloquant : 315)
+- Code sans `@spec` : **313** (bloquant : 0, non-bloquant : 313)
   - .aiad/config.yml
   - .aiad/hook-bypass.yml
   - .aiad/hooks/discovery-gate.js
@@ -403,7 +402,6 @@
   - .github/workflows/canary.yml
   - .github/workflows/ci.yml
   - .github/workflows/mutation.yml
-  - .github/workflows/release.yml
   - .github/workflows/sdd-trace.yml
   - bench/scenario-autonomous-run/url-shortener/.aiad/config.yml
   - bench/scenario-autonomous-run/url-shortener/.aiad/hook-bypass.yml
@@ -434,8 +432,10 @@
   - lib/coldstart.js
   - lib/completion.js
   - lib/confluence.js
-  - … (+265 autres)
-- Code annoté sans tests liés : **14**
+  - lib/dashboard/_history-utils.js
+  - … (+263 autres)
+- Code annoté sans tests liés : **15**
+  - .github/workflows/release.yml
   - .github/workflows/site-deploy.yml
   - lib/archive.js
   - lib/command-hooks.js

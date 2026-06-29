@@ -193,6 +193,70 @@ test('emit-rules — propage la section INCERTITUDE/JNSP aux 5 cibles multi-runt
   }
 }));
 
+// ─── Kiro (SPEC-023-2) ────────────────────────────────────────────────────────
+
+test('emit-rules --runtime kiro — CA-1 : génère au moins un fichier dans .kiro/ sans erreur', silencerStdout(async () => {
+  const dir = projetTemp();
+  try {
+    await init(dir, {});
+    await emitRules(dir, { runtimes: ['kiro'] });
+    assert.ok(existsSync(join(dir, '.kiro', 'steering', 'aiad.md')), '.kiro/steering/aiad.md manquant');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}));
+
+test('emit-rules --runtime kiro — CA-3 : steering principal contient TOUJOURS / JAMAIS / INCERTITUDE', silencerStdout(async () => {
+  const dir = projetTemp();
+  try {
+    await init(dir, {});
+    await emitRules(dir, { runtimes: ['kiro'] });
+    const contenu = readFileSync(join(dir, '.kiro', 'steering', 'aiad.md'), 'utf-8');
+    assert.ok(contenu.includes('inclusion: always'), 'frontmatter inclusion:always absent');
+    assert.ok(/TOUJOURS/i.test(contenu), 'section TOUJOURS absente');
+    assert.ok(/JAMAIS/i.test(contenu), 'section JAMAIS absente');
+    assert.ok(/INCERTITUDE/i.test(contenu), 'section INCERTITUDE absente');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}));
+
+test('emit-rules --runtime kiro — CA-4 : --check exit 0 si à jour', silencerStdout(async () => {
+  const dir = projetTemp();
+  try {
+    await init(dir, {});
+    await emitRules(dir, { runtimes: ['kiro'] });
+    const stats = await emitRules(dir, { runtimes: ['kiro'], check: true });
+    assert.equal(stats.drifts.length, 0, `drifts inattendus : ${JSON.stringify(stats.drifts)}`);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}));
+
+test('emit-rules --runtime kiro — CA-5 : idempotence (deux exécutions sans changement)', silencerStdout(async () => {
+  const dir = projetTemp();
+  try {
+    await init(dir, {});
+    await emitRules(dir, { runtimes: ['kiro'] });
+    const contenu1 = readFileSync(join(dir, '.kiro', 'steering', 'aiad.md'), 'utf-8');
+    await emitRules(dir, { runtimes: ['kiro'] });
+    const contenu2 = readFileSync(join(dir, '.kiro', 'steering', 'aiad.md'), 'utf-8');
+    assert.equal(contenu1, contenu2, 'contenu modifié à la deuxième exécution — idempotence brisée');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}));
+
+test('emit-rules --runtime all — CA-2 : inclut la génération Kiro', silencerStdout(async () => {
+  const dir = projetTemp();
+  try {
+    await init(dir, { runtimes: ['all'] });
+    assert.ok(existsSync(join(dir, '.kiro', 'steering', 'aiad.md')), '.kiro/steering/aiad.md absent du --runtime all');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}));
+
 test('emit-rules — source-hash change quand seule la section INCERTITUDE est modifiée', silencerStdout(async () => {
   const dir = projetTemp();
   try {

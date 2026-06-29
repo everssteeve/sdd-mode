@@ -2,107 +2,76 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-29T06:06:15.279Z"
+    "generated": "2026-06-29T08:38:22.777Z"
   },
-  "generatedAt": "2026-06-29T06:06:15.278Z",
+  "generatedAt": "2026-06-29T08:38:22.777Z",
   "summary": {
-    "intents": 5,
+    "intents": 3,
     "specs": 2,
-    "codeFiles": 391,
-    "annotatedCodeFiles": 91,
-    "testFiles": 275,
-    "annotatedTestFiles": 51
+    "codeFiles": 392,
+    "annotatedCodeFiles": 94,
+    "testFiles": 277,
+    "annotatedTestFiles": 53
   },
   "forward": [
-    {
-      "intent": {
-        "id": "INTENT-022-dogfooding-cli",
-        "file": ".aiad/intents/INTENT-022-dogfooding-cli.md",
-        "title": "Dogfooding complet — le CLI sous SPEC",
-        "status": "draft"
-      },
-      "specs": [
-        {
-          "spec": {
-            "id": "SPEC-022-1-retro-annotations-core",
-            "file": ".aiad/specs/SPEC-022-1-retro-annotations-core.md",
-            "title": "Spec rétroactive lib/init.js + annotations modules cœur",
-            "parentIntent": "INTENT-022",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/frontmatter.js",
-              "line": 3
-            },
-            {
-              "path": "lib/fs-ops.js",
-              "line": 3
-            },
-            {
-              "path": "lib/init.js",
-              "line": 3
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/init.test.js",
-              "line": 4,
-              "viaCode": true
-            }
-          ]
-        },
-        {
-          "spec": {
-            "id": "SPEC-022-2-campagne-annotation-progressive",
-            "file": ".aiad/specs/SPEC-022-2-campagne-annotation-progressive.md",
-            "title": "Campagne d'annotation progressive — enforcement new modules lib/",
-            "parentIntent": "INTENT-022",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "",
-            "traceabilityReason": ""
-          },
-          "code": [
-            {
-              "path": "lib/sdd-trace.js",
-              "line": 16
-            }
-          ],
-          "tests": [
-            {
-              "path": "test/trace.test.js",
-              "line": 2
-            },
-            {
-              "path": "chemin/relatif/test.ts",
-              "line": 62,
-              "viaCode": true
-            }
-          ]
-        }
-      ]
-    },
     {
       "intent": {
         "id": "INTENT-023-rayonnement-honnete",
         "file": ".aiad/intents/INTENT-023-rayonnement-honnete.md",
         "title": "Rayonnement honnête — comparatif public et runtimes élargis",
-        "status": "draft"
+        "status": "active"
       },
-      "specs": []
-    },
-    {
-      "intent": {
-        "id": "INTENT-027-ci-metrics-automation",
-        "file": ".aiad/intents/INTENT-027-ci-metrics-automation.md",
-        "title": "INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow",
-        "status": "draft"
-      },
-      "specs": []
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-023-1-comparatif-public",
+            "file": ".aiad/specs/SPEC-023-1-comparatif-public.md",
+            "title": "Page comparative publique honnête",
+            "parentIntent": "INTENT-023",
+            "status": "done",
+            "format": "PROSE",
+            "traceability": "exempt",
+            "traceabilityReason": "Livrable = page HTML statique site/fr/comparaison.html + bench/comparison.md. Les fichiers .html et .md ne sont pas dans EXTENSIONS_CODE par design (SPEC-024-1 / FACT-004). Validé via axe-core 0 violation + 16/16 tests bench-comparison.test.js."
+          },
+          "code": [],
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-023-2-emit-rules-nouveaux-runtimes",
+            "file": ".aiad/specs/SPEC-023-2-emit-rules-nouveaux-runtimes.md",
+            "title": "SPEC-023-2 — Extension emit-rules : runtime Kiro (+ Amazon Q)",
+            "parentIntent": "INTENT-023",
+            "status": "in-progress",
+            "format": "PROSE",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/emit-rules.js",
+              "line": 642
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/emit-rules.test.js",
+              "line": 4,
+              "viaCode": true
+            },
+            {
+              "path": "test/emit-rules-pull.test.js",
+              "line": 195,
+              "viaCode": true
+            },
+            {
+              "path": "tests/path/file.test.ts",
+              "line": 394,
+              "viaCode": true
+            }
+          ]
+        }
+      ]
     },
     {
       "intent": {
@@ -1734,6 +1703,23 @@
     },
     {
       "test": {
+        "path": "test/dora-auto.test.js",
+        "line": 2
+      },
+      "intent": null,
+      "code": [
+        {
+          "path": "bin/aiad-sdd.js",
+          "line": 3624
+        },
+        {
+          "path": "lib/dora-record.js",
+          "line": 161
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/dora-record.test.js",
         "line": 0
       },
@@ -1859,7 +1845,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2571
+          "line": 2573
         },
         {
           "path": "lib/eco-hook.js",
@@ -1929,7 +1915,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2571
+          "line": 2573
         },
         {
           "path": "lib/eco-hook.js",
@@ -1977,7 +1963,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2551
+          "line": 2553
         },
         {
           "path": "lib/empreinte-artefact.js",
@@ -1994,7 +1980,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2551
+          "line": 2553
         },
         {
           "path": "lib/empreinte-artefact.js",
@@ -2011,7 +1997,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2551
+          "line": 2553
         },
         {
           "path": "lib/empreinte-artefact.js",
@@ -3375,6 +3361,23 @@
     },
     {
       "test": {
+        "path": "test/spec-stamp.test.js",
+        "line": 2
+      },
+      "intent": null,
+      "code": [
+        {
+          "path": "bin/aiad-sdd.js",
+          "line": 2609
+        },
+        {
+          "path": "lib/spec-stamp.js",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/spec-suggester.test.js",
         "line": 36
       },
@@ -4023,22 +4026,7 @@
         "path": "test/trace.test.js",
         "line": 2
       },
-      "spec": {
-        "id": "SPEC-022-2-campagne-annotation-progressive",
-        "file": ".aiad/specs/SPEC-022-2-campagne-annotation-progressive.md",
-        "title": "Campagne d'annotation progressive — enforcement new modules lib/",
-        "parentIntent": "INTENT-022",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-022-dogfooding-cli",
-        "file": ".aiad/intents/INTENT-022-dogfooding-cli.md",
-        "title": "Dogfooding complet — le CLI sous SPEC",
-        "status": "draft"
-      },
+      "intent": null,
       "code": [
         {
           "path": "lib/sdd-trace.js",
@@ -4205,7 +4193,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2571
+          "line": 2573
         },
         {
           "path": "lib/eco-hook.js",
@@ -4375,18 +4363,6 @@
   "gaps": {
     "intentsSansSpec": [
       {
-        "id": "INTENT-023-rayonnement-honnete",
-        "file": ".aiad/intents/INTENT-023-rayonnement-honnete.md",
-        "title": "Rayonnement honnête — comparatif public et runtimes élargis",
-        "status": "draft"
-      },
-      {
-        "id": "INTENT-027-ci-metrics-automation",
-        "file": ".aiad/intents/INTENT-027-ci-metrics-automation.md",
-        "title": "INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow",
-        "status": "draft"
-      },
-      {
         "id": "INTENT-028-fiabilite-ci-bin-cartographie-trace",
         "file": ".aiad/intents/INTENT-028-fiabilite-ci-bin-cartographie-trace.md",
         "title": "INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité",
@@ -4399,12 +4375,23 @@
         "status": "draft"
       }
     ],
-    "specsSansCode": [],
+    "specsSansCode": [
+      {
+        "id": "SPEC-023-1-comparatif-public",
+        "file": ".aiad/specs/SPEC-023-1-comparatif-public.md",
+        "title": "Page comparative publique honnête",
+        "parentIntent": "INTENT-023",
+        "status": "done",
+        "format": "PROSE",
+        "traceability": "exempt",
+        "traceabilityReason": "Livrable = page HTML statique site/fr/comparaison.html + bench/comparison.md. Les fichiers .html et .md ne sont pas dans EXTENSIONS_CODE par design (SPEC-024-1 / FACT-004). Validé via axe-core 0 violation + 16/16 tests bench-comparison.test.js."
+      }
+    ],
     "specsValideesNonImplementees": [],
     "codeSansSpec": {
       "bloquant": 0,
-      "non_bloquant": 315,
-      "total": 315,
+      "non_bloquant": 313,
+      "total": 313,
       "items": [
         {
           "path": ".aiad/config.yml",
@@ -4649,19 +4636,6 @@
         },
         {
           "path": ".github/workflows/mutation.yml",
-          "isTest": false,
-          "annotations": {
-            "intents": [],
-            "specs": [],
-            "verifiedBy": [],
-            "governance": []
-          },
-          "annotated": false,
-          "isNewFile": false,
-          "severity": "non-bloquant"
-        },
-        {
-          "path": ".github/workflows/release.yml",
           "isTest": false,
           "annotations": {
             "intents": [],
@@ -7476,19 +7450,6 @@
           "severity": "non-bloquant"
         },
         {
-          "path": "lib/dora-record.js",
-          "isTest": false,
-          "annotations": {
-            "intents": [],
-            "specs": [],
-            "verifiedBy": [],
-            "governance": []
-          },
-          "annotated": false,
-          "isNewFile": false,
-          "severity": "non-bloquant"
-        },
-        {
           "path": "lib/dpia.js",
           "isTest": false,
           "annotations": {
@@ -8727,6 +8688,27 @@
     },
     "codeSansTests": [
       {
+        "path": ".github/workflows/release.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [
+            {
+              "id": "INTENT-027",
+              "line": 52
+            }
+          ],
+          "specs": [
+            {
+              "id": "SPEC-027-3-ci-workflow-steps",
+              "line": 53
+            }
+          ],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": true
+      },
+      {
         "path": ".github/workflows/site-deploy.yml",
         "isTest": false,
         "annotations": {
@@ -8734,6 +8716,10 @@
             {
               "id": "INTENT-013",
               "line": 1
+            },
+            {
+              "id": "INTENT-027",
+              "line": 80
             }
           ],
           "specs": [
@@ -8748,6 +8734,10 @@
             {
               "id": "SPEC-013-4",
               "line": 59
+            },
+            {
+              "id": "SPEC-027-3-ci-workflow-steps",
+              "line": 81
             }
           ],
           "verifiedBy": [],
@@ -9139,5 +9129,16 @@
     "specsOrphelinsSurCode": [],
     "earsSpecsSansTests": []
   },
-  "specsExemptees": []
+  "specsExemptees": [
+    {
+      "id": "SPEC-023-1-comparatif-public",
+      "file": ".aiad/specs/SPEC-023-1-comparatif-public.md",
+      "title": "Page comparative publique honnête",
+      "parentIntent": "INTENT-023",
+      "status": "done",
+      "format": "PROSE",
+      "traceability": "exempt",
+      "traceabilityReason": "Livrable = page HTML statique site/fr/comparaison.html + bench/comparison.md. Les fichiers .html et .md ne sont pas dans EXTENSIONS_CODE par design (SPEC-024-1 / FACT-004). Validé via axe-core 0 violation + 16/16 tests bench-comparison.test.js."
+    }
+  ]
 }
