@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-26T16:49:03.243Z
+> Généré le 2026-06-29T06:00:43.291Z
 
 ## Synthèse
 
@@ -346,6 +346,7 @@
 | `test/trace.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/sdd-trace.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/sdd-trace.js` |
+| `test/trace.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/track-cli.test.js` | ❌ non-tracé | — | `bin/aiad-sdd.js`<br/>`lib/eco-hook.js`<br/>`lib/empreinte-artefact.js` |
 | `test/tutorial.test.js` | ❌ non-tracé | — | _(aucun)_ |

@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-26T16:49:03.244Z"
+    "generated": "2026-06-29T06:00:43.292Z"
   },
-  "generatedAt": "2026-06-26T16:49:03.243Z",
+  "generatedAt": "2026-06-29T06:00:43.291Z",
   "summary": {
     "intents": 5,
     "specs": 2,
@@ -79,7 +79,7 @@
             },
             {
               "path": "chemin/relatif/test.ts",
-              "line": 58,
+              "line": 62,
               "viaCode": true
             }
           ]
@@ -3272,7 +3272,7 @@
       "code": [
         {
           "path": "lib/sdd-trace.js",
-          "line": 574
+          "line": 578
         }
       ]
     },
@@ -3836,7 +3836,7 @@
       "code": [
         {
           "path": "lib/sdd-trace.js",
-          "line": 601
+          "line": 605
         }
       ]
     },
@@ -4049,7 +4049,7 @@
     {
       "test": {
         "path": "test/trace.test.js",
-        "line": 35
+        "line": 36
       },
       "intent": null,
       "code": [
@@ -4078,7 +4078,7 @@
     {
       "test": {
         "path": "test/trace.test.js",
-        "line": 39
+        "line": 40
       },
       "intent": null,
       "code": [
@@ -4107,7 +4107,7 @@
     {
       "test": {
         "path": "test/trace.test.js",
-        "line": 61
+        "line": 62
       },
       "intent": null,
       "code": []
@@ -4115,33 +4115,62 @@
     {
       "test": {
         "path": "test/trace.test.js",
-        "line": 86
+        "line": 87
       },
       "intent": null,
       "code": [
         {
           "path": "lib/sdd-trace.js",
-          "line": 574
+          "line": 578
         }
       ]
     },
     {
       "test": {
         "path": "test/trace.test.js",
-        "line": 106
+        "line": 107
       },
       "intent": null,
       "code": [
         {
           "path": "lib/sdd-trace.js",
-          "line": 574
+          "line": 578
         }
       ]
     },
     {
       "test": {
         "path": "test/trace.test.js",
-        "line": 341
+        "line": 342
+      },
+      "intent": null,
+      "code": [
+        {
+          "path": "lib/feedback.js",
+          "line": 2
+        },
+        {
+          "path": "lib/tour.js",
+          "line": 146
+        },
+        {
+          "path": "scripts/bench-trace.js",
+          "line": 55
+        },
+        {
+          "path": "templates/projects/fastapi-aiad/app/main.py",
+          "line": 4
+        },
+        {
+          "path": "templates/projects/node-aiad/src/index.js",
+          "line": 2
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/trace.test.js",
+        "line": 369
       },
       "intent": null,
       "code": [
