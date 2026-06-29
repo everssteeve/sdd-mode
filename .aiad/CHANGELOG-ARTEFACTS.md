@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-29 — INTENT-023 → done
+
+**Auteur** : Steeve Evers
+**Raison** : Toutes les SPECs liées sont `done` — SPEC-023-1 (page comparative honnête, trace-exempt) et SPEC-023-2 (emit-rules Kiro + Amazon Q). Intent passé à `done`.
+**Impact** : `INTENT-023-rayonnement-honnete.md` status `active` → `done`, `closed_at: 2026-06-29`. Index mis à jour.
+
 ## 2026-06-29 — INTENT-027 + SPEC-027-1/2/3 → archived
 
 **Auteur** : Steeve Evers

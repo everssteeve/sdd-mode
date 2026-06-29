@@ -28,7 +28,7 @@
 | INTENT-020 | Spec-anchored par construction — deltas et redevabilité bidirectionnelle | Steeve Evers | 2026-06-11 | SPEC-020-1/2 done | archived |
 | INTENT-021 | Empreinte mesurée — tokens et coût par fonctionnalité | Steeve Evers | 2026-06-11 | SPEC-021-1/2 done | archived |
 | INTENT-022 | Dogfooding complet — le CLI sous SPEC | Steeve Evers | 2026-06-11 | SPEC-022-1/2 done | archived |
-| INTENT-023 | Rayonnement honnête — comparatif public et runtimes élargis | Steeve Evers | 2026-06-11 | SPEC-023-1, SPEC-023-2 | active |
+| INTENT-023 | Rayonnement honnête — comparatif public et runtimes élargis | Steeve Evers | 2026-06-11 | SPEC-023-1, SPEC-023-2 | done |
 | INTENT-024 | Traçabilité honnête des SPECs sans code applicatif — exemption explicite (FACT-004) | Steeve Evers | 2026-06-19 | SPEC-024-1 | done |
 | INTENT-025 | Corriger le contraste des kickers et pills gold (WCAG 1.4.3) | Steeve Evers | 2026-06-22 | SPEC-025-1 | done |
 | INTENT-026 | Archivage automatique des artefacts done (Intents + SPECs) | Steeve Evers | 2026-06-23 | SPEC-026-1 | done |

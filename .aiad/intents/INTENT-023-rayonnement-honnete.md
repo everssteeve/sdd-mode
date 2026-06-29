@@ -1,7 +1,8 @@
 ---
 id: INTENT-023
 title: Rayonnement honnête — comparatif public et runtimes élargis
-status: active
+status: done
+closed_at: 2026-06-29
 author: Steeve Evers
 date: 2026-06-11
 specs:
@@ -42,4 +43,4 @@ de la valeur d'honnêteté).
 ## SPECs liées
 
 - [x] SPEC-023-1 — Page comparative publique (honnête) — `done` (2026-06-29)
-- [ ] SPEC-023-2 — Extension `emit-rules` à de nouveaux runtimes — `draft`
+- [x] SPEC-023-2 — Extension `emit-rules` : runtime Kiro (+ Amazon Q) — `done` (2026-06-29)
