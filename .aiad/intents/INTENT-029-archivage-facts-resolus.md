@@ -1,13 +1,13 @@
 ---
 id: INTENT-029
-status: draft
+status: active
 ---
 
 # INTENT-029 — Archivage automatique des FACTs résolus
 
 **Auteur** : Steeve Evers
 **Date** : 2026-06-24
-**Statut** : draft
+**Statut** : active
 
 ---
 
