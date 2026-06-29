@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-29 — INTENT-027 + SPEC-027-1/2/3 → archived
+
+**Auteur** : Steeve Evers
+**Raison** : INTENT-027 entièrement livré (3/3 SPECs done, commit `18cf1c0`). Archivage manuel — toutes les SPECs passées à `archived` et déplacées dans `archive/`.
+**Impact** : `INTENT-027-ci-metrics-automation.md` → `intents/archive/`, `SPEC-027-1/2/3` → `specs/archive/`. Index intents + specs mis à jour.
+
 ## 2026-06-29 — SPEC-027-2 — Drift Lock OK (done)
 
 **Auteur** : Steeve Evers

@@ -65,9 +65,9 @@
 | SPEC-021-2 | Restitution empreinte par artefact dans /sdd context | INTENT-021 | EARS | 5/5 | done | — |
 | SPEC-022-1 | Spec rétroactive lib/init.js + annotations modules cœur | INTENT-022 | prose | 5/5 | archived | — |
 | SPEC-022-2 | Campagne d'annotation progressive — enforcement new modules lib/ | INTENT-022 | prose | 5/5 | archived | — |
-| SPEC-027-1 | Stamp `validated_at` dans le frontmatter SPEC lors du passage `done` | INTENT-027 | EARS | 5/5 | done | — |
-| SPEC-027-2 | Fonction `calculateCycleTimeDaysFromSpec()` + flag CLI `--auto` | INTENT-027 | EARS | 5/5 | done | — |
-| SPEC-027-3 | Steps CI post-deploy (`site-deploy.yml` + `release.yml`) | INTENT-027 | EARS | 5/5 | done | — |
+| SPEC-027-1 | Stamp `validated_at` dans le frontmatter SPEC lors du passage `done` | INTENT-027 | EARS | 5/5 | archived | — |
+| SPEC-027-2 | Fonction `calculateCycleTimeDaysFromSpec()` + flag CLI `--auto` | INTENT-027 | EARS | 5/5 | archived | — |
+| SPEC-027-3 | Steps CI post-deploy (`site-deploy.yml` + `release.yml`) | INTENT-027 | EARS | 5/5 | archived | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 
