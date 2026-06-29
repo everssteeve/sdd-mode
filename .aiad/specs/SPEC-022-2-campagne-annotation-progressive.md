@@ -5,7 +5,7 @@ intent: INTENT-022
 research: RESEARCH-035
 author: Steeve Evers
 date: 2026-06-26
-status: in-progress
+status: done
 format: prose
 sqs: 5/5
 ---
@@ -16,7 +16,7 @@ sqs: 5/5
 **Research** : RESEARCH-035 — GO (90 %)
 **Auteur** : Steeve Evers
 **Date** : 2026-06-26
-**Statut** : draft
+**Statut** : done
 **Format** : prose
 **SQS** : 5/5 — Gate OUVERTE (2026-06-26, après correction §4)
 

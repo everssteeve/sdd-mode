@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-29 — SPEC-022-2 — Drift Lock OK (done)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd validate SPEC-022-2` — validation triple PASS. `detecterNouveauxFichiers()` (git diff --diff-filter=A) qualifie les nouveaux `lib/*.js` sans `@spec` comme gaps bloquants ; fichiers hérités restent non-bloquants. `trace --fail-on-gap` exit 0 (bloquant : 0). 19/19 tests trace.test.js verts, lint PASS, zero-dep runtime.
+**Impact** : `lib/sdd-trace.js` (detecterNouveauxFichiers + codeSansSpec enrichi {bloquant, non_bloquant, total, items}), `lib/sarif.js` + `lib/drift-verdict.js` + `lib/repl.js` + `lib/workspace.js` + `lib/cli-schema.js` + `lib/dashboard/views/traceability.js` + `lib/dashboard/views/overview.js` (migration .length → .total), `test/trace.test.js` (CA-1 + CA-5 + 4 cas SPEC-022-2), `.aiad/AGENT-GUIDE.md` (règle nouveau module lib/ = drift bloquant). SPEC-022-2 → `done`.
+
 ## 2026-06-26 — SPEC-022-1 — Drift Lock OK (done)
 
 **Auteur** : Steeve Evers
