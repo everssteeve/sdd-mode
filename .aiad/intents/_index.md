@@ -26,7 +26,7 @@
 | INTENT-018 | La valeur réalisée comme boussole — outcomes, EBM, bilan humains/agents | Steeve Evers | 2026-06-11 | SPEC-018-1/2/3/4/5 done | done |
 | INTENT-019 | Verification-first — dériver des tests des critères EARS | Steeve Evers | 2026-06-11 | SPEC-019-1, SPEC-019-2 | done |
 | INTENT-020 | Spec-anchored par construction — deltas et redevabilité bidirectionnelle | Steeve Evers | 2026-06-11 | SPEC-020-1/2 done | archived |
-| INTENT-021 | Empreinte mesurée — tokens et coût par fonctionnalité | Steeve Evers | 2026-06-11 | — | draft |
+| INTENT-021 | Empreinte mesurée — tokens et coût par fonctionnalité | Steeve Evers | 2026-06-11 | SPEC-021-1/2 done | archived |
 | INTENT-022 | Dogfooding complet — le CLI sous SPEC | Steeve Evers | 2026-06-11 | SPEC-022-1/2 done | archived |
 | INTENT-023 | Rayonnement honnête — comparatif public et runtimes élargis | Steeve Evers | 2026-06-11 | — | draft |
 | INTENT-024 | Traçabilité honnête des SPECs sans code applicatif — exemption explicite (FACT-004) | Steeve Evers | 2026-06-19 | SPEC-024-1 | done |
