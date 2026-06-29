@@ -19,7 +19,7 @@ function modele({ codeFiles = 0, annotatedCodeFiles = 0, gaps = {} } = {}) {
       specsValideesNonImplementees: [],
       specsOrphelinsSurCode: [],
       intentsOrphelinsSurCode: [],
-      codeSansSpec: [],
+      codeSansSpec: { bloquant: 0, non_bloquant: 0, total: 0, items: [] },
       ...gaps,
     },
   };
@@ -69,7 +69,7 @@ test('coverage = 1 quand aucun fichier de code', () => {
 test('listerGaps — code sans @spec marqué non bloquant', () => {
   const m = modele({
     codeFiles: 2, annotatedCodeFiles: 1,
-    gaps: { codeSansSpec: [{ path: 'lib/y.js' }] },
+    gaps: { codeSansSpec: { bloquant: 0, non_bloquant: 1, total: 1, items: [{ path: 'lib/y.js', severity: 'non-bloquant' }] } },
   });
   const gaps = listerGaps(m);
   const ySpec = gaps.find((g) => g.ref === 'lib/y.js');

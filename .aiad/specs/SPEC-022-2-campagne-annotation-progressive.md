@@ -5,7 +5,7 @@ intent: INTENT-022
 research: RESEARCH-035
 author: Steeve Evers
 date: 2026-06-26
-status: ready
+status: in-progress
 format: prose
 sqs: 5/5
 ---

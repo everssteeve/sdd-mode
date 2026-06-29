@@ -61,8 +61,8 @@ test('loadWorkspace — projets sans champs requis → erreur', () => {
 
 test('aggregateReports — agrège correctement totals/healthy/skipped/errored', () => {
   const reports = [
-    { name: 'a', status: 'analyzed', ok: true, matrix: { summary: { intents: 5, specs: 10 }, gaps: { intentsSansSpec: [1], specsSansCode: [], specsValideesNonImplementees: [], specsOrphelinsSurCode: [], intentsOrphelinsSurCode: [], codeSansSpec: [1, 2], codeSansTests: [] } } },
-    { name: 'b', status: 'analyzed', ok: false, matrix: { summary: { intents: 3, specs: 4 }, gaps: { intentsSansSpec: [], specsSansCode: [1], specsValideesNonImplementees: [], specsOrphelinsSurCode: [], intentsOrphelinsSurCode: [], codeSansSpec: [], codeSansTests: [] } } },
+    { name: 'a', status: 'analyzed', ok: true, matrix: { summary: { intents: 5, specs: 10 }, gaps: { intentsSansSpec: [1], specsSansCode: [], specsValideesNonImplementees: [], specsOrphelinsSurCode: [], intentsOrphelinsSurCode: [], codeSansSpec: { bloquant: 0, non_bloquant: 2, total: 2, items: [1, 2] }, codeSansTests: [] } } },
+    { name: 'b', status: 'analyzed', ok: false, matrix: { summary: { intents: 3, specs: 4 }, gaps: { intentsSansSpec: [], specsSansCode: [1], specsValideesNonImplementees: [], specsOrphelinsSurCode: [], intentsOrphelinsSurCode: [], codeSansSpec: { bloquant: 0, non_bloquant: 0, total: 0, items: [] }, codeSansTests: [] } } },
     { name: 'c', status: 'skipped', reason: 'no .aiad' },
     { name: 'd', status: 'error', error: 'X' },
   ];

@@ -1,3 +1,5 @@
+// @intent INTENT-022
+// @spec SPEC-022-2-campagne-annotation-progressive
 // Test d'intégration de construireMatrice — projet fixture isolé,
 // vérifie la matrice forward, backward et la détection de gaps.
 
@@ -6,7 +8,8 @@ import { strict as assert } from 'node:assert';
 import { mkdtempSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { construireMatrice } from '../lib/sdd-trace.js';
+import { spawnSync } from 'node:child_process';
+import { construireMatrice, detecterNouveauxFichiers } from '../lib/sdd-trace.js';
 
 function fixture() {
   const dir = mkdtempSync(join(tmpdir(), 'aiad-trace-'));
@@ -267,6 +270,133 @@ test('construireMatrice — CA-009 exclut les artefacts dans archive/', () => {
     assert.equal(m.summary.specs, 0, 'zéro spec active attendue (archive/ ignoré)');
     const allIntentIds = m.forward.map((e) => e.id);
     assert.ok(!allIntentIds.includes('INTENT-OLD'), 'INTENT-OLD dans archive/ ne doit pas apparaître');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// SPEC-022-2 : codeSansSpec est désormais un objet {bloquant, non_bloquant, total, items}
+
+test('construireMatrice — codeSansSpec est un objet enrichi (SPEC-022-2)', () => {
+  const dir = fixture();
+  try {
+    writeFileSync(
+      join(dir, 'src', 'sans-annotation.ts'),
+      `export function foo() {}\n`,
+    );
+    const m = construireMatrice(dir);
+    const css = m.gaps.codeSansSpec;
+    assert.ok(typeof css === 'object' && !Array.isArray(css), 'codeSansSpec doit être un objet, pas un tableau');
+    assert.ok('bloquant' in css, 'codeSansSpec.bloquant doit exister');
+    assert.ok('non_bloquant' in css, 'codeSansSpec.non_bloquant doit exister');
+    assert.ok('total' in css, 'codeSansSpec.total doit exister');
+    assert.ok(Array.isArray(css.items), 'codeSansSpec.items doit être un tableau');
+    assert.equal(css.total, css.bloquant + css.non_bloquant, 'total = bloquant + non_bloquant');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('construireMatrice — fichier sans @spec a une propriété severity (SPEC-022-2)', () => {
+  const dir = fixture();
+  try {
+    writeFileSync(
+      join(dir, 'src', 'module.ts'),
+      `export const x = 1;\n`,
+    );
+    const m = construireMatrice(dir);
+    const items = m.gaps.codeSansSpec.items;
+    assert.ok(items.length > 0, 'au moins un fichier sans @spec attendu');
+    for (const item of items) {
+      assert.ok('severity' in item, `item ${item.path} doit avoir severity`);
+      assert.ok(
+        item.severity === 'bloquant' || item.severity === 'non-bloquant',
+        `severity doit être 'bloquant' ou 'non-bloquant', reçu: ${item.severity}`,
+      );
+    }
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('construireMatrice — sans git, tous les fichiers sans @spec sont non-bloquants (SPEC-022-2)', () => {
+  // Le fixture est hors du dépôt git du projet, git diff retourne erreur → fail-open
+  const dir = fixture();
+  try {
+    writeFileSync(join(dir, 'src', 'a.ts'), `export const a = 1;\n`);
+    writeFileSync(join(dir, 'src', 'b.ts'), `export const b = 2;\n`);
+    const m = construireMatrice(dir);
+    assert.equal(m.gaps.codeSansSpec.bloquant, 0, 'hors git, aucun fichier ne doit être bloquant');
+    assert.equal(m.gaps.codeSansSpec.non_bloquant, m.gaps.codeSansSpec.total,
+      'tous les gaps sans @spec sont non-bloquants hors contexte git');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('construireMatrice — fichier avec @spec : absent de codeSansSpec (SPEC-022-2)', () => {
+  const dir = fixture();
+  try {
+    writeFileSync(
+      join(dir, 'src', 'annote.ts'),
+      `/**\n * @spec SPEC-001-1-login\n */\nexport function login() {}\n`,
+    );
+    writeFileSync(
+      join(dir, 'src', 'non-annote.ts'),
+      `export const x = 1;\n`,
+    );
+    const m = construireMatrice(dir);
+    const paths = m.gaps.codeSansSpec.items.map((f) => f.path);
+    assert.ok(!paths.some((p) => p.endsWith('/annote.ts') || p === 'src/annote.ts'), 'annote.ts ne doit pas apparaître dans les gaps');
+    assert.ok(paths.some((p) => p.endsWith('non-annote.ts')), 'non-annote.ts doit être dans les gaps');
+    assert.equal(m.gaps.codeSansSpec.total, 1);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// Helpers git pour les tests CA-1 et CA-5 (dépôt git temporaire isolé)
+function fixtureGit() {
+  const dir = mkdtempSync(join(tmpdir(), 'aiad-git-'));
+  mkdirSync(join(dir, '.aiad', 'intents'), { recursive: true });
+  mkdirSync(join(dir, '.aiad', 'specs'), { recursive: true });
+  mkdirSync(join(dir, 'lib'), { recursive: true });
+  const g = (args) => spawnSync('git', args, { cwd: dir, encoding: 'utf-8', stdio: 'pipe' });
+  g(['init']);
+  g(['config', 'user.email', 'ci@aiad.test']);
+  g(['config', 'user.name', 'AIAD CI']);
+  // Commit initial pour que HEAD existe
+  writeFileSync(join(dir, 'lib', 'existing.js'), '// @spec SPEC-001-1-existing\nexport const x = 1;\n');
+  g(['add', '.']);
+  g(['commit', '-m', 'init']);
+  return dir;
+}
+
+// CA-1 — SPEC-022-2 : nouveau lib/*.js sans @spec → codeSansSpec.bloquant = 1
+test('construireMatrice — CA-1 : nouveau fichier lib/ sans @spec = gap bloquant (SPEC-022-2)', () => {
+  const dir = fixtureGit();
+  try {
+    writeFileSync(join(dir, 'lib', 'nouveau.js'), 'export function foo() {}\n');
+    spawnSync('git', ['add', join('lib', 'nouveau.js')], { cwd: dir, encoding: 'utf-8', stdio: 'pipe' });
+    const m = construireMatrice(dir);
+    assert.equal(m.gaps.codeSansSpec.bloquant, 1, 'nouveau.js sans @spec doit être bloquant');
+    assert.ok(
+      m.gaps.codeSansSpec.items.some((f) => f.path === 'lib/nouveau.js' && f.severity === 'bloquant'),
+      'lib/nouveau.js doit figurer dans les items avec severity bloquant',
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// CA-5 — SPEC-022-2 : renommage lib/a.js → lib/b.js → detecterNouveauxFichiers n'inclut pas b.js
+test('detecterNouveauxFichiers — CA-5 : renommage lib/*.js n\'est pas classé comme ajouté (SPEC-022-2)', () => {
+  const dir = fixtureGit();
+  try {
+    spawnSync('git', ['mv', 'lib/existing.js', 'lib/renamed.js'], { cwd: dir, encoding: 'utf-8', stdio: 'pipe' });
+    const nouveaux = detecterNouveauxFichiers('lib/', dir);
+    assert.ok(!nouveaux.has('lib/renamed.js'), 'un fichier renommé ne doit pas apparaître comme nouveau (--diff-filter=A exclut les renames)');
+    assert.equal(nouveaux.size, 0, 'aucun fichier ne doit être classé ajouté lors d\'un simple renommage');
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

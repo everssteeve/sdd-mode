@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-26T16:26:12.862Z
+> Généré le 2026-06-26T16:49:03.243Z
 
 ## Synthèse
 
@@ -16,7 +16,7 @@
 | Intent | SPEC | Code | Tests | Verdict |
 |--------|------|------|-------|---------|
 | INTENT-022-dogfooding-cli | SPEC-022-1-retro-annotations-core | `lib/frontmatter.js`<br/>`lib/fs-ops.js`<br/>`lib/init.js` | `test/init.test.js` | ✅ |
-| INTENT-022-dogfooding-cli | SPEC-022-2-campagne-annotation-progressive | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-022-dogfooding-cli | SPEC-022-2-campagne-annotation-progressive | `lib/sdd-trace.js` | `test/trace.test.js`<br/>`chemin/relatif/test.ts` | ✅ |
 | INTENT-023-rayonnement-honnete | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-027-ci-metrics-automation | _(aucune SPEC)_ | — | — | ❌ orphelin |
 | INTENT-028-fiabilite-ci-bin-cartographie-trace | _(aucune SPEC)_ | — | — | ❌ orphelin |
@@ -340,11 +340,13 @@
 | `test/trace-watch.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-watch.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace-worker.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/trace.test.js` | SPEC-022-2-campagne-annotation-progressive | INTENT-022-dogfooding-cli | `lib/sdd-trace.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/sdd-trace.js` |
 | `test/trace.test.js` | ❌ non-tracé | — | `lib/sdd-trace.js` |
+| `test/trace.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/track-cli.test.js` | ❌ non-tracé | — | `bin/aiad-sdd.js`<br/>`lib/eco-hook.js`<br/>`lib/empreinte-artefact.js` |
 | `test/tutorial.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/uninstall.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -369,8 +371,7 @@
   - INTENT-027-ci-metrics-automation — INTENT-027 — Automatisation CI de la collecte de métriques DORA/Flow
   - INTENT-028-fiabilite-ci-bin-cartographie-trace — INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité
   - INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus
-- SPECs sans code (hors draft/review) : **1**
-  - SPEC-022-2-campagne-annotation-progressive (statut : ready)
+- SPECs sans code (hors draft/review) : **0**
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
@@ -381,7 +382,7 @@
 - SPECs EARS sans tests liés (statut ≠ draft/archived) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **315**
+- Code sans `@spec` : **315** (bloquant : 0, non-bloquant : 315)
   - .aiad/config.yml
   - .aiad/hook-bypass.yml
   - .aiad/hooks/discovery-gate.js
