@@ -68,6 +68,8 @@
 | SPEC-027-1 | Stamp `validated_at` dans le frontmatter SPEC lors du passage `done` | INTENT-027 | EARS | 5/5 | archived | — |
 | SPEC-027-2 | Fonction `calculateCycleTimeDaysFromSpec()` + flag CLI `--auto` | INTENT-027 | EARS | 5/5 | archived | — |
 | SPEC-027-3 | Steps CI post-deploy (`site-deploy.yml` + `release.yml`) | INTENT-027 | EARS | 5/5 | archived | — |
+| SPEC-023-1 | Page comparative publique honnête (AIAD vs concurrents) | INTENT-023 | prose | 5/5 | done (trace-exempt) | — |
+| SPEC-023-2 | Extension emit-rules : runtime Kiro (+ Amazon Q) | INTENT-023 | prose | À évaluer | draft | — |
 
 > Colonne **Format** : `prose` (par défaut) ou `EARS` (variante avec linter strict — cf. `spec-ears-template.md`).
 

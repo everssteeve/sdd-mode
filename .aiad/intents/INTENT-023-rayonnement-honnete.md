@@ -1,7 +1,7 @@
 ---
 id: INTENT-023
 title: Rayonnement honnête — comparatif public et runtimes élargis
-status: draft
+status: active
 author: Steeve Evers
 date: 2026-06-11
 specs:
@@ -41,5 +41,5 @@ de la valeur d'honnêteté).
 
 ## SPECs liées
 
-- [ ] SPEC-023-1 — Page comparative publique (honnête)
-- [ ] SPEC-023-2 — Extension `emit-rules` à de nouveaux runtimes
+- [x] SPEC-023-1 — Page comparative publique (honnête) — `done` (2026-06-29)
+- [ ] SPEC-023-2 — Extension `emit-rules` à de nouveaux runtimes — `draft`
