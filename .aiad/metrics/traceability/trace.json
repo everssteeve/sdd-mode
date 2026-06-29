@@ -2,85 +2,60 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-29T08:38:22.777Z"
+    "generated": "2026-06-29T12:18:03.337Z"
   },
-  "generatedAt": "2026-06-29T08:38:22.777Z",
+  "generatedAt": "2026-06-29T12:18:03.336Z",
   "summary": {
-    "intents": 3,
+    "intents": 2,
     "specs": 2,
     "codeFiles": 392,
-    "annotatedCodeFiles": 94,
+    "annotatedCodeFiles": 95,
     "testFiles": 277,
     "annotatedTestFiles": 53
   },
   "forward": [
     {
       "intent": {
-        "id": "INTENT-023-rayonnement-honnete",
-        "file": ".aiad/intents/INTENT-023-rayonnement-honnete.md",
-        "title": "Rayonnement honnête — comparatif public et runtimes élargis",
+        "id": "INTENT-028-fiabilite-ci-bin-cartographie-trace",
+        "file": ".aiad/intents/INTENT-028-fiabilite-ci-bin-cartographie-trace.md",
+        "title": "INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité",
         "status": "active"
       },
       "specs": [
         {
           "spec": {
-            "id": "SPEC-023-1-comparatif-public",
-            "file": ".aiad/specs/SPEC-023-1-comparatif-public.md",
-            "title": "Page comparative publique honnête",
-            "parentIntent": "INTENT-023",
+            "id": "SPEC-028-1-smoke-test-esm-bin",
+            "file": ".aiad/specs/SPEC-028-1-smoke-test-esm-bin.md",
+            "title": "SPEC-028-1 — Smoke test ESM bin/",
+            "parentIntent": "INTENT-028",
             "status": "done",
-            "format": "PROSE",
-            "traceability": "exempt",
-            "traceabilityReason": "Livrable = page HTML statique site/fr/comparaison.html + bench/comparison.md. Les fichiers .html et .md ne sont pas dans EXTENSIONS_CODE par design (SPEC-024-1 / FACT-004). Validé via axe-core 0 violation + 16/16 tests bench-comparison.test.js."
-          },
-          "code": [],
-          "tests": []
-        },
-        {
-          "spec": {
-            "id": "SPEC-023-2-emit-rules-nouveaux-runtimes",
-            "file": ".aiad/specs/SPEC-023-2-emit-rules-nouveaux-runtimes.md",
-            "title": "SPEC-023-2 — Extension emit-rules : runtime Kiro (+ Amazon Q)",
-            "parentIntent": "INTENT-023",
-            "status": "in-progress",
             "format": "PROSE",
             "traceability": "",
             "traceabilityReason": ""
           },
           "code": [
             {
-              "path": "lib/emit-rules.js",
-              "line": 642
+              "path": ".github/workflows/ci.yml",
+              "line": 41
             }
           ],
-          "tests": [
-            {
-              "path": "test/emit-rules.test.js",
-              "line": 4,
-              "viaCode": true
-            },
-            {
-              "path": "test/emit-rules-pull.test.js",
-              "line": 195,
-              "viaCode": true
-            },
-            {
-              "path": "tests/path/file.test.ts",
-              "line": 394,
-              "viaCode": true
-            }
-          ]
+          "tests": []
+        },
+        {
+          "spec": {
+            "id": "SPEC-028-2-agent-guide-consommateurs-construire-matrice",
+            "file": ".aiad/specs/SPEC-028-2-agent-guide-consommateurs-construire-matrice.md",
+            "title": "SPEC-028-2 — AGENT-GUIDE : section « Consommateurs de construireMatrice() »",
+            "parentIntent": "INTENT-028",
+            "status": "done",
+            "format": "PROSE",
+            "traceability": "exempt",
+            "traceabilityReason": "Documentation seule — modification de .aiad/AGENT-GUIDE.md, non scanné par EXTENSIONS_CODE (DOSSIERS_IGNORES inclut .aiad). Contenu vérifié par grep CA-1/CA-5."
+          },
+          "code": [],
+          "tests": []
         }
       ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-028-fiabilite-ci-bin-cartographie-trace",
-        "file": ".aiad/intents/INTENT-028-fiabilite-ci-bin-cartographie-trace.md",
-        "title": "INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité",
-        "status": "draft"
-      },
-      "specs": []
     },
     {
       "intent": {
@@ -4363,12 +4338,6 @@
   "gaps": {
     "intentsSansSpec": [
       {
-        "id": "INTENT-028-fiabilite-ci-bin-cartographie-trace",
-        "file": ".aiad/intents/INTENT-028-fiabilite-ci-bin-cartographie-trace.md",
-        "title": "INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité",
-        "status": "draft"
-      },
-      {
         "id": "INTENT-029-archivage-facts-resolus",
         "file": ".aiad/intents/INTENT-029-archivage-facts-resolus.md",
         "title": "INTENT-029 — Archivage automatique des FACTs résolus",
@@ -4377,21 +4346,21 @@
     ],
     "specsSansCode": [
       {
-        "id": "SPEC-023-1-comparatif-public",
-        "file": ".aiad/specs/SPEC-023-1-comparatif-public.md",
-        "title": "Page comparative publique honnête",
-        "parentIntent": "INTENT-023",
+        "id": "SPEC-028-2-agent-guide-consommateurs-construire-matrice",
+        "file": ".aiad/specs/SPEC-028-2-agent-guide-consommateurs-construire-matrice.md",
+        "title": "SPEC-028-2 — AGENT-GUIDE : section « Consommateurs de construireMatrice() »",
+        "parentIntent": "INTENT-028",
         "status": "done",
         "format": "PROSE",
         "traceability": "exempt",
-        "traceabilityReason": "Livrable = page HTML statique site/fr/comparaison.html + bench/comparison.md. Les fichiers .html et .md ne sont pas dans EXTENSIONS_CODE par design (SPEC-024-1 / FACT-004). Validé via axe-core 0 violation + 16/16 tests bench-comparison.test.js."
+        "traceabilityReason": "Documentation seule — modification de .aiad/AGENT-GUIDE.md, non scanné par EXTENSIONS_CODE (DOSSIERS_IGNORES inclut .aiad). Contenu vérifié par grep CA-1/CA-5."
       }
     ],
     "specsValideesNonImplementees": [],
     "codeSansSpec": {
       "bloquant": 0,
-      "non_bloquant": 313,
-      "total": 313,
+      "non_bloquant": 312,
+      "total": 312,
       "items": [
         {
           "path": ".aiad/config.yml",
@@ -4610,19 +4579,6 @@
         },
         {
           "path": ".github/workflows/canary.yml",
-          "isTest": false,
-          "annotations": {
-            "intents": [],
-            "specs": [],
-            "verifiedBy": [],
-            "governance": []
-          },
-          "annotated": false,
-          "isNewFile": false,
-          "severity": "non-bloquant"
-        },
-        {
-          "path": ".github/workflows/ci.yml",
           "isTest": false,
           "annotations": {
             "intents": [],
@@ -8688,6 +8644,22 @@
     },
     "codeSansTests": [
       {
+        "path": ".github/workflows/ci.yml",
+        "isTest": false,
+        "annotations": {
+          "intents": [],
+          "specs": [
+            {
+              "id": "SPEC-028-1-smoke-test-esm-bin",
+              "line": 41
+            }
+          ],
+          "verifiedBy": [],
+          "governance": []
+        },
+        "annotated": true
+      },
+      {
         "path": ".github/workflows/release.yml",
         "isTest": false,
         "annotations": {
@@ -9131,14 +9103,14 @@
   },
   "specsExemptees": [
     {
-      "id": "SPEC-023-1-comparatif-public",
-      "file": ".aiad/specs/SPEC-023-1-comparatif-public.md",
-      "title": "Page comparative publique honnête",
-      "parentIntent": "INTENT-023",
+      "id": "SPEC-028-2-agent-guide-consommateurs-construire-matrice",
+      "file": ".aiad/specs/SPEC-028-2-agent-guide-consommateurs-construire-matrice.md",
+      "title": "SPEC-028-2 — AGENT-GUIDE : section « Consommateurs de construireMatrice() »",
+      "parentIntent": "INTENT-028",
       "status": "done",
       "format": "PROSE",
       "traceability": "exempt",
-      "traceabilityReason": "Livrable = page HTML statique site/fr/comparaison.html + bench/comparison.md. Les fichiers .html et .md ne sont pas dans EXTENSIONS_CODE par design (SPEC-024-1 / FACT-004). Validé via axe-core 0 violation + 16/16 tests bench-comparison.test.js."
+      "traceabilityReason": "Documentation seule — modification de .aiad/AGENT-GUIDE.md, non scanné par EXTENSIONS_CODE (DOSSIERS_IGNORES inclut .aiad). Contenu vérifié par grep CA-1/CA-5."
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 **Auteur** : Steeve Evers
 **Date** : 2026-06-24
-**Statut** : draft
+**Statut** : active
 
 ---
 
@@ -39,4 +39,5 @@ Les agents IA et le Product Engineer qui modifient `bin/` ou `lib/trace.js` (et 
 
 ## SPECs liées
 
-- [ ] [À créer via /sdd spec]
+- [ ] SPEC-028-1 — Smoke test ESM bin/ (package.json + ci.yml) — draft
+- [ ] SPEC-028-2 — AGENT-GUIDE : section consommateurs de construireMatrice() — draft

@@ -1,21 +1,18 @@
 ---
-description: AIAD SDD — Product Engineer mindset (always-on)
-globs: ["**/*"]
-alwaysApply: true
-intent_id: INTENT-029
-generated-by: aiad-emit-rules v1.18.0
-source-hash: 8489b3141c402da2
+inclusion: always
+# intent_id: INTENT-029
+# generated-by: aiad-emit-rules v1.18.0
+# source-hash: 8489b3141c402da2
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 
-# AIAD SDD — Cursor rules
+# AIAD SDD Mode — Kiro steering
 
 Tu es un **Product Engineer** au sens AIAD. La paternité de l'intention ne se délègue pas — en cas de doute, tu **DEMANDES**.
 
 **Projet** : aiad-sdd (CLI `aiad-sdd`, v1.18.x)
 **Intent actif** : INTENT-029 — INTENT-029-archivage-facts-resolus.md
-
 
 ## Cycle SDD à respecter
 
@@ -58,12 +55,12 @@ Tu es un **Product Engineer** au sens AIAD. La paternité de l'intention ne se d
 
 ## Gouvernance Tier 1 (droit de veto)
 
-Quatre agents avec règles dédiées dans `.cursor/rules/aiad-*.mdc` (scopés via globs) :
+Quatre fichiers steering dédiés dans `.kiro/steering/aiad-*.md` (scopés via fileMatch) :
 
-- `aiad-ai-act.mdc` → composants IA (ML, LLM, scoring)
-- `aiad-rgpd.mdc` → données personnelles
-- `aiad-rgaa.mdc` → interfaces utilisateur
-- `aiad-rgesn.mdc` → ressources serveur / performance
+- `aiad-ai-act.md` → composants IA (ML, LLM, scoring)
+- `aiad-rgpd.md` → données personnelles
+- `aiad-rgaa.md` → interfaces utilisateur
+- `aiad-rgesn.md` → ressources serveur / performance
 
 En conflit SPEC ↔ gouvernance, **la gouvernance prévaut**.
 

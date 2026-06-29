@@ -1,19 +1,17 @@
 ---
-description: AIAD-RGAA — Accessibilité numérique (RGAA 4.1 / WCAG 2.1)
-globs: ["**/components/**","**/pages/**","**/views/**","**/app/**/*.tsx","**/app/**/*.jsx","**/*.vue"]
-alwaysApply: false
-intent_id: INTENT-029
-tier: 1
-generated-by: aiad-emit-rules v1.18.0
-source-hash: 8489b3141c402da2
+inclusion: fileMatch
+fileMatchPattern: ["**/components/**","**/pages/**","**/views/**","**/app/**/*.tsx","**/app/**/*.jsx","**/*.vue"]
+# intent_id: INTENT-029
+# generated-by: aiad-emit-rules v1.18.0
+# source-hash: 8489b3141c402da2
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 
-# AIAD-RGAA — règle Cursor (Tier 1, droit de veto)
+# AIAD-RGAA — Kiro steering (Tier 1, droit de veto)
 
 > Source : `.aiad/gouvernance/AIAD-RGAA.md` (référentiel complet — consulter en cas de doute).
-> Cette version est **condensée** pour rester dans le budget contextuel de Cursor.
+> Cette version est **condensée** pour rester dans le budget contextuel de Kiro.
 
 ## MISSION DE CET AGENT
 

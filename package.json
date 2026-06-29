@@ -50,6 +50,7 @@
     "mutation": "node scripts/mutation-test.js",
     "mutation:batch": "node scripts/mutation-batch.js",
     "bench:comparison": "node scripts/bench-comparison.js",
+    "smoke": "node -e \"import('./bin/aiad-sdd.js').catch(e=>{console.error(e.message);process.exit(1)})\"",
     "prepublishOnly": "npm run lint && npm run lint:deps && npm run lint:size && npm run lint:claims && npm run test:coverage:threshold"
   },
   "devDependencies": {

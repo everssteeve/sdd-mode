@@ -1,26 +1,17 @@
 ---
-paths:
-  - "**/package.json"
-  - "**/*.lock"
-  - "**/Dockerfile*"
-  - "**/*.config.*"
-  - "**/vite.*"
-  - "**/webpack.*"
-  - "**/*.yml"
-  - "**/*.yaml"
-generated-by: aiad-emit-rules v1.18.0
-source-hash: 8489b3141c402da2
+inclusion: fileMatch
+fileMatchPattern: **/*
+# intent_id: INTENT-029
+# generated-by: aiad-emit-rules v1.18.0
+# source-hash: 8489b3141c402da2
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 
-# AIAD-RGESN — Écoconception numérique (RGESN v2) — règle à chargement ciblé (pull §3.7)
+# AIAD-RGESN — Kiro steering (Tier 1, droit de veto)
 
-> Cette règle ne se charge à froid que sur les fichiers de sa zone de risque
-> (frontmatter `paths:`). C'est de l'**advisory** allégé : le vrai garde-fou
-> reste **enforced** par le hook `PreToolUse`/`Stop` et le subagent read-only
-> `.claude/agents/AIAD-RGESN.md` (`UNKNOWN = VETO`, fail-closed).
-> Source unique : `.aiad/gouvernance/AIAD-RGESN.md` — ne pas éditer à la main.
+> Source : `.aiad/gouvernance/AIAD-RGESN.md` (référentiel complet — consulter en cas de doute).
+> Cette version est **condensée** pour rester dans le budget contextuel de Kiro.
 
 ## MISSION DE CET AGENT
 
@@ -87,4 +78,4 @@ Voule
 
 ---
 
-*Régénéré par `npx aiad-sdd emit-rules` depuis `.aiad/gouvernance/AIAD-RGESN.md`.*
+*Régénéré par `npx aiad-sdd emit-rules`. Pour le détail légal complet, lire `.aiad/gouvernance/AIAD-RGESN.md`.*

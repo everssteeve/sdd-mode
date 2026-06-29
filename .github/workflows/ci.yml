@@ -38,6 +38,10 @@ jobs:
       - name: Lint claims (50K requalifié + sources externes — SPEC-014-2)
         run: npm run lint:claims
 
+      # @spec SPEC-028-1-smoke-test-esm-bin
+      - name: Smoke test import ESM bin/
+        run: npm run smoke
+
       - name: Tests
         run: npm test
 

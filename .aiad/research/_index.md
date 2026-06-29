@@ -31,6 +31,7 @@
 | RESEARCH-035 | Dogfooding complet — le CLI sous SPEC | INTENT-022 | Steeve Evers | 2026-06-26 | GO (90 %) | tranché — /sdd spec autorisé |
 | RESEARCH-036 | Automatisation CI de la collecte de métriques DORA/Flow | INTENT-027 | Steeve Evers | 2026-06-29 | CONDITIONAL GO (85 %) | tranché — /sdd spec autorisé (C-strict validated_at, backfill hors-périmètre) |
 | RESEARCH-037 | Rayonnement honnête — comparatif public et runtimes élargis | INTENT-023 | Steeve Evers | 2026-06-29 | CONDITIONAL GO (80 %) | tranché — /sdd spec autorisé (R3 format Kiro à lever avant SPEC-023-2, R4 nature BMAD/OpenSpec à lever, R5 activer INTENT-023) |
+| RESEARCH-038 | Fiabilité CI bin/ + cartographie consommateurs traçabilité | INTENT-028 | Steeve Evers | 2026-06-29 | GO (90 %) | tranché — /sdd spec autorisé ; corriger syntaxe smoke test require→import() dans la SPEC |
 
 ## Verdicts du gate Research
 

@@ -7,8 +7,8 @@ model: inherit
 memory: project
 paths: ["**/components/**","**/pages/**","**/views/**","**/app/**/*.tsx","**/app/**/*.jsx","**/*.vue"]
 generated-by: aiad-emit-rules v1.18.0
-source-hash: 9d8b188d4692076f
-intent_id: INTENT-031
+source-hash: 8489b3141c402da2
+intent_id: INTENT-029
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->

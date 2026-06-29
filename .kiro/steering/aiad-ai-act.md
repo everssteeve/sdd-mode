@@ -1,23 +1,17 @@
 ---
-paths:
-  - "**/ai/**"
-  - "**/ml/**"
-  - "**/llm/**"
-  - "**/models/**"
-  - "**/agents/**"
-generated-by: aiad-emit-rules v1.18.0
-source-hash: 8489b3141c402da2
+inclusion: fileMatch
+fileMatchPattern: ["**/ai/**","**/ml/**","**/llm/**","**/models/**","**/agents/**"]
+# intent_id: INTENT-029
+# generated-by: aiad-emit-rules v1.18.0
+# source-hash: 8489b3141c402da2
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 
-# AIAD-AI-ACT — Conformité EU AI Act (Règlement 2024/1689) — règle à chargement ciblé (pull §3.7)
+# AIAD-AI-ACT — Kiro steering (Tier 1, droit de veto)
 
-> Cette règle ne se charge à froid que sur les fichiers de sa zone de risque
-> (frontmatter `paths:`). C'est de l'**advisory** allégé : le vrai garde-fou
-> reste **enforced** par le hook `PreToolUse`/`Stop` et le subagent read-only
-> `.claude/agents/AIAD-AI-ACT.md` (`UNKNOWN = VETO`, fail-closed).
-> Source unique : `.aiad/gouvernance/AIAD-AI-ACT.md` — ne pas éditer à la main.
+> Source : `.aiad/gouvernance/AIAD-AI-ACT.md` (référentiel complet — consulter en cas de doute).
+> Cette version est **condensée** pour rester dans le budget contextuel de Kiro.
 
 ## MISSION DE CET AGENT
 
@@ -59,4 +53,4 @@ Alternative proposée : [Solution conforme ou question à résoudre avant de con
 
 ---
 
-*Régénéré par `npx aiad-sdd emit-rules` depuis `.aiad/gouvernance/AIAD-AI-ACT.md`.*
+*Régénéré par `npx aiad-sdd emit-rules`. Pour le détail légal complet, lire `.aiad/gouvernance/AIAD-AI-ACT.md`.*

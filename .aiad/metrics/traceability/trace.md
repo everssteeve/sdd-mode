@@ -1,23 +1,22 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-29T08:38:22.777Z
+> Généré le 2026-06-29T12:18:03.336Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 3 |
+| Intents | 2 |
 | SPECs | 2 |
-| Fichiers code | 392 (annotés : 94) |
+| Fichiers code | 392 (annotés : 95) |
 | Fichiers test | 277 (annotés : 53) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
 | Intent | SPEC | Code | Tests | Verdict |
 |--------|------|------|-------|---------|
-| INTENT-023-rayonnement-honnete | SPEC-023-1-comparatif-public | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-023-rayonnement-honnete | SPEC-023-2-emit-rules-nouveaux-runtimes | `lib/emit-rules.js` | `test/emit-rules.test.js`<br/>`test/emit-rules-pull.test.js`<br/>`tests/path/file.test.ts` | ✅ |
-| INTENT-028-fiabilite-ci-bin-cartographie-trace | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-028-fiabilite-ci-bin-cartographie-trace | SPEC-028-1-smoke-test-esm-bin | `.github/workflows/ci.yml` | _(aucun)_ | ⚠ non-testée |
+| INTENT-028-fiabilite-ci-bin-cartographie-trace | SPEC-028-2-agent-guide-consommateurs-construire-matrice | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
 | INTENT-029-archivage-facts-resolus | _(aucune SPEC)_ | — | — | ❌ orphelin |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
@@ -367,11 +366,10 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **2**
-  - INTENT-028-fiabilite-ci-bin-cartographie-trace — INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité
+- Intents sans SPEC : **1**
   - INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus
 - SPECs sans code (hors draft/review) : **1**
-  - SPEC-023-1-comparatif-public (statut : done)
+  - SPEC-028-2-agent-guide-consommateurs-construire-matrice (statut : done)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
@@ -382,7 +380,7 @@
 - SPECs EARS sans tests liés (statut ≠ draft/archived) : **0**
 
 ### Non-tracés
-- Code sans `@spec` : **313** (bloquant : 0, non-bloquant : 313)
+- Code sans `@spec` : **312** (bloquant : 0, non-bloquant : 312)
   - .aiad/config.yml
   - .aiad/hook-bypass.yml
   - .aiad/hooks/discovery-gate.js
@@ -400,7 +398,6 @@
   - .github/workflows/aiad-version-check.yml
   - .github/workflows/bun-smoke.yml
   - .github/workflows/canary.yml
-  - .github/workflows/ci.yml
   - .github/workflows/mutation.yml
   - .github/workflows/sdd-trace.yml
   - bench/scenario-autonomous-run/url-shortener/.aiad/config.yml
@@ -433,8 +430,10 @@
   - lib/completion.js
   - lib/confluence.js
   - lib/dashboard/_history-utils.js
-  - … (+263 autres)
-- Code annoté sans tests liés : **15**
+  - lib/dashboard/ab-test-tracker.js
+  - … (+262 autres)
+- Code annoté sans tests liés : **16**
+  - .github/workflows/ci.yml
   - .github/workflows/release.yml
   - .github/workflows/site-deploy.yml
   - lib/archive.js
