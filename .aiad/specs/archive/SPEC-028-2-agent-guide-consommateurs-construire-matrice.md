@@ -8,7 +8,7 @@ traceability_reason: "Documentation seule — modification de .aiad/AGENT-GUIDE.
 **Research** : RESEARCH-038 (GO 90 %)
 **Auteur** : Steeve Evers
 **Date** : 2026-06-29
-**Statut** : done
+**Statut** : archived
 **validated_at** : 2026-06-29
 **Format** : prose
 **SQS** : 5/5
