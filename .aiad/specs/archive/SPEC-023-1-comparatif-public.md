@@ -2,15 +2,17 @@
 id: SPEC-023-1
 title: Page comparative publique honnête
 parent_intent: INTENT-023
-status: done
+status: archived
 format: prose
 sqs: 5
 author: Steeve Evers
 date: "2026-06-29"
 traceability: exempt
 traceability_reason: Livrable = page HTML statique site/fr/comparaison.html + bench/comparison.md. Les fichiers .html et .md ne sont pas dans EXTENSIONS_CODE par design (SPEC-024-1 / FACT-004). Validé via axe-core 0 violation + 16/16 tests bench-comparison.test.js.
+archivedAt: "2026-06-29T10:06:59.749Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # SPEC-023-1 — Page comparative publique honnête
 
 **Intent parent** : INTENT-023

@@ -1,13 +1,15 @@
 ---
 id: INTENT-023
 title: Rayonnement honnête — comparatif public et runtimes élargis
-status: done
-closed_at: 2026-06-29
+status: archived
+closed_at: "2026-06-29"
 author: Steeve Evers
-date: 2026-06-11
-specs:
+date: "2026-06-11"
+specs: null
+archivedAt: "2026-06-29T10:06:59.744Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-023 — Rayonnement honnête
 
 > ⚠ Draft issu de l'analyse du 2026-06-11. POURQUOI à approprier par un humain

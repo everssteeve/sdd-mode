@@ -3,6 +3,12 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-29 — Archivage INTENT-023 + SPEC-023-1/2
+
+**Auteur** : Steeve Evers
+**Raison** : Toutes les SPECs liées sont `done` et livrées — archivage du périmètre INTENT-023 (rayonnement honnête).
+**Impact** : `INTENT-023-rayonnement-honnete.md`, `SPEC-023-1-comparatif-public.md`, `SPEC-023-2-emit-rules-nouveaux-runtimes.md` déplacés vers `archive/`. Statuts `done` → `archived` dans les deux index.
+
 ## 2026-06-29 — INTENT-023 → done
 
 **Auteur** : Steeve Evers

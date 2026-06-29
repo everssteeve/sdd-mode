@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-29T10:06:59.753Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
+---
 # SPEC-023-2 — Extension emit-rules : runtime Kiro (+ Amazon Q)
 
 **Intent parent** : INTENT-023
