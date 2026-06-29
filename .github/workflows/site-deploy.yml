@@ -76,3 +76,26 @@ jobs:
           publish_branch: gh-pages
           # Message de déploiement traçable.
           commit_message: 'deploy(site): ${{ github.sha }} (gate version OK)'
+
+      # @intent INTENT-027
+      # @spec SPEC-027-3-ci-workflow-steps
+      - name: Record DORA metrics
+        if: success()
+        continue-on-error: true
+        run: |
+          npx aiad-sdd dora --record --auto \
+            --status=success \
+            --release=site-${{ github.sha }} \
+            --commit=${{ github.sha }}
+
+      - name: Commit metrics to repository
+        if: success()
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .aiad/metrics/deployments/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(metrics): record site deploy $(date -u +%Y-%m-%d)"
+            git push origin main || (git pull --rebase origin main && git push origin main)
+          fi

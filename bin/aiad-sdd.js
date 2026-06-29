@@ -69,7 +69,7 @@ import {
 } from '../lib/dinum.js';
 import { afficherScore as sovereigntyScore, DIMENSIONS as SOVEREIGNTY_DIMENSIONS, NIVEAUX as SOVEREIGNTY_NIVEAUX } from '../lib/sovereignty-score.js';
 import { extraireAdrs } from '../lib/dashboard/adrs.js';
-import { recordDeployment, importDeploysFromGit, listerDeploys, STATUTS_VALIDES as DORA_STATUS } from '../lib/dora-record.js';
+import { recordDeployment, importDeploysFromGit, listerDeploys, STATUTS_VALIDES as DORA_STATUS, calculateCycleTimeDaysFromSpec } from '../lib/dora-record.js';
 import { checkUpdate, estAutorise as updateAutorise } from '../lib/self-update.js';
 import { buildStandupUrl, tousLesLiens, normaliserLens, dashboardEstStale } from '../lib/standup-url.js';
 import { brief } from '../lib/brief.js';
@@ -244,6 +244,8 @@ const OPTIONS_SCHEMA = {
   release: { type: 'string' },
   commit: { type: 'string' },
   date: { type: 'string' },
+  // (SPEC-027-2) `aiad-sdd dora --record --auto`
+  auto: { type: 'boolean' },
   // (#185) `aiad-sdd dora --import-git`
   'import-git': { type: 'boolean' },
   // (#154) `aiad-sdd doctor --supplementaire`
@@ -2602,6 +2604,32 @@ async function main() {
       break;
     }
 
+    case 'spec': {
+      // @intent INTENT-027
+      // @spec SPEC-027-1-stamp-validated-at
+      const sub = positionals[1];
+      if (sub === 'stamp-validated') {
+        const specId = positionals[2];
+        if (!specId) {
+          console.error('Usage : aiad-sdd spec stamp-validated <SPEC-ID>');
+          exit(1);
+        }
+        try {
+          const { stampValidatedAt } = await import('../lib/spec-stamp.js');
+          const { fichier, validatedAt } = stampValidatedAt(cwd(), specId);
+          console.log(`  ✓ ${specId} — validated_at: ${validatedAt}`);
+        } catch (e) {
+          console.error(`Erreur : ${e.message}`);
+          exit(1);
+        }
+      } else {
+        console.error(`Sous-commande inconnue : spec ${sub ?? ''}`);
+        console.error('Sous-commandes disponibles : stamp-validated');
+        exit(1);
+      }
+      break;
+    }
+
     case 'archive': {
       try {
         if (positionals[1] === 'types') {
@@ -3592,9 +3620,29 @@ async function main() {
             for (const r of imported) console.log(`  - ${r.nom} (${r.status}, tag ${r.tag})`);
           }
         } else if (values.record) {
+          // @intent INTENT-027
+          // @spec SPEC-027-2-calculate-cycle-time
+          let cycleTimeDays = values.cycle !== undefined ? Number(values.cycle) : undefined;
+          if (values.auto) {
+            if (values.cycle !== undefined) {
+              // CA-004b — --cycle écrase --auto, warning affiché
+              process.stderr.write(`  ⚠ --cycle=${values.cycle} écrase --auto (valeur manuelle prioritaire)\n`);
+            } else {
+              // CA-001 / CA-002 / CA-003 — calcul depuis max(validated_at)
+              const deployDate = values.date
+                ? new Date(values.date + 'T00:00:00.000Z')
+                : new Date();
+              const ct = calculateCycleTimeDaysFromSpec(cwd(), deployDate);
+              if (ct === null) {
+                console.error('  ✗ Aucun validated_at trouvé dans les SPECs — SPEC-027-1 requis');
+                exit(1);
+              }
+              cycleTimeDays = ct;
+            }
+          }
           const r = recordDeployment(cwd(), {
             status: values.status,
-            cycleTimeDays: values.cycle !== undefined ? Number(values.cycle) : undefined,
+            cycleTimeDays,
             leadTimeDays: values.lead !== undefined ? Number(values.lead) : undefined,
             version: values.release,
             commit: values.commit,
@@ -3606,7 +3654,8 @@ async function main() {
               ...r,
             }, null, 2) + '\n');
           } else {
-            console.log(`✓ Déploiement enregistré : ${r.nom} (${r.status})`);
+            const cyclePart = cycleTimeDays !== undefined ? ` — cycle_time_days: ${cycleTimeDays}` : '';
+            console.log(`  ✓ Déploiement enregistré : ${r.nom} (${r.status}${cyclePart})`);
           }
         } else {
           console.error('Usage :');

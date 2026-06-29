@@ -2,7 +2,7 @@
 
 **Auteur** : Steeve Evers
 **Date** : 2026-06-23
-**Statut** : draft
+**Statut** : active
 
 ---
 
@@ -34,4 +34,6 @@ Un push sur `main` sans création automatique du fichier déploiement correspond
 
 ## SPECs liées
 
-- [ ] [À créer via /sdd spec]
+- [ ] [SPEC-027-1 — Stamp `validated_at` dans le frontmatter SPEC lors du passage `done`](./../specs/SPEC-027-1-stamp-validated-at.md)
+- [ ] [SPEC-027-2 — Fonction `calculateCycleTimeDaysFromSpec()` + flag CLI `--auto`](./../specs/SPEC-027-2-calculate-cycle-time.md)
+- [ ] [SPEC-027-3 — Steps CI post-deploy (`site-deploy.yml` + `release.yml`)](./../specs/SPEC-027-3-ci-workflow-steps.md)

@@ -29,6 +29,7 @@
 | RESEARCH-033 | Spec-anchored par construction : deltas et redevabilité bidirectionnelle | INTENT-020 | Steeve Evers | 2026-06-25 | CONDITIONAL GO (85 %) | tranché — /sdd spec autorisé (C1 FACT enrichi sans écriture directe SPEC, C2 frontière delta quantifiée) |
 | RESEARCH-034 | Empreinte mesurée : tokens et coût par fonctionnalité | INTENT-021 | Steeve Evers | 2026-06-25 | CONDITIONAL GO (85 %) | tranché — /sdd spec autorisé (C1 périmètre A+B, C2 tokens sans coût €, C3 hook rétro-compatible) ; recouvrement INTENT-030 acté |
 | RESEARCH-035 | Dogfooding complet — le CLI sous SPEC | INTENT-022 | Steeve Evers | 2026-06-26 | GO (90 %) | tranché — /sdd spec autorisé |
+| RESEARCH-036 | Automatisation CI de la collecte de métriques DORA/Flow | INTENT-027 | Steeve Evers | 2026-06-29 | CONDITIONAL GO (85 %) | tranché — /sdd spec autorisé (C-strict validated_at, backfill hors-périmètre) |
 
 ## Verdicts du gate Research
 

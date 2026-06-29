@@ -7,7 +7,8 @@
 
 | Plan | SPEC | Tranches | Avancement | Statut |
 |------|------|----------|------------|--------|
-| | | | | |
+| [EXEC-SPEC-027-1](EXEC-SPEC-027-1-plan.md) | SPEC-027-1 | 1 | 1/1 [x] | done |
+| [EXEC-SPEC-027-2](EXEC-SPEC-027-2-plan.md) | SPEC-027-2 | 1 | 1/1 [x] | done |
 
 ## Verdicts mini-gate
 

@@ -3,6 +3,18 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-29 — SPEC-027-2 — Drift Lock OK (done)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd validate SPEC-027-2` — validation triple PASS. `calculateCycleTimeDaysFromSpec(racineProjet, deployDate)` scanne `.aiad/specs/` + archive, collecte les `validated_at`, retourne `round((deploy − max) / 86400000, 1)` ou `null`. Flag `--auto` dans `aiad-sdd dora --record` : exit 1 si null, CA-004a/b (--cycle prime + warning), CA-006 (--date UTC minuit). 7/7 tests CA-001 à CA-006 verts, lint PASS, zero-dep runtime.
+**Impact** : `lib/dora-record.js` (`calculateCycleTimeDaysFromSpec` + import `parseFrontmatter`), `bin/aiad-sdd.js` (`--auto` flag + dispatch block), `test/dora-auto.test.js` (nouveau — 7 tests). SPEC-027-2 → `done`.
+
+## 2026-06-29 — SPEC-027-1 — Drift Lock OK (done)
+
+**Auteur** : Steeve Evers
+**Raison** : `/sdd validate SPEC-027-1` — validation triple PASS. `stampValidatedAt()` localise la SPEC par préfixe, parse le frontmatter YAML, écrit `validated_at` ISO 8601 UTC (idempotent), préserve le body. Dispatch CLI `aiad-sdd spec stamp-validated <SPEC-ID>`. Dogfooding : SPEC-027-1 elle-même stamped à `2026-06-29T06:57:39.461Z`. 6/6 tests CA-001 à CA-006 verts, lint PASS, zero-dep runtime.
+**Impact** : `lib/spec-stamp.js` (nouveau — `stampValidatedAt`), `test/spec-stamp.test.js` (nouveau — 6 tests), `bin/aiad-sdd.js` (case `spec` + sous-commande `stamp-validated`), `.aiad/exec/EXEC-SPEC-027-1-plan.md` (nouveau), `.aiad/specs/SPEC-027-1` (YAML frontmatter ajouté + `validated_at` stampé + statut `done`). SPEC-027-1 → `done`.
+
 ## 2026-06-29 — SPEC-022-2 — Drift Lock OK (done)
 
 **Auteur** : Steeve Evers
