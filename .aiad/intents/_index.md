@@ -34,7 +34,7 @@
 | INTENT-026 | Archivage automatique des artefacts done (Intents + SPECs) | Steeve Evers | 2026-06-23 | SPEC-026-1 | done |
 | INTENT-027 | Automatisation CI de la collecte de métriques DORA/Flow | Steeve Evers | 2026-06-23 | SPEC-027-1/2/3 done | archived |
 | INTENT-028 | Fiabilité CI bin/ + cartographie consommateurs traçabilité | Steeve Evers | 2026-06-24 | SPEC-028-1, SPEC-028-2 | archived |
-| INTENT-029 | Archivage automatique des FACTs résolus | Steeve Evers | 2026-06-24 | — | active |
+| INTENT-029 | Archivage automatique des FACTs résolus | Steeve Evers | 2026-06-24 | SPEC-029-1 | active |
 | INTENT-030 | EcoLogits — mesure et réduction de l'impact écologique du cycle SDD | Steeve Evers | 2026-06-24 | SPEC-030-1/2/3/4 done | done |
 | INTENT-031 | Chaînage automatique conditionnel du cycle SDD + correctif hook Stop | Steeve Evers | 2026-06-25 | SPEC-031-1/2/3 done | archived |
 | INTENT-032 | Recommandation modèle actionnable dans toutes les commandes /sdd et /aiad (FACT-015) | Steeve Evers | 2026-06-25 | SPEC-032-1 | archived |
