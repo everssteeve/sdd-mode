@@ -14,7 +14,7 @@
   --blue-500: #2d6cdf;
   --blue-100: #e3edfb;
   --gold-500: #e8a020;
-  --gold-600: #c5860f;
+  --gold-600: #7e5300; /* @spec SPEC-025-1-gold-contrast-fix — ratio 6.0:1 (blanc) 5.3:1 (#fbeecd) */
   --teal-500: #0e8a7d;
   --red-600: #c0392b;
   --green-600: #1e7e34;
@@ -558,6 +558,9 @@ article.doc blockquote p { margin: 0.3rem 0; }
 .callout.warn { background: #fdf3e0; border-color: #ecc97f; color: #6b4d09; }
 .callout.danger { background: #fcebe8; border-color: #eebbb3; color: #7c2d22; }
 .callout.success { background: #e9f6ec; border-color: #b4dfc0; color: #1d5c2e; }
+/* WCAG 1.4.3 — liens dans callouts : héritent du texte callout (déjà ≥4.5:1)
+   plutôt que --blue-500 qui ne passe pas sur ces fonds colorés. */
+.callout a { color: inherit; text-decoration: underline; }
 
 /* Badge / pills */
 
