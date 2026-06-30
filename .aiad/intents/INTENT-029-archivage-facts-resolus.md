@@ -1,13 +1,14 @@
 ---
 id: INTENT-029
-status: active
+status: done
+closed_at: 2026-06-30
 ---
 
 # INTENT-029 — Archivage automatique des FACTs résolus
 
 **Auteur** : Steeve Evers
 **Date** : 2026-06-24
-**Statut** : active
+**Statut** : done (2026-06-30 — SPEC-029-1 livrée)
 
 ---
 
@@ -41,4 +42,4 @@ Signal observable : après `aiad-sdd archive --all` sur un projet contenant au m
 
 ## SPECs liées
 
-- [ ] SPEC-029-1 — Extension de l'archivage aux FACTs résolus — ready (5/5)
+- [x] SPEC-029-1 — Extension de l'archivage aux FACTs résolus — done (5/5)

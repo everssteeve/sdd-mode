@@ -1,9 +1,18 @@
+---
+id: FACT-006
+title: INTENT done ne déclenche pas d'archivage automatique
+date: 2026-06-23
+author: Steeve Evers
+status: résolu
+resolvedBy: SPEC-026-1
+---
+
 # FACT-006 — INTENT `done` ne déclenche pas d'archivage automatique
 
 **Date** : 2026-06-23
 **Auteur** : Steeve Evers
-**SPEC concernée** : N/A (comportement absent — aucune SPEC ne couvre l'archivage)
-**Statut** : ouvert
+**SPEC concernée** : SPEC-026-1 (livré)
+**Statut** : résolu (2026-06-23 — SPEC-026-1 implémentée)
 
 ## Écart constaté
 

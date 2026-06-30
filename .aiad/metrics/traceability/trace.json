@@ -2,12 +2,12 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.18.0",
-    "generated": "2026-06-29T12:18:03.337Z"
+    "generated": "2026-06-30T07:27:43.766Z"
   },
-  "generatedAt": "2026-06-29T12:18:03.336Z",
+  "generatedAt": "2026-06-30T07:27:43.766Z",
   "summary": {
-    "intents": 2,
-    "specs": 2,
+    "intents": 1,
+    "specs": 1,
     "codeFiles": 392,
     "annotatedCodeFiles": 95,
     "testFiles": 277,
@@ -16,18 +16,18 @@
   "forward": [
     {
       "intent": {
-        "id": "INTENT-028-fiabilite-ci-bin-cartographie-trace",
-        "file": ".aiad/intents/INTENT-028-fiabilite-ci-bin-cartographie-trace.md",
-        "title": "INTENT-028 — Fiabilité CI bin/ + cartographie consommateurs traçabilité",
-        "status": "active"
+        "id": "INTENT-029-archivage-facts-resolus",
+        "file": ".aiad/intents/INTENT-029-archivage-facts-resolus.md",
+        "title": "INTENT-029 — Archivage automatique des FACTs résolus",
+        "status": "done"
       },
       "specs": [
         {
           "spec": {
-            "id": "SPEC-028-1-smoke-test-esm-bin",
-            "file": ".aiad/specs/SPEC-028-1-smoke-test-esm-bin.md",
-            "title": "SPEC-028-1 — Smoke test ESM bin/",
-            "parentIntent": "INTENT-028",
+            "id": "SPEC-029-1-archive-facts-resolus",
+            "file": ".aiad/specs/SPEC-029-1-archive-facts-resolus.md",
+            "title": "SPEC-029-1 — Extension de l'archivage aux FACTs résolus",
+            "parentIntent": "INTENT-029",
             "status": "done",
             "format": "PROSE",
             "traceability": "",
@@ -35,36 +35,27 @@
           },
           "code": [
             {
-              "path": ".github/workflows/ci.yml",
-              "line": 41
+              "path": "lib/archive.js",
+              "line": 37
+            },
+            {
+              "path": "lib/memory.js",
+              "line": 86
             }
           ],
-          "tests": []
-        },
-        {
-          "spec": {
-            "id": "SPEC-028-2-agent-guide-consommateurs-construire-matrice",
-            "file": ".aiad/specs/SPEC-028-2-agent-guide-consommateurs-construire-matrice.md",
-            "title": "SPEC-028-2 — AGENT-GUIDE : section « Consommateurs de construireMatrice() »",
-            "parentIntent": "INTENT-028",
-            "status": "done",
-            "format": "PROSE",
-            "traceability": "exempt",
-            "traceabilityReason": "Documentation seule — modification de .aiad/AGENT-GUIDE.md, non scanné par EXTENSIONS_CODE (DOSSIERS_IGNORES inclut .aiad). Contenu vérifié par grep CA-1/CA-5."
-          },
-          "code": [],
-          "tests": []
+          "tests": [
+            {
+              "path": "test/archive.test.js",
+              "line": 577
+            },
+            {
+              "path": "test/memory.test.js",
+              "line": 24,
+              "viaCode": true
+            }
+          ]
         }
       ]
-    },
-    {
-      "intent": {
-        "id": "INTENT-029-archivage-facts-resolus",
-        "file": ".aiad/intents/INTENT-029-archivage-facts-resolus.md",
-        "title": "INTENT-029 — Archivage automatique des FACTs résolus",
-        "status": "draft"
-      },
-      "specs": []
     }
   ],
   "backward": [
@@ -287,7 +278,7 @@
     {
       "test": {
         "path": "test/archive.test.js",
-        "line": 321
+        "line": 327
       },
       "intent": null,
       "code": [
@@ -300,13 +291,45 @@
     {
       "test": {
         "path": "test/archive.test.js",
-        "line": 411
+        "line": 417
       },
       "intent": null,
       "code": [
         {
           "path": "lib/statusline.js",
           "line": 15
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/archive.test.js",
+        "line": 577
+      },
+      "spec": {
+        "id": "SPEC-029-1-archive-facts-resolus",
+        "file": ".aiad/specs/SPEC-029-1-archive-facts-resolus.md",
+        "title": "SPEC-029-1 — Extension de l'archivage aux FACTs résolus",
+        "parentIntent": "INTENT-029",
+        "status": "done",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-029-archivage-facts-resolus",
+        "file": ".aiad/intents/INTENT-029-archivage-facts-resolus.md",
+        "title": "INTENT-029 — Archivage automatique des FACTs résolus",
+        "status": "done"
+      },
+      "code": [
+        {
+          "path": "lib/archive.js",
+          "line": 37
+        },
+        {
+          "path": "lib/memory.js",
+          "line": 86
         }
       ]
     },
@@ -4336,26 +4359,8 @@
     }
   ],
   "gaps": {
-    "intentsSansSpec": [
-      {
-        "id": "INTENT-029-archivage-facts-resolus",
-        "file": ".aiad/intents/INTENT-029-archivage-facts-resolus.md",
-        "title": "INTENT-029 — Archivage automatique des FACTs résolus",
-        "status": "draft"
-      }
-    ],
-    "specsSansCode": [
-      {
-        "id": "SPEC-028-2-agent-guide-consommateurs-construire-matrice",
-        "file": ".aiad/specs/SPEC-028-2-agent-guide-consommateurs-construire-matrice.md",
-        "title": "SPEC-028-2 — AGENT-GUIDE : section « Consommateurs de construireMatrice() »",
-        "parentIntent": "INTENT-028",
-        "status": "done",
-        "format": "PROSE",
-        "traceability": "exempt",
-        "traceabilityReason": "Documentation seule — modification de .aiad/AGENT-GUIDE.md, non scanné par EXTENSIONS_CODE (DOSSIERS_IGNORES inclut .aiad). Contenu vérifié par grep CA-1/CA-5."
-      }
-    ],
+    "intentsSansSpec": [],
+    "specsSansCode": [],
     "specsValideesNonImplementees": [],
     "codeSansSpec": {
       "bloquant": 0,
@@ -8733,51 +8738,6 @@
         "annotated": true
       },
       {
-        "path": "lib/archive.js",
-        "isTest": false,
-        "annotations": {
-          "intents": [
-            {
-              "id": "INTENT-026",
-              "line": 364
-            },
-            {
-              "id": "INTENT-026",
-              "line": 430
-            },
-            {
-              "id": "INTENT-026",
-              "line": 459
-            }
-          ],
-          "specs": [
-            {
-              "id": "SPEC-026-2-archive-done-split-orphelins",
-              "line": 336
-            },
-            {
-              "id": "SPEC-026-1-archive-done",
-              "line": 362
-            },
-            {
-              "id": "SPEC-026-2-archive-done-split-orphelins",
-              "line": 363
-            },
-            {
-              "id": "SPEC-026-2-archive-done-split-orphelins",
-              "line": 429
-            },
-            {
-              "id": "SPEC-026-1-archive-done",
-              "line": 458
-            }
-          ],
-          "verifiedBy": [],
-          "governance": []
-        },
-        "annotated": true
-      },
-      {
         "path": "lib/command-hooks.js",
         "isTest": false,
         "annotations": {
@@ -9101,16 +9061,5 @@
     "specsOrphelinsSurCode": [],
     "earsSpecsSansTests": []
   },
-  "specsExemptees": [
-    {
-      "id": "SPEC-028-2-agent-guide-consommateurs-construire-matrice",
-      "file": ".aiad/specs/SPEC-028-2-agent-guide-consommateurs-construire-matrice.md",
-      "title": "SPEC-028-2 — AGENT-GUIDE : section « Consommateurs de construireMatrice() »",
-      "parentIntent": "INTENT-028",
-      "status": "done",
-      "format": "PROSE",
-      "traceability": "exempt",
-      "traceabilityReason": "Documentation seule — modification de .aiad/AGENT-GUIDE.md, non scanné par EXTENSIONS_CODE (DOSSIERS_IGNORES inclut .aiad). Contenu vérifié par grep CA-1/CA-5."
-    }
-  ]
+  "specsExemptees": []
 }

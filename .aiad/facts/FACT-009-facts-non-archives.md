@@ -4,7 +4,8 @@ title: FACTs résolus non archivés automatiquement
 date: 2026-06-24
 author: Steeve Evers
 specs: N/A
-status: ouvert
+status: résolu
+resolvedBy: SPEC-029-1
 ---
 
 # FACT-009 — FACTs résolus non archivés automatiquement
@@ -12,7 +13,7 @@ status: ouvert
 **Date** : 2026-06-24
 **Auteur** : Steeve Evers
 **SPEC concernée** : N/A (comportement absent — aucune SPEC ne couvre l'archivage des FACTs)
-**Statut** : ouvert
+**Statut** : résolu (2026-06-30 — SPEC-029-1 implémentée)
 
 ## Écart constaté
 

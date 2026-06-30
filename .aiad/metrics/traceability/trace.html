@@ -24,11 +24,11 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-06-29T12:18:03.336Z</em></p>
+<p><em>Généré le 2026-06-30T07:27:43.766Z</em></p>
 
 <div class="stats">
-  <div class="stat"><div class="v">2</div><div class="k">Intents</div></div>
-  <div class="stat"><div class="v">2</div><div class="k">SPECs</div></div>
+  <div class="stat"><div class="v">1</div><div class="k">Intents</div></div>
+  <div class="stat"><div class="v">1</div><div class="k">SPECs</div></div>
   <div class="stat"><div class="v">95 / 392</div><div class="k">Code annoté</div></div>
   <div class="stat"><div class="v">53 / 277</div><div class="k">Tests annotés</div></div>
   <div class="stat"><div class="v">312</div><div class="k">Code sans @spec</div></div>
@@ -38,9 +38,7 @@
 <h2>Matrice Forward</h2>
 <div class="filter"><input type="search" id="qfwd" placeholder="Filtrer Forward…" /></div>
 <table id="fwd"><thead><tr><th>Intent</th><th>SPEC</th><th>Code</th><th>Tests</th><th>Verdict</th></tr></thead><tbody>
-<tr class="warn"><td>INTENT-028-fiabilite-ci-bin-cartographie-trace</td><td>SPEC-028-1-smoke-test-esm-bin</td><td><code>.github/workflows/ci.yml</code></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-testée</span></td></tr>
-<tr class="warn"><td>INTENT-028-fiabilite-ci-bin-cartographie-trace</td><td>SPEC-028-2-agent-guide-consommateurs-construire-matrice</td><td><em>(aucun)</em></td><td><em>(aucun)</em></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
-<tr><td>INTENT-029-archivage-facts-resolus</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
+<tr class="ok"><td>INTENT-029-archivage-facts-resolus</td><td>SPEC-029-1-archive-facts-resolus</td><td><code>lib/archive.js</code><br/><code>lib/memory.js</code></td><td><code>test/archive.test.js</code><br/><code>test/memory.test.js</code></td><td><span class="ok">✅</span></td></tr>
 </tbody></table>
 
 <h2>Matrice Backward</h2>
@@ -60,6 +58,7 @@
 <tr class="bad"><td><code>test/anonymize.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/archive.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/statusline.js</code></td></tr>
 <tr class="bad"><td><code>test/archive.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/statusline.js</code></td></tr>
+<tr class="ok"><td><code>test/archive.test.js</code></td><td>SPEC-029-1-archive-facts-resolus</td><td>INTENT-029-archivage-facts-resolus</td><td><code>lib/archive.js</code><br/><code>lib/memory.js</code></td></tr>
 <tr class="bad"><td><code>test/audit.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/auto-chain-config.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/auto-chain.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>

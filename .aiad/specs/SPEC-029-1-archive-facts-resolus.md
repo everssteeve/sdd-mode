@@ -4,7 +4,7 @@
 **Research** : RESEARCH-039 (GO 95 %)
 **Auteur** : Steeve Evers
 **Date** : 2026-06-29
-**Statut** : ready
+**Statut** : done
 **Format** : prose
 **SQS** : 5/5
 **validated_at** : 2026-06-29

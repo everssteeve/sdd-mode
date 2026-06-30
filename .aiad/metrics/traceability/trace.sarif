@@ -98,25 +98,6 @@
       },
       "results": [
         {
-          "ruleId": "AIAD-TRACE-001",
-          "level": "warning",
-          "message": {
-            "text": "Intent INTENT-029-archivage-facts-resolus (« INTENT-029 — Archivage automatique des FACTs résolus ») n'a pas de SPEC associée."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".aiad/intents/INTENT-029-archivage-facts-resolus.md"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
@@ -6105,25 +6086,6 @@
           "ruleId": "AIAD-TRACE-006",
           "level": "warning",
           "message": {
-            "text": "Code lib/archive.js annoté @spec mais sans test lié."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/archive.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-006",
-          "level": "warning",
-          "message": {
             "text": "Code lib/command-hooks.js annoté @spec mais sans test lié."
           },
           "locations": [
@@ -6352,7 +6314,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-29T12:18:03.336Z"
+          "endTimeUtc": "2026-06-30T07:27:43.766Z"
         }
       ]
     }

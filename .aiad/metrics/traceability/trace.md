@@ -1,13 +1,13 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-29T12:18:03.336Z
+> Généré le 2026-06-30T07:27:43.766Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 2 |
-| SPECs | 2 |
+| Intents | 1 |
+| SPECs | 1 |
 | Fichiers code | 392 (annotés : 95) |
 | Fichiers test | 277 (annotés : 53) |
 
@@ -15,9 +15,7 @@
 
 | Intent | SPEC | Code | Tests | Verdict |
 |--------|------|------|-------|---------|
-| INTENT-028-fiabilite-ci-bin-cartographie-trace | SPEC-028-1-smoke-test-esm-bin | `.github/workflows/ci.yml` | _(aucun)_ | ⚠ non-testée |
-| INTENT-028-fiabilite-ci-bin-cartographie-trace | SPEC-028-2-agent-guide-consommateurs-construire-matrice | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
-| INTENT-029-archivage-facts-resolus | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-029-archivage-facts-resolus | SPEC-029-1-archive-facts-resolus | `lib/archive.js`<br/>`lib/memory.js` | `test/archive.test.js`<br/>`test/memory.test.js` | ✅ |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
 
@@ -37,6 +35,7 @@
 | `test/anonymize.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/archive.test.js` | ❌ non-tracé | — | `lib/statusline.js` |
 | `test/archive.test.js` | ❌ non-tracé | — | `lib/statusline.js` |
+| `test/archive.test.js` | SPEC-029-1-archive-facts-resolus | INTENT-029-archivage-facts-resolus | `lib/archive.js`<br/>`lib/memory.js` |
 | `test/audit.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/auto-chain-config.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/auto-chain.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -366,10 +365,8 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **1**
-  - INTENT-029-archivage-facts-resolus — INTENT-029 — Archivage automatique des FACTs résolus
-- SPECs sans code (hors draft/review) : **1**
-  - SPEC-028-2-agent-guide-consommateurs-construire-matrice (statut : done)
+- Intents sans SPEC : **0**
+- SPECs sans code (hors draft/review) : **0**
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
@@ -432,11 +429,10 @@
   - lib/dashboard/_history-utils.js
   - lib/dashboard/ab-test-tracker.js
   - … (+262 autres)
-- Code annoté sans tests liés : **16**
+- Code annoté sans tests liés : **15**
   - .github/workflows/ci.yml
   - .github/workflows/release.yml
   - .github/workflows/site-deploy.yml
-  - lib/archive.js
   - lib/command-hooks.js
   - lib/dashboard/ebm-aires.js
   - lib/dashboard/render.js

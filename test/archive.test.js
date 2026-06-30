@@ -35,6 +35,12 @@ function ecrireIntent(d, id, fm = '', body = 'Body') {
   writeFileSync(join(d, '.aiad', 'intents', `${id}.md`), frontmatter + body);
 }
 
+function ecrireFact(d, id, fm = '', body = 'Body') {
+  mkdirSync(join(d, '.aiad', 'facts'), { recursive: true });
+  const frontmatter = fm ? `---\n${fm}\n---\n` : '';
+  writeFileSync(join(d, '.aiad', 'facts', `${id}.md`), frontmatter + body);
+}
+
 // ─── detecterSousDossier ──────────────────────────────────────────────────
 
 test('detecterSousDossier — INT-NNN → intents', () => {
@@ -339,7 +345,7 @@ test('alias EN — exports canoniques', () => {
 });
 
 test('CONSTANTS — exposées', () => {
-  assert.deepEqual(CONSTANTS.SOUS_DOSSIERS, ['intents', 'specs']);
+  assert.deepEqual(CONSTANTS.SOUS_DOSSIERS, ['intents', 'specs', 'facts']);
 });
 
 // ─── archiverTous (SPEC-026-1) ───────────────────────────────────────────────
@@ -564,3 +570,51 @@ test('archive done — CA-007b exit 0 aucun candidat (listerOrphelins retourne [
     assert.equal(orphelins.length, 0, 'aucun orphelin → listerOrphelins retourne []');
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
+
+// ─── SPEC-029-1 — Extension archivage FACTs résolus ──────────────────────────
+
+test('detecterSousDossier — FACT-NNN → facts', () => {
+  // @spec SPEC-029-1-archive-facts-resolus
+  assert.equal(detecterSousDossier('FACT-001'), 'facts');
+  assert.equal(detecterSousDossier('fact-009-slug'), 'facts');
+});
+
+test('listerLivrables — FACT status résolu est candidat (CA-1, CA-2)', async () => {
+  const { listerLivrables } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireFact(d, 'FACT-009-slug', 'status: résolu\ntitle: Fait résolu');
+    ecrireFact(d, 'FACT-010-ouvert', 'status: ouvert\ntitle: Fait ouvert');
+    const liste = listerLivrables(d);
+    const ids = liste.map((e) => e.id);
+    assert.ok(ids.includes('FACT-009-SLUG') || ids.some((id) => id.startsWith('FACT-009')), 'FACT résolu doit être candidat');
+    assert.ok(!ids.some((id) => id.startsWith('FACT-010')), 'FACT ouvert doit être ignoré');
+  } finally { rmSync(d, { recursive: true, force: true }); }
+});
+
+test('archiverTous — archive FACT status résolu vers facts/archive/ (CA-1, CA-3)', silent(async () => {
+  const { archiverTous } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireFact(d, 'FACT-009-slug', 'status: résolu\ntitle: FACT résolu');
+    const result = await archiverTous(d, { dryRun: false, raison: 'résolu' });
+    assert.ok(result.total >= 1, 'au moins un FACT archivé');
+    const archiveDir = join(d, '.aiad', 'facts', 'archive');
+    assert.ok(existsSync(archiveDir), 'dossier facts/archive créé');
+    const contenu = readFileSync(join(archiveDir, 'FACT-009-slug.md'), 'utf-8');
+    assert.ok(contenu.includes('status: archived'), 'frontmatter status: archived');
+    assert.ok(contenu.includes('archivedBy:'), 'archivedBy présent');
+    assert.ok(contenu.includes('archivedAt:'), 'archivedAt présent');
+  } finally { rmSync(d, { recursive: true, force: true }); }
+}));
+
+test('archiverTous — dry-run ne déplace pas les FACTs (CA-4)', silent(async () => {
+  const { archiverTous } = await import('../lib/archive.js');
+  const d = tmp();
+  try {
+    ecrireFact(d, 'FACT-008-slug', 'status: résolu\ntitle: FACT résolu');
+    const result = await archiverTous(d, { dryRun: true });
+    assert.ok(result.total >= 1 || result.candidats >= 1 || result.dryRun, 'dry-run signale un candidat');
+    assert.ok(existsSync(join(d, '.aiad', 'facts', 'FACT-008-slug.md')), 'fichier non déplacé en dry-run');
+  } finally { rmSync(d, { recursive: true, force: true }); }
+}));

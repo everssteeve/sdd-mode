@@ -3,6 +3,18 @@
 > Ce fichier trace les mises à jour significatives des artefacts SDD Mode.
 > Il permet de vérifier la synchronisation artefacts/code lors du Drift Check.
 
+## 2026-06-30 — SPEC-029-1 → done (Drift Lock OK)
+
+**Auteur** : Steeve Evers
+**SPEC** : SPEC-029-1-archive-facts-resolus
+**Intent parent** : INTENT-029 — Archivage automatique des FACTs résolus
+**Raison** : Implémentation livrée et validée (8/8 CAs, 4198 tests PASS, lint OK, trace 0 gap bloquant).
+**Fichiers code** : `lib/archive.js` (+`facts` dans TYPES_ARTEFACTS/SOUS_DOSSIERS/SOUS_DOSSIERS_LIVRABLES + `résolu` dans STATUTS_LIVRES), `lib/memory.js` (filtre archive/ dans collecterObservations).
+**Tests** : `test/archive.test.js` (+helper ecrireFact, +4 tests FACT couvrant CA-1/2/3/4).
+**FACTs mis à jour** : FACT-006 (status → résolu), FACT-009 (status → résolu, résolue par cette SPEC).
+**Note DoOD** : 11 FACTs éligibles détectés (vs 4 estimés) — comportement correct, sous-estimation du DoOD.
+**Impact** : `aiad-sdd archive done` archive désormais les FACTs `status: résolu` ou `status: done` vers `facts/archive/`.
+
 ## 2026-06-29 — Archivage INTENT-023 + SPEC-023-1/2
 
 **Auteur** : Steeve Evers
