@@ -7,24 +7,5 @@
       "args": ["--no-sandbox", "--disable-setuid-sandbox"]
     }
   },
-  "concurrency": 4,
-  "urls": [
-    "http://localhost:8765/index.html",
-    "http://localhost:8765/pm.html",
-    "http://localhost:8765/intents.html",
-    "http://localhost:8765/specs.html",
-    "http://localhost:8765/traceability.html",
-    "http://localhost:8765/graph.html",
-    "http://localhost:8765/metrics.html",
-    "http://localhost:8765/qa.html",
-    "http://localhost:8765/adrs.html",
-    "http://localhost:8765/legal.html",
-    "http://localhost:8765/governance.html",
-    "http://localhost:8765/drifts.html",
-    "http://localhost:8765/changelog.html",
-    "http://localhost:8765/onboarding.html",
-    "http://localhost:8765/kanban.html",
-    "http://localhost:8765/sre.html",
-    "http://localhost:8765/dpo.html"
-  ]
+  "concurrency": 4
 }
