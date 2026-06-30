@@ -70,6 +70,7 @@ patterns:
   - ".gitignore"
   - ".npmignore"
   - ".editorconfig"
+  - ".pa11yci.json"
 
   # Métriques générées automatiquement par les commandes /sdd-*
   - ".aiad/metrics/**"
