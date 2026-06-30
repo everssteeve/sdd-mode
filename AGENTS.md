@@ -1,8 +1,7 @@
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 ---
-generated-by: aiad-emit-rules v1.18.0
-source-hash: 8489b3141c402da2
-intent_id: INTENT-029
+generated-by: aiad-emit-rules v1.19.0
+source-hash: ddf351ef23c1f2f1
 ---
 
 # AGENTS.md
@@ -30,9 +29,6 @@ La paternité de l'intention ne se délègue pas. Tu exécutes avec excellence, 
 Intent Statement → Research (GO/NO-GO) → SPEC → Execution Gate (SQS ≥ 4/5) → Exécution → Validation → Drift Lock
 ```
 
-### Intent actif
-
-- **INTENT-029** — INTENT-029-archivage-facts-resolus.md
 
 
 ## Architecture documentaire
@@ -105,4 +101,4 @@ En cas de conflit SPEC ↔ gouvernance, **la gouvernance prévaut**.
 
 ---
 
-*Framework AIAD v1.18.0 — aiad.ovh — Open Source*
+*Framework AIAD v1.19.0 — aiad.ovh — Open Source*

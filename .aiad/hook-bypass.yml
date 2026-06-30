@@ -53,6 +53,7 @@ patterns:
   - "GEMINI.md"
   - ".codex/**"
   - ".cursor/**"
+  - ".kiro/**"
 
   # Manifestes et lockfiles (mises à jour de dépendances)
   - "package.json"
