@@ -7,6 +7,149 @@
 > Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
 > Versionnage : [SemVer 2.0.0](https://semver.org/lang/fr/).
 
+## [1.19.0] — 2026-06-30
+
+### Ajouté
+
+- **029** : SPEC-029-1 done — extend archive pipeline to resolved FACTs (INTENT-029)
+- **029** : gate SPEC-029-1 — SQS 5/5, Gate OUVERTE (INTENT-029)
+- **029** : SPEC-029-1 draft — extension archivage aux FACTs résolus (INTENT-029)
+- **029** : RESEARCH-039 GO — archivage FACTs résolus viable (INTENT-029)
+- **028** : add ESM smoke test for bin/ + document construireMatrice() consumers (INTENT-028)
+- **023** : add Kiro runtime to emit-rules (SPEC-023-2)
+- **023** : add honest public comparison page + enrich bench/comparison.md (SPEC-023-1)
+- **027** : automate DORA metrics collection post-deploy (INTENT-027)
+- **022** : enforcement nouveaux modules lib/ sans @spec = gap bloquant (SPEC-022-2)
+- **022** : retro-annotate lib/init.js + 6 core modules (SPEC-022-1)
+- **021** : restitution empreinte tokens par artefact dans /sdd context (SPEC-021-2)
+- **021** : attribution tokens par artefact — hook Stop enrichi rétro-compatible (SPEC-021-1)
+- **020** : redevabilité bidirectionnelle — FACT enrichi + signal constraint-violated (SPEC-020-2)
+- **031** : auto-chain engine + hook Stop fix + auto_chain config (INTENT-031)
+- **statusline** : thinking indicator, quota rate-limit, session note
+- **sdd** : SPEC-032-1 — /model actionnable dans 33 commandes /sdd et /aiad (FACT-015)
+- **archive** : SPEC-026-2 — listerLivrables(split) + listerOrphelins + tests
+- **spec** : SPEC-026-2 — archive done : SPECs split + originaux orphelins (FACT-014)
+- **eco** : SPEC-030-4 — dashboard eco.html + widget EcoLogits metrics.html (Drift Lock)
+- **intent** : INTENT-028 — fiabilité CI bin/ + cartographie consommateurs construireMatrice()
+- **archive** : SPEC-026-1 — commande \`archive done\` + Drift Lock INTENT-026
+- **trace** : SPEC-019-2 — gap earsSpecsSansTests dans trace --fail-on-gap
+- **suggest-tests** : SPEC-019-1 — générateur de squelettes de tests depuis EARS
+- **intent** : INTENT-027 — automatisation CI collecte métriques DORA/Flow
+- **intent** : INTENT-026 — archivage automatique des artefacts done
+- **dashboard** : backlog Impact × Effort — SPEC-018-5 closes INTENT-018 (5/5)
+- **dashboard** : bilan humains/agents par Intent — SPEC-018-4 closes INTENT-018 (4/5)
+- **dashboard** : hill charts depuis état SDD — SPEC-018-3 closes INTENT-018 (3/5)
+- **dashboard** : aires EBM + Investment Balance — SPEC-018-2 closes INTENT-018 (2/5)
+- **dashboard** : inbox triage + digest delta — SPEC-017-2 + SPEC-017-3 closes INTENT-017
+- **dashboard** : matrice outcomes ↔ Intents — SPEC-018-1 closes INTENT-018 (1/5)
+- **dashboard** : pages détail SPEC drill-down — SPEC-017-4 closes INTENT-017 (4/4)
+- **dashboard** : page Aujourd'hui — SPEC-017-1 closes INTENT-017 (1/4)
+- **rgesn** : budgets de poids par page + CI — SPEC-016-4 closes INTENT-016
+- **dashboard** : data.json v2 — schema_version + JSON Schema publié — SPEC-016-3 closes INTENT-016
+- **a11y** : gate RGAA AA avant publication — pa11y-ci WCAG2AA (SPEC-013-4b)
+- **trace** : exemption de traçabilité pour SPECs sans code applicatif (SPEC-024-1) (#16)
+- **guardrails** : matrice enforced/advisory + veto non-bypassable (SPEC-015-3) (#14)
+- **deprecation** : cycle de dépréciation soft des commandes — mécanisme dormant (SPEC-015-2-2) (#12)
+- **registry** : registre catégorisé des commandes core/extended/experimental (SPEC-015-2-1) (#10)
+- **telemetry** : agrégat d'usage per-command local opt-in (SPEC-015-1) (#8)
+- **sourcing** : requalifie le 50K + fige les claims externes (SPEC-014-2) (#6)
+- **ci** : gates qualité bloquants + badge couverture (SPEC-014-1) (#5)
+- **ci** : exec SPEC-013-4a — workflow site-deploy.yml (deploy + gate version)
+- **site** : exec SPEC-013-1a — aligne contenu v1.18 + corrige prémisse déploiement
+- **version-sync** : SPEC-013-3 — sync versions sur zones marquées + check CI
+- **aiad** : roadmap intents 013→023 + research sync-version + SPEC-013 split
+- **aiad** : templates + hooks + marketplace catalogue + specs-library (v1.18)
+- **ci** : workflows AIAD — PR review, trace, canary, dashboard, docs-check, emit-rules-check
+- **gouvernance** : agents Tier 1 AI-ACT / RGPD / RGAA / RGESN / CRA
+- **site** : SDD Mode documentation site — SAFe Studio parity
+- **garde-fous** : doctrine + proportionnalité + grill-me + sunset — §4 (GF1–GF5)
+- **distribution** : plugin Claude Code + /goal + toggles de hooks — §3.13 (SPEC-A + SPEC-B)
+- **cross-model** : review cross-model additive-only — §3.12
+- **observability** : statusLine + usage skills + OTel scaffolding — §3.11 (SPEC-A + SPEC-B)
+- **cycle** : cycle SDD comme graphe de Tasks blockedBy — §3.9
+- **memory** : memory native from logs + anti dock rot — §3.8 (SPEC-A + SPEC-B)
+- **canary** : canary suite déterministe + alignement Opus 4.8 — §3.10 (SPEC-A + SPEC-B)
+- **context** : gouvernance en pull (.claude/rules paths:) + budget settings — §3.7
+- **exec** : exécution phasée + mini-gates + verdict CONDITIONAL — §3.6 (SPEC-A + SPEC-B)
+- **research** : phase Research + gate Discovery enforced — §3.5 (SPEC-A + SPEC-B)
+- **governance** : enforce P0 — verdict contract, JNSP/Drift/Veto hooks, Tier 1 subagents
+
+### Corrigé
+
+- **fact** : FACT-014 — gaps archive done (split + originaux orphelins)
+- **archive** : FACT-013 — 5 SPECs done/split hors archive + suppression originaux SPEC-030-x
+- **archive** : INTENT-030 + SPEC-030-x archivés + FACT-012 (déclenchement auto manquant)
+- **drift** : INTENT-030 → done (artefact non mis à jour après livraison des 4 SPECs)
+- **archive** : fallback body parsing + archivage INTENT-016 + 20 SPECs (FACT-008)
+- **archive** : safe check trop conservateur bloquait l'archivage des specs done (FACT-007)
+- **trace** : artefacts archivés ne sont plus détectés comme @intent/@spec orphelins
+- **archive** : import C from term.js dans bin — ReferenceError sur archive done
+- **validate** : corrections post-validate INTENT-019 + close intent
+- **tech-debt** : exclure .md + test/bench/docs/templates du scan JNSP
+- **a11y** : patch 17 remaining WCAG2AA contrast violations — SPEC-016-2 closes INTENT-016
+- **a11y** : correct --gold-600 contrast ratio — SPEC-025-1 closes INTENT-025
+- **a11y** : patch FACT-005-A — color:#fff sur .install navy-900 (ratio 1.05→15:1)
+- **trace** : extend EXTENSIONS_CODE to scan .yml/.yaml for @spec annotations
+- **ci** : site-deploy publie aussi sur workflow_dispatch (pas que push)
+- **ci** : supprime l'instance repo aiad-dashboard.yml (même conflit Pages)
+- **ci** : supprime docs-deploy.yml (incompatible topologie Pages gh-pages)
+- **ci** : site-deploy — workflow_dispatch + whitelist drift-lock
+- **ci** : emit-rules-check utilise la version du PR, pas aiad-sdd@latest
+- **test** : trace-cache — fiabiliser l'assertion perf cold/warm (plancher de bruit)
+- **ci** : pr-review — passer les sorties via env, pas en interpolation JS
+- **veto** : exclure les définitions d'agents de gouvernance du veto check circulaire
+- **trace** : resserrement ANNOTATION_REGEX aux IDs strictement numériques + CACHE_VERSION 2
+- **site** : bump poster SVG version badge v1.12 → v1.18
+- **site** : bump version badge and glossary range v1.12 → v1.18
+- **ci** : polling watcher dashboard + cadence Linux<Node20
+- **ci** : watcher polling Linux<Node20 + verdicts parité Bun
+- **ci** : portabilité Node 18 / macOS / Bun — débloque les tests CI
+- **ci** : compatibilité Node 18 — glob de tests expansé par le shell
+
+### Changé
+
+- **dashboard** : split render.js monolith into 4-layer architecture — SPEC-016-1
+
+### Documentation
+
+- **retro** : rétro 2026-06-25 — 1 Lesson Learned + 2 Human Learnings
+- **bypass** : clarify bin/aiad-sdd.js permanent bypass rationale
+- **retro** : rétro 2026-06-24 — 2 Lessons Learned + 1 Human Learning
+- **retro** : rétro 2026-06-23 — Lessons Learned + Human Learnings
+- **board** : clôture INTENT-015 + SPEC-015-3 → done (#14) (#15)
+- **board** : clôture SPEC-015-2-2 → done (#12) (#13)
+- **board** : clôture SPEC-015-2-1 → done (#10) (#11)
+- **board** : clôture SPEC-015-1 → done (#8) (#9)
+- **board** : clôture INTENT-014 + SPEC-014-1/2 → done (#7)
+- **board** : clôture SPEC-002-1→012-1 + INTENT-002→012 (rattrapage de board) (#4)
+- **intent** : INTENT-013 done ; 013-1a objectif atteint (frontmatter tenu, FACT-004)
+- **intent** : INTENT-013 + SPEC-013-1a → done (site v1.18 publié)
+- **spec** : SPEC-013-4a done — Drift Lock OK
+- **spec** : SPEC-013-4a VALIDÉ — triple validation PASS
+- **spec** : découpe SPEC-013-4 en 013-4a (deploy+version) + 013-4b (RGAA)
+- **spec** : Execution Gate SPEC-013-4 — OUVERTE avec réserve (4/5)
+- **spec** : rédige SPEC-013-4 — workflow déploiement site/→gh-pages
+- **spec** : SPEC-013-2 done — Drift Lock OK
+- **spec** : SPEC-013-2 VALIDÉ — triple validation PASS
+- **site** : exec SPEC-013-2 — unification docs racine + archivage SDDMode.md
+- **spec** : SPEC-013-3 done — Drift Lock OK
+- **spec** : SPEC-013-3 VALIDÉ — triple validation PASS
+- **spec** : lève les réserves 013-1a/1b/2 (investigation terrain)
+- **spec** : Execution Gate SPEC-013-3 — OUVERTE (5/5)
+- **spec** : rédige SPEC-013-3 — sync versions (zones marquées) + check CI
+- **intent** : INTENT-013 — propage le verdict RESEARCH-013 (CONDITIONAL GO)
+- **spec** : Gate SPEC-013-1b OUVERTE avec réserve (4/5) + FACT-002
+- **spec** : Execution Gate SPEC-013-1a — OUVERTE avec réserve (4/5)
+- **spec** : découpe SPEC-013-1 (FERMÉE) en 013-1a + 013-1b
+- **aiad** : régénère DOCUMENTATION + multi-runtime — zéro-drift (INTENT-013)
+- **aiad** : FACT-001 — seuil 50K tokens (context rot) non sourcé
+- **veille** : compte-rendu La Product Conf 2026 — signaux d'évolution AIAD/SDD
+- **release** : note de release pédagogique v1.18.0 + entrée CHANGELOG
+
+### Tests
+
+- **mutation** : tue 16 mutants survivants → score batch 60.6%→76% (≥ seuil 70%)
+
 ## [1.18.0] — 2026-06-09
 
 > **Release majeure : « advisory → enforced ».** Chaque règle critique de SDD

@@ -2,11 +2,11 @@
 ---
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
-version: 1.18.0
-source-hash: 2699a4b8a5289c16
+version: 1.19.0
+source-hash: b063500460cd9636
 ---
 
-# aiad-sdd — Documentation utilisateur (v1.18.0)
+# aiad-sdd — Documentation utilisateur (v1.19.0)
 
 > Cette documentation est **régénérée à chaque changement** des sources de vérité (CLI, commandes slash, skills, gouvernance, conventions d'annotations). Toute édition manuelle sera écrasée. Pour modifier le contenu : édite la source puis relance `npx aiad-sdd docs`. Le mode `npx aiad-sdd docs --check` est utilisable en CI pour bloquer les PR qui désynchronisent la doc.
 
@@ -24,7 +24,7 @@ source-hash: 2699a4b8a5289c16
 Sortie de `aiad-sdd help` (extraite du bin pour rester à jour) :
 
 ```
-aiad-sdd v1.18.0 — Spec Driven Development pour Claude Code
+aiad-sdd v1.19.0 — Spec Driven Development pour Claude Code
   https://aiad.ovh
 
   Commandes :
@@ -34,6 +34,7 @@ aiad-sdd v1.18.0 — Spec Driven Development pour Claude Code
     template <domain>     Génère une SPEC depuis bibliothèque (auth-oidc, payment-pci, rag-llm, gdpr-data-export)
     review <branch>       Diff Intent/SPEC vs branche cible (rapport Markdown commentable en PR)
     suggest-annotations <fichier>  Ollama local suggère @spec/@governance/@verified-by (Human Authorship préservé)
+    suggest-tests <SPEC-id|path>  Génère un squelette de tests node:test depuis une SPEC EARS (--force, --dry-run)
     export <sub>          Génère artefacts externes : openapi (OpenAPI 3.1) | confluence (publish pages)
     storybook             Storybook HTML zero-dep des 30 commandes slash (recherche + filtres)
     cert <sub>            Programme certification Product Engineer AIAD (matrix|exam|badge|verify)
@@ -146,7 +147,7 @@ aiad-sdd v1.18.0 — Spec Driven Development pour Claude Code
                           pour aperçu, ou exécution directe pour générer les squelettes.
 
   Options emit-rules :
-    --runtime <list>      Runtimes ciblés — claude-code|cursor|codex|copilot|gemini|all
+    --runtime <list>      Runtimes ciblés — claude-code|cursor|codex|copilot|gemini|kiro|all
                           (séparés par virgule, défaut : all)
     --check               Mode CI — exit 1 si divergence avec AGENT-GUIDE
 
@@ -292,4 +293,4 @@ Conventions reconnues par `aiad-sdd trace` (regex stables exportées par `lib/sd
 
 ---
 
-*Document régénéré automatiquement — source-hash `2699a4b8a5289c16`, package v1.18.0.*
+*Document régénéré automatiquement — source-hash `b063500460cd9636`, package v1.19.0.*
