@@ -44,3 +44,6 @@ bench/**/.aiad/metrics/
 # ci-dessus). NB : `bench/**/dashboard/` reste VERSIONNÉ — c'est une fixture
 # du test de conformité OpenAPI (#373 `brief`), pas un artefact jetable.
 bench/**/.aiad/.cache/
+
+# Scénarios bench datés (artefacts locaux de session, non versionnés)
+bench/scenario-bench-*/
