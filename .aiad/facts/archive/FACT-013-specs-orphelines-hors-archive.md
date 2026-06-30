@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-30T07:28:53.245Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
+---
 # FACT-013 — SPECs done/split hors du dossier archive
 
 **Date** : 2026-06-25

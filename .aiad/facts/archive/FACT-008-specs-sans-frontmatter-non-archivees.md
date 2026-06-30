@@ -1,12 +1,14 @@
 ---
 id: FACT-008
 title: SPECs "done" non archivées + INTENT-016 non archivé
-date: 2026-06-24
+date: "2026-06-24"
 author: Steeve Evers
 specs: SPEC-026-1-archive-done
-status: résolu
+status: archived
+archivedAt: "2026-06-30T07:28:53.235Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # FACT-008 — SPECs "done" non archivées + INTENT-016 non archivé
 
 **Date** : 2026-06-24

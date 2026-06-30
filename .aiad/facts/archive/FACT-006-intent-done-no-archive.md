@@ -1,12 +1,14 @@
 ---
 id: FACT-006
 title: INTENT done ne déclenche pas d'archivage automatique
-date: 2026-06-23
+date: "2026-06-23"
 author: Steeve Evers
-status: résolu
+status: archived
 resolvedBy: SPEC-026-1
+archivedAt: "2026-06-30T07:28:53.228Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # FACT-006 — INTENT `done` ne déclenche pas d'archivage automatique
 
 **Date** : 2026-06-23

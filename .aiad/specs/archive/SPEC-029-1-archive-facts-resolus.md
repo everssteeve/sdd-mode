@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-30T07:28:53.217Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
+---
 # SPEC-029-1 — Extension de l'archivage aux FACTs résolus
 
 **Intent parent** : INTENT-029

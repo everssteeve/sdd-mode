@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-30T07:28:53.220Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
+---
 # FACT-003 — docs-deploy.yml incompatible avec la topologie Pages (gh-pages)
 
 **Date** : 2026-06-11

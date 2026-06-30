@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-30T07:28:53.248Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
+---
 # FACT-014 — `archive done` ne couvre pas les SPECs `split` ni les originaux orphelins
 
 **Date** : 2026-06-25

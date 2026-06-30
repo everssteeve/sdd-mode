@@ -1,13 +1,15 @@
 ---
 id: FACT-009
 title: FACTs résolus non archivés automatiquement
-date: 2026-06-24
+date: "2026-06-24"
 author: Steeve Evers
 specs: N/A
-status: résolu
+status: archived
 resolvedBy: SPEC-029-1
+archivedAt: "2026-06-30T07:28:53.238Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # FACT-009 — FACTs résolus non archivés automatiquement
 
 **Date** : 2026-06-24

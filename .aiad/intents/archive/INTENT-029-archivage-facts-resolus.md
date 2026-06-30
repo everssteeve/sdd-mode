@@ -1,9 +1,11 @@
 ---
 id: INTENT-029
-status: done
-closed_at: 2026-06-30
+status: archived
+closed_at: "2026-06-30"
+archivedAt: "2026-06-30T07:28:53.211Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
 ---
-
 # INTENT-029 — Archivage automatique des FACTs résolus
 
 **Auteur** : Steeve Evers

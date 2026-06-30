@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-30T07:28:53.242Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
+---
 # FACT-012 — `archive done` non déclenché après clôture INTENT-030 + SPECs
 
 **Date** : 2026-06-25

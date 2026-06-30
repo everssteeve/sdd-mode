@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-30T07:28:53.224Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
+---
 # FACT-004 — Le trace ne sait pas marquer `done` une SPEC sans code applicatif
 
 **Date** : 2026-06-12

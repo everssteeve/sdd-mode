@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-30T07:28:53.252Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
+---
 # FACT-015 — Recommandation modèle documentée mais non auto-appliquée
 
 **Date** : 2026-06-25

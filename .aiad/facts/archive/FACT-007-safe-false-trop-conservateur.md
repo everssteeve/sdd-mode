@@ -1,3 +1,9 @@
+---
+status: archived
+archivedAt: "2026-06-30T07:28:53.231Z"
+archivedBy: evers.steeve@gmail.com
+archivedReason: archive done
+---
 # FACT-007 — `safe: false` trop conservateur bloque l'archivage des specs done
 
 **Date** : 2026-06-24
