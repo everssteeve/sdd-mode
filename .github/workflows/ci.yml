@@ -45,6 +45,12 @@ jobs:
       - name: Tests
         run: npm test
 
+      - name: Tests SDD Mode (scénarios UX + intégration cycle)
+        run: npm run test:sdd-mode
+
+      - name: Couverture SDD Mode (PRD + codebase — voir docs/sdd-mode-test-system.md)
+        run: npm run sdd-mode:coverage
+
   validate-schema:
     name: validate data.json schema v2 (SPEC-016-3)
     runs-on: ubuntu-latest

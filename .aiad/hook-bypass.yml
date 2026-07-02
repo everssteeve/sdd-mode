@@ -203,3 +203,18 @@ patterns:
   # mécanique (case → délégation). Toute violation de cette règle affaiblit le
   # Drift Lock sans le contourner ici.
   - "bin/aiad-sdd.js"
+
+  # Système de test exhaustif SDD Mode (2026-07-02) — outillage de test
+  # transverse (matrice de couverture PRD ↔ codebase + scénarios d'intégration),
+  # pas une fonctionnalité produit régie par une SPEC dédiée. Même catégorie que
+  # les autres entrées « Outillage interne » ci-dessus.
+  - "scripts/sdd-mode-coverage.js"
+  - "test/sdd-mode-e2e/**"
+  - "test/dashboard-backlog-health-score.test.js"
+  - "docs/sdd-mode-test-system.md"
+  - ".github/workflows/ci.yml"
+
+  # PRD rétro-ingénierié (2026-07-02) — document narratif reconstruit par
+  # rétro-ingénierie de la codebase, complète .aiad/PRD.md sans le remplacer.
+  # Prose, pas de code — même catégorie que docs/legitimation/**.
+  - "docs/PRD-retro-engineering.md"
