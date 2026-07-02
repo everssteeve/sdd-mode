@@ -218,3 +218,12 @@ patterns:
   # rétro-ingénierie de la codebase, complète .aiad/PRD.md sans le remplacer.
   # Prose, pas de code — même catégorie que docs/legitimation/**.
   - "docs/PRD-retro-engineering.md"
+
+  # FACT-017 (2026-07-02) — câblage de lib/dashboard/backlog-health-score.js
+  # (déjà whitelisté ci-dessus, #561) dans le cockpit PM. Les 10 dépendances
+  # étaient déjà calculées ; le correctif se limite à l'appel de calcul dans
+  # model/index.js et au rendu du bloc dans pm.js — aucune logique métier
+  # nouvelle propre à une SPEC dédiée (même catégorie que le bypass déjà
+  # accordé au module lui-même).
+  - "lib/dashboard/model/index.js"
+  - "lib/dashboard/pm.js"
