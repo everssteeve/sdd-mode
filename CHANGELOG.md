@@ -263,9 +263,9 @@ _Pas de commits conventionnels détectés depuis la dernière release._
 
 ### Documentation
 
-- Batch A + Batch D + HYP-05-06-001 + HYP-05-20-003 (briefing ALIS 2026-05-31)
+- Évolutions retenues au cycle d'évolution de mai 2026
 - relier le cycle SDD au dossier de légitimation (Batch B, renvois croisés)
-- **legitimation** : dossier de légitimation empirique (Batch B / briefing ALIS)
+- **legitimation** : dossier de légitimation empirique (cycle d'évolution de mai 2026)
 - ancrer Human Authorship sur Fowler (vibe coding / cognitive debt)
 - **commands** : add model recommendations to all 30 command templates
 - **changelog** : boucle 47 entries #558-#560 (rattrapage)
@@ -355,9 +355,9 @@ _Pas de commits conventionnels détectés depuis la dernière release._
 
 ### Documentation
 
-- Batch A + Batch D + HYP-05-06-001 + HYP-05-20-003 (briefing ALIS 2026-05-31)
+- Évolutions retenues au cycle d'évolution de mai 2026
 - relier le cycle SDD au dossier de légitimation (Batch B, renvois croisés)
-- **legitimation** : dossier de légitimation empirique (Batch B / briefing ALIS)
+- **legitimation** : dossier de légitimation empirique (cycle d'évolution de mai 2026)
 - ancrer Human Authorship sur Fowler (vibe coding / cognitive debt)
 - **commands** : add model recommendations to all 30 command templates
 - **changelog** : boucle 47 entries #558-#560 (rattrapage)
@@ -372,7 +372,7 @@ _Pas de commits conventionnels détectés depuis la dernière release._
 
 ## [Unreleased]
 
-### Documentation — Ancrage Human Authorship sur le vocabulaire Fowler 2026 (Batch C / briefing ALIS 2026-05-31)
+### Documentation — Ancrage Human Authorship sur le vocabulaire Fowler 2026 (cycle d'évolution de mai 2026)
 
 Légitimation externe de la valeur 7 (Human Authorship) et du cycle SDD via le
 vocabulaire désormais partagé par la communauté (Martin Fowler, 2026). Purement

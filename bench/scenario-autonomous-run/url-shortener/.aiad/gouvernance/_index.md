@@ -34,5 +34,5 @@ Constitution AIAD (valeurs immuables)
 
 ## Mise à jour
 
-Les agents de gouvernance suivent le cycle ALIS (mise à jour à chaque pleine lune).
+Les agents de gouvernance sont mis à jour à chaque cycle mensuel d'évolution du framework.
 Pour mettre à jour : `npx aiad-sdd gouvernance --force`

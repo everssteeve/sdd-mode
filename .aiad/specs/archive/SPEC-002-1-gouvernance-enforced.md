@@ -57,3 +57,7 @@ Implémenter le socle P0 « advisory → enforced » : un contrat de verdict dé
 
 - Hook `PreToolUse` de type `agent` (orchestration multi-tour du subagent) — le veto déterministe CLI + le subagent read-only couvrent le besoin P0 ; l'agent-hook est une amélioration ultérieure.
 - Câblage du contrat de verdict dans les slash-commands `gate`/`validate`/`security` (corps de skills) — itération suivante.
+
+## Historique des modifications
+
+- 2026-09-25 [Steeve Evers] — `lib/governance.js` : le texte généré dans `.aiad/gouvernance/_index.md` ne nomme plus le processus interne d'évolution du framework (« Les agents de gouvernance sont mis à jour à chaque cycle mensuel d'évolution du framework »). Aucun changement de comportement (déclencheur : décision PE — ouverture publique du dépôt).

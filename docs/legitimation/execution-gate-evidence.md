@@ -1,10 +1,10 @@
 # Execution Gate — validation empirique externe
 
 > Document de légitimation — synthèse des preuves externes qui valident l'Execution Gate
-> et le Human Authorship d'AIAD. Établi à partir du cycle de veille ALIS (mai 2026).
+> et le Human Authorship d'AIAD. Établi à partir de la veille du framework (mai 2026).
 >
-> ⚠️ Les références académiques et chiffres ci-dessous proviennent de la veille ALIS
-> et **doivent être confirmés avant publication externe** (un argumentaire de légitimation
+> ⚠️ Les références académiques et chiffres ci-dessous proviennent de la veille du framework
+> et **n'ont pas été vérifiés sur leurs sources d'origine** (un argumentaire de légitimation
 > perd toute valeur s'il cite une source inexacte).
 
 ## En une phrase

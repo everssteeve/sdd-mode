@@ -1,9 +1,9 @@
 # Gartner valide la productivité agentique — AIAD garantit la gouvernance
 
-> **Argumentaire commercial — Batch A / briefing ALIS 2026-05-31 (HYP-2026-05-27-001)**
+> **Argumentaire commercial — mai 2026**
 > Score signal : 17,5/20. Fenêtre : 90 jours à compter du 31 mai 2026.
 >
-> ⚠️ Chiffres Gartner issus de la veille ALIS — à confirmer avant présentation externe.
+> ⚠️ Chiffres Gartner cités comme contexte de marché, d'après la veille de mai 2026 ; non vérifiés sur la publication Gartner d'origine.
 
 ## Le contexte : Gartner formalise la catégorie
 
@@ -49,7 +49,7 @@ gagner 30-50 % de productivité. AIAD garantit que vous gardez la gouvernance de
 
 ## Signaux convergents
 
-- **Gartner MQ 2026** (score veille 18/20) : formalise la catégorie, crée la pression d'adoption.
+- **Gartner MQ 2026** : formalise la catégorie, crée la pression d'adoption.
 - **35-65 % de biais d'action** (FixedBench, arXiv 2605.07769) : les agents SOTA agissent par
   défaut — l'Execution Gate est la réponse documentée.
 - **29 585 PR** (arXiv 2605.08017) : l'autorité de fusion reste humaine sur le terrain, même

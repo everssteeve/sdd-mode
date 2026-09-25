@@ -4,7 +4,7 @@
 > une fenêtre narrative datée (modèle Shore, signal « back to hand coding »). À réévaluer aux
 > cycles suivants.
 >
-> ⚠️ Chiffres et références issus de la veille ALIS — **à confirmer avant publication externe.**
+> ⚠️ Chiffres et références issus de la veille du framework (mai 2026) — **non vérifiés sur leurs sources d'origine.**
 
 ## Le problème : produire plus n'allège pas la maintenance
 

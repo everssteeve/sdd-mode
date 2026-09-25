@@ -1,6 +1,6 @@
 # AIAD vs Kiro — pourquoi AIAD n'est pas "Kiro avec des gates"
 
-> **Argumentaire commercial — Batch A / briefing ALIS 2026-05-31 (HYP-2026-05-13-001)**
+> **Argumentaire commercial — mai 2026**
 > Score signal : 17/20. À intégrer dans les présentations pour clients ayant évalué Kiro.
 
 ## Contexte : Kiro comme contre-modèle

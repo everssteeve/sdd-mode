@@ -1,6 +1,6 @@
 # Model-agnostic — résistance aux disruptions de modèles
 
-> **Argumentaire commercial — Batch A / briefing ALIS 2026-05-31 (HYP-2026-05-06-004)**
+> **Argumentaire commercial — mai 2026**
 > Score signal : 13/20. Fenêtre : 2-3 cycles (l'abandon Llama est récent).
 
 ## Ce que vous avez vécu avec Llama — AIAD vous en protège
