@@ -182,3 +182,9 @@ Fonction exportée :
 - [x] Zéro dépendance runtime ajoutée (`npm run lint:deps` passing)
 - [-] `aiad-sdd dora --help` reflète le nouveau flag `--auto` (help dynamique non implémenté — hors-scope SPEC)
 - [x] Gouvernance : RGESN (lecture locale uniquement, zéro appel réseau)
+
+## Historique des modifications
+
+| Date | Changement | Raison |
+|------|------------|--------|
+| 2026-09-25 | `test/dora-auto.test.js` : résolution du chemin du CLI via `dirname(fileURLToPath(import.meta.url))` au lieu de `import.meta.dirname`. Comportement testé inchangé (CA-001 à CA-006). | `import.meta.dirname` n'existe qu'à partir de Node 20.11 ; sous Node 18 (engines `>=18`) le fichier plantait au chargement et la CI était rouge depuis le 2026-06-29. |

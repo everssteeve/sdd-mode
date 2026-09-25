@@ -3,12 +3,13 @@
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, readdirSync, rmSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { calculateCycleTimeDaysFromSpec } from '../lib/dora-record.js';
 
-const CLI = join(import.meta.dirname, '..', 'bin', 'aiad-sdd.js');
+const CLI = join(dirname(fileURLToPath(import.meta.url)), '..', 'bin', 'aiad-sdd.js');
 
 function fixture(specs = []) {
   const dir = mkdtempSync(join(tmpdir(), 'aiad-dora-auto-'));
