@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Validation — trois axes, un verdict | SDD Mode</title>
-<meta name="description" content="La validation SDD est triple : technique (lint, types, tests, build), fonctionnelle (cas de test de la SPEC) et gouvernance (4 agents Tier 1, veto fail-closed). Verdict VALIDÉ / CORRECTIONS / REJET, complété par /sdd security et /sdd audit persistés dans .aiad/metrics/.">
+<title>Validation — quatre axes, un verdict | SDD Mode</title>
+<meta name="description" content="La validation SDD porte sur quatre axes : technique (lint, types, tests, build), fonctionnel (cas de test de la SPEC), métier (intention et Critère de Drift) et gouvernance (4 agents Tier 1, veto fail-closed), guidés par quatre règles de vérification. Verdict VALIDÉ / CORRECTIONS / REJET, complété par /sdd security et /sdd audit persistés dans .aiad/metrics/.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../../en/concepts/validation.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="autonomie-agent.html">Autonomie de l'agent</a></li>
             <li><a href="context-budget.html">Context Engineering Budget</a></li>
             <li><a href="jnsp.html">JNSP — politique d'incertitude</a></li>
             <li><a href="traceability.html">Traçabilité machine-vérifiable</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commandes</button>
           <ul class="submenu">
-            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
-            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (17)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (16)</a></li>
             <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
           </ul>
         </li>
@@ -102,6 +103,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="autonomie-agent.html">Autonomie de l'agent</a></li>
           <li><a href="context-budget.html">Context Engineering Budget</a></li>
           <li><a href="jnsp.html">JNSP — incertitude</a></li>
           <li><a href="traceability.html">Traçabilité</a></li>
@@ -110,8 +112,8 @@
         </ul>
         <h2>Commandes</h2>
         <ul>
-          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
-          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/sdd.html">/sdd (17)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (16)</a></li>
           <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -144,8 +146,8 @@
       </nav>
 
       <p class="kicker">Étape 6 du cycle · <code>/sdd validate</code></p>
-      <h1>Validation — trois axes, un verdict</h1>
-      <p class="doc-lede">Le code qui compile n'est pas forcément le code qui fonctionne, et le code qui fonctionne n'est pas forcément le code qui respecte l'intention. La validation SDD est <strong>triple</strong> — technique, fonctionnelle, gouvernance — et le code n'est jamais terminé tant que la SPEC n'est pas synchronisée (<a href="drift-lock.html">Drift Lock</a>).</p>
+      <h1>Validation — quatre axes, un verdict</h1>
+      <p class="doc-lede">Le code qui compile n'est pas forcément le code qui fonctionne, et le code qui fonctionne n'est pas forcément le code qui respecte l'intention. La validation SDD porte sur <strong>quatre axes</strong> — technique, fonctionnel, métier, gouvernance — et le code n'est jamais terminé tant que la SPEC n'est pas synchronisée (<a href="drift-lock.html">Drift Lock</a>).</p>
 
       <h2 id="technique">Axe 1 — Validation technique</h2>
       <p>Le socle objectif : la chaîne d'outillage du projet, exécutée intégralement et reportée en tableau. Aucun jugement, des faits.</p>
@@ -167,14 +169,34 @@
       </div>
 
       <h2 id="fonctionnelle">Axe 2 — Validation fonctionnelle</h2>
-      <p>L'axe fonctionnel confronte le code aux <strong>cas de test de la SPEC</strong>, critère par critère — contre le code lui-même, pas seulement contre les tests. Entrées spécifiées respectées, étapes de traitement suivies, format de sortie produit, chaque cas limite couvert par un test, tous les critères d'acceptation cochés. En complément, le <strong>Critère de Drift de l'Intent parent</strong> est relu : le signal observable de trahison de l'intention est-il absent ?</p>
+      <p>L'axe fonctionnel confronte le code aux <strong>cas de test de la SPEC</strong>, critère par critère — contre le code lui-même, pas seulement contre les tests. Entrées spécifiées respectées, étapes de traitement suivies, format de sortie produit, chaque cas limite couvert par un test, tous les critères d'acceptation cochés. Côté équipe, la validation fonctionnelle est portée par le QA Engineer, et l'utilisabilité — UX, accessibilité, performance — par le QA avec le PM.</p>
 
-      <h2 id="gouvernance">Axe 3 — Validation gouvernance</h2>
+      <h2 id="metier">Axe 3 — Validation métier</h2>
+      <p>La validation métier, portée par le Product Manager, pose la question que les tests ne posent pas : <strong>l'intention est-elle respectée, et les outcomes visés sont-ils atteignables ?</strong> Le <strong>Critère de Drift de l'<a href="intent-statement.html">Intent parent</a></strong> est relu : le signal observable de trahison de l'intention est-il absent ? C'est l'axe où l'on vérifie la fidélité à l'intention — un défaut sémantique qu'aucune chaîne d'outillage ne détecte.</p>
+
+      <h2 id="gouvernance">Axe 4 — Validation gouvernance</h2>
       <p>Les <a href="../gouvernance/index.html">quatre agents Tier 1</a> — AIAD-AI-ACT, AIAD-RGPD, AIAD-RGAA, AIAD-RGESN — sont appliqués via la skill <code>regulatory-veto</code>. Chacun dispose d'un <strong>droit de veto</strong> : un VETO bloque, un WARN exige un plan de remédiation avant merge. Cette validation n'est pas optionnelle pour les projets concernés.</p>
       <div class="callout warn">
         <span class="callout-title">UNKNOWN = VETO (fail-closed)</span>
         <p>Quand un agent de gouvernance ne peut pas décider — référentiel non applicable de façon certaine, information manquante — il retourne <code>UNKNOWN</code>. Ce verdict est traité comme un <strong>VETO</strong> : on ne merge pas sur un doute réglementaire. C'est la déclinaison gouvernance de la politique <a href="jnsp.html">JNSP</a>.</p>
       </div>
+
+      <h2 id="verification">La vérification se conçoit, elle ne s'achète pas</h2>
+      <p>La doctrine v1.9 fait un pari : la qualité de la vérification dépend d'abord du <strong>design du processus</strong> — ce qu'on vérifie, quand et par qui — plutôt que de la puissance du modèle qui relit. C'est une position, pas un résultat démontré : les indices convergent, aucun ne suffit seul. Elle se traduit en quatre règles.</p>
+      <table>
+        <caption>Les quatre règles de vérification (doctrine AIAD v1.9)</caption>
+        <thead><tr><th scope="col">Règle</th><th scope="col">Ce qu'elle implique</th><th scope="col">Force de l'appui</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">La conversation critique a lieu d'abord à l'Execution Gate</th><td>On discute ce qu'on veut à la <a href="execution-gate.html">Gate</a> ; la revue de code vérifie ensuite la conformité à une intention déjà discutée. Elle détecte ce qui a été mal compris, elle ne découvre pas ce qu'on voulait.</td><td>Règle de processus</td></tr>
+          <tr><th scope="row">Deux classes de défauts</th><td>Les défauts structurellement détectables (compilation, types, règles d'architecture outillées, secrets) se délèguent à l'outillage et aux agents. Les défauts sémantiques — fidélité à l'intention, justesse métier, frontières de conception — restent sous revue humaine, en s'appuyant sur le Test de l'Étranger.</td><td>Règle de processus</td></tr>
+          <tr><th scope="row">Séparer celui qui produit de celui qui critique</th><td>Quand la revue est confiée à un agent, AIAD <strong>recommande — sans l'imposer</strong> — un relecteur d'une autre famille de modèles que l'agent producteur. Le coût (plusieurs fournisseurs, contrats, analyse RGPD) doit être pesé. Le paquet le permet via <code>/sdd validate --cross-model</code> (revue additive-only en contexte frais).</td><td>Une étude de 2026, sur des problèmes de mathématiques et non de code : 35 % de faux rejets en auto-revue contre 2 % en revue croisée</td></tr>
+          <tr><th scope="row">Concevoir avant de tester pas à pas</th><td>En boucle agent, une conception complète en amont — architecture, types, cas limites, contrats, c'est-à-dire une SPEC — semble plus efficace qu'un TDD incrémental.</td><td><strong>Indice à confirmer, pas règle</strong> : 3 à 8,5 fois plus de tokens sans gain net pour le TDD incrémental, dans une expérience exploratoire de 2026</td></tr>
+        </tbody>
+      </table>
+      <h3 id="exemplars">Exemplars de revue</h3>
+      <p>Le savoir de revue d'une organisation — ce qu'un relecteur senior repère et pourquoi — peut être extrait en exemples annotés, versionnés dans des fichiers dédiés (par exemple <code>.aiad/review-exemplars/</code>) et chargés <strong>uniquement dans les sessions de revue</strong> — pas dans l'AGENT-GUIDE, injecté à chaque session et réservé aux consignes permanentes. Roblox a décrit cette pratique en 2026. Un exemplar se constitue à partir de revues réelles, se révise comme un artefact, et se retire quand il ne reflète plus les standards de l'équipe.</p>
+      <h3 id="verification-tax">Verification Tax</h3>
+      <p>Une synthèse de littérature de 2026 nomme ainsi l'écart entre le gain de productivité à l'écriture du code et le gain, bien plus faible, à la livraison d'un logiciel fiable. Le terme décrit ce que l'investissement amont en SPEC et en Gate cherche à réduire. Corollaire côté équipe : l'efficacité n'est pas la qualité — une revue plus rapide n'est pas une revue meilleure (voir le rôle du <a href="../equipe/responsabilites.html#qa">QA Engineer</a>).</p>
 
       <h2 id="composition">Une composition de skills, sans duplication</h2>
       <p><code>/sdd validate</code> est la commande la plus composite du cycle : elle n'implémente aucune logique propre mais <strong>compose trois skills</strong> réutilisables — <code>ears-validator</code> (couverture des critères testables de §3), <code>drift-detection</code> (écarts code ↔ SPEC sur le diff) et <code>regulatory-veto</code> (les 4 référentiels Tier 1). Chaque skill est aussi invoquée ailleurs dans le cycle (<code>/sdd gate</code>, <code>/sdd drift-check</code>, <code>/sdd security</code>…) : la logique vit en un seul endroit, les commandes l'orchestrent.</p>
@@ -184,7 +206,7 @@
         <caption class="visually-hidden">Les quatre issues de la validation</caption>
         <thead><tr><th scope="col">Verdict</th><th scope="col">Signification</th><th scope="col">Action</th></tr></thead>
         <tbody>
-          <tr><td><strong>VALIDÉ</strong></td><td>Triple validation passée</td><td>Procéder au <a href="drift-lock.html">Drift Lock</a> (<code>/sdd drift-check</code>)</td></tr>
+          <tr><td><strong>VALIDÉ</strong></td><td>Validation passée sur les quatre axes</td><td>Procéder au <a href="drift-lock.html">Drift Lock</a> (<code>/sdd drift-check</code>)</td></tr>
           <tr><td><strong>CORRECTIONS</strong></td><td>Écarts mineurs et localisés</td><td>Lister, relancer l'agent sur les points précis</td></tr>
           <tr><td><strong>REJET</strong></td><td>Échec structurel</td><td>SPEC imprécise → Human Learning · agent erroné malgré SPEC claire → Lesson Learned</td></tr>
           <tr><td><strong>JNSP</strong></td><td>Validation indécidable</td><td>Question(s) à l'humain — ne pas dégrader en « corrections mineures » pour faire avancer le merge</td></tr>
@@ -262,7 +284,7 @@ Question(s) à l'humain : &lt;reformulation actionnable&gt;</code></pre>
       </ul>
     </div>
   </div>
-  <p class="legal">Framework AIAD v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

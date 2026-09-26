@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>À propos — le framework AIAD et son auteur | SDD Mode</title>
-<meta name="description" content="AIAD est un méta-framework open source (MIT) créé par Steeve Evers : il gouverne le travail en équipe humain-IA, dont le SDD Mode est le mode opératoire. Positionnement face à Kiro, Spec-Kit, SPDD et Symphony, et présentation de ce site.">
+<meta name="description" content="AIAD est un méta-framework open source (MIT) créé par Steeve Evers : il gouverne le travail en équipe humain-IA, dont le SDD Mode est le mode opératoire. Positionnement face à Kiro, Spec-Kit, OpenSpec, Codeplain, SPDD, Symphony et Copilot, deux cycles de versionnage (doctrine v1.9 et logiciel aiad-sdd), preuves et limites, et présentation de ce site.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../en/about.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
             <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
             <li><a href="concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
             <li><a href="concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commandes</button>
           <ul class="submenu">
-            <li><a href="commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
-            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="commandes/sdd.html">/sdd — cycle SDD (17)</a></li>
+            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (16)</a></li>
             <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
           </ul>
         </li>
@@ -102,6 +103,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
           <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
           <li><a href="concepts/jnsp.html">JNSP — incertitude</a></li>
           <li><a href="concepts/traceability.html">Traçabilité</a></li>
@@ -110,8 +112,8 @@
         </ul>
         <h2>Commandes</h2>
         <ul>
-          <li><a href="commandes/sdd.html">/sdd (16)</a></li>
-          <li><a href="commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="commandes/sdd.html">/sdd (17)</a></li>
+          <li><a href="commandes/aiad.html">/aiad (16)</a></li>
           <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -151,7 +153,7 @@
       <p>Le framework repose sur <a href="valeurs.html">sept valeurs immuables</a> — de la Primauté de l'Intention Humaine au <a href="concepts/human-authorship.html">Human Authorship</a> — quatre piliers, et un écosystème de <a href="equipe/responsabilites.html">cinq responsabilités</a> plutôt que de rôles rigides.</p>
 
       <h2 id="sdd-mode">Le SDD Mode</h2>
-      <p>Le SDD Mode est le guide opérationnel des Product Engineers AIAD : un cycle strict <a href="concepts/intent-statement.html">Intent</a> → <a href="concepts/research.html">Research</a> → <a href="concepts/spec.html">SPEC</a> → <a href="concepts/execution-gate.html">Gate</a> → <a href="concepts/execution.html">Exécution</a> → <a href="concepts/validation.html">Validation</a> → <a href="concepts/drift-lock.html">Drift Lock</a>, outillé par le paquet npm <code>aiad-sdd</code> (33 commandes slash, 4 agents de gouvernance, hooks, CI). Voir le <a href="big-picture.html">Big Picture</a> et le <a href="demarrer.html">guide de démarrage</a>.</p>
+      <p>Le SDD Mode est le guide opérationnel des Product Engineers AIAD : un cycle strict <a href="concepts/intent-statement.html">Intent</a> → <a href="concepts/research.html">Research</a> → <a href="concepts/spec.html">SPEC</a> → <a href="concepts/execution-gate.html">Gate</a> → <a href="concepts/execution.html">Exécution</a> → <a href="concepts/validation.html">Validation</a> → <a href="concepts/drift-lock.html">Drift Lock</a>, outillé par le paquet npm <code>aiad-sdd</code> (33 commandes slash — 17 <code>/sdd</code> + 16 <code>/aiad</code> —, 9 skills, 4 agents de gouvernance Tier 1 complétés d'un agent CRA pour les produits logiciels, hooks, CI). Voir le <a href="big-picture.html">Big Picture</a> et le <a href="demarrer.html">guide de démarrage</a>.</p>
 
       <h2 id="positionnement">Positionnement dans l'écosystème</h2>
       <p>AIAD intègre les meilleures pratiques SDD en leur ajoutant la dimension organisationnelle et humaine. Les outils gèrent le « comment faire avec les agents » ; AIAD gère le « <strong>comment travailler en équipe humain-IA</strong> » :</p>
@@ -159,15 +161,35 @@
         <caption class="visually-hidden">Positionnement d'AIAD face aux outils SDD</caption>
         <thead><tr><th scope="col">Outil</th><th scope="col">Ce qu'il fait</th><th scope="col">Relation avec AIAD</th></tr></thead>
         <tbody>
-          <tr><td>Amazon Kiro</td><td>Autonomie agentique (mode autonomous, steering files)</td><td>Couche exécution possible d'une SPEC AIAD validée — AIAD part de l'intention, Kiro de l'exécution.</td></tr>
-          <tr><td>GitHub Spec-Kit</td><td>Production de spécifications</td><td>Implémentation possible de la couche spec du méta-framework.</td></tr>
+          <tr><td>Kiro (Amazon)</td><td>IDE, CLI et web avec spec intégrée, steering documents, hooks ; orchestrateur Kiro Crew (open source)</td><td>Couche spec et exécution possible : les steering documents peuvent alimenter l'AGENT-GUIDE, la Gate s'applique avant lancement. Kiro a ajouté une revue de spec aux checkpoints et, dans Kiro Crew, des portes d'approbation : ses contrôles portent sur l'exécution, ceux d'AIAD sur l'intention.</td></tr>
+          <tr><td>GitHub Spec-Kit</td><td>Production de spécifications — open source (MIT), multi-agents</td><td>Implémentation possible de la couche spec du méta-framework.</td></tr>
+          <tr><td>OpenSpec</td><td>Spec unifiée, delta specs, validation des scénarios, consentement explicite avant écriture</td><td>Couche spec compatible ; AIAD ajoute l'Intent Statement, l'organisation et la gouvernance réglementaire.</td></tr>
+          <tr><td>Codeplain</td><td>Specs en langage <code>.plain</code> comme actif durable, code régénéré plutôt que maintenu</td><td>Partage la thèse « la spec est l'actif durable » ; une spec <code>.plain</code> peut être la SPEC, précédée de l'Intent Statement et de l'Execution Gate.</td></tr>
           <tr><td>SPDD (REASONS Canvas)</td><td>Méthode de production de spec</td><td>Le REASONS Canvas est une option de <code>/sdd spec</code> ; AIAD apporte la gouvernance du cycle complet.</td></tr>
           <tr><td>OpenAI Symphony</td><td>Artefacts d'intention issue-tracker-first</td><td>Convergence sur l'intention persistante ; AIAD ajoute SQS, Drift Lock et gouvernance réglementaire.</td></tr>
           <tr><td>Routines (Claude Code)</td><td>Déclencheurs d'exécution automatisés</td><td>Compatibles : une Routine exécute une SPEC déjà validée par la Gate, elle n'en tient pas lieu.</td></tr>
+          <tr><td>GitHub Copilot agent-native</td><td>Multi-agents en parallèle, worktrees isolés, canvas de supervision</td><td>Complémentaire : l'Intent Statement cadre chaque session, la Gate valide la SPEC avant chaque agent parallèle, le Drift Lock synchronise chaque worktree avec sa SPEC.</td></tr>
         </tbody>
       </table>
-      <p>AIAD est <strong>model-agnostic par conception</strong> : Intent Statements, SPECs et Execution Gate sont indépendants du modèle LLM et survivent aux changements de provider. La gouvernance est dans les artefacts, pas dans le vendor. Les validations industrielles 2026 (Context Engineering formalisé par Anthropic, R2Code −41,7 % de tokens, Thoughtworks Radar, AWS Strands) sont des confirmations indépendantes d'une approche antérieure.</p>
+      <p>AIAD est <strong>model-agnostic par conception</strong> : Intent Statements, SPECs et Execution Gate sont indépendants du modèle LLM et survivent aux changements de provider. La gouvernance est dans les artefacts, pas dans le vendor. Dans l'ère des « agent labs », où chaque laboratoire pousse son propre harness, ce caractère model-agnostic protège du lock-in et comble un vide de gouvernance de l'intention que les harnesses n'adressent pas. Les validations industrielles 2026 (Context Engineering formalisé par Anthropic, R2Code −41,7 % de tokens, Thoughtworks Radar, Tang et al. — 91,49 % de 20 574 sessions réelles nécessitant une correction humaine explicite —, AWS Strands) sont des confirmations indépendantes d'une approche antérieure.</p>
       <p>Pour une comparaison factuelle forces et faiblesses assumées avec Spec Kit, Kiro, OpenSpec et BMAD, voir le <a href="comparaison.html">comparatif honnête</a>.</p>
+
+      <h2 id="versions">Deux cycles de versionnage</h2>
+      <p>AIAD avance sur deux rythmes distincts, qu'il ne faut pas confondre :</p>
+      <ul>
+        <li>la <strong>doctrine</strong> AIAD — valeurs, responsabilités, artefacts, boucles, rituels, gouvernance — est versionnée pour elle-même (aujourd'hui <strong>v1.9</strong>) et publiée sur <a href="https://aiad.ovh">aiad.ovh</a> ;</li>
+        <li>le <strong>logiciel</strong> <code>aiad-sdd</code> — CLI, commandes slash, skills, hooks, dashboards — suit le versionnage SemVer de son CHANGELOG.</li>
+      </ul>
+      <p>Les deux numérotations ne sont pas alignées : « aiad-sdd 1.9 » (l'arrivée des skills) n'a rien à voir avec la doctrine v1.9 (autonomie de l'agent, vérification, conformité). Une règle de doctrine peut précéder son outillage : c'est pourquoi certaines fonctions sont signalées « à paraître » sur ce site. Le détail des deux fils est sur la page <a href="nouveautes.html">Nouveautés</a>.</p>
+
+      <h2 id="preuves">Preuves et limites</h2>
+      <p>AIAD applique à lui-même sa valeur 5, l'Empirisme sans Concession : les appuis externes de la doctrine sont réunis dans des dossiers de légitimation qui indiquent, pour chaque source, ce qu'elle établit réellement et ce qu'elle n'établit pas.</p>
+      <ul>
+        <li><strong>Execution Gate et Human Authorship</strong> — biais d'action des agents mesuré de 35 à 65 %, autorité de fusion « presque exclusivement humaine » sur 29 585 cycles de pull requests. Chiffres à revérifier avant toute citation formelle.</li>
+        <li><strong>Vérification</strong> — la position « la vérification se conçoit, elle ne s'achète pas » est un pari, pas un résultat démontré : les indices convergent (revue plus rapide sans être meilleure sur 1,02 million de pull requests), aucun ne suffit seul. Le chiffre de 80 % de system prompt supprimé sans perte est une mesure de l'éditeur, non auditée.</li>
+        <li><strong>Responsabilité</strong> — « un agent est l'agent de celui qui le déploie » est une thèse (Schneier et Sanders), pas l'état du droit ; la décision de Munich sur les AI Overviews est provisoire et frappée d'appel.</li>
+        <li><strong>Cas réglementaires 2026</strong> — Règlement (UE) 2026/1744, amende infligée à Uber au titre de l'Art. 22 (Uber a fait appel), incident Meta (selon la presse) ; le récit « CVE-2026-LGTM » est une fiction satirique, cité comme tel. Ces dossiers ne constituent pas un avis juridique.</li>
+      </ul>
 
       <h2 id="open-source">Open source et contribution</h2>
       <p>AIAD applique sa valeur 4, l'Ouverture Radicale : le savoir méthodologique se partage, il ne se verrouille pas. Le paquet <code>aiad-sdd</code> est publié sous <strong>licence MIT</strong> (© 2026 Steeve Evers — AIAD Framework). Pratiques, outils et retours d'expérience sont publiés sur <a href="https://aiad.ovh">aiad.ovh</a> ; le paquet s'installe via <code>npx aiad-sdd init</code> (voir la <a href="commandes/cli.html">référence CLI</a>).</p>
@@ -227,7 +249,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Framework AIAD v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

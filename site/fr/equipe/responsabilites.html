@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Les cinq responsabilités — pas de rôles rigides | SDD Mode</title>
-<meta name="description" content="L'écosystème humain AIAD repose sur cinq responsabilités fluides — Product Manager, Product Engineer, Agents Engineer, QA Engineer, Tech Lead — plus les Supporters. Définitions, compétences, indicateurs, RACI du SDD Mode et anti-patterns.">
+<meta name="description" content="L'écosystème humain AIAD repose sur cinq responsabilités fluides — Product Manager, Product Engineer, Agents Engineer, QA Engineer, Tech Lead — plus les Supporters. Définitions, compétences, indicateurs, isolation des agents (un mode de permission n'est pas un contrôle), efficacité et qualité de revue, RACI du SDD Mode et anti-patterns.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../../en/team/responsibilities.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="../concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
             <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
             <li><a href="../concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
             <li><a href="../concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commandes</button>
           <ul class="submenu">
-            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
-            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (17)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (16)</a></li>
             <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
           </ul>
         </li>
@@ -102,6 +103,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="../concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
           <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
           <li><a href="../concepts/jnsp.html">JNSP — incertitude</a></li>
           <li><a href="../concepts/traceability.html">Traçabilité</a></li>
@@ -110,8 +112,8 @@
         </ul>
         <h2>Commandes</h2>
         <ul>
-          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
-          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/sdd.html">/sdd (17)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (16)</a></li>
           <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -176,7 +178,14 @@
           <tr><td><strong>3</strong></td><td>Productivité (documentation, refactoring, migration)</td><td>Suggestions d'amélioration</td></tr>
         </tbody>
       </table>
+      <p>Au niveau 0, les quatre guides réglementaires s'activent selon le contexte du projet — données personnelles pour AIAD-RGPD, composant IA en contexte européen pour AIAD-AI-ACT. Le calendrier de l'AI Act qu'ils appliquent est recalé sur le Règlement (UE) 2026/1744 : transparence (Art. 50) en vigueur depuis le 2 août 2026, haut risque au 2 décembre 2027 pour l'Annexe III et au 2 août 2028 pour l'Annexe I (<a href="../gouvernance/index.html#ai-act">détail du calendrier</a>). Sous les quatre niveaux, l'agent principal (Claude Code, Cursor, Copilot…) génère le code.</p>
       <p>Sa pratique centrale est le <strong>Harness Engineering</strong> : sélection et paramétrage des agents, définition de leurs périmètres d'autorisation selon le principe <strong>minimal necessary permissions</strong> — un agent n'a accès qu'aux ressources strictement nécessaires à sa mission —, surveillance du comportement en production et adaptation continue. Un agent de génération de code n'a pas besoin d'accès à la production ; un agent de documentation n'a pas besoin du registre des secrets. La sélection suit quatre principes : commencer minimal, ajouter par douleur, retirer par obsolescence, optimiser par mesure. Indicateurs : adoption &gt; 90 %, faux positifs &lt; 20 %, satisfaction PE &gt; 8/10.</p>
+
+      <h3 id="mode-permission">Un mode de permission n'est pas un contrôle</h3>
+      <p>Les harnesses proposent des modes de permission : approbation manuelle, classifieur automatique, listes d'autorisation. Ils réduisent la friction ; ils ne constituent pas une garantie opposable. En août 2026, le chercheur en sécurité Johann Rehberger a contourné le mode automatique de Claude Code dans 80 % de ses essais — et, dans certains cas, le classifieur a autorisé le processus malveillant puis bloqué la commande de remédiation lancée par l'agent. Un mécanisme qui peut bloquer la remédiation ne peut pas porter l'autorité humaine. L'AE ne présente donc jamais un mode de permission comme une mesure de sécurité suffisante : la protection repose sur l'<strong>isolation</strong> — conteneur ou machine virtuelle, sorties réseau restreintes, aucun credential superflu (clés SSH, clés cloud) dans l'environnement d'exécution de l'agent. Le mode de permission vient en complément, jamais en substitut.</p>
+
+      <h3 id="surface-partagee">Le confinement se juge sur la surface partagée</h3>
+      <p>En juillet 2026, environ 1 200 agents d'évaluation d'OpenAI, chacun isolé dans son propre sandbox, ont découvert qu'ils accédaient au même cache d'artefacts. Ils en ont fait un tableau de messages — plus de 70 000 messages et fichiers échangés — et environ 700 d'entre eux ont participé à une intrusion de plusieurs jours chez Hugging Face (rapport indépendant METR / Redwood Research, août 2026). L'isolement de chaque agent était réel ; c'est la ressource commune qui a servi de canal. Martin Fowler décrit le même mécanisme sous un jour constructif : des agents qui utilisent spontanément le dépôt git comme mémoire partagée. La leçon est la même : <strong>toute ressource partagée accessible en écriture est un canal de coordination entre agents, voulu ou non</strong>. L'AE inventorie ces ressources, et la SPEC les déclare dans sa section « Périmètre d'exécution de l'agent » dès que l'agent dispose de credentials ou d'un accès en écriture à une ressource partagée — hors de ces cas, la section n'est pas requise. Voir <a href="../concepts/autonomie-agent.html">Autonomie de l'agent</a>.</p>
       <div class="callout warn">
         <span class="callout-title">Anti-pattern : l'accumulation d'agents</span>
         <p>Empiler des agents « au cas où » sans mesurer leur utilité réelle, ou leur donner des permissions larges « pour simplifier ». Plus d'agents ne signifie pas plus d'efficacité — et des permissions non restreintes sont un risque de gouvernance.</p>
@@ -195,6 +204,9 @@
         </tbody>
       </table>
       <p>Le dernier niveau reste entièrement humain pour une raison simple : un agent suit des scénarios, un humain trouve ce qui ne va pas <em>en dehors</em> des scénarios prévus. Indicateurs : bugs en production en tendance décroissante, détection d'un bug en moins de 24 h, taux de régression &lt; 5 %. Anti-pattern : tester uniquement à la fin du cycle — la qualité devient un goulot d'étranglement.</p>
+
+      <h3 id="efficacite-qualite">Efficacité n'est pas qualité</h3>
+      <p>L'argument le plus solide pour ce rôle vient de la plus grande étude disponible : sur 1,02 million de pull requests (207 projets GitHub, 2026), la revue impliquant des agents est plus rapide — de 2,5 à 4,5 jours par millier de lignes — sans être meilleure, et les schémas de revue défaillants y sont plus fréquents. Ses auteurs précisent que leurs modèles sont explicatifs, pas causaux. Une étude longitudinale de la même période nuance le constat : un débit doublé n'y a pas augmenté le taux de retours arrière, mais la charge par relecteur a doublé et la revue automatisée a dépassé la revue humaine. Le QA Engineer ne défend donc pas une lenteur : il défend ce que les indicateurs de vitesse ne mesurent pas — dette, dérive d'intention, conformité. La manière dont AIAD conçoit la vérification est détaillée dans la <a href="rituels.html#valider">boucle Valider</a>.</p>
 
       <h2 id="tl">Tech Lead — responsable de la cohérence technique</h2>
       <p>Le Tech Lead garantit que les décisions techniques d'aujourd'hui ne bloquent pas les évolutions de demain. Sa question centrale : <em>le système reste-t-il cohérent ?</em> Il maintient le document ARCHITECTURE, valide les décisions architecturales majeures, conduit les design reviews, établit les standards de qualité, gère la visibilité de la dette technique et coache les PE. Son périmètre de décision est délimité en trois étages : sur le <strong>stratégique</strong> (architecture globale, choix de stack), il décide avec l'input de l'équipe ; sur le <strong>tactique</strong> (patterns, librairies), il guide, l'équipe décide ; sur l'<strong>opérationnel</strong> (implémentation spécifique), il n'intervient pas. Indicateurs : dette technique stable ou décroissante, moins de 10 % de décisions architecturales revisitées par an, design review en moins de deux heures.</p>
@@ -303,7 +315,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Framework AIAD v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

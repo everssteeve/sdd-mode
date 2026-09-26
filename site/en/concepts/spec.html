@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SPEC — the living specification | SDD Mode</title>
-<meta name="description" content="The SPEC bridges human intent and implementation by AI agents. Spec as Living Invariant, 12 standardized sections, 4 quality criteria, optional EARS variant (v1.11) and atomic splitting via /sdd split.">
+<meta name="description" content="The SPEC bridges human intent and implementation by AI agents. Spec as Living Invariant, 12 standardized sections plus the &quot;Agent stop points&quot; and &quot;Agent execution scope&quot; sections, 4 quality criteria, optional EARS variant (v1.11) and atomic splitting via /sdd split.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/concepts/spec.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="agent-autonomy.html">Agent autonomy</a></li>
             <li><a href="context-budget.html">Context Engineering Budget</a></li>
             <li><a href="jnsp.html">JNSP — uncertainty policy</a></li>
             <li><a href="traceability.html">Machine-verifiable traceability</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commands</button>
           <ul class="submenu">
-            <li><a href="../commands/sdd.html">/sdd — SDD cycle (16)</a></li>
-            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="../commands/sdd.html">/sdd — SDD cycle (17)</a></li>
+            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (16)</a></li>
             <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
           </ul>
         </li>
@@ -101,6 +102,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="agent-autonomy.html">Agent autonomy</a></li>
           <li><a href="context-budget.html">Context Engineering Budget</a></li>
           <li><a href="jnsp.html">JNSP — uncertainty</a></li>
           <li><a href="traceability.html">Traceability</a></li>
@@ -109,8 +111,8 @@
         </ul>
         <h2>Commands</h2>
         <ul>
-          <li><a href="../commands/sdd.html">/sdd (16)</a></li>
-          <li><a href="../commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commands/sdd.html">/sdd (17)</a></li>
+          <li><a href="../commands/aiad.html">/aiad (16)</a></li>
           <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -158,8 +160,8 @@
       </table>
       <p>The argument is not merely documentary: a session anchored on a SPEC consumes on average <strong>41.7% fewer tokens</strong> than a session without a specification (R2Code, arXiv 2026). The SPEC is a stable anchor point against <em>context rot</em>.</p>
 
-      <h2 id="sections">The twelve sections of a SPEC</h2>
-      <p>An AIAD SPEC is standardized. It contains:</p>
+      <h2 id="sections">The sections of a SPEC</h2>
+      <p>An AIAD SPEC is standardized. It contains twelve core sections:</p>
       <ol>
         <li>the <strong>activation scope</strong> — injected alone (default) or combined with other SPECs (cross-cutting features);</li>
         <li>the <strong>context</strong> — reference to the parent <a href="intent-statement.html">Intent Statement</a>, objective, expected outcome;</li>
@@ -177,6 +179,22 @@
       <pre><code>**Drift Criterion**: this SPEC is in drift if the file
 `auth/validator.ts` is modified without updating the
 Technical Interface section.</code></pre>
+
+      <h3 id="sections-agent">Two sections to frame the agent (doctrine v1.9)</h3>
+      <p>Doctrine v1.9 adds two sections, referred to by their label. They translate into the SPEC what the human actually delegates to the agent — see <a href="agent-autonomy.html">Agent autonomy</a>.</p>
+      <table>
+        <caption>The two SPEC sections that frame the agent</caption>
+        <thead><tr><th scope="col">Section</th><th scope="col">Status</th><th scope="col">Content</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">"Agent stop points"</th><td>Optional</td><td>When the agent must come back to a human during execution, and in what form: <strong>approval</strong> (action outside its mandate or irreversible), <strong>expert opinion</strong> (decision that goes beyond the SPEC), <strong>plurality of viewpoints</strong> (several plausible interpretations of the intent), <strong>witness</strong> (notable decision to bring to the human's attention). If the section is absent, the framework's default stop points apply.</td></tr>
+          <tr><th scope="row">"Agent execution scope"</th><td>Conditional</td><td>Required only if the agent holds credentials (cloud, API, SSH, database) <strong>or</strong> write access to a shared resource: isolation, allowed network egress, credentials present, shared resources with write access, intended coordination spaces, possible irreversible actions and their reversibility class. Otherwise: write "Not applicable" and fill in nothing.</td></tr>
+        </tbody>
+      </table>
+      <p>A SPEC must not grow heavier with a field filled in out of ritual: outside the intended cases, the "Agent execution scope" section fits in two words. The harness permission mode does not appear in it as a containment measure — <a href="agent-autonomy.html#permission">a permission mode is not a control</a>.</p>
+      <div class="callout info">
+        <span class="callout-title">In the aiad-sdd package — upcoming release, not yet published</span>
+        <p>The SPEC templates delivered by <code>/sdd spec</code> (prose and EARS) include these two sections in the next release of the package, not yet published; in the French templates they are labelled <span lang="fr">« Points d'arrêt de l'agent »</span> and <span lang="fr">« Périmètre d'exécution de l'agent »</span>. Compared with the doctrine, the template's "Agent execution scope" table adds a "Stop threshold" row — read by the <a href="execution-gate.html#precheck">Execution Gate</a> pre-check — and has no separate "Intended coordination spaces" row.</p>
+      </div>
       <div class="callout warn">
         <span class="callout-title">Anti-pattern</span>
         <p>The sprawling twenty-feature SPEC, or the vague "Improve performance" SPEC. Both are unusable — and cost hours of fixing the generated code, where fixing the SPEC would have taken ten minutes.</p>
@@ -194,6 +212,10 @@ Technical Interface section.</code></pre>
         </tbody>
       </table>
       <p>These four criteria feed directly into the <a href="execution-gate.html">Spec Quality Score</a> evaluated at <code>/sdd gate</code>. A SPEC that does not satisfy them must never be handed to an agent. Beyond <strong>200 lines</strong>, the SPEC is too large: head for <a href="#split"><code>/sdd split</code></a>.</p>
+      <div class="callout success">
+        <span class="callout-title">External support (doctrine v1.9)</span>
+        <p>In July 2026, Anthropic published an overhaul of its context-engineering doctrine for its Claude 5 models: removal of about 80% of Claude Code's system prompt with no measured loss according to the vendor, and a recommended shift from simple instructions towards <strong>rich, verifiable references</strong> (detailed test suites, existing code to port). This is external validation of the SQS thesis: a good SPEC is not a longer list of constraints, it is a rich and verifiable artifact. The 80% figure is the vendor's own measurement, <strong>unaudited</strong>.</p>
+      </div>
 
       <h2 id="ears">The EARS variant (v1.11) — the anti-ambiguity option</h2>
       <p>Since v1.11, acceptance criteria can be written in the <strong>EARS</strong> format (Easy Approach to Requirements Syntax) via <code>/sdd spec --ears</code>. The SPEC is then based on the <code>.aiad/specs/spec-ears-template.md</code> template and declares <code>Format : EARS</code> in its header — that signal is what activates the strict <code>ears-validator</code> linter at the Gate. Each criterion follows one of five patterns:</p>
@@ -280,7 +302,7 @@ Unwanted behaviour  IF &lt;condition&gt;, THEN the &lt;system&gt; SHALL &lt;resp
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD Framework v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Human Authorship — authorship cannot be delegated | SDD Mode</title>
-<meta name="description" content="Human Authorship is value 7 of the AIAD framework: authorship of intent is never delegated to an AI agent. A human author is mandatory, the session is invalidated if the agent writes the Intent, the human-authorship-check skill enforces it, and it directly answers Article 14 of the AI Act.">
+<meta name="description" content="Human Authorship is value 7 of the AIAD framework: authorship of intent is never delegated to an AI agent. A human author is mandatory, the session is invalidated if the agent writes the Intent, a five-level authority continuum, agent stop points, the human-authorship-check skill enforces it, and it directly answers Article 14 of the AI Act.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/concepts/human-authorship.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="human-authorship.html" aria-current="page">Human Authorship</a></li>
+            <li><a href="agent-autonomy.html">Agent autonomy</a></li>
             <li><a href="context-budget.html">Context Engineering Budget</a></li>
             <li><a href="jnsp.html">JNSP — uncertainty policy</a></li>
             <li><a href="traceability.html">Machine-verifiable traceability</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commands</button>
           <ul class="submenu">
-            <li><a href="../commands/sdd.html">/sdd — SDD cycle (16)</a></li>
-            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="../commands/sdd.html">/sdd — SDD cycle (17)</a></li>
+            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (16)</a></li>
             <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
           </ul>
         </li>
@@ -101,6 +102,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="human-authorship.html" aria-current="page">Human Authorship</a></li>
+          <li><a href="agent-autonomy.html">Agent autonomy</a></li>
           <li><a href="context-budget.html">Context Engineering Budget</a></li>
           <li><a href="jnsp.html">JNSP — uncertainty</a></li>
           <li><a href="traceability.html">Traceability</a></li>
@@ -109,8 +111,8 @@
         </ul>
         <h2>Commands</h2>
         <ul>
-          <li><a href="../commands/sdd.html">/sdd (16)</a></li>
-          <li><a href="../commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commands/sdd.html">/sdd (17)</a></li>
+          <li><a href="../commands/aiad.html">/aiad (16)</a></li>
           <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -162,6 +164,28 @@
       <h2 id="preuve-terrain">The field evidence: 29,585 PRs</h2>
       <p>The principle is not only defensible in theory — it describes what the industry already does at scale. Across <strong>29,585 pull requests involving agents</strong>, merge authority remains "almost exclusively human". The human keeps the last word on what enters the product, even when the agent produced most of the code. AIAD formalises this checkpoint rather than leaving it implicit: the Execution Gate on the way in, human validation and merge on the way out.</p>
 
+      <h2 id="continuum">The authority continuum</h2>
+      <p>Human Authorship is not limited to writing the Intent Statement. Since doctrine v1.9, the value unfolds into an <strong>authority continuum</strong>: each move from one level to the next is a <strong>distinct human act</strong> that no other act replaces. This rule applies value 7 without changing its scope.</p>
+      <table>
+        <caption>The five levels of the authority continuum (AIAD doctrine v1.9)</caption>
+        <thead><tr><th scope="col">Level</th><th scope="col">Required human act</th><th scope="col">What it does not authorise</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Consultation</th><td>None — the agent may read and propose</td><td>Any writing of code or production artifacts</td></tr>
+          <tr><th scope="row">Clarification</th><td>Answering the agent's questions</td><td><strong>Answering is not consenting</strong>: no writing of code or production artifacts follows from it</td></tr>
+          <tr><th scope="row">SPEC validation</th><td>Opening of the <a href="execution-gate.html">Execution Gate</a> (SQS ≥ 4/5, Stranger Test)</td><td>Deployment</td></tr>
+          <tr><th scope="row">Write authorisation</th><td>Launching execution on the validated SPEC</td><td>Any action outside the SPEC's scope</td></tr>
+          <tr><th scope="row">Deployment authorisation</th><td>Explicit decision, complete chain of evidence</td><td>Undeclared irreversible actions</td></tr>
+        </tbody>
+      </table>
+      <p>"Writing" here means code and production artifacts. At the consultation and clarification levels, the agent may draft <strong>specification artifacts</strong> — that is the role of <code>/sdd spec</code>; they commit nothing until a human has validated them at the Execution Gate. The Intent Statement, for its part, is still written by a human.</p>
+
+      <h2 id="points-arret">Stop points at the agent's initiative</h2>
+      <p>The continuum describes what the human grants; we also need to describe when the agent must come back to the human. AIAD adopts the typology proposed by Ethan Mollick in 2026: the agent asks for <strong>approval</strong> (before an action outside its mandate or an irreversible one), an <strong>expert opinion</strong> (when the decision goes beyond the SPEC), a <strong>plurality of viewpoints</strong> (when several interpretations of the intent are plausible), or simply makes the human a <strong>witness</strong> to a notable decision. The SPEC may specify which ones apply, in its optional "Agent stop points" section. Greater autonomy is not a goal in itself: it is a variable you calibrate, SPEC by SPEC. The details — execution scope, stop threshold, isolation — are on the <a href="agent-autonomy.html">Agent autonomy</a> page.</p>
+
+      <h2 id="trace">Accountability that can be demonstrated, in both directions</h2>
+      <p>AIAD adopts the thesis put forward by Bruce Schneier and Nathan Sanders in June 2026: an organisation answers for the agents it deploys and should not be able to hide behind "the AI did it" — this is <strong>a thesis, not settled law</strong>. If the organisation answers for its agents, it must be able to show what it asked of them (the Intent Statement and its author), within which limits (the SPEC), who validated it (the Execution Gate trace) and what was delivered (<a href="drift-lock.html">Drift Lock</a>).</p>
+      <p>These artifacts do not guarantee the outcome of a dispute. They document the organisation's diligence and make its accountability <strong>demonstrable — in both directions</strong>: a defective SPEC validated at the Gate commits whoever validated it. A trace that could only exonerate would not be evidence; that is precisely what makes it credible (values 2 and 6).</p>
+
       <h2 id="ai-act">A direct answer to the AI Act (Article 14)</h2>
       <p>Human Authorship is a direct answer to the <strong>human-oversight</strong> requirements imposed by Regulation (EU) 2024/1689 — the EU AI Act — for high-risk systems (Article 14). Where the regulation requires that a human be able to oversee, understand and correct the system, AIAD structurally guarantees that the original intent is human, archived and verifiable. The <a href="../governance/index.html#ai-act">AIAD-AI-ACT</a> governance agent makes it a Tier 1 control point, with veto power.</p>
 
@@ -185,7 +209,7 @@
 
       <nav class="doc-pagination" aria-label="Adjacent pages">
         <a class="prev" href="drift-lock.html"><span class="dir">← Previous</span>7. Drift Lock</a>
-        <a class="next" href="context-budget.html"><span class="dir">Next →</span>Context Engineering Budget</a>
+        <a class="next" href="agent-autonomy.html"><span class="dir">Next →</span>Agent autonomy</a>
       </nav>
     </article>
   </div>
@@ -234,7 +258,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD Framework v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

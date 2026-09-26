@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
             <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
             <li><a href="concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
             <li><a href="concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commandes</button>
           <ul class="submenu">
-            <li><a href="commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
-            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="commandes/sdd.html">/sdd — cycle SDD (17)</a></li>
+            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (16)</a></li>
             <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
           </ul>
         </li>
@@ -102,6 +103,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
           <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
           <li><a href="concepts/jnsp.html">JNSP — incertitude</a></li>
           <li><a href="concepts/traceability.html">Traçabilité</a></li>
@@ -110,8 +112,8 @@
         </ul>
         <h2>Commandes</h2>
         <ul>
-          <li><a href="commandes/sdd.html">/sdd (16)</a></li>
-          <li><a href="commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="commandes/sdd.html">/sdd (17)</a></li>
+          <li><a href="commandes/aiad.html">/aiad (16)</a></li>
           <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -149,20 +151,20 @@
       <h2 id="prerequis">Prérequis</h2>
       <ul>
         <li><strong>Node.js 18+</strong> — la CLI <code>aiad-sdd</code> s'exécute via <code>npx</code>, sans installation globale ;</li>
-        <li><strong>un agent IA de développement</strong> — Claude Code en première intention, mais aussi Cursor, GitHub Copilot, Codex ou Gemini : depuis la v1.12, SDD Mode est <strong>multi-runtime</strong>, les règles sont émises pour chaque outil depuis une source unique (<code>npx aiad-sdd emit-rules</code>) ;</li>
+        <li><strong>un agent IA de développement</strong> — Claude Code en première intention, mais aussi Cursor, GitHub Copilot, Codex, Gemini ou Kiro : depuis <code>aiad-sdd</code> 1.12, SDD Mode est <strong>multi-runtime</strong> (Kiro depuis la 1.19.0), les règles sont émises pour chaque outil depuis une source unique (<code>npx aiad-sdd emit-rules</code>) ;</li>
         <li>un dépôt Git — neuf ou existant, les deux chemins sont couverts ci-dessous.</li>
       </ul>
 
       <h2 id="installation">Installation en 1 minute</h2>
       <pre><code>npx aiad-sdd init</code></pre>
-      <p>Cette unique commande installe dans votre projet : la structure <code>.aiad/</code> (templates PRD, ARCHITECTURE, AGENT-GUIDE, index des intents et des SPECs), les <strong>4 agents de gouvernance Tier 1</strong> (AI-ACT, RGPD, RGAA, RGESN), les <strong>33 commandes slash</strong> regroupées sous les routers <code>/sdd</code>, <code>/aiad</code> et <code>/aiad-help</code>, et un <code>CLAUDE.md</code> configuré avec le cycle, la hiérarchie documentaire et les règles absolues.</p>
+      <p>Cette unique commande installe dans votre projet : la structure <code>.aiad/</code> (templates PRD, ARCHITECTURE, AGENT-GUIDE, index des intents et des SPECs), les <strong>4 agents de gouvernance Tier 1</strong> (AI-ACT, RGPD, RGAA, RGESN) complétés de l'agent CRA pour les produits logiciels, les <strong>33 commandes slash</strong> (17 <code>/sdd</code> + 16 <code>/aiad</code>) regroupées sous les routers <code>/sdd</code>, <code>/aiad</code> et <code>/aiad-help</code>, les 9 skills réutilisables, et un <code>CLAUDE.md</code> configuré avec le cycle, la hiérarchie documentaire et les règles absolues.</p>
       <table>
         <caption class="visually-hidden">Options d'installation de npx aiad-sdd init</caption>
         <thead><tr><th scope="col">Option</th><th scope="col">Effet</th></tr></thead>
         <tbody>
           <tr><td><code>--sans-gouvernance</code></td><td>Installe le cycle SDD sans les 4 agents de gouvernance Tier 1.</td></tr>
           <tr><td><code>--minimal</code></td><td>Profil AIAD-Lean : Intent Statement + SQS + Drift Lock, 4 commandes, &lt; 1&nbsp;000 tokens à froid. Évoluez ensuite avec <code>--upgrade gouvernance|rituals|metrics|all</code>.</td></tr>
-          <tr><td><code>--runtime cursor|codex|copilot|gemini|all</code></td><td>Émet les fichiers de règles pour le runtime ciblé (v1.12 — multi-runtime).</td></tr>
+          <tr><td><code>--runtime cursor|codex|copilot|gemini|kiro|all</code></td><td>Émet les fichiers de règles pour le runtime ciblé (multi-runtime depuis <code>aiad-sdd</code> 1.12 ; <code>kiro</code> depuis la 1.19.0).</td></tr>
         </tbody>
       </table>
       <p>Puis, dans votre agent, lancez <code>/sdd init</code>. La commande affiche d'abord un <strong>message de redémarrage recommandé</strong> : pour charger toutes les commandes fraîchement installées dans la session, relancez l'agent (<code>/exit</code> puis nouvelle session) avant de poursuivre. Vous pouvez continuer sans redémarrer, mais certaines skills pourraient ne pas être disponibles.</p>
@@ -187,10 +189,10 @@
         <tbody>
           <tr><td><a href="concepts/intent-statement.html">1. Intent Statement</a></td><td><code>/sdd intent</code></td><td>15-30 min</td><td>Intent archivé dans <code>.aiad/intents/</code>, auteur humain identifiable.</td></tr>
           <tr><td><a href="concepts/research.html">2. Research</a></td><td><code>/sdd research</code></td><td>Variable (proportionnée)</td><td>Discovery ancrée dans le code + verdict GO / CONDITIONAL GO / DEFER / NO-GO tranché par l'humain.</td></tr>
-          <tr><td><a href="concepts/spec.html">3. SPEC</a></td><td><code>/sdd spec</code></td><td>30-60 min</td><td>SPEC committée dans <code>.aiad/specs/</code> — format prose ou EARS.</td></tr>
-          <tr><td><a href="concepts/execution-gate.html">4. Execution Gate</a></td><td><code>/sdd gate</code></td><td>15-30 min</td><td>SQS ≥ 4/5, Gate ouverte, Context Engineering Budget préparé.</td></tr>
+          <tr><td><a href="concepts/spec.html">3. SPEC</a></td><td><code>/sdd spec</code></td><td>30-60 min</td><td>SPEC committée dans <code>.aiad/specs/</code> — format prose ou EARS. Si l'agent dispose de credentials ou d'un accès en écriture partagé : section « Périmètre d'exécution de l'agent » (gabarits du paquet : à paraître).</td></tr>
+          <tr><td><a href="concepts/execution-gate.html">4. Execution Gate</a></td><td><code>/sdd gate</code></td><td>15-30 min</td><td>SQS ≥ 4/5, Gate ouverte, Context Engineering Budget préparé. Pré-contrôle déterministe <code>gate-precheck</code> avant le SQS : à paraître.</td></tr>
           <tr><td><a href="concepts/execution.html">5. Exécution agent</a></td><td><code>/sdd exec</code></td><td>2 h - 3 jours</td><td>Plan d'implémentation validé, puis code + tests annotés <code>@spec</code>.</td></tr>
-          <tr><td><a href="concepts/validation.html">6. Validation</a></td><td><code>/sdd validate</code></td><td>1-4 h</td><td>Rapport technique + fonctionnel + gouvernance Tier 1.</td></tr>
+          <tr><td><a href="concepts/validation.html">6. Validation</a></td><td><code>/sdd validate</code></td><td>1-4 h</td><td>Rapport technique + fonctionnel + gouvernance Tier 1, puis validation métier de l'intention.</td></tr>
           <tr><td><a href="concepts/drift-lock.html">7. Drift Lock</a></td><td><code>/sdd drift-check</code></td><td>10 min</td><td>SPEC et code synchronisés dans la même PR — mergeable.</td></tr>
         </tbody>
       </table>
@@ -212,6 +214,10 @@
         <li><strong>une seule SPEC atomique</strong> — une session agent = une SPEC. C'est la règle du Context Engineering Budget, et la meilleure protection contre le context rot ;</li>
         <li><strong>mesurez dès la première itération</strong> — SQS, drifts détectés, first-time success : les <a href="metriques.html">métriques</a> n'ont de valeur qu'avec une tendance, et la tendance commence au premier point.</li>
       </ul>
+
+      <h2 id="mise-a-jour">Rester à jour</h2>
+      <pre><code>npx aiad-sdd update</code></pre>
+      <p>Met à jour les commandes, les skills et les agents de gouvernance vers la version du paquet, sans toucher à vos artefacts <code>.aiad/</code> (PRD, Intents, SPECs, métriques). En CI, <code>npx aiad-sdd update --check</code> échoue si le projet diverge du paquet. <strong>Prochaine version — à paraître :</strong> <code>update</code> sauvegardera tout agent de gouvernance que vous avez adapté localement (<code>AIAD-X.md.bak-AAAA-MM-JJ</code>) avant de l'écraser — voir la <a href="commandes/cli.html#update">référence CLI</a>.</p>
 
       <h2 id="maturite">Vérifier sa maturité</h2>
       <pre><code>npx aiad-sdd status</code></pre>
@@ -272,7 +278,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Framework AIAD v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="../concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
             <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
             <li><a href="../concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
             <li><a href="../concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commandes</button>
           <ul class="submenu">
-            <li><a href="sdd.html">/sdd — cycle SDD (16)</a></li>
-            <li><a href="aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="sdd.html">/sdd — cycle SDD (17)</a></li>
+            <li><a href="aiad.html">/aiad — rituels &amp; métriques (16)</a></li>
             <li><a href="cli.html" aria-current="page">CLI npx aiad-sdd</a></li>
           </ul>
         </li>
@@ -102,6 +103,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="../concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="../concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
           <li><a href="../concepts/context-budget.html">Context Engineering Budget</a></li>
           <li><a href="../concepts/jnsp.html">JNSP — incertitude</a></li>
           <li><a href="../concepts/traceability.html">Traçabilité</a></li>
@@ -110,8 +112,8 @@
         </ul>
         <h2>Commandes</h2>
         <ul>
-          <li><a href="sdd.html">/sdd (16)</a></li>
-          <li><a href="aiad.html">/aiad (15)</a></li>
+          <li><a href="sdd.html">/sdd (17)</a></li>
+          <li><a href="aiad.html">/aiad (16)</a></li>
           <li><a href="cli.html" aria-current="page">CLI npx aiad-sdd</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -149,7 +151,7 @@
 
       <h2 id="installation">Installation en 1 minute</h2>
       <pre><code>npx aiad-sdd init</code></pre>
-      <p>Une seule commande installe dans votre projet : la structure <code>.aiad/</code> (PRD, ARCHITECTURE, AGENT-GUIDE, intents, specs, métriques), les <strong>4 agents de gouvernance Tier 1</strong> (AI-ACT, RGPD, RGAA, RGESN), les commandes slash pour Claude Code et le fichier <code>CLAUDE.md</code> configuré. Puis, dans l'agent : <code>/sdd init</code> pour démarrer le cadrage.</p>
+      <p>Une seule commande installe dans votre projet : la structure <code>.aiad/</code> (PRD, ARCHITECTURE, AGENT-GUIDE, intents, specs, métriques), les <strong>4 agents de gouvernance Tier 1</strong> (AI-ACT, RGPD, RGAA, RGESN) et l'agent CRA livré en complément pour les produits logiciels, les 33 commandes slash et les 9 skills pour Claude Code et le fichier <code>CLAUDE.md</code> configuré. Puis, dans l'agent : <code>/sdd init</code> pour démarrer le cadrage.</p>
       <table>
         <caption class="visually-hidden">Options principales de npx aiad-sdd init</caption>
         <thead><tr><th scope="col">Option</th><th scope="col">Effet</th></tr></thead>
@@ -157,7 +159,7 @@
           <tr><td><code>--sans-gouvernance</code></td><td>Initialise sans les agents de gouvernance Tier 1.</td></tr>
           <tr><td><code>--minimal</code></td><td>Profil AIAD-Lean : 4 commandes (intent / spec / gate / drift-check).</td></tr>
           <tr><td><code>--upgrade &lt;module&gt;</code></td><td>Ajoute un module au profil minimal : <code>rituals</code>, <code>metrics</code>, <code>gouvernance</code> ou <code>all</code>.</td></tr>
-          <tr><td><code>--runtime &lt;list&gt;</code></td><td>Runtime IA ciblé : <code>claude-code</code> (défaut), <code>cursor</code>, <code>codex</code>, <code>copilot</code>, <code>gemini</code>, <code>all</code>.</td></tr>
+          <tr><td><code>--runtime &lt;list&gt;</code></td><td>Runtime IA ciblé : <code>claude-code</code> (défaut), <code>cursor</code>, <code>codex</code>, <code>copilot</code>, <code>gemini</code>, <code>kiro</code> (depuis la 1.19.0, transmis à <code>emit-rules</code>), <code>all</code>.</td></tr>
           <tr><td><code>--with-git-hooks</code></td><td>Installe le hook pre-commit (Drift Lock) en même temps.</td></tr>
           <tr><td><code>--dry-run</code> / <code>--force</code></td><td>Aperçu sans écrire / réinitialisation en écrasant l'existant.</td></tr>
         </tbody>
@@ -165,6 +167,10 @@
 
       <h2 id="update"><code>npx aiad-sdd update</code> — mettre à jour</h2>
       <p>Met à jour les commandes slash et les agents de gouvernance vers la version courante du package, <strong>en préservant vos fichiers</strong> : vos artefacts <code>.aiad/</code> (PRD, Intents, SPECs, métriques) ne sont jamais touchés. Options : <code>--sans-gouvernance</code> pour ne pas toucher à la gouvernance, <code>--dry-run</code> pour l'aperçu, <code>--check</code> en CI (exit 1 si le projet diverge du package).</p>
+      <div class="callout info">
+        <span class="callout-title">Prochaine version — à paraître</span>
+        <p>Les agents de gouvernance viennent du paquet et <code>update</code> les écrase ; une adaptation locale ne sera plus jamais perdue en silence. <code>init</code> et <code>update</code> écrivent un manifeste <code>.aiad/gouvernance/.aiad-shipped.json</code> (empreinte SHA-256 de chaque agent tel que livré) ; avant d'écraser un agent modifié localement, <code>update</code> le sauvegarde en <code>AIAD-X.md.bak-AAAA-MM-JJ</code> (puis <code>-2</code>, <code>-3</code>…). Un agent que vous avez ajouté vous-même n'est pas touché.</p>
+      </div>
 
       <h2 id="status"><code>npx aiad-sdd status</code> — état du projet</h2>
       <p>Affiche l'état SDD du projet directement dans le terminal : artefacts présents, cycle en cours, et <strong>score de maturité de 0 à 5</strong> — de « non initialisé » à « complet ». Sorties <code>--json</code> (machine) et <code>--markdown</code> (collable dans une PR, Slack ou Notion).</p>
@@ -187,9 +193,9 @@ npx aiad-sdd trace --json          # JSON brut sur stdout</code></pre>
       </table>
 
       <h2 id="emit-rules"><code>npx aiad-sdd emit-rules</code> — multi-runtime</h2>
-      <p>Régénère les fichiers de règles de tous les runtimes IA depuis la source amont unique (<code>.aiad/AGENT-GUIDE.md</code> + <code>.aiad/gouvernance/</code>) : <code>AGENTS.md</code>, le header de <code>CLAUDE.md</code>, <code>.cursor/rules/*.mdc</code>, <code>.codex/AGENT.md</code> et <code>GEMINI.md</code>. Une seule modification dans l'AGENT-GUIDE, et Claude Code, Cursor, Codex, Copilot et Gemini restent alignés.</p>
+      <p>Régénère les fichiers de règles de tous les runtimes IA depuis la source amont unique (<code>.aiad/AGENT-GUIDE.md</code> + <code>.aiad/gouvernance/</code>) : <code>AGENTS.md</code>, le header de <code>CLAUDE.md</code>, <code>.cursor/rules/*.mdc</code>, <code>.codex/AGENT.md</code>, <code>GEMINI.md</code> et, depuis la 1.19.0, les fichiers de steering <code>.kiro/steering/aiad*.md</code>. Une seule modification dans l'AGENT-GUIDE, et Claude Code, Cursor, Codex, Copilot, Gemini et Kiro restent alignés.</p>
       <pre><code>npx aiad-sdd emit-rules                   # toutes les cibles
-npx aiad-sdd emit-rules --runtime cursor  # un runtime précis
+npx aiad-sdd emit-rules --runtime kiro    # un runtime précis
 npx aiad-sdd emit-rules --check           # CI : exit 1 si divergence</code></pre>
       <div class="callout warn">
         <span class="callout-title">Ne pas éditer les fichiers émis</span>
@@ -207,7 +213,21 @@ npx aiad-sdd emit-rules --check           # CI : exit 1 si divergence</code></pr
           <tr><td><code>2</code></td><td>Verdict <strong>JNSP</strong> — décision humaine requise. Ce n'est <em>pas</em> une erreur : la commande a détecté une situation non décidable (intent flou, critère non testable, gouvernance ambiguë, fichier illisible) et refuse de trancher à la place de l'humain.</td></tr>
         </tbody>
       </table>
-      <p>Ce troisième code permet à la CI de distinguer « bloqué en attente d'un humain » d'un vrai bug — il est notamment émis par les scorers déterministes du cycle (<code>research</code>, <code>discovery-check</code>, <code>mini-gate</code>).</p>
+      <p>Ce troisième code permet à la CI de distinguer « bloqué en attente d'un humain » d'un vrai bug — il est notamment émis par les scorers déterministes du cycle (<code>research</code>, <code>discovery-check</code>, <code>mini-gate</code>, et bientôt <code>gate-precheck</code>).</p>
+
+      <h2 id="gate-precheck"><code>npx aiad-sdd gate-precheck</code> — pré-contrôle de la Gate (à paraître)</h2>
+      <p><strong>Prochaine version — à paraître.</strong> Pré-contrôle déterministe de l'<a href="../concepts/execution-gate.html">Execution Gate</a>, lancé par <code>/sdd gate</code> avant tout scoring SQS. Il lit hors modèle la section « Périmètre d'exécution de l'agent » de la SPEC ; seule une déclaration structurée peut fermer la Gate, des mots-clés sensibles en prose ne produisent qu'un avertissement.</p>
+      <pre><code>npx aiad-sdd gate-precheck &lt;SPEC-id&gt;          # verdict lisible
+npx aiad-sdd gate-precheck &lt;SPEC-id&gt; --json   # verdict machine</code></pre>
+      <table>
+        <caption class="visually-hidden">Verdicts et codes de sortie de gate-precheck</caption>
+        <thead><tr><th scope="col">Verdict</th><th scope="col">Exit</th><th scope="col">Cas</th><th scope="col">Effet sur la Gate</th></tr></thead>
+        <tbody>
+          <tr><td><code>PASS</code></td><td><code>0</code></td><td>Section absente (avertissements éventuels), « Non applicable », ou tableau complet et cohérent.</td><td>Le scoring SQS peut commencer.</td></tr>
+          <tr><td><code>FAIL</code></td><td><code>1</code></td><td>Action irréversible déclarée sans seuil d'arrêt ; credentials ou ressource partagée en écriture sans isolation ni sorties réseau déclarées.</td><td>Gate FERMÉE, sans scoring ; les manques forment le plan de remédiation.</td></tr>
+          <tr><td><code>JNSP</code></td><td><code>2</code></td><td>SPEC introuvable, ou une des six lignes du tableau absente (isolation, sorties réseau, credentials, ressources partagées, actions irréversibles, seuil d'arrêt).</td><td>Gate INCONNUE : la question est posée à l'humain.</td></tr>
+        </tbody>
+      </table>
 
       <h2 id="ci">Intégrations CI — GitHub Actions</h2>
       <p>Deux workflows fournis verrouillent les invariants du SDD Mode en pull request :</p>
@@ -230,7 +250,7 @@ npx aiad-sdd emit-rules --check           # CI : exit 1 si divergence</code></pr
 
       <div class="callout">
         <span class="callout-title">Et bien plus</span>
-        <p>La CLI expose d'autres outils de support — <code>doctor</code> (diagnostic + score de santé), <code>dashboard</code> (le dashboard HTML décrit dans <a href="aiad.html#dashboard-html">/aiad dashboard-html</a>), <code>gouvernance</code> (mise à jour des agents Tier 1), <code>uninstall</code>… La référence exhaustive est disponible via <code>npx aiad-sdd help</code>.</p>
+        <p>La CLI expose d'autres outils de support — <code>doctor</code> (diagnostic + score de santé), <code>footprint</code> (empreinte tokens mesurée par SPEC, depuis la 1.19.0), <code>guardrails</code> (matrice enforced / advisory des garde-fous), <code>commands</code> (registre catégorisé des commandes), <code>dashboard</code> (le dashboard HTML décrit dans <a href="aiad.html#dashboard-html">/aiad dashboard-html</a>), <code>gouvernance</code> (mise à jour des agents Tier 1), <code>uninstall</code>… La référence exhaustive est disponible via <code>npx aiad-sdd help</code>.</p>
       </div>
 
       <nav class="doc-pagination" aria-label="Pages voisines">
@@ -284,7 +304,7 @@ npx aiad-sdd emit-rules --check           # CI : exit 1 si divergence</code></pr
       </ul>
     </div>
   </div>
-  <p class="legal">Framework AIAD v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

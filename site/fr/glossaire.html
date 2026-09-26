@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Glossaire — le vocabulaire du SDD Mode | SDD Mode</title>
-<meta name="description" content="Le vocabulaire complet du SDD Mode (framework AIAD) : Intent Statement, SPEC, SQS, Execution Gate, Drift Lock, JNSP, EARS, traçabilité, Phase Research, gouvernance Tier 1 et tous les termes du framework, classés par ordre alphabétique.">
+<meta name="description" content="Le vocabulaire complet du SDD Mode (framework AIAD, doctrine v1.9) : Intent Statement, SPEC, SQS, Execution Gate, Drift Lock, JNSP, EARS, traçabilité, Phase Research, gouvernance Tier 1, autonomie de l'agent (continuum d'autorité, points d'arrêt, périmètre d'exécution, classe de réversibilité) et tous les termes du framework, classés par ordre alphabétique.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../en/glossary.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
             <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
             <li><a href="concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
             <li><a href="concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commandes</button>
           <ul class="submenu">
-            <li><a href="commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
-            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="commandes/sdd.html">/sdd — cycle SDD (17)</a></li>
+            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (16)</a></li>
             <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
           </ul>
         </li>
@@ -102,6 +103,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
           <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
           <li><a href="concepts/jnsp.html">JNSP — incertitude</a></li>
           <li><a href="concepts/traceability.html">Traçabilité</a></li>
@@ -110,8 +112,8 @@
         </ul>
         <h2>Commandes</h2>
         <ul>
-          <li><a href="commandes/sdd.html">/sdd (16)</a></li>
-          <li><a href="commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="commandes/sdd.html">/sdd (17)</a></li>
+          <li><a href="commandes/aiad.html">/aiad (16)</a></li>
           <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -144,32 +146,46 @@
 
       <p class="kicker">Référence</p>
       <h1>Glossaire — le vocabulaire du SDD Mode</h1>
-      <p class="doc-lede">Tous les termes du framework, classés par ordre alphabétique — du vocabulaire fondateur (Intent Statement, SPEC, Drift Lock) aux notions introduites par les versions 1.7 à 1.18 (routers, skills, JNSP, EARS, traçabilité machine-vérifiable, Phase Research).</p>
+      <p class="doc-lede">Tous les termes du framework, classés par ordre alphabétique — du vocabulaire fondateur (Intent Statement, SPEC, Drift Lock) aux notions de la doctrine AIAD jusqu'à la v1.9 (autonomie de l'agent, vérification, contexte hérité) et à celles introduites par le logiciel <code>aiad-sdd</code> de la version 1.7 à la version 1.19 (routers, skills, JNSP, EARS, traçabilité machine-vérifiable, Phase Research).</p>
 
       <h2 id="lettre-a">A</h2>
       <dl>
+        <dt id="agent-effet-irreversible">Agent à effet irréversible (financier, opérationnel, matériel)</dt>
+        <dd><em>Anciennement « agent à autonomie financière et opérationnelle ».</em> Agent IA autorisé à engager des effets qu'on ne peut pas annuler : paiement, achat, engagement contractuel, déploiement, suppression définitive, action sur un équipement physique. Ce profil requiert la validation des <strong>plafonds d'autonomie</strong> à l'<a href="#execution-gate">Execution Gate</a>, une <a href="#classe-reversibilite">classe de réversibilité</a> et un <a href="#seuil-arret">seuil d'arrêt</a> dans le Critère de Drift, et relève d'AIAD-AI-ACT (délégation, plafond, journal à valeur probante, rollback, isolation). À ne pas confondre avec un agent de génération de code sans effet externe irréversible. Voir <a href="concepts/autonomie-agent.html">Autonomie de l'agent</a>.</dd>
         <dt id="agent-guide">AGENT-GUIDE</dt>
-        <dd>Contexte permanent de l'agent : règles absolues, conventions du projet, Lessons Learned, Human Learnings et renvois de gouvernance. Injecté condensé (max 500 tokens) dans chaque session. Depuis la v1.12, c'est la <strong>source amont</strong> des règles multi-runtime émises par <code>emit-rules</code>. Voir <a href="artefacts.html">les artefacts</a>.</dd>
+        <dd>Contexte permanent de l'agent : règles absolues, conventions du projet, Lessons Learned, Human Learnings et renvois de gouvernance. Injecté condensé (max 500 tokens) dans chaque session. Depuis <code>aiad-sdd</code> 1.12, c'est la <strong>source amont</strong> des règles multi-runtime émises par <code>emit-rules</code>. Voir <a href="artefacts.html">les artefacts</a>.</dd>
         <dt id="agent-guide-gouvernance">AGENT-GUIDE Gouvernance</dt>
-        <dd>Les 4 guides réglementaires <a href="#tier-1">Tier 1</a> dotés d'un droit de veto : AIAD-AI-ACT, AIAD-RGPD, AIAD-RGAA, AIAD-RGESN. Détail sur la page <a href="gouvernance/index.html">Gouvernance</a>.</dd>
+        <dd>Les 4 guides réglementaires <a href="#tier-1">Tier 1</a> dotés d'un droit de veto : AIAD-AI-ACT, AIAD-RGPD, AIAD-RGAA, AIAD-RGESN. Le paquet <code>aiad-sdd</code> livre en complément un agent AIAD-CRA (Cyber Resilience Act) pour les produits logiciels. Détail sur la page <a href="gouvernance/index.html">Gouvernance</a>.</dd>
         <dt id="anti-drift-check">Anti-Drift Check</dt>
-        <dd>Rituel de fin d'itération vérifiant la synchronisation artefacts / code sur l'ensemble du projet — l'application périodique du <a href="#drift-lock">Drift Lock</a>. Commande : <code>/sdd drift-check</code>.</dd>
+        <dd>Rituel de fin d'itération vérifiant la synchronisation artefacts / code sur l'ensemble du projet — l'application périodique du <a href="#drift-lock">Drift Lock</a>. Pour chaque SPEC utilisée, trois questions : le comportement livré correspond-il exactement à la SPEC ? les fichiers impactés listés sont-ils exhaustifs ? le Critère de Drift de l'Intent parent signale-t-il un écart ? Commande : <code>/sdd drift-check</code>.</dd>
         <dt id="architecture">ARCHITECTURE</dt>
         <dd>Document des standards techniques : stack, patterns, décisions structurantes. Injecté <em>condensé</em> (~500 tokens) dans chaque session agent — jamais en intégralité. Rédigé via l'assistant <code>/sdd arch</code>.</dd>
+        <dt id="art-22">Art. 22 RGPD — décisions automatisées et agents</dt>
+        <dd>Un agent qui décide seul d'un effet significatif sur une personne — accès à un service, notation, sanction, exclusion — entre dans le champ de l'article 22 du RGPD. AIAD-RGPD (v1.9) n'y reconnaît qu'une intervention humaine <strong>réelle, non nominale</strong> : pouvoir effectif d'infirmer, compétence et autorité, information suffisante, trace horodatée. Précédent : amende de 824 990 000 € infligée à Uber par l'autorité néerlandaise de protection des données le 21 août 2026 (Art. 22 et défaut d'information) — <strong>Uber a fait appel</strong>. Voir <a href="gouvernance/index.html#rgpd">Gouvernance — AIAD-RGPD</a>.</dd>
         <dt id="atelier-intention">Atelier d'Intention</dt>
         <dd>Rituel mensuel (60 min max) qui pose la question : « construisons-nous toujours ce que nous voulions ? ». <strong>Espace humain pur</strong> — les agents IA n'y ont aucun rôle, pas même un résumé automatique. Préparé par <code>/aiad intention</code>, jamais animé par lui. Voir <a href="equipe/rituels.html">Boucles &amp; rituels</a>.</dd>
       </dl>
 
       <h2 id="lettre-c">C</h2>
       <dl>
+        <dt id="classe-reversibilite">Classe de réversibilité</dt>
+        <dd>Qualification d'une action d'agent selon la possibilité de l'annuler : <strong>réversible</strong> (sans coût), <strong>coûteusement réversible</strong> (avec une perte : argent, temps, restauration), <strong>irréversible</strong> (non annulable). Déclarée dans le Critère de Drift de l'<a href="#intent-statement">Intent Statement</a> dès qu'une action a des effets hors du code ; la classe irréversible impose un <a href="#seuil-arret">seuil d'arrêt</a> (doctrine v1.9). Voir <a href="concepts/autonomie-agent.html">Autonomie de l'agent</a>.</dd>
+        <dt id="cognitive-debt">Cognitive debt (dette cognitive)</dt>
+        <dd>Terme (Fowler / Joshi, 2026) : accumulation de code dont l'équipe accepte l'implémentation sans comprendre le modèle conceptuel sous-jacent. Le SDD Mode la prévient par le spec-first et par les <a href="#human-learnings">Human Learnings</a>. À ne pas confondre avec la dette technique (qualité du code) : la dette cognitive porte sur la <em>compréhension</em>.</dd>
         <dt id="context-engineering-budget">Context Engineering Budget</dt>
-        <dd>Capacité d'absorption de contexte d'une session agent, sous la responsabilité du Product Engineer. Règles : une session = un objectif, une seule SPEC active, 60-70 % de la fenêtre comme maximum effectif, Intent et SPEC en tête de contexte. Audité par <code>/sdd context</code>. Voir l'article <a href="concepts/context-budget.html">Context Engineering Budget</a>.</dd>
+        <dd>Capacité d'absorption de contexte d'une session agent, sous la responsabilité du Product Engineer. Règles : une session = un objectif, une seule SPEC active, 60-70 % de la fenêtre comme maximum effectif, Intent et SPEC en tête de contexte. Depuis la doctrine v1.9 : une délégation à un sous-agent qui hérite de la conversation coûte le <a href="#contexte-herite">contexte hérité</a> en plus de son travail propre — déléguer tôt — et toute hypothèse de capacité ou de prix est datée. Audité par <code>/sdd context</code>. Voir l'article <a href="concepts/context-budget.html">Context Engineering Budget</a>.</dd>
         <dt id="context-rot">Context Rot</dt>
         <dd>Dégradation de la qualité d'un LLM avant la limite théorique de sa fenêtre de contexte : réponses moins précises, contraintes de SPEC oubliées, comportements répétitifs. Justifie le seuil opérationnel de 60-70 % et la SPEC comme point d'ancrage stable.</dd>
+        <dt id="contexte-herite">Contexte hérité</dt>
+        <dd>Part du contexte d'un sous-agent qui provient de la conversation parente au moment du fork, quand le harness fait hériter la conversation (comportement par défaut de Claude Code depuis août 2026). Le coût d'une délégation vaut alors <em>contexte parent au fork + travail propre</em> : déléguer tôt, quand le contexte parent est encore léger. Si l'héritage est désactivé, le sous-agent doit recevoir explicitement l'Intent Statement et la SPEC active. Une ligne « Contexte hérité (délégations) » dans l'audit <code>/sdd context</code> est annoncée pour la prochaine version du logiciel — à paraître.</dd>
+        <dt id="continuum-autorite">Continuum d'autorité</dt>
+        <dd>Déclinaison de la valeur <a href="#human-authorship">Human Authorship</a> (doctrine v1.9) en cinq niveaux — consultation, clarification, validation de la SPEC, autorisation d'écriture, autorisation de déploiement. Chaque passage d'un niveau au suivant est un <strong>acte humain distinct</strong>, qu'aucun autre acte ne remplace : « <strong>Répondre n'est pas consentir</strong> » — répondre aux questions de l'agent n'autorise aucune écriture de code. Voir <a href="concepts/autonomie-agent.html">Autonomie de l'agent</a>.</dd>
       </dl>
 
       <h2 id="lettre-d">D</h2>
       <dl>
+        <dt id="defaillances-supervision">Défaillances de supervision</dt>
+        <dd>Catégorie à part des <a href="#human-learnings">Human Learnings</a> (doctrine v1.9) : les cas où la supervision humaine était absente ou devenue nominale — un agent qui agit sans approbation, des relectures automatiques empilées sans humain pour trancher. Question posée en rétrospective : <em>à quel moment un humain aurait-il dû être consulté, et pourquoi ne l'a-t-il pas été ?</em></dd>
         <dt id="discovery">Discovery</dt>
         <dd>Exploration <strong>obligatoire</strong> du code réel pendant la <a href="#phase-research">Phase Research</a> : la viabilité d'une intention se vérifie dans le dépôt, pas dans une discussion abstraite. Le hook <code>discovery-gate.js</code> vérifie ce prérequis avant <code>/sdd spec</code> et <code>/sdd exec</code>.</dd>
         <dt id="dood">DoOD — Definition of Output Done</dt>
@@ -179,15 +195,17 @@
         <dt id="dora-metrics">DORA Metrics</dt>
         <dd>Les 4 indicateurs de performance de livraison du programme DORA : Deployment Frequency, Lead Time for Changes, Change Failure Rate, MTTR. Calculés organiquement par <code>/aiad dora</code> avec positionnement Elite / High / Medium / Low. Voir <a href="metriques.html#dora">Métriques — DORA</a>.</dd>
         <dt id="drift-lock">Drift Lock</dt>
-        <dd>Politique de PR : code et SPEC synchronisés dans le même commit. Étape 7 du cycle, enforced par hook pre-commit et par la matrice de traçabilité en CI. Voir l'article <a href="concepts/drift-lock.html">Drift Lock</a>.</dd>
+        <dd>Politique de PR : le code et la SPEC correspondante sont synchronisés dans la <strong>même PR</strong>. Une PR sans SPEC synchronisée ne passe pas la Definition of Done. Étape 7 du cycle, appliquée par le hook pre-commit et par la matrice de traçabilité en CI. Voir l'article <a href="concepts/drift-lock.html">Drift Lock</a>.</dd>
       </dl>
 
       <h2 id="lettre-e">E</h2>
       <dl>
         <dt id="ears">EARS — Easy Approach to Requirements Syntax</dt>
-        <dd>Variante optionnelle (v1.11) de rédaction des SPECs : exigences en SHALL avec déclencheurs WHEN / WHILE / IF / WHERE. Activée par <code>/sdd spec --ears</code>, lintée en mode strict (règles R1-R7) à la Gate : 0 violation → +1 garanti sur le critère SQS Testabilité ; ≥ 1 violation → critère forcé à 0. À réserver aux SPECs où l'ambiguïté coûte cher — sécurité, paiement, conformité, contrats d'API.</dd>
+        <dd>Variante optionnelle (<code>aiad-sdd</code> 1.11) de rédaction des SPECs : exigences en SHALL avec déclencheurs WHEN / WHILE / IF / WHERE. Activée par <code>/sdd spec --ears</code>, lintée en mode strict (règles R1-R7) à la Gate : 0 violation → +1 garanti sur le critère SQS Testabilité ; ≥ 1 violation → critère forcé à 0. À réserver aux SPECs où l'ambiguïté coûte cher — sécurité, paiement, conformité, contrats d'API.</dd>
         <dt id="execution-gate">Execution Gate</dt>
-        <dd>Point de contrôle entre la SPEC et le lancement de l'agent : aucun code avant Gate ouverte, c'est-à-dire <a href="#sqs">SQS</a> ≥ 4/5. Commande : <code>/sdd gate</code>. Voir l'article <a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a>.</dd>
+        <dd>Point de contrôle entre la SPEC et le lancement de l'agent : aucun code avant Gate ouverte, c'est-à-dire <a href="#sqs">SQS</a> ≥ 4/5, <a href="#test-de-letranger">Test de l'Étranger</a> posé et Context Engineering Budget préparé. Dès qu'une action est irréversible ou que l'agent dispose de credentials, la Gate vérifie aussi les plafonds, le <a href="#seuil-arret">seuil d'arrêt</a> et le <a href="#perimetre-execution">périmètre d'exécution</a>. C'est là qu'a lieu d'abord la conversation critique sur ce qu'on veut. Commande : <code>/sdd gate</code> ; un pré-contrôle déterministe avant le SQS (<code>aiad-sdd gate-precheck</code>) est annoncé pour la prochaine version — à paraître. Voir l'article <a href="concepts/execution-gate.html">Execution Gate &amp; SQS</a>.</dd>
+        <dt id="exemplars-revue">Exemplars de revue</dt>
+        <dd>Savoir de revue d'une organisation — ce qu'un relecteur senior repère et pourquoi — extrait en exemples annotés, versionnés dans des fichiers dédiés (par exemple <code>.aiad/review-exemplars/</code>) et chargés <strong>uniquement dans les sessions de revue</strong>, jamais dans l'AGENT-GUIDE. Optionnels (doctrine v1.9) ; ils se constituent à partir de revues réelles et se retirent quand ils ne reflètent plus les standards de l'équipe.</dd>
       </dl>
 
       <h2 id="lettre-f">F</h2>
@@ -204,22 +222,26 @@
       <dl>
         <dt id="go-conditional-go-defer-no-go">GO / CONDITIONAL GO / DEFER / NO-GO</dt>
         <dd>Verdict gradué de la <a href="#phase-research">Phase Research</a> sur la viabilité d'une intention : viable (GO), viable sous conditions explicites (CONDITIONAL GO), à reporter (DEFER), non viable (NO-GO). Le verdict est <strong>tranché par l'humain</strong> — l'agent instruit le dossier, il ne décide pas. Voir <a href="concepts/research.html">Phase Research</a>.</dd>
+        <dt id="governance-gap">Governance gap (vide de gouvernance)</dt>
+        <dd>Écart entre l'adoption massive des harnesses agentiques — le Gartner Magic Quadrant 2026 projette 30 à 50 % de gain de productivité d'ici 2028 — et l'absence de gouvernance de l'intention humaine que ces harnesses propriétaires n'adressent pas : ils optimisent le « comment générer », pas le « qui a voulu quoi, et qui valide ». AIAD se positionne comme le méta-framework qui comble ce vide. Voir <a href="valeurs.html">Valeurs &amp; piliers</a>.</dd>
       </dl>
 
       <h2 id="lettre-h">H</h2>
       <dl>
         <dt id="harness-engineering">Harness Engineering</dt>
-        <dd>Pratique centrale de l'Agents Engineer : configuration, supervision et gouvernance des agents selon le principe des <em>minimal necessary permissions</em>. Auditée par <code>/sdd security</code>.</dd>
+        <dd>Pratique centrale de l'Agents Engineer : configuration, supervision et gouvernance des agents selon le principe des <em>minimal necessary permissions</em>. La protection repose sur l'isolation, pas sur le <a href="#mode-permission">mode de permission</a> du harness. Auditée par <code>/sdd security</code>.</dd>
         <dt id="human-authorship">Human Authorship</dt>
-        <dd>Valeur 7 du framework : la paternité de l'intention ne se délègue pas. Tout Intent Statement est rédigé par un humain identifiable — si un agent l'a rédigé, la session est invalidée. Vérifié par la skill <code>human-authorship-check</code>. Voir l'article <a href="concepts/human-authorship.html">Human Authorship</a>.</dd>
+        <dd>Valeur 7 du framework : la paternité de l'intention ne se délègue pas. Tout Intent Statement est rédigé par un humain identifiable — si un agent l'a rédigé, la session est invalidée. Déclinée depuis la v1.9 en <a href="#continuum-autorite">continuum d'autorité</a>. Vérifiée par la skill <code>human-authorship-check</code>. Voir l'article <a href="concepts/human-authorship.html">Human Authorship</a>.</dd>
         <dt id="human-learnings">Human Learnings</dt>
-        <dd>Section de l'AGENT-GUIDE documentant les écarts entre intention humaine et livraison — alimentée par l'<a href="#atelier-intention">Atelier d'Intention</a>. À distinguer des <a href="#lessons-learned">Lessons Learned</a>, qui documentent les erreurs de l'agent.</dd>
+        <dd>Section de l'AGENT-GUIDE documentant les défaillances de l'intention humaine — ce que l'humain a mal exprimé, mal calibré ou mal communiqué, indépendamment du comportement de l'agent. Maintenue par le PE et/ou le PM, revue lors de l'<a href="#atelier-intention">Atelier d'Intention</a> ; les entrées peuvent être catégorisées selon les 7 formes de désalignement de la taxonomie Tang et al. (2026), et les <a href="#defaillances-supervision">défaillances de supervision</a> y forment une catégorie à part. À distinguer des <a href="#lessons-learned">Lessons Learned</a>, qui documentent les erreurs de l'agent.</dd>
       </dl>
 
       <h2 id="lettre-i">I</h2>
       <dl>
         <dt id="intent-statement">Intent Statement</dt>
-        <dd>Artefact de premier ordre capturant le POURQUOI humain en 5 champs : POURQUOI MAINTENANT, POUR QUI, OBJECTIF, CONTRAINTES, CRITÈRE DE DRIFT. Auteur humain obligatoire, archivé dans <code>.aiad/intents/</code>. Voir l'article <a href="concepts/intent-statement.html">Intent Statement</a>.</dd>
+        <dd>Artefact de premier ordre capturant le POURQUOI humain en 5 champs : POURQUOI MAINTENANT, POUR QUI, OBJECTIF, CONTRAINTES, CRITÈRE DE DRIFT — ce dernier précisant, si des actions d'agent ont des effets hors du code, leur <a href="#classe-reversibilite">classe de réversibilité</a> et leur <a href="#seuil-arret">seuil d'arrêt</a>. Auteur humain obligatoire, archivé dans <code>.aiad/intents/</code>. Voir l'article <a href="concepts/intent-statement.html">Intent Statement</a>.</dd>
+        <dt id="interrogatory-llm">Interrogatory LLM</dt>
+        <dd>Pattern (Fowler, 2026) où l'agent construit le contexte en interrogeant l'humain par questions ciblées, plutôt qu'en recevant passivement un prompt ou en devinant l'intention. Implémenté par <code>/sdd intent</code>.</dd>
       </dl>
 
       <h2 id="lettre-j">J</h2>
@@ -234,10 +256,26 @@
         <dd>Section de l'AGENT-GUIDE documentant les erreurs récurrentes de l'agent (au moins 2 occurrences sur des tâches différentes), collectées en rétrospective. À distinguer des <a href="#human-learnings">Human Learnings</a>.</dd>
       </dl>
 
+      <h2 id="lettre-m">M</h2>
+      <dl>
+        <dt id="mode-permission">Mode de permission (n'est pas un contrôle)</dt>
+        <dd>Réglage d'un harness — approbation manuelle, classifieur automatique, listes d'autorisation — qui réduit la friction sans constituer une garantie opposable. Principe de la doctrine v1.9 : <strong>un mode de permission n'est pas un contrôle</strong>. La protection repose sur l'isolation (conteneur ou machine virtuelle, sorties réseau restreintes, aucun credential superflu) ; le mode de permission vient en complément, jamais en substitut. Voir <a href="concepts/autonomie-agent.html">Autonomie de l'agent</a>.</dd>
+      </dl>
+
+      <h2 id="lettre-o">O</h2>
+      <dl>
+        <dt id="omnibus-2026-1744">Omnibus numérique IA — Règlement (UE) 2026/1744</dt>
+        <dd>Règlement adopté, publié au JO le 24 juillet 2026 et en vigueur depuis le 27 juillet 2026, qui modifie l'AI Act (ainsi que les règlements 2018/1139 et 2023/1230). Calendrier retenu : obligations de transparence (art. 50) en vigueur depuis le 2 août 2026 (délai jusqu'au 2 décembre 2026 pour l'art. 50(2), uniquement pour les systèmes mis sur le marché avant le 2 août 2026) ; nouvelles interdictions de l'art. 5 (images intimes non consenties, contenus pédopornographiques) applicables le 2 décembre 2026, sans délai de grâce ; haut risque Annexe III au 2 décembre 2027 et Annexe I au 2 août 2028. Voir <a href="gouvernance/index.html#ai-act">Gouvernance — AIAD-AI-ACT</a>.</dd>
+      </dl>
+
       <h2 id="lettre-p">P</h2>
       <dl>
+        <dt id="perimetre-execution">Périmètre d'exécution de l'agent</dt>
+        <dd>Section conditionnelle de la SPEC (doctrine v1.9), requise dès que l'agent dispose de credentials ou d'un accès en écriture à une ressource partagée — « Non applicable » sinon : niveau d'isolation, sorties réseau autorisées, credentials présents, ressources partagées accessibles en écriture, y compris les espaces de coordination voulus. Principe : <strong>le confinement se juge sur la surface partagée</strong>, pas agent par agent. Le gabarit de SPEC du paquet y ajoute une ligne « Seuil d'arrêt ». Voir <a href="concepts/autonomie-agent.html">Autonomie de l'agent</a>.</dd>
         <dt id="phase-research">Phase Research</dt>
         <dd>Étape 2 du cycle (<code>/sdd research</code>), intercalée entre l'Intent et la SPEC : elle valide la <strong>viabilité de l'intention</strong> ancrée dans le code (<a href="#discovery">Discovery</a> obligatoire), pas la qualité de la SPEC. Verdict gradué <a href="#go-conditional-go-defer-no-go">GO / CONDITIONAL GO / DEFER / NO-GO</a>. Proportionnée : court-circuitable explicitement (et tracé) pour une intention triviale. Voir <a href="concepts/research.html">Phase Research</a>.</dd>
+        <dt id="points-arret">Points d'arrêt de l'agent</dt>
+        <dd>Moments où l'agent doit revenir vers l'humain, selon une typologie reprise d'Ethan Mollick (2026) : solliciter une <strong>approbation</strong> (avant une action hors mandat ou irréversible), un <strong>avis d'expert</strong> (quand la décision dépasse la SPEC), une <strong>pluralité de points de vue</strong> (quand plusieurs interprétations de l'intention sont plausibles), ou rendre l'humain <strong>témoin</strong> d'une décision notable. Section optionnelle de la SPEC. Voir <a href="concepts/autonomie-agent.html">Autonomie de l'agent</a>.</dd>
         <dt id="prd">PRD — Product Requirement Document</dt>
         <dd>Source de vérité produit : vision, utilisateurs, outcomes. Injecté <strong>uniquement en phase de cadrage</strong>, jamais en développement. Rédigé via l'assistant <code>/sdd prd</code>.</dd>
         <dt id="product-engineer">Product Engineer (PE)</dt>
@@ -246,10 +284,12 @@
 
       <h2 id="lettre-r">R</h2>
       <dl>
+        <dt id="r2code">R2Code</dt>
+        <dd>Étude arXiv (avril 2026) validant empiriquement l'approche spec-first : −41,7 % de tokens consommés et +7,4 % de fidélité du code généré pour les sessions spec-anchored par rapport aux sessions sans spécification. Référence empirique de l'argument économique du Context Engineering Budget.</dd>
         <dt id="reasons-canvas">REASONS Canvas</dt>
         <dd>Outil SPDD (Kevlin Henney) optionnel pour structurer la justification d'une SPEC avant le format standard AIAD — proposé par <code>/sdd spec</code> quand l'Intent est complexe ou ambigu. Skill associée : <code>reasons-canvas</code>.</dd>
         <dt id="router">Router</dt>
-        <dd>Mécanisme de namespacing des commandes (v1.7) : les 27 commandes sont regroupées sous 3 routers — <code>/sdd &lt;sub&gt;</code>, <code>/aiad &lt;sub&gt;</code>, <code>/aiad-help</code>. Les corps des sous-commandes sont chargés à la demande, ce qui réduit de 94 % le frontmatter chargé à froid. Voir <a href="commandes/sdd.html">Commandes /sdd</a>.</dd>
+        <dd>Mécanisme de namespacing des commandes introduit par <code>aiad-sdd</code> 1.7 : les commandes sont regroupées sous 3 routers — <code>/sdd &lt;sub&gt;</code>, <code>/aiad &lt;sub&gt;</code>, <code>/aiad-help</code> — soit aujourd'hui 33 commandes (17 <code>/sdd</code> + 16 <code>/aiad</code>). Les corps des sous-commandes sont chargés à la demande, ce qui réduit de 94 % le frontmatter chargé à froid. Voir <a href="commandes/sdd.html">Commandes /sdd</a>.</dd>
       </dl>
 
       <h2 id="lettre-s">S</h2>
@@ -260,26 +300,36 @@
         <dd>Commande de capture et qualification d'un écart livré/désiré sans cycle Intent complet — produit un <a href="#fact-technique">Fact Technique</a> dans <code>.aiad/facts/</code>.</dd>
         <dt id="sdd-security">/sdd security</dt>
         <dd>Commande d'audit sécurité : OWASP Top 10, gestion des secrets, permissions des agents (<a href="#harness-engineering">Harness Engineering</a>), conformité AI-ACT / RGPD. Rapports persistés dans <code>.aiad/metrics/security/</code>.</dd>
+        <dt id="seuil-arret">Seuil d'arrêt</dt>
+        <dd>Condition fixée dans le Critère de Drift pour toute action de <a href="#classe-reversibilite">classe irréversible</a> (doctrine v1.9) : tout dépassement d'autonomie constaté — dépense au-delà du plafond, action hors du périmètre délégué, tentative de masquer ou d'altérer ses propres traces — déclenche l'<strong>arrêt immédiat</strong> de l'agent et une revue humaine, pas un signalement a posteriori. Les alertes de facturation des fournisseurs ne remplissent pas ce rôle : elles peuvent accuser jusqu'à 24 heures de retard. Voir <a href="concepts/autonomie-agent.html">Autonomie de l'agent</a>.</dd>
         <dt id="skill">Skill</dt>
-        <dd>Bloc de logique réutilisable auto-déclenché (v1.9), stocké dans <code>.claude/skills/</code> : <code>human-authorship-check</code>, <code>regulatory-veto</code>, <code>drift-detection</code>, <code>sqs-scoring</code>, <code>context-budget</code>, <code>reasons-canvas</code>, <code>ears-validator</code>, <code>traceability</code>. Les commandes complexes composent plusieurs skills sans dupliquer leur logique.</dd>
+        <dd>Bloc de logique réutilisable auto-déclenché (introduit par <code>aiad-sdd</code> 1.9), stocké dans <code>.claude/skills/</code>. Le paquet en livre 9 : <code>human-authorship-check</code>, <code>regulatory-veto</code>, <code>drift-detection</code>, <code>sqs-scoring</code>, <code>context-budget</code>, <code>reasons-canvas</code>, <code>ears-validator</code>, <code>traceability</code>, <code>grill-me</code> (gate interactif). Les commandes complexes composent plusieurs skills sans dupliquer leur logique.</dd>
         <dt id="spec">SPEC</dt>
-        <dd>Spécification technique détaillée d'une tâche atomique : scope, interface, comportement, cas limites, tests, critère de drift. Une seule SPEC active par session agent. Format prose ou <a href="#ears">EARS</a>. Voir l'article <a href="concepts/spec.html">SPEC</a>.</dd>
+        <dd>Spécification technique détaillée d'une tâche atomique : scope, interface, comportement, cas limites, tests, critère de drift. Une seule SPEC active par session agent. Format prose ou <a href="#ears">EARS</a>. La doctrine v1.9 y ajoute deux sections : « <a href="#points-arret">Points d'arrêt de l'agent</a> » (optionnelle) et « <a href="#perimetre-execution">Périmètre d'exécution de l'agent</a> » (conditionnelle). Voir l'article <a href="concepts/spec.html">SPEC</a>.</dd>
         <dt id="spec-anchored">Spec-Anchored</dt>
         <dd>Positionnement d'AIAD : la SPEC est maintenue comme <em>ancre permanente</em>, synchronisée avec le code à chaque PR. Ni spec-first (spec jetée après la tâche), ni spec-as-source (spec qui génère le code).</dd>
         <dt id="spec-drift">Spec Drift</dt>
         <dd>Écart entre l'état d'une SPEC et l'état réel du code. Traité comme un <strong>échec de processus</strong>, pas comme une erreur d'agent — détecté par la skill <code>drift-detection</code> et le <a href="#drift-lock">Drift Lock</a>.</dd>
         <dt id="sqs">SQS — Spec Quality Score</dt>
-        <dd>Score de qualité d'une SPEC sur 5 critères (atomicité, précision, testabilité, non-ambiguïté, scope défini) complétés par le <a href="#test-de-letranger">Test de l'Étranger</a>. Seuil de Gate : ≥ 4/5 ; un critère non scorable produit <code>?/5</code> et une Gate INCONNUE. Voir <a href="metriques.html#sqs">Métriques — SQS</a>.</dd>
+        <dd>Score de qualité d'une SPEC sur 5 critères (atomicité, interfaces précises, testabilité, non-ambiguïté, scope défini) complétés par le <a href="#test-de-letranger">Test de l'Étranger</a>. Seuil de Gate : ≥ 4/5 ; un critère non scorable produit <code>?/5</code> et une Gate INCONNUE. Le SQS évalue l'entrée de l'agent, pas le code produit. Voir <a href="metriques.html#sqs">Métriques — SQS</a>.</dd>
       </dl>
 
       <h2 id="lettre-t">T</h2>
       <dl>
         <dt id="test-de-letranger">Test de l'Étranger</dt>
-        <dd>Critère 6 du SQS, non scorable : une personne extérieure au projet, sans contexte oral, comprendrait-elle la SPEC et pourrait-elle l'implémenter ? Si la réponse est non, la SPEC repose sur du contexte implicite — elle n'est pas prête pour un agent.</dd>
+        <dd>Critère 6 du SQS, non scorable : « Si je montrais cette SPEC à quelqu'un qui ne connaît pas le projet, <strong>saurait-il pourquoi on la fait</strong> ? ». La réponse, en deux phrases maximum rédigées par un humain, est documentée dans la SPEC (section « Contexte pour un lecteur extérieur ») avant la Gate. Une réponse négative ne ferme pas la Gate, mais signale un contexte humain insuffisant : revenir à l'Intent Statement.</dd>
         <dt id="tier-1">Tier 1</dt>
         <dd>Niveau le plus élevé de la hiérarchie des agents de gouvernance — juste sous la Constitution AIAD. Les 4 agents Tier 1 (AI-ACT, RGPD, RGAA, RGESN) disposent d'un <strong>droit de veto</strong> sur toute SPEC ou implémentation non conforme, avec politique <a href="#fail-closed">fail-closed</a>. Voir <a href="gouvernance/index.html">Gouvernance</a>.</dd>
         <dt id="tracabilite">Traçabilité — <code>@intent</code>, <code>@spec</code>, <code>@verified-by</code>, <code>@governance</code></dt>
-        <dd>Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests (v1.10), construite depuis les annotations posées dans le code : <code>@intent INTENT-NNN</code> (0..1), <code>@spec SPEC-NNN-N-slug</code> (1..n, obligatoire sur tout code applicatif), <code>@verified-by</code> (chemin vers un test, 0..n), <code>@governance</code> (référentiels Tier 1, 0..1). Générée par <code>/sdd trace</code> ou <code>npx aiad-sdd trace</code> ; la GitHub Action <code>sdd-trace.yml</code> fait échouer la PR sur gap bloquant (<code>--fail-on-gap</code>). Voir l'article <a href="concepts/traceability.html">Traçabilité</a>.</dd>
+        <dd>Matrice machine-vérifiable Intent ↔ SPEC ↔ Code ↔ Tests (introduite par <code>aiad-sdd</code> 1.10), construite depuis les annotations posées dans le code : <code>@intent INTENT-NNN</code> (0..1), <code>@spec SPEC-NNN-N-slug</code> (1..n, obligatoire sur tout code applicatif), <code>@verified-by</code> (chemin vers un test, 0..n), <code>@governance</code> (référentiels Tier 1, 0..1). Générée par <code>/sdd trace</code> ou <code>npx aiad-sdd trace</code> ; la GitHub Action <code>sdd-trace.yml</code> fait échouer la PR sur gap bloquant (<code>--fail-on-gap</code>). Voir l'article <a href="concepts/traceability.html">Traçabilité</a>.</dd>
+      </dl>
+
+      <h2 id="lettre-v">V</h2>
+      <dl>
+        <dt id="verification-tax">Verification Tax</dt>
+        <dd>Terme d'une synthèse de littérature de 2026 : l'écart entre le gain de productivité à l'écriture du code et le gain, bien plus faible, à la livraison d'un logiciel fiable. Il décrit ce que l'investissement amont en SPEC et en Execution Gate cherche à réduire. Voir <a href="concepts/validation.html">Validation</a>.</dd>
+        <dt id="vibe-coding">Vibe coding</dt>
+        <dd>Terme (Fowler, reprenant Karpathy, 2026) désignant la délégation du code à l'agent IA <em>sans validation humaine</em> — l'auteur accepte l'implémentation sans l'examiner. C'est ce que la valeur <a href="#human-authorship">Human Authorship</a> prévient ; Fowler l'oppose à la « programmation agentique sérieuse ». À ne pas confondre avec le prototypage rapide assumé et jetable : le vibe coding devient un problème quand le code non validé entre en production.</dd>
       </dl>
 
       <div class="callout info">
@@ -338,7 +388,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Framework AIAD v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

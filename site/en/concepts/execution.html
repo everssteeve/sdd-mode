@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agent Execution — orchestrate without saturating | SDD Mode</title>
-<meta name="description" content="Launching an agent session in SDD Mode: post-Gate prerequisites, a structured prompt (condensed AGENT-GUIDE + ONE SPEC at the top of context), an implementation plan before any code, /sdd resume for interrupted sessions and machine-verifiable @intent/@spec annotations.">
+<meta name="description" content="Launching an agent session in SDD Mode: post-Gate prerequisites, a structured prompt (condensed AGENT-GUIDE + ONE SPEC at the top of context), an implementation plan before any code, stop points, isolation rather than permission modes, early delegation to sub-agents, /sdd resume for interrupted sessions and machine-verifiable @intent/@spec annotations.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/concepts/execution.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="agent-autonomy.html">Agent autonomy</a></li>
             <li><a href="context-budget.html">Context Engineering Budget</a></li>
             <li><a href="jnsp.html">JNSP — uncertainty policy</a></li>
             <li><a href="traceability.html">Machine-verifiable traceability</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commands</button>
           <ul class="submenu">
-            <li><a href="../commands/sdd.html">/sdd — SDD cycle (16)</a></li>
-            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="../commands/sdd.html">/sdd — SDD cycle (17)</a></li>
+            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (16)</a></li>
             <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
           </ul>
         </li>
@@ -101,6 +102,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="agent-autonomy.html">Agent autonomy</a></li>
           <li><a href="context-budget.html">Context Engineering Budget</a></li>
           <li><a href="jnsp.html">JNSP — uncertainty</a></li>
           <li><a href="traceability.html">Traceability</a></li>
@@ -109,8 +111,8 @@
         </ul>
         <h2>Commands</h2>
         <ul>
-          <li><a href="../commands/sdd.html">/sdd (16)</a></li>
-          <li><a href="../commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commands/sdd.html">/sdd (17)</a></li>
+          <li><a href="../commands/aiad.html">/aiad (16)</a></li>
           <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -182,13 +184,28 @@
 
 ## Files to modify/create
 [List]</code></pre>
-      <p>The <strong>placement rule</strong> matters as much as the content: the Intent and the active SPEC go <strong>at the top of the context</strong>, to counter the <em>lost-in-the-middle effect</em> — models' tendency to degrade their attention over the middle of a long context. The total budget is checked by the <code>context-budget</code> skill before launch: beyond 50K tokens, you condense (summaries of large files, interface extraction) rather than "inject everything and hope". Governance is qualified by <code>regulatory-veto</code>: a Tier 1 VETO forbids the launch.</p>
+      <p>The <strong>placement rule</strong> matters as much as the content: the Intent and the active SPEC go <strong>at the top of the context</strong>, to counter the <em>lost-in-the-middle effect</em> — models' tendency to degrade their attention over the middle of a long context. The total budget is checked by the <code>context-budget</code> skill before launch: beyond about 50K tokens — <strong>an assumed sobriety heuristic, not sourced</strong>, not a technical limit —, you condense (summaries of large files, interface extraction) rather than "inject everything and hope". Governance is qualified by <code>regulatory-veto</code>: a Tier 1 VETO forbids the launch.</p>
 
       <h2 id="plan">An implementation plan before the code</h2>
       <p>The agent never starts by coding: <code>/sdd exec</code> requires an <strong>implementation plan</strong> that the PE validates before the first line. Since §3.6, this plan is phased into <strong>testable vertical slices</strong> (<code>.aiad/exec/EXEC-&lt;SPEC-id&gt;-plan.md</code>): each slice declares its objective, its files, its tests — mandatory — and its "Done". A mini-gate (<code>npx aiad-sdd mini-gate &lt;SPEC-id&gt; --phase N</code>) validates each slice before the next. This avoids the classic trap: 1,200 lines of horizontal code before a single test.</p>
 
       <h2 id="scope">Keeping the agent in scope</h2>
       <p>During the session, the PE observes: is the agent following the SPEC? Are signs of drift appearing? An agent that drifts is <strong>not at fault if the SPEC was imprecise</strong> — that is a Human Learning, not a Lesson Learned. More than two re-prompts for the same SPEC signal a SPEC that is too ambitious: head for <code>/sdd split</code>. The prompt also carries the <a href="jnsp.html">JNSP</a> contract: facing an undecidable area, the agent writes <code>// TODO-&#74;NSP: &lt;question&gt;</code> and stops, rather than inventing the missing value.</p>
+
+      <h2 id="points-arret">Stop points during execution</h2>
+      <p>Authorised to write on a validated SPEC, the agent is not thereby authorised to do everything: the <a href="human-authorship.html#continuum">authority continuum</a> excludes any action outside the SPEC's scope and, a fortiori, any undeclared irreversible action. During the session, the agent comes back to the human at the planned <strong>stop points</strong> — approval, expert opinion, plurality of viewpoints, witness —, specified where relevant in the "Agent stop points" section of the <a href="spec.html#sections-agent">SPEC</a>. If the SPEC declares an irreversible action, its <strong>stop threshold</strong> applies: any observed overreach of autonomy halts the agent and triggers an immediate human review, not an after-the-fact report.</p>
+
+      <h2 id="permission">A permission mode is not a control</h2>
+      <p>Harnesses offer permission modes — manual approval, automatic classifier, allow-lists. They reduce friction; they do not constitute an enforceable guarantee. In August 2026, Johann Rehberger bypassed Claude Code's automatic mode in 80% of his attempts, and in some cases the classifier allowed the malicious process and then blocked the remediation command launched by the agent. The protection of an execution session rests on <strong>isolation</strong>: container or virtual machine, restricted network egress, no superfluous credentials (SSH keys, cloud keys) in the agent's environment. The permission mode comes as a complement, never as a substitute — see <a href="agent-autonomy.html#permission">Agent autonomy</a>.</p>
+
+      <h2 id="delegation">Delegating to sub-agents: delegate early</h2>
+      <p>The cost of a delegation depends on the harness mechanism. <strong>If the sub-agent inherits the parent conversation</strong> — the default in some harnesses —, its cost is <em>parent context at the time of the fork + its own work</em>, not a marginal cost. Three consequences:</p>
+      <ul>
+        <li>delegate <strong>early</strong>, while the parent context is still light;</li>
+        <li>the fork point is an explicit cost item in the <a href="context-budget.html#delegation">Context Audit</a>;</li>
+        <li>if inheritance is disabled, the sub-agent starts from a blank context and must be given the Intent Statement and the active SPEC explicitly.</li>
+      </ul>
+      <p>Messaging between agent sessions does not exempt you from traceability: any decision taken between agents that changes a behaviour is reported in the SPEC (<a href="drift-lock.html">Drift Lock</a>).</p>
 
       <h2 id="resume">Resuming an interrupted session — <code>/sdd resume</code></h2>
       <p>Interruptions (timeout, error, conversation limit, voluntary pause) are normal — not a failure. <code>/sdd resume</code> rebuilds a <strong>minimal context</strong> instead of re-injecting the whole session: an inventory of the work done (<code>git status</code>, <code>git diff</code>), covered vs. remaining criteria, then a resume prompt containing only the condensed AGENT-GUIDE, the full SPEC and the state summary.</p>
@@ -270,7 +287,7 @@ Remaining work:
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD Framework v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

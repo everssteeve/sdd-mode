@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Metrics — measuring value, not activity | SDD Mode</title>
-<meta name="description" content="SDD Mode metrics: SQS and the Stranger Test, drift rate, first-time success rate, DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR), Flow Metrics and dashboards — data-informed, never data-driven.">
+<meta name="description" content="SDD Mode metrics: SQS and the Stranger Test, drift rate, first-time success rate, DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR), Flow Metrics and dashboards, efficiency versus quality (Verification Tax) — data-informed, never data-driven.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../fr/metriques.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/agent-autonomy.html">Agent autonomy</a></li>
             <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
             <li><a href="concepts/jnsp.html">JNSP — uncertainty policy</a></li>
             <li><a href="concepts/traceability.html">Machine-verifiable traceability</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commands</button>
           <ul class="submenu">
-            <li><a href="commands/sdd.html">/sdd — SDD cycle (16)</a></li>
-            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="commands/sdd.html">/sdd — SDD cycle (17)</a></li>
+            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (16)</a></li>
             <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
           </ul>
         </li>
@@ -101,6 +102,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/agent-autonomy.html">Agent autonomy</a></li>
           <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
           <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
           <li><a href="concepts/traceability.html">Traceability</a></li>
@@ -109,8 +111,8 @@
         </ul>
         <h2>Commands</h2>
         <ul>
-          <li><a href="commands/sdd.html">/sdd (16)</a></li>
-          <li><a href="commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="commands/sdd.html">/sdd (17)</a></li>
+          <li><a href="commands/aiad.html">/aiad (16)</a></li>
           <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -156,7 +158,7 @@
         <li><strong>SQS partially unscorable</strong> → score <code>?/5</code> and Gate <strong>UNKNOWN</strong> — JNSP verdict, human decision required. Never any self-clearance.</li>
       </ul>
       <div class="callout info">
-        <span class="callout-title">EARS bonus (v1.11)</span>
+        <span class="callout-title">EARS bonus (since aiad-sdd 1.11)</span>
         <p>An EARS-format SPEC whose strict lint (rules R1-R7) raises no violation earns a guaranteed +1 on the Testability criterion; a single violation forces that criterion to 0.</p>
       </div>
 
@@ -231,6 +233,10 @@
           <tr><td><a href="team/responsibilities.html#tl">Tech Lead</a></td><td>DORA improving, MTTR &lt; 4 h, technical debt stable or shrinking.</td></tr>
         </tbody>
       </table>
+      <div class="callout warn">
+        <span class="callout-title">Efficiency is not quality</span>
+        <p>A faster review is not a better review: across 1.02 million pull requests studied in 2026, review involving agents saves time without gaining quality. Speed indicators (Cycle Time, Lead Time, Throughput) are therefore always read alongside quality and intent indicators (Change Failure Rate, drift, intent/delivery alignment). The gap between the productivity gain in writing code and the much smaller gain in delivering reliable software has a name — the <strong>Verification Tax</strong> — and it is what the upfront investment in the SPEC and the Gate seeks to reduce. See <a href="team/responsibilities.html#efficiency-quality">the QA Engineer's role</a> and <a href="team/rituals.html#verification">verification in the Validate loop</a>.</p>
+      </div>
 
       <h2 id="amelioration">The continuous improvement loop</h2>
       <p>Metrics only make sense plugged into a PDCA loop: identify a problem through the metrics, formulate a hypothesis, change at small scale, measure before/after, standardise or retry. Two commands support it:</p>
@@ -291,7 +297,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD Framework v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>
