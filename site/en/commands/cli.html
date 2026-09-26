@@ -149,7 +149,7 @@
 
       <h2 id="installation">1-minute install</h2>
       <pre><code>npx aiad-sdd init</code></pre>
-      <p>A single command installs in your project: the <code>.aiad/</code> structure (PRD, ARCHITECTURE, AGENT-GUIDE, intents, specs, metrics), the <strong>4 Tier 1 governance agents</strong> (AI-ACT, RGPD, RGAA, RGESN), the slash commands for Claude Code and the configured <code>CLAUDE.md</code> file. Then, in the agent: <code>/sdd init</code> to start the framing.</p>
+      <p>A single command installs in your project: the <code>.aiad/</code> structure (PRD, ARCHITECTURE, AGENT-GUIDE, intents, specs, metrics), the <strong>4 Tier 1 governance agents</strong> (AI-ACT, RGPD, RGAA, RGESN) and the CRA agent shipped as a complement for software products, the 33 slash commands and the 9 skills for Claude Code and the configured <code>CLAUDE.md</code> file. Then, in the agent: <code>/sdd init</code> to start the framing.</p>
       <table>
         <caption class="visually-hidden">Main options of npx aiad-sdd init</caption>
         <thead><tr><th scope="col">Option</th><th scope="col">Effect</th></tr></thead>
@@ -157,7 +157,7 @@
           <tr><td><code>--sans-gouvernance</code></td><td>Initialise without the Tier 1 governance agents.</td></tr>
           <tr><td><code>--minimal</code></td><td>AIAD-Lean profile: 4 commands (intent / spec / gate / drift-check).</td></tr>
           <tr><td><code>--upgrade &lt;module&gt;</code></td><td>Adds a module to the minimal profile: <code>rituals</code>, <code>metrics</code>, <code>gouvernance</code> or <code>all</code>.</td></tr>
-          <tr><td><code>--runtime &lt;list&gt;</code></td><td>Target AI runtime: <code>claude-code</code> (default), <code>cursor</code>, <code>codex</code>, <code>copilot</code>, <code>gemini</code>, <code>all</code>.</td></tr>
+          <tr><td><code>--runtime &lt;list&gt;</code></td><td>Target AI runtime: <code>claude-code</code> (default), <code>cursor</code>, <code>codex</code>, <code>copilot</code>, <code>gemini</code>, <code>kiro</code> (since 1.19.0, passed on to <code>emit-rules</code>), <code>all</code>.</td></tr>
           <tr><td><code>--with-git-hooks</code></td><td>Installs the pre-commit hook (Drift Lock) at the same time.</td></tr>
           <tr><td><code>--dry-run</code> / <code>--force</code></td><td>Preview without writing / reinitialise by overwriting the existing setup.</td></tr>
         </tbody>
@@ -165,6 +165,10 @@
 
       <h2 id="update"><code>npx aiad-sdd update</code> — update</h2>
       <p>Updates the slash commands and the governance agents to the current version of the package, <strong>while preserving your files</strong>: your <code>.aiad/</code> artifacts (PRD, Intents, SPECs, metrics) are never touched. Options: <code>--sans-gouvernance</code> to leave governance untouched, <code>--dry-run</code> for a preview, <code>--check</code> in CI (exit 1 if the project diverges from the package).</p>
+      <div class="callout info">
+        <span class="callout-title">Next release — upcoming</span>
+        <p>The governance agents come from the package and <code>update</code> overwrites them; a local adaptation will never again be lost silently. <code>init</code> and <code>update</code> write a <code>.aiad/gouvernance/.aiad-shipped.json</code> manifest (SHA-256 fingerprint of each agent as shipped); before overwriting a locally modified agent, <code>update</code> backs it up as <code>AIAD-X.md.bak-YYYY-MM-DD</code> (then <code>-2</code>, <code>-3</code>…). An agent you added yourself is left untouched.</p>
+      </div>
 
       <h2 id="status"><code>npx aiad-sdd status</code> — project state</h2>
       <p>Displays the project's SDD state directly in the terminal: artifacts present, current cycle, and a <strong>maturity score from 0 to 5</strong> — from "not initialised" to "complete". Outputs <code>--json</code> (machine) and <code>--markdown</code> (pasteable into a PR, Slack or Notion).</p>
@@ -187,9 +191,9 @@ npx aiad-sdd trace --json          # raw JSON on stdout</code></pre>
       </table>
 
       <h2 id="emit-rules"><code>npx aiad-sdd emit-rules</code> — multi-runtime</h2>
-      <p>Regenerates the rule files of all the AI runtimes from the single upstream source (<code>.aiad/AGENT-GUIDE.md</code> + <code>.aiad/gouvernance/</code>): <code>AGENTS.md</code>, the <code>CLAUDE.md</code> header, <code>.cursor/rules/*.mdc</code>, <code>.codex/AGENT.md</code> and <code>GEMINI.md</code>. One single change in the AGENT-GUIDE, and Claude Code, Cursor, Codex, Copilot and Gemini stay aligned.</p>
+      <p>Regenerates the rule files of all the AI runtimes from the single upstream source (<code>.aiad/AGENT-GUIDE.md</code> + <code>.aiad/gouvernance/</code>): <code>AGENTS.md</code>, the <code>CLAUDE.md</code> header, <code>.cursor/rules/*.mdc</code>, <code>.codex/AGENT.md</code>, <code>GEMINI.md</code> and, since 1.19.0, the <code>.kiro/steering/aiad*.md</code> steering files. One single change in the AGENT-GUIDE, and Claude Code, Cursor, Codex, Copilot, Gemini and Kiro stay aligned.</p>
       <pre><code>npx aiad-sdd emit-rules                   # all targets
-npx aiad-sdd emit-rules --runtime cursor  # one specific runtime
+npx aiad-sdd emit-rules --runtime kiro    # one specific runtime
 npx aiad-sdd emit-rules --check           # CI: exit 1 on divergence</code></pre>
       <div class="callout warn">
         <span class="callout-title">Do not edit the emitted files</span>
@@ -207,7 +211,21 @@ npx aiad-sdd emit-rules --check           # CI: exit 1 on divergence</code></pre
           <tr><td><code>2</code></td><td><strong>JNSP</strong> verdict — human decision required. It is <em>not</em> an error: the command detected an undecidable situation (vague intent, untestable criterion, ambiguous governance, unreadable file) and refuses to decide in place of the human.</td></tr>
         </tbody>
       </table>
-      <p>This third code lets the CI distinguish "blocked waiting for a human" from a real bug — it is notably emitted by the cycle's deterministic scorers (<code>research</code>, <code>discovery-check</code>, <code>mini-gate</code>).</p>
+      <p>This third code lets the CI distinguish "blocked waiting for a human" from a real bug — it is notably emitted by the cycle's deterministic scorers (<code>research</code>, <code>discovery-check</code>, <code>mini-gate</code>, and soon <code>gate-precheck</code>).</p>
+
+      <h2 id="gate-precheck"><code>npx aiad-sdd gate-precheck</code> — Gate pre-check (upcoming)</h2>
+      <p><strong>Next release — upcoming.</strong> Deterministic pre-check of the <a href="../concepts/execution-gate.html">Execution Gate</a>, run by <code>/sdd gate</code> before any SQS scoring. It reads the SPEC's "Agent execution perimeter" section outside the model; only a structured declaration can close the Gate — sensitive keywords in prose only produce a warning.</p>
+      <pre><code>npx aiad-sdd gate-precheck &lt;SPEC-id&gt;          # human-readable verdict
+npx aiad-sdd gate-precheck &lt;SPEC-id&gt; --json   # machine verdict</code></pre>
+      <table>
+        <caption class="visually-hidden">gate-precheck verdicts and exit codes</caption>
+        <thead><tr><th scope="col">Verdict</th><th scope="col">Exit</th><th scope="col">Case</th><th scope="col">Effect on the Gate</th></tr></thead>
+        <tbody>
+          <tr><td><code>PASS</code></td><td><code>0</code></td><td>Section absent (possible warnings), "Not applicable", or a complete and consistent table.</td><td>SQS scoring can begin.</td></tr>
+          <tr><td><code>FAIL</code></td><td><code>1</code></td><td>Irreversible action declared without a stop threshold; credentials or writable shared resource without declared isolation or network egress.</td><td>Gate CLOSED, without scoring; the gaps form the remediation plan.</td></tr>
+          <tr><td><code>JNSP</code></td><td><code>2</code></td><td>SPEC not found, or one of the six table rows missing (isolation, network egress, credentials, shared resources, irreversible actions, stop threshold).</td><td>Gate UNKNOWN: the question is put to the human.</td></tr>
+        </tbody>
+      </table>
 
       <h2 id="ci">CI integrations — GitHub Actions</h2>
       <p>Two provided workflows lock down the SDD Mode invariants on pull requests:</p>
@@ -230,7 +248,7 @@ npx aiad-sdd emit-rules --check           # CI: exit 1 on divergence</code></pre
 
       <div class="callout">
         <span class="callout-title">And much more</span>
-        <p>The CLI exposes other supporting tools — <code>doctor</code> (diagnosis + health score), <code>dashboard</code> (the HTML dashboard described in <a href="aiad.html#dashboard-html">/aiad dashboard-html</a>), <code>gouvernance</code> (Tier 1 agent updates), <code>uninstall</code>… The exhaustive reference is available via <code>npx aiad-sdd help</code>.</p>
+        <p>The CLI exposes other supporting tools — <code>doctor</code> (diagnosis + health score), <code>footprint</code> (measured token footprint per SPEC, since 1.19.0), <code>guardrails</code> (enforced / advisory guardrail matrix), <code>commands</code> (categorised command registry), <code>dashboard</code> (the HTML dashboard described in <a href="aiad.html#dashboard-html">/aiad dashboard-html</a>), <code>gouvernance</code> (Tier 1 agent updates), <code>uninstall</code>… The exhaustive reference is available via <code>npx aiad-sdd help</code>.</p>
       </div>
 
       <nav class="doc-pagination" aria-label="Adjacent pages">

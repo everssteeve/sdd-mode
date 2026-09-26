@@ -161,10 +161,10 @@
           <tr><td><a href="#gouvernance"><code>/aiad gouvernance</code></a></td><td>Governance</td><td>Check Tier 1 compliance</td></tr>
           <tr><td><a href="#tech-review"><code>/aiad tech-review</code></a></td><td>Technical</td><td>Tech Review — architectural vigilance</td></tr>
           <tr><td><a href="#standup"><code>/aiad standup</code></a></td><td>Monitoring</td><td>Daily standup (state, blockers, intents)</td></tr>
-          <tr><td><a href="#demo"><code>/aiad demo</code></a></td><td>Feedback</td><td>Demo &amp; Feedback (30-45 min)</td></tr>
-          <tr><td><a href="#retro"><code>/aiad retro</code></a></td><td>Improvement</td><td>Retrospective + evolution signals</td></tr>
+          <tr><td><a href="#demo"><code>/aiad demo</code></a></td><td>Feedback</td><td>Demo &amp; Feedback (weekly)</td></tr>
+          <tr><td><a href="#retro"><code>/aiad retro</code></a></td><td>Improvement</td><td>Retrospective (Lessons Learned + Human Learnings)</td></tr>
           <tr><td><a href="#intention"><code>/aiad intention</code></a></td><td>Alignment</td><td>Intent Workshop (purely human space)</td></tr>
-          <tr><td><a href="#sync-strat"><code>/aiad sync-strat</code></a></td><td>Alignment</td><td>Strategic synchronisation (monthly, 1h30)</td></tr>
+          <tr><td><a href="#sync-strat"><code>/aiad sync-strat</code></a></td><td>Alignment</td><td>Strategic synchronisation (monthly or bi-monthly)</td></tr>
           <tr><td><a href="#dora"><code>/aiad dora</code></a></td><td>Metrics</td><td>DORA Metrics (DF, Lead Time, CFR, MTTR)</td></tr>
           <tr><td><a href="#flow"><code>/aiad flow</code></a></td><td>Metrics</td><td>Flow Metrics (Cycle Time, Throughput, WIP…)</td></tr>
           <tr><td><a href="#dashboard"><code>/aiad dashboard</code></a></td><td>Metrics</td><td>ASCII dashboard (team ritual)</td></tr>
@@ -195,11 +195,11 @@
 
       <h2 id="gouvernance"><code>/aiad gouvernance</code> — Tier 1 compliance</h2>
       <p><strong>When.</strong> Before merging a PR or validating a SPEC affecting regulatory aspects.</p>
-      <p><strong>What it does.</strong> Determines the Tier 1 agents applicable to the deliverable — AIAD-AI-ACT (AI component), AIAD-RGPD (personal data), AIAD-RGAA (user interface), AIAD-RGESN (resources), plus AIAD-CRA (product cybersecurity) — then checks each requirement point by point. Each agent holds a <strong>veto right</strong>: a single blocking point is enough to refuse the merge. When applicability is in doubt, the precautionary principle applies.</p>
+      <p><strong>What it does.</strong> Determines the Tier 1 agents applicable to the deliverable — AIAD-AI-ACT (AI component), AIAD-RGPD (personal data), AIAD-RGAA (user interface), AIAD-RGESN (resources), plus the AIAD-CRA agent shipped as a complement for software products (Cyber Resilience Act — reporting obligation to ENISA in force since 11 September 2026) — then checks each requirement point by point. Each agent holds a <strong>veto right</strong>: a single blocking point is enough to refuse the merge. When applicability is in doubt, the precautionary principle applies.</p>
       <p><strong>Output.</strong> Compliance report per framework + overall verdict COMPLIANT / NON-COMPLIANT — VETO + corrective actions.</p>
 
       <h2 id="tech-review"><code>/aiad tech-review</code> — technical review</h2>
-      <p><strong>When.</strong> <strong>Monthly 1-hour</strong> ritual, facilitated by the Tech Lead. Focuses on long-term architecture — not on the quality of a PR (that is the role of <code>/sdd validate</code>).</p>
+      <p><strong>When.</strong> <strong>Monthly</strong> ritual (1 to 2 h), facilitated by the Tech Lead, or after a major architectural change. Focuses on long-term architecture — not on the quality of a PR (that is the role of <code>/sdd validate</code>).</p>
       <p><strong>What it does.</strong> Assesses each component of <code>ARCHITECTURE.md</code> (healthy / warning / critical), analyses recurring drifts, lists the ADRs to create or revise and inventories the prioritised technical debt (criticality × effort).</p>
       <p><strong>Output.</strong> <code>.aiad/metrics/tech-review/YYYY-MM-DD.md</code> + documented ADRs + update of <code>ARCHITECTURE.md</code> and the changelog.</p>
 
@@ -209,13 +209,13 @@
       <p><strong>Output.</strong> <code>.aiad/metrics/standup/YYYY-MM-DD.md</code> with WIP, blockers and actions.</p>
 
       <h2 id="demo"><code>/aiad demo</code> — demo &amp; feedback</h2>
-      <p><strong>When.</strong> Bi-weekly or at end of iteration, <strong>30-45 min</strong>, with external participants (fewer than 2, and the demo does not fulfil its purpose).</p>
+      <p><strong>When.</strong> <strong>Weekly</strong> according to the doctrine, or after each major feature, <strong>30 min to 1 h</strong>, with external participants (fewer than 2, and the demo does not fulfil its purpose).</p>
       <p><strong>What it does.</strong> Builds the demo from the <code>done</code> SPECs, structured around the original Intent Statements (the why before the what). Collects each piece of feedback with a signal, without defending the implementation choices, and detects patterns (3 converging feedbacks = strong signal). A rejection on a core feature triggers an Intent Workshop.</p>
       <p><strong>Output.</strong> <code>.aiad/metrics/demo/YYYY-MM-DD.md</code> + categorised feedback + post-demo actions.</p>
 
       <h2 id="retro"><code>/aiad retro</code> — retrospective</h2>
-      <p><strong>When.</strong> At end of iteration.</p>
-      <p><strong>What it does.</strong> Strictly categorises the learnings: <strong>Lessons Learned</strong> (recurring agent mistakes) and <strong>Human Learnings</strong> (failures of the human intent) — if no Human Learning emerges, that is suspicious. Computes the iteration metrics (first-pass success rate, drifts) and raises framework evolution signals.</p>
+      <p><strong>When.</strong> At end of iteration — weekly or bi-weekly according to the doctrine, or after a major incident.</p>
+      <p><strong>What it does.</strong> Strictly categorises the learnings: <strong>Lessons Learned</strong> (recurring agent mistakes) and <strong>Human Learnings</strong> (failures of the human intent) — if no Human Learning emerges, that is suspicious. Computes the iteration metrics (first-pass success rate, drifts). Doctrine v1.9 adds a separate category among the Human Learnings, <strong>oversight failures</strong>, and a question to ask: <em>at what point should a human have been consulted, and why were they not?</em></p>
       <p><strong>Output.</strong> Lessons Learned + Human Learnings entries integrated into the AGENT-GUIDE + iteration metrics + 1-3 actions with owners.</p>
 
       <h2 id="intention"><code>/aiad intention</code> — Intent Workshop</h2>
@@ -228,7 +228,7 @@
       <p><strong>Output.</strong> Minutes <code>.aiad/intents/ATELIER-INTENTION-YYYY-MM.md</code> with human decisions, owners and deadlines.</p>
 
       <h2 id="sync-strat"><code>/aiad sync-strat</code> — strategic alignment</h2>
-      <p><strong>When.</strong> Monthly, <strong>1h30</strong>, with PM, PE, AE and Tech Lead — before the standup for immediate cascading.</p>
+      <p><strong>When.</strong> Monthly or bi-monthly, when a Product Goal is reached or after a strategic pivot, <strong>1 h 30 to 2 h</strong>, with PM, PE, AE and Tech Lead — before the standup for immediate cascading.</p>
       <p><strong>What it does.</strong> Facilitates 5 time-boxed blocks: context and external changes, review of active Intents, backlog prioritisation, governance, actions. Verifies the validity of the PRD and revises the Outcome Criteria if necessary. An Intent in drift for more than 2 weeks triggers an Intent Workshop.</p>
       <p><strong>Output.</strong> <code>.aiad/metrics/sync-strat/YYYY-MM-DD.md</code> + executive minutes with documented decisions and updated Intents.</p>
 
@@ -254,7 +254,7 @@
 
       <h2 id="emit-rules"><code>/aiad emit-rules</code> — multi-runtime</h2>
       <p><strong>When.</strong> After any modification of <code>.aiad/AGENT-GUIDE.md</code> or <code>.aiad/gouvernance/</code>, to realign all the AI runtimes.</p>
-      <p><strong>What it does.</strong> AIAD positions itself as the <strong>upstream source</strong>: instead of maintaining N diverging copies, the command regenerates all the targets from the AGENT-GUIDE and the governance — <code>AGENTS.md</code> (cross-tool standard, Copilot), the <code>CLAUDE.md</code> header (Claude Code), <code>.cursor/rules/*.mdc</code> (Cursor, including Tier 1 rules scoped by globs), <code>.codex/AGENT.md</code> (Codex) and <code>GEMINI.md</code> (Gemini). Each emitted file carries a <code>DO NOT EDIT</code> header and a SHA-256 <code>source-hash</code>. <strong>Idempotent</strong> regeneration; targeting is possible via <code>--runtime cursor,codex</code>.</p>
+      <p><strong>What it does.</strong> AIAD positions itself as the <strong>upstream source</strong>: instead of maintaining N diverging copies, the command regenerates all the targets from the AGENT-GUIDE and the governance — <code>AGENTS.md</code> (cross-tool standard, Copilot), the <code>CLAUDE.md</code> header (Claude Code), <code>.cursor/rules/*.mdc</code> (Cursor, including Tier 1 rules scoped by globs), <code>.codex/AGENT.md</code> (Codex), <code>GEMINI.md</code> (Gemini) and, since <code>aiad-sdd</code> 1.19.0, the <code>.kiro/steering/aiad*.md</code> steering files (Kiro). Each emitted file carries a <code>DO NOT EDIT</code> header and a SHA-256 <code>source-hash</code>. <strong>Idempotent</strong> regeneration; targeting is possible via <code>--runtime cursor,codex</code>.</p>
       <p><strong>Output.</strong> Summary <code>+ created ↑ regenerated ✓ unchanged</code>. In <code>--check</code> mode (CI), exit 1 on divergence — the <code>aiad-emit-rules-check.yml</code> workflow blocks any PR that modifies the AGENT-GUIDE without regenerating the targets, or that manually edits a derived file.</p>
 
       <h2 id="alias">Deprecated flat aliases</h2>
