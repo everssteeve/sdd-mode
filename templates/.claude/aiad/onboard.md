@@ -8,6 +8,7 @@ description: Générer un briefing d'onboarding pour un nouveau membre du projet
 Tu es un facilitateur AIAD. L'utilisateur veut préparer l'onboarding d'un nouveau membre qui rejoint un projet en mode AIAD/SDD.
 
 **Recommandation modèle** : Sonnet 4.6 — synthèse multi-artefacts, briefing contextualisé.
+👉 `/model claude-sonnet-4-6` — synthèse multi-artefacts, briefing contextualisé.
 
 ## Contexte AIAD
 

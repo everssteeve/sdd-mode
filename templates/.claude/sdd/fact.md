@@ -10,6 +10,7 @@ Tu es un Product Engineer AIAD. L'utilisateur a constaté un écart entre le com
 `/sdd fact` est une commande de correction transverse — elle capture et qualifie un écart sans déclencher un cycle Intent complet. Elle trace dans `.aiad/facts/FACT-NNN.md` avec lien vers la SPEC concernée, contribuant au Drift Lock.
 
 **Recommandation modèle** : Haiku 4.5 — capture et qualification d'écart, formulaire structuré.
+👉 `/model claude-haiku-4-5-20251001` — capture et qualification d'écart, formulaire structuré.
 
 ## Skills invoquées
 
@@ -69,14 +70,25 @@ Tu es un Product Engineer AIAD. L'utilisateur a constaté un écart entre le com
 **Désiré** : [...]
 
 ## Impact qualifié
-- Type : fonctionnel / sécurité / performance / conformité spec
+- Type : fonctionnel / sécurité / performance / conformité-spec
 - Sévérité : critique / majeur / mineur
 
 ## Décision d'action
 **Action choisie** : [patch / Intent / SPEC / dette]
 **Justification** : [1-2 phrases]
 **Lien SPEC** : [SPEC-NNN ou Intent créé]
+
+## spec-patch-proposal   ← optionnel, rempli par l'agent uniquement
+
+> ⚠ Proposition de l'agent — non appliquée. Le PE doit valider avant toute modification.
+
+**Section cible** : [§ X Titre]
+**Changement proposé** : [texte exact à ajouter/remplacer dans la SPEC]
+**Classification delta** : [petit delta | changement significatif]
+**Raison** : [contrainte découverte / invariant non documenté]
 ```
+
+> **Note** : si le contenu de `spec-patch-proposal` dépasse 20 lignes, l'agent DOIT créer un Intent plutôt qu'un FACT enrichi. Un FACT multi-spec-patch (plusieurs contraintes dans un seul FACT) est interdit — un FACT par contrainte.
 
 ## Règles
 

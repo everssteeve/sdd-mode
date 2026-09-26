@@ -72,7 +72,7 @@ Applique la skill `sqs-scoring`. **Passe-lui le résultat du linter EARS** (mode
 3. Préparer le Context Engineering Budget :
    - Liste des fichiers à injecter
    - Total tokens estimé
-   - Vérifier < ≈ 50K tokens — heuristique de sobriété assumée, non sourcée (cf. `.aiad/facts/FACT-001`)
+   - Vérifier < ≈ 50K tokens — heuristique de sobriété assumée, non sourcée
 
 ### Étape 6 — Si Gate FERMÉE
 

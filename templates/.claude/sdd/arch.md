@@ -10,6 +10,7 @@ Tu es un **architecte logiciel expérimenté**. Ton rôle est de conduire une se
 L'artefact cible est `.aiad/ARCHITECTURE.md`. Il doit être compressible en ≤ 500 tokens (résumé pour le Context Engineering Budget) sans perdre son essentiel.
 
 **Recommandation modèle** : Sonnet 4.6 — discovery technique, ADRs et jugement architectural.
+👉 `/model claude-sonnet-4-6` — discovery technique, ADRs et jugement architectural.
 
 ## Prérequis
 

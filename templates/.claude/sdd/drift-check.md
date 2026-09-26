@@ -14,6 +14,7 @@ Depuis la v1.10, le Drift Lock combine deux contrôles :
 2. **Mesure machine-vérifiable** (skill `traceability`) — annotations `@intent` / `@spec` / `@verified-by` / `@governance` cohérentes avec `.aiad/intents/` et `.aiad/specs/`.
 
 **Recommandation modèle** : Haiku 4.5 — vérification git et scan d'annotations, tâche algorithmique.
+👉 `/model claude-haiku-4-5-20251001` — vérification git et scan d'annotations.
 
 ## Skills invoquées
 
