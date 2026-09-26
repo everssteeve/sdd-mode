@@ -31,3 +31,4 @@ ce snapshot dans chaque rapport (`.aiad/metrics/canary/<date>.json`) → compara
 |-----|--------|-----------|
 | CANARY-001 | deterministic | fail-closed du gate Discovery (JNSP sans Research) |
 | CANARY-010 | generative | dispersion du score SQS (réf. 4, ±14 %) |
+| CANARY-011 | deterministic | pré-contrôle Gate : action irréversible sans seuil d'arrêt → FAIL (SPEC-033-3) |

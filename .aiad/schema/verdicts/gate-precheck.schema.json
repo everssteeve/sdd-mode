@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aiad.ovh/schema/verdicts/gate-precheck.schema.json",
+  "title": "AIAD SDD — Verdict du pré-contrôle déterministe de la Gate (périmètre d'exécution, actions irréversibles, seuil d'arrêt)",
+  "type": "object",
+  "required": ["verdict", "exitCode", "spec", "section", "manques", "lignesAbsentes", "avertissements"],
+  "additionalProperties": false,
+  "properties": {
+    "verdict": { "type": "string", "enum": ["PASS", "FAIL", "JNSP"] },
+    "exitCode": { "type": "integer", "enum": [0, 1, 2] },
+    "spec": { "type": "string" },
+    "section": { "type": ["string", "null"], "enum": ["absente", "non-applicable", "declaree", null] },
+    "manques": { "type": "array", "items": { "type": "string" } },
+    "lignesAbsentes": { "type": "array", "items": { "type": "string" } },
+    "avertissements": { "type": "array", "items": { "type": "string" } }
+  }
+}

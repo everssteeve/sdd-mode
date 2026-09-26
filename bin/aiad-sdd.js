@@ -403,6 +403,7 @@ const AIDE = `
     bench [compare]       Mesure cold-start ; --persist log historique ; compare --since N --threshold T
     research <id>         Gate Research GO/NO-GO déterministe (§3.5) — verdict gradué ancré Discovery (exit 0/1/2)
     discovery-check [id]   Prérequis Discovery (§3.5) — Research liée prête pour /sdd spec|exec (exit 0/1/2)
+    gate-precheck <spec>   Pré-contrôle déterministe de la Gate — périmètre d'exécution, seuil d'arrêt (exit 0/1/2) [--json]
     mini-gate <spec>       Mini-gate par tranche (§3.6) — --phase N (ou --all) → PASS|CONDITIONAL|FAIL|JNSP (exit 0/1/2)
     exec-status <spec>     Avancement d'un plan d'exécution phasé (§3.6) — marqueurs [ ][~][x][!][-] (--json)
     trace [options]       Génère la matrice Intent ↔ SPEC ↔ Code ↔ Tests
@@ -1206,6 +1207,41 @@ async function main() {
           console.error(`\n  ⚠️  Research ${id} — indécidable (JNSP) :`);
           for (const raison of e.reasons) console.error(`      • ${raison}`);
           console.error('\n  Verdict : JNSP (décision humaine requise). Complète le Discovery, lève les inconnues ou tranche le GO/NO-GO.\n');
+        }
+      }
+      exit(r.code);
+      break;
+    }
+
+    case 'gate-precheck': {
+      // Pré-contrôle déterministe de l'Execution Gate (SPEC-033-3) : périmètre
+      // d'exécution, actions irréversibles, seuil d'arrêt. Exit 0/1/2.
+      // `aiad-sdd gate-precheck <SPEC-id|chemin> [--json]` — lancé avant le SQS.
+      const { emitGatePrecheck } = await import('../lib/gate-precheck.js');
+      const cible = positionals[1];
+      if (!cible) {
+        console.error('\n  Usage : aiad-sdd gate-precheck <SPEC-id|chemin> [--json]\n  Pré-contrôle déterministe de la Gate (PASS | FAIL | JNSP).\n  Verdict : JNSP\n');
+        exit(2);
+      }
+      const schema = chargerSchemaVerdict('gate-precheck', values['json-schema']);
+      const machine = values['output-format'] === 'verdict' || Boolean(values.json);
+      const r = emitGatePrecheck(cwd(), cible, { json: machine, schema });
+      if (!machine) {
+        const e = r.enveloppe;
+        if (e.section === null) {
+          console.error(`\n  ⚠️  SPEC introuvable pour « ${cible} » (.aiad/specs/ puis .aiad/specs/archive/).\n  Verdict : JNSP — la Gate est INCONNUE.\n`);
+        } else if (r.verdict === 'PASS') {
+          console.log(`\n  Pré-contrôle Gate — ${e.spec} (section : ${e.section})`);
+          for (const a of e.avertissements) console.log(`      ⚠ ${a}`);
+          console.log('  Verdict : PASS — poursuivre avec le scoring SQS.\n');
+        } else if (r.verdict === 'FAIL') {
+          console.error(`\n  Pré-contrôle Gate — ${e.spec} : déclaration incomplète`);
+          for (const m of e.manques) console.error(`      • ${m}`);
+          console.error('  Verdict : FAIL — la Gate est FERMÉE.\n');
+        } else {
+          console.error(`\n  ⚠️  Pré-contrôle Gate — ${e.spec} : tableau « Périmètre d'exécution de l'agent » incomplet`);
+          for (const l of e.lignesAbsentes) console.error(`      • ligne absente : ${l}`);
+          console.error('  Verdict : JNSP — la Gate est INCONNUE (décision humaine requise).\n');
         }
       }
       exit(r.code);
