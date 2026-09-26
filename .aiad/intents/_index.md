@@ -55,3 +55,6 @@ Chaque Intent Statement possède un champ `status:` dans son frontmatter :
 - **Zombie** : Intent `active` sans activité depuis >30 jours → décision humaine requise (archiver ou relancer)
 - **Orphelin** : Intent `active` sans SPEC liée → probablement un intent non décomposé
 - **Draft oublié** : Intent `draft` depuis >14 jours → intention pas mûre ou abandonnée
+| INTENT-033 | Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9 | Steeve Evers | 2026-09-25 | SPEC-033-1/2/3/4 draft | active |
+| INTENT-034 | Synchroniser les agents de gouvernance du package sur le corpus Drive, qui fait foi | Steeve Evers | 2026-09-25 | SPEC-034-1/2 draft | active |
+| INTENT-035 | Réactiver la distribution npm du package aiad-sdd | Steeve Evers | 2026-09-25 | — | active |

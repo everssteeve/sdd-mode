@@ -85,3 +85,10 @@
 - **validation** — Code produit, en validation QA
 - **done** — Code + SPEC synchronisés, PR mergée (Drift Lock)
 - **archived** — Déplacée dans `archive/`
+| SPEC-033-1 | Resynchroniser les commandes livrées + contrôle anti-divergence | INTENT-033 | prose | 5/5 | ready | — |
+| SPEC-033-2 | Gabarit de SPEC — sections « Points d'arrêt » et « Périmètre d'exécution » | INTENT-033 | prose | 5/5 | ready | — |
+| SPEC-033-3 | Pré-contrôle déterministe de la Gate | INTENT-033 | EARS | 5/5 | ready | — |
+| SPEC-033-4 | /sdd context — contexte hérité au point de fork | INTENT-033 | prose | 5/5 | ready | — |
+| SPEC-034-1a | Synchroniser agents, guides et légitimation depuis le Drive publié | INTENT-034 | prose | 5/5 | ready | — |
+| SPEC-034-1b | update — écraser mais signaler (sauvegarde des agents modifiés) | INTENT-034 | prose | 5/5 | ready | — |
+| SPEC-034-2 | Contrôle de drift de la doctrine (version + contenu) | INTENT-034 | EARS | 5/5 | ready | — |
