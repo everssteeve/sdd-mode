@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Intent Statement — capturer le POURQUOI humain | SDD Mode</title>
-<meta name="description" content="L'Intent Statement est l'artefact de premier ordre du SDD Mode : cinq champs obligatoires (pourquoi maintenant, pour qui, objectif, contraintes, critère de drift) rédigés par un humain identifiable. Il précède et transcende la SPEC.">
+<meta name="description" content="L'Intent Statement est l'artefact de premier ordre du SDD Mode : cinq champs obligatoires (pourquoi maintenant, pour qui, objectif, contraintes, critère de drift) rédigés par un humain identifiable, avec classe de réversibilité et seuil d'arrêt pour les actions d'agent hors du code. Il précède et transcende la SPEC.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../../en/concepts/intent-statement.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -176,8 +176,28 @@ Ce qu'on ne sacrifiera pas — valeurs, qualité, éthique, ressources.
 
 **CRITERE DE DRIFT**
 Comment saura-t-on, dans 3 mois, si l'implémentation a trahi
-l'intention initiale ?</code></pre>
+l'intention initiale ?
+[Si des actions d'agent ont des effets hors du code : classe
+de réversibilité et seuil d'arrêt — voir ci-dessous]</code></pre>
       <p>Le cinquième champ — le <strong>CRITÈRE DE DRIFT</strong> — ancre la vérification de fin d'itération non plus uniquement sur une vérification technique (le code correspond-il à la SPEC ?) mais sur une vérification d'intention : l'implémentation reflète-t-elle ce que l'humain voulait vraiment ? Il est revérifié à chaque <a href="drift-lock.html">Drift Lock</a>.</p>
+
+      <h2 id="reversibilite">Classe de réversibilité et seuil d'arrêt</h2>
+      <p>Lorsque l'intention implique des actions d'agent aux effets <strong>hors du code</strong> — financiers, opérationnels ou matériels —, le Critère de Drift précise leur classe de réversibilité (doctrine AIAD v1.9) :</p>
+      <table>
+        <caption>Les trois classes de réversibilité d'une action d'agent</caption>
+        <thead><tr><th scope="col">Classe</th><th scope="col">Définition</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Réversible</th><td>Annulable sans coût.</td></tr>
+          <tr><th scope="row">Coûteusement réversible</th><td>Annulable avec une perte : argent, temps, restauration depuis une sauvegarde.</td></tr>
+          <tr><th scope="row">Irréversible</th><td>Non annulable : paiement exécuté, engagement contractuel, suppression définitive, action physique sur un équipement.</td></tr>
+        </tbody>
+      </table>
+      <p>Pour la classe irréversible, le Critère de Drift fixe un <strong>seuil d'arrêt</strong>, pas un simple indicateur de suivi : tout dépassement d'autonomie constaté — dépense au-delà du plafond, action hors du périmètre délégué, tentative de masquer ou d'altérer ses propres traces — déclenche l'<strong>arrêt immédiat de l'agent et une revue humaine</strong>, et non un signalement a posteriori.</p>
+      <div class="callout warn">
+        <span class="callout-title">Une alerte de facturation n'est pas un seuil d'arrêt</span>
+        <p>Les alertes de facturation des fournisseurs sont conçues pour des erreurs à vitesse humaine : elles peuvent accuser jusqu'à <strong>24 heures de retard</strong> (incidents de dépassement documentés par InfoQ, juillet 2026). Elles ne remplissent pas le rôle d'un seuil d'arrêt.</p>
+      </div>
+      <p>Les points de contrôle réglementaires associés sont détaillés dans <a href="../gouvernance/index.html#ai-act">AIAD-AI-ACT</a>, profil « Agents à effet irréversible ». La classe déclarée ici est reprise par la SPEC (section « Périmètre d'exécution de l'agent ») et vérifiée à l'<a href="execution-gate.html">Execution Gate</a> — voir <a href="autonomie-agent.html">Autonomie de l'agent</a>.</p>
 
       <h2 id="human-authorship">La règle Human Authorship</h2>
       <div class="callout danger">

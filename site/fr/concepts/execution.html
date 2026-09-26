@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Exécution agent — orchestrer sans saturer | SDD Mode</title>
-<meta name="description" content="Lancer une session agent en SDD Mode : prérequis post-Gate, prompt structuré (AGENT-GUIDE condensé + UNE SPEC en tête de contexte), plan d'implémentation avant le code, /sdd resume pour les sessions interrompues et annotations machine-vérifiables @intent/@spec.">
+<meta name="description" content="Lancer une session agent en SDD Mode : prérequis post-Gate, prompt structuré (AGENT-GUIDE condensé + UNE SPEC en tête de contexte), plan d'implémentation avant le code, points d'arrêt, isolation plutôt que mode de permission, délégation précoce aux sous-agents, /sdd resume pour les sessions interrompues et annotations machine-vérifiables @intent/@spec.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../../en/concepts/execution.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -186,13 +186,28 @@
 
 ## Fichiers à modifier/créer
 [Liste]</code></pre>
-      <p>La <strong>règle de placement</strong> compte autant que le contenu : l'Intent et la SPEC active se placent <strong>en tête de contexte</strong>, pour contrer le <em>lost-in-the-middle effect</em> — la tendance des modèles à dégrader leur attention sur le milieu d'un long contexte. Le budget total est vérifié par la skill <code>context-budget</code> avant lancement : au-delà de 50K tokens, on condense (résumés de fichiers volumineux, extraction d'interfaces) plutôt que de « tout injecter et espérer ». La gouvernance est qualifiée par <code>regulatory-veto</code> : un VETO Tier 1 interdit le lancement.</p>
+      <p>La <strong>règle de placement</strong> compte autant que le contenu : l'Intent et la SPEC active se placent <strong>en tête de contexte</strong>, pour contrer le <em>lost-in-the-middle effect</em> — la tendance des modèles à dégrader leur attention sur le milieu d'un long contexte. Le budget total est vérifié par la skill <code>context-budget</code> avant lancement : au-delà d'environ 50K tokens — une <strong>heuristique de sobriété assumée, non sourcée</strong>, pas une limite technique —, on condense (résumés de fichiers volumineux, extraction d'interfaces) plutôt que de « tout injecter et espérer ». La gouvernance est qualifiée par <code>regulatory-veto</code> : un VETO Tier 1 interdit le lancement.</p>
 
       <h2 id="plan">Un plan d'implémentation avant le code</h2>
       <p>L'agent ne commence jamais par coder : <code>/sdd exec</code> exige un <strong>plan d'implémentation</strong> que le PE valide avant la première ligne. Depuis la §3.6, ce plan est phasé en <strong>tranches verticales testables</strong> (<code>.aiad/exec/EXEC-&lt;SPEC-id&gt;-plan.md</code>) : chaque tranche déclare son objectif, ses fichiers, ses tests — obligatoires — et son « Done ». Un mini-gate (<code>npx aiad-sdd mini-gate &lt;SPEC-id&gt; --phase N</code>) valide chaque tranche avant la suivante. Cela évite le piège classique : 1 200 lignes de code horizontal avant le moindre test.</p>
 
       <h2 id="scope">Maintenir l'agent dans le scope</h2>
       <p>Pendant la session, le PE observe : l'agent suit-il la SPEC ? Des signes de drift apparaissent-ils ? Un agent qui dérive n'est <strong>pas en faute si la SPEC était imprécise</strong> — c'est un Human Learning, pas une Lesson Learned. Plus de deux relances pour la même SPEC signalent une SPEC trop ambitieuse : direction <code>/sdd split</code>. Le prompt embarque aussi le contrat <a href="jnsp.html">JNSP</a> : face à une zone non décidable, l'agent pose <code>// TODO-&#74;NSP: &lt;question&gt;</code> et s'arrête, plutôt que d'inventer la valeur manquante.</p>
+
+      <h2 id="points-arret">Les points d'arrêt en cours d'exécution</h2>
+      <p>Autorisé à écrire sur une SPEC validée, l'agent n'est pas pour autant autorisé à tout : le <a href="human-authorship.html#continuum">continuum d'autorité</a> exclut toute action hors du périmètre de la SPEC et, a fortiori, toute action irréversible non déclarée. Pendant la session, l'agent revient vers l'humain aux <strong>points d'arrêt</strong> prévus — approbation, avis d'expert, pluralité de points de vue, témoin —, précisés le cas échéant dans la section « Points d'arrêt de l'agent » de la <a href="spec.html#sections-agent">SPEC</a>. Si la SPEC déclare une action irréversible, son <strong>seuil d'arrêt</strong> s'applique : tout dépassement d'autonomie constaté arrête l'agent et déclenche une revue humaine immédiate, pas un signalement a posteriori.</p>
+
+      <h2 id="permission">Un mode de permission n'est pas un contrôle</h2>
+      <p>Les harnesses proposent des modes de permission — approbation manuelle, classifieur automatique, listes d'autorisation. Ils réduisent la friction ; ils ne constituent pas une garantie opposable. En août 2026, Johann Rehberger a contourné le mode automatique de Claude Code dans 80 % de ses essais, et dans certains cas le classifieur a autorisé le processus malveillant puis bloqué la commande de remédiation lancée par l'agent. La protection d'une session d'exécution repose sur l'<strong>isolation</strong> : conteneur ou machine virtuelle, sorties réseau restreintes, aucun credential superflu (clés SSH, clés cloud) dans l'environnement de l'agent. Le mode de permission vient en complément, jamais en substitut — voir <a href="autonomie-agent.html#permission">Autonomie de l'agent</a>.</p>
+
+      <h2 id="delegation">Déléguer à des sous-agents : déléguer tôt</h2>
+      <p>Le coût d'une délégation dépend du mécanisme du harness. <strong>Si le sous-agent hérite de la conversation parente</strong> — c'est le cas par défaut dans certains harnesses —, son coût vaut <em>contexte parent au moment du fork + travail propre</em>, et non un coût marginal. Trois conséquences :</p>
+      <ul>
+        <li>déléguer <strong>tôt</strong>, quand le contexte parent est encore léger ;</li>
+        <li>le point de fork est un poste de coût explicite du <a href="context-budget.html#delegation">Context Audit</a> ;</li>
+        <li>si l'héritage est désactivé, le sous-agent part d'un contexte vierge et doit recevoir explicitement l'Intent Statement et la SPEC active.</li>
+      </ul>
+      <p>La messagerie entre sessions d'agents ne dispense pas de la traçabilité : toute décision prise entre agents qui modifie un comportement est reportée dans la SPEC (<a href="drift-lock.html">Drift Lock</a>).</p>
 
       <h2 id="resume">Reprendre une session interrompue — <code>/sdd resume</code></h2>
       <p>Les interruptions (timeout, erreur, limite de conversation, pause volontaire) sont normales — pas un échec. <code>/sdd resume</code> reconstruit un <strong>contexte minimal</strong> au lieu de réinjecter toute la session : inventaire du travail fait (<code>git status</code>, <code>git diff</code>), critères couverts vs restants, puis prompt de reprise contenant uniquement l'AGENT-GUIDE condensé, la SPEC complète et le résumé d'état.</p>

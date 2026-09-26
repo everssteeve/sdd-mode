@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Drift Lock — code et SPEC dans la même PR | SDD Mode</title>
-<meta name="description" content="Le Drift Lock traite le spec drift comme un échec de processus : code et SPEC synchronisés dans la même PR, Anti-Drift Check en 3 questions, mesure algorithmique via /sdd trace et la GitHub Action sdd-trace.yml (--fail-on-gap), verdict INCONNU si les annotations @spec manquent.">
+<meta name="description" content="Le Drift Lock traite le spec drift comme un échec de processus : code et SPEC synchronisés dans la même PR, Anti-Drift Check en 3 questions, mesure algorithmique via /sdd trace et la GitHub Action sdd-trace.yml (--fail-on-gap), verdict INCONNU si les annotations @spec manquent, dernier maillon de la chaîne de preuve du déploiement automatisé.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../../en/concepts/drift-lock.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -193,6 +193,10 @@ Action humaine : ajouter l'annotation, créer la SPEC manquante,
         <span class="callout-title">Fail-closed</span>
         <p>Le verdict <code>INCONNU</code> est traité comme un <code>DRIFT</code> par le hook pre-commit et par la CI. Il ne dégrade jamais en OK silencieux — c'est précisément ce silence qui transformerait une zone aveugle en dette intentionnelle.</p>
       </div>
+
+      <h2 id="chaine-preuve">Le dernier maillon de la chaîne de preuve</h2>
+      <p>Le Drift Lock ne sert pas qu'à garder la documentation juste. Dans la doctrine v1.9, il est le dernier maillon de la <strong>chaîne de preuve</strong> qui conditionne le déploiement automatisé : un déploiement sans intervention humaine n'est admissible que si le code est <em>trusted</em> au sens d'une chaîne vérifiable — Intent Statement, SPEC validée à la Gate, vérifications tracées, Drift Lock — et non d'une confiance déclarative dans l'outil ou le modèle. C'est le critère posé par Roblox pour accepter du code agentique en production (QCon AI, 2026) ; AIAD en fait le critère d'entrée du Continuous Deployment pour du code produit par agent. Conséquence pratique pour une organisation aux moyens plus modestes : réserver le déploiement automatisé aux fonctionnalités dont la chaîne de preuve est complète.</p>
+      <p>La même chaîne rend la responsabilité de l'organisation <strong>démontrable</strong> : l'Intent Statement documente l'intention et son auteur, la SPEC le périmètre délégué, la trace de la Gate la validation humaine, le Drift Lock la synchronisation entre ce qui était voulu et ce qui a été livré. Elle documente la diligence — et, le cas échéant, la faute : une trace qui ne pourrait que disculper ne serait pas une preuve. Voir <a href="human-authorship.html#trace">Human Authorship</a> et <a href="autonomie-agent.html#preuve">Autonomie de l'agent</a>.</p>
 
       <h2 id="sync">La micro-phase Sync des artefacts — 15 minutes, 4 questions</h2>
       <p>En complément de l'Anti-Drift Check de fin d'itération, chaque boucle d'implémentation se conclut par la <strong>micro-phase Sync des artefacts</strong> : quinze minutes, sous la responsabilité du PE, non négociables. Quatre questions :</p>
