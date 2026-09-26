@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Intent Statement — capturing the human WHY | SDD Mode</title>
-<meta name="description" content="The Intent Statement is the first-order artifact of SDD Mode: five mandatory fields (why now, for whom, objective, constraints, drift criterion) written by an identifiable human. It precedes and transcends the SPEC.">
+<meta name="description" content="The Intent Statement is the first-order artifact of SDD Mode: five mandatory fields (why now, for whom, objective, constraints, drift criterion) written by an identifiable human, with a reversibility class and a stop threshold for agent actions outside the code. It precedes and transcends the SPEC.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/concepts/intent-statement.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -173,8 +173,28 @@ What we will not sacrifice — values, quality, ethics, resources.
 
 **DRIFT CRITERION**
 How will we know, in 3 months, whether the implementation has
-betrayed the initial intent?</code></pre>
+betrayed the initial intent?
+[If agent actions have effects outside the code: reversibility
+class and stop threshold — see below]</code></pre>
       <p>The fifth field — the <strong>DRIFT CRITERION</strong> — anchors the end-of-iteration check not only on a technical verification (does the code match the SPEC?) but on an intent verification: does the implementation reflect what the human really wanted? It is re-checked at every <a href="drift-lock.html">Drift Lock</a>.</p>
+
+      <h2 id="reversibilite">Reversibility class and stop threshold</h2>
+      <p>When the intent involves agent actions with effects <strong>outside the code</strong> — financial, operational or physical —, the Drift Criterion specifies their reversibility class (AIAD doctrine v1.9):</p>
+      <table>
+        <caption>The three reversibility classes of an agent action</caption>
+        <thead><tr><th scope="col">Class</th><th scope="col">Definition</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Reversible</th><td>Can be undone at no cost.</td></tr>
+          <tr><th scope="row">Costly to reverse</th><td>Can be undone with a loss: money, time, restoring from a backup.</td></tr>
+          <tr><th scope="row">Irreversible</th><td>Cannot be undone: payment executed, contractual commitment, permanent deletion, physical action on equipment.</td></tr>
+        </tbody>
+      </table>
+      <p>For the irreversible class, the Drift Criterion sets a <strong>stop threshold</strong>, not a mere tracking indicator: any observed overreach of autonomy — spending beyond the cap, an action outside the delegated scope, an attempt to hide or alter its own traces — triggers an <strong>immediate halt of the agent and a human review</strong>, not an after-the-fact report.</p>
+      <div class="callout warn">
+        <span class="callout-title">A billing alert is not a stop threshold</span>
+        <p>Providers' billing alerts are designed for human-speed errors: they can lag by up to <strong>24 hours</strong> (overspend incidents documented by InfoQ, July 2026). They do not fill the role of a stop threshold.</p>
+      </div>
+      <p>The associated regulatory checkpoints are detailed in <a href="../governance/index.html#ai-act">AIAD-AI-ACT</a>, "Agents with irreversible effects" profile. The class declared here is carried over into the SPEC ("Agent execution scope" section) and checked at the <a href="execution-gate.html">Execution Gate</a> — see <a href="agent-autonomy.html">Agent autonomy</a>.</p>
 
       <h2 id="human-authorship">The Human Authorship rule</h2>
       <div class="callout danger">

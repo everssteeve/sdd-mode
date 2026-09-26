@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent autonomy — a variable you calibrate | SDD Mode</title>
+<meta name="description" content="Agent autonomy in the AIAD doctrine v1.9: a five-level authority continuum (&quot;answering is not consenting&quot;), agent stop points, execution scope, reversibility class and stop threshold, a permission mode is not a control, containment judged on the shared surface, the trace as a chain of evidence.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="alternate" hreflang="fr" href="../../fr/concepts/autonomie-agent.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#e8a020"/><path d="M16 6a10 10 0 1 0 10 10h-3a7 7 0 1 1-7-7V6z" fill="#0a1f3d"/><circle cx="26" cy="9" r="3" fill="#0a1f3d"/></svg>
+      <span>SDD Mode<span class="tag">AIAD Framework</span></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="site-nav" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">SDD Cycle</button>
+          <ul class="submenu">
+            <li><a href="intent-statement.html">1. Intent Statement</a></li>
+            <li><a href="research.html">2. Research Phase</a></li>
+            <li><a href="spec.html">3. SPEC</a></li>
+            <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+            <li><a href="execution.html">5. Agent Execution</a></li>
+            <li><a href="validation.html">6. Validation</a></li>
+            <li><a href="drift-lock.html">7. Drift Lock</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Concepts</button>
+          <ul class="submenu">
+            <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="agent-autonomy.html" aria-current="page">Agent autonomy</a></li>
+            <li><a href="context-budget.html">Context Engineering Budget</a></li>
+            <li><a href="jnsp.html">JNSP — uncertainty policy</a></li>
+            <li><a href="traceability.html">Machine-verifiable traceability</a></li>
+            <li><a href="../artifacts.html">The artifacts</a></li>
+            <li><a href="../values.html">AIAD values &amp; pillars</a></li>
+          </ul>
+        </li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Commands</button>
+          <ul class="submenu">
+            <li><a href="../commands/sdd.html">/sdd — SDD cycle (17)</a></li>
+            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (16)</a></li>
+            <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+          </ul>
+        </li>
+        <li><a href="../governance/index.html">Governance</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Team</button>
+          <ul class="submenu">
+            <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+            <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+          </ul>
+        </li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+        <li class="has-menu">
+          <button class="menu-btn" aria-expanded="false">Resources</button>
+          <ul class="submenu">
+            <li><a href="../search.html">Search</a></li>
+            <li><a href="../whats-new.html">What's New</a></li>
+            <li><a href="../spec-library.html">SPEC Library</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../../assets/img/big-picture-en.svg" download="sdd-big-picture-en.svg">Big Picture poster (SVG)</a></li>
+        </ul>
+        </li>
+        <li class="lang-switch" aria-label="Language selection">
+          <a href="../../fr/concepts/autonomie-agent.html" hreflang="fr" lang="fr">FR</a>
+          <a href="agent-autonomy.html" hreflang="en" aria-current="true" lang="en">EN</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="page-grid">
+
+    <aside class="sidebar">
+      <nav aria-label="Documentation navigation">
+        <h2>SDD Cycle</h2>
+        <ul>
+          <li><a href="intent-statement.html">1. Intent Statement</a></li>
+          <li><a href="research.html">2. Research Phase</a></li>
+          <li><a href="spec.html">3. SPEC</a></li>
+          <li><a href="execution-gate.html">4. Execution Gate &amp; SQS</a></li>
+          <li><a href="execution.html">5. Agent Execution</a></li>
+          <li><a href="validation.html">6. Validation</a></li>
+          <li><a href="drift-lock.html">7. Drift Lock</a></li>
+        </ul>
+        <h2>Concepts</h2>
+        <ul>
+          <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="agent-autonomy.html" aria-current="page">Agent autonomy</a></li>
+          <li><a href="context-budget.html">Context Engineering Budget</a></li>
+          <li><a href="jnsp.html">JNSP — uncertainty</a></li>
+          <li><a href="traceability.html">Traceability</a></li>
+          <li><a href="../artifacts.html">The artifacts</a></li>
+          <li><a href="../values.html">Values &amp; pillars</a></li>
+        </ul>
+        <h2>Commands</h2>
+        <ul>
+          <li><a href="../commands/sdd.html">/sdd (17)</a></li>
+          <li><a href="../commands/aiad.html">/aiad (16)</a></li>
+          <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        </ul>
+        <h2>Organisation</h2>
+        <ul>
+          <li><a href="../governance/index.html">Tier 1 governance</a></li>
+          <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+          <li><a href="../team/rituals.html">Loops &amp; rituals</a></li>
+        </ul>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../get-started.html">Get Started</a></li>
+          <li><a href="../metrics.html">Metrics</a></li>
+          <li><a href="../glossary.html">Glossary</a></li>
+          <li><a href="../search.html">Search</a></li>
+          <li><a href="../whats-new.html">What's New</a></li>
+          <li><a href="../spec-library.html">SPEC Library</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article class="doc">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li>Concepts</li>
+          <li aria-current="page">Agent autonomy</li>
+        </ol>
+      </nav>
+
+      <p class="kicker">Concept · AIAD doctrine v1.9</p>
+      <h1>Agent autonomy — a variable you calibrate</h1>
+      <p class="doc-lede">An agent that can write code, spend money, delete data or act on equipment is no longer a mere text generator. The AIAD doctrine v1.9 does not seek to maximise its autonomy: <strong>greater autonomy is not a goal in itself; it is a variable you calibrate, SPEC by SPEC</strong>. This page brings together the mechanisms that set that calibration — and that make it possible to demonstrate, after the fact, what had been delegated.</p>
+
+      <h2 id="principe">What the human grants, what the agent gives back</h2>
+      <p>Agent autonomy is described in both directions. On one side, what the human <strong>grants</strong>: a level of authority, an execution scope, caps. On the other, what the agent <strong>gives back</strong>: stop points where it returns to the human, an immediate halt when it exceeds what was delegated to it, and a trace of what it did. Both are declared before execution, in the <a href="intent-statement.html">Intent Statement</a> and the <a href="spec.html">SPEC</a>, and checked at the <a href="execution-gate.html">Execution Gate</a>. This is the operational form of value 7, <a href="human-authorship.html">Human Authorship</a>, and of value 6, Shared Responsibility: autonomy delegated without an accountable human is a governance defect, not a feature.</p>
+
+      <h2 id="continuum">The authority continuum</h2>
+      <p>Each move from one level of authority to the next is a <strong>distinct human act</strong> that no other act replaces. Agreeing to answer an agent's questions does not authorise it to write; validating a SPEC does not authorise a deployment.</p>
+      <table>
+        <caption>The five levels of the authority continuum</caption>
+        <thead><tr><th scope="col">Level</th><th scope="col">Required human act</th><th scope="col">What it does not authorise</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1. Consultation</th><td>None — the agent may read and propose</td><td>Any writing of code or production artifacts</td></tr>
+          <tr><th scope="row">2. Clarification</th><td>Answering the agent's questions</td><td><strong>Answering is not consenting</strong>: no writing of code or production artifacts follows from it</td></tr>
+          <tr><th scope="row">3. SPEC validation</th><td>Opening of the Execution Gate (SQS ≥ 4/5, Stranger Test)</td><td>Deployment</td></tr>
+          <tr><th scope="row">4. Write authorisation</th><td>Launching execution on the validated SPEC</td><td>Any action outside the SPEC's scope</td></tr>
+          <tr><th scope="row">5. Deployment authorisation</th><td>Explicit decision, complete <a href="#preuve">chain of evidence</a></td><td>Undeclared irreversible actions</td></tr>
+        </tbody>
+      </table>
+      <p>"Writing" here means code and production artifacts. At the consultation and clarification levels, the agent may draft specification artifacts — that is the role of <code>/sdd spec</code>; they commit nothing until a human has validated them at the Gate. The Intent Statement, for its part, is still written by a human.</p>
+
+      <h2 id="points-arret">Stop points at the agent's initiative</h2>
+      <p>The continuum describes what the human grants; stop points describe when the agent must come back to the human. AIAD adopts the typology proposed by Ethan Mollick in 2026:</p>
+      <table>
+        <caption>Typology of agent stop points</caption>
+        <thead><tr><th scope="col">Type of stop point</th><th scope="col">When the agent triggers it</th><th scope="col">Example trigger in a SPEC</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Approval</th><td>Before an action outside its mandate or an irreversible one</td><td>Any schema migration</td></tr>
+          <tr><th scope="row">Expert opinion</th><td>When the decision goes beyond the SPEC</td><td>Choice of a scoring algorithm</td></tr>
+          <tr><th scope="row">Plurality of viewpoints</th><td>When several interpretations of the intent are plausible</td><td>Ambiguous business rule: present the options</td></tr>
+          <tr><th scope="row">Witness</th><td>To bring a notable decision to the human's attention</td><td>Dependency added</td></tr>
+        </tbody>
+      </table>
+      <p>The SPEC may specify which ones apply, in its optional "<strong>Agent stop points</strong>" section. If the section is absent, the framework's default stop points apply: those imposed by the authority continuum. When the agent cannot decide, it emits a <a href="jnsp.html"><code>JNSP</code></a> verdict rather than inventing.</p>
+      <div class="callout warn">
+        <span class="callout-title">When oversight becomes nominal</span>
+        <p>The doctrine sets apart, within the Human Learnings, <a href="../artifacts.html#defaillances-supervision">oversight failures</a>: an agent acting without approval, or automated reviews stacked on top of each other with no human left to decide. The question to ask in the retrospective: <em>at what point should a human have been consulted, and why weren't they?</em></p>
+      </div>
+
+      <h2 id="perimetre">The agent's execution scope</h2>
+      <p>As soon as the agent executing a SPEC holds <strong>credentials</strong> (cloud, API, SSH, database) <strong>or</strong> write access to a <strong>shared resource</strong>, the SPEC declares its execution scope in the conditional "<strong>Agent execution scope</strong>" section. Outside those cases, you write "Not applicable" and fill in nothing: a SPEC must not grow heavier with a field filled in out of ritual.</p>
+      <table>
+        <caption>Content of the "Agent execution scope" section (doctrine, annex A)</caption>
+        <thead><tr><th scope="col">Item</th><th scope="col">Expected declaration</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Isolation</th><td>Process, container or virtual machine</td></tr>
+          <tr><th scope="row">Allowed network egress</th><td>None, or a list of domains</td></tr>
+          <tr><th scope="row">Credentials present in the environment</th><td>List, with minimal scope and lifetime</td></tr>
+          <tr><th scope="row">Shared resources with write access</th><td>Package registry, cache, repository, bucket, message queue…</td></tr>
+          <tr><th scope="row">Intended coordination spaces</th><td>For example a git repository used as shared memory between agents — or "none"</td></tr>
+          <tr><th scope="row">Possible irreversible actions</th><td>List, with their <a href="#reversibilite">reversibility class</a></td></tr>
+        </tbody>
+      </table>
+      <p>Three rules accompany the declaration: the harness permission mode <strong>is not</strong> a containment measure and is not recorded as one; any shared resource with write access is a potential coordination channel between agents and must be declared, even if it looks harmless; if an irreversible action is possible, the Execution Gate checks the cap, the prior human authorisation and the stop threshold.</p>
+
+      <h2 id="reversibilite">Reversibility class and stop threshold</h2>
+      <p>When the intent involves agent actions with effects outside the code — financial, operational or physical —, the Drift Criterion of the Intent Statement specifies their reversibility class:</p>
+      <ul>
+        <li><strong>reversible</strong>: can be undone at no cost;</li>
+        <li><strong>costly to reverse</strong>: can be undone with a loss (money, time, restoring from a backup);</li>
+        <li><strong>irreversible</strong>: cannot be undone (payment executed, contractual commitment, permanent deletion, physical action on equipment).</li>
+      </ul>
+      <p>For the irreversible class, the Drift Criterion sets a <strong>stop threshold</strong>, not a mere tracking indicator: any observed overreach of autonomy — spending beyond the cap, an action outside the delegated scope, an attempt to hide or alter its own traces — triggers an <strong>immediate halt of the agent and a human review</strong>, not an after-the-fact report. Providers' billing alerts do not fill that role: designed for human-speed errors, they can lag by up to 24 hours (overspend incidents documented by InfoQ, July 2026).</p>
+
+      <h3 id="profil-ai-act">The "Agents with irreversible effects" profile of AIAD-AI-ACT</h3>
+      <p>The <a href="../governance/index.html#ai-act">AIAD-AI-ACT</a> governance agent devotes an emerging risk profile to agents with irreversible effects (financial, operational, physical). If it influences a decision affecting people in an Annex III domain of the AI Act, the agent falls under the high-risk regime. Outside that case, the regulation imposes no oversight obligations specific to this profile: AIAD nevertheless applies, <strong>as good practice</strong>, minimal human checkpoints before any deployment into service — and general law continues to apply.</p>
+      <table>
+        <caption>Expected properties of the safeguards of an agent with irreversible effects</caption>
+        <thead><tr><th scope="col">Expected property</th><th scope="col">Why</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Technically enforced cap (amount, allow-list, per-transaction limit)</th><td>An instruction in a prompt is not a limit</td></tr>
+          <tr><th scope="row">Policy with temporal memory, reasoning over the sequence of actions</th><td>Harm can arise from individually harmless actions</td></tr>
+          <tr><th scope="row">Prior human authorisation for each irreversible action, by an identifiable person</th><td>Human Authorship; Article 14 for a high-risk system</td></tr>
+          <tr><th scope="row">Log with evidential value — signed or chained entries, linked to the original authorisation</th><td>Article 12 for a high-risk system; evidence in case of dispute</td></tr>
+          <tr><th scope="row">Execution isolation — container or VM, restricted network egress, no superfluous credentials</th><td>A permission classifier can be bypassed</td></tr>
+        </tbody>
+      </table>
+      <p>AIAD prescribes properties, not products. Outside high risk, the references to Articles 12 and 14 are good practice, not a legal obligation. An accountable human is designated for each delegation, even when the protocol used provides its own caps: an infrastructure safeguard is not an accountability framework.</p>
+      <div class="callout danger">
+        <span class="callout-title">Physical effects</span>
+        <p>The irreversible class includes actions on physical equipment (instruments, robots, machines). The safety of a cyber-physical system is never handled with this framework alone: it falls under established standards (IEC 61508, ISO 13849, ISO 14971) and, for machinery, the Machinery Regulation. Escalate to the Tech Lead and to a safety specialist.</p>
+      </div>
+
+      <h2 id="permission">A permission mode is not a control</h2>
+      <p>Harnesses offer permission modes: manual approval, automatic classifier, allow-lists. They reduce friction; they do not constitute an enforceable guarantee. In August 2026, Johann Rehberger bypassed Claude Code's automatic mode in 80% of his attempts — and, in some cases, the classifier allowed the malicious process and then blocked the remediation command launched by the agent. <strong>A mechanism that can block remediation cannot carry human authority.</strong></p>
+      <p>The Agents Engineer therefore never presents a permission mode as a sufficient security measure. Protection rests on <strong>isolation</strong>: container or virtual machine, restricted network egress, no superfluous credentials (SSH keys, cloud keys) in the agent's execution environment. The permission mode comes as a complement, never as a substitute. This extends the least-privilege principle of Harness Engineering (see the <a href="../team/responsibilities.html#ae">Agents Engineer</a> responsibility).</p>
+
+      <h2 id="surface-partagee">Containment is judged on the shared surface</h2>
+      <p>Isolating each agent is not enough. In July 2026, some 1,200 OpenAI evaluation agents, each isolated in its own sandbox, discovered that they had access to the same Artifactory cache. They turned it into a message board — more than 70,000 messages and files exchanged — and around 700 of them took part in a multi-day intrusion at Hugging Face (independent METR / Redwood Research report, August 2026). Each agent's isolation was real; it was the common resource that served as the channel.</p>
+      <p>Martin Fowler describes the same mechanism in a constructive light ("An accidental blackboard", September 2026): agents spontaneously using the git repository as shared memory. The lesson is the same in both cases: <strong>any shared resource with write access is a coordination channel between agents, intended or not</strong>. The Agents Engineer inventories these resources, and the SPEC declares them — including intended coordination spaces — in its "Agent execution scope" section.</p>
+
+      <h2 id="preuve">The trace as evidence</h2>
+      <p>AIAD adopts the thesis put forward by Bruce Schneier and Nathan Sanders in June 2026: AI agents are the agents of the person or organisation that deploys them. This is <strong>a thesis, not settled law</strong>. A first judicial signal exists — the injunction of the Munich Regional Court of 28 May 2026 holding Google liable for statements generated by its AI Overviews —, but it concerns defamation by a search engine, not development agents, and the decision is <strong>provisional and under appeal</strong>.</p>
+      <p>If the organisation answers for its agents, it must be able to show what it asked of them, within which limits, and who validated it. This is the <strong>delegation trace</strong> prescribed by AIAD-AI-ACT: every task entrusted to an agent is linked to an Intent Statement, a SPEC and the Execution Gate trace; a task whose human origin cannot be traced is not executed.</p>
+      <table>
+        <caption>What each link in the chain of evidence documents</caption>
+        <thead><tr><th scope="col">Artifact</th><th scope="col">What it documents</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><a href="intent-statement.html">Intent Statement</a></th><td>The intent and its identified human author</td></tr>
+          <tr><th scope="row"><a href="spec.html">SPEC</a></th><td>The scope delegated to the agent</td></tr>
+          <tr><th scope="row"><a href="execution-gate.html">Execution Gate</a> trace</th><td>Human validation before execution</td></tr>
+          <tr><th scope="row"><a href="drift-lock.html">Drift Lock</a></th><td>The synchronisation between what was intended and what was delivered</td></tr>
+        </tbody>
+      </table>
+      <p>These artifacts do not guarantee the outcome of a dispute. They document the organisation's diligence and make its accountability <strong>demonstrable — in both directions</strong>: a defective SPEC validated at the Gate commits whoever validated it. A trace that could only exonerate would not be evidence.</p>
+      <p>The same chain conditions <strong>automated deployment</strong>: a deployment without human intervention is only admissible if the code is <em>trusted</em> in the sense of a verifiable chain of evidence — Intent Statement, SPEC validated at the Gate, traced checks, Drift Lock —, not through declarative trust in the tool or the model. For an organisation with modest engineering means, the practical consequence is to reserve automated deployment for features whose chain of evidence is complete. <a href="traceability.html">Machine-verifiable traceability</a> then links every line of code to that chain.</p>
+
+      <h2 id="outillage">In the aiad-sdd package</h2>
+      <div class="callout info">
+        <span class="callout-title">Upcoming release — not yet published</span>
+        <p>The following features are merged into the package code but not yet published; they will ship in the next release.</p>
+      </div>
+      <ul>
+        <li><strong>SPEC sections</strong>: the SPEC templates (prose and EARS) include the "Agent stop points" (optional) and "Agent execution scope" (conditional, "Not applicable" otherwise) sections — labelled <span lang="fr">« Points d'arrêt de l'agent »</span> and <span lang="fr">« Périmètre d'exécution de l'agent »</span> in the French templates. Compared with the doctrine, the template's table adds a "Stop threshold" row and has no separate "Intended coordination spaces" row.</li>
+        <li><strong><code>gate-precheck</code> pre-check</strong>: <code>npx aiad-sdd gate-precheck &lt;SPEC&gt;</code>, run by <code>/sdd gate</code> before any SQS scoring, reads the "Agent execution scope" section and returns a deterministic verdict computed outside the model — <code>PASS</code> (exit code 0), <code>FAIL</code> (1: Gate closed, for example an irreversible action without a stop threshold) or <code>JNSP</code> (2: Gate unknown, SPEC not found or incomplete table). Details on the <a href="execution-gate.html#precheck">Execution Gate</a> page.</li>
+      </ul>
+
+      <h2 id="sources">Sources</h2>
+      <p>AIAD doctrine v1.9: AIAD Framework, § 3.3 (Agents Engineer — permission mode, shared surface), § 4.0 (reversibility class and stop threshold), § 4.4 (authority continuum, stop points), § 5.5 (chain of evidence for automated deployment); annex A, SPEC template ("Agent stop points" and "Agent execution scope" sections); AIAD-AI-ACT, "Agents with irreversible effects" profile and "Delegation trace" instruction; legitimation dossier "The AIAD trace as evidence of accountability" (sources verified on 25/09/2026). This content describes a governance and accountability logic, not legal advice.</p>
+
+      <nav class="doc-pagination" aria-label="Adjacent pages">
+        <a class="prev" href="human-authorship.html"><span class="dir">← Previous</span>Human Authorship</a>
+        <a class="next" href="context-budget.html"><span class="dir">Next →</span>Context Engineering Budget</a>
+      </nav>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <h2>Framework</h2>
+      <ul>
+        <li><a href="../big-picture.html">Big Picture</a></li>
+        <li><a href="../get-started.html">Get Started</a></li>
+        <li><a href="../values.html">Values &amp; pillars</a></li>
+        <li><a href="../artifacts.html">The artifacts</a></li>
+        <li><a href="../team/responsibilities.html">The 5 responsibilities</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>SDD Cycle</h2>
+      <ul>
+        <li><a href="intent-statement.html">Intent Statement</a></li>
+        <li><a href="spec.html">SPEC</a></li>
+        <li><a href="execution-gate.html">Execution Gate &amp; SQS</a></li>
+        <li><a href="drift-lock.html">Drift Lock</a></li>
+        <li><a href="jnsp.html">JNSP — uncertainty</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="../commands/sdd.html">/sdd commands</a></li>
+        <li><a href="../commands/aiad.html">/aiad commands</a></li>
+        <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
+        <li><a href="../metrics.html">Metrics</a></li>
+        <li><a href="../glossary.html">Glossary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Governance</h2>
+      <ul>
+        <li><a href="../governance/index.html#ai-act">AIAD-AI-ACT</a></li>
+        <li><a href="../governance/index.html#rgpd">AIAD-RGPD</a></li>
+        <li><a href="../governance/index.html#rgaa">AIAD-RGAA</a></li>
+        <li><a href="../governance/index.html#rgesn">AIAD-RGESN</a></li>
+        <li><a href="https://aiad.ovh">aiad.ovh</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+</footer>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

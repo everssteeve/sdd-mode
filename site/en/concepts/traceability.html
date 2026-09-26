@@ -200,6 +200,7 @@ npx aiad-sdd trace --fail-on-gap    # Exit 1 if a blocking gap is detected (CI)<
 
       <h2 id="skill">The <code>traceability</code> skill</h2>
       <p>The logic is carried by the <code>traceability</code> skill, invoked by <code>/sdd trace</code>, <code>/sdd drift-check</code>, <code>/sdd validate</code>, <code>/sdd audit</code> and the pre-commit hook — in addition to the GitHub Action. The <code>drift-detection</code> skill composes it without duplicating its logic: a gap detected by the matrix fails the drift-check. It is the culmination of SDD Mode's skill composition: a single annotation convention, read everywhere, from the editor to the CI.</p>
+      <p>Beyond drift control, this trace is a piece of evidence: it links every line of code to an identified human intent and to a delegated scope. See <a href="agent-autonomy.html#preuve">the trace as evidence</a> on the Agent autonomy page.</p>
 
       <nav class="doc-pagination" aria-label="Adjacent pages">
         <a class="prev" href="jnsp.html"><span class="dir">← Previous</span>JNSP — uncertainty policy</a>
