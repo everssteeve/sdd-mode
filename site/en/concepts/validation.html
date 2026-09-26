@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Validation — three axes, one verdict | SDD Mode</title>
-<meta name="description" content="SDD validation is threefold: technical (lint, types, tests, build), functional (the SPEC's test cases) and governance (4 Tier 1 agents, fail-closed veto). VALIDATED / FIXES / REJECTED verdict, complemented by /sdd security and /sdd audit persisted in .aiad/metrics/.">
+<title>Validation — four axes, one verdict | SDD Mode</title>
+<meta name="description" content="SDD validation covers four axes: technical (lint, types, tests, build), functional (the SPEC's test cases), business (intent and Drift Criterion) and governance (4 Tier 1 agents, fail-closed veto), guided by four verification rules. VALIDATED / FIXES / REJECTED verdict, complemented by /sdd security and /sdd audit persisted in .aiad/metrics/.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/concepts/validation.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -144,8 +144,8 @@
       </nav>
 
       <p class="kicker">Cycle step 6 · <code>/sdd validate</code></p>
-      <h1>Validation — three axes, one verdict</h1>
-      <p class="doc-lede">Code that compiles is not necessarily code that works, and code that works is not necessarily code that honours the intent. SDD validation is <strong>threefold</strong> — technical, functional, governance — and the code is never finished until the SPEC is synchronized (<a href="drift-lock.html">Drift Lock</a>).</p>
+      <h1>Validation — four axes, one verdict</h1>
+      <p class="doc-lede">Code that compiles is not necessarily code that works, and code that works is not necessarily code that honours the intent. SDD validation covers <strong>four axes</strong> — technical, functional, business, governance — and the code is never finished until the SPEC is synchronized (<a href="drift-lock.html">Drift Lock</a>).</p>
 
       <h2 id="technique">Axis 1 — Technical validation</h2>
       <p>The objective baseline: the project's toolchain, run in full and reported as a table. No judgement, just facts.</p>
@@ -167,14 +167,34 @@
       </div>
 
       <h2 id="fonctionnelle">Axis 2 — Functional validation</h2>
-      <p>The functional axis confronts the code with the <strong>SPEC's test cases</strong>, criterion by criterion — against the code itself, not only against the tests. Specified inputs respected, processing steps followed, output format produced, every edge case covered by a test, every acceptance criterion checked off. In addition, the <strong>parent Intent's Drift Criterion</strong> is re-read: is the observable signal of intent betrayal absent?</p>
+      <p>The functional axis confronts the code with the <strong>SPEC's test cases</strong>, criterion by criterion — against the code itself, not only against the tests. Specified inputs respected, processing steps followed, output format produced, every edge case covered by a test, every acceptance criterion checked off. On the team side, functional validation is carried by the QA Engineer, and usability — UX, accessibility, performance — by QA together with the PM.</p>
 
-      <h2 id="gouvernance">Axis 3 — Governance validation</h2>
+      <h2 id="metier">Axis 3 — Business validation</h2>
+      <p>Business validation, carried by the Product Manager, asks the question tests do not ask: <strong>is the intent honoured, and are the targeted outcomes achievable?</strong> The <strong>Drift Criterion of the <a href="intent-statement.html">parent Intent</a></strong> is re-read: is the observable signal of intent betrayal absent? This is the axis where fidelity to the intent is checked — a semantic defect that no toolchain detects.</p>
+
+      <h2 id="gouvernance">Axis 4 — Governance validation</h2>
       <p>The <a href="../governance/index.html">four Tier 1 agents</a> — AIAD-AI-ACT, AIAD-RGPD, AIAD-RGAA, AIAD-RGESN — are applied via the <code>regulatory-veto</code> skill. Each holds a <strong>right of veto</strong>: a VETO blocks, a WARN requires a remediation plan before merge. This validation is not optional for the projects concerned.</p>
       <div class="callout warn">
         <span class="callout-title">UNKNOWN = VETO (fail-closed)</span>
         <p>When a governance agent cannot decide — a standard not applicable with certainty, missing information — it returns <code>UNKNOWN</code>. That verdict is treated as a <strong>VETO</strong>: you do not merge on a regulatory doubt. This is the governance flavour of the <a href="jnsp.html">JNSP</a> policy.</p>
       </div>
+
+      <h2 id="verification">Verification is designed, not bought</h2>
+      <p>Doctrine v1.9 makes a bet: the quality of verification depends first on the <strong>design of the process</strong> — what is checked, when and by whom — rather than on the power of the model doing the review. This is a position, not a demonstrated result: the evidence converges, but no single piece is sufficient on its own. It translates into four rules.</p>
+      <table>
+        <caption>The four verification rules (AIAD doctrine v1.9)</caption>
+        <thead><tr><th scope="col">Rule</th><th scope="col">What it implies</th><th scope="col">Strength of support</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">The critical conversation happens first at the Execution Gate</th><td>What you want is discussed at the <a href="execution-gate.html">Gate</a>; code review then checks conformity with an intent already discussed. It detects what was misunderstood; it does not discover what you wanted.</td><td>Process rule</td></tr>
+          <tr><th scope="row">Two classes of defects</th><td>Structurally detectable defects (compilation, types, tooled architecture rules, secrets) are delegated to tooling and agents. Semantic defects — fidelity to the intent, business correctness, design boundaries — remain under human review, relying on the Stranger Test.</td><td>Process rule</td></tr>
+          <tr><th scope="row">Separate the producer from the critic</th><td>When review is entrusted to an agent, AIAD <strong>recommends — without mandating</strong> — a reviewer from a different model family than the producing agent. The cost (several providers, contracts, GDPR analysis) must be weighed. The package supports it via <code>/sdd validate --cross-model</code> (additive-only review in a fresh context).</td><td>One 2026 study, on mathematics problems rather than code: 35% false rejections in self-review versus 2% in cross-review</td></tr>
+          <tr><th scope="row">Design before testing step by step</th><td>In an agent loop, complete upfront design — architecture, types, edge cases, contracts, in other words a SPEC — appears more effective than incremental TDD.</td><td><strong>An indication to be confirmed, not a rule</strong>: 3 to 8.5 times more tokens with no net gain for incremental TDD, in an exploratory 2026 experiment</td></tr>
+        </tbody>
+      </table>
+      <h3 id="exemplars">Review exemplars</h3>
+      <p>An organisation's review knowledge — what a senior reviewer spots and why — can be extracted into annotated examples, versioned in dedicated files (for example <code>.aiad/review-exemplars/</code>) and loaded <strong>only in review sessions</strong> — not in the AGENT-GUIDE, which is injected into every session and reserved for permanent instructions. Roblox described this practice in 2026. An exemplar is built from real reviews, revised like an artifact, and retired when it no longer reflects the team's standards.</p>
+      <h3 id="verification-tax">Verification Tax</h3>
+      <p>A 2026 literature review uses this name for the gap between the productivity gain in writing code and the much smaller gain in delivering reliable software. The term describes what the upfront investment in SPEC and Gate seeks to reduce. The team-side corollary: efficiency is not quality — a faster review is not a better review (see the role of the <a href="../team/responsibilities.html#qa">QA Engineer</a>).</p>
 
       <h2 id="composition">A composition of skills, with no duplication</h2>
       <p><code>/sdd validate</code> is the most composite command of the cycle: it implements no logic of its own but <strong>composes three reusable skills</strong> — <code>ears-validator</code> (coverage of §3's testable criteria), <code>drift-detection</code> (code ↔ SPEC gaps on the diff) and <code>regulatory-veto</code> (the 4 Tier 1 standards). Each skill is also invoked elsewhere in the cycle (<code>/sdd gate</code>, <code>/sdd drift-check</code>, <code>/sdd security</code>…): the logic lives in one place, and the commands orchestrate it.</p>
@@ -184,7 +204,7 @@
         <caption class="visually-hidden">The four validation outcomes</caption>
         <thead><tr><th scope="col">Verdict</th><th scope="col">Meaning</th><th scope="col">Action</th></tr></thead>
         <tbody>
-          <tr><td><strong>VALIDATED</strong></td><td>Triple validation passed</td><td>Proceed to the <a href="drift-lock.html">Drift Lock</a> (<code>/sdd drift-check</code>)</td></tr>
+          <tr><td><strong>VALIDATED</strong></td><td>Validation passed on all four axes</td><td>Proceed to the <a href="drift-lock.html">Drift Lock</a> (<code>/sdd drift-check</code>)</td></tr>
           <tr><td><strong>FIXES</strong></td><td>Minor, localized gaps</td><td>List them, relaunch the agent on the precise points</td></tr>
           <tr><td><strong>REJECTED</strong></td><td>Structural failure</td><td>Imprecise SPEC → Human Learning · agent wrong despite a clear SPEC → Lesson Learned</td></tr>
           <tr><td><strong>JNSP</strong></td><td>Validation undecidable</td><td>Question(s) for the human — never downgrade to "minor fixes" to push the merge through</td></tr>
