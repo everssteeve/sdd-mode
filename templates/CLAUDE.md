@@ -128,7 +128,7 @@ Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire
 | `/aiad gouvernance` | Gouvernance | Vérifier la conformité Tier 1 |
 | `/aiad health` | Monitoring | Diagnostiquer la santé des artefacts |
 | `/aiad status` | Monitoring | État du projet SDD |
-| `/aiad retro` | Amélioration | Rétrospective + signaux d'évolution |
+| `/aiad retro` | Amélioration | Rétrospective + retours sur le framework |
 | `/aiad intention` | Alignement | Atelier d'Intention (rituel mensuel, espace humain pur) |
 | `/aiad sync-strat` | Alignement | Synchronisation alignement stratégique (mensuelle, 1h30) |
 | `/aiad demo` | Feedback | Demo & Feedback (hebdomadaire, 45 min) |

@@ -191,7 +191,7 @@ section INCERTITUDE, propagé automatiquement à `AGENTS.md`,
 | `/aiad gouvernance` | Gouvernance | Vérifier la conformité Tier 1 (AI-ACT, RGPD, RGAA, RGESN) |
 | `/aiad health` | Monitoring | Diagnostiquer la santé des artefacts |
 | `/aiad status` | Monitoring | État du projet SDD |
-| `/aiad retro` | Amélioration | Rétrospective + signaux d'évolution |
+| `/aiad retro` | Amélioration | Rétrospective + retours sur le framework |
 | `/aiad intention` | Alignement | Atelier d'Intention (rituel mensuel, espace humain pur) |
 | `/aiad sync-strat` | Alignement | Synchronisation alignement stratégique (mensuelle, 1h30) |
 | `/aiad demo` | Feedback | Demo & Feedback (hebdomadaire, 45 min) |

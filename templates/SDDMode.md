@@ -1,10 +1,10 @@
-# AIAD SDD Mode — v1.17
+# AIAD SDD Mode — v1.20
 
 **Spec Driven Development — Guide opérationnel pour Product Engineers AIAD**
 
 *Framework AIAD — aiad.ovh — Open Source*
 
-> **Deux cycles de versionnage.** `v1.17` désigne la version du **logiciel** SDD Mode (le package `aiad-sdd` : CLI, commandes slash, skills, dashboards). La **doctrine** du framework AIAD (valeurs, responsabilités, principes) suit son propre rythme — le cycle mensuel d'évolution du framework — et n'avance pas au même tempo. Ce guide documente le logiciel ; la doctrine est portée par `intention.md` (document publié avec le framework AIAD) et la Constitution.
+> **Deux cycles de versionnage.** `v1.20` désigne la version du **logiciel** SDD Mode (le package `aiad-sdd` : CLI, commandes slash, skills, dashboards). La **doctrine** du framework AIAD (valeurs, responsabilités, principes) suit son propre rythme — le cycle mensuel d'évolution du framework — et n'avance pas au même tempo. Ce guide documente le logiciel ; la doctrine est portée par `intention.md` (document publié avec le framework AIAD) et la Constitution.
 
 ---
 
@@ -21,6 +21,9 @@
 | **v1.13** | Dashboard HTML multi-pages + publication GitHub Pages |
 | **v1.14** | Version stratégique : 46 items, 323 tests, packs gouvernance par juridiction, écosystème (GitHub Action, VS Code, CI multi-forges), zero-dep préservé |
 | **v1.15 → v1.17** | Dashboard PM Cockpit (131 sections, 47 boucles d'audit), assistants `/sdd prd` et `/sdd arch`, `/aiad guide`, commande `feedback`, recommandations de modèle sur les 30 commandes, légitimation empirique (Batch A/B/C/D) |
+| **v1.18** | « Advisory → enforced » : verdicts déterministes (exit 0/1/2 + JSON validé), veto de gouvernance Tier 1 fail-closed par hooks, phase Research gradée (`GO / CONDITIONAL GO / DEFER / NO-GO`), exécution phasée avec mini-gates, suite canary, revue croisée multi-modèles (`/sdd validate --cross-model`) |
+| **v1.19** | Runtime Kiro dans `emit-rules`, comparatif public, archivage automatique des artefacts livrés (`archive done`), empreinte tokens par artefact dans `/sdd context`, squelettes de tests depuis EARS (`suggest-tests`), collecte DORA automatisée en CI, dashboard enrichi |
+| **v1.20** | Doctrine AIAD v1.9 livrée et verrouillée (agents AI-ACT et RGPD à jour, guides, contrôle de drift en CI et à la release), pré-contrôle déterministe de la Gate (`gate-precheck`), sections de SPEC « Points d'arrêt de l'agent » et « Périmètre d'exécution de l'agent », contexte hérité dans `/sdd context`, `update` qui sauvegarde les agents de gouvernance modifiés localement, parité des commandes livrées |
 
 > **Compatibilité.** Les anciens alias plats (`/sdd-spec`, `/aiad-status`…) restent fonctionnels jusqu'à la v2 avec message de migration. Les Intent / SPEC d'une v1.x sont migrés sans repartir de zéro (`aiad-sdd migrate`). Le runtime reste **zero-dependency**.
 
@@ -698,4 +701,4 @@ CLAUDE.md                           ← Configuré par npx aiad-sdd init
 
 ---
 
-*AIAD SDD Mode v1.17 — aiad.ovh — Open Source — Steeve Evers*
+*AIAD SDD Mode v1.20 — aiad.ovh — Open Source — Steeve Evers*

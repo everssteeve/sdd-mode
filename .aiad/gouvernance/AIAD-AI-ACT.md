@@ -864,7 +864,7 @@ Un système IA conforme à l'AI Act est, par construction, aligné avec les vale
 - [ ] Enregistrement base de données UE planifié si haut risque (Art. 49)
 - [ ] Revue juridique planifiée avant diffusion externe si haut risque ou transparence obligatoire
 
-> ⚠️ **Avertissement final** : Cette checklist est un outil d'aide à la conformité produit par le framework AIAD. Elle ne remplace pas une évaluation formelle de conformité, un avis juridique, ni une inscription au registre UE. Les décisions de classification formelle doivent impliquer un juriste ou responsable conformité qualifié. Applicable en priorité pour La Poste et tout client opérant en contexte réglementé.
+> ⚠️ **Avertissement final** : Cette checklist est un outil d'aide à la conformité produit par le framework AIAD. Elle ne remplace pas une évaluation formelle de conformité, un avis juridique, ni une inscription au registre UE. Les décisions de classification formelle doivent impliquer un juriste ou responsable conformité qualifié. Applicable en priorité à toute organisation opérant en contexte réglementé.
 
 ---
 

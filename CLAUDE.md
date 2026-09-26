@@ -1,7 +1,7 @@
 <!-- aiad-emit-rules:start -->
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 <!-- generated-by: aiad-emit-rules v1.19.0 -->
-<!-- source-hash: bfe8e08f4a6ec5bd -->
+<!-- source-hash: 1383df9b0d9b8804 -->
 <!-- intent_id: INTENT-033 -->
 
 > Ce fichier est synchronisé avec `AGENTS.md`, `.cursor/rules/` et `.codex/` via `npx aiad-sdd emit-rules`.
@@ -139,7 +139,7 @@ Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire
 | `/aiad gouvernance` | Gouvernance | Vérifier la conformité Tier 1 |
 | `/aiad health` | Monitoring | Diagnostiquer la santé des artefacts |
 | `/aiad status` | Monitoring | État du projet SDD |
-| `/aiad retro` | Amélioration | Rétrospective + signaux d'évolution |
+| `/aiad retro` | Amélioration | Rétrospective + retours sur le framework |
 | `/aiad intention` | Alignement | Atelier d'Intention (rituel mensuel, espace humain pur) |
 | `/aiad sync-strat` | Alignement | Synchronisation alignement stratégique (mensuelle, 1h30) |
 | `/aiad demo` | Feedback | Demo & Feedback (hebdomadaire, 45 min) |
