@@ -62,12 +62,12 @@ La doctrine AIAD v1.9 (Framework, § 4.4 et annexe A.4) introduit deux sections 
 | Seuil d'arrêt | [condition d'arrêt immédiat — requis si une action irréversible est déclarée] |
 ```
 
-2. Livrer le gabarit prose : copier `.aiad/specs/spec-template.md` (mis à jour) dans `templates/.aiad/specs/spec-template.md` (aujourd'hui absent du package).
+2. Livrer le gabarit prose : copier `.aiad/specs/spec-template.md` (mis à jour) dans `templates/.aiad/specs/_spec-template.md` (aujourd'hui absent du package). Le préfixe `_` le fait ignorer par les modules qui parcourent `.aiad/specs/*.md` (comme `_index.md`).
 3. Dans `/sdd spec` (les deux exemplaires) : une ligne indiquant que la section 9 est requise si la SPEC implique credentials ou ressource partagée en écriture, sinon « Non applicable » ; la section 8 est facultative.
 
 ### Output
 
-- Deux gabarits à jour ; `templates/.aiad/specs/spec-template.md` livré ; `/sdd spec` à jour.
+- Trois gabarits à jour ; `templates/.aiad/specs/_spec-template.md` livré ; `/sdd spec` à jour.
 
 ### Cas limites
 
@@ -77,11 +77,11 @@ La doctrine AIAD v1.9 (Framework, § 4.4 et annexe A.4) introduit deux sections 
 
 ## 3. Critères d'Acceptation
 
-- [ ] CA-001 — Les trois gabarits contiennent les titres exacts `## 8. Points d'arrêt de l'agent (optionnel)` et `## 9. Périmètre d'exécution de l'agent (conditionnel)` et les six lignes du tableau de la section 9, dans l'ordre ci-dessus.
-- [ ] CA-002 — `templates/.aiad/specs/spec-template.md` existe et est identique à `.aiad/specs/spec-template.md`.
-- [ ] CA-003 — `/sdd spec` (les deux exemplaires) mentionne la règle « section 9 requise si credentials ou ressource partagée en écriture, sinon Non applicable ».
-- [ ] CA-004 — Le script de parité de SPEC-033-1 passe (code 0).
-- [ ] CA-005 — `npm test` passe sans régression.
+- [x] CA-001 — Les trois gabarits contiennent les titres exacts `## 8. Points d'arrêt de l'agent (optionnel)` et `## 9. Périmètre d'exécution de l'agent (conditionnel)` et les six lignes du tableau de la section 9, dans l'ordre ci-dessus.
+- [x] CA-002 — `templates/.aiad/specs/_spec-template.md` existe et est identique à `.aiad/specs/spec-template.md`.
+- [x] CA-003 — `/sdd spec` (les deux exemplaires) mentionne la règle « section 9 requise si credentials ou ressource partagée en écriture, sinon Non applicable ».
+- [x] CA-004 — Le script de parité de SPEC-033-1 passe (code 0).
+- [x] CA-005 — `npm test` passe sans régression.
 
 ## 4. Interface / API
 
@@ -108,9 +108,9 @@ Lignes de la section 9 (libellé exact en 1re colonne) :
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] Gabarits et commande à jour
-- [ ] Parité vérifiée (SPEC-033-1)
-- [ ] SPEC mise à jour si écart (Drift Lock)
+- [x] Gabarits et commande à jour
+- [x] Parité vérifiée (SPEC-033-1)
+- [x] SPEC mise à jour si écart (Drift Lock)
 - [ ] Code review passée
 
 ## Historique des modifications
@@ -119,3 +119,4 @@ Lignes de la section 9 (libellé exact en 1re colonne) :
 |------|------------|--------|
 | 2026-09-25 | Gate (1er passage) : gabarits listés explicitement (trois, dont l'exemplaire EARS du dépôt) ; point d'insertion défini par rapport à la section DoOD. | Le gabarit EARS livré n'a pas de section « Historique des modifications » : l'ancien point d'insertion était indéfini. |
 | 2026-09-26 | Execution Gate OUVERTE — SQS 5/5, Test de l'Étranger PASS. Statut → ready. | Scores validés par l'auteur. |
+| 2026-09-26 | Exécution : le gabarit prose est livré sous le nom `_spec-template.md` (étape 2, CA-002). Vérifié sur un projet initialisé : `refactor-spec --all` et le dashboard ne le comptent pas comme SPEC. | Décision de l'auteur — sous le nom `spec-template.md`, 8 modules (ai-act-audit, dpia, reflect, doctor-fix, refactor-spec, governance-lint, confluence, openapi-export) l'auraient traité comme une SPEC chez l'utilisateur (régression). |
