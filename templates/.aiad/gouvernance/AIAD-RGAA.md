@@ -127,13 +127,13 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 - **TOUJOURS** associer un `<figcaption>` lisible aux images qui en ont besoin via `<figure>`
 
 ```html
-<!-- ✅ Image informative -->
+
 <img src="graphique.png" alt="Évolution des ventes 2024 : +23% au T4">
 
-<!-- ✅ Image décorative -->
+
 <img src="separateur.png" alt="">
 
-<!-- ✅ SVG informatif -->
+
 <svg role="img" aria-label="Logo de l'entreprise">...</svg>
 ```
 
@@ -195,14 +195,14 @@ background: #ffffff;
 - **TOUJOURS** indiquer la langue principale du document (`<html lang="fr">`) et les changements de langue inline (`lang="en"`)
 
 ```html
-<!-- ✅ Lien d'évitement -->
+
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-<!-- ✅ Navigations distinctes -->
+
 <nav aria-label="Navigation principale">...</nav>
 <nav aria-label="Fil d'Ariane">...</nav>
 
-<!-- ✅ Page courante -->
+
 <a href="/accueil" aria-current="page">Accueil</a>
 ```
 
@@ -221,7 +221,7 @@ background: #ffffff;
 - **TOUJOURS** activer l'autocomplétion pertinente (`autocomplete="email"`, `autocomplete="name"`, etc.)
 
 ```html
-<!-- ✅ Champ avec label et erreur accessible -->
+
 <label for="email">
   Email <span aria-hidden="true">*</span>
   <span class="sr-only">(obligatoire)</span>
@@ -251,7 +251,7 @@ background: #ffffff;
 - **TOUJOURS** s'assurer qu'il n'y a qu'un seul `<main>` par page
 
 ```html
-<!-- ✅ Structure sémantique correcte -->
+
 <body>
   <header>
     <nav aria-label="Navigation principale">...</nav>
@@ -340,7 +340,7 @@ background: #ffffff;
 - **TOUJOURS** utiliser des `headers` et `id` pour les tableaux complexes (plusieurs niveaux d'en-têtes)
 
 ```html
-<!-- ✅ Tableau de données accessible -->
+
 <table>
   <caption>Résultats du trimestre par région</caption>
   <thead>
@@ -371,18 +371,18 @@ background: #ffffff;
 - **TOUJOURS** indiquer si un lien déclenche un téléchargement (format et poids si connu)
 
 ```html
-<!-- ✅ Liens explicites -->
+
 <a href="/rapport-2024.pdf" aria-label="Télécharger le rapport annuel 2024 (PDF, 2 Mo)">
   Rapport 2024
 </a>
 
-<!-- ✅ Lien nouvel onglet -->
+
 <a href="https://externe.fr" target="_blank" rel="noopener">
   Site partenaire
   <span class="sr-only">(ouverture dans un nouvel onglet)</span>
 </a>
 
-<!-- 🚫 Liens inutilement génériques -->
+
 <a href="/article">Lire la suite</a>
 ```
 
@@ -397,10 +397,10 @@ background: #ffffff;
 - **TOUJOURS** s'assurer que le contenu ne nécessite pas de scroll horizontal sur mobile
 
 ```html
-<!-- 🚫 Bloquer le zoom est interdit -->
+
 <meta name="viewport" content="width=device-width, user-scalable=no">
 
-<!-- ✅ Permettre le zoom -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 

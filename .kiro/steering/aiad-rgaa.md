@@ -3,7 +3,7 @@ inclusion: fileMatch
 fileMatchPattern: ["**/components/**","**/pages/**","**/views/**","**/app/**/*.tsx","**/app/**/*.jsx","**/*.vue"]
 # intent_id: INTENT-033
 # generated-by: aiad-emit-rules v1.19.0
-# source-hash: 4c023ac0c8e293f4
+# source-hash: bfe8e08f4a6ec5bd
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->

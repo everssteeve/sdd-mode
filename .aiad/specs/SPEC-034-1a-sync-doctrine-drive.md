@@ -42,13 +42,16 @@ Le Drive fait foi (INTENT-034). Le package livre aujourd'hui le Framework et le 
 ### Processing
 
 1. `scripts/sync-doctrine.js --source <chemin>` copie chaque fichier source vers ses cibles.
-2. **Chemins relatifs** : tout chemin commençant par `../` — qu'il soit la cible d'un lien Markdown `[…](../…)` ou cité entre accents graves `` `../…` `` (forme utilisée par les agents v1.9, ex. `` `../framework/legitimation/conformite-cas-2026.md` ``) — est réécrit dans **tous** les fichiers cibles, selon la première règle qui s'applique (base `B` = `https://github.com/everssteeve/sdd-mode/blob/main/`) :
+2. **Chemins relatifs** : tout chemin commençant par `../` — ainsi que tout chemin relatif relevant de la règle 1 (même sans `../`) — qu'il soit la cible d'un lien Markdown `[…](../…)` ou cité entre accents graves `` `../…` `` (forme utilisée par les agents v1.9, ex. `` `../framework/legitimation/conformite-cas-2026.md` ``) — est réécrit dans **tous** les fichiers cibles, selon la première règle qui s'applique (base `B` = `https://github.com/everssteeve/sdd-mode/blob/main/`) :
 
    | Cible du chemin | Réécriture |
    |---|---|
-   | `…/legitimation/<f>.md`, `<f>` étant l'un des quatre dossiers synchronisés | `B` + `docs/legitimation/<f>.md` |
-   | `…/gouvernance/AIAD-<X>.md` | `B` + `templates/.aiad/gouvernance/AIAD-<X>.md` |
-   | toute autre cible (argumentaires, comparatif, `intention.md`…) | mention textuelle : un lien Markdown `[texte](../…)` devient `texte` ; un chemin entre accents graves devient `` `<nom-du-fichier>` (document publié avec le framework AIAD) `` |
+   | 1. tout chemin relatif dont les deux derniers segments sont `legitimation/<f>.md`, `<f>` étant l'un des quatre dossiers synchronisés — avec ou sans préfixe `../`, avec ou sans dossiers de tête (ex. `framework/legitimation/conformite-cas-2026.md`, `legitimation/verification-evidence.md`) | `B` + `docs/legitimation/<f>.md` |
+   | 2. `../…/gouvernance/AIAD-<X>.md` | `B` + `templates/.aiad/gouvernance/AIAD-<X>.md` |
+   | 1b. chemin `../…` dont le nom de fichier existe dans `docs/legitimation/` du dépôt cible (ex. `dette-maintenance-agentique.md`) ; liste lue dans le dépôt cible au moment de la synchronisation, avant toute écriture, unie aux quatre dossiers synchronisés | `B` + `docs/legitimation/<nom>` |
+   | 3. toute autre cible `../…` (argumentaires, comparatif, `intention.md`…) | mention textuelle : un lien Markdown `[texte](../…)` devient `texte` ; un chemin entre accents graves devient `` `<nom-du-fichier>` (document publié avec le framework AIAD) `` |
+
+   Restent inchangés : les noms nus (argumentaires cités par leur seul nom, `GLOSSAIRE-AIAD.md`, `intention.md`), les liens `./voisin.md` internes à `docs/legitimation/`, les mentions de fichiers projet (`CLAUDE.md`, `AGENTS.md`, `.aiad/…`) et les URL. Sur un lien Markdown ou entre accents graves, les règles 1, 1b et 2 remplacent le chemin en place (ancre `#…` conservée).
 
    Les URL pointent vers des fichiers du dépôt public ; elles ne sont pas résolues au moment de la synchronisation (aucun appel réseau).
 3. **Agent CRA** : `AIAD-CRA.md` n'existe pas au Drive ; il n'est **ni supprimé ni modifié** (décision de l'auteur : « le CRA reste dans le package »).
@@ -68,16 +71,16 @@ Le Drive fait foi (INTENT-034). Le package livre aujourd'hui le Framework et le 
 
 ## 3. Critères d'Acceptation
 
-- [ ] CA-001 — Après `sync-doctrine --source <published/md>`, les quatre agents, les deux guides et les quatre dossiers de légitimation des cibles sont identiques à la source, aux chemins réécrits près.
-- [ ] CA-002 — `templates/.aiad/gouvernance/AIAD-AI-ACT.md` contient « 2026/1744 » et ne contient plus « PAS encore adopté ».
-- [ ] CA-003 — `templates/frameworkAIAD.md` a pour titre « Guide AIAD — Framework v1.9 ».
-- [ ] CA-004 — `templates/.aiad/gouvernance/AIAD-CRA.md` est inchangé (empreinte identique avant / après).
-- [ ] CA-005 — Aucun chemin commençant par `../` (lien Markdown ou entre accents graves) ne subsiste dans les 14 fichiers cibles.
-- [ ] CA-005b — Dans `templates/.aiad/gouvernance/AIAD-AI-ACT.md`, chaque référence au dossier « conformite-cas-2026 » est l'URL `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`, et ce fichier existe dans le dépôt (test sur fixture : les trois règles de réécriture).
-- [ ] CA-006 — `templates/doctrine.lock.json` contient `doctrineVersion: "v1.9"` et une empreinte pour chacun des 14 fichiers cibles.
-- [ ] CA-007 — `--dry-run` ne modifie aucun fichier (test : empreintes identiques avant / après).
-- [ ] CA-008 — Cas limites 1 à 3 : sortie code 2, aucun fichier modifié (test).
-- [ ] CA-009 — Le contrôle CI `aiad-emit-rules-check` et `npm test` passent.
+- [x] CA-001 — Après `sync-doctrine --source <published/md>`, les quatre agents, les deux guides et les quatre dossiers de légitimation des cibles sont identiques à la source, aux chemins réécrits près.
+- [x] CA-002 — `templates/.aiad/gouvernance/AIAD-AI-ACT.md` contient « 2026/1744 » et ne contient plus « PAS encore adopté ».
+- [x] CA-003 — `templates/frameworkAIAD.md` a pour titre « Guide AIAD — Framework v1.9 ».
+- [x] CA-004 — `templates/.aiad/gouvernance/AIAD-CRA.md` est inchangé (empreinte identique avant / après).
+- [x] CA-005 — Aucun chemin commençant par `../` (lien Markdown ou entre accents graves) ne subsiste dans les 14 fichiers cibles.
+- [x] CA-005b — Dans `templates/.aiad/gouvernance/AIAD-AI-ACT.md`, chaque référence au dossier « conformite-cas-2026 » est l'URL `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`, et ce fichier existe dans le dépôt (test sur fixture : toutes les règles de réécriture, dont la règle 1 étendue et le sous-cas 1b). *(2026-09-26, après extension de la règle 1 : PASS sur fixture et sur données réelles — les 6 références de AIAD-AI-ACT sont l'URL.)*
+- [x] CA-006 — `templates/doctrine.lock.json` contient `doctrineVersion: "v1.9"` et une empreinte pour chacun des 14 fichiers cibles.
+- [x] CA-007 — `--dry-run` ne modifie aucun fichier (test : empreintes identiques avant / après).
+- [x] CA-008 — Cas limites 1 à 3 : sortie code 2, aucun fichier modifié (test).
+- [x] CA-009 — Le contrôle CI `aiad-emit-rules-check` et `npm test` passent.
 
 ## 4. Interface / API
 
@@ -104,14 +107,14 @@ templates/doctrine.lock.json :
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] Code + lint passing
-- [ ] Tests (CA-001 à CA-008)
-- [ ] `docs/legitimation/dette-maintenance-agentique.md` (absent du Drive) conservé tel quel
-- [ ] Synchronisation exécutée une fois depuis le Drive publié du 2026-09-25 ; lock commité
-- [ ] Annotations `@intent INTENT-034` / `@spec SPEC-034-1` / `@verified-by`
-- [ ] SPEC mise à jour si écart (Drift Lock)
+- [x] Code + lint passing
+- [x] Tests (CA-001 à CA-008)
+- [x] `docs/legitimation/dette-maintenance-agentique.md` (absent du Drive) conservé tel quel
+- [x] Synchronisation exécutée une fois depuis le Drive publié du 2026-09-25 ; lock commité
+- [x] Annotations `@intent INTENT-034` / `@spec SPEC-034-1` / `@verified-by`
+- [x] SPEC mise à jour si écart (Drift Lock)
 - [ ] Code review passée
-- [ ] Gouvernance vérifiée (RGPD : aucune donnée personnelle ; RGESN : zéro dépendance)
+- [x] Gouvernance vérifiée (RGPD : aucune donnée personnelle ; RGESN : zéro dépendance)
 
 ## Historique des modifications
 
@@ -120,3 +123,8 @@ templates/doctrine.lock.json :
 | 2026-09-25 | Question ouverte « cible des liens relatifs » tranchée par l'auteur : option (d). Ajout des quatre dossiers de légitimation aux cibles (`docs/legitimation/`), table de réécriture à trois règles, CA-005b. | Le dépôt est public ; l'inventaire du Drive publié montre des chemins `../` vers la légitimation, les agents, les argumentaires et `intention.md` — seuls les deux premiers ont un équivalent dans le dépôt. |
 | 2026-09-26 | Gate : SPEC-034-1 découpée (Atomicité 0) ; cette partie = synchronisation + lock (mainteneur). Le comportement de `update` passe en SPEC-034-1b. Cibles comptées explicitement (14). | Décision de l'auteur. |
 | 2026-09-26 | Execution Gate OUVERTE — SQS 5/5, Test de l'Étranger PASS. Statut → ready. | Scores validés par l'auteur. |
+| 2026-09-26 | Exécution (agent) : `scripts/sync-doctrine.js` + `test/sync-doctrine.test.js` (20 tests) ; sync réelle depuis `published/md` (doctrine v1.9 : 12 cibles écrites, 2 déjà à jour ; réécritures sur les 14 cibles, règle 1/2/3 : 19/4/6) ; lock + règles émises régénérées. CA-001 à CA-009 cochés ; CA-005b coché sur fixture seulement. | Drift Lock. |
+| 2026-09-26 | Écarts d'interprétation : (a) règles 1–2 sur un chemin entre accents graves : l'URL remplace le chemin **à l'intérieur** des accents graves ; ancre `#…` conservée ; (b) régénération via `emitRules()` de `lib/emit-rules.js` (équivalent de `npx aiad-sdd emit-rules`, cf. §5) ; (c) annotation `@spec SPEC-034-1a-sync-doctrine-drive` (la DoOD cite `SPEC-034-1`, antérieur au découpage) ; (d) compteurs de réécriture = occurrences dans les 14 cibles (un agent compte deux fois). | Précision non tranchée par la SPEC ; choix minimal. |
+| 2026-09-26 | **Question ouverte (auteur)** : les chemins relatifs **sans** `../` ne sont pas couverts par §2 et restent tels quels : `framework/legitimation/conformite-cas-2026.md` (AIAD-AI-ACT l. 1146, AIAD-RGPD l. 1064 — lignes d'historique), `legitimation/*.md`, `GLOSSAIRE-AIAD.md`, argumentaires nommés seuls (frameworkAIAD.md). CA-005b « chaque référence » n'est donc pas satisfait à la lettre sur les données réelles. Étendre la réécriture ? | Non deviné par l'agent (Test de l'Étranger). |
+| 2026-09-26 | Constat : `emit-rules --check` divergeait déjà avant la sync (22 fichiers, Intent actif INTENT-033) ; la régénération du script les remet en parité. | Information. |
+| 2026-09-26 | Règle 1 étendue (décision de l'auteur, réponse à la question ouverte ci-dessus) : tout chemin relatif `[…/]legitimation/<f>.md` (4 dossiers synchronisés) → URL, avec ou sans `../` ; nouveau sous-cas 1b : chemin `../` dont le nom existe dans `docs/legitimation/` du dépôt cible → URL (ex. `dette-maintenance-agentique.md`). Noms nus, `./voisin.md`, fichiers projet inchangés. Resync réelle : 6 cibles réécrites ; réécritures règle 1/1b/2/3 : 27/1/4/5 ; 0 référence de légitimation hors URL (hors liens `./voisin.md`). CA-005b coché. | Liens de légitimation cohérents avec le dépôt public ; aucune référence résiduelle non résolue. |
