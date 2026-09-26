@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Big Picture — Le cycle SDD Mode interactif | Framework AIAD</title>
-<meta name="description" content="Le Big Picture SDD Mode : schéma interactif du cycle complet — Intent, Research, SPEC, Execution Gate, exécution agent, validation, Drift Lock — avec la gouvernance Tier 1, les artefacts, les responsabilités et les métriques. Chaque élément est cliquable.">
+<meta name="description" content="Le Big Picture SDD Mode : schéma interactif du cycle complet — Intent, Research, SPEC, Execution Gate, exécution agent, validation, Drift Lock — avec l'autonomie de l'agent, la chaîne de preuve, la gouvernance Tier 1, les artefacts, les responsabilités et les métriques. Chaque élément est cliquable.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../en/big-picture.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -92,8 +92,8 @@
     <p class="section-lede">Tout le mode opératoire sur un seul schéma : le cycle en sept étapes, la gouvernance Tier 1 qui le surplombe, les artefacts qui l'alimentent, les responsabilités qui le portent et les métriques qui le mesurent. <strong>Cliquez sur n'importe quel élément</strong> pour ouvrir l'article correspondant.</p>
 
     <svg class="bigpicture-svg" viewBox="0 0 1200 800" role="img" aria-labelledby="bp-title bp-desc">
-      <title id="bp-title">Big Picture du cycle SDD Mode</title>
-      <desc id="bp-desc">Schéma interactif : une bande de gouvernance Tier 1 avec droit de veto surplombe le cycle SDD en sept étapes (Intent Statement, Research, SPEC, Execution Gate, Exécution agent, Validation, Drift Lock), suivi du déploiement et de la consolidation qui rebouclent sur l'intention. En dessous : la hiérarchie des artefacts, les cinq responsabilités et les bandes rituels, métriques et traçabilité. Une alternative texte complète figure sous le schéma.</desc>
+      <title id="bp-title">Big Picture du cycle SDD Mode — de l'intention à la chaîne de preuve</title>
+      <desc id="bp-desc">Schéma interactif : une bande de gouvernance Tier 1 avec droit de veto surplombe le cycle SDD en sept étapes (Intent Statement, Research, SPEC, Execution Gate, Exécution agent, Validation, Drift Lock), suivi du déploiement et de la consolidation qui rebouclent sur l'intention. Au-dessus de la Gate et de l'exécution, un repère « Autonomie de l'agent » rappelle que la Gate vérifie aussi le périmètre d'exécution et le seuil d'arrêt dès qu'une action est irréversible ou qu'un agent dispose de credentials. La Validation repose sur une vérification conçue ; le Drift Lock est le dernier maillon de la chaîne de preuve qui conditionne le déploiement. En dessous : la hiérarchie des artefacts, les cinq responsabilités, les bandes rituels et métriques, et Human Authorship décliné en continuum d'autorité. Une alternative texte complète figure sous le schéma.</desc>
 
       <defs>
         <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -134,6 +134,12 @@
       <!-- ============ CYCLE — RANGÉE 1 ============ -->
       <text x="40" y="172" font-size="17" font-weight="700" fill="#0a1f3d">LE CYCLE SDD — aucune étape sautée</text>
 
+      <!-- repère autonomie de l'agent (Gate + exécution) -->
+      <a href="concepts/autonomie-agent.html"><g class="bp-node"><title>Autonomie de l'agent — la Gate vérifie le périmètre d'exécution et le seuil d'arrêt pour les actions irréversibles et les credentials</title>
+        <rect x="732" y="148" width="428" height="30" rx="15" fill="#fdf3e0" stroke="#ecc97f"/>
+        <text x="946" y="168" text-anchor="middle" font-size="13" font-weight="700" fill="#6b4d09">Autonomie de l'agent : périmètre · seuil d'arrêt</text>
+      </g></a>
+
       <a href="concepts/intent-statement.html"><g class="bp-node"><title>1. Intent Statement — capturer le POURQUOI humain</title>
         <rect x="40" y="190" width="190" height="84" rx="10" fill="#173a6b"/>
         <text x="135" y="216" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 1</text>
@@ -158,7 +164,7 @@
       </g></a>
       <line x1="694" y1="232" x2="732" y2="232" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
 
-      <a href="concepts/execution-gate.html"><g class="bp-node"><title>4. Execution Gate — SQS ≥ 4/5 requis pour ouvrir la gate</title>
+      <a href="concepts/execution-gate.html"><g class="bp-node"><title>4. Execution Gate — SQS ≥ 4/5 requis ; en plus, plafond d'autonomie, périmètre et seuil d'arrêt pour les actions irréversibles et les credentials</title>
         <path class="shape" d="M831,186 L934,232 L831,278 L728,232 Z" fill="#c5860f"/>
         <text x="831" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#0a1f3d">ÉTAPE 4 · GATE</text>
         <text x="831" y="240" text-anchor="middle" font-size="15" font-weight="800" fill="#0a1f3d">SQS ≥ 4/5 ?</text>
@@ -169,7 +175,7 @@
       <path d="M831,278 L831,300 L599,300 L599,278" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
       <text x="715" y="294" text-anchor="middle" font-size="11" fill="#c0392b">&lt; 4/5 : retour en révision</text>
 
-      <a href="concepts/execution.html"><g class="bp-node"><title>5. Exécution agent — contexte optimisé, plan avant code</title>
+      <a href="concepts/execution.html"><g class="bp-node"><title>5. Exécution agent — contexte optimisé, plan avant code, points d'arrêt à l'initiative de l'agent</title>
         <rect x="976" y="190" width="184" height="84" rx="10" fill="#173a6b"/>
         <text x="1068" y="216" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 5</text>
         <text x="1068" y="238" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Exécution agent</text>
@@ -180,27 +186,30 @@
       <path d="M1068,274 L1068,330" fill="none" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
 
       <!-- ============ CYCLE — RANGÉE 2 (droite → gauche) ============ -->
-      <a href="concepts/validation.html"><g class="bp-node"><title>6. Validation — technique, fonctionnelle, gouvernance</title>
+      <a href="concepts/validation.html"><g class="bp-node"><title>6. Validation — quatre axes (technique, fonctionnelle, métier, gouvernance) ; la vérification se conçoit, elle ne s'achète pas</title>
         <rect x="976" y="334" width="184" height="84" rx="10" fill="#173a6b"/>
-        <text x="1068" y="360" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 6</text>
-        <text x="1068" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Validation</text>
-        <text x="1068" y="404" text-anchor="middle" font-size="12" fill="#b9c8e0">/sdd validate · veto Tier 1</text>
+        <text x="1068" y="357" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 6</text>
+        <text x="1068" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Validation</text>
+        <text x="1068" y="395" text-anchor="middle" font-size="12" fill="#b9c8e0">/sdd validate · veto Tier 1</text>
+        <text x="1068" y="410" text-anchor="middle" font-size="11" fill="#b9c8e0">vérification conçue</text>
       </g></a>
       <line x1="976" y1="376" x2="938" y2="376" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
 
-      <a href="concepts/drift-lock.html"><g class="bp-node"><title>7. Drift Lock — code et SPEC dans la même PR</title>
+      <a href="concepts/drift-lock.html"><g class="bp-node"><title>7. Drift Lock — code et SPEC dans la même PR, dernier maillon de la chaîne de preuve</title>
         <rect x="744" y="334" width="190" height="84" rx="10" fill="#0e8a7d"/>
-        <text x="839" y="360" text-anchor="middle" font-size="12" font-weight="700" fill="#fbeecd">ÉTAPE 7</text>
-        <text x="839" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Drift Lock</text>
-        <text x="839" y="404" text-anchor="middle" font-size="12" fill="#cdebe7">/sdd drift-check · /sdd trace</text>
+        <text x="839" y="357" text-anchor="middle" font-size="12" font-weight="700" fill="#fbeecd">ÉTAPE 7</text>
+        <text x="839" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Drift Lock</text>
+        <text x="839" y="395" text-anchor="middle" font-size="12" fill="#cdebe7">/sdd drift-check · /sdd trace</text>
+        <text x="839" y="410" text-anchor="middle" font-size="11" fill="#cdebe7">dernier maillon de la preuve</text>
       </g></a>
       <line x1="744" y1="376" x2="706" y2="376" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
 
-      <a href="equipe/rituels.html#integrer"><g class="bp-node"><title>8. Déploiement — staging puis production, monitoring</title>
+      <a href="equipe/rituels.html#integrer"><g class="bp-node"><title>8. Déploiement — staging puis production, monitoring ; automatisé seulement si la chaîne de preuve est complète</title>
         <rect x="512" y="334" width="190" height="84" rx="10" fill="#1e4a87"/>
-        <text x="607" y="360" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 8</text>
-        <text x="607" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Déploiement</text>
-        <text x="607" y="404" text-anchor="middle" font-size="12" fill="#b9c8e0">staging → prod · rollback</text>
+        <text x="607" y="357" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">ÉTAPE 8</text>
+        <text x="607" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Déploiement</text>
+        <text x="607" y="395" text-anchor="middle" font-size="12" fill="#b9c8e0">staging → prod · rollback</text>
+        <text x="607" y="410" text-anchor="middle" font-size="11" fill="#b9c8e0">sur chaîne de preuve complète</text>
       </g></a>
       <line x1="512" y1="376" x2="474" y2="376" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
 
@@ -296,10 +305,10 @@
         <text x="705" y="748" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">MÉTRIQUES</text>
         <text x="705" y="766" text-anchor="middle" font-size="11" fill="#b9c8e0">SQS · DORA · Flow · /aiad dashboard</text>
       </g></a>
-      <a href="concepts/human-authorship.html"><g class="bp-node"><title>Human Authorship — la paternité de l'intention ne se délègue pas</title>
+      <a href="concepts/human-authorship.html"><g class="bp-node"><title>Human Authorship — la paternité de l'intention ne se délègue pas ; continuum d'autorité : chaque niveau est un acte humain distinct, répondre n'est pas consentir</title>
         <rect x="940" y="726" width="220" height="52" rx="8" fill="#c5860f"/>
         <text x="1050" y="748" text-anchor="middle" font-size="13" font-weight="800" fill="#0a1f3d">HUMAN AUTHORSHIP</text>
-        <text x="1050" y="766" text-anchor="middle" font-size="10.5" fill="#3d2a05">valeur 7 — non négociable</text>
+        <text x="1050" y="766" text-anchor="middle" font-size="10.5" fill="#3d2a05">valeur 7 · continuum d'autorité</text>
       </g></a>
     </svg>
 
@@ -316,17 +325,17 @@
       <h2 id="h-alt">Le cycle en texte</h2>
       <p>Alternative complète au schéma ci-dessus :</p>
       <ol>
-        <li><a href="concepts/intent-statement.html"><strong>Intent Statement</strong></a> (<code>/sdd intent</code>) — un humain identifiable capture le POURQUOI en cinq champs. Sans auteur humain, la session est invalidée (<a href="concepts/human-authorship.html">Human Authorship</a>).</li>
+        <li><a href="concepts/intent-statement.html"><strong>Intent Statement</strong></a> (<code>/sdd intent</code>) — un humain identifiable capture le POURQUOI en cinq champs. Sans auteur humain, la session est invalidée (<a href="concepts/human-authorship.html">Human Authorship</a>). La valeur se décline en un <a href="concepts/human-authorship.html#continuum">continuum d'autorité</a> : chaque passage de niveau — clarification, validation de la SPEC, autorisation d'écriture, autorisation de déploiement — est un acte humain distinct, et répondre à l'agent n'est pas consentir.</li>
         <li><a href="concepts/research.html"><strong>Phase Research</strong></a> (<code>/sdd research</code>) — discovery obligatoire ancrée dans le code, verdict gradué GO / CONDITIONAL GO / DEFER / NO-GO tranché par l'humain.</li>
         <li><a href="concepts/spec.html"><strong>SPEC</strong></a> (<code>/sdd spec</code>, <code>/sdd split</code>) — spécification vivante : scope, interface, comportement, cas limites, tests, critère de drift. Format prose ou <a href="concepts/spec.html#ears">EARS</a>.</li>
-        <li><a href="concepts/execution-gate.html"><strong>Execution Gate</strong></a> (<code>/sdd gate</code>) — le SQS score 5 critères + le Test de l'Étranger. Sous 4/5, la gate ferme et la SPEC retourne en révision.</li>
-        <li><a href="concepts/execution.html"><strong>Exécution agent</strong></a> (<code>/sdd exec</code>, <code>/sdd resume</code>) — contexte optimisé dans le <a href="concepts/context-budget.html">Context Engineering Budget</a>, plan d'implémentation exigé avant le code.</li>
-        <li><a href="concepts/validation.html"><strong>Validation</strong></a> (<code>/sdd validate</code>) — trois axes : technique, fonctionnel, gouvernance. Les <a href="gouvernance/index.html">4 agents Tier 1</a> ont un droit de veto fail-closed.</li>
-        <li><a href="concepts/drift-lock.html"><strong>Drift Lock</strong></a> (<code>/sdd drift-check</code>, <code>/sdd trace</code>) — code et SPEC synchronisés dans la même PR, vérifié par la <a href="concepts/traceability.html">matrice de traçabilité</a>.</li>
-        <li><strong>Déploiement</strong> — staging puis production, monitoring, rollback si besoin (<a href="equipe/rituels.html#integrer">boucle Intégrer</a>).</li>
+        <li><a href="concepts/execution-gate.html"><strong>Execution Gate</strong></a> (<code>/sdd gate</code>) — le SQS score 5 critères + le Test de l'Étranger. Sous 4/5, la gate ferme et la SPEC retourne en révision. Dès qu'une action d'agent est irréversible ou qu'un agent dispose de credentials, la Gate vérifie en plus le plafond d'autonomie, l'autorisation humaine préalable, le <a href="concepts/execution-gate.html#perimetre">périmètre d'exécution et le seuil d'arrêt</a> (voir <a href="concepts/autonomie-agent.html">Autonomie de l'agent</a>).</li>
+        <li><a href="concepts/execution.html"><strong>Exécution agent</strong></a> (<code>/sdd exec</code>, <code>/sdd resume</code>) — contexte optimisé dans le <a href="concepts/context-budget.html">Context Engineering Budget</a>, plan d'implémentation exigé avant le code. L'agent s'arrête de lui-même aux <a href="concepts/autonomie-agent.html#points-arret">points d'arrêt</a> prévus par la SPEC.</li>
+        <li><a href="concepts/validation.html"><strong>Validation</strong></a> (<code>/sdd validate</code>) — quatre axes : technique, fonctionnel, métier, gouvernance. Les <a href="gouvernance/index.html">4 agents Tier 1</a> ont un droit de veto fail-closed. <a href="concepts/validation.html#verification">La vérification se conçoit, elle ne s'achète pas</a> : ce qu'on vérifie, quand et par qui compte d'abord.</li>
+        <li><a href="concepts/drift-lock.html"><strong>Drift Lock</strong></a> (<code>/sdd drift-check</code>, <code>/sdd trace</code>) — code et SPEC synchronisés dans la même PR, vérifié par la <a href="concepts/traceability.html">matrice de traçabilité</a>. C'est le <a href="concepts/drift-lock.html#chaine-preuve">dernier maillon de la chaîne de preuve</a>.</li>
+        <li><strong>Déploiement</strong> — staging puis production, monitoring, rollback si besoin (<a href="equipe/rituels.html#integrer">boucle Intégrer</a>). Un déploiement automatisé n'est admissible que si la <a href="equipe/rituels.html#chaine-de-preuve">chaîne de preuve</a> est complète : Intent Statement, SPEC validée à la Gate, vérifications tracées, Drift Lock.</li>
         <li><strong>Consolidation</strong> (<code>/aiad retro</code>, <code>/aiad intention</code>, <code>/aiad status</code>) — Lessons Learned, Human Learnings, métriques. Puis nouvelle itération à partir de l'étape 1 (<a href="equipe/rituels.html">rituels</a>).</li>
       </ol>
-      <p>En soutien permanent : les <a href="artefacts.html">artefacts</a> (PRD, ARCHITECTURE, AGENT-GUIDE, Intents, SPECs), les <a href="equipe/responsabilites.html">cinq responsabilités</a>, la politique d'incertitude <a href="concepts/jnsp.html">JNSP</a> et les <a href="metriques.html">métriques</a> SQS, DORA et Flow.</p>
+      <p>En soutien permanent : les <a href="artefacts.html">artefacts</a> (PRD, ARCHITECTURE, AGENT-GUIDE, Intents, SPECs), les <a href="equipe/responsabilites.html">cinq responsabilités</a>, la politique d'incertitude <a href="concepts/jnsp.html">JNSP</a>, l'<a href="concepts/autonomie-agent.html">autonomie de l'agent</a> (continuum d'autorité, points d'arrêt, périmètre d'exécution, seuil d'arrêt) et les <a href="metriques.html">métriques</a> SQS, DORA et Flow.</p>
     </section>
   </div>
 </main>

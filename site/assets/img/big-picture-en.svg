@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" role="img" aria-labelledby="bp-title bp-desc">
-      <title id="bp-title">Big Picture of the SDD Mode cycle</title>
-      <desc id="bp-desc">Interactive diagram: a Tier 1 governance band with veto power sits above the seven-step SDD cycle (Intent Statement, Research, SPEC, Execution Gate, Agent Execution, Validation, Drift Lock), followed by deployment and consolidation which loop back to the intent. Below: the artifact hierarchy, the five responsibilities and the rituals, metrics and traceability bands. A full text alternative follows the diagram.</desc>
+      <title id="bp-title">Big Picture of the SDD Mode cycle — from intent to chain of evidence</title>
+      <desc id="bp-desc">Poster of the SDD Mode cycle: a Tier 1 governance band with veto power sits above the seven-step SDD cycle (Intent Statement, Research, SPEC, Execution Gate, Agent Execution, Validation, Drift Lock), followed by deployment and consolidation which loop back to the intent. Above the Gate and execution, an “Agent autonomy” marker recalls that the Gate also checks the execution perimeter and the stop threshold whenever an action is irreversible or an agent holds credentials. Validation relies on designed verification; the Drift Lock is the last link of the chain of evidence that conditions deployment. Below: the artifact hierarchy, the five responsibilities, the rituals and metrics bands, and Human Authorship expressed as an authority continuum.</desc>
       <rect x="-20" y="-20" width="1240" height="870" fill="#ffffff"/>
 
       <defs>
@@ -41,6 +41,12 @@
       <!-- ============ CYCLE — ROW 1 ============ -->
       <text x="40" y="172" font-size="17" font-weight="700" fill="#0a1f3d">THE SDD CYCLE — no step skipped</text>
 
+      <!-- repère autonomie de l'agent (Gate + exécution) -->
+      <g class="bp-node"><title>Agent autonomy — the Gate checks the execution perimeter and the stop threshold for irreversible actions and credentials</title>
+        <rect x="732" y="148" width="428" height="30" rx="15" fill="#fdf3e0" stroke="#ecc97f"/>
+        <text x="946" y="168" text-anchor="middle" font-size="13" font-weight="700" fill="#6b4d09">Agent autonomy: perimeter · stop threshold</text>
+      </g>
+
       <g class="bp-node"><title>1. Intent Statement — capture the human WHY</title>
         <rect x="40" y="190" width="190" height="84" rx="10" fill="#173a6b"/>
         <text x="135" y="216" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">STEP 1</text>
@@ -65,7 +71,7 @@
       </g>
       <line x1="694" y1="232" x2="732" y2="232" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
 
-      <g class="bp-node"><title>4. Execution Gate — SQS ≥ 4/5 required to open the gate</title>
+      <g class="bp-node"><title>4. Execution Gate — SQS ≥ 4/5 required; for irreversible actions and credentials, also the autonomy ceiling, execution perimeter and stop threshold</title>
         <path class="shape" d="M831,186 L934,232 L831,278 L728,232 Z" fill="#c5860f"/>
         <text x="831" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#0a1f3d">STEP 4 · GATE</text>
         <text x="831" y="240" text-anchor="middle" font-size="15" font-weight="800" fill="#0a1f3d">SQS ≥ 4/5?</text>
@@ -75,7 +81,7 @@
       <path d="M831,278 L831,300 L599,300 L599,278" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
       <text x="715" y="294" text-anchor="middle" font-size="11" fill="#c0392b">&lt; 4/5: back to revision</text>
 
-      <g class="bp-node"><title>5. Agent Execution — optimised context, plan before code</title>
+      <g class="bp-node"><title>5. Agent Execution — optimised context, plan before code, agent-initiated stop points</title>
         <rect x="976" y="190" width="184" height="84" rx="10" fill="#173a6b"/>
         <text x="1068" y="216" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">STEP 5</text>
         <text x="1068" y="238" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Agent Execution</text>
@@ -85,27 +91,30 @@
       <path d="M1068,274 L1068,330" fill="none" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
 
       <!-- ============ CYCLE — ROW 2 (right to left) ============ -->
-      <g class="bp-node"><title>6. Validation — technical, functional, governance</title>
+      <g class="bp-node"><title>6. Validation — four axes (technical, functional, business, governance); verification is designed, not bought</title>
         <rect x="976" y="334" width="184" height="84" rx="10" fill="#173a6b"/>
-        <text x="1068" y="360" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">STEP 6</text>
-        <text x="1068" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Validation</text>
-        <text x="1068" y="404" text-anchor="middle" font-size="12" fill="#b9c8e0">/sdd validate · Tier 1 veto</text>
+        <text x="1068" y="357" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">STEP 6</text>
+        <text x="1068" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Validation</text>
+        <text x="1068" y="395" text-anchor="middle" font-size="12" fill="#b9c8e0">/sdd validate · Tier 1 veto</text>
+        <text x="1068" y="410" text-anchor="middle" font-size="11" fill="#b9c8e0">designed verification</text>
       </g>
       <line x1="976" y1="376" x2="938" y2="376" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
 
-      <g class="bp-node"><title>7. Drift Lock — code and SPEC in the same PR</title>
+      <g class="bp-node"><title>7. Drift Lock — code and SPEC in the same PR, last link of the chain of evidence</title>
         <rect x="744" y="334" width="190" height="84" rx="10" fill="#0e8a7d"/>
-        <text x="839" y="360" text-anchor="middle" font-size="12" font-weight="700" fill="#fbeecd">STEP 7</text>
-        <text x="839" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Drift Lock</text>
-        <text x="839" y="404" text-anchor="middle" font-size="12" fill="#cdebe7">/sdd drift-check · /sdd trace</text>
+        <text x="839" y="357" text-anchor="middle" font-size="12" font-weight="700" fill="#fbeecd">STEP 7</text>
+        <text x="839" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Drift Lock</text>
+        <text x="839" y="395" text-anchor="middle" font-size="12" fill="#cdebe7">/sdd drift-check · /sdd trace</text>
+        <text x="839" y="410" text-anchor="middle" font-size="11" fill="#cdebe7">last link of the evidence</text>
       </g>
       <line x1="744" y1="376" x2="706" y2="376" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
 
-      <g class="bp-node"><title>8. Deployment — staging then production, monitoring</title>
+      <g class="bp-node"><title>8. Deployment — staging then production, monitoring; automated only when the chain of evidence is complete</title>
         <rect x="512" y="334" width="190" height="84" rx="10" fill="#1e4a87"/>
-        <text x="607" y="360" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">STEP 8</text>
-        <text x="607" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Deployment</text>
-        <text x="607" y="404" text-anchor="middle" font-size="12" fill="#b9c8e0">staging → prod · rollback</text>
+        <text x="607" y="357" text-anchor="middle" font-size="12" font-weight="700" fill="#e8a020">STEP 8</text>
+        <text x="607" y="377" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">Deployment</text>
+        <text x="607" y="395" text-anchor="middle" font-size="12" fill="#b9c8e0">staging → prod · rollback</text>
+        <text x="607" y="410" text-anchor="middle" font-size="11" fill="#b9c8e0">on a complete chain of evidence</text>
       </g>
       <line x1="512" y1="376" x2="474" y2="376" stroke="#46546a" stroke-width="2.5" marker-end="url(#arrow)"/>
 
@@ -199,10 +208,10 @@
         <text x="705" y="748" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">METRICS</text>
         <text x="705" y="766" text-anchor="middle" font-size="11" fill="#b9c8e0">SQS · DORA · Flow · /aiad dashboard</text>
       </g>
-      <g class="bp-node"><title>Human Authorship — authorship of intent cannot be delegated</title>
+      <g class="bp-node"><title>Human Authorship — authorship of intent cannot be delegated; authority continuum: each level is a distinct human act, answering is not consenting</title>
         <rect x="940" y="726" width="220" height="52" rx="8" fill="#c5860f"/>
         <text x="1050" y="748" text-anchor="middle" font-size="13" font-weight="800" fill="#0a1f3d">HUMAN AUTHORSHIP</text>
-        <text x="1050" y="766" text-anchor="middle" font-size="10.5" fill="#3d2a05">value 7 — non-negotiable</text>
+        <text x="1050" y="766" text-anchor="middle" font-size="10.5" fill="#3d2a05">value 7 · authority continuum</text>
       </g>
       <text x="600" y="812" text-anchor="middle" font-size="12" fill="#46546a">AIAD Framework — SDD Mode — aiad.ovh — Open Source</text>
 </svg>
