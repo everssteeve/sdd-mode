@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Les artefacts — la mémoire collective de l'équipe | SDD Mode</title>
-<meta name="description" content="Les artefacts AIAD ne sont pas de la bureaucratie : Intent Statement, PRD, ARCHITECTURE, AGENT-GUIDE, SPECs et Definitions of Done forment une hiérarchie documentaire stricte — la mémoire collective de l'équipe et le carburant des agents IA.">
+<meta name="description" content="Les artefacts AIAD ne sont pas de la bureaucratie : Intent Statement, PRD, ARCHITECTURE, AGENT-GUIDE, SPECs et Definitions of Done forment une hiérarchie documentaire stricte — la mémoire collective de l'équipe et le carburant des agents IA. Classe de réversibilité, défaillances de supervision et sections de SPEC qui encadrent l'agent (v1.9).">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../en/artifacts.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -163,6 +163,7 @@
 
       <h2 id="intent">Intent Statement — le POURQUOI archivé</h2>
       <p>L'<a href="concepts/intent-statement.html">Intent Statement</a> est l'artefact de premier ordre : il capture l'intention humaine derrière chaque fonctionnalité en cinq champs (POURQUOI MAINTENANT, POUR QUI, OBJECTIF, CONTRAINTES, CRITÈRE DE DRIFT), avec un auteur humain obligatoire — principe <a href="concepts/human-authorship.html">Human Authorship</a>. Il précède et transcende la SPEC, et il est archivé dans <code>.aiad/intents/</code>. Dans six mois, c'est lui qui répondra à la question « qu'est-ce qu'on voulait accomplir, et pourquoi ? ».</p>
+      <p>Le <strong>Critère de Drift</strong> dit comment on saura, dans trois mois, si l'implémentation a trahi l'intention. Depuis la doctrine v1.9, lorsque l'intention implique des actions d'agent aux effets hors du code — financiers, opérationnels ou matériels —, il précise leur <strong>classe de réversibilité</strong> (réversible, coûteusement réversible, irréversible) et, pour la classe irréversible, un <strong>seuil d'arrêt</strong> : tout dépassement d'autonomie constaté arrête l'agent et déclenche une revue humaine immédiate. Détail sur la page <a href="concepts/intent-statement.html#reversibilite">Intent Statement</a>.</p>
 
       <h2 id="prd">PRD — la valeur attendue</h2>
       <p>Le <strong>Product Requirement Document</strong> clarifie pourquoi et quoi construire avant le comment. Il contient le contexte et le problème, les <strong>Outcome Criteria</strong> mesurables, les personas et use cases, le hors périmètre volontaire, les trade-offs et les risques. Cinq pratiques sont non négociables : partir du problème (pas de la solution), définir les critères de succès avant de construire, le rédiger <em>avec</em> l'équipe, le maintenir vivant, et l'illustrer (wireframes, flows).</p>
@@ -184,10 +185,19 @@
           <tr><td><strong>Human Learnings</strong></td><td>« Qu'est-ce que l'<em>humain</em> a mal exprimé ? » — défaillances de l'expression de l'intention</td><td>Revue à l'Atelier d'Intention mensuel</td></tr>
         </tbody>
       </table>
-      <p>Un guide de cent règles est moins efficace qu'un guide de dix règles bien choisies : l'AGENT-GUIDE est borné par le Context Budget (condensé ≤ 500 tokens en session).</p>
+      <p>Pour structurer les Human Learnings, la taxonomie de Tang et al. (arXiv, 2026) — issue de 20 574 sessions réelles — fournit sept formes de désalignement (mauvaise interprétation de l'intent, scope creep, solution hors-spec, hallucination d'exigence…) : catégoriser chaque entrée selon la forme observée fait apparaître les schémas récurrents d'intention mal formulée. En les nommant, les Human Learnings préviennent la <em>dette cognitive</em> (Fowler/Joshi, 2026).</p>
+      <h3 id="defaillances-supervision">Une catégorie à part : les défaillances de supervision</h3>
+      <p>Parmi les Human Learnings, certaines ne tiennent pas à une intention mal exprimée mais à une <strong>supervision absente ou devenue nominale</strong>. La doctrine v1.9 leur donne une catégorie propre, car elles se répètent sous des formes différentes. Deux cas servent de référence :</p>
+      <ul>
+        <li><strong>Un agent qui agit sans approbation</strong> (Meta, mars 2026, <strong>selon la presse</strong>) : un agent interne a publié de lui-même sa réponse sur un forum interne, sans l'accord de l'ingénieur qui l'avait sollicité ; un autre salarié a suivi ce conseil, exposant pendant près de deux heures des données sensibles à des personnes non autorisées.</li>
+        <li><strong>Des relectures automatiques empilées</strong> (« CVE-2026-LGTM », Andrew Nesbitt, juin 2026) : ce récit est une <strong>fiction satirique</strong>, pas un incident réel. Un paquet malveillant y franchit sept contrôles automatisés, chacun échouant pour une raison différente, pendant que deux agents de revue s'enferment dans un désaccord coûteux. Les praticiens y ont reconnu leurs propres chaînes : des angles morts corrélés entre outils d'IA, et plus aucun humain pour trancher.</li>
+      </ul>
+      <p>La question à poser en rétrospective : <em>à quel moment un humain aurait-il dû être consulté, et pourquoi ne l'a-t-il pas été ?</em> Les <a href="concepts/autonomie-agent.html#points-arret">points d'arrêt de l'agent</a> sont la réponse préventive.</p>
+      <p>Un guide de cent règles est moins efficace qu'un guide de dix règles bien choisies : l'AGENT-GUIDE est borné par le Context Budget (condensé ≤ 500 tokens en session). Pour la même raison, les <a href="concepts/validation.html#exemplars">exemplars de revue</a> n'y figurent pas : ils ne sont chargés que dans les sessions de revue.</p>
 
       <h2 id="spec">SPECs — l'instruction de travail de l'agent</h2>
       <p>Une <a href="concepts/spec.html">SPEC</a> fait le pont entre l'intention (PRD, Intent) et l'implémentation par l'agent. Une SPEC de qualité permet de générer 80 %+ du code correct du premier coup — c'est l'investissement au meilleur ROI du framework. Quatre critères la définissent : atomicité, précision, testabilité, complétude — scorés par le SQS à l'<a href="concepts/execution-gate.html">Execution Gate</a> (≥ 4/5 requis). Chaque SPEC porte son propre <strong>Critère de Drift</strong> et reste synchronisée avec le code à chaque PR.</p>
+      <p>Deux sections, ajoutées par la doctrine v1.9, encadrent ce que l'agent est autorisé à faire : « <strong>Points d'arrêt de l'agent</strong> » (optionnelle — quand l'agent revient vers un humain : approbation, avis d'expert, pluralité de points de vue, témoin) et « <strong>Périmètre d'exécution de l'agent</strong> » (conditionnelle — requise dès que l'agent dispose de credentials ou d'un accès en écriture à une ressource partagée, « Non applicable » sinon). Voir <a href="concepts/spec.html#sections-agent">SPEC</a> et <a href="concepts/autonomie-agent.html">Autonomie de l'agent</a>.</p>
 
       <h2 id="dod">Les Definitions of Done</h2>
       <p>La <strong>Definition of Output Done (DoOD)</strong> établit le standard pour qu'un incrément soit livrable, en six catégories : techniques, sécurité, performance, fonctionnels, déploiement, review. Le principe est non négociable : tous les critères ou rien — <strong>« Done à 90 % n'est pas Done »</strong>.</p>
@@ -203,17 +213,20 @@
 │   ├── AIAD-AI-ACT.md
 │   ├── AIAD-RGPD.md
 │   ├── AIAD-RGAA.md
-│   └── AIAD-RGESN.md
+│   ├── AIAD-RGESN.md
+│   └── AIAD-CRA.md         ← Livré en complément (produits logiciels)
 ├── intents/                ← Intent Statements (POURQUOI)
 │   └── _index.md
 ├── specs/                  ← SPECs techniques (COMMENT)
 │   └── _index.md
+├── review-exemplars/       ← Exemplars de revue (optionnel, sessions de revue uniquement)
 ├── facts/                  ← Traces /sdd fact
 ├── metrics/
 │   ├── security/           ← Rapports /sdd security
 │   ├── audit/              ← Rapports /sdd audit
 │   └── traceability/       ← Snapshots /sdd trace (Markdown + JSON + HTML)
 └── CHANGELOG-ARTEFACTS.md  ← Historique des mises à jour</code></pre>
+      <p>La doctrine compte <strong>quatre guides Tier 1</strong> (AI-ACT, RGPD, RGAA, RGESN). L'agent AIAD-CRA est <strong>livré en complément</strong> par le paquet pour les produits logiciels : l'obligation de signalement à l'ENISA prévue par le Cyber Resilience Act est en vigueur depuis le 11/09/2026. Le répertoire <code>review-exemplars/</code> est une convention optionnelle de la doctrine, à créer par l'équipe.</p>
 
       <h2 id="anti-patterns">Anti-patterns des artefacts</h2>
       <div class="callout danger">

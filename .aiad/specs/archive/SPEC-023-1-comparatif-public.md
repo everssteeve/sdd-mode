@@ -44,7 +44,7 @@ INTENT-023 impose un comparatif factuel AIAD vs concurrents centré sur la moat 
 3. Créer `site/fr/comparaison.html` reprenant le tableau comparatif avec :
    - Distinction visuelle **mesuré** (🔬 icône) vs **documenté** (📄 icône) — jamais présenté comme équivalent
    - Section dédiée à la moat AIAD (gouvernance enforced + traçabilité machine-vérifiable)
-   - Section « Où AIAD est plus faible » : couverture runtimes (5 vs 30+ Spec Kit), maturité des intégrations IDE
+   - Section « Où AIAD est plus faible » : couverture runtimes (5 vs 30+ Spec Kit à la livraison ; 6 vs 30+ depuis l'ajout du runtime Kiro), maturité des intégrations IDE
    - Date de collecte affichée dans chaque cellule de données concurrentes
 4. Ajouter un lien depuis `site/fr/a-propos.html` et/ou depuis la nav principale.
 
@@ -66,7 +66,7 @@ INTENT-023 impose un comparatif factuel AIAD vs concurrents centré sur la moat 
 - [x] CA-1 : `site/fr/comparaison.html` existe et est accessible via un lien dans `site/fr/a-propos.html` **et** dans la nav principale
 - [x] CA-2 : Le tableau comparatif inclut au minimum 5 concurrents (Spec Kit, Kiro, OpenSpec, BMAD, Amazon Q) avec date de collecte affichée
 - [x] CA-3 : Toute donnée non mesurée par AIAD est marquée « documenté » (📄) — aucune cellule ne mélange mesure et déclaratif sans distinction
-- [x] CA-4 : Une section « Où AIAD est plus faible » est présente et nomme explicitement la couverture runtimes (5 vs concurrents)
+- [x] CA-4 : Une section « Où AIAD est plus faible » est présente et nomme explicitement la couverture runtimes (5 vs concurrents à la livraison ; 6 depuis l'ajout du runtime Kiro)
 - [x] CA-5 : La page passe axe-core (0 violation WCAG 2.1 AA) — même gate que les autres pages site/
 - [x] CA-6 : `bench/comparison.md` contient les colonnes OpenSpec et BMAD (même partielles, avec N/D horodaté)
 - [x] CA-7 : Chaque affirmation sur un concurrent référence une URL de source publique en note ou colonne dédiée — sans source citée, la cellule affiche N/D (YYYY-MM-DD)
@@ -115,3 +115,7 @@ Icônes à utiliser (cohérence avec le design system existant) :
 - [x] Tests unitaires `bench-comparison.test.js` passants (16/16)
 - [x] SPEC mise à jour si écart lors de l'exécution (Drift Lock)
 - [x] Gouvernance vérifiée : AIAD-RGAA (accessibilité page publique) — PASS
+
+## 8. Mises à jour après livraison
+
+- **2026-09-26** — Rafraîchissement des colonnes documentaires (doctrine AIAD v1.9, positionnement des outils SDD v1.2) dans `bench/comparison.md` et `site/fr/comparaison.html` : Kiro décrit comme IDE, CLI et web avec l'orchestrateur Kiro Crew (Apache 2.0) au lieu de « Amazon Q uniquement » ; Spec Kit précisé open source (MIT) et multi-agents ; couverture runtimes AIAD portée à 6 (Kiro, livré dans aiad-sdd 1.19.0) ; suppression de la mention de roadmap interne dans la section « Où AIAD est plus faible » ; ajout d'une section sur l'objet des contrôles humains (exécution chez Kiro, intention chez AIAD). Métriques mesurées inchangées (non régénérées). Vérifié : `bench-comparison.test.js` passant, pa11y-ci WCAG2AA 0 erreur.

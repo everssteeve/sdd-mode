@@ -112,8 +112,8 @@
         </ul>
         <h2>Commandes</h2>
         <ul>
-          <li><a href="sdd.html" aria-current="page">/sdd (16)</a></li>
-          <li><a href="aiad.html">/aiad (15)</a></li>
+          <li><a href="sdd.html" aria-current="page">/sdd (17)</a></li>
+          <li><a href="aiad.html">/aiad (16)</a></li>
           <li><a href="cli.html">CLI npx aiad-sdd</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -149,8 +149,8 @@
       <h1>/sdd — les 17 commandes du cycle</h1>
       <p class="doc-lede">Le router <code>/sdd</code> regroupe toutes les commandes du cycle Spec Driven Development : du cadrage initial jusqu'aux audits, en passant par l'Intent Statement, la phase Research, la SPEC, l'Execution Gate et le Drift Lock.</p>
 
-      <h2 id="routers">Les routers v1.7</h2>
-      <p>Depuis la v1.7, les 27 commandes du framework sont regroupées en <strong>3 routers</strong> — <code>/sdd</code>, <code>/aiad</code> et <code>/aiad-help</code> — pour réduire le poids du system prompt à froid (<strong>−94&nbsp;% de frontmatter</strong> chargé une fois les alias rétro-compatibles retirés). Les corps des sous-commandes sont stockés dans <code>.claude/sdd/</code> et <code>.claude/aiad/</code>, chargés <strong>uniquement à la demande</strong> par le router via <code>Read</code> : seul le contenu de la commande invoquée occupe le contexte.</p>
+      <h2 id="routers">Les routers (aiad-sdd 1.7)</h2>
+      <p>Depuis <code>aiad-sdd</code> 1.7, les commandes du framework — 33 aujourd'hui : 17 <code>/sdd</code> et 16 <code>/aiad</code> — sont regroupées en <strong>3 routers</strong> — <code>/sdd</code>, <code>/aiad</code> et <code>/aiad-help</code> — pour réduire le poids du system prompt à froid (<strong>−94&nbsp;% de frontmatter</strong> chargé une fois les alias rétro-compatibles retirés). Les corps des sous-commandes sont stockés dans <code>.claude/sdd/</code> et <code>.claude/aiad/</code>, chargés <strong>uniquement à la demande</strong> par le router via <code>Read</code> : seul le contenu de la commande invoquée occupe le contexte.</p>
 
       <h2 id="dual-mode">Dual-mode : <code>--guided</code> / <code>--fast</code></h2>
       <p>Chaque commande accepte deux modes d'exécution, plus une auto-détection :</p>
@@ -182,7 +182,7 @@
           <tr><td><a href="#context"><code>/sdd context</code></a></td><td>Amélioration</td><td>Auditer le budget de contexte (estimation vs réel)</td></tr>
           <tr><td><a href="#validate"><code>/sdd validate</code></a></td><td>Validation</td><td>Valider le code produit (triple validation)</td></tr>
           <tr><td><a href="#drift-check"><code>/sdd drift-check</code></a></td><td>Intégration</td><td>Vérifier la synchronisation artefacts/code</td></tr>
-          <tr><td><a href="#trace"><code>/sdd trace</code></a></td><td>Intégration</td><td>Matrice Intent ↔ SPEC ↔ Code ↔ Tests (v1.10)</td></tr>
+          <tr><td><a href="#trace"><code>/sdd trace</code></a></td><td>Intégration</td><td>Matrice Intent ↔ SPEC ↔ Code ↔ Tests (aiad-sdd 1.10)</td></tr>
           <tr><td><a href="#fact"><code>/sdd fact</code></a></td><td>Correction</td><td>Capturer et qualifier un écart livré/désiré</td></tr>
           <tr><td><a href="#security"><code>/sdd security</code></a></td><td>Audit</td><td>Audit sécurité (OWASP, secrets, permissions agents)</td></tr>
           <tr><td><a href="#audit"><code>/sdd audit</code></a></td><td>Audit</td><td>Audit qualité (conformité SPEC, dette technique)</td></tr>
@@ -191,7 +191,7 @@
 
       <h2 id="init"><code>/sdd init</code> — cadrage initial</h2>
       <p><strong>Quand.</strong> Au démarrage d'un projet, juste après <code>npx aiad-sdd init</code>.</p>
-      <p><strong>Ce que ça fait.</strong> Affiche d'abord le message de redémarrage (recharger les 27 commandes en session), puis guide la rédaction des 3 artefacts fondamentaux. Pour le PRD et l'ARCHITECTURE, la commande propose deux voies : déléguer aux assistants <code>/sdd prd</code> et <code>/sdd arch</code>, ou compléter les templates manuellement. Skill invoquée : <code>human-authorship-check</code> — les « POURQUOI » du PRD appartiennent à l'humain.</p>
+      <p><strong>Ce que ça fait.</strong> Affiche d'abord le message de redémarrage (recharger les commandes fraîchement installées en session), puis guide la rédaction des 3 artefacts fondamentaux. Pour le PRD et l'ARCHITECTURE, la commande propose deux voies : déléguer aux assistants <code>/sdd prd</code> et <code>/sdd arch</code>, ou compléter les templates manuellement. Skill invoquée : <code>human-authorship-check</code> — les « POURQUOI » du PRD appartiennent à l'humain.</p>
       <p><strong>Sortie.</strong> <code>PRD.md</code>, <code>ARCHITECTURE.md</code> et <code>AGENT-GUIDE.md</code> complétés, prêts à être committés dans <code>.aiad/</code>.</p>
 
       <h2 id="prd"><code>/sdd prd</code> — assistant PRD</h2>
@@ -216,17 +216,19 @@
 
       <h2 id="spec"><code>/sdd spec</code> — rédaction de SPEC</h2>
       <p><strong>Quand.</strong> Une fois l'Intent validé et la Research en <code>GO</code> / <code>CONDITIONAL GO</code> (prérequis Discovery vérifié — court-circuit explicite admis pour une intention triviale, tracé dans la SPEC).</p>
-      <p><strong>Ce que ça fait.</strong> Décompose en tâches atomiques (1 SPEC = 1 PR), affiche un <strong>plan de parallélisme en waves</strong> dès que 2 SPECs ou plus sont identifiées, puis rédige chaque SPEC au format complet (comportement, cas limites, critères, interface, budget contexte, DoOD). Le flag <code>--ears</code> active la variante EARS (v1.11) et le linter strict. Skills invoquées : <code>reasons-canvas</code> (option si l'Intent est complexe), <code>ears-validator</code> (strict en EARS, indicatif en prose).</p>
+      <p><strong>Ce que ça fait.</strong> Décompose en tâches atomiques (1 SPEC = 1 PR), affiche un <strong>plan de parallélisme en waves</strong> dès que 2 SPECs ou plus sont identifiées, puis rédige chaque SPEC au format complet (comportement, cas limites, critères, interface, budget contexte, DoOD). Le flag <code>--ears</code> active la variante EARS (<code>aiad-sdd</code> 1.11) et le linter strict. Skills invoquées : <code>reasons-canvas</code> (option si l'Intent est complexe), <code>ears-validator</code> (strict en EARS, indicatif en prose).</p>
+      <p>La doctrine v1.9 ajoute deux sections nommées : « Points d'arrêt de l'agent » (facultative : quand l'agent revient vers l'humain — approbation, avis d'expert, pluralité de points de vue, témoin) et « Périmètre d'exécution de l'agent » (requise si la SPEC implique des credentials ou un accès en écriture à une ressource partagée, « Non applicable » sinon). <strong>Prochaine version — à paraître :</strong> ces deux sections intégrées aux gabarits prose et EARS du paquet, et une ligne « Contexte hérité au point de fork » dans l'estimation du budget de contexte.</p>
       <p><strong>Sortie.</strong> Fichier(s) <code>SPEC-NNN-[nom].md</code> dans <code>.aiad/specs/</code> + mise à jour des index et de l'Intent parent.</p>
 
       <h2 id="gate"><code>/sdd gate</code> — Execution Gate</h2>
       <p><strong>Quand.</strong> Avant tout lancement d'agent de code, pour valider la SPEC.</p>
-      <p><strong>Ce que ça fait.</strong> Score les 5 critères SQS + le Test de l'Étranger. SQS ≥ 4/5 → Gate OUVERTE et préparation du Context Engineering Budget ; sinon plan de remédiation. Si la SPEC déclare <code>Format : EARS</code> : 0 violation → bonus +1 sur la Testabilité ; ≥ 1 violation → critère 2 forcé à 0. Un critère non scorable produit une Gate <code>INCONNUE</code> (verdict JNSP, fail-closed). Skills invoquées : <code>sqs-scoring</code>, <code>ears-validator</code>, <code>grill-me</code> (en <code>--guided</code>).</p>
+      <p><strong>Ce que ça fait.</strong> Score les 5 critères SQS + le Test de l'Étranger. Dès qu'une action est irréversible ou que l'agent dispose de credentials, la Gate vérifie aussi plafonds, seuil d'arrêt et périmètre d'exécution. SQS ≥ 4/5 → Gate OUVERTE et préparation du Context Engineering Budget ; sinon plan de remédiation. Si la SPEC déclare <code>Format : EARS</code> : 0 violation → bonus +1 sur la Testabilité ; ≥ 1 violation → critère 2 forcé à 0. Un critère non scorable produit une Gate <code>INCONNUE</code> (verdict JNSP, fail-closed). Skills invoquées : <code>sqs-scoring</code>, <code>ears-validator</code>, <code>grill-me</code> (en <code>--guided</code>).</p>
+      <p><strong>Prochaine version — à paraître.</strong> Avant tout scoring SQS, la commande lance le pré-contrôle déterministe <code>npx aiad-sdd gate-precheck &lt;SPEC&gt;</code>, qui lit la section « Périmètre d'exécution de l'agent » hors modèle : <code>PASS</code> (exit 0) → on poursuit ; <code>FAIL</code> (exit 1 — action irréversible sans seuil d'arrêt, credentials ou ressources partagées sans isolation ni sorties réseau déclarées) → Gate FERMÉE sans scoring ; <code>JNSP</code> (exit 2 — SPEC introuvable ou tableau incomplet) → Gate INCONNUE. Voir <a href="cli.html#gate-precheck">CLI — gate-precheck</a>.</p>
       <p><strong>Sortie.</strong> Score SQS + décision OUVERTE / OUVERTE avec réserve / FERMÉE / INCONNUE + plan de remédiation si fermée.</p>
 
       <h2 id="exec"><code>/sdd exec</code> — lancement d'exécution agent</h2>
       <p><strong>Quand.</strong> Gate ouverte, SPEC en statut <code>ready</code>, contexte préparé.</p>
-      <p><strong>Ce que ça fait.</strong> Vérifie les prérequis (SPEC <code>ready</code>, SQS ≥ 4/5, Intent actif, Discovery, dépendances), assemble le contexte minimal (AGENT-GUIDE condensé + ARCHITECTURE résumée + SPEC active), vérifie le budget (&lt; 50K tokens), qualifie la gouvernance, puis découpe l'exécution en <strong>tranches verticales testables</strong> validées par mini-gates (<code>npx aiad-sdd mini-gate</code>). Le prompt inclut le contrat JNSP (<code>TODO-JNSP:</code> plutôt qu'inventer). Skills invoquées : <code>sqs-scoring</code>, <code>context-budget</code>, <code>regulatory-veto</code> (un VETO empêche le lancement).</p>
+      <p><strong>Ce que ça fait.</strong> Vérifie les prérequis (SPEC <code>ready</code>, SQS ≥ 4/5, Intent actif, Discovery, dépendances), assemble le contexte minimal (AGENT-GUIDE condensé + ARCHITECTURE résumée + SPEC active), vérifie le budget (&lt; ≈ 50K tokens — heuristique de sobriété assumée, non sourcée), qualifie la gouvernance, puis découpe l'exécution en <strong>tranches verticales testables</strong> validées par mini-gates (<code>npx aiad-sdd mini-gate</code>). Le prompt inclut le contrat JNSP (<code>TODO-JNSP:</code> plutôt qu'inventer). Skills invoquées : <code>sqs-scoring</code>, <code>context-budget</code>, <code>regulatory-veto</code> (un VETO empêche le lancement).</p>
       <p><strong>Sortie.</strong> Prompt agent assemblé + plan phasé <code>.aiad/exec/EXEC-&lt;SPEC&gt;-plan.md</code> + statut SPEC → <code>in-progress</code>, puis code + tests conformes.</p>
 
       <h2 id="resume"><code>/sdd resume</code> — reprise de session</h2>
@@ -235,13 +237,14 @@
       <p><strong>Sortie.</strong> Résumé d'état structuré + nouvelle session opérationnelle reprenant à l'étape exacte.</p>
 
       <h2 id="split"><code>/sdd split</code> — découpage de SPEC</h2>
-      <p><strong>Quand.</strong> SPEC trop volumineuse (&gt; 200 lignes), échec d'atomicité à la Gate, &gt; 2 relances agent ou budget &gt; 50K tokens.</p>
+      <p><strong>Quand.</strong> SPEC trop volumineuse (&gt; 200 lignes), échec d'atomicité à la Gate, &gt; 2 relances agent ou budget &gt; ≈ 50K tokens (heuristique de sobriété assumée, non sourcée).</p>
       <p><strong>Ce que ça fait.</strong> Propose un pattern de découpage — par couche technique, par cas d'usage (happy path / edge cases / erreurs), par dépendance ou par domaine métier — puis pré-valide chaque sous-SPEC avec la skill <code>sqs-scoring</code> : chacune doit pouvoir passer la Gate indépendamment. Au-delà de 5 sous-SPECs, l'Intent est trop ambitieux → retour à <code>/sdd intent</code>.</p>
       <p><strong>Sortie.</strong> 2 à N sous-SPECs avec dépendances explicites et ordre d'exécution, SPEC parente en statut <code>split</code>.</p>
 
       <h2 id="context"><code>/sdd context</code> — audit du budget de contexte</h2>
       <p><strong>Quand.</strong> Après une session agent, pour boucler le feedback du Context Engineering Budget.</p>
-      <p><strong>Ce que ça fait.</strong> Compare l'estimation de la SPEC §6 avec le contexte réellement injecté, puis applique la skill <code>context-budget</code> : 5 métriques de santé M1–M5 (taux utile, relances, ratio, cohérence, durée) et un score 0–5/5. Le context rot (M4 + M5) est le signal le plus dangereux : il dégrade silencieusement.</p>
+      <p><strong>Ce que ça fait.</strong> Compare l'estimation de la SPEC §6 avec le contexte réellement injecté, puis applique la skill <code>context-budget</code> : 5 métriques de santé M1–M5 (taux utile, relances, ratio, cohérence, durée) et un score 0–5/5. Le context rot (M4 + M5) est le signal le plus dangereux : il dégrade silencieusement. Depuis <code>aiad-sdd</code> 1.19.0, l'<strong>empreinte mesurée</strong> de la SPEC (<code>npx aiad-sdd footprint &lt;SPEC&gt;</code>) s'affiche à côté de l'estimation.</p>
+      <p><strong>Prochaine version — à paraître.</strong> L'audit compte le <strong>contexte hérité</strong> aux points de fork : quand un sous-agent hérite de la conversation parente, sa délégation coûte le contexte parent au moment du fork en plus de son travail propre. Une ligne « Contexte hérité (délégations) » s'ajoute au tableau estimation / réel, et un diagnostic signale les délégations tardives (contexte hérité &gt; 50 % du total) : déléguer plus tôt dans la session.</p>
       <p><strong>Sortie.</strong> Rapport d'audit avec recommandations + mise à jour de la SPEC §6 et des Lessons / Human Learnings si un pattern est détecté.</p>
 
       <h2 id="validate"><code>/sdd validate</code> — validation du code agent</h2>
@@ -251,7 +254,7 @@
 
       <h2 id="drift-check"><code>/sdd drift-check</code> — Anti-Drift Check</h2>
       <p><strong>Quand.</strong> Avant chaque PR, et en rituel de fin d'itération.</p>
-      <p><strong>Ce que ça fait.</strong> Combine deux contrôles depuis la v1.10 : l'heuristique git (skill <code>drift-detection</code> — code modifié sans SPEC mise à jour dans la même PR) et la mesure machine-vérifiable (skill <code>traceability</code>, via <code>npx aiad-sdd trace --fail-on-gap</code>). Des annotations <code>@spec</code> absentes donnent un verdict <code>INCONNU</code> — jamais OK par défaut, et traité comme un DRIFT par les hooks et la CI.</p>
+      <p><strong>Ce que ça fait.</strong> Combine deux contrôles depuis <code>aiad-sdd</code> 1.10 : l'heuristique git (skill <code>drift-detection</code> — code modifié sans SPEC mise à jour dans la même PR) et la mesure machine-vérifiable (skill <code>traceability</code>, via <code>npx aiad-sdd trace --fail-on-gap</code>). Des annotations <code>@spec</code> absentes donnent un verdict <code>INCONNU</code> — jamais OK par défaut, et traité comme un DRIFT par les hooks et la CI.</p>
       <p><strong>Sortie.</strong> Verdict OK / DRIFT / INCONNU + mises à jour proposées + entrée <code>CHANGELOG-ARTEFACTS.md</code>. Ne jamais merger en état de drift.</p>
 
       <h2 id="trace"><code>/sdd trace</code> — matrice de traçabilité</h2>

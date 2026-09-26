@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SPEC — la spécification vivante | SDD Mode</title>
-<meta name="description" content="La SPEC fait le pont entre l'intention humaine et l'implémentation par les agents IA. Spec as Living Invariant, 12 sections normalisées, 4 critères de qualité, variante EARS optionnelle (v1.11) et découpage atomique via /sdd split.">
+<meta name="description" content="La SPEC fait le pont entre l'intention humaine et l'implémentation par les agents IA. Spec as Living Invariant, 12 sections normalisées plus les sections « Points d'arrêt de l'agent » et « Périmètre d'exécution de l'agent », 4 critères de qualité, variante EARS optionnelle (v1.11) et découpage atomique via /sdd split.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../../en/concepts/spec.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -162,8 +162,8 @@
       </table>
       <p>L'argument n'est pas que documentaire : une session ancrée sur une SPEC consomme en moyenne <strong>41,7 % de tokens en moins</strong> qu'une session sans spécification (R2Code, arXiv 2026). La SPEC est un point d'ancrage stable contre le <em>context rot</em>.</p>
 
-      <h2 id="sections">Les douze sections d'une SPEC</h2>
-      <p>Une SPEC AIAD est normalisée. Elle contient :</p>
+      <h2 id="sections">Les sections d'une SPEC</h2>
+      <p>Une SPEC AIAD est normalisée. Elle contient douze sections de base :</p>
       <ol>
         <li>le <strong>scope d'activation</strong> — injectée seule (par défaut) ou combinée avec d'autres SPECs (fonctionnalités transverses) ;</li>
         <li>le <strong>contexte</strong> — référence à l'<a href="intent-statement.html">Intent Statement</a> parent, objectif, outcome attendu ;</li>
@@ -181,6 +181,22 @@
       <pre><code>**Critère de Drift** : cette SPEC est en drift si le fichier
 `auth/validator.ts` est modifié sans mise à jour de la section
 Interface Technique.</code></pre>
+
+      <h3 id="sections-agent">Deux sections pour encadrer l'agent (doctrine v1.9)</h3>
+      <p>La doctrine v1.9 ajoute deux sections, désignées par leur libellé. Elles traduisent dans la SPEC ce que l'humain délègue réellement à l'agent — voir <a href="autonomie-agent.html">Autonomie de l'agent</a>.</p>
+      <table>
+        <caption>Les deux sections de SPEC qui encadrent l'agent</caption>
+        <thead><tr><th scope="col">Section</th><th scope="col">Statut</th><th scope="col">Contenu</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">« Points d'arrêt de l'agent »</th><td>Optionnelle</td><td>Quand l'agent doit revenir vers un humain pendant l'exécution, et sous quelle forme : <strong>approbation</strong> (action hors mandat ou irréversible), <strong>avis d'expert</strong> (décision qui dépasse la SPEC), <strong>pluralité de points de vue</strong> (plusieurs interprétations plausibles de l'intention), <strong>témoin</strong> (décision notable à porter à la connaissance de l'humain). Si la section est absente, les points d'arrêt par défaut du framework s'appliquent.</td></tr>
+          <tr><th scope="row">« Périmètre d'exécution de l'agent »</th><td>Conditionnelle</td><td>Requise seulement si l'agent dispose de credentials (cloud, API, SSH, base de données) <strong>ou</strong> d'un accès en écriture à une ressource partagée : isolation, sorties réseau autorisées, credentials présents, ressources partagées en écriture, espaces de coordination voulus, actions irréversibles possibles et leur classe de réversibilité. Sinon : écrire « Non applicable » et ne rien remplir.</td></tr>
+        </tbody>
+      </table>
+      <p>Une SPEC ne doit pas s'alourdir d'un champ rempli par rituel : hors des cas prévus, la section « Périmètre d'exécution de l'agent » tient en deux mots. Le mode de permission du harness n'y figure pas comme mesure de confinement — <a href="autonomie-agent.html#permission">un mode de permission n'est pas un contrôle</a>.</p>
+      <div class="callout info">
+        <span class="callout-title">Dans le paquet aiad-sdd — prochaine version, à paraître</span>
+        <p>Les gabarits de SPEC livrés par <code>/sdd spec</code> (prose et EARS) intègrent ces deux sections dans la prochaine version du paquet, à paraître. Par rapport à la doctrine, le tableau « Périmètre d'exécution de l'agent » du gabarit ajoute une ligne « Seuil d'arrêt » — lue par le pré-contrôle de l'<a href="execution-gate.html#precheck">Execution Gate</a> — et ne comporte pas de ligne distincte « Espaces de coordination voulus ».</p>
+      </div>
       <div class="callout warn">
         <span class="callout-title">Anti-pattern</span>
         <p>La SPEC tentaculaire à vingt fonctionnalités, ou la SPEC vague type « Améliorer la performance ». Les deux sont inutilisables — et coûtent des heures de correction du code généré, là où corriger la SPEC aurait pris dix minutes.</p>
@@ -198,6 +214,10 @@ Interface Technique.</code></pre>
         </tbody>
       </table>
       <p>Ces quatre critères alimentent directement le <a href="execution-gate.html">Spec Quality Score</a> évalué à <code>/sdd gate</code>. Une SPEC qui ne les satisfait pas ne doit jamais être soumise à un agent. Au-delà de <strong>200 lignes</strong>, la SPEC est trop grande : direction <a href="#split"><code>/sdd split</code></a>.</p>
+      <div class="callout success">
+        <span class="callout-title">Appui externe (doctrine v1.9)</span>
+        <p>En juillet 2026, Anthropic a publié une refonte de sa doctrine de context engineering pour ses modèles Claude 5 : suppression d'environ 80 % du system prompt de Claude Code sans perte mesurée selon l'éditeur, et bascule recommandée des consignes simples vers des <strong>références riches et vérifiables</strong> (suites de tests détaillées, code existant à porter). C'est une validation externe de la thèse du SQS : une bonne SPEC n'est pas une liste de contraintes plus longue, c'est un artefact riche et vérifiable. Le chiffre de 80 % est une mesure de l'éditeur, <strong>non audité</strong>.</p>
+      </div>
 
       <h2 id="ears">La variante EARS (v1.11) — l'option anti-ambiguïté</h2>
       <p>Depuis la v1.11, les critères d'acceptation peuvent être rédigés au format <strong>EARS</strong> (Easy Approach to Requirements Syntax) via <code>/sdd spec --ears</code>. La SPEC est alors basée sur le template <code>.aiad/specs/spec-ears-template.md</code> et déclare <code>Format : EARS</code> en entête — c'est ce signal qui active le linter strict <code>ears-validator</code> à la Gate. Chaque critère suit l'un des cinq patterns :</p>

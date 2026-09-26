@@ -9,7 +9,7 @@ title: Benchmarks comparatifs
 >
 > Régénéré à chaque release via `node scripts/bench-comparison.js`. Méthodologie reproductible : voir section *Méthodologie* en fin de page.
 >
-> **Date de collecte des données concurrentes** : 2026-06-29. Les colonnes « documenté » renseignent ce qui est publiquement documenté par chaque outil à cette date — aucun benchmark n'a été exécuté localement pour ces outils. Un concurrent peut évoluer : ouvrir une PR de mise à jour en citant la source.
+> **Date de collecte des données concurrentes** : 2026-06-29 ; colonnes Kiro et Spec Kit revues en 2026-09 (Kiro disponible en IDE, CLI et web ; Spec Kit open source sous licence MIT, multi-agents). Les colonnes « documenté » renseignent ce qui est publiquement documenté par chaque outil à cette date — aucun benchmark n'a été exécuté localement pour ces outils. Un concurrent peut évoluer : ouvrir une PR de mise à jour en citant la source.
 
 ## Synthèse
 
@@ -18,7 +18,7 @@ Les métriques AIAD-SDD sont **mesurées** 🔬 sur la machine de release. Les c
 | Métrique | AIAD SDD 🔬 mesuré | Spec Kit 📄 documenté | Kiro 📄 documenté | OpenSpec 📄 documenté | BMAD 📄 documenté | Cursor Memory Bank |
 |----------|-------------------|----------------------|------------------|-----------------------|-------------------|-------------------|
 | Cold-start CLI | **41.1 ms / 41.8 ms / 42.0 ms / 42.0 ms (3 runs)** | *non publié* | *non publié* | N/A — framework méthodologique sans CLI autonome (2026-06-29) | N/A — framework méthodologique sans CLI autonome (2026-06-29) | N/A (in-IDE) |
-| Init projet (zero-dep) | **54.1 ms / 54.5 ms / 55.6 ms / 55.6 ms (3 runs)** | install requis (Python uv) | install Amazon Q + IDE | N/D (2026-06-29) — pas d'init CLI identifié | N/D (2026-06-29) — pas d'init CLI identifié | configuration manuelle |
+| Init projet (zero-dep) | **54.1 ms / 54.5 ms / 55.6 ms / 55.6 ms (3 runs)** | install requis (Python uv) | install Kiro (IDE ou CLI) | N/D (2026-06-29) — pas d'init CLI identifié | N/D (2026-06-29) — pas d'init CLI identifié | configuration manuelle |
 | Scan trace 1k fichiers | **41.9 ms / 42.8 ms / 44.9 ms / 44.9 ms (3 runs)** | pas de scan trace natif | pas de scan trace natif | N/D (2026-06-29) | N/D (2026-06-29) | N/A |
 | Doctor (--json) | **38.6 ms / 39.6 ms / 39.9 ms / 39.9 ms (3 runs)** | pas de commande doctor | pas de commande doctor | N/D (2026-06-29) | N/D (2026-06-29) | N/A |
 
@@ -28,8 +28,8 @@ Format des cellules AIAD : **min / médiane / p95 / max** sur N runs.
 
 | Capacité | AIAD SDD | Spec Kit | Kiro | OpenSpec | BMAD | Cursor MB |
 |----------|:--------:|:--------:|:----:|:--------:|:----:|:---------:|
-| Zero-dep runtime | ✅ | ❌ (Python) | ❌ (Amazon Q) | N/A — framework méthodologique | N/A — framework méthodologique | N/A |
-| Multi-runtime AGENTS.md/CLAUDE.md/.cursor/.codex/GEMINI | ✅ | ❌ | ❌ | N/D (2026-06-29) | N/D (2026-06-29) | ❌ |
+| Zero-dep runtime | ✅ | ❌ (Python) | ❌ (IDE / CLI Kiro) | N/A — framework méthodologique | N/A — framework méthodologique | N/A |
+| Multi-runtime AGENTS.md/CLAUDE.md/.cursor/.codex/GEMINI/.kiro | ✅ | ❌ | ❌ | N/D (2026-06-29) | N/D (2026-06-29) | ❌ |
 | Drift Lock pre-commit hook | ✅ | ❌ | ❌ | N/D (2026-06-29) | ❌ (2026-06-29) | ❌ |
 | Matrice traçabilité Intent ↔ SPEC ↔ Code ↔ Tests | ✅ | ❌ | ❌ | N/D (2026-06-29) | ❌ (2026-06-29) | ❌ |
 | Format SARIF CodeQL natif | ✅ | ❌ | ❌ | N/D (2026-06-29) | N/D (2026-06-29) | ❌ |
@@ -42,14 +42,14 @@ Format des cellules AIAD : **min / médiane / p95 / max** sur N runs.
 | TUI interactive zero-dep | ✅ | ❌ | ✅ | ❌ (2026-06-29) | ❌ (2026-06-29) | ❌ |
 | Migration auto Spec Kit / Kiro → .aiad/ | ✅ | N/A | N/A | N/D (2026-06-29) | N/D (2026-06-29) | N/A |
 | Tests automatisés du framework | ✅ 540+ | partial | inconnu | N/D (2026-06-29) | N/D (2026-06-29) | N/A |
-| Couverture runtimes IA | 5 (Claude Code, Cursor, Codex, Copilot, Gemini) | 30+ runtimes | Amazon Q uniquement | N/D (2026-06-29) | N/D (2026-06-29) | Cursor uniquement |
+| Couverture runtimes IA | 6 (Claude Code, Cursor, Codex, Copilot, Gemini, Kiro — Kiro depuis aiad-sdd 1.19.0) | 30+ runtimes (multi-agents) | Kiro (IDE, CLI, web ; orchestrateur Kiro Crew open source, Apache 2.0) | N/D (2026-06-29) | N/D (2026-06-29) | Cursor uniquement |
 
 ## Sources des données concurrentes (2026-06-29)
 
 | Concurrent | Source principale |
 |-----------|------------------|
-| Spec Kit | https://github.com/githubnext/spec-kit |
-| Kiro | https://kiro.dev / documentation officielle Amazon |
+| Spec Kit | https://github.com/githubnext/spec-kit — open source, licence MIT |
+| Kiro | https://kiro.dev / documentation officielle Amazon — IDE, CLI et web ; Kiro Crew sous licence Apache 2.0 (revu 2026-09) |
 | OpenSpec | https://github.com/openspec — nature : framework de spécification méthodologique |
 | BMAD | https://github.com/bmadcode/BMAD-METHOD — nature : framework méthodologique pour développement agentique |
 | Cursor Memory Bank | https://cursor.directory/memory-bank |
@@ -86,4 +86,4 @@ node scripts/bench-comparison.js --runs 10 --files 1000
 
 ---
 
-*Document régénéré le 2026-05-10 (métriques AIAD) par `scripts/bench-comparison.js`. Colonnes concurrentes mises à jour manuellement le 2026-06-29 (OpenSpec, BMAD ajoutés — SPEC-023-1).*
+*Document régénéré le 2026-05-10 (métriques AIAD) par `scripts/bench-comparison.js`. Colonnes concurrentes mises à jour manuellement le 2026-06-29 (OpenSpec, BMAD ajoutés), puis en 2026-09 (Kiro : IDE, CLI, web et Kiro Crew ; Spec Kit : MIT, multi-agents ; runtime Kiro ajouté à AIAD).*
