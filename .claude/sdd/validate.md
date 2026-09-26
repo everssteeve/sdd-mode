@@ -92,13 +92,7 @@ npx aiad-sdd cross-model merge <SPEC-id> --base <verdict-de-base> --output-forma
 
 **Dégradation propre** : si le runtime tiers est indisponible (headless/CI), saute cette étape avec une note — ne jamais bloquer. Le verdict final reste **déterministe** ; des Findings hauts non résolus forcent au plus `CONDITIONAL` (§3.6), jamais un FAIL inventé.
 
-### Étape 6c — Badge EcoLogits (§ INTENT-030)
-
-<!--
-@spec SPEC-030-3-validate-badge
-@intent INTENT-030
-@governance AIAD-AI-ACT,AIAD-RGPD
--->
+### Étape 6c — Badge EcoLogits
 
 Après la section gouvernance (Étape 5), lis `.aiad/metrics/hook-runs.jsonl`.
 Filtre les 5 dernières entrées contenant un champ `ecoMetrics`.

@@ -81,7 +81,7 @@ Si DRIFT :
                    (b) corriger le code pour respecter la SPEC
                    ⚠ NE JAMAIS merger en état de drift.
 
-Signaux redevabilité bidirectionnelle (SPEC-020-2) :
+Signaux redevabilité bidirectionnelle :
   [WARN] FACT-NNN : spec-patch-proposal ouvert sur SPEC-NNN-N — à statuer avant merge.
   [WARN] constraint-violated-without-fact : zone chemin:ligne sans @spec ni FACT associé.
 

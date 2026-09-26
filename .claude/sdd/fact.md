@@ -84,11 +84,11 @@ Tu es un Product Engineer AIAD. L'utilisateur a constaté un écart entre le com
 
 **Section cible** : [§ X Titre]
 **Changement proposé** : [texte exact à ajouter/remplacer dans la SPEC]
-**Classification delta** (SPEC-020-1) : [petit delta | changement significatif]
+**Classification delta** : [petit delta | changement significatif]
 **Raison** : [contrainte découverte / invariant non documenté]
 ```
 
-> **Note CA-005** : si le contenu de `spec-patch-proposal` dépasse 20 lignes, l'agent DOIT créer un Intent plutôt qu'un FACT enrichi. Un FACT multi-spec-patch (plusieurs contraintes dans un seul FACT) est interdit — un FACT par contrainte.
+> **Note** : si le contenu de `spec-patch-proposal` dépasse 20 lignes, l'agent DOIT créer un Intent plutôt qu'un FACT enrichi. Un FACT multi-spec-patch (plusieurs contraintes dans un seul FACT) est interdit — un FACT par contrainte.
 
 ## Règles
 

@@ -8,6 +8,7 @@ description: Régénère AGENTS.md, CLAUDE.md, .cursor/rules/, .codex/, GEMINI.m
 Tu es un Product Engineer AIAD. L'utilisateur veut **régénérer** les fichiers de règles consommés par les différents runtimes IA (Claude Code, Cursor, Codex, Copilot, Gemini) à partir d'une source unique : `.aiad/AGENT-GUIDE.md` + `.aiad/gouvernance/` + Intent actif.
 
 **Recommandation modèle** : Haiku 4.5 — transformation AGENT-GUIDE vers cibles multi-runtime.
+👉 `/model claude-haiku-4-5-20251001` — transformation AGENT-GUIDE vers cibles multi-runtime.
 
 ## Pourquoi cette commande
 

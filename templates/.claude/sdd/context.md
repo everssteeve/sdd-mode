@@ -10,6 +10,7 @@ Tu es un Product Engineer AIAD. L'utilisateur veut auditer le Context Engineerin
 Le Context Engineering Budget sert la **Sobriété Intentionnelle** : il ne s'agit pas de maximiser le contexte, mais de l'optimiser. Cette commande clôt la boucle de feedback pour que le PE améliore ses estimations futures.
 
 **Recommandation modèle** : Haiku 4.5 — calcul algorithmique des métriques M1–M5.
+👉 `/model claude-haiku-4-5-20251001` — calcul algorithmique des métriques M1–M5.
 
 ## Skills invoquées
 
@@ -29,7 +30,8 @@ Le Context Engineering Budget sert la **Sobriété Intentionnelle** : il ne s'ag
 1. Lis l'estimation initiale (SPEC §6).
 2. Mesure le contexte réel injecté (composants : AGENT-GUIDE / SPEC / sources / ajouts en cours).
 3. Applique la skill `context-budget` (calcule M1–M5 et le score, produit le rapport).
-4. Mets à jour SPEC §6 (réel archivé) + AGENT-GUIDE Lessons / Human Learnings si pattern détecté.
+4. **Empreinte mesurée** : affiche l'empreinte tokens attribuée à la SPEC auditée via `npx aiad-sdd footprint <SPEC-ID>`, à côté de l'estimation §6. Si aucune donnée : message « aucune empreinte mesurée ».
+5. Mets à jour SPEC §6 (réel archivé) + AGENT-GUIDE Lessons / Human Learnings si pattern détecté.
 
 ## 📖 Mode guidé
 
@@ -50,6 +52,10 @@ Demande quelle SPEC/session auditer. Lis l'estimation initiale dans la SPEC §6.
 ### Étape 3 — Métriques de santé
 
 Applique la skill `context-budget`. Sortie attendue : M1 taux utile, M2 relances, M3 ratio, M4 cohérence, M5 durée + score 0–5/5 + diagnostic + recommandations.
+
+### Étape 3b — Empreinte mesurée
+
+Lance `npx aiad-sdd footprint <SPEC-ID>` pour afficher les tokens réellement attribués à la SPEC auditée. Affiche le résultat à côté de l'estimation §6 pour clore la boucle de sobriété. Si le fichier `hook-runs.jsonl` est absent ou si l'artefact n'a pas de tokens attribués, affiche « aucune empreinte mesurée » — ce n'est pas une erreur, c'est une invitation à activer la mesure (`aiad-sdd track set <SPEC-ID>` avant la prochaine session).
 
 ### Étape 4 — Mettre à jour les références
 

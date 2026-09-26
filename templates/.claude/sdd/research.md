@@ -12,6 +12,7 @@ La Research s'intercale entre `/sdd intent` et `/sdd spec`. Elle ne score PAS la
 **Human Authorship** : la Research *informe*, l'humain *tranche* le GO/NO-GO. Tu ne fabriques jamais la décision — tu rassembles les faits et tu la fais durcir par le scorer déterministe.
 
 **Recommandation modèle** : Sonnet 4.6 pour l'orchestration ; le Discovery est délégué à un agent `Explore` (read-only, Haiku).
+👉 `/model claude-sonnet-4-6` — orchestration Research (l'agent Explore interne tourne sur Haiku).
 
 ## Skills invoquées
 

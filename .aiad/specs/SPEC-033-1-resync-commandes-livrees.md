@@ -51,13 +51,13 @@ Chaque commande et skill existe en deux exemplaires : `.claude/` (utilisé dans 
 
 ## 3. Critères d'Acceptation
 
-- [ ] CA-001 — `node scripts/check-commands-parity.js` sort avec le code 0 et `diff -rq .claude/sdd templates/.claude/sdd`, `…/aiad`, `…/skills` ne renvoie aucune ligne.
-- [ ] CA-002 — Les 33 commandes `/sdd` et `/aiad` de `templates/.claude/` contiennent une ligne `/model <id>` (grep : 0 fichier sans `/model `), comme exigé par SPEC-032-1.
-- [ ] CA-003 — `templates/.claude/sdd/context.md` contient l'étape « Empreinte mesurée » (`aiad-sdd footprint`).
-- [ ] CA-004 — `grep -rE '\.aiad/facts/FACT-' templates/.claude` ne renvoie aucune ligne.
-- [ ] CA-005 — Modifier un seul des deux exemplaires fait échouer le script de parité (code 1) — test automatisé.
-- [ ] CA-006 — `npm test` passe sans régression.
-- [ ] CA-007 — Chaque conflit réel rencontré figure dans l'Historique de cette SPEC avec le choix de l'auteur (0 conflit → mention « aucun conflit réel »).
+- [x] CA-001 — `node scripts/check-commands-parity.js` sort avec le code 0 et `diff -rq .claude/sdd templates/.claude/sdd`, `…/aiad`, `…/skills` ne renvoie aucune ligne.
+- [x] CA-002 — Les 33 commandes `/sdd` et `/aiad` de `templates/.claude/` contiennent une ligne `/model <id>` (grep : 0 fichier sans `/model `), comme exigé par SPEC-032-1.
+- [x] CA-003 — `templates/.claude/sdd/context.md` contient l'étape « Empreinte mesurée » (`aiad-sdd footprint`).
+- [x] CA-004 — `grep -rE '\.aiad/facts/FACT-' templates/.claude` ne renvoie aucune ligne.
+- [x] CA-005 — Modifier un seul des deux exemplaires fait échouer le script de parité (code 1) — test automatisé.
+- [x] CA-006 — `npm test` passe sans régression.
+- [x] CA-007 — Chaque conflit réel rencontré figure dans l'Historique de cette SPEC avec le choix de l'auteur (0 conflit → mention « aucun conflit réel »).
 
 ## 4. Interface / API
 
@@ -81,12 +81,12 @@ node scripts/check-commands-parity.js [--json]
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] Code + lint passing
-- [ ] Test du script de parité (cas identique / cas divergent)
-- [ ] SPEC mise à jour si écart (Drift Lock)
-- [ ] Annotations `@intent INTENT-033` / `@spec SPEC-033-1` / `@verified-by` sur le script
+- [x] Code + lint passing
+- [x] Test du script de parité (cas identique / cas divergent)
+- [x] SPEC mise à jour si écart (Drift Lock)
+- [x] Annotations `@intent INTENT-033` / `@spec SPEC-033-1` / `@verified-by` sur le script
 - [ ] Code review passée
-- [ ] Gouvernance vérifiée (RGESN : aucune dépendance ajoutée)
+- [x] Gouvernance vérifiée (RGESN : aucune dépendance ajoutée)
 
 ## Historique des modifications
 
@@ -94,3 +94,4 @@ node scripts/check-commands-parity.js [--json]
 |------|------------|--------|
 | 2026-09-26 | Gate : cas limite 2 remplacé par un point d'arrêt humain ; CA-007 ajouté. | Décision de l'auteur — l'ancienne règle (« version la plus récente fonctionnellement ») n'était pas décidable par un agent. |
 | 2026-09-26 | Execution Gate OUVERTE — SQS 5/5, Test de l'Étranger PASS. Statut → ready. | Scores validés par l'auteur. |
+| 2026-09-26 | Exécution : **aucun conflit réel** (CA-007). Les deux exemplaires n'ont jamais été identiques dans l'historique git (pas de base commune) ; l'examen des 116 lignes montre que chaque écart est une évolution faite côté `.claude/` seul (ajout, ou remplacement d'une ligne restée d'origine côté `templates/`, vérifié par `git log -S`). Fusion = version `.claude/`, avec généralisation de 13 références internes (FACT-001 ×6, SPEC-014-2, SPEC-020-1, SPEC-020-2, SPEC-021-2 ×2, INTENT-021/Art. IV, INTENT-030, « Note CA-005 ») et retrait du bloc d'annotations `@spec SPEC-030-3` de `validate.md` (SPEC `traceability: exempt`, `.claude/` hors scan). Étape CI ajoutée dans le job `tests` de `ci.yml`. | Exécution agent. |
