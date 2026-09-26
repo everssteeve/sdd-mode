@@ -203,6 +203,8 @@ Légende :
 
 **Format EARS (`--ears`)** : copie `.aiad/specs/spec-ears-template.md` comme base. Renseigne les CA-001 / CA-002 / CA-003… selon les 5 patterns (Ubiquitous, Event-driven, State-driven, Optional feature, Unwanted behaviour). Conserve `**Format** : EARS` dans l'entête — c'est le signal qui active le linter strict à `/sdd gate`.
 
+**Sections 8 et 9 (les deux formats)** : la section 9 « Périmètre d'exécution de l'agent » est **requise si la SPEC implique des credentials ou un accès en écriture à une ressource partagée, sinon « Non applicable »** — le pré-contrôle de la Gate la lit. La section 8 « Points d'arrêt de l'agent » est facultative. Format exact : gabarits `.aiad/specs/_spec-template.md` (prose) et `.aiad/specs/spec-ears-template.md` (EARS).
+
 ### Étape 6 — Lint EARS sur §3
 
 Applique la skill `ears-validator`. Comportement :
