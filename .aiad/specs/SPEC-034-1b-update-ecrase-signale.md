@@ -55,15 +55,15 @@ date: "2026-09-26"
 
 ## 3. Critères d'Acceptation
 
-- [ ] CA-001 — Après `init`, `.aiad/gouvernance/.aiad-shipped.json` contient une empreinte pour chaque agent installé (test).
-- [ ] CA-002 — Un agent modifié localement est copié en `.bak-<date>` avec son contenu local exact, puis remplacé par le gabarit (test).
-- [ ] CA-003 — Un agent non modifié est remplacé sans création de sauvegarde (test).
-- [ ] CA-004 — La sortie de `update` contient le nom de chaque agent sauvegardé et le chemin de sa sauvegarde (test sur stdout).
-- [ ] CA-005 — Sans manifeste, un agent différent du nouveau gabarit est sauvegardé ; un agent identique ne l'est pas (test).
-- [ ] CA-006 — Deux exécutions le même jour produisent deux sauvegardes distinctes (test).
-- [ ] CA-007 — `update --check` n'écrit aucun fichier (test : empreintes du dossier identiques avant / après).
-- [ ] CA-008 — Un agent absent du package (ex. `AIAD-CUSTOM.md`) est inchangé et non sauvegardé (test).
-- [ ] CA-009 — `npm test` passe sans régression.
+- [x] CA-001 — Après `init`, `.aiad/gouvernance/.aiad-shipped.json` contient une empreinte pour chaque agent installé (test).
+- [x] CA-002 — Un agent modifié localement est copié en `.bak-<date>` avec son contenu local exact, puis remplacé par le gabarit (test).
+- [x] CA-003 — Un agent non modifié est remplacé sans création de sauvegarde (test).
+- [x] CA-004 — La sortie de `update` contient le nom de chaque agent sauvegardé et le chemin de sa sauvegarde (test sur stdout).
+- [x] CA-005 — Sans manifeste, un agent différent du nouveau gabarit est sauvegardé ; un agent identique ne l'est pas (test).
+- [x] CA-006 — Deux exécutions le même jour produisent deux sauvegardes distinctes (test).
+- [x] CA-007 — `update --check` n'écrit aucun fichier (test : empreintes du dossier identiques avant / après).
+- [x] CA-008 — Un agent absent du package (ex. `AIAD-CUSTOM.md`) est inchangé et non sauvegardé (test).
+- [x] CA-009 — `npm test` passe sans régression.
 
 ## 4. Interface / API
 
@@ -91,12 +91,12 @@ Sortie update (bloc Gouvernance), si ≥ 1 sauvegarde :
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] Code + lint passing
-- [ ] Tests CA-001 à CA-008
-- [ ] Annotations `@intent INTENT-034` / `@spec SPEC-034-1b` / `@verified-by`
-- [ ] SPEC mise à jour si écart (Drift Lock)
+- [x] Code + lint passing
+- [x] Tests CA-001 à CA-008
+- [x] Annotations `@intent INTENT-034` / `@spec SPEC-034-1b` / `@verified-by`
+- [x] SPEC mise à jour si écart (Drift Lock)
 - [ ] Code review passée
-- [ ] Gouvernance vérifiée (RGPD : aucune donnée personnelle ; RGESN : zéro dépendance)
+- [x] Gouvernance vérifiée (RGPD : aucune donnée personnelle ; RGESN : zéro dépendance)
 
 ## Historique des modifications
 
@@ -104,3 +104,4 @@ Sortie update (bloc Gouvernance), si ≥ 1 sauvegarde :
 |------|------------|--------|
 | 2026-09-26 | Création par découpage de SPEC-034-1 (point 6 et cas limites 4-5 d'origine) ; ajouts : suffixe anti-écrasement des sauvegardes, agent absent du package, manifeste illisible. | Décision de l'auteur à la Gate (Atomicité 0 sur SPEC-034-1). |
 | 2026-09-26 | Execution Gate OUVERTE — SQS 5/5, Test de l'Étranger PASS. Statut → ready. | Scores validés par l'auteur. |
+| 2026-09-26 | Implémentation (`lib/governance-shipped.js`, `lib/update.js`, `lib/init.js`, `test/governance-shipped.test.js`). Précisions : (a) manifeste présent mais sans entrée pour un agent livré → règle « manifeste absent » (comparaison au nouveau gabarit) pour cet agent ; (b) date des sauvegardes = date UTC du jour, injectable via `update(dir, { date })` ; (c) `update` renvoie aussi `stats.backups` (chemins relatifs). | Cas non couvert explicitement par le point 2 ; choix conservateur (aucune adaptation perdue). À valider par l'auteur. |
