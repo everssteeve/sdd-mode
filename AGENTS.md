@@ -1,7 +1,8 @@
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 ---
 generated-by: aiad-emit-rules v1.19.0
-source-hash: ddf351ef23c1f2f1
+source-hash: 4c023ac0c8e293f4
+intent_id: INTENT-033
 ---
 
 # AGENTS.md
@@ -29,6 +30,9 @@ La paternité de l'intention ne se délègue pas. Tu exécutes avec excellence, 
 Intent Statement → Research (GO/NO-GO) → SPEC → Execution Gate (SQS ≥ 4/5) → Exécution → Validation → Drift Lock
 ```
 
+### Intent actif
+
+- **INTENT-033** — Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9
 
 
 ## Architecture documentaire

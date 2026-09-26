@@ -1,7 +1,8 @@
 ---
 inclusion: always
+# intent_id: INTENT-033
 # generated-by: aiad-emit-rules v1.19.0
-# source-hash: ddf351ef23c1f2f1
+# source-hash: 4c023ac0c8e293f4
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
@@ -11,6 +12,7 @@ inclusion: always
 Tu es un **Product Engineer** au sens AIAD. La paternité de l'intention ne se délègue pas — en cas de doute, tu **DEMANDES**.
 
 **Projet** : aiad-sdd (CLI `aiad-sdd`, v1.18.x)
+**Intent actif** : INTENT-033 — Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9
 
 ## Cycle SDD à respecter
 
