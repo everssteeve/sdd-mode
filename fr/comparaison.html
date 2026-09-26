@@ -10,7 +10,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Comparatif honnête — AIAD vs frameworks SDD | SDD Mode</title>
-<meta name="description" content="Comparatif factuel AIAD SDD vs Spec Kit, Kiro, OpenSpec, BMAD : forces et faiblesses assumées, données mesurées séparées des données documentées, gouvernance EU comme différenciateur clé.">
+<meta name="description" content="Comparatif factuel AIAD SDD vs Spec Kit, Kiro, OpenSpec, BMAD et Amazon Q Developer : forces et faiblesses assumées, données mesurées séparées des données documentées, gouvernance EU et contrôle humain de l'intention comme différenciateurs.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
 </head>
@@ -44,6 +44,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
             <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
             <li><a href="concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
             <li><a href="concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
@@ -54,8 +55,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commandes</button>
           <ul class="submenu">
-            <li><a href="commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
-            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="commandes/sdd.html">/sdd — cycle SDD (17)</a></li>
+            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (16)</a></li>
             <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
           </ul>
         </li>
@@ -106,6 +107,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
           <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
           <li><a href="concepts/jnsp.html">JNSP — incertitude</a></li>
           <li><a href="concepts/traceability.html">Traçabilité</a></li>
@@ -114,8 +116,8 @@
         </ul>
         <h2>Commandes</h2>
         <ul>
-          <li><a href="commandes/sdd.html">/sdd (16)</a></li>
-          <li><a href="commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="commandes/sdd.html">/sdd (17)</a></li>
+          <li><a href="commandes/aiad.html">/aiad (16)</a></li>
           <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -159,7 +161,7 @@
           <li><strong>N/D (YYYY-MM-DD)</strong> — donnée non disponible à cette date ; la fonctionnalité peut exister ou ne pas exister</li>
           <li><strong>N/A</strong> — non applicable à la nature de cet outil</li>
         </ul>
-        <p>Date de collecte des données concurrentes : <strong>2026-06-29</strong>. Ces outils évoluent — <a href="https://github.com/everssteeve/sdd-mode/issues">ouvrez une issue</a> pour corriger une donnée erronée, avec la source publique.</p>
+        <p>Date de collecte des données concurrentes : <strong>2026-06-29</strong> ; colonnes Kiro et Spec Kit revues en <strong>septembre 2026</strong>. Ces outils évoluent — <a href="https://github.com/everssteeve/sdd-mode/issues">ouvrez une issue</a> pour corriger une donnée erronée, avec la source publique.</p>
       </div>
 
       <h2 id="metriques">Métriques de performance CLI</h2>
@@ -193,7 +195,7 @@
               <th scope="row">Init projet (zero-dep)</th>
               <td><strong>54 ms</strong> (min/med/p95/max : 54.1 / 54.5 / 55.6 / 55.6 ms)</td>
               <td>install requis (Python uv)</td>
-              <td>install Amazon Q + IDE</td>
+              <td>install Kiro (IDE ou CLI)</td>
               <td>N/D (2026-06-29)</td>
               <td>N/D (2026-06-29)</td>
               <td>install extension IDE</td>
@@ -241,14 +243,14 @@
               <th scope="row">Zero-dep runtime (npx)</th>
               <td><span aria-hidden="true">✅</span><span class="sr-only">Oui</span></td>
               <td><span aria-hidden="true">❌</span><span class="sr-only">Non</span> Python requis</td>
-              <td><span aria-hidden="true">❌</span><span class="sr-only">Non</span> Amazon Q requis</td>
+              <td><span aria-hidden="true">❌</span><span class="sr-only">Non</span> IDE ou CLI Kiro requis</td>
               <td>N/A — framework méthodologique</td>
               <td>N/A — framework méthodologique</td>
               <td><span aria-hidden="true">❌</span><span class="sr-only">Non</span> IDE requis</td>
             </tr>
             <tr>
-              <th scope="row">Multi-runtime (Claude Code, Cursor, Codex, Copilot, Gemini)</th>
-              <td><span aria-hidden="true">✅</span><span class="sr-only">Oui</span> 5 runtimes</td>
+              <th scope="row">Multi-runtime (Claude Code, Cursor, Codex, Copilot, Gemini, Kiro)</th>
+              <td><span aria-hidden="true">✅</span><span class="sr-only">Oui</span> 6 runtimes</td>
               <td><span aria-hidden="true">❌</span><span class="sr-only">Non</span></td>
               <td><span aria-hidden="true">❌</span><span class="sr-only">Non</span></td>
               <td>N/D (2026-06-29)</td>
@@ -320,9 +322,9 @@
             </tr>
             <tr>
               <th scope="row">Couverture runtimes IA</th>
-              <td>5 runtimes</td>
-              <td>30+ runtimes</td>
-              <td>Amazon Q uniquement</td>
+              <td>6 runtimes (Kiro depuis aiad-sdd 1.19.0)</td>
+              <td>30+ runtimes (multi-agents)</td>
+              <td>Kiro (IDE, CLI, web ; Kiro Crew open source)</td>
               <td>N/D (2026-06-29)</td>
               <td>N/D (2026-06-29)</td>
               <td>Amazon Q uniquement</td>
@@ -332,7 +334,7 @@
       </div>
 
       <h2 id="moat">Pourquoi AIAD se distingue</h2>
-      <p>Le <strong>moat</strong> d'AIAD repose sur deux piliers que ses concurrents n'ont pas combinés :</p>
+      <p>Le <strong>moat</strong> d'AIAD repose sur deux piliers que ses concurrents n'ont pas combinés — et sur l'objet de ses contrôles humains :</p>
 
       <h3 id="gouvernance">Gouvernance réglementaire enforced</h3>
       <p>Quatre agents Tier 1 (<a href="gouvernance/index.html#ai-act">AI Act</a>, <a href="gouvernance/index.html#rgpd">RGPD</a>, <a href="gouvernance/index.html#rgaa">RGAA</a>, <a href="gouvernance/index.html#rgesn">RGESN</a>) ont un <strong>droit de veto</strong> sur chaque SPEC avant exécution. Ce n'est pas une checklist manuelle : la gate est automatisée et bloque le pipeline si un agent vote VETO. Aucun outil du marché à notre connaissance ne propose ce mécanisme de gouvernance réglementaire enforced à ce jour (2026-06-29).</p>
@@ -341,18 +343,21 @@
       <h3 id="tracabilite">Traçabilité machine-vérifiable</h3>
       <p>La <a href="concepts/traceability.html">matrice de traçabilité</a> relie Intent Statement → SPEC → code → tests avec des annotations <code>@intent</code>, <code>@spec</code>, <code>@verified-by</code> vérifiées automatiquement. La GitHub Action <code>sdd-trace.yml</code> bloque toute PR créant un gap. Le <a href="concepts/drift-lock.html">Drift Lock</a> garantit que code et SPEC restent synchrones dans la même PR.</p>
 
+      <h3 id="controles-humains">Des contrôles humains sur l'intention, pas seulement sur l'exécution</h3>
+      <p>Les outils convergent vers davantage de contrôle humain : Kiro propose désormais une revue de spec aux checkpoints de phase et, dans Kiro Crew, des portes d'approbation et un journal d'audit signé. La différence ne porte donc plus sur la présence de contrôles humains, mais sur leur <strong>objet</strong> : l'exécution chez Kiro, l'intention chez AIAD — Intent Statement rédigé par un humain, SPEC scorée par le SQS, <a href="concepts/execution-gate.html">Execution Gate</a> obligatoire, et <a href="concepts/autonomie-agent.html">continuum d'autorité</a> où chaque passage de niveau est un acte humain distinct.</p>
+
       <h2 id="faiblesses">Où AIAD est plus faible</h2>
       <div class="callout warn">
         <span class="callout-title">Honnêteté sur les contradictions</span>
         <p>AIAD applique sa valeur 2 à lui-même. Voici les faiblesses réelles au 2026-06-29 :</p>
       </div>
 
-      <h3 id="runtimes">Couverture runtimes : 5 vs 30+ (Spec Kit)</h3>
-      <p>AIAD émet des fichiers de règles pour <strong>5 runtimes</strong> (Claude Code, Cursor, Codex, Copilot, Gemini). Spec Kit couvre <strong>30+ runtimes</strong>. Si votre équipe utilise un agent IA non listé, AIAD ne génèrera pas de fichier de configuration natif — vous devrez contribuer le runtime ou maintenir le fichier manuellement.</p>
-      <p>L'extension des runtimes est inscrite à la roadmap (INTENT-023, SPEC-023-2 à venir). Les candidats prioritaires identifiés : Kiro, Amazon Q Developer.</p>
+      <h3 id="runtimes">Couverture runtimes : 6 vs 30+ (Spec Kit)</h3>
+      <p>AIAD émet des fichiers de règles pour <strong>6 runtimes</strong> (Claude Code, Cursor, Codex, Copilot, Gemini et, depuis <code>aiad-sdd</code> 1.19.0, Kiro). Spec Kit couvre <strong>30+ runtimes</strong>. Si votre équipe utilise un agent IA non listé, AIAD ne génèrera pas de fichier de configuration natif — vous devrez contribuer le runtime ou maintenir le fichier manuellement.</p>
+      <p>Amazon Q Developer, notamment, n'a pas de cible dédiée à ce jour : ses utilisateurs s'appuient sur le fichier <code>AGENTS.md</code> standard ou maintiennent leurs règles à la main.</p>
 
       <h3 id="integrations-ide">Maturité des intégrations IDE</h3>
-      <p>Kiro et Amazon Q sont intégrés directement dans l'IDE (VS Code, JetBrains) avec une UX native. AIAD est principalement CLI + hooks — l'intégration IDE passe par l'extension Claude Code ou Cursor, sans widget dédié ni panel AIAD. Pour les équipes qui travaillent exclusivement dans un IDE et préfèrent une UX graphique, Kiro offrira une expérience plus fluide.</p>
+      <p>Kiro est lui-même un environnement complet — IDE, CLI et web — et Amazon Q s'intègre directement dans l'IDE (VS Code, JetBrains) avec une UX native. AIAD est principalement CLI + hooks — l'intégration IDE passe par l'extension Claude Code ou Cursor, sans widget dédié ni panel AIAD. Pour les équipes qui travaillent exclusivement dans un IDE et préfèrent une UX graphique, Kiro offrira une expérience plus fluide.</p>
 
       <h3 id="courbe-apprentissage">Courbe d'apprentissage</h3>
       <p>Le cycle SDD (Intent → Research → SPEC → Gate → Exec → Validate → Drift Lock) impose une discipline plus exigeante que des outils qui démarrent à la SPEC ou directement à l'exécution. La valeur de cette rigueur apparaît sur des projets de 3 mois+ — sur un prototype en 2 jours, Kiro ou Cursor Memory Bank seront plus rapides à mettre en œuvre.</p>
@@ -370,12 +375,12 @@
         <tbody>
           <tr>
             <th scope="row">Spec Kit</th>
-            <td>Framework de spécification (GitHub Next)</td>
+            <td>Framework de spécification (GitHub Next) — open source, licence MIT, multi-agents</td>
             <td><a href="https://github.com/githubnext/spec-kit" rel="noopener">github.com/githubnext/spec-kit</a></td>
           </tr>
           <tr>
             <th scope="row">Kiro</th>
-            <td>IDE agentique (Amazon)</td>
+            <td>Environnement agentique (Amazon) — IDE, CLI et web ; orchestrateur Kiro Crew open source (Apache 2.0)</td>
             <td><a href="https://kiro.dev" rel="noopener">kiro.dev</a></td>
           </tr>
           <tr>
@@ -396,7 +401,7 @@
         </tbody>
       </table>
 
-      <p>Ce comparatif est généré à partir de <code>bench/comparison.md</code> dans le dépôt AIAD. La section métriques est régénérée à chaque release par <code>scripts/bench-comparison.js</code> ; la section documentaire est mise à jour manuellement. Une donnée incorrecte ou obsolète ? <a href="https://github.com/everssteeve/sdd-mode/issues">Ouvrez une issue</a> avec la source publique.</p>
+      <p>Ce comparatif reprend <code>bench/comparison.md</code> du dépôt AIAD. Les métriques sont mesurées par <code>scripts/bench-comparison.js</code> ; les colonnes documentaires sont mises à jour manuellement, avec leur date de collecte. Une donnée incorrecte ou obsolète ? <a href="https://github.com/everssteeve/sdd-mode/issues">Ouvrez une issue</a> avec la source publique.</p>
 
       <nav class="doc-pagination" aria-label="Pages voisines">
         <a class="prev" href="bibliotheque-specs.html"><span class="dir">← Précédent</span>Bibliothèque de SPECs</a>
@@ -449,7 +454,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Framework AIAD v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

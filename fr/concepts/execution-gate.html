@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Execution Gate — SQS ≥ 4/5 ou rien | SDD Mode</title>
-<meta name="description" content="L'Execution Gate est le point de contrôle entre une SPEC et le lancement de l'agent : 5 critères SQS, Test de l'Étranger, mode EARS strict, Gate INCONNUE fail-closed (JNSP) et préparation du Context Engineering Budget. Aucun code avant Gate ouverte.">
+<meta name="description" content="L'Execution Gate est le point de contrôle entre une SPEC et le lancement de l'agent : 5 critères SQS, Test de l'Étranger, plafonds, seuil d'arrêt et périmètre d'exécution pour les actions irréversibles, mode EARS strict, Gate INCONNUE fail-closed (JNSP) et préparation du Context Engineering Budget. Aucun code avant Gate ouverte.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../../en/concepts/execution-gate.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="autonomie-agent.html">Autonomie de l'agent</a></li>
             <li><a href="context-budget.html">Context Engineering Budget</a></li>
             <li><a href="jnsp.html">JNSP — politique d'incertitude</a></li>
             <li><a href="traceability.html">Traçabilité machine-vérifiable</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commandes</button>
           <ul class="submenu">
-            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
-            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (17)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (16)</a></li>
             <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
           </ul>
         </li>
@@ -102,6 +103,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="autonomie-agent.html">Autonomie de l'agent</a></li>
           <li><a href="context-budget.html">Context Engineering Budget</a></li>
           <li><a href="jnsp.html">JNSP — incertitude</a></li>
           <li><a href="traceability.html">Traçabilité</a></li>
@@ -110,8 +112,8 @@
         </ul>
         <h2>Commandes</h2>
         <ul>
-          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
-          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/sdd.html">/sdd (17)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (16)</a></li>
           <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -150,6 +152,7 @@
       <h2 id="principe">Pourquoi une gate avant le code</h2>
       <p>Soumettre une SPEC médiocre à un agent ne fait pas gagner de temps — cela en perd. Corriger une SPEC prend dix minutes ; corriger le code généré sur une mauvaise SPEC prend des heures. La Gate matérialise cet arbitrage économique : elle force l'investissement là où le ROI est maximal, <em>avant</em> que la première ligne ne soit générée.</p>
       <p>La Gate est exécutée par la skill <code>sqs-scoring</code>, alimentée par <code>ears-validator</code>. Trois issues possibles : <strong>OUVERTE</strong>, <strong>FERMÉE</strong> (avec plan de remédiation) — ou <strong>INCONNUE</strong> quand le score est indécidable.</p>
+      <p>La doctrine v1.9 précise la place de la Gate dans la vérification : <strong>la conversation critique a lieu d'abord à l'Execution Gate</strong>. C'est là qu'on discute ce qu'on veut ; la revue de code vérifie ensuite la conformité à une intention déjà discutée. Elle reste le lieu où l'on détecte ce qui a été mal compris, pas celui où l'on découvre ce qu'on voulait (voir <a href="validation.html#verification">Validation</a>). Dans le <a href="human-authorship.html#continuum">continuum d'autorité</a>, l'ouverture de la Gate est l'acte humain qui valide la SPEC — elle n'autorise pas le déploiement.</p>
 
       <h2 id="sqs">Les cinq critères du Spec Quality Score</h2>
       <table>
@@ -196,8 +199,31 @@ Question à l'humain : &lt;question actionnable&gt;</code></pre>
         <p>Inventer un score par défaut « pour ne pas bloquer » est exactement le comportement que la Gate INCONNUE empêche. La SPEC reste en <code>draft</code> ou <code>review</code> jusqu'à la décision humaine.</p>
       </div>
 
+      <h2 id="perimetre">Actions irréversibles et credentials : ce que la Gate vérifie en plus</h2>
+      <p>Dès qu'une SPEC implique une action d'agent <strong>irréversible</strong> ou un agent disposant de <strong>credentials</strong> ou d'un accès en écriture à une ressource partagée, le SQS ne suffit plus. La Gate vérifie aussi, à partir de la section « Périmètre d'exécution de l'agent » de la <a href="spec.html#sections-agent">SPEC</a> et du Critère de Drift de l'<a href="intent-statement.html#reversibilite">Intent Statement</a> :</p>
+      <ul>
+        <li>le <strong>plafond</strong> d'autonomie, documenté et appliqué techniquement — une consigne dans un prompt n'est pas une limite ;</li>
+        <li>l'<strong>autorisation humaine préalable</strong> de chaque action irréversible, par une personne identifiable ;</li>
+        <li>le <strong>seuil d'arrêt</strong> : tout dépassement d'autonomie constaté arrête l'agent et déclenche une revue humaine immédiate ;</li>
+        <li>le <strong>périmètre d'exécution</strong> : isolation, sorties réseau, credentials présents, ressources partagées en écriture.</li>
+      </ul>
+      <p>Aucune délégation d'effet irréversible sans plafond documenté et procédure de rollback : c'est le profil « Agents à effet irréversible » d'<a href="../gouvernance/index.html#ai-act">AIAD-AI-ACT</a>. Le détail est sur la page <a href="autonomie-agent.html">Autonomie de l'agent</a>.</p>
+
+      <h3 id="precheck">Le pré-contrôle déterministe <code>gate-precheck</code> — prochaine version, à paraître</h3>
+      <p>La prochaine version du paquet aiad-sdd, à paraître, ajoute la commande <code>npx aiad-sdd gate-precheck &lt;SPEC&gt;</code>, lancée par <code>/sdd gate</code> <strong>avant tout scoring SQS</strong>. Elle lit la section « Périmètre d'exécution de l'agent » et calcule son verdict hors modèle :</p>
+      <table>
+        <caption>Verdicts du pré-contrôle gate-precheck (à paraître)</caption>
+        <thead><tr><th scope="col">Verdict</th><th scope="col">Code de sortie</th><th scope="col">Cas</th><th scope="col">Effet sur la Gate</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">PASS</th><td>0</td><td>Section absente (avec avertissements si des mots-clés sensibles figurent dans la SPEC), « Non applicable », ou déclarations complètes</td><td>Poursuite vers le scoring SQS</td></tr>
+          <tr><th scope="row">FAIL</th><td>1</td><td>Action irréversible déclarée sans seuil d'arrêt ; credentials ou ressource partagée sans isolation ni sorties réseau déclarées</td><td>Gate <strong>FERMÉE</strong> sans scoring SQS ; les manques forment le plan de remédiation</td></tr>
+          <tr><th scope="row">JNSP</th><td>2</td><td>SPEC introuvable ou tableau incomplet</td><td>Gate <strong>INCONNUE</strong> ; les lignes absentes sont listées et la question est posée à l'humain</td></tr>
+        </tbody>
+      </table>
+      <p>Seule une déclaration structurée peut fermer la Gate : des mots-clés en prose ne produisent qu'un avertissement, pour ne pas faire régresser les SPEC existantes.</p>
+
       <h2 id="budget">Préparer le Context Engineering Budget</h2>
-      <p>Si la Gate s'ouvre, elle ne se contente pas de tamponner la SPEC : elle prépare le <a href="context-budget.html">Context Engineering Budget</a> de la session agent à venir — liste des fichiers à injecter, total de tokens estimé, vérification du seuil de 50K tokens au-delà duquel le <em>context rot</em> menace. Le budget est ensuite revérifié au lancement par <a href="execution.html"><code>/sdd exec</code></a>.</p>
+      <p>Si la Gate s'ouvre, elle ne se contente pas de tamponner la SPEC : elle prépare le <a href="context-budget.html">Context Engineering Budget</a> de la session agent à venir — liste des fichiers à injecter, total de tokens estimé, vérification d'un plafond d'environ 50K tokens par session — une <strong>heuristique de sobriété assumée, non sourcée</strong>, pas une limite technique ; le seuil opérationnel documenté reste 60-70 % de la fenêtre disponible. Le budget est ensuite revérifié au lancement par <a href="execution.html"><code>/sdd exec</code></a>.</p>
 
       <h2 id="empirique">Validation empirique</h2>
       <p>L'Execution Gate n'est pas un rituel de confort : elle répond à un biais mesuré. Les agents SOTA présentent un <strong>biais d'action de 35 à 65 %</strong> — la tendance à produire du code plutôt qu'à signaler qu'une exigence est ambiguë ou infaisable. La Gate impose le point d'arrêt humain que l'agent ne s'impose pas lui-même. La synthèse des preuves est consolidée dans <code>docs/legitimation/execution-gate-evidence.md</code>.</p>
@@ -257,7 +283,7 @@ Question à l'humain : &lt;question actionnable&gt;</code></pre>
       </ul>
     </div>
   </div>
-  <p class="legal">Framework AIAD v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

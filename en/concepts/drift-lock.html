@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Drift Lock — code and SPEC in the same PR | SDD Mode</title>
-<meta name="description" content="Drift Lock treats spec drift as a process failure: code and SPEC synchronized in the same PR, a 3-question Anti-Drift Check, algorithmic measurement via /sdd trace and the sdd-trace.yml GitHub Action (--fail-on-gap), and an UNKNOWN verdict when @spec annotations are missing.">
+<meta name="description" content="Drift Lock treats spec drift as a process failure: code and SPEC synchronized in the same PR, a 3-question Anti-Drift Check, algorithmic measurement via /sdd trace and the sdd-trace.yml GitHub Action (--fail-on-gap), an UNKNOWN verdict when @spec annotations are missing, and the last link in the chain of evidence for automated deployment.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/concepts/drift-lock.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="agent-autonomy.html">Agent autonomy</a></li>
             <li><a href="context-budget.html">Context Engineering Budget</a></li>
             <li><a href="jnsp.html">JNSP — uncertainty policy</a></li>
             <li><a href="traceability.html">Machine-verifiable traceability</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commands</button>
           <ul class="submenu">
-            <li><a href="../commands/sdd.html">/sdd — SDD cycle (16)</a></li>
-            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="../commands/sdd.html">/sdd — SDD cycle (17)</a></li>
+            <li><a href="../commands/aiad.html">/aiad — rituals &amp; metrics (16)</a></li>
             <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
           </ul>
         </li>
@@ -101,6 +102,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="agent-autonomy.html">Agent autonomy</a></li>
           <li><a href="context-budget.html">Context Engineering Budget</a></li>
           <li><a href="jnsp.html">JNSP — uncertainty</a></li>
           <li><a href="traceability.html">Traceability</a></li>
@@ -109,8 +111,8 @@
         </ul>
         <h2>Commands</h2>
         <ul>
-          <li><a href="../commands/sdd.html">/sdd (16)</a></li>
-          <li><a href="../commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commands/sdd.html">/sdd (17)</a></li>
+          <li><a href="../commands/aiad.html">/aiad (16)</a></li>
           <li><a href="../commands/cli.html">npx aiad-sdd CLI</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -190,6 +192,10 @@ Human action: add the annotation, create the missing SPEC,
         <p>The <code>UNKNOWN</code> verdict is treated as a <code>DRIFT</code> by the pre-commit hook and by the CI. It never degrades into a silent OK — that very silence is what would turn a blind spot into intentional debt.</p>
       </div>
 
+      <h2 id="chaine-preuve">The last link in the chain of evidence</h2>
+      <p>The Drift Lock does not only keep the documentation accurate. In doctrine v1.9, it is the last link in the <strong>chain of evidence</strong> that conditions automated deployment: a deployment without human intervention is only admissible if the code is <em>trusted</em> in the sense of a verifiable chain — Intent Statement, SPEC validated at the Gate, traced checks, Drift Lock — and not through declarative trust in the tool or the model. This is the criterion Roblox set for accepting agentic code in production (QCon AI, 2026); AIAD makes it the entry criterion for Continuous Deployment of agent-produced code. The practical consequence for an organisation with more modest means: reserve automated deployment for features whose chain of evidence is complete.</p>
+      <p>The same chain makes the organisation's accountability <strong>demonstrable</strong>: the Intent Statement documents the intent and its author, the SPEC the delegated scope, the Gate trace the human validation, the Drift Lock the synchronisation between what was intended and what was delivered. It documents diligence — and, where applicable, fault: a trace that could only exonerate would not be evidence. See <a href="human-authorship.html#trace">Human Authorship</a> and <a href="agent-autonomy.html#preuve">Agent autonomy</a>.</p>
+
       <h2 id="sync">The artifact Sync micro-phase — 15 minutes, 4 questions</h2>
       <p>In addition to the end-of-iteration Anti-Drift Check, every implementation loop closes with the <strong>artifact Sync micro-phase</strong>: fifteen minutes, under the PE's responsibility, non-negotiable. Four questions:</p>
       <table>
@@ -258,7 +264,7 @@ Human action: add the annotation, create the missing SPEC,
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD Framework v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

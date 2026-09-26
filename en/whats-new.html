@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What's New — the evolution of SDD Mode | SDD Mode</title>
-<meta name="description" content="Version-by-version evolution of SDD Mode: enforced governance verdicts (v1.18), the European compliance toolchain (v1.14), multi-runtime rules (v1.12), EARS SPECs (v1.11), machine-verifiable traceability (v1.10) and the command routers (v1.7).">
+<title>What's New — AIAD doctrine and aiad-sdd software | SDD Mode</title>
+<meta name="description" content="The two tracks of AIAD's evolution: the doctrine (v1.5 to v1.9 — agent autonomy, verification, realigned AI Act timeline) and the aiad-sdd software (official CHANGELOG: 1.19.0, 1.18 &quot;advisory → enforced&quot;, traceability, EARS, multi-runtime) plus the upcoming next release.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../fr/nouveautes.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/agent-autonomy.html">Agent autonomy</a></li>
             <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
             <li><a href="concepts/jnsp.html">JNSP — uncertainty policy</a></li>
             <li><a href="concepts/traceability.html">Machine-verifiable traceability</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commands</button>
           <ul class="submenu">
-            <li><a href="commands/sdd.html">/sdd — SDD cycle (16)</a></li>
-            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="commands/sdd.html">/sdd — SDD cycle (17)</a></li>
+            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (16)</a></li>
             <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
           </ul>
         </li>
@@ -101,6 +102,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/agent-autonomy.html">Agent autonomy</a></li>
           <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
           <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
           <li><a href="concepts/traceability.html">Traceability</a></li>
@@ -109,8 +111,8 @@
         </ul>
         <h2>Commands</h2>
         <ul>
-          <li><a href="commands/sdd.html">/sdd (16)</a></li>
-          <li><a href="commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="commands/sdd.html">/sdd (17)</a></li>
+          <li><a href="commands/aiad.html">/aiad (16)</a></li>
           <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -141,56 +143,135 @@
       </nav>
 
       <p class="kicker">Resources · versions</p>
-      <h1>What's New — the evolution of SDD Mode</h1>
-      <p class="doc-lede">Version by version, how the framework moved from a documented method to an enforced toolchain — newest first, summarised from the official <code>aiad-sdd</code> changelog. Releases follow Keep a Changelog and SemVer.</p>
+      <h1>What's New — the AIAD doctrine and the aiad-sdd software</h1>
+      <p class="doc-lede">AIAD evolves along <strong>two distinct versioning tracks</strong>: the framework's <strong>doctrine</strong> (values, responsibilities, artifacts, rituals, governance — currently v1.9) and the <code>aiad-sdd</code> <strong>software</strong> (CLI, slash commands, skills, hooks, dashboards), which follows the SemVer versioning of its changelog. The two do not move at the same pace: doctrine "v1.9" and "aiad-sdd 1.9" do not refer to the same thing. This page presents both tracks, newest first.</p>
 
-      <h2 id="v1-18">v1.18 — advisory becomes enforced (June 2026)</h2>
-      <p>The major shift: every critical SDD rule becomes a primitive <strong>verified by the harness</strong>, and every verdict is computed by a deterministic script (exit codes <code>0/1/2</code> plus validated JSON) — never by the model's free judgement. Entirely additive and opt-in. Highlights:</p>
+      <h2 id="doctrine">AIAD doctrine</h2>
+      <p>Doctrine changes are published on <a href="https://aiad.ovh">aiad.ovh</a>. Each addition is labelled in the framework text with the version that introduced it.</p>
+
+      <h3 id="doctrine-v1-9">Doctrine v1.9 (September 2026) — agent autonomy, verification, compliance</h3>
       <ul>
-        <li><strong>Enforced governance</strong> — <code>PreToolUse</code> hooks for <a href="concepts/jnsp.html">JNSP</a> and the fail-closed Tier 1 veto, a <code>Stop</code> hook for the <a href="concepts/drift-lock.html">Drift Lock</a>, read-only governance subagents. The Tier 1 veto cannot be disabled by an environment toggle.</li>
+        <li><strong>Agent autonomy</strong>: a five-level <a href="concepts/agent-autonomy.html">authority continuum</a> ("Answering is not consenting"), stop points raised on the agent's initiative (approval, expert opinion, plurality of viewpoints, witness), reversibility class and stop threshold in the Drift Criterion of the <a href="concepts/intent-statement.html">Intent Statement</a>.</li>
+        <li><strong>SPEC</strong>: two new sections, "Agent stop points" (optional) and "Agent execution perimeter" (conditional, as soon as the agent holds credentials or write access to a shared resource) — see <a href="concepts/spec.html">SPEC</a>.</li>
+        <li><strong>Agents Engineer</strong>: "a permission mode is not a control" (protection rests on isolation) and "containment is judged on the shared surface, not agent by agent" — see <a href="team/responsibilities.html#ae">The 5 responsibilities</a>.</li>
+        <li><strong>Verification</strong>: "verification is designed, not bought" (four rules, including holding the critical conversation first at the Execution Gate), review exemplars, Verification Tax; on the QA side, "efficiency is not quality" — see <a href="concepts/validation.html">Validation</a>.</li>
+        <li><strong>Automated deployment</strong>: trust is a chain of evidence (Intent, SPEC validated at the Gate, traced verifications, Drift Lock) — see <a href="concepts/drift-lock.html">Drift Lock</a>.</li>
+        <li><strong>Context Engineering Budget</strong>: budget, delegation and dating — 1M-token windows now widespread, the cost of the context inherited by sub-agents (delegate early), every capacity or price assumption dated — see <a href="concepts/context-budget.html">Context Engineering Budget</a>.</li>
+        <li><strong>Human Learnings</strong>: an "oversight failures" category, with a matching question at the retrospective.</li>
+        <li><strong>Governance</strong>: AI Act timeline realigned on Regulation (EU) 2026/1744 (the "Digital Omnibus on AI", adopted, in force since 27 July 2026), the "Agents with irreversible effects" profile, delegation trace; GDPR: automated decisions and agents (Art. 22 — fine imposed on Uber on 21 August 2026, which Uber has appealed), residency of model data depending on the channel; 4 Tier 1 guides, with the CRA agent shipped by the package as a complement (reporting obligation to ENISA in force since 11 September 2026) — see <a href="governance/index.html">Governance</a>.</li>
+        <li><strong>Legitimation</strong>: evidence files published together with their limits (verification, accountability, 2026 regulatory cases); industry validations (Tang et al.: 91.49% of sessions requiring human correction) — see <a href="values.html">Values &amp; pillars</a>.</li>
+      </ul>
+
+      <h3 id="doctrine-v1-8">Doctrine v1.8 — agent-native GitHub Copilot</h3>
+      <ul>
+        <li>Relationship with GitHub Copilot in "agent-native" mode (parallel multi-agent work, isolated worktrees): the Intent Statement frames each session, the Execution Gate validates the SPEC before each parallel agent launch, the Drift Lock keeps each worktree in sync with its SPEC.</li>
+      </ul>
+
+      <h3 id="doctrine-v1-7">Doctrine v1.7 (June 2026) — shared vocabulary and the agent-labs era</h3>
+      <ul>
+        <li>Human Authorship tied to "serious agentic programming" (Fowler) as opposed to <em>vibe coding</em>, and to preventing <em>cognitive debt</em>; the Interrogatory LLM pattern for <code>/sdd intent</code> — see the <a href="glossary.html">Glossary</a>.</li>
+        <li>AIAD in the agent-labs era: the governance gap around intent, model-agnostic by design, resilience to model disruptions.</li>
+        <li>Shared Responsibility illustrated by the case of an agent with financial autonomy.</li>
+      </ul>
+
+      <h3 id="doctrine-v1-6">Doctrine v1.6 — positioning and Harness Engineering</h3>
+      <ul>
+        <li>Positioning within the SDD tool ecosystem (Kiro, Spec Kit, SPDD, Symphony); Harness Engineering as the Agents Engineer's core practice; context rot and the 60-70% rule; empirical support from R2Code.</li>
+      </ul>
+
+      <h3 id="doctrine-v1-5">Doctrine v1.5 — intent as a first-order artifact</h3>
+      <ul>
+        <li>Intent Statement (<code>.aiad/intents/</code>), Human Authorship as the 7<sup>th</sup> value, the Stranger Test (SQS criterion 6), Human Learnings, the monthly Intent Workshop, the Product Engineer redefined as guardian of intent, the "Intentional Excellence" pillar; Level 0 regulatory governance (4 Tier 1 guides).</li>
+      </ul>
+
+      <h2 id="software">aiad-sdd software</h2>
+      <p>Summary of the official <code>CHANGELOG.md</code> of the <code>aiad-sdd</code> package, newest version first. Each version links to the site articles documenting the features concerned.</p>
+
+      <h3 id="upcoming">Next release — upcoming</h3>
+      <p>Features merged into the repository but <strong>not yet published</strong> on npm. They are not part of <code>aiad-sdd</code> 1.19.0:</p>
+      <ul>
+        <li><strong>Deterministic Gate pre-check</strong>: <code>aiad-sdd gate-precheck &lt;SPEC&gt;</code> checks, outside the model and before SQS scoring, the "Agent execution perimeter" section (irreversible action without a stop threshold, credentials or shared resources without declared isolation or network egress). Verdict <code>PASS</code> / <code>FAIL</code> / <code>JNSP</code> (exit 0 / 1 / 2): <code>FAIL</code> closes the Gate, <code>JNSP</code> makes it unknown — see <a href="commands/cli.html#gate-precheck">CLI — gate-precheck</a>.</li>
+        <li><strong>SPEC templates</strong>: "Agent stop points" and "Agent execution perimeter" sections in both the prose and EARS formats — see <a href="commands/sdd.html#spec">/sdd spec</a>.</li>
+        <li><strong>Inherited context</strong>: <code>/sdd context</code> counts the context inherited at sub-agent fork points (an "Inherited context (delegations)" line) and flags late delegations (inherited context &gt; 50% of the total) — see <a href="commands/sdd.html#context">/sdd context</a>.</li>
+        <li><strong>Lossless update</strong>: <code>aiad-sdd update</code> backs up any locally modified governance agent (<code>AIAD-X.md.bak-YYYY-MM-DD</code>) before overwriting it, using the <code>.aiad-shipped.json</code> manifest of shipped agents — see <a href="commands/cli.html#update">CLI — update</a>.</li>
+        <li><strong>Shipped doctrine</strong>: governance agents, guides and legitimation files synchronised from the published doctrine, locked by <code>doctrine.lock.json</code> and checked in CI and before publishing.</li>
+        <li><strong>Command parity</strong>: the shipped commands are resynchronised with their reference copies, and a parity check prevents any new divergence.</li>
+      </ul>
+
+      <h3 id="v1-19">aiad-sdd 1.19.0 (30 June 2026)</h3>
+      <p>A consolidation release: wider multi-runtime support, measured sobriety, product steering and tooled guardrails.</p>
+      <ul>
+        <li><strong>Kiro</strong> joins the <code>emit-rules</code> runtimes (<code>.kiro/steering/</code> files) — see <a href="commands/cli.html#emit-rules">CLI — emit-rules</a>; publication of a <a href="../fr/comparaison.html" hreflang="fr">public comparison (in French)</a> that owns both strengths and weaknesses.</li>
+        <li><strong>Measured sobriety</strong>: a token footprint attributed to each artifact and reported in <code>/sdd context</code> (<code>aiad-sdd footprint</code>); an environmental-impact dashboard; per-page weight budgets checked in CI.</li>
+        <li><strong>PM dashboard</strong>: a "Today" page, per-SPEC detail pages, hill charts, EBM areas and Investment Balance, an Impact × Effort backlog, an outcomes ↔ Intents matrix, a triage inbox; <code>data.json</code> v2 with a published JSON Schema — see <a href="metrics.html#dashboards">Metrics — dashboards</a>.</li>
+        <li><strong>Traceability and archiving</strong>: an <code>archive done</code> command (including split SPECs and resolved FACTs); a new module without <code>@spec</code> becomes a blocking gap; test skeletons generated from an EARS SPEC (<code>suggest-tests</code>) — see <a href="concepts/traceability.html">Traceability</a>.</li>
+        <li><strong>Accountability</strong>: FACTs enriched with a violated-constraint signal; automated collection of DORA metrics after deployment.</li>
+        <li><strong>Tooled guardrails</strong>: an enforced / advisory matrix (<code>guardrails</code>), a categorised command registry (<code>commands</code>), a soft deprecation cycle, opt-in per-command usage telemetry, an actionable model recommendation (<code>/model</code>) in the <code>/sdd</code> and <code>/aiad</code> commands, configurable automatic chaining of the cycle steps.</li>
+        <li><strong>Quality</strong>: blocking CI gates and a coverage badge, a WCAG 2 AA accessibility gate (pa11y-ci) before the site is published, version synchronisation (<code>version-sync</code>); the 50K-token budget is requalified as an assumed, unsourced sobriety heuristic.</li>
+      </ul>
+
+      <h3 id="v1-18">aiad-sdd 1.18 — advisory becomes enforced (June 2026)</h3>
+      <p>The major shift: every critical SDD rule becomes a primitive <strong>verified by the harness</strong>, and every verdict is computed by a deterministic script (exit codes <code>0/1/2</code> plus validated JSON) — never by the model's free judgement. Entirely additive and opt-in — no breaking change. Highlights:</p>
+      <ul>
+        <li><strong>Enforced governance</strong> — <code>PreToolUse</code> hooks for <a href="concepts/jnsp.html">JNSP</a> and the fail-closed <a href="governance/index.html">Tier 1</a> veto, a <code>Stop</code> hook for the <a href="concepts/drift-lock.html">Drift Lock</a>, read-only governance subagents. The Tier 1 veto cannot be disabled by a simple toggle.</li>
         <li><strong>Research Phase</strong> — <code>/sdd research</code> with the graduated <code>GO | CONDITIONAL GO | DEFER | NO-GO</code> verdict, anchored in mandatory Discovery. See <a href="concepts/research.html">Research Phase</a>.</li>
         <li><strong>Phased execution</strong> — mini-gates per slice and a third <code>CONDITIONAL</code> verdict; crash-recoverable cycle as a task graph; memory "from logs" with human-authored curation.</li>
-        <li><strong>Design guardrails</strong> — proportionality, the interactive <code>grill-me</code> gate, sunset metadata, and a canary suite separating real regressions from model-serving noise.</li>
+        <li><strong>Guardrails</strong> — proportionality, the interactive <code>grill-me</code> gate, <code>sunset</code> obsolescence metadata, additive-only cross-model review.</li>
       </ul>
 
-      <h2 id="v1-16">v1.16 / v1.15 — the PM cockpit (June 2026)</h2>
-      <p>Two consecutive releases (v1.17 shipped no user-visible changes) massively expanded the HTML dashboard into a <strong>Product Manager cockpit</strong>: Kanban with role-aware lenses, OKR alignment, DORA/flow views, risk burndown, stakeholder maps, sprint planning, AI-Act compliance views and dozens of focused widgets. Also added: a practical SDD-Mode guide, a qualitative feedback command, and 43 new OpenAPI routes.</p>
-
-      <h2 id="v1-14">v1.14 — the European compliance toolchain (May 2026)</h2>
-      <p>46 items across two phases, 323 automated tests, zero runtime dependencies preserved. Key additions:</p>
+      <h3 id="v1-16">aiad-sdd 1.15 → 1.17 — the PM cockpit (June 2026)</h3>
+      <p>Three product-consolidation releases (1.17 contains no user-facing change). The essentials:</p>
       <ul>
-        <li><code>aiad-sdd ai-act audit</code> — pre-fills the <strong>Annex IV</strong> documentation of EU Regulation 2024/1689 across its 8 required sections.</li>
-        <li>Jurisdiction governance packs (<code>eu-baseline</code>, <code>us-baseline</code>, <code>uk-baseline</code>) and a community pack marketplace with SHA-256 validation.</li>
-        <li><code>doctor</code>, <code>uninstall</code>, <code>migrate</code>, <code>workspace</code>, <code>repl</code>, opt-in GDPR-compliant telemetry, and a SARIF output for <a href="concepts/traceability.html">trace</a> consumable by GitHub Code Scanning.</li>
-        <li>Multi-language annotations (Rust, Go, Java, Kotlin, C#, Ruby, PHP, Swift, Scala, Elixir), <code>--watch</code> and <code>--suggest</code> modes, and Git-aware scanning (~1.8&nbsp;s on 100k files).</li>
+        <li><strong>PM cockpit dashboard</strong>: dozens of product-steering modules (PRD coverage, velocity, OKR, role-aware Kanban, scorecards, forecast) — see <a href="metrics.html#dashboards">Metrics — dashboards</a>.</li>
+        <li>A practical <strong>SDD Mode guide</strong>, a backlog health score and an opt-in qualitative feedback command.</li>
+        <li>The <code>/sdd prd</code> and <code>/sdd arch</code> assistants and a SPEC parallelism plan — see <a href="commands/sdd.html#prd">/sdd commands</a>.</li>
       </ul>
 
-      <h2 id="v1-13">v1.13 — HTML dashboard (May 2026)</h2>
-      <p>First HTML dashboard, the <code>--serve</code> mode and a GitHub Pages workflow.</p>
+      <h3 id="v1-14">aiad-sdd 1.14 — EU foundations and ecosystem (May 2026)</h3>
+      <p>46 items delivered to position <code>aiad-sdd</code> as a European intent-based development framework — 323 automated tests, zero runtime dependencies preserved. Key additions:</p>
+      <ul>
+        <li><strong><code>ai-act audit</code></strong>: pre-fills the <strong>Annex IV</strong> documentation of Regulation (EU) 2024/1689 across its 8 required sections — see <a href="governance/index.html#ai-act">AIAD-AI-ACT</a>.</li>
+        <li><strong>Jurisdiction governance packs</strong> (<code>eu-baseline</code>, <code>us-baseline</code>, <code>uk-baseline</code>) and a marketplace of SHA-256-signed packs — see <a href="governance/index.html#packs">Governance — packs</a>.</li>
+        <li><strong>Trace ++</strong>: <code>--watch</code>, <code>--suggest</code>, annotations in 13 languages, SARIF v2.1.0 export, scanning via <code>git ls-files</code> (100,000 files in ~1.8&nbsp;s).</li>
+        <li><strong>Tooling</strong>: <code>doctor</code>, multi-project <code>workspace</code>, REPL, <code>migrate</code>, opt-in GDPR-compliant telemetry, FR/EN i18n — see <a href="commands/cli.html">npx aiad-sdd CLI</a>.</li>
+        <li><strong>Ecosystem</strong>: official GitHub Action, GitLab CI / Bitbucket / Drone templates, VS Code extension, documentation site.</li>
+      </ul>
 
-      <h2 id="v1-12">v1.12 — multi-runtime (May 2026)</h2>
-      <p><code>aiad-sdd emit-rules</code> generates <code>AGENTS.md</code>, <code>.cursor/rules/</code>, <code>.codex/AGENT.md</code> and <code>GEMINI.md</code> from a single source — the AGENT-GUIDE — so Claude Code, Cursor, Copilot, Codex and Gemini all follow the same rules. A CI check blocks any divergence in PRs.</p>
+      <h3 id="v1-13">aiad-sdd 1.13 — HTML dashboard (May 2026)</h3>
+      <ul>
+        <li>Multi-page HTML dashboard, <code>--serve</code> mode and GitHub Pages workflow — see <a href="metrics.html#dashboards">Metrics</a> and <a href="commands/aiad.html">/aiad dashboard-html</a>.</li>
+      </ul>
 
-      <h2 id="v1-11">v1.11 — optional EARS variant (May 2026)</h2>
-      <p>SPECs can be written in <strong>EARS</strong> (Easy Approach to Requirements Syntax) with a strict R1–R7 linter at the Gate: zero violations earns a guaranteed +1 on the SQS Testability criterion. Reserved for SPECs where ambiguity is expensive. See <a href="concepts/spec.html#ears">SPEC — EARS variant</a>.</p>
+      <h3 id="v1-12">aiad-sdd 1.12 — multi-runtime (May 2026)</h3>
+      <ul>
+        <li><code>aiad-sdd emit-rules</code> makes AIAD the <strong>upstream source</strong> of agent rules: <code>.aiad/AGENT-GUIDE.md</code> plus governance generate <code>AGENTS.md</code>, <code>.cursor/rules/</code>, <code>.codex/AGENT.md</code> and <code>GEMINI.md</code> — see <a href="commands/cli.html#emit-rules">CLI — emit-rules</a>. The <code>aiad-emit-rules-check.yml</code> CI workflow blocks any divergence.</li>
+      </ul>
 
-      <h2 id="v1-10">v1.10 — machine-verifiable traceability (April 2026)</h2>
-      <p>The Intent ↔ SPEC ↔ Code ↔ Tests matrix built from <code>@intent</code> / <code>@spec</code> / <code>@verified-by</code> / <code>@governance</code> annotations, generated by <code>aiad-sdd trace</code> and enforced in CI with <code>--fail-on-gap</code>. See <a href="concepts/traceability.html">Traceability</a>.</p>
+      <h3 id="v1-11">aiad-sdd 1.11 — EARS variant (May 2026)</h3>
+      <ul>
+        <li>Optional SPEC writing in the <strong>EARS</strong> format (<code>/sdd spec --ears</code>) with a strict R1–R7 linter: zero violations guarantees +1 on the SQS Testability criterion — see <a href="concepts/spec.html#ears">SPEC — EARS variant</a>. Reserve it for SPECs where ambiguity is expensive (security, payments, compliance).</li>
+      </ul>
 
-      <h2 id="earlier">Earlier versions</h2>
+      <h3 id="v1-10">aiad-sdd 1.10 — machine-verifiable traceability (April 2026)</h3>
+      <ul>
+        <li>The Intent ↔ SPEC ↔ Code ↔ Tests matrix built from the <code>@intent</code>, <code>@spec</code>, <code>@verified-by</code>, <code>@governance</code> annotations, generated by <code>/sdd trace</code> or <code>npx aiad-sdd trace</code> — see <a href="concepts/traceability.html">Traceability</a>. The <code>sdd-trace.yml</code> GitHub Action fails the PR on a blocking gap.</li>
+      </ul>
+
+      <h3 id="earlier">Earlier versions (aiad-sdd 1.6 → 1.9)</h3>
       <table>
+        <caption class="visually-hidden">Earlier versions of the aiad-sdd software</caption>
         <thead><tr><th scope="col">Version</th><th scope="col">Headline change</th></tr></thead>
         <tbody>
-          <tr><td>v1.9 (April 2026)</td><td>7 reusable skills extract the recurring logic from the SDD commands (DRY composition).</td></tr>
-          <tr><td>v1.8</td><td><code>--minimal</code> profile (4 commands, &lt; 1k cold-start tokens) and incremental upgrade path.</td></tr>
-          <tr><td>v1.7</td><td>27 commands namespaced into 3 <a href="commands/sdd.html">routers</a> — sub-command bodies loaded on demand.</td></tr>
-          <tr><td>v1.6</td><td>First npm release of AIAD SDD Mode: pre-commit hook enforcing the Drift Lock, SessionStart hook injecting the active Intent and Gate status.</td></tr>
+          <tr><td><strong>aiad-sdd 1.9</strong></td><td>7 auto-triggered <strong>reusable skills</strong> extract the recurring logic of the SDD commands (<code>sqs-scoring</code>, <code>drift-detection</code>, <code>regulatory-veto</code>…) — the package ships 9 today — see <a href="commands/sdd.html">/sdd commands</a>.</td></tr>
+          <tr><td><strong>aiad-sdd 1.8</strong></td><td><code>--minimal</code> profile (Intent + SQS + Drift Lock, &lt; 1,000 cold-start tokens) and incremental upgrade path — see <a href="get-started.html">Get Started</a>.</td></tr>
+          <tr><td><strong>aiad-sdd 1.7</strong></td><td>The 27 commands of the time grouped under <strong>3 routers</strong> (<code>/sdd</code>, <code>/aiad</code>, <code>/aiad-help</code>), bodies loaded on demand (−94% cold-loaded frontmatter) — see <a href="commands/sdd.html#routers">the routers</a>.</td></tr>
+          <tr><td><strong>aiad-sdd 1.6</strong></td><td>SDD Mode base published as an npm package: pre-commit hook enforcing the <a href="concepts/drift-lock.html">Drift Lock</a>, SessionStart hook injecting the active Intent and Gate status.</td></tr>
         </tbody>
       </table>
 
       <div class="callout info">
-        <span class="callout-title">Full details</span>
-        <p>The complete changelog ships with the package: <code>CHANGELOG.md</code> in the <a href="https://github.com/everssteeve/sdd-mode">sdd-mode repository</a>. Run <code>npx aiad-sdd update --check</code> to verify whether your installed commands diverge from the latest release.</p>
+        <span class="callout-title">Sources of truth</span>
+        <p>The doctrine is authoritative in the framework text published on <a href="https://aiad.ovh">aiad.ovh</a>. The software track summarises the repository's <code>CHANGELOG.md</code> (Keep a Changelog format, SemVer versioning). For the full details — including the history of internal artifacts — see the repository at <a href="https://github.com/everssteeve/sdd-mode">github.com/everssteeve/sdd-mode</a>.</p>
       </div>
 
       <nav class="doc-pagination" aria-label="Adjacent pages">
@@ -244,7 +325,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD Framework v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

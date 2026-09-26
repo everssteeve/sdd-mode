@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Context Engineering Budget — la discipline du contexte | SDD Mode</title>
-<meta name="description" content="Le Context Engineering Budget est le principe #3 du SDD Mode : le Product Engineer est responsable du budget de contexte de chaque session agent. Seuil opérationnel 60-70 %, une seule SPEC active, Intent en tête de contexte, 5 métriques santé M1-M5.">
+<meta name="description" content="Le Context Engineering Budget est le principe #3 du SDD Mode : le Product Engineer est responsable du budget de contexte de chaque session agent. Seuil opérationnel 60-70 %, référence de fenêtres datée, une seule SPEC active, Intent en tête de contexte, délégation précoce aux sous-agents, 5 métriques santé M1-M5.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../../en/concepts/context-budget.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="human-authorship.html">Human Authorship</a></li>
+            <li><a href="autonomie-agent.html">Autonomie de l'agent</a></li>
             <li><a href="context-budget.html" aria-current="page">Context Engineering Budget</a></li>
             <li><a href="jnsp.html">JNSP — politique d'incertitude</a></li>
             <li><a href="traceability.html">Traçabilité machine-vérifiable</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commandes</button>
           <ul class="submenu">
-            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
-            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="../commandes/sdd.html">/sdd — cycle SDD (17)</a></li>
+            <li><a href="../commandes/aiad.html">/aiad — rituels &amp; métriques (16)</a></li>
             <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
           </ul>
         </li>
@@ -102,6 +103,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="human-authorship.html">Human Authorship</a></li>
+          <li><a href="autonomie-agent.html">Autonomie de l'agent</a></li>
           <li><a href="context-budget.html" aria-current="page">Context Engineering Budget</a></li>
           <li><a href="jnsp.html">JNSP — incertitude</a></li>
           <li><a href="traceability.html">Traçabilité</a></li>
@@ -110,8 +112,8 @@
         </ul>
         <h2>Commandes</h2>
         <ul>
-          <li><a href="../commandes/sdd.html">/sdd (16)</a></li>
-          <li><a href="../commandes/aiad.html">/aiad (15)</a></li>
+          <li><a href="../commandes/sdd.html">/sdd (17)</a></li>
+          <li><a href="../commandes/aiad.html">/aiad (16)</a></li>
           <li><a href="../commandes/cli.html">CLI npx aiad-sdd</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -157,15 +159,17 @@
         <p>Utiliser <strong>60-70 % du contexte disponible</strong> comme maximum effectif. Exemple : 200k tokens disponibles → budget max ≈ 130k. Au-delà, les symptômes de context rot apparaissent avant la limite théorique.</p>
       </div>
       <table>
-        <caption class="visually-hidden">Référence modèles v1.6</caption>
-        <thead><tr><th scope="col">Modèle</th><th scope="col">Fenêtre effective</th><th scope="col">Seuil opérationnel</th></tr></thead>
+        <caption>Référence des fenêtres de contexte, au 25/09/2026</caption>
+        <thead><tr><th scope="col">Catégorie de modèle</th><th scope="col">Fenêtre native</th><th scope="col">Budget effectif (60-70 %)</th></tr></thead>
         <tbody>
-          <tr><td>Opus 4.8</td><td>1M tokens effectifs</td><td>60-70 % — déplacé vers le haut</td></tr>
-          <tr><td>Sonnet 4.6</td><td>200k tokens</td><td>60-70 %</td></tr>
-          <tr><td>Haiku 4.5</td><td>200k tokens</td><td>60-70 %</td></tr>
+          <tr><th scope="row">Modèles frontières — par exemple Claude Sonnet 5, diffusé fin juin 2026 dans Claude Code, Kiro et GitHub Copilot</th><td>1M tokens (généralisée)</td><td>≈ 600k à 700k tokens</td></tr>
+          <tr><th scope="row">Modèles rapides</th><td>Peut rester à 200k tokens</td><td>≈ 130k tokens</td></tr>
         </tbody>
       </table>
-      <p>Le point clé : la fenêtre disponible <strong>ne change pas le seuil de 60-70 %</strong> — elle le déplace vers le haut. Une fenêtre d'un million de tokens ne dispense pas de la discipline ; elle en élargit seulement la marge.</p>
+      <p>Le point clé : la fenêtre disponible <strong>ne change pas le seuil de 60-70 %</strong> — elle le déplace vers le haut. Les fenêtres de 1M tokens repoussent le seuil de dégradation, elles ne le suppriment pas ; elles ne dispensent pas non plus du découpage en sessions à objectif unique.</p>
+
+      <h2 id="datation">Une référence datée, pas une vérité durable</h2>
+      <p>Règle transverse de la doctrine v1.9 : toute hypothèse de capacité ou de prix citée dans un artefact AIAD est <strong>datée et revalidée périodiquement</strong>. Le tableau ci-dessus vaut au 25/09/2026 ; il ne cite aucun tarif, et en particulier aucun tarif promotionnel, par nature temporaire. Les règles du budget, elles, s'énoncent comme des mécanismes — part de la fenêtre, placement, délégation — pour rester valides quand les modèles changent.</p>
 
       <h2 id="regles">Les règles de composition d'une session</h2>
       <table>
@@ -179,6 +183,21 @@
         </tbody>
       </table>
       <p>Le « lost in the middle effect » est documenté : les LLM accordent plus d'attention au début et à la fin de leur contexte qu'au milieu. Placer l'intention et la SPEC en tête garantit que ce qui ne doit pas être trahi reste dans la zone de meilleure adhérence.</p>
+
+      <h2 id="delegation">Délégation à des sous-agents : le contexte hérité</h2>
+      <p>Certains harnesses font hériter aux sous-agents la conversation parente. Le coût d'une délégation dépend alors du mécanisme :</p>
+      <ul>
+        <li><strong>si le sous-agent hérite de la conversation parente</strong>, son coût vaut <em>contexte parent au moment du fork + travail propre</em>, et non un coût marginal : il vaut mieux <strong>déléguer tôt</strong>, quand le contexte parent est encore léger ;</li>
+        <li>le point de fork devient un <strong>poste de coût explicite</strong> du Context Audit ;</li>
+        <li><strong>si l'héritage est désactivé</strong>, le sous-agent part d'un contexte vierge et doit recevoir explicitement l'Intent Statement et la SPEC active.</li>
+      </ul>
+      <div class="callout info">
+        <span class="callout-title">Dans le paquet aiad-sdd — prochaine version, à paraître</span>
+        <p>La prochaine version du paquet, à paraître, ajoute à <code>/sdd context</code> une ligne « Contexte hérité (délégations) » dans la mesure du contexte réel, une ligne correspondante dans l'estimation de budget du gabarit de SPEC, et un diagnostic de la skill <code>context-budget</code> : <strong>délégations tardives</strong> (contexte hérité supérieur à 50 % du total) → déléguer plus tôt dans la session.</p>
+      </div>
+
+      <h2 id="compaction">Compaction intentionnelle et loop engineering</h2>
+      <p>Deux pratiques issues du terrain complètent le budget. L'<strong>intentional compaction</strong> (Dex Horthy, HumanLayer) consiste à compacter délibérément l'historique en un état écrit — décisions prises, fichiers touchés, prochaines étapes — plutôt que de subir la compaction automatique. Le <strong>loop engineering</strong> consiste à structurer chaque boucle agentique autour d'un objectif, d'un critère de sortie et d'une vérification. Ce vocabulaire date de 2026 et reste un <strong>vocabulaire non stabilisé</strong> : il est adopté comme description de pratiques, pas comme norme.</p>
 
       <h2 id="economie">L'argument économique</h2>
       <p>La discipline du contexte n'est pas qu'une affaire de qualité — c'est une décision d'optimisation de coût mesurable. Deux données convergentes valident l'intent-based design : <strong>R2Code</strong> (arXiv, avril 2026) mesure <strong>−41,7 % de tokens</strong> consommés sur du code spec-anchored, avec +7,4 % de fidélité ; <strong>AWS Strands</strong> (2026) observe <strong>−96 % de tokens</strong> sur des workflows intent-based. Sur des projets intensifs en génération de code, l'économie est directement mesurable — et model-agnostic : elle s'applique quelle que soit la plateforme. La commande <code>/sdd context</code> fournit une estimation du coût évité par session.</p>
@@ -202,7 +221,7 @@
       <p>La règle pratique qui résume tout : <strong>une session = un objectif, durée inférieure à 35 minutes</strong>, contexte = AGENT-GUIDE + ARCHITECTURE condensée + SPEC active. Au-delà de 35 minutes, lancer <code>/compact</code> et repartir sur une session propre — une session qui s'étire est le signal d'une SPEC trop large ou d'un contexte mal préparé, pas d'un agent lent. La commande <code>/sdd resume</code> reconstruit alors un contexte minimal et précis depuis le résumé de la session interrompue, sans tout réinjecter.</p>
 
       <nav class="doc-pagination" aria-label="Pages voisines">
-        <a class="prev" href="human-authorship.html"><span class="dir">← Précédent</span>Human Authorship</a>
+        <a class="prev" href="autonomie-agent.html"><span class="dir">← Précédent</span>Autonomie de l'agent</a>
         <a class="next" href="jnsp.html"><span class="dir">Suivant →</span>JNSP — politique d'incertitude</a>
       </nav>
     </article>
@@ -252,7 +271,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Framework AIAD v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

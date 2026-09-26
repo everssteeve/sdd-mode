@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The artifacts — the team's collective memory | SDD Mode</title>
-<meta name="description" content="AIAD artifacts are not bureaucracy: the Intent Statement, PRD, ARCHITECTURE, AGENT-GUIDE, SPECs and Definitions of Done form a strict documentation hierarchy — the team's collective memory and the fuel of AI agents.">
+<meta name="description" content="AIAD artifacts are not bureaucracy: the Intent Statement, PRD, ARCHITECTURE, AGENT-GUIDE, SPECs and Definitions of Done form a strict documentation hierarchy — the team's collective memory and the fuel of AI agents. Reversibility class, oversight failures and the SPEC sections that frame the agent (v1.9).">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../fr/artefacts.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/agent-autonomy.html">Agent autonomy</a></li>
             <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
             <li><a href="concepts/jnsp.html">JNSP — uncertainty policy</a></li>
             <li><a href="concepts/traceability.html">Machine-verifiable traceability</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commands</button>
           <ul class="submenu">
-            <li><a href="commands/sdd.html">/sdd — SDD cycle (16)</a></li>
-            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="commands/sdd.html">/sdd — SDD cycle (17)</a></li>
+            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (16)</a></li>
             <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
           </ul>
         </li>
@@ -101,6 +102,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/agent-autonomy.html">Agent autonomy</a></li>
           <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
           <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
           <li><a href="concepts/traceability.html">Traceability</a></li>
@@ -109,8 +111,8 @@
         </ul>
         <h2>Commands</h2>
         <ul>
-          <li><a href="commands/sdd.html">/sdd (16)</a></li>
-          <li><a href="commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="commands/sdd.html">/sdd (17)</a></li>
+          <li><a href="commands/aiad.html">/aiad (16)</a></li>
           <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -159,6 +161,7 @@
 
       <h2 id="intent">Intent Statement — the archived WHY</h2>
       <p>The <a href="concepts/intent-statement.html">Intent Statement</a> is the first-order artifact: it captures the human intent behind each feature in five fields (WHY NOW, FOR WHOM, OBJECTIVE, CONSTRAINTS, DRIFT CRITERION), with a mandatory human author — the <a href="concepts/human-authorship.html">Human Authorship</a> principle. It precedes and transcends the SPEC, and it is archived in <code>.aiad/intents/</code>. Six months from now, it is the one that will answer the question "what did we want to accomplish, and why?".</p>
+      <p>The <strong>Drift Criterion</strong> states how we will know, three months from now, whether the implementation has betrayed the intent. Since doctrine v1.9, when the intent involves agent actions with effects outside the code — financial, operational or physical —, it specifies their <strong>reversibility class</strong> (reversible, costly to reverse, irreversible) and, for the irreversible class, a <strong>stop threshold</strong>: any observed overreach of autonomy halts the agent and triggers an immediate human review. Details on the <a href="concepts/intent-statement.html#reversibilite">Intent Statement</a> page.</p>
 
       <h2 id="prd">PRD — the expected value</h2>
       <p>The <strong>Product Requirement Document</strong> clarifies why and what to build before the how. It contains the context and the problem, the measurable <strong>Outcome Criteria</strong>, the personas and use cases, the deliberate out-of-scope, the trade-offs and the risks. Five practices are non-negotiable: start from the problem (not the solution), define the success criteria before building, write it <em>with</em> the team, keep it living, and illustrate it (wireframes, flows).</p>
@@ -180,10 +183,19 @@
           <tr><td><strong>Human Learnings</strong></td><td>"What did the <em>human</em> express poorly?" — failures in expressing the intent</td><td>Reviewed at the monthly Intent Workshop</td></tr>
         </tbody>
       </table>
-      <p>A guide with a hundred rules is less effective than a guide with ten well-chosen ones: the AGENT-GUIDE is bounded by the Context Budget (condensed ≤ 500 tokens per session).</p>
+      <p>To structure the Human Learnings, the taxonomy of Tang et al. (arXiv, 2026) — drawn from 20,574 real sessions — provides seven forms of misalignment (misinterpretation of the intent, scope creep, off-spec solution, hallucinated requirement…): categorising each entry by the observed form reveals the recurring patterns of poorly expressed intent. By naming them, the Human Learnings prevent <em>cognitive debt</em> (Fowler/Joshi, 2026).</p>
+      <h3 id="defaillances-supervision">A category of their own: oversight failures</h3>
+      <p>Among the Human Learnings, some are not due to a poorly expressed intent but to <strong>oversight that is absent or has become nominal</strong>. Doctrine v1.9 gives them their own category, because they recur in different forms. Two cases serve as references:</p>
+      <ul>
+        <li><strong>An agent acting without approval</strong> (Meta, March 2026, <strong>according to press reports</strong>): an internal agent posted its answer on an internal forum on its own initiative, without the consent of the engineer who had asked it; another employee followed that advice, exposing sensitive data to unauthorised people for nearly two hours.</li>
+        <li><strong>Stacked automated reviews</strong> ("CVE-2026-LGTM", Andrew Nesbitt, June 2026): this story is <strong>satirical fiction</strong>, not a real incident. In it, a malicious package passes seven automated checks, each failing for a different reason, while two review agents lock themselves into a costly disagreement. Practitioners recognised their own pipelines in it: correlated blind spots across AI tools, and no human left to decide.</li>
+      </ul>
+      <p>The question to ask in the retrospective: <em>at what point should a human have been consulted, and why weren't they?</em> The <a href="concepts/agent-autonomy.html#points-arret">agent stop points</a> are the preventive answer.</p>
+      <p>A guide with a hundred rules is less effective than a guide with ten well-chosen ones: the AGENT-GUIDE is bounded by the Context Budget (condensed ≤ 500 tokens per session). For the same reason, <a href="concepts/validation.html#exemplars">review exemplars</a> are not included in it: they are only loaded in review sessions.</p>
 
       <h2 id="spec">SPECs — the agent's work instruction</h2>
       <p>A <a href="concepts/spec.html">SPEC</a> bridges the intent (PRD, Intent) and the agent's implementation. A quality SPEC makes it possible to generate 80%+ of correct code on the first pass — it is the framework's best-ROI investment. Four criteria define it: atomicity, precision, testability, completeness — scored by the SQS at the <a href="concepts/execution-gate.html">Execution Gate</a> (≥ 4/5 required). Each SPEC carries its own <strong>Drift Criterion</strong> and stays synchronised with the code on every PR.</p>
+      <p>Two sections, added by doctrine v1.9, frame what the agent is authorised to do: "<strong>Agent stop points</strong>" (optional — when the agent comes back to a human: approval, expert opinion, plurality of viewpoints, witness) and "<strong>Agent execution scope</strong>" (conditional — required as soon as the agent holds credentials or write access to a shared resource, "Not applicable" otherwise). See <a href="concepts/spec.html#sections-agent">SPEC</a> and <a href="concepts/agent-autonomy.html">Agent autonomy</a>.</p>
 
       <h2 id="dod">The Definitions of Done</h2>
       <p>The <strong>Definition of Output Done (DoOD)</strong> sets the standard for an increment to be shippable, in six categories: technical, security, performance, functional, deployment, review. The principle is non-negotiable: all criteria or nothing — <strong>"90% Done is not Done"</strong>.</p>
@@ -199,17 +211,20 @@
 │   ├── AIAD-AI-ACT.md
 │   ├── AIAD-RGPD.md
 │   ├── AIAD-RGAA.md
-│   └── AIAD-RGESN.md
+│   ├── AIAD-RGESN.md
+│   └── AIAD-CRA.md         ← Delivered as a complement (software products)
 ├── intents/                ← Intent Statements (WHY)
 │   └── _index.md
 ├── specs/                  ← Technical SPECs (HOW)
 │   └── _index.md
+├── review-exemplars/       ← Review exemplars (optional, review sessions only)
 ├── facts/                  ← /sdd fact traces
 ├── metrics/
 │   ├── security/           ← /sdd security reports
 │   ├── audit/              ← /sdd audit reports
 │   └── traceability/       ← /sdd trace snapshots (Markdown + JSON + HTML)
 └── CHANGELOG-ARTEFACTS.md  ← Update history</code></pre>
+      <p>The doctrine counts <strong>four Tier 1 guides</strong> (AI-ACT, RGPD, RGAA, RGESN). The AIAD-CRA agent is <strong>delivered as a complement</strong> by the package for software products: the reporting obligation to ENISA under the Cyber Resilience Act has been in force since 11/09/2026. The <code>review-exemplars/</code> directory is an optional doctrine convention, to be created by the team.</p>
 
       <h2 id="anti-patterns">Artifact anti-patterns</h2>
       <div class="callout danger">
@@ -268,7 +283,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD Framework v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

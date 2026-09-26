@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/autonomie-agent.html">Autonomie de l'agent</a></li>
             <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
             <li><a href="concepts/jnsp.html">JNSP — politique d'incertitude</a></li>
             <li><a href="concepts/traceability.html">Traçabilité machine-vérifiable</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commandes</button>
           <ul class="submenu">
-            <li><a href="commandes/sdd.html">/sdd — cycle SDD (16)</a></li>
-            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (15)</a></li>
+            <li><a href="commandes/sdd.html">/sdd — cycle SDD (17)</a></li>
+            <li><a href="commandes/aiad.html">/aiad — rituels &amp; métriques (16)</a></li>
             <li><a href="commandes/cli.html">CLI npx aiad-sdd</a></li>
           </ul>
         </li>
@@ -87,7 +88,7 @@
 <main id="contenu">
 
   <div class="hero">
-    <p class="version-pill">Framework AIAD v<!--VERSION:START-->1.19.0<!--VERSION:END--> — Open Source</p>
+    <p class="version-pill">Doctrine AIAD v1.9 · aiad-sdd v<!--VERSION:START-->1.19.0<!--VERSION:END--> — Open Source</p>
     <h1>Le développement piloté par la spec,<br>pour l'ère des <span class="accent">agents IA</span></h1>
     <p class="lede">SDD Mode transforme une intention humaine en code vérifié : Intent Statement, SPEC vivante, Execution Gate, Drift Lock et gouvernance réglementaire — sans jamais déléguer la paternité de l'intention.</p>
     <div class="btn-row">
@@ -101,7 +102,7 @@
     <h2 id="h-chiffres" class="visually-hidden">SDD Mode en chiffres</h2>
     <div class="stats">
       <div class="stat"><span class="num">−41,7 %</span><span class="label">de tokens consommés en session spec-anchored (R2Code, 2026)</span></div>
-      <div class="stat"><span class="num">31</span><span class="label">commandes slash : 16 /sdd + 15 /aiad</span></div>
+      <div class="stat"><span class="num">33</span><span class="label">commandes slash : 17 /sdd + 16 /aiad</span></div>
       <div class="stat"><span class="num">4</span><span class="label">agents de gouvernance Tier 1 avec droit de veto</span></div>
       <div class="stat"><span class="num">SQS ≥ 4/5</span><span class="label">requis à l'Execution Gate avant toute ligne de code</span></div>
     </div>
@@ -116,9 +117,9 @@
         <li class="card accent-top"><h3>1. Intent Statement</h3><p>L'intention humaine en 5 champs : pourquoi maintenant, pour qui, objectif, contraintes, critère de drift. Auteur humain obligatoire.</p><a class="card-link" href="concepts/intent-statement.html">Lire l'article →</a></li>
         <li class="card accent-top"><h3>2. Research</h3><p>Discovery ancrée dans le code, verdict gradué GO / CONDITIONAL GO / DEFER / NO-GO — tranché par l'humain.</p><a class="card-link" href="concepts/research.html">Lire l'article →</a></li>
         <li class="card accent-top"><h3>3. SPEC</h3><p>La spécification vivante : scope, interface, comportement, cas limites, tests. Format prose ou EARS strict.</p><a class="card-link" href="concepts/spec.html">Lire l'article →</a></li>
-        <li class="card accent-top"><h3>4. Execution Gate</h3><p>Le SQS score la SPEC sur 5 critères + le Test de l'Étranger. Gate fermée sous 4/5 — aucun agent ne démarre.</p><a class="card-link" href="concepts/execution-gate.html">Lire l'article →</a></li>
+        <li class="card accent-top"><h3>4. Execution Gate</h3><p>Le SQS score la SPEC sur 5 critères + le Test de l'Étranger. Gate fermée sous 4/5 — aucun agent ne démarre. L'ouvrir est un acte humain distinct du <a href="concepts/autonomie-agent.html">continuum d'autorité</a> ; plafonds, seuil d'arrêt et périmètre y sont vérifiés dès qu'une action est irréversible. Pré-contrôle déterministe avant le SQS : à paraître.</p><a class="card-link" href="concepts/execution-gate.html">Lire l'article →</a></li>
         <li class="card accent-top"><h3>5. Exécution agent</h3><p>Contexte optimisé (AGENT-GUIDE + ARCHITECTURE condensée + une seule SPEC), plan d'implémentation avant le code.</p><a class="card-link" href="concepts/execution.html">Lire l'article →</a></li>
-        <li class="card accent-top"><h3>6. Validation</h3><p>Trois axes : technique, fonctionnel, gouvernance. Les 4 agents Tier 1 disposent d'un droit de veto fail-closed.</p><a class="card-link" href="concepts/validation.html">Lire l'article →</a></li>
+        <li class="card accent-top"><h3>6. Validation</h3><p>Technique, fonctionnelle et gouvernance avec <code>/sdd validate</code>, puis validation métier : l'intention est-elle respectée ? Les 4 agents Tier 1 disposent d'un droit de veto fail-closed.</p><a class="card-link" href="concepts/validation.html">Lire l'article →</a></li>
         <li class="card accent-top"><h3>7. Drift Lock</h3><p>Code et SPEC synchronisés dans la même PR. Le drift est un échec de processus, pas une erreur d'agent.</p><a class="card-link" href="concepts/drift-lock.html">Lire l'article →</a></li>
       </ol>
       <p class="center" style="margin-top:2rem"><a class="btn btn-primary" href="big-picture.html">Voir le cycle complet en Big Picture</a></p>
@@ -139,10 +140,10 @@
     <div class="inner">
       <p class="kicker">Tier 1 — droit de veto</p>
       <h2 id="h-gouvernance">La gouvernance réglementaire intégrée au cycle</h2>
-      <p class="section-lede">Quatre agents de gouvernance sont injectés dans chaque session qui touche leur périmètre. Verdict <code>UNKNOWN</code> = VETO : la politique est fail-closed, jamais d'auto-blanchiment silencieux.</p>
+      <p class="section-lede">Quatre agents de gouvernance Tier 1 sont injectés dans chaque session qui touche leur périmètre ; le paquet livre en complément un agent CRA pour les produits logiciels. Verdict <code>UNKNOWN</code> = VETO : la politique est fail-closed, jamais d'auto-blanchiment silencieux.</p>
       <ul class="cards">
-        <li class="card"><h3>AIAD-AI-ACT</h3><p>Règlement (UE) 2024/1689. Classification de risque et obligations dès qu'un composant IA est impliqué — ML, LLM, scoring, recommandation.</p><a class="card-link" href="gouvernance/index.html#ai-act">En savoir plus →</a></li>
-        <li class="card"><h3>AIAD-RGPD</h3><p>Privacy by Design : minimisation, bases légales, droits des personnes — dès que le code traite des données personnelles.</p><a class="card-link" href="gouvernance/index.html#rgpd">En savoir plus →</a></li>
+        <li class="card"><h3>AIAD-AI-ACT</h3><p>Règlement (UE) 2024/1689, calendrier recalé sur l'Omnibus 2026/1744 : transparence en vigueur depuis le 2 août 2026, haut risque au 2 décembre 2027 (Annexe III) et au 2 août 2028 (Annexe I). Profil « agents à effet irréversible ».</p><a class="card-link" href="gouvernance/index.html#ai-act">En savoir plus →</a></li>
+        <li class="card"><h3>AIAD-RGPD</h3><p>Privacy by Design : minimisation, bases légales, droits des personnes — et, pour les agents qui décident seuls, l'Art. 22 : une intervention humaine réelle, pas nominale.</p><a class="card-link" href="gouvernance/index.html#rgpd">En savoir plus →</a></li>
         <li class="card"><h3>AIAD-RGAA</h3><p>Accessibilité numérique RGAA 4.1 / WCAG 2.1 — dès que le code produit une interface utilisateur.</p><a class="card-link" href="gouvernance/index.html#rgaa">En savoir plus →</a></li>
         <li class="card"><h3>AIAD-RGESN</h3><p>Écoconception RGESN v2 : sobriété computationnelle sur toute décision technique — performance, ressources, dépendances.</p><a class="card-link" href="gouvernance/index.html#rgesn">En savoir plus →</a></li>
       </ul>
@@ -156,8 +157,8 @@
     <ul class="cards">
       <li class="card"><h3>Product Manager</h3><p>Responsable de la valeur. Construit-on la bonne chose ?</p><a class="card-link" href="equipe/responsabilites.html#pm">Détails →</a></li>
       <li class="card"><h3>Product Engineer</h3><p>Gardien de l'intention. Orchestre les agents IA sans trahir le POURQUOI.</p><a class="card-link" href="equipe/responsabilites.html#pe">Détails →</a></li>
-      <li class="card"><h3>Agents Engineer</h3><p>Responsable de l'écosystème IA et du Harness Engineering — permissions minimales.</p><a class="card-link" href="equipe/responsabilites.html#ae">Détails →</a></li>
-      <li class="card"><h3>QA Engineer</h3><p>Qualité intégrée dès le départ — les tests exploratoires restent 100 % humains.</p><a class="card-link" href="equipe/responsabilites.html#qa">Détails →</a></li>
+      <li class="card"><h3>Agents Engineer</h3><p>Responsable de l'écosystème IA et du Harness Engineering. Un mode de permission n'est pas un contrôle : la protection repose sur l'isolation.</p><a class="card-link" href="equipe/responsabilites.html#ae">Détails →</a></li>
+      <li class="card"><h3>QA Engineer</h3><p>Qualité intégrée dès le départ — efficacité n'est pas qualité, et les tests exploratoires restent 100 % humains.</p><a class="card-link" href="equipe/responsabilites.html#qa">Détails →</a></li>
       <li class="card"><h3>Tech Lead</h3><p>Cohérence technique long terme. Guide les décisions stratégiques, délègue l'opérationnel.</p><a class="card-link" href="equipe/responsabilites.html#tl">Détails →</a></li>
     </ul>
   </section>
@@ -182,7 +183,7 @@
 
   <section class="section center" aria-labelledby="h-cta">
     <h2 id="h-cta">Prêt à passer en SDD Mode ?</h2>
-    <p class="section-lede" style="margin-left:auto;margin-right:auto">Une commande installe la structure <code>.aiad/</code>, les 4 agents de gouvernance, les 33 commandes slash et le <code>CLAUDE.md</code> configuré.</p>
+    <p class="section-lede" style="margin-left:auto;margin-right:auto">Une commande installe la structure <code>.aiad/</code>, les 4 agents de gouvernance Tier 1 (plus l'agent CRA en complément), les 33 commandes slash et le <code>CLAUDE.md</code> configuré.</p>
     <p><code class="install" style="background:var(--navy-900);border:none;color:#fff">npx aiad-sdd init</code></p>
     <div class="btn-row" style="margin-top:1.5rem">
       <a class="btn btn-primary" href="demarrer.html">Guide de démarrage</a>
@@ -235,7 +236,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Framework AIAD v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

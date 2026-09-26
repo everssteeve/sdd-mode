@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Values and pillars — the AIAD constitution | SDD Mode</title>
-<meta name="description" content="The constitution of the AIAD framework: four pillars (radical empiricism, systemic orchestration, fluidity through emergence, Intentional Excellence), seven immutable values including Human Authorship, three founding principles and the meta-framework positioning within the SDD ecosystem.">
+<meta name="description" content="The constitution of the AIAD framework: four pillars (radical empiricism, systemic orchestration, fluidity through emergence, Intentional Excellence), seven immutable values including Human Authorship, three founding principles, the budget-delegation-dating rule, the meta-framework positioning within the SDD ecosystem (Kiro, Spec Kit, OpenSpec, Codeplain, Copilot) and the 2026 industry validations.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../fr/valeurs.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -39,6 +39,7 @@
           <button class="menu-btn" aria-expanded="false">Concepts</button>
           <ul class="submenu">
             <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+            <li><a href="concepts/agent-autonomy.html">Agent autonomy</a></li>
             <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
             <li><a href="concepts/jnsp.html">JNSP — uncertainty policy</a></li>
             <li><a href="concepts/traceability.html">Machine-verifiable traceability</a></li>
@@ -49,8 +50,8 @@
         <li class="has-menu">
           <button class="menu-btn" aria-expanded="false">Commands</button>
           <ul class="submenu">
-            <li><a href="commands/sdd.html">/sdd — SDD cycle (16)</a></li>
-            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (15)</a></li>
+            <li><a href="commands/sdd.html">/sdd — SDD cycle (17)</a></li>
+            <li><a href="commands/aiad.html">/aiad — rituals &amp; metrics (16)</a></li>
             <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
           </ul>
         </li>
@@ -101,6 +102,7 @@
         <h2>Concepts</h2>
         <ul>
           <li><a href="concepts/human-authorship.html">Human Authorship</a></li>
+          <li><a href="concepts/agent-autonomy.html">Agent autonomy</a></li>
           <li><a href="concepts/context-budget.html">Context Engineering Budget</a></li>
           <li><a href="concepts/jnsp.html">JNSP — uncertainty</a></li>
           <li><a href="concepts/traceability.html">Traceability</a></li>
@@ -109,8 +111,8 @@
         </ul>
         <h2>Commands</h2>
         <ul>
-          <li><a href="commands/sdd.html">/sdd (16)</a></li>
-          <li><a href="commands/aiad.html">/aiad (15)</a></li>
+          <li><a href="commands/sdd.html">/sdd (17)</a></li>
+          <li><a href="commands/aiad.html">/aiad (16)</a></li>
           <li><a href="commands/cli.html">npx aiad-sdd CLI</a></li>
         </ul>
         <h2>Organisation</h2>
@@ -163,8 +165,8 @@
       <p><strong>3. Intentional Sobriety.</strong> We build what is necessary, not what is impressive. Every feature must justify itself with a clear intent.</p>
       <p><strong>4. Radical Openness.</strong> AIAD is open source: methodological knowledge is shared, never locked away. Practices, tools and field feedback are published on <a href="https://aiad.ovh">aiad.ovh</a> — transparency is a condition of collective improvement.</p>
       <p><strong>5. Uncompromising Empiricism.</strong> Hypotheses are validated through observation, not consensus. An AIAD team does not decide on the strength of an intuition when a measurement is possible.</p>
-      <p><strong>6. Shared Responsibility.</strong> Success and failure belong to the team, not to an individual. Responsibilities are clear — blame never is. <em>Field illustration (2026):</em> a Cloudflare/Stripe agent autonomously bought the domain <code>superseal.cc</code> instead of <code>superseal.club</code> — in the absence of a human checkpoint on irreversible financial effects, responsibility remains blurry. AIAD formalises this checkpoint through the <a href="concepts/execution-gate.html">Execution Gate</a>.</p>
-      <p><strong>7. Human Authorship.</strong> <a href="concepts/human-authorship.html">Authorship of intent cannot be delegated</a>. Every Intent Statement is written in the first person by an identifiable human; if an agent wrote it, the session is invalidated. <em>External legitimation (May 2026):</em> this value corresponds precisely to Martin Fowler's "serious agentic programming" — as opposed to vibe coding — and prevents <em>cognitive debt</em> (Fowler/Joshi, 2026).</p>
+      <p><strong>6. Shared Responsibility.</strong> Success and failure belong to the team, not to an individual. Responsibilities are clear — blame never is. <em>Field illustration (May 2026):</em> an agent with financial autonomy (Cloudflare/Stripe protocol, $100 monthly cap) bought the domain <code>superseal.cc</code> instead of <code>superseal.club</code> — an error with no clearly designated owner upstream. Shared Responsibility requires that any delegation of autonomy to an agent, especially financial or operational autonomy, come with an explicitly assumed human responsibility and documented checkpoints (cap, audit log, rollback procedure). These checkpoints are detailed in the <a href="governance/index.html#irreversible-agents">"Agents with irreversible effects"</a> profile of the AIAD-AI-ACT agent and checked at the <a href="concepts/execution-gate.html">Execution Gate</a>.</p>
+      <p><strong>7. Human Authorship.</strong> <a href="concepts/human-authorship.html">Authorship of intent cannot be delegated</a>. Every Intent Statement is written in the first person by an identifiable human; if an agent wrote it, the session is invalidated. <em>External legitimation (2026):</em> this value corresponds precisely to Martin Fowler's "serious agentic programming" — as opposed to vibe coding — and prevents <em>cognitive debt</em> (Fowler/Joshi, 2026). Field practice points the same way: across 29,585 pull request cycles analysed (arXiv, May 2026), merge authority remains "almost exclusively human", and frontier agents show a measured action bias of 35 to 65% that justifies a human checkpoint before execution. Since doctrine v1.9, the value unfolds into an <a href="concepts/agent-autonomy.html">authority continuum</a>: each move from one authority level to the next is a distinct human act — and answering the agent's questions is not consenting.</p>
       <div class="callout danger">
         <span class="callout-title">A system, not a menu</span>
         <p>These seven values form a system — <strong>removing one makes the whole collapse</strong>. They are not aspirations: they are constitutive of the framework.</p>
@@ -180,9 +182,10 @@
           <tr><td><strong>The Context Budget as a discipline</strong></td><td>The PE owns the <a href="concepts/context-budget.html">context budget</a> of every session. A hundred-page AGENT-GUIDE is less effective, not more: injecting everything into every session is the main anti-pattern.</td></tr>
         </tbody>
       </table>
+      <p><strong>Budget, delegation and dating (v1.9).</strong> Two 2026 developments change the calculation without changing the discipline. First, one-million-token context windows are becoming widespread: they push back the degradation threshold, they do not remove it. Second, some harnesses make subagents inherit the parent conversation: a delegation then costs the parent context on top of its own work, so it is better to delegate early. Cross-cutting rule: any capability or pricing assumption cited in an AIAD artifact is <strong>dated and revalidated periodically</strong>.</p>
 
       <h2 id="ecosysteme">Positioning in the SDD ecosystem</h2>
-      <p>AIAD is a <strong>meta-framework</strong>: the tools — Kiro (Amazon), GitHub Spec-Kit, SPDD and its REASONS Canvas, OpenAI Symphony, Claude Code Routines — handle the "how to work with agents"; <strong>AIAD handles the "how to work as a human-AI team"</strong>: who carries which responsibility, how to validate that the intent remains intact, how to measure real value, how to maintain regulatory governance. It can integrate these tools as implementations of its spec layer.</p>
+      <p>AIAD is a <strong>meta-framework</strong>: the tools — Kiro (Amazon), GitHub Spec Kit, OpenSpec, Codeplain, SPDD and its REASONS Canvas, OpenAI Symphony, Claude Code Routines — handle the "how to work with agents"; <strong>AIAD handles the "how to work as a human-AI team"</strong>: who carries which responsibility, how to validate that the intent remains intact, how to measure real value, how to maintain regulatory governance. It can integrate these tools as implementations of its spec layer.</p>
       <table>
         <caption class="visually-hidden">Relationships with ecosystem tools</caption>
         <thead><tr><th scope="col">Tool</th><th scope="col">Relationship with AIAD</th></tr></thead>
@@ -190,13 +193,18 @@
           <tr><td><strong>SPDD</strong></td><td>The REASONS Canvas is an optional approach for <code>/sdd spec</code>. SPDD = a spec-production method; AIAD = governance of the full cycle.</td></tr>
           <tr><td><strong>OpenAI Symphony</strong></td><td>Convergence on the persistent intent artifact — but Symphony is issue-tracker-first, with no quality criteria. AIAD adds the SQS, the Drift Lock and governance.</td></tr>
           <tr><td><strong>Routines (Claude Code)</strong></td><td>Compatible execution triggers: a Routine executes an already-validated SPEC (Gate ≥ 4/5), it does not stand in for one — no Intent, no SQS, no Human Authorship on its side.</td></tr>
-          <tr><td><strong>Amazon Kiro</strong></td><td>Kiro starts from execution and optionally offers control; AIAD starts from human intent and builds execution on that foundation. Kiro can serve as the execution layer of a validated AIAD SPEC.</td></tr>
+          <tr><td><strong>Amazon Kiro</strong></td><td>IDE, CLI and web with built-in specs, steering documents and hooks; open-source Kiro Crew orchestrator (Apache 2.0). Kiro has added spec review at phase checkpoints and, in Kiro Crew, approval gates and a signed audit log: the difference no longer lies in the presence of human controls but in their object — execution for Kiro, intent for AIAD. Kiro can serve as the execution layer of a validated AIAD SPEC, its steering documents feeding the AGENT-GUIDE.</td></tr>
+          <tr><td><strong>GitHub Spec Kit</strong></td><td>Open source (MIT licence) and multi-agent. It provides tooling for producing specifications; AIAD adds the Intent Statement, the SQS, regulatory governance and the responsibility model.</td></tr>
+          <tr><td><strong>OpenSpec</strong></td><td>Unified spec, delta specs, scenario validation and explicit consent before writing — a convergence with the Execution Gate, without an organisational layer or regulatory governance.</td></tr>
+          <tr><td><strong>Codeplain</strong></td><td>Shares SDD Mode's thesis — the spec is the durable asset, the code a regenerable product — and goes further by never maintaining the code. Under AIAD, a <code>.plain</code> spec can be the SPEC; the Intent Statement and the Execution Gate come before it.</td></tr>
+          <tr><td><strong>GitHub Copilot agent-native</strong></td><td>Moved to agent-native mode in June 2026 (parallel agents, isolated worktrees, supervision canvas). Compatible: the Intent Statement frames each session, the Execution Gate validates the SPEC before each parallel agent, the Drift Lock keeps each worktree in sync with its SPEC in the corresponding PR.</td></tr>
         </tbody>
       </table>
-      <p>AIAD is also <strong>model-agnostic</strong> by design: Intent Statements, SPECs and the Execution Gate survive provider changes — governance lives in the artifacts, not in the vendor.</p>
+      <p><strong>The era of agent labs.</strong> In 2026, the major labs are repositioning themselves as "agent labs" and shipping their own harnesses (OpenAI Codex, Anthropic's Claude Code, Google's Gemini). This mass adoption creates a <strong>governance vacuum around human intent</strong> that harnesses do not fill: they optimise "how to generate", not "who wanted what, and who validates". AIAD is also <strong>model-agnostic</strong> by design: when a model is deprecated, Intent Statements, SPECs, the AGENT-GUIDE and the Execution Gate remain valid — only the executor changes. Governance lives in the artifacts, not in the vendor.</p>
 
       <h2 id="validations">Industry validations 2026</h2>
-      <p>The recent convergences are not follow-ups — they are independent validations of an earlier approach. <strong>Anthropic</strong> formalised Context Engineering as a discipline in its own right in March 2026 — AIAD has implemented it since v1.3. <strong>Thoughtworks Radar 2026</strong> identifies Context Engineering, Harness Engineering and Spec-Driven Development as convergent concepts. <strong>R2Code</strong> (arXiv, April 2026) empirically validates spec-first: −41.7% of tokens and +7.4% fidelity. <strong>AWS Strands</strong> (2026) observes −96% of tokens on intent-based workflows. <strong>Gartner MQ 2026</strong> projects 30-50% agentic productivity gains by 2028 — creating the governance vacuum that AIAD addresses structurally.</p>
+      <p>The recent convergences are not follow-ups — they are independent validations of an earlier approach. <strong>Anthropic</strong> formalised Context Engineering as a discipline in its own right in March 2026 — AIAD has implemented it since v1.3. <strong>Thoughtworks Radar 2026</strong> identifies Context Engineering, Harness Engineering and Spec-Driven Development as convergent concepts. <strong>R2Code</strong> (arXiv, April 2026) empirically validates spec-first: −41.7% of tokens and +7.4% fidelity. <strong>AWS Strands</strong> (2026) observes −96% of tokens on intent-based workflows. <strong>Gartner MQ 2026</strong> projects 30-50% agentic productivity gains by 2028 — creating the governance vacuum that AIAD addresses structurally. <strong>Tang et al.</strong> (arXiv, June 2026) provide the founding empirical evidence: across 20,574 real coding-agent sessions, <strong>91.49% require explicit human correction</strong>, and the seven forms of misalignment identified (misinterpretation of intent, scope creep, off-spec solutions, hallucinated requirements…) match the problems that the Intent Statement → SQS → Execution Gate cycle addresses structurally. At the end of July 2026, <strong>Cognizant</strong> added to its Flowsource product a module explicitly named "Spec-Driven Development": SDD is becoming an integrator offering for large enterprises — proof of market, not proof of effectiveness.</p>
+      <p><strong>External support (v1.9).</strong> In July 2026, Anthropic published an overhaul of its context engineering doctrine: removal of about 80% of Claude Code's system prompt with no measured loss according to the vendor — a vendor figure, <strong>unaudited</strong> — and a recommended shift from simple instructions to <strong>rich, verifiable references</strong> (detailed test suites, existing code to port). This is an external validation of the SQS thesis: a good SPEC is not a longer list of constraints, it is a rich and verifiable artifact.</p>
 
       <nav class="doc-pagination" aria-label="Adjacent pages">
         <a class="prev" href="artifacts.html"><span class="dir">← Previous</span>The artifacts</a>
@@ -249,7 +257,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD Framework v<!--VERSION:START-->1.19.0<!--VERSION:END--> — SDD Mode — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.19.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>
