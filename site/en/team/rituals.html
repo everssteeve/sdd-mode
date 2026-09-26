@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Iterative loops and rituals — rhythm without artificial cadence | SDD Mode</title>
-<meta name="description" content="The AIAD loops (Plan, Implement, Validate, Integrate) match the rhythm to the actual complexity of the work. Intentional synchronisations — standup, demo, tech review, retro, Intent Workshop, strategic sync — replace prescribed ceremonies.">
+<meta name="description" content="The AIAD loops (Plan, Implement, Validate, Integrate) match the rhythm to the actual complexity of the work. Intentional synchronisations — standup, demo, tech review, retro, Intent Workshop, strategic sync — replace prescribed ceremonies. Verification designed rather than bought, review exemplars, the chain of evidence for automated deployment.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/equipe/rituels.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -177,6 +177,17 @@
       </table>
       <p>It produces a validation report, a list of minor fixes where applicable, and the green light for integration. Indicators: first-try validation &gt; 70%, zero critical bugs, fewer than three minor bugs per feature. Anti-patterns: the rushed "it seems to work" validation (hidden debt) and the endless QA/PE ping-pong (needless friction).</p>
 
+      <h3 id="verification">Verification is designed, not bought</h3>
+      <p>AIAD bets that the quality of verification depends first on the <strong>design of the process</strong> — what is checked, when and by whom — rather than on the power of the reviewing model. It is a position, not a demonstrated result: the evidence converges, none of it is sufficient on its own. It translates into four rules:</p>
+      <ol>
+        <li><strong>The critical conversation happens first at the <a href="../concepts/execution-gate.html">Execution Gate</a>.</strong> That is where we discuss what we want; code review then checks conformance to an intent already discussed. It remains the place where misunderstandings are detected, not where we discover what we wanted.</li>
+        <li><strong>Two classes of defects.</strong> Structurally detectable defects (compilation, types, tooled architecture rules, secrets) are delegated to tooling and agents. Semantic defects — fidelity to intent, business correctness, design boundaries — remain under human review, relying on the Stranger Test.</li>
+        <li><strong>Separate the producer from the critic.</strong> When review is entrusted to an agent, AIAD recommends — without mandating it — a reviewer from a different model family than the producing agent: a 2026 study on mathematics problems measured 35% false rejections in self-review versus 2% in cross-review. The cost (several providers, contracts, GDPR analysis) must be weighed.</li>
+        <li><strong>Design before testing step by step.</strong> In an agent loop, complete upfront design — architecture, types, edge cases, contracts, in other words a SPEC — appears more effective than incremental TDD, which cost 3 to 8.5 times more tokens with no net gain in an exploratory 2026 experiment. An indication to be confirmed, not a rule.</li>
+      </ol>
+      <p><strong>Review exemplars.</strong> An organisation's review knowledge — what a senior reviewer spots and why — can be extracted into annotated examples, versioned in dedicated files (for example <code>.aiad/review-exemplars/</code>) and loaded <strong>only in review sessions</strong> — not in the AGENT-GUIDE, which is injected into every session and reserved for permanent instructions. An exemplar is built from real reviews, revised like an artifact and retired when it no longer reflects the team's standards.</p>
+      <p><strong>Verification Tax.</strong> A 2026 literature review uses this name for the gap between the productivity gain in writing code and the much smaller gain in delivering reliable software. This is what the upfront investment in the SPEC and the Gate seeks to reduce.</p>
+
       <h2 id="integrate">Loop 4 — Integrate</h2>
       <p>Undeployed code has no value. The loop unfolds in <strong>eight steps</strong>: code review (self or peer depending on criticality), pull main and resolve conflicts, push, PR and CI/CD, staging then production deployment, post-deployment verification, CHANGELOG and AGENT-GUIDE update, <strong>Anti-Drift Check</strong>, and context cleanup with ticket closure.</p>
       <div class="callout danger">
@@ -185,13 +196,16 @@
       </div>
       <p>Four deployment strategies are available: Continuous Deployment (non-critical features), Staged Rollout (major features), Feature Flags (experiments, A/B tests) and Manual Release (critical, compliance). AIAD recommendation: Continuous Deployment with Feature Flags. Indicators: merge → production in under one hour (ideally fifteen minutes), rollback &lt; 5%, zero downtime.</p>
 
+      <h3 id="chain-of-evidence">Automated deployment: trust is a chain of evidence</h3>
+      <p>Deployment without human intervention is only admissible if the code is <em>trusted</em> in the sense of a <strong>verifiable chain of evidence</strong> — <a href="../concepts/intent-statement.html">Intent Statement</a>, SPEC validated at the Gate, traced checks, <a href="../concepts/drift-lock.html">Drift Lock</a> — and not of declarative trust in the tool or the model. This is the criterion Roblox set for accepting agentic code in production (2026); AIAD makes it the entry criterion for Continuous Deployment of agent-produced code. For an organisation with more modest engineering resources, the practical consequence is to reserve automated deployment for features whose chain of evidence is complete. In the <a href="../concepts/agent-autonomy.html">authority continuum</a>, deployment authorisation remains a human act distinct from write authorisation.</p>
+
       <h2 id="rituals">Intentional synchronisations</h2>
       <p>Synchronisations are not ceremonies: they are moments of collective decision triggered by a real need, timeboxed, actionable and documented. Each one is supported by an <a href="../commands/aiad.html"><code>/aiad</code></a> command that prepares the data — never replaces the conversation.</p>
       <ul>
         <li><strong>Daily standup</strong> (optional, 15 min max — <code>/aiad standup</code>): structured around three SDD questions — which SPEC today? what Context Engineering Budget? any drift to report? Over 80% of blockers resolved within the day.</li>
-        <li><strong>Demo &amp; Feedback</strong> (bi-weekly, 30-60 min — <code>/aiad demo</code>): the demonstration is <strong>structured by the Intent Statements</strong> — first the original why, then what was delivered — before qualitative user feedback and backlog adaptation. Target: more than three actionable insights per session.</li>
-        <li><strong>Tech Review</strong> (bi-weekly to monthly, 1-2 h — <code>/aiad tech-review</code>): checks the coherence between ARCHITECTURE.md and the actual code — pattern drift, undocumented dependencies, ADRs to write, technical debt, agent ecosystem review.</li>
-        <li><strong>Retrospective</strong> (weekly or bi-weekly, 45-60 min — <code>/aiad retro</code>): a classic retrospective, then an AI retrospective — collecting <strong>Lessons Learned</strong> (recurring agent errors) and <strong>Human Learnings</strong> (intent/delivery gaps) fed into the AGENT-GUIDE, along with the iteration metrics (average SQS, drifts detected, first-time success rate). One to three actions maximum, with owners.</li>
+        <li><strong>Demo &amp; Feedback</strong> (weekly, or after each major feature, 30-60 min — <code>/aiad demo</code>): the demonstration is <strong>structured by the Intent Statements</strong> — first the original why, then what was delivered — before qualitative user feedback and backlog adaptation. Target: more than three actionable insights per session.</li>
+        <li><strong>Tech Review</strong> (monthly, or after a major architectural change, 1-2 h — <code>/aiad tech-review</code>): checks the coherence between ARCHITECTURE.md and the actual code — pattern drift, undocumented dependencies, ADRs to write, technical debt, agent ecosystem review.</li>
+        <li><strong>Retrospective</strong> (weekly or bi-weekly, 45-60 min — <code>/aiad retro</code>): a classic retrospective, then an AI retrospective — collecting <strong>Lessons Learned</strong> (recurring agent errors) and <strong>Human Learnings</strong> (intent/delivery gaps) fed into the AGENT-GUIDE, along with the iteration metrics (average SQS, drifts detected, first-time success rate). <strong>Oversight failures</strong> — an agent acting without approval, automated reviews stacked with no human left to decide — form a separate category of Human Learnings, with a dedicated question: <em>"at what point should a human have been consulted, and why weren't they?"</em> One to three actions maximum, with owners.</li>
       </ul>
 
       <h3 id="intent-workshop">The Intent Workshop — a purely human space</h3>
@@ -203,7 +217,7 @@
       <p>Target: intent/delivery alignment rate &gt; 80%, two to five documented gap hypotheses, 100% participation. Anti-pattern: the workshop drifting into a technical review or a bug post-mortem — the questions stay at the level of intent.</p>
 
       <h3 id="sync-strat">Strategic Alignment synchronisation</h3>
-      <p>Monthly, <strong>1 h 30</strong> to 2 h (<code>/aiad sync-strat</code>), with the PM, PE, Tech Lead, QA, stakeholders and Supporters: outcome review, Product Goal review, backlog prioritisation — including what we decide <em>not</em> to do —, Supporter feedback on organisational obstacles, documented decisions. It relies on the <a href="../metrics.html">DORA and Flow metrics</a> to adjust priorities.</p>
+      <p>Monthly or bi-monthly — or when a Product Goal is reached, or after a pivot —, <strong>1 h 30</strong> to 2 h (<code>/aiad sync-strat</code>), with the PM, PE, Tech Lead, QA, stakeholders and Supporters: outcome review, Product Goal review, backlog prioritisation — including what we decide <em>not</em> to do —, Supporter feedback on organisational obstacles, documented decisions. It relies on the <a href="../metrics.html">DORA and Flow metrics</a> to adjust priorities.</p>
 
       <h2 id="anti-patterns">Loop and synchronisation anti-patterns</h2>
       <ul>

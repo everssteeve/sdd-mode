@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tier 1 governance — the regulatory veto right | SDD Mode</title>
-<meta name="description" content="SDD Mode's Tier 1 governance agents (AI Act, RGPD, RGAA, RGESN, CRA) hold an absolute veto right over any non-compliant deliverable. Fail-closed policy: UNKNOWN = VETO, priority hierarchy between frameworks, regional packs and Claude Code subagents.">
+<meta name="description" content="AIAD's four Tier 1 governance agents (AI Act, RGPD, RGAA, RGESN), complemented by the CRA agent shipped with the package, hold an absolute veto right over any non-compliant deliverable. AI Act timeline realigned on Regulation (EU) 2026/1744, agents with irreversible effects, delegation trail, Art. 22 GDPR, fail-closed policy, regional packs and Claude Code subagents.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/gouvernance/index.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -146,6 +146,8 @@
       <h1>Tier 1 governance — the regulatory veto right</h1>
       <p class="doc-lede">Tier 1 governance agents are regulatory AGENT-GUIDEs injected into development sessions <strong>based on context</strong>: a project processing personal data activates AIAD-RGPD, an AI component in a European context activates AIAD-AI-ACT. They hold an <strong>absolute veto right</strong> over any non-compliant deliverable — when a SPEC conflicts with a governance agent, <strong>the governance agent prevails</strong>.</p>
 
+      <p>The AIAD doctrine defines <strong>four Tier 1 agents</strong>: <a href="#ai-act">AIAD-AI-ACT</a>, <a href="#rgpd">AIAD-RGPD</a>, <a href="#rgaa">AIAD-RGAA</a> and <a href="#rgesn">AIAD-RGESN</a>. The <code>aiad-sdd</code> package additionally ships an <a href="#cra">AIAD-CRA</a> agent <strong>as a complement</strong> for software products placed on the EU market, bound by the same veto contract.</p>
+
       <p>In the SDD Mode documentation hierarchy, these agents sit just below the AIAD Constitution, above the PRD, the ARCHITECTURE and the SPECs. No lower-level artifact may contradict them, and no veto verdict may be ignored — not even by the human within the normal flow of the cycle: lifting a veto requires a documented decision outside the cycle, never a silent bypass of the agent.</p>
 
       <h2 id="fail-closed">Uncertainty policy — fail-closed</h2>
@@ -173,20 +175,84 @@ question: &lt;reformulation for the human&gt;</code></pre>
 
       <h2 id="ai-act">AIAD-AI-ACT — Regulation (EU) 2024/1689</h2>
       <p>Triggered whenever the code involves an AI component (ML, LLM, scoring, recommendation). The agent enforces a <strong>risk-level qualification at the start of the session</strong>: unacceptable risk (Art. 5 — prohibited, escalation to leadership), high risk (Annex III — full regime: Art. 11 documentation, Art. 10 data quality, Art. 14 human oversight, Art. 72 monitoring), limited risk (Art. 50 — mandatory disclosure of chatbots and generated content) or minimal risk.</p>
+      <p>The application timeline was amended by <strong>Regulation (EU) 2026/1744 (Digital Omnibus on AI)</strong>, <strong>adopted</strong> and published in the Official Journal of the EU on 24 July 2026, in force since 27 July 2026. It amends the EU AI Act as well as Regulations (EU) 2018/1139 (civil aviation) and 2023/1230 (Machinery Regulation). The agent applies the following consolidated timeline:</p>
       <table>
-        <caption class="visually-hidden">EU AI Act application timeline</caption>
+        <caption class="visually-hidden">EU AI Act application timeline, consolidated after Regulation (EU) 2026/1744</caption>
         <thead><tr><th scope="col">Deadline</th><th scope="col">Obligation</th><th scope="col">Status</th></tr></thead>
         <tbody>
-          <tr><td>February 2025</td><td>Absolute prohibitions (Art. 5)</td><td>In force</td></tr>
-          <tr><td>August 2025</td><td>GPAI obligations (Art. 51-56)</td><td>In force</td></tr>
-          <tr><td>2 August 2026</td><td>Transparency (Art. 50) — chatbots, deepfakes, AI content</td><td>Confirmed — not postponed</td></tr>
-          <tr><td>2 August 2026</td><td>High-risk Annex III (employment, credit, education…)</td><td>Postponement proposed (Omnibus VII, not adopted)</td></tr>
+          <tr><td>2 February 2025</td><td>Prohibitions (Art. 5)</td><td>In force</td></tr>
+          <tr><td>2 August 2025</td><td>Obligations for general-purpose AI models — GPAI (Art. 51-56)</td><td>In force</td></tr>
+          <tr><td>2 August 2026</td><td>Commission enforcement powers over GPAI model providers</td><td>In force</td></tr>
+          <tr><td>2 August 2026</td><td>Transparency (Art. 50) — chatbots, deepfakes, generated content</td><td>In force; until 2 December 2026 for Art. 50(2), only for systems placed on the market before 2 August 2026 (Art. 111(4))</td></tr>
+          <tr><td>2 December 2026</td><td>Two new prohibitions — Art. 5(1) points (b a) (non-consensual intimate images) and (b b) (child sexual abuse material)</td><td>Upcoming, with no grace period for systems already on the market</td></tr>
+          <tr><td>2 August 2027</td><td>National regulatory sandboxes (Art. 57(1))</td><td>Upcoming (postponed by Regulation 2026/1744)</td></tr>
+          <tr><td>2 December 2027</td><td>High-risk Annex III (employment, credit, education, biometrics…)</td><td>Upcoming (postponed; original date: 2 August 2026)</td></tr>
+          <tr><td>2 August 2028</td><td>High-risk Annex I (regulated products) — the Machinery Regulation moves to Annex I, Section B</td><td>Upcoming (postponed; original date: 2 August 2027)</td></tr>
         </tbody>
       </table>
+      <p>Compliance roadmaps built before July 2026 need revisiting in both directions: high-risk obligations move back (risk of a false sense of urgency), while transparency already applies and the new prohibitions arrive in December 2026 (risk of a false sense of slack). <strong>A postponement is not an exemption</strong>: a high-risk system designed today will be in production by those dates. For an agent that generates images, audio or video, safeguards against the content covered by points (b a) and (b b) are a design requirement, written into the SPEC and checked at the <a href="../concepts/execution-gate.html">Execution Gate</a>. Finally, since the Commission can now sanction GPAI model providers, the agent recommends a <strong>fallback plan to another model</strong> (model-agnostic approach): the availability of a model in the EU is not guaranteed.</p>
       <p>The <a href="../concepts/human-authorship.html">Human Authorship</a> principle is the framework's direct answer to the human-oversight requirements of <strong>Article 14</strong>: a system where the human authors the intent and retains the override is, by construction, aligned with the AI Act. Maximum penalties: €35M or 7% of worldwide turnover for prohibited practices.</p>
+
+      <h3 id="irreversible-agents">Emerging profile — agents with irreversible effects</h3>
+      <p>An agent that can pay, purchase, subscribe, trigger a production deployment or act on physical equipment is no longer a mere content generator. This profile (formerly "agents with financial and operational autonomy") is qualified specifically from the initial qualification onwards:</p>
+      <ul>
+        <li>if it influences a decision affecting people in an Annex III domain (credit, essential services, employment…), it falls under the <strong>high-risk regime</strong> and its full obligations;</li>
+        <li>outside Annex III, the EU AI Act imposes no oversight obligation specific to this profile. As soon as it has irreversible effects, AIAD nonetheless applies, <strong>as good practice</strong>, checkpoints inspired by Articles 9 (risk management), 12 (record-keeping), 14 (human oversight) and 26 (deployer obligations) — and general law (civil liability, GDPR, consumer law) continues to apply.</li>
+      </ul>
+      <p>Minimum human checkpoints before any go-live: <strong>validation of the initial delegation</strong> by an identifiable human (who, what, how far); a <strong>documented cap</strong>, technically enforced; an immutable, timestamped <strong>audit log</strong>; a <strong>rollback procedure</strong> for every reversible effect, irreversible effects being listed and subject to prior validation; a <strong>reversibility class</strong> declared in the Drift Criterion of the <a href="../concepts/intent-statement.html">Intent Statement</a> (reversible, costly to reverse, irreversible); a <strong>stop threshold</strong> — any observed overrun (cap, scope, attempt to alter its own traces) stops the agent and triggers an immediate human review, a provider billing alert being no substitute; and <strong>verified isolation</strong> of the execution environment. If a SPEC involves such an agent, the Execution Gate validates these caps in addition to SQS ≥ 4/5.</p>
+      <p>AIAD prescribes <strong>properties</strong>, not products:</p>
+      <table>
+        <caption class="visually-hidden">Expected properties of the technical safeguards of an agent with irreversible effects</caption>
+        <thead><tr><th scope="col">Expected property</th><th scope="col">Why</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Technically enforced cap</strong> (amount, allowlist, per-transaction limit)</td><td>An instruction in a prompt is not a limit.</td></tr>
+          <tr><td><strong>Policy with temporal memory</strong> — reasoning over the sequence of actions</td><td>Harm can arise from actions that are individually harmless.</td></tr>
+          <tr><td><strong>Prior human authorisation</strong> for each irreversible action, by an identifiable person</td><td>Human Authorship; Art. 14 for a high-risk system.</td></tr>
+          <tr><td><strong>Evidentiary log</strong> — signed or chained entries, linked to the original authorisation</td><td>Art. 12 for a high-risk system; evidence in case of dispute.</td></tr>
+          <tr><td><strong>Execution isolation</strong> — container or virtual machine, restricted network egress, no unnecessary credentials</td><td>A permission classifier can be bypassed: a permission mode is not a control.</td></tr>
+        </tbody>
+      </table>
+      <p>Outside high risk, the links to Articles 12 and 14 are AIAD good practice, not a legal obligation. Even when a protocol provides its own caps, a <strong>designated human owner</strong> is still required for each delegation: an infrastructure safeguard is not an accountability framework.</p>
+      <p><strong>Physical effects.</strong> The irreversible class includes actions on physical equipment (instruments, robots, machines), with the same checkpoints. The safety of a cyber-physical system is never handled by this framework alone: it falls under established standards (IEC 61508, ISO 13849, ISO 14971) and, for machinery, the Machinery Regulation — the agent escalates to the Tech Lead and to a safety specialist. The authority continuum, stop points and execution perimeter that frame these agents within the SDD cycle are described on the <a href="../concepts/agent-autonomy.html">Agent autonomy</a> page.</p>
+
+      <h3 id="delegation-trail">Delegation trail</h3>
+      <p>Every task entrusted to an agent is linked to an <strong>Intent Statement</strong> (identified human author), a <strong>SPEC</strong> (delegated scope) and the <strong>Execution Gate trace</strong> (human validation). The organisation answers for what its agents do: without this trail, it can demonstrate neither its due diligence nor the origin of the code. The agent never starts a task whose human origin cannot be traced. This trail makes accountability demonstrable <em>in both directions</em>: a defective SPEC validated at the Gate commits the person who validated it — a trail that could only exonerate would not be evidence. The idea that an organisation must answer for its agents is a thesis AIAD adopts (Schneier and Sanders, 2026) — a thesis, not settled law.</p>
 
       <h2 id="rgpd">AIAD-RGPD — Privacy by Design</h2>
       <p>Triggered whenever the code processes personal data. The guiding principle fits in one sentence: <em>data that is not collected cannot be breached</em>. The agent applies Privacy by Design &amp; by Default (Art. 25) architecturally: a <strong>documented legal basis</strong> before any collection (consent, contract, legal obligation, legitimate interest…), <strong>minimisation</strong> (Art. 5.1.c), purpose and retention limitation, and implementation of <strong>data-subject rights</strong> (Art. 15-22) — access, erasure, portability, rectification, objection, with a response within 30 days. Sensitive data (Art. 9: health, biometrics, opinions, sexual orientation…) triggers a block and a systematic escalation to the DPO or the PM before implementation.</p>
+
+      <h3 id="gdpr-art22">Automated decisions and agents (Art. 22 GDPR)</h3>
+      <p>An agent that decides on its own an effect significant for a person — access to a service, rating, sanction, exclusion — falls within the scope of Article 22. Precedent: on 21 August 2026, the Dutch Data Protection Authority (AP) fined Uber <strong>€824,990,000</strong> for deactivating drivers' accounts without any human assessment (Art. 22) and for failing to provide information about that automated decision — on the basis of the GDPR alone. <strong>Uber has appealed</strong>: this is a sanction, not settled case law.</p>
+      <p>AIAD draws a criterion from it: human intervention only counts if it is <strong>real, not nominal</strong>, that is, if it meets four conditions — <strong>effective power</strong> (the reviewer can overturn the decision and does so in an observable share of cases), <strong>competence and authority</strong> (training and mandate to judge the case), <strong>sufficient information</strong> (access to the elements underlying the agent's proposal, not just its output) and <strong>traceability</strong> (a timestamped, attributable review, with decision and rationale). Bulk validation, a systematic confirmation click or after-the-fact sample checks do not meet these conditions.</p>
+      <table>
+        <caption class="visually-hidden">Checklist: does an agent fall under Art. 22 GDPR?</caption>
+        <thead><tr><th scope="col">No.</th><th scope="col">Question</th><th scope="col">If yes</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">A1</th><td>Does the agent produce a decision (not just a recommendation) concerning an identified or identifiable person?</td><td>Continue</td></tr>
+          <tr><th scope="row">A2</th><td>Does this decision produce legal effects or significantly affect the person (access, income, rating, exclusion, sanction)?</td><td>Continue</td></tr>
+          <tr><th scope="row">A3</th><td>Is the decision applied without human intervention meeting the four conditions?</td><td><strong>Art. 22 applies</strong></td></tr>
+          <tr><th scope="row">A4</th><td>Is there an exception basis (contractual necessity, legal authorisation, explicit consent)?</td><td>If not: <strong>block</strong></td></tr>
+          <tr><th scope="row">A5</th><td>If an exception applies: are informing the person, the right to obtain human intervention, to express their point of view and to contest the decision implemented?</td><td>If not: <strong>block</strong></td></tr>
+          <tr><th scope="row">A6</th><td>Does sensitive data (Art. 9) feed into the decision?</td><td>Reinforced regime (Art. 22(4))</td></tr>
+        </tbody>
+      </table>
+      <p>An account deactivation is an action with significant effect, often costly to reverse for the person: the reversibility class of the <a href="#irreversible-agents">"agents with irreversible effects" profile</a> applies here too.</p>
+
+      <h3 id="gdpr-residency">Model data residency</h3>
+      <p>For any transfer outside the EU, the agent now also checks the <strong>data residency of the model itself</strong>, for the distribution channel used and as of the deployment date: the same model may offer an EU residency guarantee on one platform and not on another. <strong>Commercial availability does not mean production-readiness</strong> for a regulated sector.</p>
+
+      <h3 id="gdpr-dpia-agents">Agentic AI in the DPIA</h3>
+      <p>Any data protection impact assessment (DPIA) covering an agent system examines the four points of tension identified by the exploratory note on agentic AI from the CNIL and the French Council for AI and Digital Affairs — a non-prescriptive note, from which AIAD derives a set of questions:</p>
+      <table>
+        <caption class="visually-hidden">Agentic AI assessment grid for DPIAs</caption>
+        <thead><tr><th scope="col">Point of tension</th><th scope="col">Question to ask in the DPIA</th><th scope="col">AIAD link</th></tr></thead>
+        <tbody>
+          <tr><td>Volume and flow of data between the services the agent connects to</td><td>Which services can the agent call, and what data flows through them?</td><td>"Agent execution perimeter" section of the SPEC</td></tr>
+          <tr><td>Loss of control by the person over their data</td><td>Does the person know what the agent does with their data, and can they stop it?</td><td>Transparency, data-subject rights</td></tr>
+          <tr><td>Persistent memory and profiling</td><td>What does the agent retain, for how long, and for what purpose?</td><td>Purpose and retention limitation</td></tr>
+          <tr><td>Allocation of responsibilities between actors</td><td>Who is the controller, who is the processor, at each step?</td><td>Shared Responsibility: each delegation has a named human owner</td></tr>
+        </tbody>
+      </table>
 
       <h2 id="rgaa">AIAD-RGAA — digital accessibility</h2>
       <p>Triggered whenever the code produces a user interface. Reference framework: <strong>RGAA 4.1.2</strong> (decree of 20 September 2024, 106 criteria across 13 themes), built on WCAG 2.1 levels A and AA. The French legal obligation stems from Article 47 of law 2005-102 for the public sector, and since 28 June 2025 from the European Accessibility Act for a broad private-sector scope (banking, e-commerce, transport, telephony). The agent enforces <em>built-in</em> accessibility — alt text on images, 4.5:1 contrast ratios, form labels, keyboard navigation, visible focus, <code>aria-current</code>, skip link — because fixing it afterwards costs ten times more. Supervisory authority: ARCOM; penalties up to €300,000 within the EAA scope.</p>
@@ -194,11 +260,11 @@ question: &lt;reformulation for the human&gt;</code></pre>
       <h2 id="rgesn">AIAD-RGESN — digital eco-design</h2>
       <p>Triggered by <strong>every technical decision</strong> (performance, resources, dependencies) — it is the agent with the broadest scope. Reference framework: <strong>RGESN v2</strong> (May 2024, ARCEP / ARCOM / ADEME / DINUM, 79 criteria, 9 themes). It embodies the AIAD value of <em>Intentional Frugality</em>: every line of code has a real energy cost. The Algorithms theme specifically targets <strong>computational frugality</strong>: a deterministic business rule consumes 100 to 10,000 times less than an LLM inference, the smallest sufficient model must be chosen, and every LLM call is token-capped and cached. Findings quantify the impact (kWh, gCO2eq) using an ADEME or Ecoindex methodological baseline.</p>
 
-      <h2 id="cra">AIAD-CRA — Cyber Resilience Act</h2>
-      <p>Triggered for any software product intended for the EU market. Reference framework: <strong>Regulation (EU) 2024/2847</strong>, in force since 10 December 2024, fully applicable on 11 December 2027 — with one obligation brought forward to 11 September 2026: reporting actively exploited vulnerabilities to ENISA within 24 hours. The agent checks the <strong>13 essential requirements</strong> (secure-by-design, secure default configuration, encryption, minimal attack surface, signed updates…) and the <strong>8 vulnerability-management obligations</strong>: a CycloneDX SBOM regenerated for every release, a <code>SECURITY.md</code> with response SLAs, free patches, a CHANGELOG referencing CVEs. Before each release tag, it blocks if the SBOM is missing or if a vulnerability with CVSS ≥ 7 is unpatched. Penalties: up to €15M or 2.5% of worldwide turnover.</p>
+      <h2 id="cra">AIAD-CRA — Cyber Resilience Act (shipped as a complement)</h2>
+      <p>The CRA agent is not one of the doctrine's four Tier 1 guides: it is <strong>shipped as a complement by the <code>aiad-sdd</code> package</strong> for software products, under the same veto contract. Triggered for any software product intended for the EU market. Reference framework: <strong>Regulation (EU) 2024/2847</strong>, in force since 10 December 2024, fully applicable on 11 December 2027. <strong>The obligation to report to ENISA has applied since 11 September 2026</strong>: actively exploited vulnerabilities must be reported within 24 hours. The agent checks the <strong>13 essential requirements</strong> (secure-by-design, secure default configuration, encryption, minimal attack surface, signed updates…) and the <strong>8 vulnerability-management obligations</strong>: a CycloneDX SBOM regenerated for every release, a <code>SECURITY.md</code> with response SLAs, free patches, a CHANGELOG referencing CVEs. Before each release tag, it blocks if the SBOM is missing or if a vulnerability with CVSS ≥ 7 is unpatched. Penalties: up to €15M or 2.5% of worldwide turnover.</p>
 
       <h2 id="packs">Regional governance packs</h2>
-      <p>The Tier 1 baseline (AI-ACT, RGPD, RGAA, RGESN, CRA) is EU/France-centric. For other jurisdictions and sector-specific contexts, <strong>governance packs</strong> add agents under the same contract: fail-closed veto, read-only, mandatory evidence.</p>
+      <p>The Tier 1 baseline (AI-ACT, RGPD, RGAA, RGESN), complemented by the CRA agent, is EU/France-centric. For other jurisdictions and sector-specific contexts, <strong>governance packs</strong> add agents under the same contract: fail-closed veto, read-only, mandatory evidence.</p>
       <table>
         <caption class="visually-hidden">Available regional governance packs</caption>
         <thead><tr><th scope="col">Pack</th><th scope="col">Agents</th><th scope="col">Context</th></tr></thead>
@@ -225,6 +291,16 @@ question: &lt;reformulation for the human&gt;</code></pre>
         <li><strong>proactive triggering</strong> — the <em>PROACTIVELY review</em> description and path patterns (<code>**/api/**</code>, <code>**/auth/**</code>, <code>**/gdpr/**</code>…) cause Claude Code to invoke them without being asked;</li>
         <li><strong>clear-cut verdict</strong> — <code>CONFORME</code> (compliant), <code>NON-CONFORME</code> (non-compliant) or <code>UNKNOWN</code> (= VETO), each verdict citing <code>file:line</code> evidence;</li>
         <li><strong>blocking veto</strong> — advisory for the model, but enforced at the <code>PreToolUse</code>/<code>Stop</code> hook level.</li>
+      </ul>
+
+      <h2 id="updates">Agent updates and shipped doctrine</h2>
+      <div class="callout info">
+        <span class="callout-title">Upcoming release — not yet published</span>
+        <p>The features below are merged into the package code but not yet published in an <code>aiad-sdd</code> release.</p>
+      </div>
+      <ul>
+        <li><strong>Backup of locally adapted agents.</strong> <code>npx aiad-sdd update</code> updates the project's governance agents, but a locally modified agent is first copied to <code>AIAD-&lt;X&gt;.md.bak-YYYY-MM-DD</code> in the same folder, then replaced; the command lists the backups created and prompts you to carry over your adaptations. A <code>.aiad/gouvernance/.aiad-shipped.json</code> manifest keeps the fingerprint of each agent as shipped, to tell a local modification apart from a mere older version. <code>update --check</code> writes nothing.</li>
+        <li><strong>Locked shipped doctrine.</strong> The package embeds the AIAD doctrine with a <code>doctrine.lock.json</code> fingerprint file: continuous integration checks that the shipped files have not been modified, and a release whose doctrine differs from the published version is blocked.</li>
       </ul>
 
       <h2 id="commandes">Related commands</h2>
