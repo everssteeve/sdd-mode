@@ -1,6 +1,6 @@
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 <!-- generated-by: aiad-emit-rules v1.19.0 -->
-<!-- source-hash: e205e5b38ee00245 -->
+<!-- source-hash: bfe8e08f4a6ec5bd -->
 <!-- intent_id: INTENT-033 -->
 
 # GEMINI.md — AIAD SDD

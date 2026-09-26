@@ -3,7 +3,7 @@
 // @spec SPEC-034-1a-sync-doctrine-drive
 //
 // Fixtures en dossiers temporaires uniquement (jamais le vrai Drive, jamais le
-// dépôt). Couvre CA-001, CA-004 à CA-008 sur fixture ; CA-002/003/006 sur la
+// dépôt). Couvre CA-001, CA-004 à CA-008 sur fixture (dont règle 1 étendue et sous-cas 1b) ; CA-002/003/006 sur la
 // vraie synchronisation sont vérifiés à l'exécution (cf. SPEC).
 
 import { test } from 'node:test';
@@ -22,6 +22,7 @@ import {
   lireVersionDoctrine,
   empreinte,
   construireLock,
+  listerLegitimationLocale,
   syncDoctrine,
   main,
   SyncDoctrineError,
@@ -49,13 +50,15 @@ function fixtureSource(options = {}) {
     '# Agent AI-ACT\n\nRèglement (UE) 2026/1744.\n'
     + 'Contexte : `../framework/legitimation/conformite-cas-2026.md`.\n'
     + 'Voir [le dossier](../framework/legitimation/conformite-cas-2026.md#calendrier).\n'
-    + 'Preuves : `../framework/legitimation/responsabilite-evidence.md`.\n');
+    + 'Preuves : `../framework/legitimation/responsabilite-evidence.md`.\n'
+    + '| 2026-09-25 | v1.9 | récits déplacés vers `framework/legitimation/conformite-cas-2026.md` |\n');
   ecrire(src, '20_conception/framework/frameworkAIAD.md',
     `${titre}\n\nVoir \`../gouvernance/AIAD-AI-ACT.md\`.\n`
     + 'Argumentaire : `../../30_distribution/decideurs/argumentaires/governance-gap-2026.md`.\n'
     + 'Code inline intact : `npx aiad-sdd init`.\n');
   ecrire(src, '20_conception/framework/legitimation/execution-gate-evidence.md',
-    '# Preuves\n\n- [Argumentaire — Governance Gap 2026](../../../30_distribution/decideurs/argumentaires/governance-gap-2026.md)\n'
+    '# Preuves\n\n- [Argumentaire — Dette](../../../30_distribution/decideurs/argumentaires/dette-maintenance-agentique.md)\n'
+    + '- [Argumentaire — Governance Gap 2026](../../../30_distribution/decideurs/argumentaires/governance-gap-2026.md)\n'
     + '- Agents : `../../gouvernance/AIAD-RGPD.md`\n');
   return src;
 }
@@ -132,11 +135,56 @@ test('reecrireChemins — règle 3 : lien → texte ; accents graves → nom + m
   assert.deepEqual(r.reecritures.map((x) => [x.forme, x.regle]), [['lien', 3], ['code', 3]]);
 });
 
-test('reecrireChemins — ne touche ni aux liens absolus, ni aux chemins sans ../, ni au code inline', () => {
-  const src = 'Voir [site](https://aiad.ovh), `legitimation/verification-evidence.md`, `npx aiad-sdd init`, [loc](./a.md).';
+test('reecrireChemins — laisse intacts URL, noms nus, ./voisin, fichiers projet et code inline', () => {
+  const src = 'Voir [site](https://aiad.ovh), `GLOSSAIRE-AIAD.md`, `intention.md`, `governance-gap-2026.md`, '
+    + '[voisin](./verification-evidence.md), `CLAUDE.md`, `AGENTS.md`, `.aiad/facts/FACT-NNN.md`, '
+    + '`legitimation/dette-maintenance-agentique.md`, `npx aiad-sdd init`, [loc](./a.md), '
+    + `\`${BASE_URL}docs/legitimation/conformite-cas-2026.md\`.`;
   const r = reecrireChemins(src);
   assert.equal(r.contenu, src);
   assert.equal(r.reecritures.length, 0);
+});
+
+test('règle 1 étendue — légitimation synchronisée sans ../, avec ou sans dossiers de tête', () => {
+  const r = reecrireChemins(
+    'Récits déplacés vers `framework/legitimation/conformite-cas-2026.md` ; '
+    + 'preuves dans `legitimation/verification-evidence.md#limites` et [ici](legitimation/responsabilite-evidence.md).');
+  assert.equal(r.contenu,
+    `Récits déplacés vers \`${BASE_URL}docs/legitimation/conformite-cas-2026.md\` ; `
+    + `preuves dans \`${BASE_URL}docs/legitimation/verification-evidence.md#limites\` et [ici](${BASE_URL}docs/legitimation/responsabilite-evidence.md).`);
+  assert.deepEqual(r.reecritures.map((x) => x.regle), [1, 1, 1]);
+  assert.equal(classerChemin('framework/legitimation/conformite-cas-2026.md').regle, 1);
+  assert.equal(classerChemin('GLOSSAIRE-AIAD.md').regle, null);
+  assert.equal(classerChemin('gouvernance/AIAD-RGPD.md').regle, null); // règle 2 : ../ requis
+});
+
+test('sous-cas 1b — chemin ../ dont le nom existe dans docs/legitimation/ du dépôt → URL', () => {
+  const locale = ['dette-maintenance-agentique.md'];
+  const src = '- [Argumentaire — Dette](../../../30_distribution/decideurs/argumentaires/dette-maintenance-agentique.md#x)\n'
+    + 'Voir `../../30_distribution/decideurs/argumentaires/dette-maintenance-agentique.md`.\n'
+    + '- [Gap](../../x/governance-gap-2026.md)';
+  const r = reecrireChemins(src, { legitimationLocale: locale });
+  const url = `${BASE_URL}docs/legitimation/dette-maintenance-agentique.md`;
+  assert.equal(r.contenu, `- [Argumentaire — Dette](${url}#x)\nVoir \`${url}\`.\n- Gap`);
+  assert.deepEqual(r.reecritures.map((x) => x.regle), ['1b', 3, '1b']); // liens d'abord, puis accents graves
+  // Sans la liste (ou nom absent) → règle 3 inchangée
+  assert.equal(classerChemin('../a/dette-maintenance-agentique.md').regle, 3);
+  // Un nom nu présent localement n'est PAS réécrit (../ requis)
+  assert.equal(classerChemin('dette-maintenance-agentique.md', { legitimationLocale: locale }).regle, null);
+});
+
+test('listerLegitimationLocale — lit docs/legitimation/ du dépôt cible, trié, + 4 dossiers synchronisés', () => {
+  const depot = fixtureDepot();
+  try {
+    ecrire(depot, 'docs/legitimation/notes.txt', 'ignoré');
+    assert.deepEqual(listerLegitimationLocale(depot), [
+      'conformite-cas-2026.md', 'dette-maintenance-agentique.md', 'execution-gate-evidence.md',
+      'responsabilite-evidence.md', 'verification-evidence.md',
+    ]);
+    assert.equal(listerLegitimationLocale(join(depot, 'absent')).length, 4);
+  } finally {
+    rmSync(depot, { recursive: true, force: true });
+  }
 });
 
 test('lireVersionDoctrine — extrait v<X.Y> du H1', () => {
@@ -179,7 +227,7 @@ test('CA-001 / CA-004 / CA-005 / CA-005b / CA-006 — synchronisation complète 
 
     // CA-001 : cibles = source aux chemins réécrits près
     for (const c of CORRESPONDANCES) {
-      const attendu = reecrireChemins(readFileSync(join(src, c.source), 'utf-8')).contenu;
+      const attendu = reecrireChemins(readFileSync(join(src, c.source), 'utf-8'), { legitimationLocale: listerLegitimationLocale(depot) }).contenu;
       for (const cible of c.cibles) assert.equal(readFileSync(join(depot, cible), 'utf-8'), attendu, cible);
     }
     assert.equal(res.ecrits.length, 14);
@@ -200,7 +248,7 @@ test('CA-001 / CA-004 / CA-005 / CA-005b / CA-006 — synchronisation complète 
     const aiAct = readFileSync(join(depot, 'templates/.aiad/gouvernance/AIAD-AI-ACT.md'), 'utf-8');
     const urlCas = 'https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md';
     const refs = aiAct.match(/\S*conformite-cas-2026\S*/g);
-    assert.equal(refs.length, 2);
+    assert.equal(refs.length, 3); // backticks ../, lien ../, ligne d'historique sans ../
     for (const ref of refs) assert.ok(ref.includes(urlCas), ref);
     assert.doesNotMatch(aiAct, /PAS encore adopté/);
     const fw = readFileSync(join(depot, 'templates/frameworkAIAD.md'), 'utf-8');
@@ -209,7 +257,8 @@ test('CA-001 / CA-004 / CA-005 / CA-005b / CA-006 — synchronisation complète 
     const egev = readFileSync(join(depot, 'docs/legitimation/execution-gate-evidence.md'), 'utf-8');
     assert.ok(egev.includes('- Argumentaire — Governance Gap 2026\n'));
     assert.ok(egev.includes(`\`${BASE_URL}templates/.aiad/gouvernance/AIAD-RGPD.md\``));
-    assert.deepEqual(res.reecritures, { 1: 6, 2: 2, 3: 2 }); // AI-ACT ×2 cibles ×3 règle 1 ; etc.
+    assert.ok(egev.includes(`- [Argumentaire — Dette](${BASE_URL}docs/legitimation/dette-maintenance-agentique.md)`));
+    assert.deepEqual(res.reecritures, { 1: 8, '1b': 1, 2: 2, 3: 2 }); // AI-ACT : 4 règle 1 × 2 cibles ; etc.
 
     // CA-006 : lock
     const lock = JSON.parse(readFileSync(join(depot, LOCK_PATH), 'utf-8'));

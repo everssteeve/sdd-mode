@@ -1,19 +1,19 @@
 {
   "doctrineVersion": "v1.9",
-  "syncedAt": "2026-09-26T08:25:30.715Z",
+  "syncedAt": "2026-09-26T08:37:44.719Z",
   "files": {
-    "templates/.aiad/gouvernance/AIAD-AI-ACT.md": "2fef764270f79520e0b4eb464191dd2403147c4c2e3673a4535adb183cbcff54",
-    ".aiad/gouvernance/AIAD-AI-ACT.md": "2fef764270f79520e0b4eb464191dd2403147c4c2e3673a4535adb183cbcff54",
-    "templates/.aiad/gouvernance/AIAD-RGPD.md": "42b59a3b69c0393a31fe1c2b83a45c2878d403ca9f1611307aa8bc55722e3638",
-    ".aiad/gouvernance/AIAD-RGPD.md": "42b59a3b69c0393a31fe1c2b83a45c2878d403ca9f1611307aa8bc55722e3638",
+    "templates/.aiad/gouvernance/AIAD-AI-ACT.md": "0cc9986dfba2625d8105f80537082b199730dfbe1145c51138ea83d6ad3533e9",
+    ".aiad/gouvernance/AIAD-AI-ACT.md": "0cc9986dfba2625d8105f80537082b199730dfbe1145c51138ea83d6ad3533e9",
+    "templates/.aiad/gouvernance/AIAD-RGPD.md": "ceaa2be5fd58430e24b26a206e621280dd4e7cb07ea9b17aaaa34555be3b84e9",
+    ".aiad/gouvernance/AIAD-RGPD.md": "ceaa2be5fd58430e24b26a206e621280dd4e7cb07ea9b17aaaa34555be3b84e9",
     "templates/.aiad/gouvernance/AIAD-RGAA.md": "b8434fb324ee1f7b2b69c7ac4d6b2c014bdc4ebcf30f0d8f0c4229de98baf556",
     ".aiad/gouvernance/AIAD-RGAA.md": "b8434fb324ee1f7b2b69c7ac4d6b2c014bdc4ebcf30f0d8f0c4229de98baf556",
     "templates/.aiad/gouvernance/AIAD-RGESN.md": "c4caba2605e838f63c611ec8aed75e594bef71ed065c632a3dada8a5258cdb20",
     ".aiad/gouvernance/AIAD-RGESN.md": "c4caba2605e838f63c611ec8aed75e594bef71ed065c632a3dada8a5258cdb20",
-    "templates/frameworkAIAD.md": "d71e0c0991467bae06a5797e6df8f0bed200256d9ac5cd088a6d54391fcf98ea",
+    "templates/frameworkAIAD.md": "10af6265c5c4e8ab41048e0d4c892fa844656afe1b01f1821782d421e992ac6d",
     "templates/SDDMode.md": "e054b2dda1f5a77d8d716305ac6c824d9eea03401f2c570f45a00dad78264fcc",
     "docs/legitimation/conformite-cas-2026.md": "7e176d4efb457e7aebce600a92e2866556d61929d6ff1519023addcddfe06ac5",
-    "docs/legitimation/execution-gate-evidence.md": "c923469c7bfa24db22cbb19fcce829f570a84d99e9b10e1b2365e903e93b59d9",
+    "docs/legitimation/execution-gate-evidence.md": "f946cde81ee8025a8fba69a57882a6c7f490a938e1a792426cb9f68130980597",
     "docs/legitimation/responsabilite-evidence.md": "c828e6a0ebc1eb5161343a3801f71d28f7cc198b99f7a729d40b43ca5ee0a2c1",
     "docs/legitimation/verification-evidence.md": "8b8a47dae4cb9c3d1a3755f807c188c8c19edcf326c290361b96573f3d05d1fa"
   }

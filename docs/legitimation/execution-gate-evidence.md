@@ -74,7 +74,7 @@ Les identifiants arXiv (2605.07769, 2605.08017), les chiffres (biais d'action 35
 
 ## Liens croisés
 
-- Argumentaire — Dette de maintenance agentique
+- [Argumentaire — Dette de maintenance agentique](https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/dette-maintenance-agentique.md)
 - Argumentaire — Governance Gap 2026
 
 ---
