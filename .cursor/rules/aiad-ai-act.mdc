@@ -5,7 +5,7 @@ alwaysApply: false
 intent_id: INTENT-033
 tier: 1
 generated-by: aiad-emit-rules v1.19.0
-source-hash: 4c023ac0c8e293f4
+source-hash: e205e5b38ee00245
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
@@ -26,15 +26,17 @@ Tu es un agent de développement avec une responsabilité structurante : **avant
 | Date | Obligation | Statut |
 |------|-----------|--------|
 | **Février 2025** | Interdictions absolues (Art. 5) | ✅ En vigueur — date confirmée |
-| **Août 2025** | Obligations GPAI — Art. 51-56 (modèles IA à usage général) | ✅ En vigueur — date confirmée |
-| **2 août 2026** | Obligations de transparence — Art. 50 (chatbots, deepfakes, contenus IA) | ✅ **Confirmée — NON reportée par l'Omnibus** |
-| **2 août 2026** | Systèmes haut risque Annexe III (emploi, crédit, éducation…) | ⚠️ **Proposé reporté au 2 déc. 2027** — *sous réserve adoption Omnibus VII* |
-| **2 août 2026** | Systèmes haut risque Annexe I (produits régulés) | ⚠️ **Proposé reporté au 2 août 2028** — *sous réserve adoption Omnibus VII* |
-| **2 août 2027** | Application complète (dates originales) | ⚠️ Dates en cours de révision via Omnibus VII |
+| **Août 2025** | Obligations GPAI — Art. 51-56 (modèles IA à usage général) | ✅ En vigueur depuis le 2 août 2025 |
+| **2 août 2026** | Pouvoirs de supervision et de sanction de la Commission sur les fournisseurs GPAI (Art. 101) | ✅ En vigueur — premières demandes d'information le 29 août 2026 |
+| **2 août 2026** | Obligations de transparence — Art. 50 (chatbots, deepfakes, contenus IA) | ✅ **En vigueur** — délai au 2 déc. 2026 pour l'art. 50(2) sur les seuls systèmes mis sur le marché avant le 2 août 2026 |
+| **2 déc. 2026** | Deux nouvelles interdictions Art. 5(1) b bis et b ter (images intimes non consenties dont applications « nudifier » ; contenu pédocriminel) ; fin du délai art. 50(2) (art. 111(4)) | ⏳ À venir |
+| **2 août 2027** | Bacs à sable réglementaires nationaux opérationnels ; conformité des modèles GPAI mis sur le marché avant le 2 août 2025 | ⏳ À venir |
+| **2 déc. 2027** | Systèmes haut risque Annexe III (emploi, crédit, éducation…) — date originale : 2 août 2026 | ⏳ **Reporté** par le Règlement (UE) 2026/1744 |
+| **2 août 2028** | Systèmes haut risque Annexe I (produits régulés) — date originale : 2 août 2027 | ⏳ **Reporté** par le Règlement (UE) 2026/1744 |
 
-> ⚠️ **Important — Omnibus VII (v1.4)** : Le Conseil (13 mars 2026) et le Parlement (26 mars 2026) ont adopté leurs positions favorables au report des obligations high-risk. Le trilogue est en cours depuis le 27 mars 2026, avec un accord final attendu mi-2026. **L'Omnibus VII n'est PAS encore adopté.** Si le trilogue n'aboutit pas avant le 2 août 2026, les dates originales s'appliquent. → Voir section "Évolutions réglementaires en cours" pour le suivi.
+> ✅ **Omnibus numérique IA — adopté (v1.9)** : Règlement (UE) 2026/1744, en vigueur depuis le 27 juillet 2026. Il reporte les obligations haut risque (Annexe III → 2 décembre 2027, Annexe I → 2 août 2028), ajoute deux interdictions à l'Art. 5 (points b bis et b ter) à partir du 2 décembre 2026 et ouvre un délai transitoire limité pour l'art. 50(2). → Détail : section « Évolutions réglementaires ».
 
-> ✅ **Art. 50 (transparence) n'est PAS reporté** : Les obligations de divulgation chatbots, marquage contenus IA et watermarking GPAI restent exigibles au 2 août 2026, indépendamment de l'Omnibus VII.
+> ✅ **Art. 50 (transparence) est en vigueur depuis le 2 août 2026.** Seule exception : les fournisseurs de systèmes générant des contenus synthétiques (audio, image, vidéo, texte) **mis sur le marché avant le 2 août 2026** ont jusqu'au **2 décembre 2026** pour se conformer à l'art. 50(2) (art. 111(4) introduit par le Règlement 2026/1744). Un système mis sur le marché après le 2 août 2026 y est soumis immédiatement.
 
 
 ## PROTOCOLE DE SIGNALEMENT

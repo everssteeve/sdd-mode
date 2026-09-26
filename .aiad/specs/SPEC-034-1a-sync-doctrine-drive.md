@@ -68,16 +68,16 @@ Le Drive fait foi (INTENT-034). Le package livre aujourd'hui le Framework et le 
 
 ## 3. Critères d'Acceptation
 
-- [ ] CA-001 — Après `sync-doctrine --source <published/md>`, les quatre agents, les deux guides et les quatre dossiers de légitimation des cibles sont identiques à la source, aux chemins réécrits près.
-- [ ] CA-002 — `templates/.aiad/gouvernance/AIAD-AI-ACT.md` contient « 2026/1744 » et ne contient plus « PAS encore adopté ».
-- [ ] CA-003 — `templates/frameworkAIAD.md` a pour titre « Guide AIAD — Framework v1.9 ».
-- [ ] CA-004 — `templates/.aiad/gouvernance/AIAD-CRA.md` est inchangé (empreinte identique avant / après).
-- [ ] CA-005 — Aucun chemin commençant par `../` (lien Markdown ou entre accents graves) ne subsiste dans les 14 fichiers cibles.
-- [ ] CA-005b — Dans `templates/.aiad/gouvernance/AIAD-AI-ACT.md`, chaque référence au dossier « conformite-cas-2026 » est l'URL `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`, et ce fichier existe dans le dépôt (test sur fixture : les trois règles de réécriture).
-- [ ] CA-006 — `templates/doctrine.lock.json` contient `doctrineVersion: "v1.9"` et une empreinte pour chacun des 14 fichiers cibles.
-- [ ] CA-007 — `--dry-run` ne modifie aucun fichier (test : empreintes identiques avant / après).
-- [ ] CA-008 — Cas limites 1 à 3 : sortie code 2, aucun fichier modifié (test).
-- [ ] CA-009 — Le contrôle CI `aiad-emit-rules-check` et `npm test` passent.
+- [x] CA-001 — Après `sync-doctrine --source <published/md>`, les quatre agents, les deux guides et les quatre dossiers de légitimation des cibles sont identiques à la source, aux chemins réécrits près.
+- [x] CA-002 — `templates/.aiad/gouvernance/AIAD-AI-ACT.md` contient « 2026/1744 » et ne contient plus « PAS encore adopté ».
+- [x] CA-003 — `templates/frameworkAIAD.md` a pour titre « Guide AIAD — Framework v1.9 ».
+- [x] CA-004 — `templates/.aiad/gouvernance/AIAD-CRA.md` est inchangé (empreinte identique avant / après).
+- [x] CA-005 — Aucun chemin commençant par `../` (lien Markdown ou entre accents graves) ne subsiste dans les 14 fichiers cibles.
+- [ ] CA-005b — Dans `templates/.aiad/gouvernance/AIAD-AI-ACT.md`, chaque référence au dossier « conformite-cas-2026 » est l'URL `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`, et ce fichier existe dans le dépôt (test sur fixture : les trois règles de réécriture). *(Exécution 2026-09-26 : PASS sur fixture ; sur les données réelles, 5 références réécrites en URL, mais 1 référence `framework/legitimation/conformite-cas-2026.md` — sans `../`, ligne d'historique de l'agent — reste telle quelle car hors du périmètre §2. Question ouverte, voir Historique.)*
+- [x] CA-006 — `templates/doctrine.lock.json` contient `doctrineVersion: "v1.9"` et une empreinte pour chacun des 14 fichiers cibles.
+- [x] CA-007 — `--dry-run` ne modifie aucun fichier (test : empreintes identiques avant / après).
+- [x] CA-008 — Cas limites 1 à 3 : sortie code 2, aucun fichier modifié (test).
+- [x] CA-009 — Le contrôle CI `aiad-emit-rules-check` et `npm test` passent.
 
 ## 4. Interface / API
 
@@ -104,14 +104,14 @@ templates/doctrine.lock.json :
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] Code + lint passing
-- [ ] Tests (CA-001 à CA-008)
-- [ ] `docs/legitimation/dette-maintenance-agentique.md` (absent du Drive) conservé tel quel
-- [ ] Synchronisation exécutée une fois depuis le Drive publié du 2026-09-25 ; lock commité
-- [ ] Annotations `@intent INTENT-034` / `@spec SPEC-034-1` / `@verified-by`
-- [ ] SPEC mise à jour si écart (Drift Lock)
+- [x] Code + lint passing
+- [x] Tests (CA-001 à CA-008)
+- [x] `docs/legitimation/dette-maintenance-agentique.md` (absent du Drive) conservé tel quel
+- [x] Synchronisation exécutée une fois depuis le Drive publié du 2026-09-25 ; lock commité
+- [x] Annotations `@intent INTENT-034` / `@spec SPEC-034-1` / `@verified-by`
+- [x] SPEC mise à jour si écart (Drift Lock)
 - [ ] Code review passée
-- [ ] Gouvernance vérifiée (RGPD : aucune donnée personnelle ; RGESN : zéro dépendance)
+- [x] Gouvernance vérifiée (RGPD : aucune donnée personnelle ; RGESN : zéro dépendance)
 
 ## Historique des modifications
 
@@ -120,3 +120,7 @@ templates/doctrine.lock.json :
 | 2026-09-25 | Question ouverte « cible des liens relatifs » tranchée par l'auteur : option (d). Ajout des quatre dossiers de légitimation aux cibles (`docs/legitimation/`), table de réécriture à trois règles, CA-005b. | Le dépôt est public ; l'inventaire du Drive publié montre des chemins `../` vers la légitimation, les agents, les argumentaires et `intention.md` — seuls les deux premiers ont un équivalent dans le dépôt. |
 | 2026-09-26 | Gate : SPEC-034-1 découpée (Atomicité 0) ; cette partie = synchronisation + lock (mainteneur). Le comportement de `update` passe en SPEC-034-1b. Cibles comptées explicitement (14). | Décision de l'auteur. |
 | 2026-09-26 | Execution Gate OUVERTE — SQS 5/5, Test de l'Étranger PASS. Statut → ready. | Scores validés par l'auteur. |
+| 2026-09-26 | Exécution (agent) : `scripts/sync-doctrine.js` + `test/sync-doctrine.test.js` (20 tests) ; sync réelle depuis `published/md` (doctrine v1.9 : 12 cibles écrites, 2 déjà à jour ; réécritures sur les 14 cibles, règle 1/2/3 : 19/4/6) ; lock + règles émises régénérées. CA-001 à CA-009 cochés ; CA-005b coché sur fixture seulement. | Drift Lock. |
+| 2026-09-26 | Écarts d'interprétation : (a) règles 1–2 sur un chemin entre accents graves : l'URL remplace le chemin **à l'intérieur** des accents graves ; ancre `#…` conservée ; (b) régénération via `emitRules()` de `lib/emit-rules.js` (équivalent de `npx aiad-sdd emit-rules`, cf. §5) ; (c) annotation `@spec SPEC-034-1a-sync-doctrine-drive` (la DoOD cite `SPEC-034-1`, antérieur au découpage) ; (d) compteurs de réécriture = occurrences dans les 14 cibles (un agent compte deux fois). | Précision non tranchée par la SPEC ; choix minimal. |
+| 2026-09-26 | **Question ouverte (auteur)** : les chemins relatifs **sans** `../` ne sont pas couverts par §2 et restent tels quels : `framework/legitimation/conformite-cas-2026.md` (AIAD-AI-ACT l. 1146, AIAD-RGPD l. 1064 — lignes d'historique), `legitimation/*.md`, `GLOSSAIRE-AIAD.md`, argumentaires nommés seuls (frameworkAIAD.md). CA-005b « chaque référence » n'est donc pas satisfait à la lettre sur les données réelles. Étendre la réécriture ? | Non deviné par l'agent (Test de l'Étranger). |
+| 2026-09-26 | Constat : `emit-rules --check` divergeait déjà avant la sync (22 fichiers, Intent actif INTENT-033) ; la régénération du script les remet en parité. | Information. |

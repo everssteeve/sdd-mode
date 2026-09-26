@@ -83,7 +83,9 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 | 25 mai 2018 | Entrée en application RGPD |
 | 10 juil. 2023 | Décision d'adéquation UE-US Data Privacy Framework (Commission) |
 | 19 nov. 2025 | Proposition Digital Omnibus (simplifications RGPD) |
-| 2026 — trilogue en cours | Digital Omnibus — non adopté |
+| 2026 — trilogue en cours | Digital Omnibus (volet RGPD) — non adopté au 2026-04-20 ; *statut non revérifié au 2026-09-25* |
+| 20 juil. 2026 | Note exploratoire CNIL / CIANum sur l'IA agentique et les données personnelles *(ajout v1.9)* |
+| 21 août 2026 | Sanction de 824 990 000 € infligée à Uber par l'AP néerlandaise (décisions entièrement automatisées — Art. 22 — et défaut d'information) — **Uber a fait appel** *(ajout v1.9, vérifié sur le communiqué de l'AP)* |
 
 ### Articulation avec la Loi Informatique et Libertés
 
@@ -361,6 +363,34 @@ router.post('/api/gdpr/object', authenticate, async (req, res) => {
 
 ---
 
+### ⚖️ PRINCIPE 7 bis — DÉCISIONS AUTOMATISÉES ET AGENTS (Art. 22) *(v1.9)*
+
+Un agent qui décide seul d'un effet significatif sur une personne — accès à un service, notation, sanction, exclusion — entre dans le champ de l'Art. 22. **Précédent** : 824 990 000 € d'amende infligés à Uber par l'AP néerlandaise le 21 août 2026 (sous appel) pour des désactivations de comptes de chauffeurs **sans aucune évaluation humaine** et pour un défaut d'information sur cette décision automatisée — sur le seul fondement du RGPD. Détail du cas : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`.
+
+**Critère AIAD — intervention humaine réelle, non nominale.** Une intervention humaine ne compte que si elle réunit les quatre conditions suivantes :
+
+1. **Pouvoir effectif** : l'intervenant peut infirmer la décision de l'agent, et le fait réellement dans une proportion observable de cas.
+2. **Compétence et autorité** : il dispose de la formation et du mandat nécessaires pour juger le cas.
+3. **Information suffisante** : il a accès aux éléments qui ont fondé la proposition de l'agent, pas seulement à son résultat.
+4. **Trace** : son examen est horodaté et attribuable, avec sa décision et son motif.
+
+Une validation en masse, un clic de confirmation systématique ou un contrôle a posteriori sur échantillon ne remplissent pas ces conditions.
+
+**Checklist — votre agent tombe-t-il sous l'Art. 22 ?**
+
+| # | Question | Si oui |
+|---|----------|--------|
+| A1 | L'agent produit-il une décision (et pas seulement une recommandation) concernant une personne identifiée ou identifiable ? | Continuer |
+| A2 | Cette décision produit-elle des effets juridiques ou affecte-t-elle la personne de manière significative (accès, revenu, notation, exclusion, sanction) ? | Continuer |
+| A3 | La décision est-elle appliquée sans intervention humaine remplissant les quatre conditions ci-dessus ? | **Art. 22 applicable** |
+| A4 | Existe-t-il une base d'exception (nécessité contractuelle, autorisation légale, consentement explicite) ? | Sinon : **bloquer** |
+| A5 | Si une exception s'applique : information de la personne, droit d'obtenir une intervention humaine, d'exprimer son point de vue et de contester sont-ils implémentés ? | Sinon : **bloquer** |
+| A6 | Des données sensibles (Art. 9) entrent-elles dans la décision ? | Régime renforcé (Art. 22.4) |
+
+**Articulation AIAD.** Le Critère de Drift de l'Intent Statement et la classe de réversibilité (AIAD-AI-ACT, profil « Agents à effet irréversible ») s'appliquent : une désactivation de compte est une action à effet significatif, souvent coûteusement réversible pour la personne. Ce critère est l'expression opérationnelle de la Valeur 7 (Human Authorship) ; il ne modifie pas la Constitution.
+
+---
+
 ### 🍪 PRINCIPE 8 — COOKIES & TRACEURS (Directive ePrivacy + RGPD)
 
 - **TOUJOURS** implémenter un bandeau de consentement conforme avant tout dépôt de cookie non essentiel
@@ -409,6 +439,9 @@ function initAnalytics(consent: CookieConsent): void {
 - **TOUJOURS** documenter les transferts hors UE dans le registre des traitements
 - **TOUJOURS** s'interroger sur les services US soumis au CLOUD Act (AWS, Azure, GCP, Google Analytics, etc.)
 - **TOUJOURS** préférer des alternatives européennes si disponibles et équivalentes
+- **TOUJOURS** *(v1.9)* vérifier la **résidence des données du modèle lui-même** pour le canal de distribution utilisé, à la date du déploiement : un même modèle peut offrir une garantie de résidence UE sur une plateforme et pas sur une autre. **Disponibilité commerciale ne signifie pas validabilité en production** pour un secteur régulé.
+
+> Exemple daté (Claude sur Microsoft Foundry sans zone de données UE, juillet 2026) : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`.
 
 ```typescript
 // ✅ Documenter les sous-traitants dans l'ARCHITECTURE.md
@@ -435,7 +468,7 @@ function initAnalytics(consent: CookieConsent): void {
 - **TOUJOURS** mettre à jour le registre si la finalité, la durée ou les sous-traitants changent
 
 ```markdown
-<!-- ✅ Template d'entrée registre des traitements -->
+
 ## Traitement : [Nom]
 
 | Champ | Valeur |
@@ -867,6 +900,16 @@ Quand un système IA traite des données personnelles :
 - **AI Act** : FRIA pour systèmes haut risque utilisés par déployeurs publics (Art. 27), documentation technique (Art. 11), supervision humaine (Art. 14).
 - **Articulation AIPD ↔ FRIA** : complémentaires, pas redondantes. L'AIPD couvre la protection des données ; la FRIA couvre les droits fondamentaux plus largement.
 
+**Grille de lecture de l'IA agentique *(v1.9)*.** Dans toute AIPD portant sur un système d'agents, **TOUJOURS** examiner les quatre points de tension identifiés par la note exploratoire CNIL / CIANum du 20 juillet 2026 (non prescriptive ; contexte : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`) :
+
+| Point de tension (note CNIL / CIANum) | Question à poser dans l'AIPD | Lien AIAD |
+|---|---|---|
+| **Volume et circulation des données** entre les nombreux services auxquels l'agent se connecte | Quels services l'agent peut-il appeler, et quelles données y circulent ? | Périmètre d'exécution de l'agent (annexe A.4) |
+| **Perte de maîtrise** de ses données par la personne | La personne sait-elle ce que l'agent fait de ses données, et peut-elle l'arrêter ? | Principe 1 (transparence), Principe 7 |
+| **Mémoire persistante et profilage** (historique d'interactions, profils hyperpersonnalisés) | Que retient l'agent, combien de temps, et pour quelle finalité ? | Principes 3 et 4 (finalités, conservation) |
+| **Répartition des responsabilités** entre acteurs, rendue plus difficile par l'autonomie de l'agent | Qui est responsable de traitement, qui est sous-traitant, pour chaque étape ? | **Valeur 6 — Responsabilité Partagée** : chaque délégation à un agent a un responsable humain nommé |
+
+
 ### RGPD ↔ RGESN — convergence minimisation / sobriété
 
 Moins de données = moins de risque RGPD ET moins d'empreinte environnementale RGESN.
@@ -1008,7 +1051,7 @@ La Commission européenne a proposé le 19 novembre 2025 un paquet de simplifica
 ---
 
 *Agent RGPD — Tier 1 Gouvernance — Droit de veto*
-*Intégré au framework AIAD v1.5 — Valeur "Primauté de l'Intention Humaine"*
+*Intégré au framework AIAD v1.9 — Valeur "Primauté de l'Intention Humaine"*
 *Référentiel : RGPD (UE) 2016/679 + Loi Informatique et Libertés 78-17 — Autorité de contrôle : CNIL (France)*
 *⚠️ Cet agent ne remplace pas un avis juridique ni un DPO qualifié.*
 
@@ -1018,4 +1061,5 @@ La Commission européenne a proposé le 19 novembre 2025 un paquet de simplifica
 
 | Date | Version | Modifications |
 |------|---------|--------------|
+| 2026-09-25 | v1.9 | **+ Principe 7 bis — Art. 22** (critère d'intervention humaine réelle, checklist ; précédent Uber vérifié sur le communiqué de l'AP) · résidence des données du modèle selon le canal · grille CNIL / CIANum pour les AIPD d'agents · récits et sources déplacés vers `framework/legitimation/conformite-cas-2026.md` — détail : notes de version de la v1.9 |
 | 2026-04-20 | v1.5 — renforcement juridique | **+ CADRE LÉGAL DÉTAILLÉ** (Loi 78-17 consolidée, ePrivacy, Data Privacy Framework UE-US) — **+ sanctions Art. 83 chiffrées** (2 paliers 10 M€/2 % et 20 M€/4 %, 11 critères de modulation, échantillon amendes CNIL 2024) — **+ autorités** (CNIL, CEPD, chef de file) — **+ Dark Patterns JAMAIS** (CEPD Guidelines 03/2022) — **+ Art. 22 décision automatisée JAMAIS** — **+ OBLIGATIONS PAR ACTEUR** (responsable / conjoint / sous-traitant / représentant / DPO) — **+ procédure AIPD** (liste CNIL obligatoire, liste dispensée, 9 sections Art. 35.7) — **+ procédure violation 72 h** (contenu Art. 33.3 + téléservice CNIL) — **+ procédure TIA post-Schrems II** (CCT 2021/914, DPF état 2026-04-20) — **+ tableau des 7 droits** avec délais et formes — **+ ARTEFACTS OBLIGATOIRES** (registre Art. 30, AIPD, notification CNIL, DPA Art. 28) — **+ ARTICULATION** (ePrivacy/cookies CNIL 2020-091/092, AI Act double régime, référentiels sectoriels CNIL, règles de priorité) |

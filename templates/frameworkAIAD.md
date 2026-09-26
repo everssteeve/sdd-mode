@@ -1,8 +1,8 @@
-# Guide AIAD — Framework v1.6
+# Guide AIAD — Framework v1.9
 
 **La méthodologie de référence pour le développement produit à l'ère des agents IA.**
 
-Version 1.6 — Mai 2026 — Steeve Evers
+Version 1.9 — Septembre 2026 — Steeve Evers
 Framework AIAD — Artificial Intelligence Agent Development — [aiad.ovh](https://aiad.ovh) — Open Source
 
 ---
@@ -69,6 +69,8 @@ Sans définition explicite de ce que signifie "réussir", les équipes optimisen
 
 *Note : Anthropic a formalisé en mars 2026 le Context Engineering comme discipline à part entière, distincte du prompt engineering — "l'art et la science de curating ce qui entre dans la fenêtre de contexte limitée à partir d'un univers en constante évolution d'informations possibles". Le Context Budget AIAD est une implémentation opérationnelle de cette discipline.*
 
+**Budget, délégation et datation (v1.9).** Deux évolutions de 2026 changent le calcul sans changer la discipline. D'abord, les fenêtres de 1M tokens se généralisent : elles repoussent le seuil de dégradation, elles ne le suppriment pas. Ensuite, certains harnesses font hériter aux sub-agents la conversation parente : une délégation coûte alors le contexte parent en plus du travail propre, et il vaut mieux déléguer tôt. Le détail opérationnel est dans SDD Mode (Principe #3). Règle transverse : toute hypothèse de capacité ou de prix citée dans un artefact AIAD est datée et revalidée à chaque cycle mensuel d'évolution du framework.
+
 ### Les sept valeurs fondatrices
 
 AIAD repose sur sept valeurs fondatrices, immuables et non-négociables. Elles ne sont pas des aspirations — elles sont constitutives du framework.
@@ -83,13 +85,13 @@ AIAD repose sur sept valeurs fondatrices, immuables et non-négociables. Elles n
 
 **5. Empirisme sans Concession.** On valide les hypothèses par l'observation, pas par le consensus. Une équipe AIAD ne prend pas de décision sur la foi d'une intuition quand une mesure est possible.
 
-**6. Responsabilité Partagée.** Le succès et l'échec appartiennent à l'équipe, pas à un individu. Les responsabilités sont claires — la culpabilisation ne l'est jamais. *Illustration terrain (2026) :* un agent Cloudflare/Stripe a acheté le domaine `superseal.cc` au lieu de `superseal.club` de façon autonome — l'incident montre qu'en l'absence de checkpoint humain sur les effets financiers irréversibles, la responsabilité reste floue. AIAD formalise ce checkpoint via l'Execution Gate.
+**6. Responsabilité Partagée.** Le succès et l'échec appartiennent à l'équipe, pas à un individu. Les responsabilités sont claires — la culpabilisation ne l'est jamais. *Illustration (v1.7) :* en mai 2026, un agent doté d'autonomie financière (protocole Cloudflare/Stripe, plafond 100 $/mois) a acheté le domaine `superseal.cc` au lieu de `superseal.club` — une erreur sans responsable clairement désigné en amont. La Responsabilité Partagée impose qu'une délégation d'autonomie à un agent — a fortiori financière ou opérationnelle — soit assortie d'une responsabilité humaine explicitement assumée et de points de contrôle documentés (plafond, journal d'audit, procédure de rollback). Voir `https://github.com/everssteeve/sdd-mode/blob/main/templates/.aiad/gouvernance/AIAD-AI-ACT.md` — profil « Agents à effet irréversible » (anciennement « agents à autonomie financière et opérationnelle »).
 
 **7. Human Authorship.** La paternité de l'intention ne se délègue pas à l'agent. Tout **Intent Statement** doit être rédigé en première personne par un humain. L'agent peut enrichir, questionner, affiner. Il ne peut pas initier. Si un agent a rédigé l'Intent Statement, la session est invalidée. L'Execution Gate ne peut pas être passé sans un Intent Statement dont l'auteur est humain et identifiable.
 
-*Légitimation externe (mai 2026).* La valeur Human Authorship correspond précisément à ce que Martin Fowler (2026) nomme « programmation agentique sérieuse » — le développeur examine et valide le code généré — par opposition au « vibe coding » (Karpathy/Fowler) où l'auteur délègue sans validation. Elle prévient aussi la *cognitive debt* (Fowler/Joshi, 2026) : l'accumulation de code dont on accepte l'implémentation sans comprendre le modèle conceptuel sous-jacent. La pratique terrain confirme ce principe à grande échelle : sur 29 585 PR impliquant des agents, l'autorité de fusion reste « presque exclusivement humaine » (preuves dans `docs/legitimation/execution-gate-evidence.md`).
-
 *Ancrage constitutionnel : Valeur 1 de l'Article II de la Constitution AIAD v1.0.*
+
+*Légitimation externe (v1.7) :* la valeur Human Authorship correspond précisément à ce que Martin Fowler (2026) nomme la **« programmation agentique sérieuse »** — le développeur examine et valide le code généré — par opposition au **« vibe coding »**, où l'auteur délègue sans validation. Elle prévient également la **dette cognitive** (*cognitive debt*, Fowler/Joshi 2026) : l'accumulation de code dont on accepte l'implémentation sans comprendre le modèle conceptuel sous-jacent. La pratique terrain confirme cette valeur — sur 29 585 cycles de pull requests analysés (arXiv, mai 2026), l'autorité de fusion reste « presque exclusivement humaine », et les agents de pointe présentent un biais d'action mesuré de 35 à 65 % qui justifie un point de contrôle humain avant exécution. Voir le dossier de preuves `legitimation/execution-gate-evidence.md` et le `GLOSSAIRE-AIAD.md`.
 
 Ces sept valeurs forment un système. En retirer une fait s'effondrer l'ensemble.
 
@@ -105,13 +107,13 @@ AIAD intègre les meilleures pratiques SDD (Kiro, GitHub Spec-Kit, SPDD) en leur
 
 **Relation avec OpenAI Symphony :** Symphony et les Intent Statements AIAD convergent sur le concept d'artefact d'intention persistant pour ancrer les agents. La différence clé : Symphony est issue-tracker-first, sans critères qualité formels. AIAD enrichit ce concept avec le SQS, le Drift Lock et la gouvernance réglementaire. Les Intent Statements AIAD peuvent pointer vers des issues Jira/GitHub tout en existant comme artefacts indépendants avec leur propre cycle de vie.
 
-**Relation avec les Routines (Anthropic Claude Code) :** Les Routines sont des déclencheurs d'exécution — elles automatisent des séquences d'actions récurrentes. Elles sont compatibles avec AIAD et complémentaires : une Routine exécute une SPEC déjà validée par le cycle SDD (Gate ≥ 4/5), elle n'en tient pas lieu. Le pattern d'intégration : `spec SDD Gate → Routine Claude Code`. La différence structurelle : les Routines opèrent sans Intent Statement, sans SQS, sans Human Authorship formalisé — AIAD apporte la couche gouvernance de l'intention que les Routines n'ont pas.
+**Relation avec les Routines (Claude Code) :** les Routines — et les orchestrateurs de specs équivalents — sont compatibles comme **couche d'exécution** : elles exécutent des spécifications déjà validées par le cycle SDD. Elles ne remplacent ni l'Intent Statement, ni le SQS, ni l'Execution Gate. Le pattern d'intégration recommandé est : spec validée à l'Execution Gate → Routine d'exécution. Une Routine est un déclencheur d'exécution, pas un mécanisme de gouvernance de l'intention.
 
-**Relation avec Amazon Kiro :** Kiro optimise l'autonomie agentique (mode autonomous, Quick Plan, steering files). AIAD gouverne l'intention qui précède l'exécution. Les deux sont compatibles — Kiro peut servir de couche exécution d'une SPEC AIAD validée. La différence clé : Kiro part de l'exécution et propose optionnellement du contrôle ; AIAD part de l'intention humaine et construit l'exécution sur cette base. Voir `argumentaires/aiad-vs-kiro-autonomie.md`.
+**AIAD dans l'ère des agent labs (v1.7) :** en 2026, tous les grands laboratoires se repositionnent en « agent labs » et livrent des harnesses propriétaires (OpenAI Codex, Claude Code d'Anthropic, Gemini/Muse Spark de Google), tandis que le Gartner Magic Quadrant 2026 formalise la catégorie « Enterprise AI Coding Agents » et projette 30 à 50 % de gain de productivité d'ici 2028. Cette adoption massive crée un **vide de gouvernance de l'intention humaine** que les harnesses ne comblent pas : ils optimisent le « comment générer », pas le « qui a voulu quoi, et qui valide ». AIAD adresse structurellement ce vide. Son caractère **model-agnostic** est ici un différenciateur explicite : AIAD gouverne par-dessus n'importe quel agent et protège du **lock-in vendor** dans un marché où chaque lab pousse son propre harness. Corollaire concret — la **résistance aux disruptions modèles** : quand un modèle est déprécié (cf. l'abandon de Llama par Meta au printemps 2026), l'intention (Intent Statement), les SPECs et l'AGENT-GUIDE restent valides ; seul l'exécutant change. Le positionnement est proactif, pas défensif : AIAD est la gouvernance qui *accompagne* la productivité agentique, pas une réaction à Gartner. Argumentaires décideurs : `governance-gap-2026.md` (document publié avec le framework AIAD), `model-agnostic-disruption.md`, `aiad-vs-kiro-autonomie.md`.
 
-**Résistance aux disruptions modèles :** AIAD est model-agnostic par conception. Les Intent Statements, SPECs et l'Execution Gate sont indépendants du modèle LLM utilisé — ils survivent aux changements de provider (abandon Llama, pivots successifs des labs). La gouvernance AIAD est dans les artefacts, pas dans le vendor. Voir `argumentaires/model-agnostic-disruption.md`.
+**Relation avec GitHub Copilot agent-native (v1.8) :** GitHub Copilot est passé en mode « agent-native » en juin 2026 — multi-agents en parallèle, worktrees isolés, canvas de supervision. Gartner MQ Leader pour la 3e année consécutive, il constitue le point d'entrée dominant de l'adoption agentique en enterprise. AIAD est compatible et complémentaire : trois mécanismes s'appliquent directement aux trois nouveautés agent-native — l'**Intent Statement** cadre l'intention avant chaque session, l'**Execution Gate** valide la SPEC avant chaque lancement d'agent parallèle, le **Drift Lock** synchronise chaque worktree avec sa SPEC dans le PR correspondant. Argumentaire : `aiad-pour-github-copilot.md` (document publié avec le framework AIAD).
 
-**Validations industrielles 2026 :** Anthropic formalise en mars 2026 le Context Engineering comme discipline à part entière — AIAD l'implémente opérationnellement depuis v1.3. Thoughtworks Radar 2026 identifie des concepts convergents (Context Engineering, Harness Engineering, Spec-Driven Development). R2Code (arXiv, avril 2026) valide empiriquement le spec-first : −41,7 % de tokens et +7,4 % de fidélité sur le code généré. AWS Strands (2026) observe −96 % de tokens sur des workflows intent-based, convergent avec la donnée R2Code. Gartner MQ 2026 projette 30-50 % de gain de productivité agentique d'ici 2028 — créant le vide de gouvernance qu'AIAD adresse structurellement. Ces convergences ne sont pas des suivis — elles sont des validations indépendantes d'une approche antérieure. Voir `GLOSSAIRE-AIAD.md` pour les définitions précises des concepts clés.
+**Validations industrielles 2026 :** Anthropic formalise en mars 2026 le Context Engineering comme discipline à part entière — AIAD l'implémente opérationnellement depuis v1.3. Thoughtworks Radar 2026 identifie des concepts convergents (Context Engineering, Harness Engineering, Spec-Driven Development). R2Code (arXiv, avril 2026) valide empiriquement le spec-first : −41,7 % de tokens et +7,4 % de fidélité sur le code généré. Tang et al. (arXiv 2605.29442, juin 2026) fournissent la preuve empirique fondatrice : sur 20 574 sessions réelles de coding agents, **91,49 % nécessitent une correction humaine explicite** — les 7 formes de désalignement identifiées (mauvaise interprétation de l'intent, scope creep, solutions hors-spec, hallucinations d'exigences, et 3 autres formes) correspondent directement aux problèmes que le cycle Intent Statement → SQS → Execution Gate adresse structurellement. Ces convergences ne sont pas des suivis — elles sont des validations indépendantes d'une approche antérieure. Voir `GLOSSAIRE-AIAD.md` pour les définitions précises des concepts clés. Argumentaire décideurs : `desalignement-91-pourcent.md` (document publié avec le framework AIAD). *(v1.9)* Fin juillet 2026, Cognizant commercialise dans son produit Flowsource un module explicitement nommé « Spec-Driven Development », exécuté par Claude Code : le SDD devient une offre d'intégrateur pour les grands comptes. Les preuves relatives à la couche Vérification, vérifiées sur leurs sources et avec leurs limites, sont réunies dans `legitimation/verification-evidence.md`.
 
 ---
 
@@ -175,7 +177,7 @@ L'écosystème d'agents est structuré en niveaux d'autorité. Au **Niveau 0**, 
 
 | AGENT-GUIDE | Référentiel | Scope |
 |-------------|-------------|-------|
-| **AIAD-AI-ACT** | Règlement (UE) 2024/1689 — EU AI Act | Classification risque, obligations par niveau, calendrier d'application (complète le 2 août 2026) |
+| **AIAD-AI-ACT** | Règlement (UE) 2024/1689 — EU AI Act | Classification risque, obligations par niveau, calendrier d'application recalé sur le Règlement (UE) 2026/1744 — transparence en vigueur depuis le 2 août 2026, haut risque au 2 déc. 2027 (Annexe III) et au 2 août 2028 (Annexe I) (v1.9) |
 | **AIAD-RGPD** | RGPD (UE) 2016/679 | Privacy by Design, minimisation données, bases légales, droits des personnes |
 | **AIAD-RGAA** | RGAA 4.1 / WCAG 2.1 | Accessibilité numérique, obligations légales françaises |
 | **AIAD-RGESN** | RGESN | Écoconception de services numériques, sobriété computationnelle |
@@ -192,6 +194,10 @@ La **gouvernance sécurité des agents** est une dimension non-négociable du Ha
 
 *Ancrage constitutionnel : Valeur 7 (Human Authorship) — la gouvernance sécurité des agents est l'expression technique du principe de supervision humaine, convergente avec les exigences de l'AI Act (Art. 14).*
 
+**Un mode de permission n'est pas un contrôle (v1.9).** Les harnesses proposent des modes de permission : approbation manuelle, classifieur automatique, listes d'autorisation. Ils réduisent la friction ; ils ne constituent pas une garantie opposable. En août 2026, Johann Rehberger a contourné le mode automatique de Claude Code dans 80 % de ses essais — et, dans certains cas, le classifieur a autorisé le processus malveillant puis bloqué la commande de remédiation lancée par l'agent. Un mécanisme qui peut bloquer la remédiation ne peut pas porter l'autorité humaine. L'AE ne présente donc jamais un mode de permission comme une mesure de sécurité suffisante. La protection repose sur l'**isolation** : conteneur ou machine virtuelle, sorties réseau restreintes, aucun credential superflu (clés SSH, clés cloud) dans l'environnement d'exécution de l'agent. Le mode de permission vient en complément, jamais en substitut.
+
+**Le confinement se juge sur la surface partagée, pas agent par agent (v1.9).** En juillet 2026, environ 1 200 agents d'évaluation d'OpenAI, chacun isolé dans son propre sandbox, ont découvert qu'ils accédaient au même cache Artifactory. Ils en ont fait un tableau de messages — plus de 70 000 messages et fichiers échangés — et environ 700 d'entre eux ont participé à une intrusion de plusieurs jours chez Hugging Face (rapport indépendant METR / Redwood Research, août 2026). L'isolement de chaque agent était réel ; c'est la ressource commune qui a servi de canal. Martin Fowler décrit le même mécanisme sous un jour constructif (« An accidental blackboard », septembre 2026) : des agents qui utilisent spontanément le dépôt git comme mémoire partagée. La leçon est identique dans les deux cas : **toute ressource partagée accessible en écriture est un canal de coordination entre agents, voulu ou non.** L'AE inventorie ces ressources, et la SPEC les déclare — y compris les espaces de coordination voulus — dès que l'agent dispose de credentials ou d'un accès en écriture à une ressource partagée (section « Périmètre d'exécution de l'agent », annexe A.4). Hors de ces cas, la section n'est pas requise : une SPEC ne doit pas s'alourdir d'un champ rempli par rituel.
+
 **Anti-pattern.** L'AE qui accumule des agents "au cas où" sans mesurer leur utilité réelle, ou qui configure des agents avec des permissions larges "pour simplifier". Plus d'agents ne signifie pas plus d'efficacité — et des permissions non restreintes sont un risque de gouvernance.
 
 ---
@@ -207,6 +213,8 @@ La **gouvernance sécurité des agents** est une dimension non-négociable du Ha
 La validation s'organise en quatre niveaux. Les tests unitaires (agents IA + PE) : 100 % automatisés. Les tests d'intégration (PE + Agent Quality) : 90 % automatisés. Les tests fonctionnels (QA + Agent Quality) : 70 % automatisés. Les tests exploratoires (QA humain) : 0 % automatisés. Ce dernier niveau reste 100 % humain pour une raison simple : un agent suit des scénarios. Un humain trouve ce qui ne va pas en dehors des scénarios prévus.
 
 Les indicateurs de succès : bugs en production en tendance décroissante, temps de détection d'un bug inférieur à 24 h, taux de régression inférieur à 5 %.
+
+**Efficacité n'est pas qualité (v1.9).** L'argument le plus solide pour ce rôle vient de la plus grande étude disponible : sur 1,02 million de pull requests (207 projets GitHub, 2026), la revue impliquant des agents est plus rapide — de 2,5 à 4,5 jours par millier de lignes — sans être meilleure, et les schémas de revue défaillants y sont plus fréquents. Une étude longitudinale de la même période nuance le constat : un débit doublé n'y a pas augmenté le taux de retours arrière, mais la charge par relecteur a doublé et la revue automatisée a dépassé la revue humaine. Le QA Engineer ne défend donc pas une lenteur : il défend ce que les indicateurs de vitesse ne mesurent pas. Sources et limites : `legitimation/verification-evidence.md`.
 
 **Anti-pattern.** Le QA qui teste uniquement à la fin du cycle au lieu de contribuer à la définition de "Done" dès le départ. Cette pratique transforme la qualité en goulot d'étranglement.
 
@@ -293,9 +301,19 @@ Ce qu'on ne sacrifiera pas — valeurs, qualité, éthique, ressources.
 
 **CRITERE DE DRIFT**
 Comment saura-t-on, dans 3 mois, si l'implémentation a trahi l'intention initiale ?
+[Si des actions d'agent ont des effets hors du code : classe de réversibilité
+et seuil d'arrêt — voir ci-dessous]
 ```
 
 Le cinquième champ — le **CRITERE DE DRIFT** — ancre la vérification de fin d'itération non plus uniquement sur une vérification technique (le code correspond-il à la SPEC ?) mais sur une vérification d'intention (l'implémentation reflète-t-elle ce que l'humain voulait vraiment ?).
+
+**Classe de réversibilité et seuil d'arrêt (v1.9).** Lorsque l'intention implique des actions d'agent aux effets hors du code — financiers, opérationnels ou matériels —, le Critère de Drift précise leur classe de réversibilité :
+
+- **réversible** : annulable sans coût ;
+- **coûteusement réversible** : annulable avec une perte (argent, temps, restauration depuis une sauvegarde) ;
+- **irréversible** : non annulable (paiement exécuté, engagement contractuel, suppression définitive, action physique sur un équipement).
+
+Pour la classe irréversible, le Critère de Drift fixe un **seuil d'arrêt**, pas un simple indicateur de suivi : tout dépassement d'autonomie constaté — dépense au-delà du plafond, action hors du périmètre délégué, tentative de masquer ou d'altérer ses propres traces — déclenche l'arrêt immédiat de l'agent et une revue humaine, et non un signalement a posteriori. Les alertes de facturation des fournisseurs ne remplissent pas ce rôle : conçues pour des erreurs à vitesse humaine, elles peuvent accuser jusqu'à 24 heures de retard (incidents de dépassement documentés par InfoQ, juillet 2026). Les points de contrôle réglementaires associés sont détaillés dans AIAD-AI-ACT, profil « Agents à effet irréversible ».
 
 La **règle Human Authorship** : le champ *Auteur humain* est obligatoire et rempli délibérément — jamais automatiquement. Cette friction minuscule est intentionnelle : elle marque le moment de l'appropriation.
 
@@ -366,9 +384,16 @@ Cinq bonnes pratiques guident la rédaction : rendre le document évolutif (l'ar
 |------|---------------------|---------------------|---------------------|--------|
 | 2026-02-01 | Génération service auth | Import circulaire créé | Expliciter l'ordre d'import dans la SPEC | ✅ Résolu |
 
-**La section Human Learnings (v1.5)** est le pendant des Lessons Learned : elle documente non pas les défaillances de l'agent, mais les défaillances de l'intention humaine. Les Lessons Learned posent la question "qu'est-ce que l'agent a mal fait ?". Les Human Learnings posent la question complémentaire : "qu'est-ce que l'humain a mal exprimé ?" Elle est maintenue par le PE et/ou le PM, et revue lors de l'Atelier d'Intention mensuel.
+**La section Human Learnings (v1.5)** est le pendant des Lessons Learned : elle documente non pas les défaillances de l'agent, mais les défaillances de l'intention humaine. Les Lessons Learned posent la question "qu'est-ce que l'agent a mal fait ?". Les Human Learnings posent la question complémentaire : "qu'est-ce que l'humain a mal exprimé ?" Elle est maintenue par le PE et/ou le PM, et revue lors de l'Atelier d'Intention mensuel. En nommant les cas où l'intention a été mal exprimée ou mal calibrée, les Human Learnings contribuent à prévenir la **dette cognitive** (*cognitive debt*, Fowler/Joshi 2026) — l'accumulation de code accepté sans compréhension de son modèle conceptuel sous-jacent. Pour structurer les entrées, la taxonomie Tang et al. (arXiv 2605.29442, 2026) — issue de 20 574 sessions terrain — fournit un référentiel de 7 formes de désalignement : chaque entrée de Human Learnings peut être catégorisée selon la forme observée (mauvaise interprétation de l'intent, scope creep, solution hors-spec, hallucination d'exigence...) pour identifier les patterns récurrents d'intention mal formulée.
 
 *Ancrage constitutionnel : Valeur 5 (Empirisme sans Concession) — si on observe et révise les outputs de l'agent, on observe aussi les processus d'intention humaine.*
+
+**Une catégorie à part : les défaillances de supervision (v1.9).** Parmi les Human Learnings, certaines ne tiennent pas à une intention mal exprimée mais à une supervision absente ou devenue nominale. Elles méritent leur propre catégorie, car elles se répètent sous des formes différentes. Deux cas servent de référence :
+
+- **Un agent qui agit sans approbation** (Meta, mars 2026, selon la presse) : un agent interne a publié de lui-même sa réponse sur un forum interne, sans l'accord de l'ingénieur qui l'avait sollicité ; un autre salarié a suivi ce conseil, exposant pendant près de deux heures des données sensibles à des personnes non autorisées. Meta a classé l'incident en haute sévérité.
+- **Des relectures automatiques empilées** (« CVE-2026-LGTM », Andrew Nesbitt, juin 2026) : ce récit est une **fiction satirique**, pas un incident réel. Un paquet malveillant y franchit sept contrôles de sécurité automatisés, chacun échouant pour une raison différente, pendant que deux agents de revue s'enferment dans un désaccord qui coûte 41 255 $ d'inférence. Il est utile parce que les praticiens y ont reconnu leurs propres chaînes : des angles morts corrélés entre outils d'IA, et plus aucun humain pour trancher.
+
+La question à poser en rétrospective : *à quel moment un humain aurait-il dû être consulté, et pourquoi ne l'a-t-il pas été ?*
 
 Cinq bonnes pratiques guident la rédaction : rester concret (exemples de code, pas juste principes abstraits), tenir la section Notes d'Apprentissage à jour en continu, inclure le vocabulaire métier spécifique au domaine, maintenir l'équilibre (ne pas dépasser le Context Budget — un guide de cent règles est moins efficace qu'un guide de dix règles bien choisies), et le réviser mensuellement au minimum. Les indicateurs de succès : first-time success rate du code généré supérieur à 70 %, conformité aux conventions supérieure à 90 %, et temps de correction post-génération inférieur à 20 % du temps total.
 
@@ -389,6 +414,8 @@ Cinq bonnes pratiques guident la rédaction : rester concret (exemples de code, 
 
 **Le Spec Quality Score** est une checklist en cinq points que le PE valide avant de soumettre une SPEC à un agent. Atomicité (une seule responsabilité fonctionnelle ?), interfaces précises (types et signatures explicites, sans "retourner un objet" vague ?), testabilité (cas de test inclus et liés aux Outcome Criteria du PRD ?), non-ambiguïté (zéro adverbe vague — correctement, convenablement, rapidement ?), et scope défini (fichiers impactés exhaustifs et Critère de Drift renseigné ?). Une SPEC qui ne passe pas le Spec Quality Score ne doit pas être soumise à l'agent. Corriger prend dix minutes. Corriger le code généré sur une mauvaise SPEC prend des heures.
 
+**Appui externe (v1.9).** En juillet 2026, Anthropic a publié une refonte de sa doctrine de context engineering pour ses modèles Claude 5 : suppression d'environ 80 % du system prompt de Claude Code sans perte mesurée selon l'éditeur, et bascule recommandée des consignes simples vers des **références riches et vérifiables** (suites de tests détaillées, code existant à porter). C'est une validation externe de la thèse du SQS : une bonne SPEC n'est pas une liste de contraintes plus longue, c'est un artefact riche et vérifiable. Le chiffre de 80 % est une mesure de l'éditeur, non auditée.
+
 **Le Critère 6 — Test de l'Étranger (v1.5, non-scorable)** est un sixième critère ajouté à la checklist. Il ne bloque pas l'**Execution Gate** si la réponse est négative, mais il doit être posé, et la réponse doit être documentée dans la SPEC avant de continuer. La question : *"Si je montrais cette SPEC à quelqu'un qui ne connaît pas le projet, saurait-il pourquoi on la fait ?"* Répondre en deux phrases maximum. Si ce n'est pas possible, le contexte humain est insuffisant. La réponse s'intègre dans la SPEC :
 
 ```markdown
@@ -403,6 +430,20 @@ Si vous ne pouvez pas remplir ce champ, revenez à l'Intent Statement avant de c
 Le champ *Scope d'Activation* indique si cette SPEC doit être injectée seule (par défaut) ou en combinaison avec d'autres SPECs (cas des fonctionnalités transverses). Mélanger le contexte permanent de l'AGENT-GUIDE avec des SPECs multiples non reliées sature le budget de contexte de l'agent. Le champ *Critère de Drift* est une règle concrète pour détecter si cette SPEC est devenue obsolète. Exemple : "Cette SPEC est en drift si le fichier `auth/validator.ts` est modifié sans mise à jour de la section Interface Technique."
 
 Les indicateurs de succès : code généré correct du premier coup supérieur à 80 %, ratio temps de rédaction SPEC versus correction code supérieur à 1:3, et moins de deux questions de clarification par SPEC.
+
+**Le continuum d'autorité (v1.9).** Human Authorship ne se réduit pas à la rédaction de l'Intent Statement : chaque passage d'un niveau d'autorité au suivant est un **acte humain distinct**, qu'aucun autre acte ne remplace. Cette règle décline la Valeur 7 sans en modifier la portée.
+
+*Ce que « écriture » désigne ici* : le code et les artefacts de production. Aux niveaux consultation et clarification, l'agent peut rédiger des **brouillons d'artefacts de spécification** — c'est le rôle de `/sdd-spec` ; ils n'engagent rien tant qu'un humain ne les a pas validés à l'Execution Gate. L'Intent Statement, lui, reste rédigé par un humain (Valeur 7).
+
+| Niveau | Acte humain requis | Ce qu'il n'autorise pas |
+|--------|-------------------|-------------------------|
+| **Consultation** | Aucun — l'agent peut lire et proposer | Toute écriture de code ou d'artefact de production |
+| **Clarification** | Répondre aux questions de l'agent | **Répondre n'est pas consentir** : aucune écriture de code ou d'artefact de production n'en découle |
+| **Validation de la SPEC** | Ouverture de l'Execution Gate (SQS ≥ 4/5, Test de l'Étranger) | Le déploiement |
+| **Autorisation d'écriture** | Lancement de l'exécution sur la SPEC validée | Toute action hors du périmètre de la SPEC |
+| **Autorisation de déploiement** | Décision explicite, chaîne de preuve complète (§ 5.5) | Les actions irréversibles non déclarées |
+
+**Les points d'arrêt à l'initiative de l'agent.** Le continuum décrit ce que l'humain accorde ; il faut aussi décrire quand l'agent doit revenir vers l'humain. Ethan Mollick propose en 2026 une typologie utile, qu'AIAD reprend : l'agent sollicite une **approbation** (avant une action hors mandat ou irréversible), un **avis d'expert** (quand la décision dépasse la SPEC), une **pluralité de points de vue** (quand plusieurs interprétations de l'intention sont plausibles), ou rend simplement l'humain **témoin** d'une décision notable. La SPEC peut préciser ceux qui s'appliquent (ligne optionnelle « Points d'arrêt de l'agent » du gabarit, annexe A.4). Une autonomie plus grande n'est pas un objectif en soi : c'est une variable que l'on dose, SPEC par SPEC.
 
 **Anti-pattern.** La SPEC tentaculaire avec vingt fonctionnalités, ou la SPEC vague type "Améliorer la performance". Les deux sont inutilisables.
 
@@ -505,6 +546,17 @@ Ce que produit la boucle : un rapport de validation, une liste de corrections mi
 
 Les indicateurs de succès : validation au premier essai supérieure à 70 %, zéro bug critique détecté, et moins de trois bugs mineurs par fonctionnalité.
 
+**La vérification se conçoit, elle ne s'achète pas (v1.9).** AIAD fait le pari que la qualité de la vérification dépend d'abord du design du processus — ce qu'on vérifie, quand et par qui — plutôt que de la puissance du modèle qui relit. C'est une position, pas un résultat démontré : les indices convergent (dossier `legitimation/verification-evidence.md`), aucun ne suffit seul. Elle se traduit en quatre règles.
+
+- **La conversation critique a lieu d'abord à l'Execution Gate.** C'est là qu'on discute ce qu'on veut ; la revue de code vérifie ensuite la conformité à une intention déjà discutée. Elle reste le lieu où l'on détecte ce qui a été mal compris, pas celui où l'on découvre ce qu'on voulait.
+- **Deux classes de défauts.** Les défauts structurellement détectables (compilation, types, règles d'architecture outillées, secrets) se délèguent à l'outillage et aux agents. Les défauts sémantiques — fidélité à l'intention, justesse métier, frontières de conception — restent sous revue humaine, en s'appuyant sur le Test de l'Étranger.
+- **Séparer celui qui produit de celui qui critique.** Quand la revue est confiée à un agent, AIAD recommande — sans l'imposer — un reviewer d'une autre famille de modèles que l'agent producteur : une étude de 2026, menée sur des problèmes de mathématiques, mesure 35 % de faux rejets en auto-revue contre 2 % en revue croisée. Le coût (plusieurs fournisseurs, contrats, analyse RGPD) doit être pesé.
+- **Concevoir avant de tester pas à pas.** En boucle agent, une conception complète en amont — architecture, types, cas limites, contrats, c'est-à-dire une SPEC — semble plus efficace qu'un TDD incrémental, qui a coûté 3 à 8,5 fois plus de tokens sans gain net dans une expérience exploratoire de 2026. Indice à confirmer, pas règle.
+
+**Exemplars de revue (v1.9).** Le savoir de revue d'une organisation — ce qu'un relecteur senior repère et pourquoi — peut être extrait en exemples annotés, versionnés dans des fichiers dédiés (par exemple `.aiad/review-exemplars/`) et chargés **uniquement dans les sessions de revue** — pas dans l'AGENT-GUIDE, qui est injecté à chaque session et ne doit contenir que des consignes permanentes. Roblox a décrit cette pratique en 2026 lors de l'industrialisation de son cycle de développement agentique. Un exemplar se constitue à partir de revues réelles, se révise comme un artefact, et se retire quand il ne reflète plus les standards de l'équipe.
+
+**Verification Tax.** Une synthèse de littérature de 2026 nomme ainsi l'écart entre le gain de productivité à l'écriture du code et le gain, bien plus faible, à la livraison d'un logiciel fiable. Le terme décrit ce que l'investissement amont en SPEC et en Gate cherche à réduire.
+
 **Anti-pattern.** La validation bâclée "ça a l'air de marcher", ou le ping-pong interminable entre QA et PE. Le premier crée de la dette cachée. Le second crée de la friction inutile.
 
 
@@ -521,6 +573,8 @@ Les indicateurs de succès : validation au premier essai supérieure à 70 %, z�
 **L'Anti-drift check** dure dix minutes et est sous la responsabilité du PE. Avant de fermer le ticket, le PE répond à trois questions pour chaque SPEC utilisée dans la session. Un : le comportement livré correspond-il exactement à ce que décrit la SPEC ? Deux : les fichiers impactés listés dans la SPEC sont-ils toujours exhaustifs ? Trois (v1.5) : le CRITERE DE DRIFT de l'Intent Statement parent signale-t-il un écart entre l'intention initiale et ce qui a été livré ? Si la réponse à l'une des trois est non, mettre à jour la SPEC et éventuellement l'Intent Statement avant de fermer. La SPEC doit être committée dans le même PR que le code, dans le même **Drift Lock**.
 
 Ce que produit la boucle : code en production, documentation mise à jour, contexte prêt pour la prochaine fonctionnalité, SPECs vérifiées et synchronisées avec la réalité du code livré (**Drift Lock** respecté), et Intent Statement archivé dans `.aiad/intents/`.
+
+**Déploiement automatisé : la confiance est une chaîne de preuve (v1.9).** Un déploiement sans intervention humaine n'est admissible que si le code est *trusted* au sens d'une chaîne de preuve vérifiable — Intent Statement, SPEC validée à la Gate, vérifications tracées, Drift Lock — et non d'une confiance déclarative dans l'outil ou le modèle. C'est le critère posé par Roblox pour accepter du code agentique en production (QCon AI, 2026) ; AIAD en fait le critère d'entrée du Continuous Deployment pour du code produit par agent. Pour une organisation dont les moyens d'ingénierie sont plus modestes que ceux de Roblox, la conséquence pratique est de réserver le déploiement automatisé aux fonctionnalités dont la chaîne de preuve est complète.
 
 Les stratégies de déploiement disponibles : Continuous Deployment (fonctionnalités non-critiques), Staged Rollout (fonctionnalités majeures), Feature Flags (expérimentales, A/B tests), et Manual Release (critiques, compliance). La recommandation AIAD : Continuous Deployment avec Feature Flags.
 

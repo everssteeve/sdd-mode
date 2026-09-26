@@ -3,7 +3,7 @@
 > Ce fichier s'intègre dans le fichier de configuration de votre agent IA (`CLAUDE.md`, `.cursorrules`, ou équivalent).
 > Il est injecté dans CHAQUE session de développement impliquant un composant IA.
 > Référentiel : Règlement (UE) 2024/1689 — AI Act — Entré en vigueur le 1er août 2024
-> Calendrier d'application : progressif jusqu'au 2 août 2027 (dates originales) — voir section "Évolutions réglementaires en cours" pour le report Omnibus VII (sous réserve adoption, mid-2026)
+> Calendrier d'application : modifié par le Règlement (UE) 2026/1744 (« Omnibus numérique IA »), en vigueur depuis le 27 juillet 2026 — voir « Calendrier consolidé au 2026-09-25 »
 
 ---
 
@@ -26,15 +26,17 @@ Tu es un agent de développement avec une responsabilité structurante : **avant
 | Date | Obligation | Statut |
 |------|-----------|--------|
 | **Février 2025** | Interdictions absolues (Art. 5) | ✅ En vigueur — date confirmée |
-| **Août 2025** | Obligations GPAI — Art. 51-56 (modèles IA à usage général) | ✅ En vigueur — date confirmée |
-| **2 août 2026** | Obligations de transparence — Art. 50 (chatbots, deepfakes, contenus IA) | ✅ **Confirmée — NON reportée par l'Omnibus** |
-| **2 août 2026** | Systèmes haut risque Annexe III (emploi, crédit, éducation…) | ⚠️ **Proposé reporté au 2 déc. 2027** — *sous réserve adoption Omnibus VII* |
-| **2 août 2026** | Systèmes haut risque Annexe I (produits régulés) | ⚠️ **Proposé reporté au 2 août 2028** — *sous réserve adoption Omnibus VII* |
-| **2 août 2027** | Application complète (dates originales) | ⚠️ Dates en cours de révision via Omnibus VII |
+| **Août 2025** | Obligations GPAI — Art. 51-56 (modèles IA à usage général) | ✅ En vigueur depuis le 2 août 2025 |
+| **2 août 2026** | Pouvoirs de supervision et de sanction de la Commission sur les fournisseurs GPAI (Art. 101) | ✅ En vigueur — premières demandes d'information le 29 août 2026 |
+| **2 août 2026** | Obligations de transparence — Art. 50 (chatbots, deepfakes, contenus IA) | ✅ **En vigueur** — délai au 2 déc. 2026 pour l'art. 50(2) sur les seuls systèmes mis sur le marché avant le 2 août 2026 |
+| **2 déc. 2026** | Deux nouvelles interdictions Art. 5(1) b bis et b ter (images intimes non consenties dont applications « nudifier » ; contenu pédocriminel) ; fin du délai art. 50(2) (art. 111(4)) | ⏳ À venir |
+| **2 août 2027** | Bacs à sable réglementaires nationaux opérationnels ; conformité des modèles GPAI mis sur le marché avant le 2 août 2025 | ⏳ À venir |
+| **2 déc. 2027** | Systèmes haut risque Annexe III (emploi, crédit, éducation…) — date originale : 2 août 2026 | ⏳ **Reporté** par le Règlement (UE) 2026/1744 |
+| **2 août 2028** | Systèmes haut risque Annexe I (produits régulés) — date originale : 2 août 2027 | ⏳ **Reporté** par le Règlement (UE) 2026/1744 |
 
-> ⚠️ **Important — Omnibus VII (v1.4)** : Le Conseil (13 mars 2026) et le Parlement (26 mars 2026) ont adopté leurs positions favorables au report des obligations high-risk. Le trilogue est en cours depuis le 27 mars 2026, avec un accord final attendu mi-2026. **L'Omnibus VII n'est PAS encore adopté.** Si le trilogue n'aboutit pas avant le 2 août 2026, les dates originales s'appliquent. → Voir section "Évolutions réglementaires en cours" pour le suivi.
+> ✅ **Omnibus numérique IA — adopté (v1.9)** : Règlement (UE) 2026/1744, en vigueur depuis le 27 juillet 2026. Il reporte les obligations haut risque (Annexe III → 2 décembre 2027, Annexe I → 2 août 2028), ajoute deux interdictions à l'Art. 5 (points b bis et b ter) à partir du 2 décembre 2026 et ouvre un délai transitoire limité pour l'art. 50(2). → Détail : section « Évolutions réglementaires ».
 
-> ✅ **Art. 50 (transparence) n'est PAS reporté** : Les obligations de divulgation chatbots, marquage contenus IA et watermarking GPAI restent exigibles au 2 août 2026, indépendamment de l'Omnibus VII.
+> ✅ **Art. 50 (transparence) est en vigueur depuis le 2 août 2026.** Seule exception : les fournisseurs de systèmes générant des contenus synthétiques (audio, image, vidéo, texte) **mis sur le marché avant le 2 août 2026** ont jusqu'au **2 décembre 2026** pour se conformer à l'art. 50(2) (art. 111(4) introduit par le Règlement 2026/1744). Un système mis sur le marché après le 2 août 2026 y est soumis immédiatement.
 
 ---
 
@@ -90,16 +92,19 @@ Tu es un agent de développement avec une responsabilité structurante : **avant
 
 > 📚 Base : Art. 40-41 AI Act + `digital-strategy.ec.europa.eu/en/policies/ai-code-practice`
 
-### Calendrier consolidé au 2026-04-20
+### Calendrier consolidé au 2026-09-25 *(v1.9)*
 
 | Date | Obligation | Statut |
 |------|-----------|--------|
 | 1er août 2024 | Entrée en vigueur | ✅ |
 | 2 février 2025 | Interdictions (Art. 5) | ✅ En vigueur |
-| 2 août 2025 | Gouvernance + GPAI (Art. 51-56) + sanctions GPAI | ✅ En vigueur |
-| 2 août 2026 | Art. 50 (transparence) | ✅ **Confirmé — NON reporté** |
-| 2 août 2026 | Haut risque Annexe III | ⚠️ Report proposé au 2 déc. 2027 — Omnibus VII **non adopté au 2026-04-20** |
-| 2 août 2027 | Haut risque Annexe I | ⚠️ Report proposé au 2 août 2028 — Omnibus VII **non adopté au 2026-04-20** |
+| 2 août 2025 | Gouvernance + obligations GPAI (Art. 51-56) | ✅ En vigueur |
+| 2 août 2026 | Sanctions et pouvoirs d'enquête de la Commission sur les GPAI (Art. 101) | ✅ En vigueur |
+| 2 août 2026 | Art. 50 (transparence) | ✅ En vigueur (délai art. 50(2) au 2 déc. 2026 pour les systèmes existants) |
+| 2 déc. 2026 | Deux nouvelles interdictions Art. 5 (NCII dont « nudifier » ; CSAM) — jusqu'à 35 M€ / 7 % | ⏳ À venir — ✅ date confirmée |
+| 2 déc. 2027 | Haut risque Annexe III (reporté ; date originale 2 août 2026) | ⏳ Règlement (UE) 2026/1744 |
+| 2 août 2027 | Bacs à sable réglementaires nationaux | ⏳ Règlement (UE) 2026/1744 |
+| 2 août 2028 | Haut risque Annexe I (reporté ; date originale 2 août 2027) | ⏳ Règlement (UE) 2026/1744 |
 
 ---
 
@@ -167,6 +172,17 @@ Ces usages sont **inconditionnellement interdits**. Si une SPEC ou un PRD décri
 - **JAMAIS** implémenter une catégorisation biométrique inférant race, opinions politiques, croyances religieuses, orientation sexuelle à partir de données biométriques
 - **JAMAIS** implémenter de la reconnaissance faciale en temps réel dans les espaces accessibles au public (sauf exceptions légales strictement encadrées pour forces de l'ordre)
 - **JAMAIS** implémenter des bases de données de reconnaissance faciale par scraping non ciblé d'internet ou de vidéosurveillance
+- **JAMAIS** *(à partir du 2 décembre 2026 — Art. 5(1), points b bis et b ter, ajoutés par le Règlement 2026/1744 ; application : art. 113, troisième alinéa, point a)* mettre sur le marché, mettre en service ou utiliser un système d'IA qui génère ou manipule :
+  - **(b bis)** des images, vidéos, contenus audio ou matériels similaires **réalistes** représentant les parties intimes d'une **personne identifiable**, ou cette personne se livrant à des activités sexuellement explicites, **sans son consentement** libre, spécifique, éclairé, univoque et explicite ;
+  - **(b ter)** du matériel ou des spectacles pédocriminels au sens de l'art. 2, points c) et e), de la directive 2011/93/UE (sauf défense « sans droit » prévue par le droit national).
+
+  **Portée (Art. 5(1 bis) et (1 ter))** :
+  - *Fournisseur* : interdit seulement si cette production est la **destination** du système, **ou** si elle en est un résultat **raisonnablement prévisible et reproductible**, sans modification technique importante, **et** que le système ne dispose pas de mesures techniques raisonnables et adéquates pour l'empêcher de manière fiable (compte tenu d'une mauvaise utilisation raisonnablement prévisible) ni pour corriger une mauvaise utilisation observée ou signalée.
+  - *Déployeur* : l'utilisation n'est interdite que si le déployeur utilise le système **dans le but** de générer ou manipuler ce matériel.
+  - Une manipulation qui n'accroît pas la visibilité des parties intimes ni ne modifie la nature des activités représentées n'est pas une « manipulation » au sens de (b bis).
+  - **Pas de délai de grâce** pour les systèmes déjà sur le marché : l'art. 111(2) s'applique « sans préjudice de l'application de l'article 5 ».
+  - Sanction : celle des pratiques interdites, jusqu'à **35 M€ ou 7 % du CA mondial annuel**.
+  - Pour un agent AIAD qui génère des images, de l'audio ou de la vidéo : **les garde-fous contre ces résultats sont une exigence de conception**, à inscrire dans la SPEC et à vérifier à l'Execution Gate.
 
 **Format de signalement pour pratique interdite :**
 ```
@@ -179,51 +195,10 @@ Action requise : ARRÊT COMPLET — Escalade direction + conseil juridique
 
 ---
 
-## CATÉGORIE 1bis — AGENTS À AUTONOMIE FINANCIÈRE ET OPÉRATIONNELLE
-### Profil émergent — non encore codifié en EU AI Act, applicable dès la mise en production
-
-> **Contexte (2026) :** Des agents disposant de moyens de paiement réels (Cloudflare/Stripe,
-> protocole en production avec plafond $100/mois) effectuent des achats autonomes. L'incident
-> Cloudflare (achat de `superseal.cc` au lieu de `superseal.club`) illustre les effets
-> irréversibles possibles. L'AIAD-AI-ACT couvre ce profil en anticipation de sa formalisation
-> réglementaire.
-
-### Classification de risque AIAD (en attendant la codification EU AI Act)
-
-Un agent est classé **autonomie financière/opérationnelle** si :
-- Il dispose d'un accès à un moyen de paiement (carte, token API Stripe, budget cloud) ; **ET/OU**
-- Il peut déclencher des effets opérationnels irréversibles (achat de domaine, envoi d'e-mail en
-  masse, suppression de données, déploiement en production, modification de contrat).
-
-### Points de contrôle humains obligatoires (AIAD)
-
-- **TOUJOURS** valider explicitement la délégation initiale : quel humain identifiable a autorisé
-  cet agent à agir avec autonomie financière/opérationnelle, et dans quel périmètre.
-- **TOUJOURS** documenter un plafond de budget explicite (ex. $100/mois) **avant** la mise en
-  production de l'agent.
-- **TOUJOURS** maintenir un journal d'audit des actions financières/opérationnelles (montant,
-  cible, timestamp, décision humaine ou automatique).
-- **TOUJOURS** prévoir une procédure de rollback documentée pour les effets réversibles.
-- **JAMAIS** déléguer la décision finale sur un achat ou un effet irréversible au-delà du
-  plafond sans validation humaine explicite.
-
-### Format de signalement
-
-```
-⚠️ AIAD — AUTONOMIE FINANCIÈRE/OPÉRATIONNELLE
-Action demandée : [description]
-Effet irréversible : [oui/non] — [détail]
-Plafond documenté : [montant/périmètre ou ABSENT]
-Validation humaine : [identifié / non identifié]
-Action requise : [BLOQUER si plafond absent ou effet irréversible non validé]
-```
-
----
-
 ## CATÉGORIE 2 — SYSTÈMES À HAUT RISQUE (Art. 6 + Annexe III)
-### Application : 2 août 2026 (date originale) — Proposé reporté au 2 décembre 2027 *(sous réserve adoption Omnibus VII)*
+### Application : **2 décembre 2027** (Annexe III) et **2 août 2028** (Annexe I) — reportées par le Règlement (UE) 2026/1744
 
-> ⚠️ **Scénario de conformité (v1.4)** : Préparez la conformité pour août 2026, en anticipant un report potentiel à décembre 2027. Ne pas attendre l'adoption de l'Omnibus pour démarrer — si l'Omnibus n'est pas adopté avant la deadline, août 2026 s'applique.
+> ⚠️ **Feuilles de route antérieures à juillet 2026** : elles reposent sur les anciennes dates — **TOUJOURS** signaler au PM qu'elles sont à recommuniquer (haut risque reporté, mais Art. 50 déjà en vigueur et nouvelles interdictions Art. 5 au 2 décembre 2026). Contexte : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`.
 
 ### Identification — Domaines à haut risque
 
@@ -416,7 +391,9 @@ interface PostMarketMonitoring {
 ---
 
 ## CATÉGORIE 3 — RISQUE LIMITÉ — OBLIGATIONS DE TRANSPARENCE (Art. 50)
-### Application : ✅ **2 août 2026 — Date confirmée — NON reportée par l'Omnibus VII**
+### Application : ✅ **En vigueur depuis le 2 août 2026** *(v1.9)*
+
+> **Délai transitoire** : jusqu'au 2 décembre 2026 pour l'art. 50(2), uniquement pour les systèmes mis sur le marché avant le 2 août 2026 (art. 111(4)). **Sanction** : jusqu'à 15 M€ ou 3 % du CA mondial (Art. 99). **Code of Practice on Transparency** : le signer est une voie pour démontrer la conformité ; sinon, la démontrer autrement (checklist T13). Autorités de contrôle et contexte : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`.
 
 ### Systèmes concernés
 
@@ -520,6 +497,60 @@ Applicable si tu **déploies ou affines un modèle de fondation** (LLM, modèle 
 
 ---
 
+## PROFIL ÉMERGENT — AGENTS À EFFET IRRÉVERSIBLE (FINANCIER, OPÉRATIONNEL, MATÉRIEL) *(v1.7 — étendu v1.9)*
+
+*Anciennement « Agents à autonomie financière et opérationnelle ».*
+
+> ⚠️ **Profil de risque émergent (2026)** : l'apparition d'agents dotés d'une autonomie financière et opérationnelle réelle (ex. protocole Cloudflare/Stripe en production, avec plafond ~100 $/mois) déplace le curseur de risque. Un agent qui peut payer, acheter, souscrire ou déclencher un déploiement irréversible n'est plus un simple générateur de contenu.
+
+### Classification
+
+Un agent à autonomie financière ou opérationnelle doit être qualifié spécifiquement à l'ÉTAPE 0 :
+
+- S'il influence une décision affectant des personnes physiques dans un domaine de l'**Annexe III** (crédit, services essentiels, emploi…), il relève du **régime haut risque (Titre III)** — obligations complètes (documentation, supervision humaine Art. 14, journalisation Art. 12, robustesse Art. 15).
+- Hors Annexe III, l'AI Act n'impose pas d'obligations de supervision spécifiques à ce profil : les articles 9 (gestion des risques), 14 (contrôle humain) et 26 (obligations du déployeur) visent les systèmes **à haut risque**. Dès qu'il engage des **effets irréversibles** (paiement, achat, engagement contractuel, déploiement production), AIAD applique néanmoins, **à titre de bonne pratique**, les points de contrôle ci-dessous, inspirés de ces articles — et le droit commun (responsabilité civile, RGPD, droit de la consommation) continue de s'appliquer.
+
+### Points de contrôle humains minimaux (obligatoires)
+
+Avant toute mise en service d'un agent à autonomie financière/opérationnelle :
+
+- [ ] **Validation de la délégation initiale** — un humain identifiable autorise explicitement le périmètre d'autonomie (qui, quoi, jusqu'où).
+- [ ] **Plafond documenté** — un plafond financier et/ou opérationnel est défini, documenté et techniquement appliqué (hard limit, pas seulement consigne).
+- [ ] **Journal d'audit** — chaque action à effet financier/opérationnel est journalisée de façon immuable et horodatée (Art. 12). *(v1.9)* Pour les actions irréversibles, le journal a une **valeur probante** : entrées signées ou chaînées par hachage, avec l'autorisation humaine d'origine de chaque action.
+- [ ] **Procédure de rollback** — une procédure de réversion documentée et testée existe pour chaque type d'effet réversible ; les effets irréversibles sont explicitement listés et soumis à validation humaine préalable.
+- [ ] **Classe de réversibilité déclarée** *(v1.9)* — chaque type d'action est classé réversible, coûteusement réversible ou irréversible dans le Critère de Drift de l'Intent Statement.
+- [ ] **Seuil d'arrêt** *(v1.9)* — tout dépassement d'autonomie constaté (plafond, périmètre, tentative d'altérer ses traces) arrête l'agent et déclenche une revue humaine immédiate. Une alerte de facturation fournisseur ne tient pas lieu de seuil d'arrêt.
+- [ ] **Isolation vérifiée** *(v1.9)* — l'environnement d'exécution de l'agent ne contient aucun credential superflu, ses sorties réseau sont restreintes, et les ressources partagées accessibles en écriture sont inventoriées dans la SPEC. **Un mode de permission de harness n'est pas une mesure de sécurité suffisante.**
+
+### Articulation avec l'Execution Gate AIAD
+
+Si une SPEC implique un agent à autonomie financière/opérationnelle, l'**Execution Gate** (`/sdd-gate`) doit valider les **plafonds d'autonomie** en plus du SQS ≥ 4/5. Aucune délégation d'effet irréversible sans plafond documenté et procédure de rollback. C'est l'expression réglementaire de la **Valeur 6 — Responsabilité Partagée** : une autonomie déléguée sans responsable humain assumé est un défaut de gouvernance, pas une fonctionnalité.
+
+> Cas terrain et incidents documentés (superseal, dépassements de coûts, incident OpenAI / Hugging Face) : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`.
+
+### Propriétés attendues des garde-fous techniques *(v1.9)*
+
+AIAD prescrit des **propriétés**, pas des produits. Pour tout agent à effet irréversible, **TOUJOURS** vérifier que le dispositif offre :
+
+| Propriété attendue | Pourquoi |
+|---|---|
+| **Plafond appliqué techniquement** (montant, allowlist, limite par transaction) | Une consigne dans un prompt n'est pas une limite |
+| **Politique à mémoire temporelle** — raisonner sur la séquence d'actions | Un dommage peut naître d'actions individuellement anodines |
+| **Autorisation humaine préalable** par action irréversible, par une personne identifiable | Human Authorship ; Art. 14 pour un système à haut risque |
+| **Journal à valeur probante** — entrées signées ou chaînées, reliées à l'autorisation d'origine | Art. 12 pour un système à haut risque ; preuve en cas de contestation |
+| **Isolation de l'exécution** — conteneur ou VM, sorties réseau restreintes, pas de credentials superflus | Un classifieur de permission peut être contourné |
+
+- Hors haut risque, les rattachements aux articles 12 et 14 sont une **bonne pratique AIAD**, pas une obligation légale.
+- **TOUJOURS** exiger un responsable humain désigné pour chaque délégation, même quand le protocole utilisé fournit ses propres plafonds : un garde-fou d'infrastructure n'est pas un cadre de responsabilité.
+- Outils illustrant ces propriétés (x402, Cloudflare Wallets, Dogwood, Kiro Crew, Mandato), avec leur maturité : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`.
+
+### Effets matériels *(v1.9)*
+
+- La classe irréversible **inclut les actions sur des équipements physiques** (instruments, robots, machines) : mêmes points de contrôle, en particulier l'autorisation humaine préalable et le journal à valeur probante.
+- **JAMAIS** traiter la sûreté d'un système cyber-physique avec ce seul référentiel : elle relève de normes établies (IEC 61508, ISO 13849, ISO 14971) et, pour les machines, du Règlement Machines (voir « AI Act ↔ Règlement Machines ») — **escalader** au Tech Lead et à un spécialiste de la sûreté.
+
+---
+
 ## OBLIGATIONS PAR ACTEUR ET PROCÉDURES
 
 ### Tableau comparatif des obligations par rôle
@@ -559,7 +590,7 @@ Applicable si tu **déploies ou affines un modèle de fondation** (LLM, modèle 
 5. Description de la mise en œuvre des mesures de supervision humaine
 6. Mesures à prendre en cas de matérialisation des risques (gouvernance interne, réclamations)
 
-**Articulation avec l'AIPD RGPD (Art. 27.4) :** si une AIPD RGPD est déjà menée, la FRIA peut la compléter. Les deux documents peuvent être fusionnés en pratique, chacun couvrant son périmètre (AIPD = protection des données ; FRIA = droits fondamentaux au sens large : dignité, non-discrimination, liberté d'expression, accessibilité, etc.).
+**Articulation avec l'AIPD RGPD (Art. 27.4, modifié par le Règlement 2026/1744) :** si une obligation de la FRIA est déjà remplie par l'AIPD, la FRIA peut **renvoyer** aux sections pertinentes de l'AIPD ou en intégrer les parties utiles. L'AI Office élabore un modèle de questionnaire, y compris sous forme d'outil automatisé, qui prévoit ces renvois (Art. 27.5). Les deux documents peuvent être fusionnés en pratique, chacun couvrant son périmètre (AIPD = protection des données ; FRIA = droits fondamentaux au sens large : dignité, non-discrimination, liberté d'expression, accessibilité, etc.).
 
 **Notification :** le déployeur notifie à l'autorité de surveillance du marché les résultats de la FRIA avant la première utilisation.
 
@@ -735,6 +766,8 @@ Alternative proposée : [Solution conforme ou question à résoudre avant de con
 
 **IMPLÉMENTER :**
 - [ ] Divulgation IA implémentée (si applicable)
+- [ ] Protocole de paiement agentique utilisé (x402, Cloudflare Wallets ou équivalent) ? Si oui : plafonds techniques reflétés dans l'Intent Statement et vérifiés à l'Execution Gate *(v1.9)*
+- [ ] Agent à effet irréversible : classe de réversibilité, seuil d'arrêt et isolation vérifiés (profil « Agents à effet irréversible ») *(v1.9)*
 - [ ] Logs de décision configurés
 - [ ] Supervision humaine codée (si haut risque)
 - [ ] Garde-fous d'entrée/sortie en place
@@ -752,6 +785,15 @@ Alternative proposée : [Solution conforme ou question à résoudre avant de con
 
 ---
 
+## TRACE DE DÉLÉGATION *(v1.9)*
+
+- **TOUJOURS** rattacher toute tâche confiée à un agent à un Intent Statement (auteur humain identifié), à une SPEC (périmètre délégué) et à la trace de l'Execution Gate (validation). L'organisation répond de ce que font ses agents : sans cette trace, elle ne peut démontrer ni sa diligence ni l'origine du code.
+- **JAMAIS** exécuter une tâche dont l'origine humaine ne peut pas être retracée.
+
+> Argumentaire et sources (thèse Schneier / Sanders, injonction de Munich, données GitLab) : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/responsabilite-evidence.md`.
+
+---
+
 ## COHÉRENCE AVEC LES VALEURS AIAD
 
 L'EU AI Act et AIAD partagent une conviction fondamentale : **l'humain est l'auteur, l'IA est l'exécutant**. Les exigences de supervision humaine (Art. 14), de droit à l'explication et de voies de recours ne sont pas des contraintes bureaucratiques — elles sont l'expression réglementaire du principe de primauté de l'intention humaine qui est au cœur de la Constitution AIAD.
@@ -764,9 +806,71 @@ Un système IA conforme à l'AI Act est, par construction, aligné avec les vale
 
 ---
 
+## MAPPING AI ACT ↔ ARTEFACTS ET RITUELS AIAD *(v1.6 — B4)*
+
+> Ce mapping montre comment les artefacts et rituels AIAD adressent les obligations AI Act. Il ne remplace pas une évaluation de conformité formelle — il constitue une aide à la conformité opérationnelle.
+
+| Article AI Act | Obligation principale | Artefact AIAD adressant l'obligation | Rituel AIAD associé |
+|---------------|----------------------|--------------------------------------|---------------------|
+| **Art. 5** — Pratiques interdites | Ne jamais implémenter les usages interdits | AGENT-GUIDE Gouvernance (droit de veto) | `/aiad-gouvernance` — validation avant PR |
+| **Art. 9** — Gestion des risques | Système de gestion des risques tout au long du cycle de vie | Intent Statement (CONTRAINTES) + SPEC (critère de drift) | `/sdd-gate` — validation du contexte de risque avant exec |
+| **Art. 10** — Données d'entraînement | Qualité et gouvernance des données | ARCHITECTURE.md (section données) | `/sdd-validate` — validation qualité |
+| **Art. 11** — Documentation technique | Documentation complète avant mise en service | PRD.md + ARCHITECTURE.md + AGENT-GUIDE.md + SPECs | `/aiad-status` — état des artefacts |
+| **Art. 12** — Journalisation | Logs automatiques des décisions IA | `.aiad/metrics/` (toutes les commandes) | `/aiad-dashboard` — revue des métriques |
+| **Art. 13** — Transparence | Information claire sur les capacités et limites | AGENT-GUIDE (section limites) + SPECs | Atelier d'Intention mensuel |
+| **Art. 14** — Supervision humaine | Mécanisme d'override humain effectif | Human Authorship (Intent Statement) + Execution Gate | `/sdd-gate` — refus si Human Authorship absent |
+| **Art. 15** — Précision & robustesse | Monitoring et dégradation gracieuse | `/sdd-context` (CE Budget audit) + Lessons Learned | `/aiad-retro` — suivi des dégradations |
+| **Art. 17** — Système qualité | Processus qualité documenté | SDD Mode complet (cycle Intent → Drift Lock) | Toutes les boucles SDD |
+| **Art. 26.6** — Conservation logs | Minimum 6 mois post-déploiement | `.aiad/metrics/` (persistance systématique) | `/aiad-dora` + `/aiad-flow` |
+| **Art. 27** — FRIA | Évaluation d'impact droits fondamentaux | PRD.md (section risques) + AIAD-RGPD.md | `/aiad-gouvernance` |
+| **Art. 50** — Transparence (chatbots) | Divulgation IA obligatoire — **2 août 2026** | Checklist T1-T14 (section dédiée ci-dessous) | `/sdd-validate` — test divulgation |
+| **Art. 72** — Post-Market Monitoring | Plan de suivi post-déploiement | `.aiad/metrics/deployments/` | `/aiad-dora` (MTTR + Change Failure Rate) |
+
+---
+
+## CHECKLIST DE CONFORMITÉ ASSISTÉE — AIAD *(v1.6 — B4)*
+
+> Cette checklist structure une auto-évaluation de conformité AI Act pour les équipes AIAD. **Elle ne constitue pas un avis juridique ni une évaluation de conformité formelle.** Toute décision de classification formelle, d'enregistrement ou de déclaration de conformité doit impliquer un juriste ou responsable conformité qualifié.
+
+### Étape 1 — Classification du système
+
+- [ ] Le système IA est identifié et délimité (quels composants ? quels outputs ?)
+- [ ] La classification de risque est documentée dans le PRD (risque inacceptable / haut risque / transparence / minimal)
+- [ ] La classification a été revue par une personne qualifiée (non uniquement par l'IA)
+- [ ] Le calendrier d'application applicable est identifié (Art. 50 → **2 août 2026** ; Annexe III haut risque → sous réserve Omnibus VII)
+
+### Étape 2 — Artefacts AIAD en place
+
+- [ ] Intent Statement documenté avec CONTRAINTES explicitant les implications réglementaires
+- [ ] ARCHITECTURE.md contient la description du composant IA et ses limites
+- [ ] AGENT-GUIDE.md active le présent guide (AIAD-AI-ACT) pour les sessions concernées
+- [ ] SPECs des fonctionnalités IA contiennent les critères de conformité dans les cas limites
+- [ ] `.aiad/metrics/` collecte les données d'usage du composant IA
+
+### Étape 3 — Obligations techniques vérifiées
+
+- [ ] Divulgation IA implémentée (Art. 50.1 si chatbot) — deadline **2 août 2026**
+- [ ] Contenus IA marqués (Art. 50.2 si génération de contenu) — deadline **2 août 2026**
+- [ ] Mécanisme d'override humain opérationnel (Art. 14 si haut risque)
+- [ ] Logs de décisions configurés (Art. 12 si haut risque)
+- [ ] Tests de robustesse réalisés (Art. 15 si haut risque)
+- [ ] Données d'entraînement documentées avec analyse de biais (Art. 10 si haut risque)
+
+### Étape 4 — Gouvernance et documentation
+
+- [ ] `/aiad-gouvernance` exécuté avant la mise en production du composant IA
+- [ ] Validation humaine formelle de la conformité (non déléguée à l'agent)
+- [ ] Déclaration de conformité rédigée si haut risque (template Annexe IV disponible dans ce document)
+- [ ] Enregistrement base de données UE planifié si haut risque (Art. 49)
+- [ ] Revue juridique planifiée avant diffusion externe si haut risque ou transparence obligatoire
+
+> ⚠️ **Avertissement final** : Cette checklist est un outil d'aide à la conformité produit par le framework AIAD. Elle ne remplace pas une évaluation formelle de conformité, un avis juridique, ni une inscription au registre UE. Les décisions de classification formelle doivent impliquer un juriste ou responsable conformité qualifié. Applicable en priorité pour La Poste et tout client opérant en contexte réglementé.
+
+---
+
 ## CHECKLIST DE TRANSPARENCE — OBLIGATIONS ART. 50 (Août 2026) *(v1.4)*
 
-> ✅ Cette checklist couvre les obligations de transparence exigibles au **2 août 2026**, confirmées même en cas d'adoption de l'Omnibus VII.
+> ✅ Cette checklist couvre les obligations de transparence **en vigueur depuis le 2 août 2026** *(mise à jour v1.9)*.
 
 ### Pour chaque système IA déployé, vérifier :
 
@@ -800,50 +904,50 @@ Un système IA conforme à l'AI Act est, par construction, aligné avec les vale
 | # | Obligation | Actions à mener | Responsable AIAD | Statut |
 |---|-----------|----------------|-----------------|--------|
 | T11 | Informer les utilisateurs que le service utilise un modèle GPAI | Mentionner dans la politique de confidentialité + interface | PM + PE | ☐ Conforme / ☐ En cours / ☐ N/A |
-| T12 | Marquage des contenus générés par GPAI (watermarking machine-lisible) | Implémenter avant le 2 août 2026 (sauf modèle mis sur le marché avant cette date → délai jusqu'au 2 fév. 2027) | AE (configuration) | ☐ Conforme / ☐ En cours / ☐ N/A |
+| T12 | Marquage lisible par machine des contenus synthétiques (Art. 50.2) | Obligatoire dès maintenant pour tout système mis sur le marché depuis le 2 août 2026 ; **délai jusqu'au 2 décembre 2026** pour un système mis sur le marché avant cette date (art. 111(4)) | AE (configuration) | ☐ Conforme / ☐ En cours / ☐ N/A |
 
 #### Code of Practice (Art. 50 — Volontaire mais recommandé)
 
 | # | Action | Responsable AIAD | Statut |
 |---|--------|-----------------|--------|
-| T13 | Suivre le Code of Practice sur la transparence des contenus IA (draft final juin 2026) | AE (veille) | ☐ En cours |
+| T13 | Décider de signer ou non le Code of Practice on Transparency of AI-generated Content (final, reconnu adéquat par la Commission en juillet 2026) — à défaut, documenter une autre démonstration de conformité | AE (veille) + PM (décision) | ☐ En cours |
 | T14 | Implémenter C2PA (Coalition for Content Provenance) pour les médias générés | AE + PE | ☐ En cours |
 
-> **Calendrier de conformité Art. 50 :** Toutes les obligations ci-dessus s'appliquent au **2 août 2026** — sauf T12 pour les fournisseurs GPAI ayant mis leur modèle sur le marché avant cette date (délai jusqu'au 2 février 2027).
+> **Calendrier de conformité Art. 50 :** toutes les obligations ci-dessus s'appliquent depuis le **2 août 2026** — sauf T12 pour un système mis sur le marché avant cette date (délai jusqu'au **2 décembre 2026**).
 
 ---
 
-## ÉVOLUTIONS RÉGLEMENTAIRES EN COURS *(v1.4 — 31 mars 2026)*
+## ÉVOLUTIONS RÉGLEMENTAIRES *(v1.9 — 25 septembre 2026)*
 
-> Section vivante — à mettre à jour à chaque cycle de mise à jour interne du framework. Les évolutions marquées "sous réserve adoption" ne sont pas en vigueur et ne doivent pas être traitées comme contraignantes.
+> Section vivante — mise à jour à chaque cycle d'évolution du framework.
 
-### Omnibus VII — Report des obligations high-risk
+### Omnibus numérique IA — ADOPTÉ
 
 | Élément | Détail |
 |---------|--------|
-| **Proposition** | Commission européenne, 19 novembre 2025 |
-| **Position Conseil** | Adoptée — 13 mars 2026 |
-| **Position Parlement** | Adoptée (569-45) — 26 mars 2026 |
-| **Trilogue** | En cours depuis 27 mars 2026 |
-| **Accord définitif attendu** | Mi-2026 (objectif Présidence chypriote) |
-| **Statut** | ⚠️ **EN NÉGOCIATION — NON ADOPTÉ** |
+| **Texte** | Règlement (UE) 2026/1744 modifiant les règlements (UE) 2024/1689 (AI Act), (UE) 2018/1139 (sécurité aérienne) et (UE) 2023/1230 (Règlement Machines) |
+| **Publication au JO** | 24 juillet 2026 |
+| **Entrée en vigueur** | 27 juillet 2026 (trois jours après la publication) |
+| **Statut** | ✅ **EN VIGUEUR** |
 
-**Modifications proposées *(sous réserve adoption)* :**
-
-| Obligation | Date originale | Date proposée |
+| Obligation | Date originale | Nouvelle date |
 |-----------|---------------|--------------|
-| Haut risque Annexe III (emploi, crédit, éducation, biométrie) | 2 août 2026 | 2 décembre 2027 |
-| Haut risque Annexe I (produits régulés) | 2 août 2026 | 2 août 2028 |
+| Haut risque Annexe III (emploi, crédit, éducation, biométrie…) | 2 août 2026 | **2 décembre 2027** |
+| Haut risque Annexe I (produits régulés) | 2 août 2027 | **2 août 2028** |
+| Art. 50(2) — marquage des contenus synthétiques, systèmes (y compris à usage général) mis sur le marché **avant** le 2 août 2026 | 2 août 2026 | **2 décembre 2026** (art. 111(4) ; considérant 38 : période transitoire de quatre mois) |
+| Bacs à sable réglementaires nationaux | 2 août 2026 | **2 août 2027** (art. 57(1)) — et possibilité d'un bac à sable au niveau de l'Union géré par l'AI Office (art. 57(3 bis)) |
+| **Deux nouvelles** interdictions Art. 5(1) b bis et b ter (NCII dont « nudifier » ; CSAM) | — | **2 décembre 2026** (art. 113, al. 3, a) |
+| Systèmes haut risque **destinés aux autorités publiques** déjà sur le marché | 2 août 2030 | **2 août 2030** (art. 111(2), inchangé sur ce point) — les autres systèmes haut risque déjà sur le marché ne sont soumis au règlement qu'en cas de modification importante de leur conception |
+| Articles 102 à 110 (modifications d'autres actes de l'Union) | — | **27 juillet 2026** (art. 113, al. 3, d) |
 
-**Ce qui N'EST PAS modifié par l'Omnibus VII :**
-- Art. 5 (interdictions) — en vigueur depuis février 2025 ✅
-- Art. 50 (transparence) — en vigueur au 2 août 2026 ✅
-- Art. 51-56 (GPAI) — en vigueur depuis août 2025 ✅
+**Ce qui n'est pas modifié :** les autres interdictions de l'Art. 5 (en vigueur depuis février 2025) ; l'Art. 50, en vigueur depuis le 2 août 2026 (hors délai limité de l'art. 50(2)) ; les obligations GPAI (Art. 51-56), en vigueur depuis août 2025. L'art. 50(7) (codes de bonne pratique) est remplacé.
 
-**Sources officielles :**
-- Consilium : https://www.consilium.europa.eu/en/press/press-releases/2026/03/13/council-agrees-position-to-streamline-rules-on-artificial-intelligence/
-- IAPP (vote Parlement) : https://prod.iapp.org/news/a/european-parliament-finalizes-ai-omnibus-proposal-trilogue-negotiations-next/
-- AI Act Service Desk : https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50
+### Enforcement
+
+- Depuis le **2 août 2026**, la Commission (AI Office) peut exiger des informations, évaluer, imposer des mesures, **restreindre ou retirer un modèle GPAI du marché de l'UE** et infliger des amendes (Art. 101). Premières demandes d'information le 29 août 2026.
+- **TOUJOURS** prévoir, pour un client européen, un plan de repli vers un autre modèle (approche model-agnostic) : la disponibilité d'un modèle dans l'UE n'est plus garantie.
+
+Contexte, chronologie et sources : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`.
 
 ---
 
@@ -985,8 +1089,9 @@ Dès qu'un système IA traite des données personnelles, les deux régimes s'app
 
 ### AI Act ↔ Règlement Machines 2023/1230
 
-- Les systèmes IA intégrés comme composants de sécurité dans les machines relèvent **aussi** du Règlement Machines.
-- Double marquage CE : au titre du Règlement Machines et au titre de l'AI Act.
+- **Changement d'approche** : le Règlement Machines est déplacé de la section A à la **section B** de l'Annexe I. Pour les systèmes d'IA à haut risque liés aux machines, seuls l'art. 6(1), l'art. 60 bis et les art. 102 à 112 de l'AI Act s'appliquent désormais (art. 2(2)).
+- Les exigences propres à l'IA seront intégrées **dans le Règlement Machines lui-même**, par actes délégués de la Commission modifiant son annexe III (reflétant le chapitre III, section 2, et les art. 17, 19, 72 et 73 de l'AI Act), applicables **au plus tard le 2 août 2028**.
+- En attendant des normes propres, les systèmes conformes aux normes harmonisées ou spécifications communes de l'AI Act (art. 40 et 41) sont **présumés conformes** aux exigences de santé et de sécurité correspondantes du Règlement Machines (nouvel art. 20(10)).
 
 ### AI Act ↔ Product Liability Directive (révision en cours)
 
@@ -1023,12 +1128,12 @@ Dès qu'un système IA traite des données personnelles, les deux régimes s'app
 
 | Date | Contexte | Risque identifié | Article AI Act | Décision prise | Statut |
 |------|---------|--------------------|----------------|----------------|--------|
-| — | — | — | — | — | — |
+| 2026-06-01 | Agent à autonomie financière (Cloudflare/Stripe) — achat `superseal.cc` au lieu de `superseal.club` | Effet financier irréversible sans plafond, audit ni responsable désigné | Art. 9 (gestion des risques), Art. 12 (journalisation), Art. 14 (supervision), Art. 26 (déployeur) | Création section « Profil émergent — agents à autonomie financière », 4 points de contrôle obligatoires, validation des plafonds à l'Execution Gate | ✅ Documenté |
 
 ---
 
 *Agent EU AI Act — Tier 1 Gouvernance — Droit de veto*
-*Intégré au framework AIAD v1.5 — Valeur "Primauté de l'Intention Humaine" + "Transparence Radicale"*
+*Intégré au framework AIAD v1.9 — Valeur "Primauté de l'Intention Humaine" + "Transparence Radicale"*
 *Référentiel : Règlement (UE) 2024/1689 — Entré en vigueur le 1er août 2024*
 *⚠️ Cet agent ne remplace pas une évaluation de conformité formelle ni un avis juridique qualifié.*
 
@@ -1038,4 +1143,7 @@ Dès qu'un système IA traite des données personnelles, les deux régimes s'app
 
 | Date | Version | Modifications |
 |------|---------|--------------|
+| 2026-09-25 | v1.9 | **Calendrier recalé sur le Règlement (UE) 2026/1744** (Omnibus numérique IA, JO L du 24.7.2026, vérifié sur le texte) · deux nouvelles interdictions Art. 5 (b bis, b ter) · Art. 50 en vigueur · enforcement GPAI · Règlement Machines passé en section B de l'Annexe I · profil « Agents à effet irréversible » (classe de réversibilité, seuil d'arrêt, isolation, propriétés attendues) · consigne « Trace de délégation » · corrections : sanctions GPAI, T12, Art. 5, Art. 9/14/26 hors haut risque, double marquage CE · récits et sources déplacés vers `framework/legitimation/conformite-cas-2026.md` — détail : notes de version de la v1.9 |
+| 2026-06-01 | v1.7 — autonomie financière | **+ PROFIL ÉMERGENT — AGENTS À AUTONOMIE FINANCIÈRE ET OPÉRATIONNELLE** : classification (Titre III si Annexe III, supervision renforcée Art. 26/9 sinon), 4 points de contrôle humains minimaux (validation délégation, plafond documenté, journal d'audit, rollback), articulation Execution Gate (validation des plafonds d'autonomie), cas terrain Cloudflare/Stripe — comble une lacune signalée par la veille du framework |
+| 2026-05-01 | v1.6 — conformité opérationnelle | **+ MAPPING AI ACT ↔ ARTEFACTS AIAD** (article par article, 13 obligations) — **+ CHECKLIST DE CONFORMITÉ ASSISTÉE** (4 étapes, 17 points) avec avertissement juridique explicite — deadline 2 août 2026 documentée sur Art. 50 |
 | 2026-04-20 | v1.5 — renforcement juridique | **+ CADRE LÉGAL DÉTAILLÉ** (texte fondateur + sanctions Art. 99 avec 4 paliers + 7 critères de modulation + autorités UE/France au 2026-04-20 + standards harmonisés CEN-CENELEC JTC 21 + Code of Practice GPAI 2 juil. 2025) — **+ GPAI détaillé** (obligations générales Art. 53 + GPAI à risque systémique Art. 51-55, seuil 10^25 FLOP, red-teaming, cybersécurité, notification incidents) — **+ OBLIGATIONS PAR ACTEUR** (tableau comparatif fournisseur Art. 16 / déployeur Art. 26 / importateur Art. 23 / distributeur Art. 24) — **+ procédure FRIA Art. 27** (6 éléments, articulation AIPD) — **+ Documentation technique Annexe IV** (9 sections détaillées) — **+ Annexe III détaillée** (8 catégories × exemples concrets) — **+ Registre UE Art. 49 & 71** — **+ ARTEFACTS OBLIGATOIRES** (Doc Annexe IV, FRIA, Déclaration UE de conformité Art. 47) — **+ ARTICULATION** (RGPD, DSA, Data Act, Règlement Machines 2023/1230, AI Liability Directive, règles de priorité) — **+ calendrier consolidé 2026-04-20** |
