@@ -30,11 +30,11 @@ Inspecte `$ARGUMENTS` pour détecter le flag ; à défaut, inspecte `.aiad/` ava
 ## 🚀 Fast path (expert)
 
 **Input attendu** : liste SPECs livrées sur l'itération + incidents ou drifts notables.
-**Output produit** : Lessons Learned + Human Learnings ajoutés à AGENT-GUIDE + métriques d'itération + signaux d'évolution framework.
+**Output produit** : Lessons Learned + Human Learnings ajoutés à AGENT-GUIDE + métriques d'itération + retours sur le framework (optionnels).
 **Actions** :
 1. Lis `specs/_index.md` (statut `done`) + calcule taux réussite 1er passage + drifts.
 2. Catégorise strictement : Lessons = erreurs agent / Human Learnings = défaillances d'intention.
-3. Produis le compte-rendu + 1-3 actions responsabilisées + signaux d'évolution framework (patterns récurrents / manques processus / évolutions contexte).
+3. Produis le compte-rendu + 1-3 actions responsabilisées + retours sur le framework, s'il y en a (patterns récurrents / manques processus / évolutions contexte).
 
 > 💡 Si aucun Human Learning n'émerge, c'est suspect — creuse davantage. Les intentions humaines ne sont jamais parfaites.
 
@@ -99,18 +99,18 @@ Propose 1-3 actions concrètes pour la prochaine itération :
 - Chaque action doit avoir un responsable (responsabilité AIAD, pas un nom)
 - Chaque action doit être vérifiable
 
-### Étape 6 — Alimenter le cycle d'évolution du framework (interne)
+### Étape 6 — Retours sur le framework (optionnel)
 
-Si des signaux d'évolution du framework ou du processus émergent de la rétro, les documenter pour le prochain cycle d'évolution du framework (mise à jour lunaire) :
+Si des retours sur le framework AIAD ou sur le processus émergent de la rétro, les consigner :
 
-| Type de signal | Description | Priorité |
+| Type de retour | Description | Priorité |
 |---------------|-------------|---------------|
 | **Pattern récurrent** | Une erreur ou un friction qui se répète sur 3+ itérations | HAUTE |
 | **Manque dans le processus** | Étape manquante, outil insuffisant, commande absente | MOYENNE |
 | **Évolution de contexte** | Changement d'équipe, de stack, de périmètre réglementaire | HAUTE |
 | **Retour terrain** | Feedback d'un praticien sur l'utilisabilité du framework | MOYENNE |
 
-Ajouter ces signaux dans le compte-rendu de rétro, section "Signaux d'évolution". Ils seront collectés automatiquement lors du prochain cycle d'évolution du framework.
+Ajouter ces retours dans le compte-rendu de rétro, section "Retours sur le framework". L'équipe peut les partager avec la communauté AIAD (issue sur le dépôt public) pour nourrir l'évolution du framework.
 
 ### Règles
 
@@ -118,6 +118,6 @@ Ajouter ces signaux dans le compte-rendu de rétro, section "Signaux d'évolutio
 - Les Human Learnings sont plus précieux que les Lessons Learned (on améliore l'intention, pas seulement l'agent)
 - Si aucun Human Learning n'émerge, c'est suspect — creuser davantage
 - Archiver les SPECs terminées dans `.aiad/specs/archive/`
-- Les signaux d'évolution sont un pont entre l'amélioration locale (projet) et l'amélioration globale (framework)
+- Les retours sur le framework sont un pont entre l'amélioration locale (projet) et l'amélioration globale (framework)
 
 $ARGUMENTS

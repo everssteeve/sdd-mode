@@ -104,8 +104,8 @@ Crée un compte-rendu dans `.aiad/intents/` au format :
 - [ ] [Décision 1 — responsable — échéance]
 - [ ] [Décision 2]
 
-## Signaux d'évolution du framework (interne)
-[Si des signaux d'évolution du framework émergent, les noter ici pour le processus interne d'évolution]
+## Retours sur le framework (optionnel)
+[Si des retours sur le framework AIAD émergent, les noter ici — ils peuvent être partagés avec la communauté via une issue sur le dépôt public]
 ```
 
 ### Règles

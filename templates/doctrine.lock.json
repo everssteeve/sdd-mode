@@ -1,9 +1,9 @@
 {
   "doctrineVersion": "v1.9",
-  "syncedAt": "2026-09-26T08:37:44.719Z",
+  "syncedAt": "2026-09-26T19:08:16.132Z",
   "files": {
-    "templates/.aiad/gouvernance/AIAD-AI-ACT.md": "0cc9986dfba2625d8105f80537082b199730dfbe1145c51138ea83d6ad3533e9",
-    ".aiad/gouvernance/AIAD-AI-ACT.md": "0cc9986dfba2625d8105f80537082b199730dfbe1145c51138ea83d6ad3533e9",
+    "templates/.aiad/gouvernance/AIAD-AI-ACT.md": "f3c244e5c87629b04db60b39d3660fce015a2ea9f10a83d43c3226bb7ca232bb",
+    ".aiad/gouvernance/AIAD-AI-ACT.md": "f3c244e5c87629b04db60b39d3660fce015a2ea9f10a83d43c3226bb7ca232bb",
     "templates/.aiad/gouvernance/AIAD-RGPD.md": "ceaa2be5fd58430e24b26a206e621280dd4e7cb07ea9b17aaaa34555be3b84e9",
     ".aiad/gouvernance/AIAD-RGPD.md": "ceaa2be5fd58430e24b26a206e621280dd4e7cb07ea9b17aaaa34555be3b84e9",
     "templates/.aiad/gouvernance/AIAD-RGAA.md": "b8434fb324ee1f7b2b69c7ac4d6b2c014bdc4ebcf30f0d8f0c4229de98baf556",
@@ -11,7 +11,7 @@
     "templates/.aiad/gouvernance/AIAD-RGESN.md": "c4caba2605e838f63c611ec8aed75e594bef71ed065c632a3dada8a5258cdb20",
     ".aiad/gouvernance/AIAD-RGESN.md": "c4caba2605e838f63c611ec8aed75e594bef71ed065c632a3dada8a5258cdb20",
     "templates/frameworkAIAD.md": "10af6265c5c4e8ab41048e0d4c892fa844656afe1b01f1821782d421e992ac6d",
-    "templates/SDDMode.md": "e054b2dda1f5a77d8d716305ac6c824d9eea03401f2c570f45a00dad78264fcc",
+    "templates/SDDMode.md": "14293ef2162b24de34ced86c6640b91acbf60efffcde2d79e9a51f01fec3dca0",
     "docs/legitimation/conformite-cas-2026.md": "7e176d4efb457e7aebce600a92e2866556d61929d6ff1519023addcddfe06ac5",
     "docs/legitimation/execution-gate-evidence.md": "f946cde81ee8025a8fba69a57882a6c7f490a938e1a792426cb9f68130980597",
     "docs/legitimation/responsabilite-evidence.md": "c828e6a0ebc1eb5161343a3801f71d28f7cc198b99f7a729d40b43ca5ee0a2c1",
