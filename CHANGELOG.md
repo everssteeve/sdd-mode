@@ -7,6 +7,30 @@
 > Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
 > Versionnage : [SemVer 2.0.0](https://semver.org/lang/fr/).
 
+## [1.20.0] — 2026-09-26
+
+### Ajouté
+
+- **context** : account for inherited context at subagent fork points (SPEC-033-4) (#22)
+- **doctrine** : check shipped doctrine drift in CI and before release (SPEC-034-2) (#24)
+- **gate** : deterministic gate-precheck before SQS scoring (SPEC-033-3) (#23)
+- **spec** : add "agent stop points" and "agent execution scope" sections to SPEC templates (SPEC-033-2) (#21)
+- **doctrine** : sync governance agents, guides and legitimation from the published doctrine (SPEC-034-1a) (#20)
+- **update** : back up locally modified governance agents before overwrite (#19)
+- **commands** : resync shipped commands with the repo copies + parity check (SPEC-033-1) (#18)
+- **test** : add exhaustive SDD Mode coverage system
+
+### Corrigé
+
+- **release** : remove client name and internal-process wording before npm reactivation (#26)
+- **test** : replace import.meta.dirname for Node 18 compatibility
+- **dashboard** : wire backlog-health-score into PM cockpit (FACT-017)
+
+### Documentation
+
+- **site** : align the public site on AIAD doctrine v1.9 (#25)
+- **sdd** : INTENT-033..035, RESEARCH-040/041 and 7 gated SPECs (#17)
+
 ## [1.19.0] — 2026-06-30
 
 ### Ajouté
