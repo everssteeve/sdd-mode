@@ -54,6 +54,7 @@
 - AGENT-GUIDE (condensé) : ~X tokens
 - Cette SPEC : ~X tokens
 - Fichiers source pertinents : [liste]
+- Contexte hérité au point de fork (si délégation à un sous-agent qui hérite de la conversation) : ~X tokens
 - **Total estimé** : ~X tokens
 
 ## 7. Definition of Output Done (DoOD)

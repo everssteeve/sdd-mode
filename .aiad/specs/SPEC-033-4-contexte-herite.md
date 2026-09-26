@@ -55,12 +55,12 @@ La doctrine v1.9 (SDD Mode, Principe #3) pose la règle : **si un sous-agent hé
 
 ## 3. Critères d'Acceptation
 
-- [ ] CA-001 — Le §6 des deux gabarits contient la ligne « Contexte hérité au point de fork ».
-- [ ] CA-002 — `context-budget/SKILL.md` contient la règle de coût d'une délégation (héritage actif / désactivé) et la ligne de diagnostic « contexte hérité > 50 % du total → déléguer plus tôt ».
-- [ ] CA-003 — `/sdd context` contient la ligne « Contexte hérité (délégations) » dans la table de mesure.
-- [ ] CA-004 — Aucune des lignes ajoutées ne contient de nom ou de numéro de version de modèle ou d'outil (grep).
-- [ ] CA-005 — La formule du score de santé M1–M5 est inchangée (diff).
-- [ ] CA-006 — Le script de parité de SPEC-033-1 passe (code 0).
+- [x] CA-001 — Le §6 des deux gabarits contient la ligne « Contexte hérité au point de fork ».
+- [x] CA-002 — `context-budget/SKILL.md` contient la règle de coût d'une délégation (héritage actif / désactivé) et la ligne de diagnostic « contexte hérité > 50 % du total → déléguer plus tôt ».
+- [x] CA-003 — `/sdd context` contient la ligne « Contexte hérité (délégations) » dans la table de mesure.
+- [x] CA-004 — Aucune des lignes ajoutées ne contient de nom ou de numéro de version de modèle ou d'outil (grep).
+- [x] CA-005 — La formule du score de santé M1–M5 est inchangée (diff).
+- [x] CA-006 — Le script de parité de SPEC-033-1 passe (code 0).
 
 ## 4. Interface / API
 
@@ -83,10 +83,11 @@ Gabarit §6 — nouvelle ligne :
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] Commande, skill, gabarits à jour
-- [ ] Parité vérifiée (SPEC-033-1)
-- [ ] SPEC mise à jour si écart (Drift Lock)
+- [x] Commande, skill, gabarits à jour
+- [x] Parité vérifiée (SPEC-033-1)
+- [x] SPEC mise à jour si écart (Drift Lock)
 - [ ] Code review passée
 
 ## Historique des modifications
 | 2026-09-26 | Execution Gate OUVERTE — SQS 5/5, Test de l'Étranger PASS. Statut → ready. | Scores validés par l'auteur. |
+| 2026-09-26 | Exécution : ligne §6 ajoutée aux cinq exemplaires de gabarit (EARS livré et dépôt, prose dépôt, `_spec-template.md` livré, gabarit en ligne de `/sdd spec`) ; skill `context-budget` (ligne de mesure, règle héritage actif / désactivé, ligne de diagnostic) ; table de `/sdd context`. Diff 100 % additif (24 lignes) : formule M1–M5 inchangée (CA-005). | Exécution agent. |

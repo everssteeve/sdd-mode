@@ -46,6 +46,7 @@ Demande quelle SPEC/session auditer. Lis l'estimation initiale dans la SPEC §6.
 | AGENT-GUIDE (condensé) | ~X | ~X | ±X% |
 | SPEC | ~X | ~X | ±X% |
 | Fichiers source injectés | ~X | ~X | ±X% |
+| Contexte hérité (délégations) | ~X | ~X | ±X% |
 | Ajouts en cours de session | 0 | ~X | N/A |
 | **Total** | ~X | ~X | ±X% |
 

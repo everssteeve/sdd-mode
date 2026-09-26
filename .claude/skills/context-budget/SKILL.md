@@ -78,8 +78,15 @@ correctives sont différentes.
 | AGENT-GUIDE (condensé) | ~X tokens | ~X tokens | ±X% |
 | SPEC | ~X tokens | ~X tokens | ±X% |
 | Fichiers source injectés | ~X tokens | ~X tokens | ±X% |
+| Contexte hérité (délégations) | ~X tokens | ~X tokens | ±X% |
 | Ajouts en cours de session | 0 | ~X tokens | N/A |
 | **Total** | **~X tokens** | **~X tokens** | **±X%** |
+
+**Contexte hérité (délégations)** — coût d'une délégation à un sous-agent :
+- si l'héritage est actif (le sous-agent reçoit la conversation parente), le coût d'une délégation = contexte parent au point de fork + travail propre du sous-agent ; déléguer tôt dans la session coûte donc moins cher que déléguer tard ;
+- si l'héritage est désactivé, le sous-agent doit recevoir explicitement l'Intent Statement et la SPEC active ; seul son travail propre compte.
+
+Session sans délégation → cette ligne vaut 0. SPEC dont le §6 n'a pas cette ligne → estimée à 0.
 
 ### Étape 2 — Calculer M1 → M5
 
@@ -94,6 +101,7 @@ correctives sont différentes.
 | M4 < 90 % | Contraintes noyées dans le bruit | Restructurer prompt (contraintes en premier) |
 | M5 > 35 min | Objectif trop large | `/sdd split` |
 | M1 < 70 % | Contexte injecté en excès | Isolation de contexte |
+| Délégations tardives (contexte hérité > 50 % du total) | Sous-agents lancés après accumulation du contexte parent | Déléguer plus tôt dans la session |
 
 ## Output
 
