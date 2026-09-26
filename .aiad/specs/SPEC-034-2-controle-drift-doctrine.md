@@ -49,70 +49,70 @@ Chacun devient un critère « Unwanted behaviour » ci-dessous : lock absent ; f
 
 `WHEN every file listed in doctrine.lock.json matches its recorded SHA-256, the check-doctrine script SHALL return exit code 0.`
 
-- [ ] Implémenté
+- [x] Implémenté
 
 ### CA-002 — Modification directe dans le package
 > Pattern : Unwanted behaviour
 
 `IF a file listed in doctrine.lock.json differs from its recorded SHA-256, THEN the check-doctrine script SHALL return exit code 1.`
 
-- [ ] Implémenté
+- [x] Implémenté
 
 ### CA-002b — Fichier en drift nommé
 > Pattern : Unwanted behaviour
 
 `IF a file listed in doctrine.lock.json differs from its recorded SHA-256, THEN the check-doctrine script SHALL print the path of that file.`
 
-- [ ] Implémenté
+- [x] Implémenté
 
 ### CA-003 — Version différente du Drive
 > Pattern : Unwanted behaviour
 
 `IF the doctrine version read in the source frameworkAIAD.md title differs from doctrineVersion in doctrine.lock.json, THEN the check-doctrine script in release mode SHALL return exit code 1.`
 
-- [ ] Implémenté
+- [x] Implémenté
 
 ### CA-004 — Même version, contenu différent
 > Pattern : Unwanted behaviour
 
 `IF a source file from published/md, after link rewriting, differs from its recorded SHA-256 while the doctrine version is identical, THEN the check-doctrine script in release mode SHALL return exit code 1.`
 
-- [ ] Implémenté
+- [x] Implémenté
 
 ### CA-005 — Lock absent
 > Pattern : Unwanted behaviour
 
 `IF templates/doctrine.lock.json does not exist, THEN the check-doctrine script SHALL return exit code 2.`
 
-- [ ] Implémenté
+- [x] Implémenté
 
 ### CA-006 — Source Drive inaccessible
 > Pattern : Unwanted behaviour
 
 `IF the --source path does not exist in release mode, THEN the check-doctrine script SHALL return exit code 2.`
 
-- [ ] Implémenté
+- [x] Implémenté
 
 ### CA-007 — Release bloquée
 > Pattern : Unwanted behaviour
 
 `IF the check-doctrine script in release mode returns a non-zero exit code, THEN the release script SHALL exit before modifying package.json.`
 
-- [ ] Implémenté
+- [x] Implémenté
 
 ### CA-007b — Source non configurée
 > Pattern : Unwanted behaviour
 
 `IF the AIAD_DOCTRINE_SOURCE environment variable is undefined, THEN the release script SHALL exit before modifying package.json.`
 
-- [ ] Implémenté
+- [x] Implémenté
 
 ### CA-008 — Exécution en CI
 > Pattern : Ubiquitous
 
 `The CI workflow SHALL run the check-doctrine script in CI mode on every pull request.`
 
-- [ ] Implémenté
+- [x] Implémenté
 
 ## 4. Interface / API
 
@@ -136,11 +136,11 @@ node scripts/check-doctrine.js --source <published/md> # mode release
 
 ## 7. Definition of Output Done (DoOD)
 
-- [ ] Code + lint passing
-- [ ] Tests CA-001 à CA-007b
-- [ ] Étape CI active (CA-008)
-- [ ] Annotations `@intent INTENT-034` / `@spec SPEC-034-2` / `@verified-by`
-- [ ] SPEC mise à jour si écart (Drift Lock)
+- [x] Code + lint passing
+- [x] Tests CA-001 à CA-007b
+- [x] Étape CI active (CA-008)
+- [x] Annotations `@intent INTENT-034` / `@spec SPEC-034-2` / `@verified-by`
+- [x] SPEC mise à jour si écart (Drift Lock)
 - [ ] Code review passée
 
 ## Historique des modifications
@@ -149,3 +149,4 @@ node scripts/check-doctrine.js --source <published/md> # mode release
 |------|------------|--------|
 | 2026-09-25 | Gate (1er passage) : CA-002 découpé (R7) ; étape 3 et CA-007 alignés sur le fonctionnement réel de `release.js` (pas de publication npm locale — blocage avant le bump) ; CA-007b ajouté. | Linter EARS strict : 1 violation ; `release.js` ne contient aucun `npm publish`. |
 | 2026-09-26 | Execution Gate OUVERTE — SQS 5/5, Test de l'Étranger PASS ; linter EARS strict : 0 violation. Statut → ready. | Scores validés par l'auteur. |
+| 2026-09-26 | Exécution : `scripts/check-doctrine.js` (réutilise `preparerSync`, `listerLegitimationLocale`, `empreinte`, `LOCK_PATH` de `sync-doctrine.js` — aucune duplication de la réécriture) ; `release.js` étape 0 ; étape CI dans le job `test`. Précisions (SPEC muette) : (a) `--dry-run` de `release.js` exécute aussi le contrôle (lecture seule) et s'arrête de même si `AIAD_DOCTRINE_SOURCE` est absent ou si le contrôle échoue — la prévisualisation reflète le blocage réel ; (b) cas limite « fichier listé absent » → exit 1 (drift, fichier nommé), rattaché à CA-002 ; (c) exit 2 aussi pour lock illisible/mal formé, fichier source manquant sur le Drive ou version illisible (erreurs `preparerSync`) ; (d) mode release : une cible produite par la sync absente du lock, ou une entrée du lock sans source, est un drift (exit 1) ; le mode release ne recontrôle pas les fichiers livrés (couvert par le mode CI) ; (e) `release.js` : `main` exporté avec `ctx` injectable (`env`, `racine`, `verifierDoctrine`) pour tester CA-007/007b sans toucher au dépôt ; le type de bump est validé (fonction pure) avant l'étape 0. Contrôle réel 2026-09-26 : mode CI exit 0, mode release vs `published/md` exit 0 (v1.9). | Drift Lock. |

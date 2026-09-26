@@ -42,6 +42,10 @@ jobs:
       - name: Parité commandes .claude/ ↔ templates/.claude/ (SPEC-033-1)
         run: node scripts/check-commands-parity.js
 
+      # @spec SPEC-034-2-controle-drift-doctrine
+      - name: Drift doctrine livrée ↔ templates/doctrine.lock.json (SPEC-034-2)
+        run: node scripts/check-doctrine.js
+
       # @spec SPEC-028-1-smoke-test-esm-bin
       - name: Smoke test import ESM bin/
         run: npm run smoke

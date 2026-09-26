@@ -2,6 +2,9 @@
 // AIAD SDD Mode — Script de release automatisé.
 //
 // Pipeline en une commande :
+//   0. Contrôle de drift de la doctrine vs Drive publié (SPEC-034-2) — AVANT
+//      toute modification ; source lue dans AIAD_DOCTRINE_SOURCE (obligatoire,
+//      y compris en --dry-run : le contrôle est en lecture seule)
 //   1. Vérifie git working tree clean (sauf --allow-dirty)
 //   2. Bump la version dans package.json (patch / minor / major / x.y.z)
 //   3. Regen CHANGELOG.md depuis `git log` (commits conventionnels feat/fix/docs/...)
@@ -14,13 +17,18 @@
 //
 // **Zero-dep** : utilise uniquement node:* + binaires git/npm système.
 //
+// @intent INTENT-034
+// @spec SPEC-034-2-controle-drift-doctrine
+// @verified-by test/release.test.js
+//
 // Documentation : https://aiad.ovh
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
-import { argv, exit, cwd } from 'node:process';
+import { argv, exit } from 'node:process';
+import { main as checkDoctrine, CODE_CONFORME } from './check-doctrine.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -147,6 +155,31 @@ function log(sym, ligne) {
   console.log(`  ${sym} ${ligne}`);
 }
 
+/**
+ * Étape 0 (SPEC-034-2) : contrôle de drift de la doctrine en mode release,
+ * avant toute modification. Lecture seule.
+ *
+ * @param {{ env?: NodeJS.ProcessEnv, racine?: string,
+ *           verifier?: (argv: string[], ctx: { racine: string }) => number }} [ctx]
+ * @returns {{ ok: boolean, code: number|null, message: string }}
+ *   `code` = code de sortie de check-doctrine (null si la source n'est pas configurée)
+ */
+export function controlerDoctrine(ctx = {}) {
+  const { env = process.env, racine = RACINE, verifier = checkDoctrine } = ctx;
+  const source = env.AIAD_DOCTRINE_SOURCE;
+  if (!source) {
+    return {
+      ok: false,
+      code: null,
+      message: 'AIAD_DOCTRINE_SOURCE non défini — chemin du Drive publié (published/md) requis pour contrôler la doctrine avant release.',
+    };
+  }
+  const code = verifier(['--source', source], { racine });
+  return code === CODE_CONFORME
+    ? { ok: true, code, message: 'Doctrine conforme au Drive publié.' }
+    : { ok: false, code, message: `Contrôle de doctrine en échec (check-doctrine exit ${code}) — release bloquée.` };
+}
+
 function exec(cmd, args, opts = {}) {
   const r = spawnSync(cmd, args, { encoding: 'utf-8', cwd: RACINE, ...opts });
   if (r.status !== 0) {
@@ -155,20 +188,20 @@ function exec(cmd, args, opts = {}) {
   return (r.stdout ?? '').trim();
 }
 
-function gitWorkingTreeClean() {
-  const out = exec('git', ['status', '--porcelain']);
+function gitWorkingTreeClean(racine = RACINE) {
+  const out = exec('git', ['status', '--porcelain'], { cwd: racine });
   return out.length === 0;
 }
 
-function dernierTag() {
-  const r = spawnSync('git', ['describe', '--tags', '--abbrev=0'], { cwd: RACINE, encoding: 'utf-8' });
+function dernierTag(racine = RACINE) {
+  const r = spawnSync('git', ['describe', '--tags', '--abbrev=0'], { cwd: racine, encoding: 'utf-8' });
   if (r.status !== 0) return null;
   return (r.stdout ?? '').trim();
 }
 
-function commitsDepuis(tag) {
+function commitsDepuis(tag, racine = RACINE) {
   const arg = tag ? `${tag}..HEAD` : 'HEAD';
-  const out = exec('git', ['log', arg, '--pretty=format:%s']);
+  const out = exec('git', ['log', arg, '--pretty=format:%s'], { cwd: racine });
   return out.split('\n').map((l) => l.trim()).filter(Boolean);
 }
 
@@ -184,8 +217,18 @@ export function parseFlags(args) {
   return out;
 }
 
-async function main() {
-  const flags = parseFlags(argv.slice(2));
+/**
+ * Pipeline de release.
+ *
+ * @param {string[]} [args]
+ * @param {{ env?: NodeJS.ProcessEnv, racine?: string,
+ *           verifierDoctrine?: (argv: string[], ctx: { racine: string }) => number }} [ctx]
+ *   injections pour les tests (SPEC-034-2 CA-007 / CA-007b)
+ * @returns {Promise<number>} code de sortie
+ */
+export async function main(args = argv.slice(2), ctx = {}) {
+  const racine = ctx.racine || RACINE;
+  const flags = parseFlags(args);
   const { kind, dryRun, push, allowDirty, skipTests } = flags;
   if (!kind) {
     console.error(`
@@ -193,7 +236,10 @@ ${C.bold}AIAD SDD — Release${C.reset}
 
 Usage : node scripts/release.js <patch|minor|major|x.y.z> [--dry-run] [--push] [--allow-dirty] [--skip-tests]
 
+Prérequis : AIAD_DOCTRINE_SOURCE=<chemin published/md du Drive> (SPEC-034-2)
+
 Étapes orchestrées :
+  0. Contrôle de drift doctrine vs Drive publié (bloquant, avant toute modification)
   1. Vérifie git working tree clean (sauf --allow-dirty)
   2. Bump version package.json
   3. Régénère CHANGELOG.md depuis git log (Keep a Changelog)
@@ -202,21 +248,33 @@ Usage : node scripts/release.js <patch|minor|major|x.y.z> [--dry-run] [--push] [
   6. Commit "chore: release vX.Y.Z" + tag vX.Y.Z
   7. Push (--push) — déclenche release.yml côté GitHub
 `);
-    exit(1);
+    return 1;
   }
+  bumpVersion('0.0.0', kind); // valide le type de bump (pur) — lève si inconnu
 
   console.log(`\n${C.bold}${C.cyan}  AIAD SDD — Release${dryRun ? ' (DRY-RUN)' : ''}${C.reset}\n`);
 
+  // 0. Doctrine vs Drive publié — AVANT toute modification (SPEC-034-2).
+  // Exécuté aussi en --dry-run : lecture seule, et la prévisualisation doit
+  // refléter le blocage qu'aurait la vraie release.
+  log(`${C.cyan}0.${C.reset}`, 'Contrôle de drift de la doctrine (Drive publié)…');
+  const doctrine = controlerDoctrine({ env: ctx.env, racine, verifier: ctx.verifierDoctrine });
+  if (!doctrine.ok) {
+    console.error(`  ${C.rouge}✗${C.reset} ${doctrine.message} Aucune modification effectuée.`);
+    return 1;
+  }
+  log(`${C.vert}✓${C.reset}`, doctrine.message);
+
   // 1. Working tree clean
   log(`${C.cyan}1.${C.reset}`, 'Vérification git working tree…');
-  if (!allowDirty && !gitWorkingTreeClean()) {
+  if (!allowDirty && !gitWorkingTreeClean(racine)) {
     console.error(`  ${C.rouge}✗${C.reset} Working tree non propre. Commit ou stash, ou utilise --allow-dirty.`);
-    exit(1);
+    return 1;
   }
   log(`${C.vert}✓${C.reset}`, 'Working tree propre.');
 
   // 2. Bump version
-  const pkgPath = join(RACINE, 'package.json');
+  const pkgPath = join(racine, 'package.json');
   const pkg = JSON.parse(readFileSync(pkgPath, 'utf-8'));
   const current = pkg.version;
   const next = bumpVersion(current, kind);
@@ -228,14 +286,14 @@ Usage : node scripts/release.js <patch|minor|major|x.y.z> [--dry-run] [--push] [
 
   // 3. CHANGELOG depuis git log
   log(`${C.cyan}3.${C.reset}`, 'Régénération CHANGELOG.md…');
-  const tag = dernierTag();
-  const lignes = commitsDepuis(tag);
+  const tag = dernierTag(racine);
+  const lignes = commitsDepuis(tag, racine);
   const commits = lignes.map(parseCommit).filter(Boolean);
   const date = new Date().toISOString().slice(0, 10);
   const section = genererSectionChangelog(next, date, commits);
   log(`  ${C.gris}↪${C.reset}`, `${commits.length} commit(s) conventionnel(s) (sur ${lignes.length} total) depuis ${tag || 'racine'}.`);
   if (!dryRun) {
-    const changelogPath = join(RACINE, 'CHANGELOG.md');
+    const changelogPath = join(racine, 'CHANGELOG.md');
     const existant = existsSync(changelogPath) ? readFileSync(changelogPath, 'utf-8') : '# Changelog\n\n';
     writeFileSync(changelogPath, insererSectionChangelog(existant, section), 'utf-8');
   }
@@ -243,16 +301,16 @@ Usage : node scripts/release.js <patch|minor|major|x.y.z> [--dry-run] [--push] [
   // 4. Régen DOCUMENTATION.md
   log(`${C.cyan}4.${C.reset}`, 'Régénération DOCUMENTATION.md…');
   if (!dryRun) {
-    exec('node', ['bin/aiad-sdd.js', 'docs'], { stdio: 'pipe' });
+    exec('node', ['bin/aiad-sdd.js', 'docs'], { cwd: racine, stdio: 'pipe' });
   }
 
   // 5. Lint + tests + tarball hygiene
   if (!skipTests) {
     log(`${C.cyan}5.${C.reset}`, 'Lint + tests + tarball hygiene…');
     if (!dryRun) {
-      exec('npm', ['run', 'lint'], { stdio: 'inherit' });
-      exec('npm', ['test'], { stdio: 'inherit' });
-      exec('npm', ['pack', '--dry-run'], { stdio: 'pipe' });
+      exec('npm', ['run', 'lint'], { cwd: racine, stdio: 'inherit' });
+      exec('npm', ['test'], { cwd: racine, stdio: 'inherit' });
+      exec('npm', ['pack', '--dry-run'], { cwd: racine, stdio: 'pipe' });
     }
   } else {
     log(`${C.jaune}5.${C.reset}`, 'Tests SAUTÉS (--skip-tests)');
@@ -261,16 +319,16 @@ Usage : node scripts/release.js <patch|minor|major|x.y.z> [--dry-run] [--push] [
   // 6. Commit + tag
   log(`${C.cyan}6.${C.reset}`, `Commit + tag v${next}…`);
   if (!dryRun) {
-    exec('git', ['add', 'package.json', 'CHANGELOG.md', 'DOCUMENTATION.md']);
-    exec('git', ['commit', '-m', `chore: release v${next}`]);
-    exec('git', ['tag', `v${next}`]);
+    exec('git', ['add', 'package.json', 'CHANGELOG.md', 'DOCUMENTATION.md'], { cwd: racine });
+    exec('git', ['commit', '-m', `chore: release v${next}`], { cwd: racine });
+    exec('git', ['tag', `v${next}`], { cwd: racine });
   }
 
   // 7. Push
   if (push) {
     log(`${C.cyan}7.${C.reset}`, 'Push origin + tags (déclenche release.yml)…');
     if (!dryRun) {
-      exec('git', ['push', '--follow-tags'], { stdio: 'inherit' });
+      exec('git', ['push', '--follow-tags'], { cwd: racine, stdio: 'inherit' });
     }
   } else {
     log(`${C.gris}7.${C.reset}`, `Push non effectué — relance avec --push pour déclencher release.yml.`);
@@ -280,10 +338,11 @@ Usage : node scripts/release.js <patch|minor|major|x.y.z> [--dry-run] [--push] [
   if (!push && !dryRun) {
     console.log(`${C.gris}  Action manuelle restante : ${C.reset}git push --follow-tags`);
   }
+  return 0;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  main().catch((err) => {
+  main().then((code) => exit(code), (err) => {
     console.error(`\n${C.rouge}  ✗ ${err.message}${C.reset}\n`);
     exit(1);
   });
