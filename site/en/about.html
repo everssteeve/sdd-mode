@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — the AIAD framework and its author | SDD Mode</title>
-<meta name="description" content="AIAD is an open-source (MIT) meta-framework created by Steeve Evers: it governs human-AI teamwork, with SDD Mode as its operating mode. Positioning against Kiro, Spec-Kit, SPDD and Symphony, and a presentation of this site.">
+<meta name="description" content="AIAD is an open-source (MIT) meta-framework created by Steeve Evers: it governs human-AI teamwork, and SDD Mode is its operating mode. Positioning against Kiro, Spec-Kit, OpenSpec, Codeplain, SPDD, Symphony and Copilot, two versioning tracks (doctrine v1.9 and aiad-sdd software), evidence and limits, and an introduction to this site.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../fr/a-propos.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -151,7 +151,7 @@
       <p>The framework rests on <a href="values.html">seven immutable values</a> — from the Primacy of Human Intent to <a href="concepts/human-authorship.html">Human Authorship</a> — four pillars, and an ecosystem of <a href="team/responsibilities.html">five responsibilities</a> rather than rigid roles.</p>
 
       <h2 id="sdd-mode">SDD Mode</h2>
-      <p>SDD Mode is the operational guide for AIAD Product Engineers: a strict cycle <a href="concepts/intent-statement.html">Intent</a> → <a href="concepts/research.html">Research</a> → <a href="concepts/spec.html">SPEC</a> → <a href="concepts/execution-gate.html">Gate</a> → <a href="concepts/execution.html">Execution</a> → <a href="concepts/validation.html">Validation</a> → <a href="concepts/drift-lock.html">Drift Lock</a>, tooled by the <code>aiad-sdd</code> npm package (33 slash commands, 4 governance agents, hooks, CI). See the <a href="big-picture.html">Big Picture</a> and the <a href="get-started.html">getting-started guide</a>.</p>
+      <p>SDD Mode is the operational guide for AIAD Product Engineers: a strict cycle <a href="concepts/intent-statement.html">Intent</a> → <a href="concepts/research.html">Research</a> → <a href="concepts/spec.html">SPEC</a> → <a href="concepts/execution-gate.html">Gate</a> → <a href="concepts/execution.html">Execution</a> → <a href="concepts/validation.html">Validation</a> → <a href="concepts/drift-lock.html">Drift Lock</a>, tooled by the <code>aiad-sdd</code> npm package (33 slash commands — 17 <code>/sdd</code> + 16 <code>/aiad</code> —, 9 skills, 4 Tier 1 governance agents complemented by a CRA agent for software products, hooks, CI). See the <a href="big-picture.html">Big Picture</a> and the <a href="get-started.html">getting-started guide</a>.</p>
 
       <h2 id="positioning">Positioning in the ecosystem</h2>
       <p>AIAD integrates the best SDD practices and adds the organisational and human dimension. Tools handle "how to work with agents"; AIAD handles "<strong>how to work as a human-AI team</strong>":</p>
@@ -159,14 +159,35 @@
         <caption class="visually-hidden">AIAD's positioning against SDD tools</caption>
         <thead><tr><th scope="col">Tool</th><th scope="col">What it does</th><th scope="col">Relation to AIAD</th></tr></thead>
         <tbody>
-          <tr><td>Amazon Kiro</td><td>Agentic autonomy (autonomous mode, steering files)</td><td>A possible execution layer for a validated AIAD SPEC — AIAD starts from intent, Kiro from execution.</td></tr>
-          <tr><td>GitHub Spec-Kit</td><td>Specification production</td><td>A possible implementation of the meta-framework's spec layer.</td></tr>
+          <tr><td>Kiro (Amazon)</td><td>IDE, CLI and web with built-in specs, steering documents, hooks; Kiro Crew orchestrator (open source)</td><td>A possible spec and execution layer: steering documents can feed the AGENT-GUIDE, and the Gate applies before launch. Kiro has added spec review at checkpoints and, in Kiro Crew, approval gates: its controls bear on execution, AIAD's on intent.</td></tr>
+          <tr><td>GitHub Spec-Kit</td><td>Specification production — open source (MIT), multi-agent</td><td>A possible implementation of the meta-framework's spec layer.</td></tr>
+          <tr><td>OpenSpec</td><td>Unified spec, delta specs, scenario validation, explicit consent before writing</td><td>A compatible spec layer; AIAD adds the Intent Statement, the organisation and regulatory governance.</td></tr>
+          <tr><td>Codeplain</td><td>Specs in the <code>.plain</code> language as the durable asset, code regenerated rather than maintained</td><td>Shares the thesis that "the spec is the durable asset"; a <code>.plain</code> spec can be the SPEC, preceded by the Intent Statement and the Execution Gate.</td></tr>
           <tr><td>SPDD (REASONS Canvas)</td><td>Spec production method</td><td>The REASONS Canvas is an option of <code>/sdd spec</code>; AIAD brings governance of the full cycle.</td></tr>
           <tr><td>OpenAI Symphony</td><td>Issue-tracker-first intent artifacts</td><td>Convergent on persistent intent; AIAD adds the SQS, the Drift Lock and regulatory governance.</td></tr>
           <tr><td>Routines (Claude Code)</td><td>Automated execution triggers</td><td>Compatible: a Routine executes a SPEC already validated by the Gate, it does not replace it.</td></tr>
+          <tr><td>GitHub Copilot agent-native</td><td>Parallel multi-agent work, isolated worktrees, supervision canvas</td><td>Complementary: the Intent Statement frames each session, the Gate validates the SPEC before each parallel agent, the Drift Lock keeps each worktree in sync with its SPEC.</td></tr>
         </tbody>
       </table>
-      <p>AIAD is <strong>model-agnostic by design</strong>: Intent Statements, SPECs and the Execution Gate are independent of the LLM and survive provider changes. Governance lives in the artifacts, not in the vendor. The 2026 industry validations (Context Engineering formalised by Anthropic, R2Code's −41.7% tokens, Thoughtworks Radar, AWS Strands) are independent confirmations of a prior approach.</p>
+      <p>AIAD is <strong>model-agnostic by design</strong>: Intent Statements, SPECs and the Execution Gate are independent of the LLM and survive provider changes. Governance lives in the artifacts, not in the vendor. In the era of "agent labs", where each lab pushes its own harness, being model-agnostic protects against lock-in and fills a gap in the governance of intent that harnesses do not address. The 2026 industry validations (Context Engineering formalised by Anthropic, R2Code's −41.7% tokens, Thoughtworks Radar, Tang et al. — 91.49% of 20,574 real sessions requiring explicit human correction —, AWS Strands) are independent confirmations of a prior approach.</p>
+      <p>For a factual comparison with Spec Kit, Kiro, OpenSpec and BMAD that owns both strengths and weaknesses, see the <a href="../fr/comparaison.html" hreflang="fr">honest comparison (in French)</a>.</p>
+
+      <h2 id="versions">Two versioning tracks</h2>
+      <p>AIAD moves at two distinct paces, which should not be confused:</p>
+      <ul>
+        <li>the AIAD <strong>doctrine</strong> — values, responsibilities, artifacts, loops, rituals, governance — is versioned in its own right (currently <strong>v1.9</strong>) and published on <a href="https://aiad.ovh">aiad.ovh</a>;</li>
+        <li>the <code>aiad-sdd</code> <strong>software</strong> — CLI, slash commands, skills, hooks, dashboards — follows the SemVer versioning of its CHANGELOG.</li>
+      </ul>
+      <p>The two numbering schemes are not aligned: "aiad-sdd 1.9" (the arrival of skills) has nothing to do with doctrine v1.9 (agent autonomy, verification, compliance). A doctrine rule may precede its tooling: that is why some features are marked "upcoming" on this site. Both tracks are detailed on the <a href="whats-new.html">What's New</a> page.</p>
+
+      <h2 id="evidence">Evidence and limits</h2>
+      <p>AIAD applies its value 5, Uncompromising Empiricism, to itself: the doctrine's external support is gathered in legitimation files that state, for each source, what it actually establishes and what it does not.</p>
+      <ul>
+        <li><strong>Execution Gate and Human Authorship</strong> — agent action bias measured at 35 to 65%, merge authority "almost exclusively human" across 29,585 pull-request cycles. Figures to be re-checked before any formal citation.</li>
+        <li><strong>Verification</strong> — the position "verification is designed, not bought" is a bet, not a demonstrated result: the evidence converges (faster but not better review across 1.02 million pull requests), none of it suffices alone. The figure of 80% of the system prompt removed without loss is a vendor measurement, not audited.</li>
+        <li><strong>Accountability</strong> — "an agent is the agent of whoever deploys it" is a thesis (Schneier and Sanders), not the state of the law; the Munich ruling on AI Overviews is provisional and under appeal.</li>
+        <li><strong>2026 regulatory cases</strong> — Regulation (EU) 2026/1744, the fine imposed on Uber under Art. 22 (Uber has appealed), the Meta incident (according to press reports); the "CVE-2026-LGTM" story is satirical fiction, cited as such. These files do not constitute legal advice.</li>
+      </ul>
 
       <h2 id="open-source">Open source and contributing</h2>
       <p>AIAD applies its value 4, Radical Openness: methodological knowledge is shared, never locked away. The <code>aiad-sdd</code> package is published under the <strong>MIT licence</strong> (© 2026 Steeve Evers — AIAD Framework). Practices, tooling and field feedback are published at <a href="https://aiad.ovh">aiad.ovh</a>; the package installs with <code>npx aiad-sdd init</code> (see the <a href="commands/cli.html">CLI reference</a>).</p>
