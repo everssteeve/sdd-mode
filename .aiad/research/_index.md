@@ -8,6 +8,8 @@
 
 | ID | Titre | Intent | Auteur | Date | Verdict | Statut |
 |----|-------|--------|--------|------|---------|--------|
+| RESEARCH-040 | Aligner /sdd gate et /sdd context sur la doctrine v1.9 | INTENT-033 | Steeve Evers | 2026-09-25 | GO (auteur) → CONDITIONAL GO (machine : 2 risques à traiter en SPEC) | go |
+| RESEARCH-041 | Synchroniser la doctrine livrée par le package sur le Drive | INTENT-034 | Steeve Evers | 2026-09-25 | GO (auteur) → CONDITIONAL GO (machine : 3 risques à traiter en SPEC) | go |
 | RESEARCH-039 | Archivage automatique des FACTs résolus | INTENT-029 | Steeve Evers | 2026-06-29 | GO 95 % | go |
 | RESEARCH-013 | Sync auto des en-têtes de version + check CI | INTENT-013 | Steeve Evers | 2026-06-11 | CONDITIONAL GO (80 %) | tranché — /sdd spec autorisé (C1, C2) |
 | RESEARCH-014 | Déploiement site/ → gh-pages automatisé | INTENT-013 | Steeve Evers | 2026-06-11 | CONDITIONAL GO (85 %) | déclaré GO → durci CONDITIONAL (R2/R3/R4) — /sdd spec autorisé |
