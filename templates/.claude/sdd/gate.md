@@ -30,12 +30,16 @@ L'Execution Gate est le **point de contrôle** entre une SPEC validée et le lan
 **Output** : score SQS [X]/5 + décision Gate (OUVERTE / OUVERTE avec réserve / FERMÉE) + plan de remédiation si FERMÉE.
 
 1. Lis la SPEC. **Détecte le format** (entête `Format : EARS` ou prose).
-2. Applique la skill `ears-validator` :
+2. **Pré-contrôle déterministe** (avant tout scoring SQS) : lance `npx aiad-sdd gate-precheck <SPEC-id>` (périmètre d'exécution de l'agent, actions irréversibles, seuil d'arrêt — verdict calculé hors modèle) :
+   - `PASS` (exit 0) → continuer ; reporter les avertissements éventuels au PE.
+   - `FAIL` (exit 1) → la Gate est **FERMÉE** sans scoring SQS : lister les manques comme plan de remédiation.
+   - `JNSP` (exit 2) → la Gate est **INCONNUE** (SPEC introuvable ou tableau « Périmètre d'exécution de l'agent » incomplet) : lister les lignes absentes et poser la question à l'humain.
+3. Applique la skill `ears-validator` :
    - Format `EARS` → mode **strict**. Si ≥ 1 violation → critère SQS 2 (Testabilité) = **0** forcé. Si 0 violation → **+1 bonus** sur critère 2 (plafonné à 1/1).
    - Format `prose` → mode indicatif (n'altère pas le SQS).
-3. Applique la skill `sqs-scoring` en lui passant le résultat du linter EARS.
-4. Si Gate **OUVERTE** → MAJ SPEC `ready` + `.aiad/specs/_index.md` + Context Engineering Budget pour la session agent.
-5. Si Gate **FERMÉE** → la skill produit le plan de remédiation. Statut reste `draft` ou `review`. Inviter à relancer après corrections (en mode EARS strict, lister les violations R1–R7 par critère).
+4. Applique la skill `sqs-scoring` en lui passant le résultat du linter EARS.
+5. Si Gate **OUVERTE** → MAJ SPEC `ready` + `.aiad/specs/_index.md` + Context Engineering Budget pour la session agent.
+6. Si Gate **FERMÉE** → la skill produit le plan de remédiation. Statut reste `draft` ou `review`. Inviter à relancer après corrections (en mode EARS strict, lister les violations R1–R7 par critère).
 
 ## 📖 Mode guidé
 
@@ -54,6 +58,13 @@ Lis l'entête de la SPEC :
 - Sinon → mode **indicatif**.
 
 Communique le mode au PE en une ligne : `« SPEC-NNN détectée en format EARS — linter strict actif. »`.
+
+### Étape 2b — Pré-contrôle déterministe
+
+Avant le lint EARS et le scoring SQS, lance `npx aiad-sdd gate-precheck <SPEC-id>`. La commande vérifie hors modèle la section « Périmètre d'exécution de l'agent » (actions irréversibles sans seuil d'arrêt, credentials ou ressources partagées sans isolation ni sorties réseau déclarées) :
+- `PASS` (exit 0) → poursuivre à l'étape 3 ; communiquer les avertissements éventuels (mots-clés sensibles sans section déclarée).
+- `FAIL` (exit 1) → la Gate est **FERMÉE**, sans scoring SQS. Les manques listés forment le plan de remédiation (étape 6).
+- `JNSP` (exit 2) → la Gate est **INCONNUE** (étape 7) : SPEC introuvable ou tableau incomplet — lister les lignes absentes et poser la question à l'humain.
 
 ### Étape 3 — Lint EARS
 
