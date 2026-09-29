@@ -6,6 +6,7 @@
 <title>SDD Mode — Spec Driven Development for the AI-agent era | AIAD Framework</title>
 <meta name="description" content="SDD Mode is the Spec Driven Development operating mode of the AIAD framework: Intent Statements, living SPECs, Execution Gate, Drift Lock and regulatory governance to orchestrate AI agents without betraying human intent.">
 <link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/explainer.css">
 <link rel="alternate" hreflang="fr" href="../fr/index.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
 </head>
@@ -96,6 +97,46 @@
     </div>
     <p><code class="install">npx aiad-sdd init</code></p>
   </div>
+
+  <section class="section explainer" aria-labelledby="h-explainer" data-explainer data-label-play="Play" data-label-pause="Pause" data-label-replay="Replay" data-label-status="Scene {n} of {t}">
+    <h2 id="h-explainer">Understand AIAD and SDD Mode in 90 seconds</h2>
+    <p>Silent animation in six scenes. Start it whenever you like; every scene stays readable without animation.</p>
+    <div class="explainer-stage">
+      <ol class="explainer-scenes">
+        <li class="scene" data-duration="12" data-title="The observation">
+          <div class="scene-visual" aria-hidden="true"><svg viewBox="0 0 320 180" width="320" height="180" focusable="false"><rect class="xp-bg" x="1" y="1" width="318" height="178" rx="8"/><g class="xp-anim xp-stream"><rect class="xp-code-soft" x="20" y="18" width="120" height="6" rx="3"/><rect class="xp-code" x="30" y="30" width="97" height="6" rx="3"/><rect class="xp-code" x="40" y="42" width="74" height="6" rx="3"/><rect class="xp-code-soft" x="20" y="54" width="51" height="6" rx="3"/><rect class="xp-code" x="30" y="66" width="98" height="6" rx="3"/><rect class="xp-code" x="40" y="78" width="75" height="6" rx="3"/><rect class="xp-code-soft" x="20" y="90" width="52" height="6" rx="3"/><rect class="xp-code" x="30" y="102" width="99" height="6" rx="3"/><rect class="xp-code" x="40" y="114" width="76" height="6" rx="3"/><rect class="xp-code-soft" x="20" y="126" width="53" height="6" rx="3"/><rect class="xp-code" x="30" y="138" width="100" height="6" rx="3"/><rect class="xp-code" x="40" y="150" width="77" height="6" rx="3"/><rect class="xp-code-soft" x="20" y="162" width="54" height="6" rx="3"/><rect class="xp-code" x="30" y="174" width="101" height="6" rx="3"/></g><circle class="xp-target" cx="250" cy="90" r="22"/><circle class="xp-target" cx="250" cy="90" r="12"/><circle class="xp-target-core" cx="250" cy="90" r="5"/><text class="xp-label" x="250" y="135" text-anchor="middle">Intent</text></svg></div>
+          <div class="scene-text"><p class="scene-kicker">1 / 6 — The observation</p><p class="scene-line">An AI agent writes a week's worth of code in minutes.</p><p class="scene-line scene-strong">But who keeps hold of the intent?</p></div>
+        </li>
+        <li class="scene" data-duration="14" data-title="The risk">
+          <div class="scene-visual" aria-hidden="true"><svg viewBox="0 0 320 180" width="320" height="180" focusable="false"><rect class="xp-bg" x="1" y="1" width="318" height="178" rx="8"/><circle class="xp-target" cx="70" cy="90" r="22"/><circle class="xp-target" cx="70" cy="90" r="12"/><circle class="xp-target-core" cx="70" cy="90" r="5"/><path class="xp-arrow xp-anim xp-drift" d="M92 90 L230 90 M218 80 L230 90 L218 100"/><g class="xp-anim xp-apart-l"><rect class="xp-pill-spec" x="150" y="130" width="54" height="24" rx="12"/><text class="xp-label-light" x="177" y="146" text-anchor="middle">SPEC</text></g><g class="xp-anim xp-apart-r"><rect class="xp-pill-code" x="206" y="130" width="54" height="24" rx="12"/><text class="xp-label-light" x="233" y="146" text-anchor="middle">Code</text></g></svg></div>
+          <div class="scene-text"><p class="scene-kicker">2 / 6 — The risk</p><p class="scene-line">Without a frame, code drifts away from what was wanted.</p><p class="scene-line">The spec goes stale, debt piles up, and nobody can say why anymore.</p></div>
+        </li>
+        <li class="scene" data-duration="18" data-title="AIAD: who does what">
+          <div class="scene-visual" aria-hidden="true"><svg viewBox="0 0 320 180" width="320" height="180" focusable="false"><rect class="xp-bg" x="1" y="1" width="318" height="178" rx="8"/><circle class="xp-target" cx="160" cy="95" r="22"/><circle class="xp-target" cx="160" cy="95" r="12"/><circle class="xp-target-core" cx="160" cy="95" r="5"/><g class="xp-anim xp-appear xp-d1"><rect class="xp-card" x="136" y="17" width="48" height="26" rx="6"/><text class="xp-label" x="160" y="34" text-anchor="middle">PM</text></g><g class="xp-anim xp-appear xp-d2"><rect class="xp-card-key" x="231" y="57" width="48" height="26" rx="6"/><text class="xp-label-light" x="255" y="74" text-anchor="middle">PE</text></g><g class="xp-anim xp-appear xp-d3"><rect class="xp-card" x="201" y="137" width="48" height="26" rx="6"/><text class="xp-label" x="225" y="154" text-anchor="middle">AE</text></g><g class="xp-anim xp-appear xp-d4"><rect class="xp-card" x="71" y="137" width="48" height="26" rx="6"/><text class="xp-label" x="95" y="154" text-anchor="middle">QA</text></g><g class="xp-anim xp-appear xp-d5"><rect class="xp-card" x="41" y="57" width="48" height="26" rx="6"/><text class="xp-label" x="65" y="74" text-anchor="middle">TL</text></g></svg></div>
+          <div class="scene-text"><p class="scene-kicker">3 / 6 — AIAD: who does what</p><p class="scene-line">AIAD organises responsibilities around the intent:</p><ul class="scene-steps"><li>Product Manager — are we building the right thing?</li><li>Product Engineer — guardian of the intent</li><li>Agents Engineer — the agent ecosystem</li><li>QA Engineer — quality from the start</li><li>Tech Lead — technical coherence</li></ul><p class="scene-line scene-strong">Authorship of intent cannot be delegated.</p></div>
+        </li>
+        <li class="scene" data-duration="24" data-title="SDD Mode: how we build">
+          <div class="scene-visual" aria-hidden="true"><svg viewBox="0 0 320 180" width="320" height="180" focusable="false"><rect class="xp-bg" x="1" y="1" width="318" height="178" rx="8"/><line class="xp-link" x1="36" y1="80" x2="284" y2="80"/><circle class="xp-step xp-anim xp-light xp-d1" cx="36.0" cy="80" r="11"/><text class="xp-label" x="36.0" y="110" text-anchor="middle">Intent</text><circle class="xp-step xp-anim xp-light xp-d2" cx="77.3" cy="80" r="11"/><text class="xp-label" x="77.3" y="60" text-anchor="middle">Research</text><circle class="xp-step xp-anim xp-light xp-d3" cx="118.6" cy="80" r="11"/><text class="xp-label" x="118.6" y="110" text-anchor="middle">SPEC</text><circle class="xp-step xp-anim xp-light xp-d4" cx="159.9" cy="80" r="11"/><text class="xp-label" x="159.9" y="60" text-anchor="middle">Gate</text><circle class="xp-step xp-anim xp-light xp-d5" cx="201.2" cy="80" r="11"/><text class="xp-label" x="201.2" y="110" text-anchor="middle">Exec.</text><circle class="xp-step xp-anim xp-light xp-d6" cx="242.5" cy="80" r="11"/><text class="xp-label" x="242.5" y="60" text-anchor="middle">Valid.</text><circle class="xp-step xp-anim xp-light xp-d7" cx="283.8" cy="80" r="11"/><text class="xp-label" x="283.8" y="110" text-anchor="middle">Drift Lock</text></svg></div>
+          <div class="scene-text"><p class="scene-kicker">4 / 6 — SDD Mode: how we build</p><p class="scene-line">SDD Mode organises the development cycle:</p><ul class="scene-steps"><li>Intent Statement — the why, written by a human</li><li>Research — go or no-go</li><li>SPEC — a living specification</li><li>Execution Gate — SQS ≥ 4/5 before launching the agent</li><li>Execution — the agent delivers</li><li>Validation — technical, functional, business, governance</li><li>Drift Lock — code and SPEC in the same PR</li></ul></div>
+        </li>
+        <li class="scene" data-duration="12" data-title="Built-in governance">
+          <div class="scene-visual" aria-hidden="true"><svg viewBox="0 0 320 180" width="320" height="180" focusable="false"><rect class="xp-bg" x="1" y="1" width="318" height="178" rx="8"/><rect class="xp-gate" x="116" y="24" width="88" height="80" rx="8"/><g class="xp-anim xp-appear xp-d1"><rect class="xp-shield" x="128" y="34" width="28" height="28" rx="6"/></g><g class="xp-anim xp-appear xp-d2"><rect class="xp-shield" x="162" y="34" width="28" height="28" rx="6"/></g><g class="xp-anim xp-appear xp-d3"><rect class="xp-shield" x="128" y="68" width="28" height="28" rx="6"/></g><g class="xp-anim xp-appear xp-d4"><rect class="xp-shield" x="162" y="68" width="28" height="28" rx="6"/></g><text class="xp-label" x="160" y="120" text-anchor="middle">Gate</text><rect class="xp-gauge" x="110" y="140" width="160" height="12" rx="6"/><rect class="xp-gauge-mark xp-anim xp-slide" x="114" y="136" width="20" height="20" rx="4"/><text class="xp-label" x="100" y="150" text-anchor="end">Autonomy</text></svg></div>
+          <div class="scene-text"><p class="scene-kicker">5 / 6 — Built-in governance</p><p class="scene-line">Governance sits inside the cycle, not beside it: AI Act, GDPR, accessibility (RGAA) and eco-design (RGESN) hold a veto.</p><p class="scene-line scene-strong">Agent autonomy is a dial: stop points, stop threshold.</p></div>
+        </li>
+        <li class="scene" data-duration="10" data-title="The essentials">
+          <div class="scene-visual" aria-hidden="true"><svg viewBox="0 0 320 180" width="320" height="180" focusable="false"><rect class="xp-bg" x="1" y="1" width="318" height="178" rx="8"/><circle class="xp-step xp-anim xp-light xp-d1" cx="160.0" cy="30.0" r="8"/><circle class="xp-step xp-anim xp-light xp-d2" cx="206.9" cy="52.6" r="8"/><circle class="xp-step xp-anim xp-light xp-d3" cx="218.5" cy="103.4" r="8"/><circle class="xp-step xp-anim xp-light xp-d4" cx="186.0" cy="144.1" r="8"/><circle class="xp-step xp-anim xp-light xp-d5" cx="134.0" cy="144.1" r="8"/><circle class="xp-step xp-anim xp-light xp-d6" cx="101.5" cy="103.4" r="8"/><circle class="xp-step xp-anim xp-light xp-d7" cx="113.1" cy="52.6" r="8"/><circle class="xp-target" cx="160" cy="90" r="22"/><circle class="xp-target" cx="160" cy="90" r="12"/><circle class="xp-target-core" cx="160" cy="90" r="5"/></svg></div>
+          <div class="scene-text"><p class="scene-kicker">6 / 6 — The essentials</p><p class="scene-line scene-strong">The human decides the why. The agent executes the how.</p><p class="scene-line"><code>npx aiad-sdd init</code></p><p class="scene-line"><a href="big-picture.html">Explore the Big Picture</a> · <a href="get-started.html">Get started</a></p></div>
+        </li>
+      </ol>
+    </div>
+    <div class="explainer-controls" hidden>
+      <button type="button" class="btn btn-primary explainer-play" aria-pressed="false">Play</button>
+      <button type="button" class="btn btn-secondary explainer-prev">Previous scene</button>
+      <button type="button" class="btn btn-secondary explainer-next">Next scene</button>
+      <p class="explainer-status" aria-live="polite"></p>
+      <div class="explainer-progress" aria-hidden="true"><span></span></div>
+    </div>
+  </section>
 
   <section class="section" aria-labelledby="h-stats">
     <h2 id="h-stats" class="visually-hidden">SDD Mode in numbers</h2>
@@ -239,5 +280,6 @@
 </footer>
 
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/explainer.js"></script>
 </body>
 </html>
