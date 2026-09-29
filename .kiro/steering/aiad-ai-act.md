@@ -2,7 +2,7 @@
 inclusion: fileMatch
 fileMatchPattern: ["**/ai/**","**/ml/**","**/llm/**","**/models/**","**/agents/**"]
 # intent_id: INTENT-033
-# generated-by: aiad-emit-rules v1.19.0
+# generated-by: aiad-emit-rules v1.20.0
 # source-hash: 1383df9b0d9b8804
 ---
 
