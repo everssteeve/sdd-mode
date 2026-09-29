@@ -1,0 +1,175 @@
+/* Explainer animé (accueil FR/EN) — 6 scènes, 90 s, muet.
+   Sans JS ou avec « réduire les animations » : liste statique des scènes.
+   Avec JS : lecteur (une scène à la fois), lancé par l'utilisateur, pausable. */
+
+.explainer-stage {
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.explainer-scenes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.scene {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+}
+
+@media (min-width: 48rem) {
+  .scene { grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); }
+}
+
+.scene-visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 16rem;
+}
+
+.scene-kicker {
+  margin: 0 0 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+}
+
+.scene-line {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.scene-strong {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy-900);
+}
+
+.scene-steps {
+  margin: 0.25rem 0 0.5rem;
+  padding-left: 1.25rem;
+  color: var(--ink);
+}
+
+.scene-steps li { margin: 0.1rem 0; }
+
+.scene code {
+  font-family: var(--font-mono);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
+
+/* SVG : couleurs issues des jetons */
+.xp-bg { fill: var(--paper); stroke: var(--line); }
+.xp-code { fill: var(--navy-600); }
+.xp-code-soft { fill: var(--blue-100); }
+.xp-target { fill: none; stroke: var(--gold-600); stroke-width: 3; }
+.xp-target-core { fill: var(--gold-500); }
+.xp-label { font: 600 11px var(--font-sans); fill: var(--navy-900); }
+.xp-label-light { font: 600 11px var(--font-sans); fill: var(--paper); }
+.xp-card { fill: var(--paper); stroke: var(--navy-600); stroke-width: 1.5; }
+.xp-card-key { fill: var(--navy-900); }
+.xp-step { fill: var(--paper); stroke: var(--navy-600); stroke-width: 2; }
+.xp-link { stroke: var(--line); stroke-width: 3; }
+.xp-arrow { fill: none; stroke: var(--red-600); stroke-width: 3; stroke-linecap: round; }
+.xp-pill-spec { fill: var(--teal-500); }
+.xp-pill-code { fill: var(--navy-600); }
+.xp-gate { fill: var(--navy-900); }
+.xp-shield { fill: var(--teal-500); }
+.xp-gauge { fill: var(--blue-100); stroke: var(--navy-600); }
+.xp-gauge-mark { fill: var(--gold-500); }
+
+/* ---------- Mode lecteur (ajouté par explainer.js) ---------- */
+
+.explainer.is-player .scene { display: none; }
+.explainer.is-player .scene.is-active { display: grid; min-height: 14rem; }
+
+.explainer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.explainer-controls[hidden] { display: none; }
+
+.explainer-controls .btn { cursor: pointer; }
+
+.explainer-status {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.explainer-progress {
+  flex: 1 1 100%;
+  height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.explainer-progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--gold-600);
+}
+
+/* Animations : uniquement pendant la lecture, sur la scène active.
+   En pause, la scène s'affiche dans son état final (tout est lisible). */
+.explainer.is-playing .scene.is-active .xp-stream { animation: xp-stream 3s linear infinite; }
+.explainer.is-playing .scene.is-active .xp-drift { transform-origin: 70px 90px; animation: xp-drift 6s ease-in-out forwards; }
+.explainer.is-playing .scene.is-active .xp-apart-l { animation: xp-apart-l 6s ease-in-out forwards; }
+.explainer.is-playing .scene.is-active .xp-apart-r { animation: xp-apart-r 6s ease-in-out forwards; }
+.explainer.is-playing .scene.is-active .xp-appear { opacity: 0; animation: xp-appear 0.6s ease-out forwards; }
+.explainer.is-playing .scene.is-active .xp-light { animation: xp-light 0.6s ease-out forwards; }
+.explainer.is-playing .scene.is-active .xp-slide { animation: xp-slide 4s ease-in-out infinite alternate; }
+.explainer.is-player:not(.is-playing) .scene.is-active .xp-light { fill: var(--gold-500); }
+.explainer.is-player:not(.is-playing) .scene.is-active .xp-drift { transform-origin: 70px 90px; transform: rotate(-24deg); }
+.explainer.is-player:not(.is-playing) .scene.is-active .xp-apart-l { transform: translateX(-40px); }
+.explainer.is-player:not(.is-playing) .scene.is-active .xp-apart-r { transform: translateX(40px); }
+
+.xp-d1 { animation-delay: 0.6s !important; }
+.xp-d2 { animation-delay: 1.8s !important; }
+.xp-d3 { animation-delay: 3s !important; }
+.xp-d4 { animation-delay: 4.2s !important; }
+.xp-d5 { animation-delay: 5.4s !important; }
+.xp-d6 { animation-delay: 6.6s !important; }
+.xp-d7 { animation-delay: 7.8s !important; }
+
+@keyframes xp-stream { from { transform: translateY(0); } to { transform: translateY(-60px); } }
+@keyframes xp-drift { from { transform: rotate(0deg); } to { transform: rotate(-24deg); } }
+@keyframes xp-apart-l { from { transform: translateX(0); } to { transform: translateX(-40px); } }
+@keyframes xp-apart-r { from { transform: translateX(0); } to { transform: translateX(40px); } }
+@keyframes xp-appear { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes xp-light { to { fill: var(--gold-500); } }
+@keyframes xp-slide { from { transform: translateX(0); } to { transform: translateX(132px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .explainer .xp-anim { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+.explainer-controls .btn { font: inherit; font-weight: 600; }
+.explainer-controls .btn-secondary {
+  background: var(--paper);
+  border: 1px solid var(--navy-600);
+  color: var(--navy-900);
+}
+.explainer-controls .btn-secondary:hover { background: var(--blue-100); }
+.explainer-controls .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.explainer-controls .btn:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 2px; }
