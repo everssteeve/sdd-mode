@@ -6,7 +6,7 @@ paths:
   - "**/app/**/*.tsx"
   - "**/app/**/*.jsx"
   - "**/*.vue"
-generated-by: aiad-emit-rules v1.19.0
+generated-by: aiad-emit-rules v1.20.0
 source-hash: 1383df9b0d9b8804
 ---
 
