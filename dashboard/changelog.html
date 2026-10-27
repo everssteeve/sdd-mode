@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-25T07:32:08.725Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-10-27T08:46:10.413Z"/><meta name="aiad-version" content="1.20.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Changelog des artefacts — aiad-sdd</title>
-<meta name="description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
+<meta name="description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Changelog des artefacts — aiad-sdd"/>
-<meta property="og:description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
+<meta property="og:description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
 <meta property="og:url" content="changelog.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Changelog des artefacts — aiad-sdd"/>
-<meta name="twitter:description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
+<meta name="twitter:description" content="Changelog des artefacts — Historique des mises à jour SDD Mode · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -33,7 +33,7 @@
   <div class="brand">
     <div class="brand-title">aiad-sdd</div>
     <div class="brand-sub">SDD Mode · Dashboard</div>
-    <div class="brand-version">v1.18.0</div>
+    <div class="brand-version">v1.20.0</div>
   </div>
   <ul>
     <li><a href="today.html" class="">
@@ -96,7 +96,7 @@
     <li><a href="eco.html" class="">
       <span class="nav-icon">🌱</span>Éco
     </a></li></ul>
-  <div class="footer">Généré 25/06/2026 09:32:08<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 27/10/2026 09:46:10<br/>Framework AIAD v1.20.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -105,8 +105,8 @@
       <div class="subtitle">Historique des mises à jour SDD Mode</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 25/06/2026 09:32:08. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
-      <div class="meta">aiad-sdd · v1.18.0</div>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 27/10/2026 09:46:10. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.20.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
       </button>
@@ -114,239 +114,136 @@
   </header>
   
 <div class="kpis">
-  <div class="kpi"><div class="label">Entrées</div><div class="value">32</div></div>
+  <div class="kpi"><div class="label">Entrées</div><div class="value">47</div></div>
 </div>
 <section>
   <h2>Historique <span class="count">source : <a class="src-link" href="../.aiad/CHANGELOG-ARTEFACTS.md" target="_blank" rel="noopener" title="Ouvrir .aiad/CHANGELOG-ARTEFACTS.md">.aiad/CHANGELOG-ARTEFACTS.md</a></span></h2>
   <div class="filter"><input type="search" id="qCl" data-filter-target="tCl" placeholder="Filtrer par date, artefact, raison…"/></div>
   <table id="tCl" data-sortable="true" data-a11y-caption="Changelog des artefacts SDD">
-    <thead><tr><th>Date</th><th>Artefact</th><th>Type</th><th>Auteur</th><th>Raison</th><th>Impact</th></tr></thead>
+    <thead><tr><th>Date</th><th>Artefact</th><th>Type</th><th>Auteur</th><th>Raison</th></tr></thead>
     <tbody><tr>
+    <td class="muted">2026-06-29</td>
+    <td><strong>SPEC-027-2</strong></td>
+    <td>Drift Lock OK (done)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd validate SPEC-027-2` — validation triple PASS. `calculateCycleTimeDaysFromSpec(racineProjet, deployDate)` scanne `…</td>
+  </tr><tr>
+    <td class="muted">2026-06-29</td>
+    <td><strong>SPEC-027-1</strong></td>
+    <td>Drift Lock OK (done)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd validate SPEC-027-1` — validation triple PASS. `stampValidatedAt()` localise la SPEC par préfixe, parse le frontma…</td>
+  </tr><tr>
+    <td class="muted">2026-06-29</td>
+    <td><strong>SPEC-022-2</strong></td>
+    <td>Drift Lock OK (done)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd validate SPEC-022-2` — validation triple PASS. `detecterNouveauxFichiers()` (git diff --diff-filter=A) qualifie le…</td>
+  </tr><tr>
+    <td class="muted">2026-06-26</td>
+    <td><strong>SPEC-022-1</strong></td>
+    <td>Drift Lock OK (done)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd drift-check SPEC-022-1` après validation — 7 modules `lib/` annotés, 0 gap de traçabilité bloquant, `trace --fail-…</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>SPEC-021-2</strong></td>
+    <td>Drift Lock OK (done) + INTENT-021 → done</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd drift-check INTENT-021` après validation SPEC-021-2 — toutes les SPECs liées sont done (SPEC-021-1 + SPEC-021-2), …</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>INTENT-020</strong></td>
+    <td>Clôture + archivage (spec-anchored deltas + redevabilité bidirectionnelle)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>INTENT-020 complété — 2 SPECs livrées (`done`, trace-exempt car livrables 100 % éditoriaux) :</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>INTENT-031</strong></td>
+    <td>Chaînage automatique conditionnel + correctif hook Stop (Drift Lock)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>INTENT-031 complété — 3 SPECs livrées et validées :</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>INTENT-032</strong></td>
+    <td>Archivage rattrapé (FACT-016)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>FACT-016 — SPEC-032-1 avait été archivée manuellement (commit `17ffd9d`) sans passer par `archive done`, laissant INTENT…</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>SPEC-032-1</strong></td>
+    <td>`/model` actionnable dans 33 commandes `/sdd` et `/aiad` (Drift Lock)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>FACT-015 — les commandes documentaient un modèle recommandé en texte libre sans instruction `/model &lt;id&gt;` copiable. SPEC…</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>SPEC-026-2</strong></td>
+    <td>`listerLivrables(split)` + `listerOrphelins` + tests (Drift Lock)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>FACT-014 — `archive done` ne couvrait pas les SPECs `split` ni les originaux orphelins. SPEC-026-2 implémentée : `lister…</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>FACT-014</strong></td>
+    <td>Gap `archive done` : SPECs `split` + originaux orphelins</td>
+    <td class="muted">Steeve Evers</td>
+    <td>Cause racine identifiée lors de FACT-013 — `archive done` ne couvre ni les SPECs `split` (toutes sous-SPECs done) ni les…</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>SPEC-013-1/1b/4, SPEC-017-3, SPEC-026-1</strong></td>
+    <td>Archivage (FACT-013)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd fact` — FACT-013 : 5 SPECs `done`/`archived`/`split` physiquement hors du dossier archive alors que leurs INTENTs …</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>INTENT-030 + SPEC-030-x</strong></td>
+    <td>Archivage (FACT-012)</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd fact` — FACT-012 : artefacts `done` non archivés. Patch SPEC-030-2 (`review → done`). Archivage des 5 artefacts IN…</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>INTENT-030</strong></td>
+    <td>Drift Lock artefact → done</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd drift-check INTENT-030` — drift artefact détecté : INTENT-030 restait `draft` alors que les 4 SPECs liées (030-1/2…</td>
+  </tr><tr>
+    <td class="muted">2026-06-25</td>
+    <td><strong>SPEC-030-4</strong></td>
+    <td>Drift Lock OK → done</td>
+    <td class="muted">Steeve Evers</td>
+    <td>`/sdd drift-check SPEC-030-4` — heuristique git OK, matrice trace exit 0, 12/12 tests. Tous les critères d&#39;acceptation v…</td>
+  </tr><tr>
     <td class="muted">2026-06-25</td>
     <td><strong>INTENT-030 / SPEC-030-3</strong></td>
     <td>Gate OUVERTE + Drift Lock (done)</td>
     <td class="muted">Steeve Evers</td>
     <td>`/sdd gate SPEC-030-3` — SQS 5/5, Gate OUVERTE. Exécution immédiate (session courte, directive uniquement). `.claude/sdd…</td>
-    <td class="muted">`.claude/sdd/validate.md` — section Étape 6c ajoutée (~35 lignes). SPEC-030-3 → …</td>
   </tr><tr>
     <td class="muted">2026-06-25</td>
     <td><strong>INTENT-031</strong></td>
     <td>Chaînage automatique conditionnel du cycle SDD + correctif hook Stop (draft)</td>
     <td class="muted">Steeve Evers</td>
     <td>`/sdd intent` — couvre FACT-010 + FACT-011. Objectif : ≤ 2 interruptions manuelles/cycle (de 5-7). Transitions auto : sp…</td>
-    <td class="muted">`.aiad/intents/INTENT-031-auto-chaining-cycle-sdd.md` créé. `_index.md` mis à jo…</td>
   </tr><tr>
     <td class="muted">2026-06-25</td>
     <td><strong>FACT-011</strong></td>
     <td>Absence de chaînage automatique conditionnel entre étapes SDD (ouvert)</td>
     <td class="muted">Steeve Evers</td>
     <td>`/sdd fact` — lacune structurelle : chaque étape du cycle SDD requiert une intervention manuelle du PE même quand la déc…</td>
-    <td class="muted">`.aiad/facts/FACT-011-auto-chaining-sdd-steps.md` créé.</td>
   </tr><tr>
     <td class="muted">2026-06-25</td>
     <td><strong>FACT-010</strong></td>
     <td>Friction gate → exec (ouvert)</td>
     <td class="muted">Steeve Evers</td>
     <td>`/sdd fact` — écart constaté entre prescription gate.md (MAJ statut → `ready` + `_index.md`) et comportement réel (statu…</td>
-    <td class="muted">`.aiad/facts/FACT-010-gate-to-exec-friction.md` créé.</td>
   </tr><tr>
     <td class="muted">2026-06-24</td>
     <td><strong>INTENT-030 / SPEC-030-1</strong></td>
     <td>Drift Lock OK (done)</td>
     <td class="muted">Steeve Evers</td>
     <td>`/sdd validate SPEC-030-1` après exec — 8/8 CA verts, lint OK, 4 075/4 075 tests, `trace --fail-on-gap` exit 0, gouverna…</td>
-    <td class="muted">`lib/eco-estimator.js` — `estimerImpact()` + `EcoModelsNotFoundError`, annotatio…</td>
-  </tr><tr>
-    <td class="muted">2026-06-24</td>
-    <td><strong>INTENT-026 / SPEC-026-1</strong></td>
-    <td>Drift Lock OK (done)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>`/sdd drift-check` après validation SPEC-026-1 — code + SPEC synchronisés, 0 violation EARS, 64/64 tests verts, `trace -…</td>
-    <td class="muted">`lib/archive.js` — `archiverTous()` + commentaire RGPD (l.88–97) ; `bin/aiad-sdd…</td>
-  </tr><tr>
-    <td class="muted">2026-06-23</td>
-    <td><strong>INTENT-018 → done</strong></td>
-    <td>Drift Lock cycle complet</td>
-    <td class="muted">Steeve Evers + Claude (Sonnet 4.6)</td>
-    <td>Toutes les 5 SPECs de INTENT-018 validées et commitées — drift-check final OK</td>
-    <td class="muted">- `INTENT-018-valeur-boussole.md` : `status: active → done`, 5 SPECs cochées</td>
-  </tr><tr>
-    <td class="muted">2026-06-23</td>
-    <td><strong>SPEC-018-1 → done</strong></td>
-    <td>Matrice outcomes ↔ Intents</td>
-    <td class="muted">Steeve Evers + Claude (Sonnet 4.6)</td>
-    <td>Implémenter la liaison inverse Intent → outcomes absente de `calculerOutcomeAttribution()` (INTENT-018 Wave 1)</td>
-    <td class="muted">- `lib/dashboard/outcome-attribution.js` — +2 exports : `calculerMatriceOutcomes…</td>
-  </tr><tr>
-    <td class="muted">2026-06-22</td>
-    <td><strong>INTENT-016 → done</strong></td>
-    <td>Dashboard exemplaire (toutes SPECs clôturées)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>Clôture de l&#39;intent après livraison des 4 SPECs. SPEC-016-1 et SPEC-016-2 livrées lors du commit `85b8415` et `0a186d4` …</td>
-    <td class="muted">INTENT-016 → `done` · SPEC-016-1 → `done` · SPEC-016-2 → `done` · _index.md sync…</td>
-  </tr><tr>
-    <td class="muted">2026-06-22</td>
-    <td><strong>SPEC-016-1 → done</strong></td>
-    <td>Architecture 4 couches (drift lock rétroactif)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>DoOD cochés rétrospectivement — livrables vérifiés : render.js 112 LOC, views/ ≤ 299 LOC, lint:size/esm/deps ✓, tests 39…</td>
-    <td class="muted">`lib/dashboard/{model,views,ui}/` — 10 fichiers extraits de render.js</td>
-  </tr><tr>
-    <td class="muted">2026-06-22</td>
-    <td><strong>SPEC-016-2 → done</strong></td>
-    <td>Design system accessible + axe-core CI (drift lock rétroactif)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>DoODs déjà cochés dans la SPEC, statut `done`, _index.md resté en `in-progress` par omission.</td>
-    <td class="muted">`lib/dashboard/assets.js`, `lib/dashboard/ui/sparklines.js`, job CI `a11y` — 0 v…</td>
-  </tr><tr>
-    <td class="muted">2026-06-22</td>
-    <td><strong>SPEC-016-4 → done</strong></td>
-    <td>Budgets de poids RGESN par page + CI</td>
-    <td class="muted">Steeve Evers</td>
-    <td>SPEC-016-4 (INTENT-016) — cycle complet Research (RESEARCH-022) → Gate 5/5 → Exec → Validate → Drift Lock. Extension par…</td>
-    <td class="muted">- `lib/dashboard/perf-budgets.js` — extension D1-B : colonnes Page/Fichier/Budge…</td>
-  </tr><tr>
-    <td class="muted">2026-06-22</td>
-    <td><strong>SPEC-016-3 → done</strong></td>
-    <td>data.json v2 versionné (JSON schema publié)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>SPEC-016-3 (INTENT-016) — cycle complet Research → Gate → Exec → Validate → Drift Lock. Livraison de `_meta.schema_versi…</td>
-    <td class="muted">- `lib/dashboard.js:343-353` — `serializerDonnees()` injecte `schema_version` + …</td>
-  </tr><tr>
-    <td class="muted">2026-06-19</td>
-    <td><strong>INTENT-024 + SPEC-024-1 → done</strong></td>
-    <td>Exemption de traçabilité (FACT-004 résolu)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>Cause racine du faux signal « SPEC in-progress alors que livrée »</td>
-    <td class="muted">- Code : `lib/sdd-trace.js` (parsing + gaps + modèle, annoté `@spec SPEC-024-1`)…</td>
-  </tr><tr>
-    <td class="muted">2026-06-19</td>
-    <td><strong>AGENT-GUIDE.md</strong></td>
-    <td>Remplissage initial (sortie du template)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>L&#39;AGENT-GUIDE était resté au stade template (placeholders non remplis)</td>
-    <td class="muted">`.aiad/AGENT-GUIDE.md` (contexte permanent injecté à chaque session).</td>
-  </tr><tr>
-    <td class="muted">2026-06-19</td>
-    <td><strong>INTENT-015 + SPEC-015-3 → done</strong></td>
-    <td>Clôture de l&#39;intention</td>
-    <td class="muted">Steeve Evers</td>
-    <td>PR #14 (matrice garde-fous + veto non-bypassable) mergée dans `main`</td>
-    <td class="muted">SPEC-015-3 `in-progress → done` (PR #14), INTENT-015 `active → done`.</td>
-  </tr><tr>
-    <td class="muted">2026-06-19</td>
-    <td><strong>SPEC-015-3</strong></td>
-    <td>Drift Check OK (matrice garde-fous + veto non-bypassable)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>Drift Lock vérifié pour SPEC-015-3 (INTENT-015) — heuristique git OK</td>
-    <td class="muted">`.aiad/hooks/veto.js` (bypass retiré), `lib/guardrails.js` (matrice +</td>
-  </tr><tr>
-    <td class="muted">2026-06-19</td>
-    <td><strong>SPEC-015-2-2 → done</strong></td>
-    <td>Clôture de board</td>
-    <td class="muted">Steeve Evers</td>
-    <td>PR #12 (cycle de dépréciation soft) mergée dans `main` (squash</td>
-    <td class="muted">SPEC-015-2-2 `in-progress → done` (PR #12). INTENT-015 reste `active`</td>
-  </tr><tr>
-    <td class="muted">2026-06-19</td>
-    <td><strong>SPEC-015-2-2</strong></td>
-    <td>Drift Check OK (cycle de dépréciation)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>Drift Lock vérifié pour SPEC-015-2-2 (INTENT-015) — heuristique git OK</td>
-    <td class="muted">`lib/deprecation.js` (formatDeprecationNotice/deprecationNotice/</td>
-  </tr><tr>
-    <td class="muted">2026-06-19</td>
-    <td><strong>SPEC-015-2-1 → done</strong></td>
-    <td>Clôture de board</td>
-    <td class="muted">Steeve Evers</td>
-    <td>PR #10 (registre catégorisé des commandes) mergée dans `main` (squash</td>
-    <td class="muted">SPEC-015-2-1 `in-progress → done` (PR #10). INTENT-015 reste `active`</td>
-  </tr><tr>
-    <td class="muted">2026-06-17</td>
-    <td><strong>SPEC-015-2-1</strong></td>
-    <td>Drift Check OK (registre des commandes)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>Drift Lock vérifié pour SPEC-015-2-1 (INTENT-015) — heuristique git OK</td>
-    <td class="muted">`lib/commands-registry.js` (COMMANDS_REGISTRY, tierOf/listByTier/</td>
-  </tr><tr>
-    <td class="muted">2026-06-17</td>
-    <td><strong>SPEC-015-1 → done</strong></td>
-    <td>Clôture de board</td>
-    <td class="muted">Steeve Evers</td>
-    <td>PR #8 (`telemetry usage`) mergée dans `main` (squash `fcad893`), CI</td>
-    <td class="muted">SPEC-015-1 `in-progress → done` (PR #8). INTENT-015 reste `active`</td>
-  </tr><tr>
-    <td class="muted">2026-06-16</td>
-    <td><strong>SPEC-015-1</strong></td>
-    <td>Drift Check OK (telemetry usage)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>Drift Lock vérifié pour SPEC-015-1 (INTENT-015) — heuristique git OK</td>
-    <td class="muted">`lib/telemetry.js` (readEvents/aggregateUsage/showUsage),</td>
-  </tr><tr>
-    <td class="muted">2026-06-16</td>
-    <td><strong>INTENT-014 + SPEC-014-1/2 → done</strong></td>
-    <td>Clôture de board</td>
-    <td class="muted">Steeve Evers</td>
-    <td>PR #5 (gates bloquants + badge) et PR #6 (sourcing + guard lint:claims)</td>
-    <td class="muted">SPEC-014-1 `validation → done`, SPEC-014-2 `validation → done`,</td>
-  </tr><tr>
-    <td class="muted">2026-06-15</td>
-    <td><strong>SPEC-014-2</strong></td>
-    <td>Drift Check OK (sourcing + guard lint:claims)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>Drift Lock vérifié pour SPEC-014-2 (INTENT-014) — heuristique git OK</td>
-    <td class="muted">`.claude/sdd/{gate,exec,split}.md`,</td>
-  </tr><tr>
-    <td class="muted">2026-06-15</td>
-    <td><strong>SPEC-014-1</strong></td>
-    <td>Drift Check OK (gates bloquants + badge)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>Drift Lock vérifié pour SPEC-014-1 (INTENT-014) — heuristique git OK</td>
-    <td class="muted">`package.json`, `.github/workflows/{ci,release}.yml`,</td>
-  </tr><tr>
-    <td class="muted">2026-06-15</td>
-    <td><strong>SPEC-002-1 → 012-1 + INTENT-002 → 012</strong></td>
-    <td>Rattrapage de board (done)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>Board drift inverse — la vague §3.x (gouvernance enforced, research,</td>
-    <td class="muted">`.aiad/specs/_index.md` (11 lignes in-progress → done),</td>
-  </tr><tr>
-    <td class="muted">2026-06-12</td>
-    <td><strong>INTENT-013 + SPEC-013-1a</strong></td>
-    <td>done (site v1.18 publié)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>site aiad.ovh **déployé en v1.18** via `site-deploy.yml` (gh-pages</td>
-    <td class="muted">INTENT-013 → `done`. SPEC-013-1a : objectif atteint (site publié),</td>
-  </tr><tr>
-    <td class="muted">2026-06-11</td>
-    <td><strong>SPEC-013-4a</strong></td>
-    <td>Drift Lock OK (done)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>`/sdd drift-check` après VALIDÉ — workflow + SPEC synchronisés,</td>
-    <td class="muted">`.github/workflows/site-deploy.yml` (nouveau) — déploiement</td>
-  </tr><tr>
-    <td class="muted">2026-06-11</td>
-    <td><strong>SPEC-013-2</strong></td>
-    <td>Drift Lock OK (done)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>`/sdd drift-check` après VALIDÉ — code/docs + SPEC synchronisés,</td>
-    <td class="muted">`SDDMode.md` → `docs/archive/SDDMode.md` (+ en-tête historique) ;</td>
-  </tr><tr>
-    <td class="muted">2026-06-23</td>
-    <td><strong>INTENT-017</strong></td>
-    <td>Drift Lock OK (done)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>`/sdd drift-check INTENT-017` après validation SPEC-017-2 + SPEC-017-3 — toutes les SPECs liées sont done, 0 gap traçabi…</td>
-    <td class="muted">`lib/dashboard/views/inbox.js` (nouveau, 173 LOC), `lib/dashboard/digest-delta.j…</td>
-  </tr><tr>
-    <td class="muted">2026-06-11</td>
-    <td><strong>SPEC-013-3</strong></td>
-    <td>Drift Lock OK (done)</td>
-    <td class="muted">Steeve Evers</td>
-    <td>`/sdd drift-check` après validation — code + SPEC synchronisés dans</td>
-    <td class="muted">`lib/version-sync.js` (nouveau), `bin/aiad-sdd.js` (handler</td>
   </tr></tbody>
   </table>
+  <p class="muted">20 entrées les plus récentes sur 47 — historique complet dans la source.</p>
 </section>
 
 </main>

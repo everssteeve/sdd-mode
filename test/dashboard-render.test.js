@@ -743,6 +743,7 @@ test('#312 lienSource(null) → chaîne vide (garde-fou)', () => {
 
 // (#327) Catalog tables : Intent + SPEC + FACT IDs deviennent hyperliés
 import { pageIntents, pageSpecs } from '../lib/dashboard/render.js';
+import { pageDrifts } from '../lib/dashboard/views/drifts.js';
 
 // (#332) pageChangelog header source hyperlié
 test('#332 pageChangelog — header "source : FILE" devient un <a>', () => {
@@ -898,4 +899,29 @@ test('sparkline-single-value — 1 valeur → role+aria-label (CA-006/CA-006b)',
   const svg = sparkline([42], { label: 'CFR' });
   assert.ok(svg.includes('role="img"'), 'doit avoir role="img" pour 1 valeur');
   assert.ok(svg.includes('aria-label="CFR"'), 'doit avoir aria-label pour 1 valeur');
+});
+
+// Budget RGESN (SPEC-016-4) : les pages ne grossissent pas avec les données
+test('pageChangelog — plafonne à CHANGELOG_MAX_ENTREES, les plus récentes d\'abord, total conservé', () => {
+  setSourceBase('');
+  const entrees = Array.from({ length: 30 }, (_, i) => ({
+    date: `2026-05-${String(i + 1).padStart(2, '0')}`, artefact: `ART-${i + 1}`, type: 'update', auteur: 'alice', raison: 'r', impact: 'low',
+  }));
+  const html = pageChangelog({ changelog: { file: '.aiad/CHANGELOG-ARTEFACTS.md', entrees } });
+  assert.equal((html.match(/<td><strong>ART-/g) || []).length, 20);
+  assert.match(html, /ART-30/);
+  assert.doesNotMatch(html, /ART-10</);
+  assert.match(html, /<div class="value">30<\/div>/);
+  assert.match(html, /20 entrées les plus récentes sur 30/);
+});
+
+test('pageDrifts — tous les facts ouverts, résolus plafonnés à DRIFTS_MAX_RESOLUS', () => {
+  const facts = [
+    ...Array.from({ length: 3 }, (_, i) => ({ id: `FACT-O${i}`, titre: 't', statut: 'open', gravite: 'major', date: '2026-05-01' })),
+    ...Array.from({ length: 15 }, (_, i) => ({ id: `FACT-R${i}`, titre: 't', statut: 'closed', gravite: 'minor', date: `2026-04-${String(i + 1).padStart(2, '0')}` })),
+  ];
+  const html = pageDrifts({ facts });
+  assert.equal((html.match(/FACT-O\d/g) || []).length, 3);
+  assert.equal((html.match(/FACT-R\d+/g) || []).length, 10);
+  assert.match(html, /5 fact\(s\) résolu\(s\) plus ancien/);
 });

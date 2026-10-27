@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-06-25T07:32:08.725Z"/><meta name="aiad-version" content="1.18.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-10-27T08:46:10.413Z"/><meta name="aiad-version" content="1.20.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Architecture Decision Records — aiad-sdd</title>
-<meta name="description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
+<meta name="description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Architecture Decision Records — aiad-sdd"/>
-<meta property="og:description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
+<meta property="og:description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
 <meta property="og:url" content="adrs.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Architecture Decision Records — aiad-sdd"/>
-<meta name="twitter:description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
+<meta name="twitter:description" content="Architecture Decision Records — ADRs extraits de ARCHITECTURE.md (persona Tech Lead) · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -33,7 +33,7 @@
   <div class="brand">
     <div class="brand-title">aiad-sdd</div>
     <div class="brand-sub">SDD Mode · Dashboard</div>
-    <div class="brand-version">v1.18.0</div>
+    <div class="brand-version">v1.20.0</div>
   </div>
   <ul>
     <li><a href="today.html" class="">
@@ -96,7 +96,7 @@
     <li><a href="eco.html" class="">
       <span class="nav-icon">🌱</span>Éco
     </a></li></ul>
-  <div class="footer">Généré 25/06/2026 09:32:08<br/>Framework AIAD v1.18.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+  <div class="footer">Généré 27/10/2026 09:46:10<br/>Framework AIAD v1.20.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
 </nav>
 <main>
   <header class="page-header">
@@ -105,8 +105,8 @@
       <div class="subtitle">ADRs extraits de ARCHITECTURE.md (persona Tech Lead)</div>
     </div>
     <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 25/06/2026 09:32:08. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
-      <div class="meta">aiad-sdd · v1.18.0</div>
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 27/10/2026 09:46:10. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.20.0</div>
       <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
         <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
       </button>
@@ -242,11 +242,11 @@
     </tr></tbody>
     </table>
   </section><section>
-    <h2>Dette technique <span class="count">2</span></h2>
+    <h2>Dette technique <span class="count">1</span></h2>
     <div class="kpis">
       <div class="kpi"><div class="label">JNSP non résolus</div><div class="value">0</div><div class="delta">décisions humaines en attente</div></div>
       <div class="kpi"><div class="label">SPECs > 200 LOC</div><div class="value">0</div><div class="delta">critiques</div></div>
-      <div class="kpi"><div class="label">SPECs > 100 LOC</div><div class="value">2</div><div class="delta">à surveiller</div></div>
+      <div class="kpi"><div class="label">SPECs > 100 LOC</div><div class="value">1</div><div class="delta">à surveiller</div></div>
     </div>
     <div style="margin-top:.75rem">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
@@ -260,30 +260,24 @@
     <rect x="78" y="0" width="8" height="8" fill="#fa5252"/>
     <text x="90" y="8">SPECs > seuil</text>
   </g>
-      <line x1="28" y1="62" x2="316" y2="62" stroke="currentColor" opacity="0.2"/><text x="24" y="14.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">2</text><text x="24" y="62.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">0</text>
-      <text x="61.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-01</text><text x="132.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-08</text><text x="203.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-15</text><rect x="243.0" y="62.0" width="31.5" height="0.0" fill="#4c6ef5" rx="1"><title>JNSP 0 · semaine du 2026-06-22</title></rect><rect x="278.5" y="62.0" width="31.5" height="0.0" fill="#fa5252" rx="1"><title>SPECs grosses 0 · semaine du 2026-06-22</title></rect><text x="274.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">06-22</text>
+      <line x1="28" y1="62" x2="316" y2="62" stroke="currentColor" opacity="0.2"/><text x="24" y="14.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">1</text><text x="24" y="62.0" text-anchor="end" font-size="9" fill="currentColor" opacity="0.5">0</text>
+      <text x="61.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">10-05</text><text x="132.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">10-12</text><text x="203.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">10-19</text><rect x="243.0" y="62.0" width="31.5" height="0.0" fill="#4c6ef5" rx="1"><title>JNSP 0 · semaine du 2026-10-26</title></rect><rect x="278.5" y="62.0" width="31.5" height="0.0" fill="#fa5252" rx="1"><title>SPECs grosses 0 · semaine du 2026-10-26</title></rect><text x="274.5" y="74.0" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">10-26</text>
     </svg>
-    <p class="muted" style="font-size:.8rem;margin-top:.25rem">4 snapshot(s) total · 1 par jour persisté dans <code>.aiad/metrics/tech-debt/</code>.</p>
+    <p class="muted" style="font-size:.8rem;margin-top:.25rem">5 snapshot(s) total · 1 par jour persisté dans <code>.aiad/metrics/tech-debt/</code>.</p>
   </div>
     
     
     
-    <h3>SPECs > 100 LOC (à surveiller) <span class="count">2</span></h3>
+    <h3>SPECs > 100 LOC (à surveiller) <span class="count">1</span></h3>
     <p class="muted">Entre 100 et 200 LOC : à surveiller avant qu'elles franchissent le seuil critique.</p>
     <table>
       <thead><tr><th>SPEC</th><th>Fichier</th><th>LOC</th><th>Statut</th></tr></thead>
       <tbody>
     <tr>
-      <td><code>SPEC-026-1-archive-done</code></td>
-      <td><a class="src-link" href="../.aiad/specs/SPEC-026-1-archive-done.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-026-1-archive-done.md">.aiad/specs/SPEC-026-1-archive-done.md</a></td>
-      <td class="muted">182 LOC</td>
-      <td class="muted">validation</td>
-    </tr>
-    <tr>
-      <td><code>SPEC-013-4-deploy-site-workflow</code></td>
-      <td><a class="src-link" href="../.aiad/specs/SPEC-013-4-deploy-site-workflow.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-013-4-deploy-site-workflow.md">.aiad/specs/SPEC-013-4-deploy-site-workflow.md</a></td>
-      <td class="muted">101 LOC</td>
-      <td class="muted">split</td>
+      <td><code>SPEC-033-3-gate-precheck</code></td>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-033-3-gate-precheck.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-3-gate-precheck.md">.aiad/specs/SPEC-033-3-gate-precheck.md</a></td>
+      <td class="muted">115 LOC</td>
+      <td class="muted">ready</td>
     </tr></tbody>
     </table>
   </section>
