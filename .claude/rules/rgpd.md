@@ -6,7 +6,7 @@ paths:
   - "**/account/**"
   - "**/gdpr/**"
 generated-by: aiad-emit-rules v1.20.0
-source-hash: 1383df9b0d9b8804
+source-hash: bd9e0f44757be60c
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
