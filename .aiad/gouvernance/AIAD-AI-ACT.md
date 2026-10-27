@@ -823,7 +823,7 @@ Un système IA conforme à l'AI Act est, par construction, aligné avec les vale
 | **Art. 17** — Système qualité | Processus qualité documenté | SDD Mode complet (cycle Intent → Drift Lock) | Toutes les boucles SDD |
 | **Art. 26.6** — Conservation logs | Minimum 6 mois post-déploiement | `.aiad/metrics/` (persistance systématique) | `/aiad-dora` + `/aiad-flow` |
 | **Art. 27** — FRIA | Évaluation d'impact droits fondamentaux | PRD.md (section risques) + AIAD-RGPD.md | `/aiad-gouvernance` |
-| **Art. 50** — Transparence (chatbots) | Divulgation IA obligatoire — **2 août 2026** | Checklist T1-T14 (section dédiée ci-dessous) | `/sdd-validate` — test divulgation |
+| **Art. 50** — Transparence (chatbots) | Divulgation IA obligatoire — en vigueur depuis le **2 août 2026** | Checklist T1-T14 (section dédiée ci-dessous) | `/sdd-validate` — test divulgation |
 | **Art. 72** — Post-Market Monitoring | Plan de suivi post-déploiement | `.aiad/metrics/deployments/` | `/aiad-dora` (MTTR + Change Failure Rate) |
 
 ---
@@ -837,7 +837,7 @@ Un système IA conforme à l'AI Act est, par construction, aligné avec les vale
 - [ ] Le système IA est identifié et délimité (quels composants ? quels outputs ?)
 - [ ] La classification de risque est documentée dans le PRD (risque inacceptable / haut risque / transparence / minimal)
 - [ ] La classification a été revue par une personne qualifiée (non uniquement par l'IA)
-- [ ] Le calendrier d'application applicable est identifié (Art. 50 → **2 août 2026** ; Annexe III haut risque → sous réserve Omnibus VII)
+- [ ] Le calendrier d'application applicable est identifié (Art. 50 → en vigueur depuis le **2 août 2026**, délai au **2 décembre 2026** pour l'art. 50(2) sur les systèmes mis sur le marché avant cette date ; Annexe III haut risque → **2 décembre 2027**, Règlement (UE) 2026/1744)
 
 ### Étape 2 — Artefacts AIAD en place
 
@@ -849,8 +849,8 @@ Un système IA conforme à l'AI Act est, par construction, aligné avec les vale
 
 ### Étape 3 — Obligations techniques vérifiées
 
-- [ ] Divulgation IA implémentée (Art. 50.1 si chatbot) — deadline **2 août 2026**
-- [ ] Contenus IA marqués (Art. 50.2 si génération de contenu) — deadline **2 août 2026**
+- [ ] Divulgation IA implémentée (Art. 50.1 si chatbot) — en vigueur depuis le **2 août 2026**
+- [ ] Contenus IA marqués (Art. 50.2 si génération de contenu) — en vigueur depuis le **2 août 2026** ; **2 décembre 2026** pour un système mis sur le marché avant cette date
 - [ ] Mécanisme d'override humain opérationnel (Art. 14 si haut risque)
 - [ ] Logs de décisions configurés (Art. 12 si haut risque)
 - [ ] Tests de robustesse réalisés (Art. 15 si haut risque)

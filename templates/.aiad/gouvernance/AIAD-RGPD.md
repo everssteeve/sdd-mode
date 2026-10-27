@@ -468,7 +468,7 @@ function initAnalytics(consent: CookieConsent): void {
 - **TOUJOURS** mettre à jour le registre si la finalité, la durée ou les sous-traitants changent
 
 ```markdown
-
+<!-- ✅ Template d'entrée registre des traitements -->
 ## Traitement : [Nom]
 
 | Champ | Valeur |
