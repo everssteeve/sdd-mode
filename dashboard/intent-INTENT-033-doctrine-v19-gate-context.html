@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-10-27T08:46:10.413Z"/><meta name="aiad-version" content="1.20.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>INTENT-033-doctrine-v19-gate-context — Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9 — aiad-sdd</title>
+<meta name="description" content="INTENT-033-doctrine-v19-gate-context — Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9 — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 88/10…"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="INTENT-033-doctrine-v19-gate-context — Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9 — aiad-sdd"/>
+<meta property="og:description" content="INTENT-033-doctrine-v19-gate-context — Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9 — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 88/10…"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="INTENT-033-doctrine-v19-gate-context — Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9 — aiad-sdd"/>
+<meta name="twitter:description" content="INTENT-033-doctrine-v19-gate-context — Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9 — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-sdd · Santé 88/10…"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.20.0</div>
+  </div>
+  <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li>
+    <li><a href="eco.html" class="">
+      <span class="nav-icon">🌱</span>Éco
+    </a></li></ul>
+  <div class="footer">Généré 27/10/2026 09:46:10<br/>Framework AIAD v1.20.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>INTENT-033-doctrine-v19-gate-context — Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9</h1>
+      <div class="subtitle">Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 27/10/2026 09:46:10. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.20.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+    .ip-cols { display:grid; grid-template-columns: 1fr 280px; gap: 1.5rem; align-items: start; }
+    @media (max-width: 900px) { .ip-cols { grid-template-columns: 1fr; } }
+    .ip-meta table { width:100%; font-size:.85rem; }
+    .ip-meta td { padding:.25rem .4rem; vertical-align:top; }
+    .ip-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+    .ip-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+    .ip-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+    .ip-sections pre { margin:0; white-space:pre-wrap; font-family: inherit; font-size:.88rem; line-height:1.45; }
+    .ip-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+    .ip-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+    .ip-actions a:hover { background:rgba(76,110,245,.18); }
+  </style>
+<div class="ip-cols">
+  <div class="ip-sections">
+    <h2><a class="src-link" href="../.aiad/intents/INTENT-033-doctrine-v19-gate-context.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-033-doctrine-v19-gate-context.md">INTENT-033-doctrine-v19-gate-context</a> — Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9</h2>
+    <section><h3>POURQUOI MAINTENANT</h3><div class="md-light"><p>je reprends aiad après la pause estivale</p></div></section><section><h3>POUR QUI</h3><div class="md-light"><p>tous ceux qui s&#39;intéressent au cycle de dev à l&#39;ère des agents IA</p></div></section><section><h3>OBJECTIF</h3><div class="md-light"><p>être une source d&#39;information pour le cycle de dev à l&#39;ère de l&#39;IA basée sur des retours du terrain, pas d&#39;une théorie</p><p><strong>Métrique</strong> : 100 % des SPEC déclarant des credentials, une ressource partagée en écriture ou une action irréversible sont contrôlées par la Gate ; 0 régression sur la suite de tests existante. <em>(Reformulation proposée par l&#39;agent — cas prévu par la skill <code>human-authorship-check</code>, critère #4 — validée par l&#39;auteur le 2026-09-25.)</em></p></div></section><section><h3>CONTRAINTES</h3><div class="md-light"><p>pas de régression sur les SPEC existantes</p></div></section><section><h3>CRITÈRE DE DRIFT</h3><div class="md-light"><p>la Gate bloque des SPEC qui passaient avant</p></div></section>
+    <section><h3>SPECs liées</h3><p class="muted" style="font-size:.85rem">Avancement : <strong>0/4</strong> SPECs livrées (0 %), 0 en cours.</p><table><thead><tr><th>ID</th><th>Titre</th><th>Statut</th><th>SQS</th></tr></thead><tbody><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-033-1-resync-commandes-livrees.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-1-resync-commandes-livrees.md">SPEC-033-1-resync-commandes-livrees</a></td>
+      <td>Resynchroniser les commandes livrées sur celles du dépôt + contrôle anti-divergence</td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td class="muted">5</td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-033-2-sections-gabarit-spec.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-2-sections-gabarit-spec.md">SPEC-033-2-sections-gabarit-spec</a></td>
+      <td>Gabarit de SPEC — sections « Points d&#39;arrêt de l&#39;agent » (optionnelle) et « Périmètre d&#39;exécution de l&#39;agent » (conditionnelle)</td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td class="muted">5</td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-033-3-gate-precheck.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-3-gate-precheck.md">SPEC-033-3-gate-precheck</a></td>
+      <td>Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt</td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td class="muted">5</td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-033-4-contexte-herite.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-4-contexte-herite.md">SPEC-033-4-contexte-herite</a></td>
+      <td>/sdd context — contexte hérité au point de fork d&#39;un sous-agent</td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td class="muted">5</td>
+    </tr></tbody></table></section>
+    <section><h3>Risques</h3><p class="muted">Aucun risque détecté (frontmatter <code>risks:</code> ni heuristique sur CONTRAINTES).</p></section>
+    <section><h3>Hypothèse</h3><p class="muted">Aucune hypothèse déclarée (frontmatter <code>hypothesis:</code>).</p></section>
+    <section><h3>Dépendances</h3><p><strong>Bloqué par</strong> : <em class="muted">aucune</em></p><p><strong>Bloque</strong> : <em class="muted">aucun</em></p></section>
+    <div class="ip-actions">
+      <a href="pm.html">← Cockpit PM</a>
+      <a href="intents.html">← Catalogue Intents</a>
+      <a href="../.aiad/intents/INTENT-033-doctrine-v19-gate-context.md" target="_blank">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="ip-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .3rem">Métadonnées</h3>
+    <table><tr><td><strong>Statut</strong></td><td><span class="badge badge-ok">active</span></td></tr><tr><td><strong>Date</strong></td><td>2026-09-25</td></tr><tr><td><strong>Auteur</strong></td><td>Steeve Evers</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

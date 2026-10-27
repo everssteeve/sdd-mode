@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-10-27T08:46:10.413Z"/><meta name="aiad-version" content="1.20.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>SPEC-033-3-gate-precheck — Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt — aiad-sdd</title>
+<meta name="description" content="SPEC-033-3-gate-precheck — Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sd…"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SPEC-033-3-gate-precheck — Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt — aiad-sdd"/>
+<meta property="og:description" content="SPEC-033-3-gate-precheck — Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sd…"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPEC-033-3-gate-precheck — Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-033-3-gate-precheck — Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sd…"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<nav class="side">
+  <div class="brand">
+    <div class="brand-title">aiad-sdd</div>
+    <div class="brand-sub">SDD Mode · Dashboard</div>
+    <div class="brand-version">v1.20.0</div>
+  </div>
+  <ul>
+    <li><a href="today.html" class="">
+      <span class="nav-icon">⊙</span>Aujourd&#39;hui
+    </a></li>
+    <li><a href="inbox.html" class="">
+      <span class="nav-icon">📥</span>Inbox
+    </a></li>
+    <li><a href="index.html" class="">
+      <span class="nav-icon">◐</span>Vue d&#39;ensemble
+    </a></li>
+    <li><a href="pm.html" class="">
+      <span class="nav-icon">◑</span>PM Cockpit
+    </a></li>
+    <li><a href="intents.html" class="">
+      <span class="nav-icon">◇</span>Intents
+    </a></li>
+    <li><a href="specs.html" class="">
+      <span class="nav-icon">◆</span>SPECs
+    </a></li>
+    <li><a href="traceability.html" class="">
+      <span class="nav-icon">⇄</span>Traçabilité
+    </a></li>
+    <li><a href="graph.html" class="">
+      <span class="nav-icon">⊛</span>Graphe
+    </a></li>
+    <li><a href="metrics.html" class="">
+      <span class="nav-icon">⊞</span>Métriques
+    </a></li>
+    <li><a href="qa.html" class="">
+      <span class="nav-icon">✓</span>QA
+    </a></li>
+    <li><a href="adrs.html" class="">
+      <span class="nav-icon">⎈</span>ADRs
+    </a></li>
+    <li><a href="legal.html" class="">
+      <span class="nav-icon">§</span>Legal
+    </a></li>
+    <li><a href="governance.html" class="">
+      <span class="nav-icon">⚖</span>Gouvernance
+    </a></li>
+    <li><a href="drifts.html" class="">
+      <span class="nav-icon">⚠</span>Drifts &amp; Facts
+    </a></li>
+    <li><a href="changelog.html" class="">
+      <span class="nav-icon">⏱</span>Changelog
+    </a></li>
+    <li><a href="onboarding.html" class="">
+      <span class="nav-icon">?</span>Onboarding
+    </a></li>
+    <li><a href="kanban.html" class="">
+      <span class="nav-icon">▦</span>Kanban
+    </a></li>
+    <li><a href="sre.html" class="">
+      <span class="nav-icon">⚙</span>SRE / Ops
+    </a></li>
+    <li><a href="dpo.html" class="">
+      <span class="nav-icon">⊙</span>DPO / RGPD
+    </a></li>
+    <li><a href="eco.html" class="">
+      <span class="nav-icon">🌱</span>Éco
+    </a></li></ul>
+  <div class="footer">Généré 27/10/2026 09:46:10<br/>Framework AIAD v1.20.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</nav>
+<main>
+  <header class="page-header">
+    <div>
+      <h1>SPEC-033-3-gate-precheck — Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt</h1>
+      <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 27/10/2026 09:46:10. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+      <div class="meta">aiad-sdd · v1.20.0</div>
+      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
+        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
+      </button>
+    </div>
+  </header>
+  <style>
+  .sp-cols { display:grid; grid-template-columns: 1fr 260px; gap: 1.5rem; align-items: start; }
+  @media (max-width: 900px) { .sp-cols { grid-template-columns: 1fr; } }
+  .sp-meta table { width:100%; font-size:.85rem; }
+  .sp-meta td { padding:.25rem .4rem; vertical-align:top; }
+  .sp-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+  .sp-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+  .sp-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+  .ca-item { margin-bottom:.75rem; padding:.5rem; background:rgba(127,127,127,.03); border-left:2px solid var(--border,#ddd); border-radius:.2rem; }
+  .ca-texte { margin:.4rem 0 0; padding:.4rem .6rem; background:rgba(76,110,245,.04); border-left:3px solid rgba(76,110,245,.3); font-size:.88rem; font-family:monospace; white-space:pre-wrap; }
+  .dood-list { list-style:none; padding:0; }
+  .dood-list li { padding:.15rem 0; font-size:.88rem; }
+  .sp-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+  .sp-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+  .sp-actions a:hover { background:rgba(76,110,245,.18); }
+  /* Masque le doublon h1 du page-header pour les pages détail SPEC */
+  body:has(.sp-cols) .page-header h1 { display:none; }
+</style>
+<div class="sp-cols">
+  <div class="sp-sections">
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-033-3-gate-precheck.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-3-gate-precheck.md">SPEC-033-3-gate-precheck</a> — Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt</h1>
+
+    <section aria-label="Contexte">
+      <h3>§1 — Contexte</h3>
+      <p>La Gate SQS est jugée par le modèle (variance ±8-14 %, CANARY-010) ; la doctrine v1.9 lui demande de vérifier le périmètre d&#39;exécution d&#39;un agent et le seuil d&#39;arrêt des actions irréversibles. Pour respecter la contrainte de l&#39;auteur (« pas de régression sur les SPEC existantes ») et le principe « computation off-context » (`lib/verdict.js`), ces vérifications sont faites par une **commande CLI déterministe** exécutée avant le scoring SQS. Seule une déclaration structurée (section « Périmètre d&#39;exécution de l&#39;agent », format SPEC-033-2) peut fermer la Gate ; les mots-clés en prose ne produisent qu&#39;un avertissement.</p>
+    </section>
+
+    <section aria-label="Critères d'acceptation">
+      <h3>§3 — Critères d'acceptation</h3>
+      <div class="ca-item">
+      <p><strong>CA-001</strong> — Non-régression sur les SPEC existantes <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The gate-precheck command SHALL return exit code 0 for each of the 67 SPEC files present in .aiad/specs/archive/ on 2026-09-25.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-002</strong> — Mots-clés sans section <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF a SPEC contains a listed keyword AND has no &quot;Périmètre d&#39;exécution de l&#39;agent&quot; section, THEN the gate-precheck command SHALL return exit code 0 with one warning per keyword found.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-003</strong> — Action irréversible sans seuil d&#39;arrêt <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF the &quot;Actions irréversibles possibles&quot; row declares at least one action AND the &quot;Seuil d&#39;arrêt&quot; row is empty, THEN the gate-precheck command SHALL return exit code 1.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-004</strong> — Credentials ou ressource partagée sans isolation <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF the &quot;Credentials présents&quot; row or the &quot;Ressources partagées en écriture&quot; row declares at least one item AND the &quot;Isolation&quot; row or the &quot;Sorties réseau autorisées&quot; row is empty, THEN the gate-precheck command SHALL return exit code 1.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-005</strong> — Section non applicable <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the &quot;Périmètre d&#39;exécution de l&#39;agent&quot; section contains only &quot;Non applicable&quot;, the gate-precheck command SHALL return exit code 0.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-006</strong> — Tableau incomplet <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF the &quot;Périmètre d&#39;exécution de l&#39;agent&quot; section lacks at least one of the six rows defined in SPEC-033-2, THEN the gate-precheck command SHALL return exit code 2.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-006b</strong> — Tableau incomplet prioritaire sur un manque <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF the &quot;Périmètre d&#39;exécution de l&#39;agent&quot; section lacks at least one of the six rows AND declares an irreversible action with an empty &quot;Seuil d&#39;arrêt&quot; row, THEN the gate-precheck command SHALL return exit code 2.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-007</strong> — SPEC introuvable <span class="badge badge-info ca-pattern" style="font-size:.72rem">Unwanted behaviour</span></p>
+      <blockquote class="ca-texte">IF the SPEC identifier resolves to no file, THEN the gate-precheck command SHALL return exit code 2.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-008</strong> — Sortie validée par schéma <span class="badge badge-info ca-pattern" style="font-size:.72rem">Event-driven</span></p>
+      <blockquote class="ca-texte">WHEN the --json flag is passed, the gate-precheck command SHALL print a JSON verdict that validates against gate-precheck.schema.json.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-009</strong> — Intégration à la Gate <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The /sdd gate command file SHALL instruct running &quot;npx aiad-sdd gate-precheck &lt;SPEC-id&gt;&quot; before the SQS scoring step.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-009b</strong> — Gate fermée sur FAIL <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The /sdd gate command file SHALL state that a gate-precheck FAIL verdict closes the Gate.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-009c</strong> — Gate inconnue sur JNSP <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The /sdd gate command file SHALL state that a gate-precheck JNSP verdict sets the Gate to INCONNUE.</blockquote>
+    </div>
+<div class="ca-item">
+      <p><strong>CA-010</strong> — Cas canary déterministe <span class="badge badge-info ca-pattern" style="font-size:.72rem">Ubiquitous</span></p>
+      <blockquote class="ca-texte">The canary suite SHALL contain one deterministic case that expects exit code 1 from gate-precheck on a fixture SPEC declaring an irreversible action without a stop threshold.</blockquote>
+    </div>
+    </section>
+
+    <section aria-label="Interface / API">
+      <h3>§4 — Interface / API</h3>
+      <pre><code>```
+npx aiad-sdd gate-precheck &lt;SPEC-id|chemin&gt; [--json]
+  exit 0 : PASS  (avertissements éventuels)
+  exit 1 : FAIL  (manques listés)
+  exit 2 : JNSP  (SPEC introuvable ou tableau incomplet)
+
+JSON : { verdict, exitCode, spec, section: &quot;absente&quot;|&quot;non-applicable&quot;|&quot;declaree&quot;,
+         manques: string[], lignesAbsentes: string[], avertissements: string[] }
+```</code></pre>
+    </section>
+
+    <section aria-label="Dépendances">
+      <h3>§5 — Dépendances</h3>
+      <ul><li>SPEC-033-1 (parité des commandes : gate.md modifié dans les deux exemplaires), SPEC-033-2 (format de la section).</li><li>Réutilise : lib/verdict.js (contrat de sortie), lib/frontmatter.js, mécanisme de chargement des schémas (chargerSchemaVerdict), lib/canary.js.</li><li>Enregistrement de la commande : bin/aiad-sdd.js, lib/cli-schema.js (même motif que research).</li></ul>
+    </section>
+
+    <section aria-label="Definition of Output Done">
+      <h3>§7 — Definition of Output Done</h3>
+      <ul class="dood-list"><li>☑ Code + lint passing</li><li>☑ Tests unitaires couvrant CA-001 à CA-008 (dont le rejeu sur les 67 SPEC archivées)</li><li>☑ Cas canary ajouté (CA-010)</li><li>☑ Annotations @intent INTENT-033 / @spec SPEC-033-3 / @verified-by</li><li>☑ SPEC mise à jour si écart (Drift Lock)</li><li>☐ Code review passée</li><li>☑ Gouvernance vérifiée (RGESN : zéro dépendance)</li></ul>
+    </section>
+
+    <div class="sp-actions">
+      <a href="specs.html">← Retour à la liste des SPECs</a>
+      <a href="../.aiad/specs/SPEC-033-3-gate-precheck.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="sp-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-info">ready</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-ok">SQS 5.0/5</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-info">ears</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-033</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-09-25</td></tr></table>
+  </aside>
+</div>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>
