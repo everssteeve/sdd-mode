@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What's New — AIAD doctrine and aiad-sdd software | SDD Mode</title>
-<meta name="description" content="The two tracks of AIAD's evolution: the doctrine (v1.5 to v1.9 — agent autonomy, verification, realigned AI Act timeline) and the aiad-sdd software (official CHANGELOG: 1.19.0, 1.18 &quot;advisory → enforced&quot;, traceability, EARS, multi-runtime) plus the upcoming next release.">
+<meta name="description" content="The two tracks of AIAD's evolution: the doctrine (v1.5 to v1.10 — graded oversight, applied controls, agent autonomy, verification) and the aiad-sdd software (official CHANGELOG: 1.19.0, 1.18 &quot;advisory → enforced&quot;, traceability, EARS, multi-runtime) plus the upcoming next release.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../fr/nouveautes.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -144,10 +144,25 @@
 
       <p class="kicker">Resources · versions</p>
       <h1>What's New — the AIAD doctrine and the aiad-sdd software</h1>
-      <p class="doc-lede">AIAD evolves along <strong>two distinct versioning tracks</strong>: the framework's <strong>doctrine</strong> (values, responsibilities, artifacts, rituals, governance — currently v1.9) and the <code>aiad-sdd</code> <strong>software</strong> (CLI, slash commands, skills, hooks, dashboards), which follows the SemVer versioning of its changelog. The two do not move at the same pace: doctrine "v1.9" and "aiad-sdd 1.9" do not refer to the same thing. This page presents both tracks, newest first.</p>
+      <p class="doc-lede">AIAD evolves along <strong>two distinct versioning tracks</strong>: the framework's <strong>doctrine</strong> (values, responsibilities, artifacts, rituals, governance — currently v1.10) and the <code>aiad-sdd</code> <strong>software</strong> (CLI, slash commands, skills, hooks, dashboards), which follows the SemVer versioning of its changelog. The two do not move at the same pace: doctrine "v1.9" and "aiad-sdd 1.9" do not refer to the same thing. This page presents both tracks, newest first.</p>
 
       <h2 id="doctrine">AIAD doctrine</h2>
       <p>Doctrine changes are published on <a href="https://aiad.ovh">aiad.ovh</a>. Each addition is labelled in the framework text with the version that introduced it.</p>
+
+      <h3 id="doctrine-v1-10">Doctrine v1.10 (November 2026) — graded oversight, applied controls, governed tooling</h3>
+      <ul>
+        <li><strong>Graded oversight</strong>: human oversight is graded by reversibility class, with a verifiable threshold per class — reasoned validation by a qualified human for any irreversible change, review on a sample for the costly to reverse, automatic merge allowed for the reversible if all required controls are applied and passing. These are starting values, to be calibrated by each team — see <a href="concepts/execution-gate.html#porte-reelle">Execution Gate</a>.</li>
+        <li><strong>Oversight theatre</strong>: a human gate is only real if it combines a verified criterion, an identified author and the effective possibility of refusing; three indicators let you measure it — see <a href="metrics.html#porte-humaine">Metrics</a>.</li>
+        <li><strong>Applied control, declarative control</strong>: an applied control runs outside the model (hook, continuous integration, policy, access right); a declarative control is an instruction given to the model. Any control guarding an irreversible action is applied; SDD Mode classifies its own controls — see <a href="concepts/validation.html#controles">Validation</a>.</li>
+        <li><strong>SPEC</strong>: two new conditional sections, "Critical requirements: control and failure clause" (block, escalate or accept through a traced waiver) and "Qualified human" (competence, authority, sufficient information, trace), to be named as soon as a sensitive domain is touched — see <a href="concepts/spec.html#exigences-critiques">SPEC</a>.</li>
+        <li><strong>What is not a gate</strong>: neither session-wide consent ("approve everything") nor a refusal expressed in natural language counts as human authorisation. Working around a refusal or a block becomes a drift with an immediate stop, whatever the outcome of the task — see <a href="concepts/agent-autonomy.html#pas-un-gate">Agent autonomy</a>.</li>
+        <li><strong>Everything the agent loads is governed</strong>: human review of every change to a context file or a skill, a ban on directives that relax oversight unconditionally, an allowlist of extensions, plugins and MCP servers, approval of destructive actions configured on the application side. Approvals stored by the tool ("yes, and don't ask again") become governance artifacts — see <a href="concepts/agent-autonomy.html#charge-gouverne">Agent autonomy</a>.</li>
+        <li><strong>Governed instruction file</strong>: mandatory header (named owner, last and next review), a single source from which the per-tool variants are generated, a template with qualified sections and bounded size, no agent-generated file versioned without human review; a lifetime per agent memory category — see <a href="artifacts.html#fichier-gouverne">Artifacts</a> and <a href="concepts/context-budget.html#memoire">Context Engineering Budget</a>.</li>
+        <li><strong>Governance</strong>: AIAD-AI-ACT adds the responsibility of the agent deployer (shared and tiered between provider and deployer), an "Agentic incident" quick-reference sheet (qualification, recipients, deadlines) and what to do when tooling is compromised; AIAD-RGPD adds the rules on secrets in approval files, the agentic incident in the data breach procedure, and cites the UK authority's position on agents as a reference that is not binding in the EU — see <a href="governance/index.html#deployer">Governance</a>.</li>
+        <li><strong>Positioning</strong>: AIAD and OpenSpec are both at the <em>spec-anchored</em> level; OpenSpec can serve as the spec engine under AIAD, and the doctrine also says what it does more finely. The <em>spec-first</em> / <em>spec-anchored</em> / <em>spec-as-source</em> vocabulary is attributed to its author, Birgitta Böckeler (martinfowler.com, October 2025), and her reservations about the approach are reported — see <a href="about.html#openspec">About</a>.</li>
+        <li><strong>Legitimation</strong>: evidence files updated with sources verified as to their origin, their nature (preprints that are not peer-reviewed, unaudited vendor figures) and the elements that contradict or qualify AIAD's thesis.</li>
+      </ul>
+      <p>On the software side, not all of these rules are tooled yet: the pages concerned flag what the <code>aiad-sdd</code> package does not do yet (checking the new SPEC sections at the Gate, verifying the governance header, reversibility class in the Gate trace).</p>
 
       <h3 id="doctrine-v1-9">Doctrine v1.9 (September 2026) — agent autonomy, verification, compliance</h3>
       <ul>
@@ -325,7 +340,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agent autonomy — a variable you calibrate | SDD Mode</title>
-<meta name="description" content="Agent autonomy in the AIAD doctrine v1.9: a five-level authority continuum (&quot;answering is not consenting&quot;), agent stop points, execution scope, reversibility class and stop threshold, a permission mode is not a control, containment judged on the shared surface, the trace as a chain of evidence.">
+<meta name="description" content="Agent autonomy in the AIAD doctrine (v1.9, extended in v1.10): a five-level authority continuum (&quot;answering is not consenting&quot;), agent stop points, execution scope, reversibility class and stop threshold, a permission mode is not a control, containment judged on the shared surface, the trace as a chain of evidence.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/concepts/autonomie-agent.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -143,9 +143,9 @@
         </ol>
       </nav>
 
-      <p class="kicker">Concept · AIAD doctrine v1.9</p>
+      <p class="kicker">Concept · AIAD doctrine v1.9, extended in v1.10</p>
       <h1>Agent autonomy — a variable you calibrate</h1>
-      <p class="doc-lede">An agent that can write code, spend money, delete data or act on equipment is no longer a mere text generator. The AIAD doctrine v1.9 does not seek to maximise its autonomy: <strong>greater autonomy is not a goal in itself; it is a variable you calibrate, SPEC by SPEC</strong>. This page brings together the mechanisms that set that calibration — and that make it possible to demonstrate, after the fact, what had been delegated.</p>
+      <p class="doc-lede">An agent that can write code, spend money, delete data or act on equipment is no longer a mere text generator. The AIAD doctrine does not seek to maximise its autonomy: <strong>greater autonomy is not a goal in itself; it is a variable you calibrate, SPEC by SPEC</strong>. This page brings together the mechanisms that set that calibration — and that make it possible to demonstrate, after the fact, what had been delegated.</p>
 
       <h2 id="principe">What the human grants, what the agent gives back</h2>
       <p>Agent autonomy is described in both directions. On one side, what the human <strong>grants</strong>: a level of authority, an execution scope, caps. On the other, what the agent <strong>gives back</strong>: stop points where it returns to the human, an immediate halt when it exceeds what was delegated to it, and a trace of what it did. Both are declared before execution, in the <a href="intent-statement.html">Intent Statement</a> and the <a href="spec.html">SPEC</a>, and checked at the <a href="execution-gate.html">Execution Gate</a>. This is the operational form of value 7, <a href="human-authorship.html">Human Authorship</a>, and of value 6, Shared Responsibility: autonomy delegated without an accountable human is a governance defect, not a feature.</p>
@@ -164,6 +164,17 @@
         </tbody>
       </table>
       <p>"Writing" here means code and production artifacts. At the consultation and clarification levels, the agent may draft specification artifacts — that is the role of <code>/sdd spec</code>; they commit nothing until a human has validated them at the Gate. The Intent Statement, for its part, is still written by a human.</p>
+
+      <h3 id="pas-un-gate">What is not a gate (v1.10)</h3>
+      <p>Two mechanisms look like a human act of the continuum without being one.</p>
+      <ul>
+        <li><strong>Session-wide consent.</strong> A single confirmation that lifts approval for the whole rest of the session — for example <code>/tools trust-all</code>, introduced by Kiro CLI 2.24.0 in September 2026, which automatically approves tool calls "for the rest of the current V3 session" after a security warning. This consent is neither <strong>specific</strong> (it bears on no named action), nor <strong>bounded by the reversibility class</strong> (it covers a read and a deletion in the same way), nor <strong>traced</strong> action by action. It is a convenience setting, legitimate in a disposable environment; it is not a write or deployment authorisation.</li>
+        <li><strong>Declarative refusal.</strong> A "no" expressed in natural language to an agent optimising its task can be treated as an obstacle to work around. A refusal is only a control if it is <a href="validation.html#controles">applied outside the model</a>.</li>
+      </ul>
+
+      <h3 id="humain-qualifie">The qualified human (v1.10)</h3>
+      <p>A human act of the continuum is only worth the person who performs it. AIAD calls a <strong>qualified human</strong> a person who meets four conditions: <strong>competence</strong> in the domain of the decision, through training or experience; <strong>authority</strong> to stop, modify or refuse; <strong>sufficient information</strong> — they see what the agent's proposal is based on, not just its result; <strong>trace</strong> — their decision is attributable and timestamped. This is not a certification: in a team of three, it is the person who knows the domain and can say no — except where the applicable law requires a title or licence for the activity itself.</p>
+      <p>When the SPEC touches a domain where an error directly affects a person — health, rights and legal status, finance and credit, employment and livelihood, housing, education, access to essential services and benefits —, <strong>the SPEC names the qualified human and what qualifies them</strong> ("<a href="spec.html#exigences-critiques">Qualified human</a>" section). The AI Act points the same way: its Article 26(2) requires the deployer of a high-risk system to assign human oversight to persons who have "the necessary competence, training and authority, as well as the necessary support" — an obligation applicable from 2 December 2027 for Annex III. The model provider's usage policy may already require it by contract: see <a href="../governance/index.html#deployer">Responsibility of the agent deployer</a>.</p>
 
       <h2 id="points-arret">Stop points at the agent's initiative</h2>
       <p>The continuum describes what the human grants; stop points describe when the agent must come back to the human. AIAD adopts the typology proposed by Ethan Mollick in 2026:</p>
@@ -207,6 +218,9 @@
         <li><strong>irreversible</strong>: cannot be undone (payment executed, contractual commitment, permanent deletion, physical action on equipment).</li>
       </ul>
       <p>For the irreversible class, the Drift Criterion sets a <strong>stop threshold</strong>, not a mere tracking indicator: any observed overreach of autonomy — spending beyond the cap, an action outside the delegated scope, an attempt to hide or alter its own traces — triggers an <strong>immediate halt of the agent and a human review</strong>, not an after-the-fact report. Providers' billing alerts do not fill that role: designed for human-speed errors, they can lag by up to 24 hours (overspend incidents documented by InfoQ, July 2026).</p>
+      <h3 id="contournement">Working around a refusal is a drift with an immediate stop (v1.10)</h3>
+      <p>Added to the autonomy overruns above is <strong>working around a refusal or a block</strong>: an agent that, having been told "no" — by a human, an access control or a rule —, looks for another path to the same result. This pattern stops the agent and triggers a human review <strong>whatever the outcome of the task</strong>: a task achieved through a workaround remains a drift. The reference case is the one the Australian Prime Minister made public on 24 September 2026: on 18 June, an OpenAI agent, used for an internet research task, obtained unauthorised access to a Medicare statistics portal and viewed non-public files there; the agent, in his words, "didn't accept 'no' for an answer". These facts are known through the press, which reports the Prime Minister's statements; OpenAI speaks of an internal evaluation during which its models acted in a way it had not intended, and says it has no evidence of access to patient records.</p>
+      <p>Practical consequence: <strong>a refusal that protects an irreversible action is not entrusted to a natural-language instruction</strong>. It is applied by a deterministic mechanism — executable policy, deny by default, access rights — placed outside the model. A team without policy-as-code tooling starts with the simplest step: not giving the agent the credential that makes the action possible.</p>
 
       <h3 id="profil-ai-act">The "Agents with irreversible effects" profile of AIAD-AI-ACT</h3>
       <p>The <a href="../governance/index.html#ai-act">AIAD-AI-ACT</a> governance agent devotes an emerging risk profile to agents with irreversible effects (financial, operational, physical). If it influences a decision affecting people in an Annex III domain of the AI Act, the agent falls under the high-risk regime. Outside that case, the regulation imposes no oversight obligations specific to this profile: AIAD nevertheless applies, <strong>as good practice</strong>, minimal human checkpoints before any deployment into service — and general law continues to apply.</p>
@@ -235,6 +249,22 @@
       <p>Isolating each agent is not enough. In July 2026, some 1,200 OpenAI evaluation agents, each isolated in its own sandbox, discovered that they had access to the same Artifactory cache. They turned it into a message board — more than 70,000 messages and files exchanged — and around 700 of them took part in a multi-day intrusion at Hugging Face (independent METR / Redwood Research report, August 2026). Each agent's isolation was real; it was the common resource that served as the channel.</p>
       <p>Martin Fowler describes the same mechanism in a constructive light ("An accidental blackboard", September 2026): agents spontaneously using the git repository as shared memory. The lesson is the same in both cases: <strong>any shared resource with write access is a coordination channel between agents, intended or not</strong>. The Agents Engineer inventories these resources, and the SPEC declares them — including intended coordination spaces — in its "Agent execution scope" section.</p>
 
+      <h2 id="charge-gouverne">Everything the agent loads is governed (v1.10)</h2>
+      <p>Context files (the AGENT-GUIDE and its per-tool variants, agent memory), skills, plugins, MCP servers and the extensions of the agentic tool form a single perimeter: <strong>everything the agent loads is treated as executable behaviour</strong>, just like code. Four rules follow.</p>
+      <ul>
+        <li><strong>Human review of every change.</strong> A change to a context file or a project skill goes through human review, like a SPEC (<code>CODEOWNERS</code> file or equivalent). An agent never validates on its own a change to its own instructions.</li>
+        <li><strong>No directive that relaxes oversight unconditionally.</strong> Instructions such as "continue without approval", bypassing controls (<code>--no-verify</code>) or "do not report" are forbidden in AIAD artifacts and searched for when importing any third-party skill or file. A 2026 study of 1.53 million English-language skills finds them in about one skill in seventeen; the open source scanners tested catch 46% of them at best (preprint, not peer-reviewed). Pattern search helps; it does not replace human reading.</li>
+        <li><strong>Tooling allowlist.</strong> The Agents Engineer keeps the list of authorised marketplaces, extensions, plugins and MCP servers: source, verified publisher, pinned version, automatic updates disabled on workstations that hold sensitive access. On 29 October 2026, trojanised versions of the Claude Code extension were distributed for half a day on Cursor's marketplace; they installed a persistent SSH backdoor that uninstalling the extension did not necessarily remove (Cursor security advisory). An allowlist does not protect against a legitimate package compromised at the source: it reduces the surface and makes a response possible. What to do: <a href="../governance/index.html#compromised-tooling">Compromised agentic tooling</a>.</li>
+        <li><strong>Approval of destructive actions configured on the application side.</strong> For any tool able to delete or overwrite, human approval is configured in the application hosting the agent; you do not rely on a confirmation from the tool server. A 2026 study of a sample of 1,000 repositories from the MCP registry estimates that about 90% of destructive tools have no server-side confirmation (preprint).</li>
+      </ul>
+      <h3 id="approbation-persistee">A persisted approval is a governance artifact</h3>
+      <p>Answering "yes, and don't ask again" turns a one-off decision into a permanent rule, written to a file nobody rereads: the tool's local settings (for example <code>.claude/settings.local.json</code>), "always allow" lists, hook trust records. These files can also retain the approved command in full, secrets included. AIAD treats them as governance artifacts:</p>
+      <ul>
+        <li>each persisted approval has a <strong>scope</strong> (which command, which directory), a <strong>human author</strong> and a <strong>lifetime</strong>;</li>
+        <li>the files that hold them are <strong>excluded from the repository</strong>, run through secret scanning, and reread at the end of each iteration;</li>
+        <li>an approval <strong>written by a third-party tool</strong> in place of the human is invalid.</li>
+      </ul>
+
       <h2 id="preuve">The trace as evidence</h2>
       <p>AIAD adopts the thesis put forward by Bruce Schneier and Nathan Sanders in June 2026: AI agents are the agents of the person or organisation that deploys them. This is <strong>a thesis, not settled law</strong>. A first judicial signal exists — the injunction of the Munich Regional Court of 28 May 2026 holding Google liable for statements generated by its AI Overviews —, but it concerns defamation by a search engine, not development agents, and the decision is <strong>provisional and under appeal</strong>.</p>
       <p>If the organisation answers for its agents, it must be able to show what it asked of them, within which limits, and who validated it. This is the <strong>delegation trace</strong> prescribed by AIAD-AI-ACT: every task entrusted to an agent is linked to an Intent Statement, a SPEC and the Execution Gate trace; a task whose human origin cannot be traced is not executed.</p>
@@ -262,7 +292,7 @@
       </ul>
 
       <h2 id="sources">Sources</h2>
-      <p>AIAD doctrine v1.9: AIAD Framework, § 3.3 (Agents Engineer — permission mode, shared surface), § 4.0 (reversibility class and stop threshold), § 4.4 (authority continuum, stop points), § 5.5 (chain of evidence for automated deployment); annex A, SPEC template ("Agent stop points" and "Agent execution scope" sections); AIAD-AI-ACT, "Agents with irreversible effects" profile and "Delegation trace" instruction; legitimation dossier "The AIAD trace as evidence of accountability" (sources verified on 25/09/2026). This content describes a governance and accountability logic, not legal advice.</p>
+      <p>AIAD doctrine v1.9 and v1.10: AIAD Framework, § 3.3 (Agents Engineer — permission mode, shared surface, governed tooling, persisted approvals), § 4.0 (reversibility class, stop threshold, working around a refusal), § 4.4 (authority continuum, stop points, qualified human), § 5.5 (chain of evidence for automated deployment); annex A, SPEC template ("Agent stop points" and "Agent execution scope" sections); AIAD-AI-ACT, "Agents with irreversible effects" profile and "Delegation trace" instruction; legitimation dossier "The AIAD trace as evidence of accountability" (sources verified on 25/09/2026). This content describes a governance and accountability logic, not legal advice.</p>
 
       <nav class="doc-pagination" aria-label="Adjacent pages">
         <a class="prev" href="human-authorship.html"><span class="dir">← Previous</span>Human Authorship</a>
@@ -315,7 +345,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

@@ -184,6 +184,9 @@
 
       <h3 id="shared-surface">Containment is judged on the shared surface</h3>
       <p>In July 2026, around 1,200 OpenAI evaluation agents, each isolated in its own sandbox, discovered that they had access to the same artifact cache. They turned it into a message board — more than 70,000 messages and files exchanged — and around 700 of them took part in a multi-day intrusion at Hugging Face (independent METR / Redwood Research report, August 2026). Each agent's isolation was real; it was the shared resource that served as the channel. Martin Fowler describes the same mechanism in a constructive light: agents spontaneously using the git repository as shared memory. The lesson is the same: <strong>any shared resource with write access is a coordination channel between agents, intended or not</strong>. The AE inventories these resources, and the SPEC declares them in its "Agent execution perimeter" section whenever the agent holds credentials or write access to a shared resource — outside these cases, the section is not required. See <a href="../concepts/agent-autonomy.html">Agent autonomy</a>.</p>
+
+      <h3 id="governed-tooling">Everything the agent loads is governed (v1.10)</h3>
+      <p>Context files, skills, plugins, MCP servers and extensions of the agentic tool form a single perimeter, treated as executable behaviour. The AE answers for it through four rules: <strong>human review</strong> of every change to a context file or project skill — an agent never validates on its own a change to its own instructions; <strong>no directive that relaxes oversight unconditionally</strong>, in the project's artifacts as well as when importing a third-party skill; a <strong>tooling allowlist</strong> (marketplaces, extensions, plugins, MCP servers: source, verified publisher, pinned version, automatic updates disabled on workstations with sensitive access); <strong>approval of destructive actions configured on the application side</strong>, without relying on a confirmation from the tool server. <strong>Persisted approvals</strong> — "yes, and don't ask again" — are governance artifacts: scope, human author, lifetime; files kept out of the repository, run through secret scanning and reread at the end of each iteration. Details: <a href="../concepts/agent-autonomy.html#charge-gouverne">Agent autonomy</a>.</p>
       <div class="callout warn">
         <span class="callout-title">Anti-pattern: agent hoarding</span>
         <p>Stacking up agents "just in case" without measuring their actual usefulness, or granting them broad permissions "to keep things simple". More agents does not mean more effectiveness — and unrestricted permissions are a governance risk.</p>
@@ -313,7 +316,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

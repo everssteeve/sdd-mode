@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The artifacts — the team's collective memory | SDD Mode</title>
-<meta name="description" content="AIAD artifacts are not bureaucracy: the Intent Statement, PRD, ARCHITECTURE, AGENT-GUIDE, SPECs and Definitions of Done form a strict documentation hierarchy — the team's collective memory and the fuel of AI agents. Reversibility class, oversight failures and the SPEC sections that frame the agent (v1.9).">
+<meta name="description" content="AIAD artifacts are not bureaucracy: the Intent Statement, PRD, ARCHITECTURE, AGENT-GUIDE, SPECs and Definitions of Done form a strict documentation hierarchy — the team's collective memory and the fuel of AI agents. Reversibility class, oversight failures and the SPEC sections that frame the agent (v1.9), governed instruction file (v1.10).">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../fr/artefacts.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -192,10 +192,20 @@
       </ul>
       <p>The question to ask in the retrospective: <em>at what point should a human have been consulted, and why weren't they?</em> The <a href="concepts/agent-autonomy.html#points-arret">agent stop points</a> are the preventive answer.</p>
       <p>A guide with a hundred rules is less effective than a guide with ten well-chosen ones: the AGENT-GUIDE is bounded by the Context Budget (condensed ≤ 500 tokens per session). For the same reason, <a href="concepts/validation.html#exemplars">review exemplars</a> are not included in it: they are only loaded in review sessions.</p>
+      <h3 id="fichier-gouverne">A governed instruction file (doctrine v1.10)</h3>
+      <p>The AGENT-GUIDE and its per-tool variants are the files the agent reads most and, according to the available data, among the least maintained. A 2026 study of 3,387 instruction files from 1,000 GitHub repositories (preprint, not peer-reviewed) notes that 40.4% of the files analysed have only one recorded modification event, and that 16.1% of the 386 pairs of matching sections examined by hand, across formats in the same repository, give diverging instructions. AIAD draws four rules from this.</p>
+      <ul>
+        <li><strong>A governance header.</strong> Every instruction file carries a <strong>named owner</strong>, the date of the last review and the date of the next review — at most three months after the last one, a starting value to adjust. An overdue date is treated as a drift: the file is reread before the next session, not after.</li>
+        <li><strong>A single source.</strong> One source file per project — the AGENT-GUIDE — from which the per-tool variants are generated. Variants are not edited by hand, and a continuous integration check flags any divergence (in SDD Mode: <code>emit-rules</code> and its divergence check).</li>
+        <li><strong>A template with qualified sections, bounded in size.</strong> Each section is qualified: <em>core</em>, <em>to fill in if the information exists</em>, or <em>optional</em>. A more complete template does not license a longer file: the part injected into every session stays short, the rest is loaded on demand. <strong>A counter-indication to keep in mind:</strong> another 2026 study (ETH Zurich and LogicStar; preprint) concludes, according to its abstract, that context files generally do not improve agents' success rate and raise inference cost by more than 20% on average. The template is there so that nothing useful is forgotten, not to be filled in: a heading with no project-specific content stays empty.</li>
+        <li><strong>Never a generated file without human review.</strong> An instruction file generated or rewritten by an agent is reread line by line by its owner before being versioned, and none contains a directive that relaxes oversight unconditionally — this applies the rule "<a href="concepts/agent-autonomy.html#charge-gouverne">everything the agent loads is governed</a>".</li>
+      </ul>
+      <p>Agent memory follows the same logic: <a href="concepts/context-budget.html#memoire">a lifetime per category</a>. In the aiad-sdd package, <code>emit-rules</code> already enforces the single source; checking the governance header and the review date, generating Copilot instructions and searching for forbidden directives when importing a third-party skill are not there yet.</p>
 
       <h2 id="spec">SPECs — the agent's work instruction</h2>
       <p>A <a href="concepts/spec.html">SPEC</a> bridges the intent (PRD, Intent) and the agent's implementation. A quality SPEC makes it possible to generate 80%+ of correct code on the first pass — it is the framework's best-ROI investment. Four criteria define it: atomicity, precision, testability, completeness — scored by the SQS at the <a href="concepts/execution-gate.html">Execution Gate</a> (≥ 4/5 required). Each SPEC carries its own <strong>Drift Criterion</strong> and stays synchronised with the code on every PR.</p>
       <p>Two sections, added by doctrine v1.9, frame what the agent is authorised to do: "<strong>Agent stop points</strong>" (optional — when the agent comes back to a human: approval, expert opinion, plurality of viewpoints, witness) and "<strong>Agent execution scope</strong>" (conditional — required as soon as the agent holds credentials or write access to a shared resource, "Not applicable" otherwise). See <a href="concepts/spec.html#sections-agent">SPEC</a> and <a href="concepts/agent-autonomy.html">Agent autonomy</a>.</p>
+      <p>Doctrine v1.10 adds two more, also conditional: "<strong>Critical requirements: control and failure clause</strong>" (for each critical requirement, the control that verifies it, its type — applied or declarative — and what happens if it is not met: block, escalate or accept through a traced waiver) and "<strong>Qualified human</strong>" (required as soon as a sensitive domain is touched — health, rights, finance, employment, housing, education, essential services). See <a href="concepts/spec.html#exigences-critiques">SPEC</a>.</p>
 
       <h2 id="dod">The Definitions of Done</h2>
       <p>The <strong>Definition of Output Done (DoOD)</strong> sets the standard for an increment to be shippable, in six categories: technical, security, performance, functional, deployment, review. The principle is non-negotiable: all criteria or nothing — <strong>"90% Done is not Done"</strong>.</p>
@@ -283,7 +293,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

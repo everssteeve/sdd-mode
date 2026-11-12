@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>À propos — le framework AIAD et son auteur | SDD Mode</title>
-<meta name="description" content="AIAD est un méta-framework open source (MIT) créé par Steeve Evers : il gouverne le travail en équipe humain-IA, dont le SDD Mode est le mode opératoire. Positionnement face à Kiro, Spec-Kit, OpenSpec, Codeplain, SPDD, Symphony et Copilot, deux cycles de versionnage (doctrine v1.9 et logiciel aiad-sdd), preuves et limites, et présentation de ce site.">
+<meta name="description" content="AIAD est un méta-framework open source (MIT) créé par Steeve Evers : il gouverne le travail en équipe humain-IA, dont le SDD Mode est le mode opératoire. Positionnement face à Kiro, Spec-Kit, OpenSpec, Codeplain, SPDD, Symphony et Copilot, deux cycles de versionnage (doctrine v1.10 et logiciel aiad-sdd), preuves et limites, et présentation de ce site.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../en/about.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -163,7 +163,7 @@
         <tbody>
           <tr><td>Kiro (Amazon)</td><td>IDE, CLI et web avec spec intégrée, steering documents, hooks ; orchestrateur Kiro Crew (open source)</td><td>Couche spec et exécution possible : les steering documents peuvent alimenter l'AGENT-GUIDE, la Gate s'applique avant lancement. Kiro a ajouté une revue de spec aux checkpoints et, dans Kiro Crew, des portes d'approbation : ses contrôles portent sur l'exécution, ceux d'AIAD sur l'intention.</td></tr>
           <tr><td>GitHub Spec-Kit</td><td>Production de spécifications — open source (MIT), multi-agents</td><td>Implémentation possible de la couche spec du méta-framework.</td></tr>
-          <tr><td>OpenSpec</td><td>Spec unifiée, delta specs, validation des scénarios, consentement explicite avant écriture</td><td>Couche spec compatible ; AIAD ajoute l'Intent Statement, l'organisation et la gouvernance réglementaire.</td></tr>
+          <tr><td>OpenSpec</td><td>Spec unifiée, delta specs, validation des scénarios, consentement explicite avant écriture</td><td>Même niveau <em>spec-anchored</em> que le SDD Mode ; peut servir de moteur de spec sous AIAD, qui ajoute l'Intent Statement, l'Execution Gate, les responsabilités et la gouvernance réglementaire. Voir <a href="#openspec">AIAD et OpenSpec</a>.</td></tr>
           <tr><td>Codeplain</td><td>Specs en langage <code>.plain</code> comme actif durable, code régénéré plutôt que maintenu</td><td>Partage la thèse « la spec est l'actif durable » ; une spec <code>.plain</code> peut être la SPEC, précédée de l'Intent Statement et de l'Execution Gate.</td></tr>
           <tr><td>SPDD (REASONS Canvas)</td><td>Méthode de production de spec</td><td>Le REASONS Canvas est une option de <code>/sdd spec</code> ; AIAD apporte la gouvernance du cycle complet.</td></tr>
           <tr><td>OpenAI Symphony</td><td>Artefacts d'intention issue-tracker-first</td><td>Convergence sur l'intention persistante ; AIAD ajoute SQS, Drift Lock et gouvernance réglementaire.</td></tr>
@@ -174,10 +174,19 @@
       <p>AIAD est <strong>model-agnostic par conception</strong> : Intent Statements, SPECs et Execution Gate sont indépendants du modèle LLM et survivent aux changements de provider. La gouvernance est dans les artefacts, pas dans le vendor. Dans l'ère des « agent labs », où chaque laboratoire pousse son propre harness, ce caractère model-agnostic protège du lock-in et comble un vide de gouvernance de l'intention que les harnesses n'adressent pas. Les validations industrielles 2026 (Context Engineering formalisé par Anthropic, R2Code −41,7 % de tokens, Thoughtworks Radar, Tang et al. — 91,49 % de 20 574 sessions réelles nécessitant une correction humaine explicite —, AWS Strands) sont des confirmations indépendantes d'une approche antérieure.</p>
       <p>Pour une comparaison factuelle forces et faiblesses assumées avec Spec Kit, Kiro, OpenSpec et BMAD, voir le <a href="comparaison.html">comparatif honnête</a>.</p>
 
+      <h3 id="openspec">AIAD et OpenSpec : deux couches, pas deux concurrents (doctrine v1.10)</h3>
+      <p>Le Technology Radar de Thoughtworks (Vol. 35, novembre 2026) place OpenSpec en <em>Trial</em> — il était en <em>Assess</em> en avril —, tandis que l'entrée générique « spec-driven development », parue une seule fois en novembre 2025, ne figure pas dans l'édition. Ce n'est pas un désaveu : par convention, une entrée du Radar qui ne change pas d'anneau disparaît de l'édition suivante. AIAD en retient seulement que « SDD » employé seul ne suffit plus à situer une approche, et adopte le vocabulaire <em>spec-first</em> / <em>spec-anchored</em> / <em>spec-as-source</em> publié par Birgitta Böckeler sur martinfowler.com (octobre 2025). OpenSpec et le SDD Mode sont tous deux <strong>spec-anchored</strong> ; la différence est dans ce que chacun outille.</p>
+      <ul>
+        <li><strong>Ce qu'OpenSpec fait plus finement qu'AIAD.</strong> Ses changements sont des deltas contre une spec persistante, et depuis sa version 1.16.1 la validation échoue quand une exigence disparaîtrait sans être déclarée retirée. Le Drift Lock d'AIAD impose que le code et la SPEC évoluent dans la même pull request, et son contrôle en intégration continue porte sur les trous de traçabilité, pas sur chaque exigence. C'est une limite connue.</li>
+        <li><strong>Ce qu'AIAD ajoute.</strong> L'Intent Statement et son auteur humain, l'Execution Gate, la supervision graduée par classe de réversibilité, la répartition des responsabilités et les quatre agents de gouvernance avec droit de veto.</li>
+        <li><strong>Les utiliser ensemble.</strong> OpenSpec peut servir de moteur de spec d'un projet conduit avec AIAD : Intent Statement d'abord, spec dans OpenSpec, Execution Gate sur le delta proposé, puis Drift Lock sur le delta archivé et le code. Rien n'y oblige : une équipe peut utiliser le SDD Mode seul, ou OpenSpec seul si elle n'a ni contrainte réglementaire ni besoin de tracer l'intention.</li>
+      </ul>
+      <p>Les mêmes sources formulent des réserves qui concernent aussi AIAD : le Radar note qu'avec OpenSpec les agents produisent beaucoup de Markdown et que tenir la spec persistante demande de la discipline, et il maintient en <em>Caution</em> l'« <span lang="en">agent instruction bloat</span> » — des instructions d'agent qui s'allongent avec le temps ; l'article de Birgitta Böckeler, compte rendu d'essais personnels et non étude, est largement sceptique sur l'approche par spécification. AIAD en tire une règle de sobriété : la partie injectée à chaque session reste courte, et ce qui peut devenir un contrôle déterministe cesse d'être une consigne.</p>
+
       <h2 id="versions">Deux cycles de versionnage</h2>
       <p>AIAD avance sur deux rythmes distincts, qu'il ne faut pas confondre :</p>
       <ul>
-        <li>la <strong>doctrine</strong> AIAD — valeurs, responsabilités, artefacts, boucles, rituels, gouvernance — est versionnée pour elle-même (aujourd'hui <strong>v1.9</strong>) et publiée sur <a href="https://aiad.ovh">aiad.ovh</a> ;</li>
+        <li>la <strong>doctrine</strong> AIAD — valeurs, responsabilités, artefacts, boucles, rituels, gouvernance — est versionnée pour elle-même (aujourd'hui <strong>v1.10</strong>) et publiée sur <a href="https://aiad.ovh">aiad.ovh</a> ;</li>
         <li>le <strong>logiciel</strong> <code>aiad-sdd</code> — CLI, commandes slash, skills, hooks, dashboards — suit le versionnage SemVer de son CHANGELOG.</li>
       </ul>
       <p>Les deux numérotations ne sont pas alignées : « aiad-sdd 1.9 » (l'arrivée des skills) n'a rien à voir avec la doctrine v1.9 (autonomie de l'agent, vérification, conformité). Une règle de doctrine peut précéder son outillage : c'est pourquoi certaines fonctions sont signalées « à paraître » sur ce site. Le détail des deux fils est sur la page <a href="nouveautes.html">Nouveautés</a>.</p>
@@ -249,7 +258,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

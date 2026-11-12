@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tier 1 governance — the regulatory veto right | SDD Mode</title>
-<meta name="description" content="AIAD's four Tier 1 governance agents (AI Act, RGPD, RGAA, RGESN), complemented by the CRA agent shipped with the package, hold an absolute veto right over any non-compliant deliverable. AI Act timeline realigned on Regulation (EU) 2026/1744, agents with irreversible effects, delegation trail, Art. 22 GDPR, fail-closed policy, regional packs and Claude Code subagents.">
+<meta name="description" content="AIAD's four Tier 1 governance agents (AI Act, RGPD, RGAA, RGESN), complemented by the CRA agent shipped with the package, hold an absolute veto right over any non-compliant deliverable. AI Act timeline realigned on Regulation (EU) 2026/1744, agents with irreversible effects, delegation trail, responsibility of the agent deployer, agentic incident, Art. 22 GDPR, fail-closed policy, regional packs and Claude Code subagents.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/gouvernance/index.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -218,6 +218,45 @@ question: &lt;reformulation for the human&gt;</code></pre>
       <h3 id="delegation-trail">Delegation trail</h3>
       <p>Every task entrusted to an agent is linked to an <strong>Intent Statement</strong> (identified human author), a <strong>SPEC</strong> (delegated scope) and the <strong>Execution Gate trace</strong> (human validation). The organisation answers for what its agents do: without this trail, it can demonstrate neither its due diligence nor the origin of the code. The agent never starts a task whose human origin cannot be traced. This trail makes accountability demonstrable <em>in both directions</em>: a defective SPEC validated at the Gate commits the person who validated it — a trail that could only exonerate would not be evidence. The idea that an organisation must answer for its agents is a thesis AIAD adopts (Schneier and Sanders, 2026) — a thesis, not settled law.</p>
 
+      <h3 id="deployer">Responsibility of the agent deployer (v1.10)</h3>
+      <p>Principle: responsibility is <strong>shared and tiered</strong> — with a part the deployer cannot delegate. The AI Act distributes obligations; it does not transfer them from one actor to another.</p>
+      <table>
+        <caption>What the AI Act assigns to each actor (high-risk systems)</caption>
+        <thead><tr><th scope="col">Who</th><th scope="col">What the text assigns to them</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Provider of the system</th><td>Design the system so that it can be effectively overseen (Art. 14(1)); build in the oversight measures or identify those the deployer must implement (Art. 14(3)); report serious incidents (Art. 73)</td></tr>
+          <tr><th scope="row">Provider of a GPAI model with systemic risk</th><td>Track, document and report serious incidents to the AI Office (Art. 55(1)(c))</td></tr>
+          <tr><th scope="row">Deployer</th><td>Assign human oversight to persons who have "the necessary competence, training and authority, as well as the necessary support" (Art. 26(2)); use the system according to its instructions for use; monitor its operation; inform the provider and then the authorities in the event of a serious incident (Art. 26(5))</td></tr>
+        </tbody>
+      </table>
+      <p>Articles 14 and 26 only apply to Annex III systems from <strong>2 December 2027</strong>. Outside high risk, what follows is an <strong>AIAD good practice</strong>, not an AI Act obligation. Whatever the provider, the deployer keeps: <strong>containment of use</strong> (isolation, network egress, credentials), <strong>least privilege</strong> and the <strong>assignment of human oversight</strong> — it alone knows the systems, data and people the agent can reach. The agent never presents the model provider's safeguards as a sufficient measure, and never invokes the agent's autonomy to explain a failure: autonomy does not change the liability regime.</p>
+      <p><strong>Qualified human.</strong> When the SPEC touches a sensitive domain — health; rights and legal status; finance; employment and livelihood; housing, education and qualifications; essential services and benefits —, it names the person who supervises and what qualifies them: competence, authority, sufficient information, trace (see <a href="../concepts/agent-autonomy.html#humain-qualifie">The qualified human</a>). The model provider's usage policy can add contractual obligations on top of the law: Anthropic's, in the version in force on 12 November 2026, requires, for a high-risk recommendation or decision within the meaning of that policy, review by a qualified person "with the authority to change or modify it", and that the person concerned be told AI was used. This is one provider's contract, which may change: the AIAD rule is to reread, at each cycle, the policy of every provider in use.</p>
+
+      <h3 id="agentic-incident">Agentic incident — quick-reference sheet (v1.10)</h3>
+      <p>An <strong>agentic incident</strong> is a situation where an agent acts outside its mandate: it works around a refusal or a block, accesses a system it was not authorised to access, or produces an unauthorised irreversible effect. The sheet applies whether the agent is in production, in test or under evaluation.</p>
+      <ol>
+        <li><strong>Stop and isolate</strong>: stop the agent, revoke its credentials, cut its network egress.</li>
+        <li><strong>Preserve the traces</strong>: agent logs, transcripts, Execution Gate log. Never relaunch the agent on the same task before the human review.</li>
+        <li><strong>Qualify</strong> the incident with the table below, within the day.</li>
+        <li><strong>Notify through the official channel</strong> of the authority or third party affected, never through a generic contact address.</li>
+        <li><strong>Warn the third party</strong> whose system was reached, even without a legal obligation.</li>
+        <li><strong>Record</strong> the incident in the Human Learnings ("oversight failures" category) and revise the Drift Criterion.</li>
+      </ol>
+      <table>
+        <caption>Agentic incident: qualification, recipients and deadlines</caption>
+        <thead><tr><th scope="col">Qualification</th><th scope="col">Who notifies</th><th scope="col">Whom</th><th scope="col">Deadline</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Serious incident of a high-risk system (Art. 3(49))</th><td>The provider (Art. 73). The deployer immediately informs the provider, then the importer or distributor and the authority (Art. 26(5))</td><td>Market surveillance authority of the Member State where the incident occurred</td><td>Immediately, at the latest 15 days; 2 days for a widespread infringement or critical infrastructure; 10 days in the event of a death</td></tr>
+          <tr><th scope="row">Serious incident involving a GPAI model with systemic risk</th><td>The model provider (Art. 55(1)(c))</td><td>AI Office and, where applicable, national authorities</td><td>Without undue delay</td></tr>
+          <tr><th scope="row">Personal data breach</th><td>The controller (Art. 33 GDPR); the processor warns the controller</td><td>CNIL (in France)</td><td>72 hours after becoming aware of it</td></tr>
+          <tr><th scope="row">None of the above</th><td>No obligation under the AI Act; contracts, general law and step 5 apply</td><td>Third party affected</td><td>Without delay</td></tr>
+        </tbody>
+      </table>
+      <p>The Article 73 obligations follow the high-risk timeline (2 December 2027 for Annex III); those of Article 55 have been in force since 2 August 2025. Several qualifications can combine: the shortest deadline governs. The deadlines are those of Regulation (EU) 2024/1689, to be reread in the consolidated text before notifying. This sheet is a decision aid, not legal advice: escalate to the compliance officer or the DPO from step 3.</p>
+
+      <h3 id="compromised-tooling">Compromised agentic tooling (v1.10)</h3>
+      <p>When an extension, plugin, skill or MCP server installed on a workstation turns out to be malicious or compromised, <strong>uninstalling is not enough</strong>: a malicious component may have installed a backdoor that outlives it. What to do: isolate the workstation from the network; look for and remove unknown keys in <code>~/.ssh/authorized_keys</code>, persistence mechanisms and outbound tunnel processes; rotate, from a trusted system, every secret and session reachable from the workstation; examine the access logs; apply the publisher's security advisory and consider rebuilding the workstation; qualify (data breach, agentic incident); update the <a href="../concepts/agent-autonomy.html#charge-gouverne">tooling allowlist</a>. Two standing rules: keep the list of authorised extensions, plugins, skills and MCP servers, with their version — without it, you do not know which workstations are affected — and never leave automatic extension updates enabled on a workstation that holds production access.</p>
+
       <h2 id="rgpd">AIAD-RGPD — Privacy by Design</h2>
       <p>Triggered whenever the code processes personal data. The guiding principle fits in one sentence: <em>data that is not collected cannot be breached</em>. The agent applies Privacy by Design &amp; by Default (Art. 25) architecturally: a <strong>documented legal basis</strong> before any collection (consent, contract, legal obligation, legitimate interest…), <strong>minimisation</strong> (Art. 5.1.c), purpose and retention limitation, and implementation of <strong>data-subject rights</strong> (Art. 15-22) — access, erasure, portability, rectification, objection, with a response within 30 days. Sensitive data (Art. 9: health, biometrics, opinions, sexual orientation…) triggers a block and a systematic escalation to the DPO or the PM before implementation.</p>
 
@@ -253,6 +292,17 @@ question: &lt;reformulation for the human&gt;</code></pre>
           <tr><td>Allocation of responsibilities between actors</td><td>Who is the controller, who is the processor, at each step?</td><td>Shared Responsibility: each delegation has a named human owner</td></tr>
         </tbody>
       </table>
+
+      <h3 id="gdpr-agents">Persisted approvals, agentic incident and compromised tooling (v1.10)</h3>
+      <p>Answering "yes, and don't ask again" to an agentic tool can write the whole command, secret included, to a local settings file (for example <code>.claude/settings.local.json</code>). A secret exposed this way gives access to the data it protects. The agent applies four rules:</p>
+      <ul>
+        <li>exclude the agentic tool's approval files from the repository, in the <code>.gitignore</code> of the repository itself — a global exclusion specific to the workstation protects neither other clones nor a file that is already tracked;</li>
+        <li>run these files and session transcripts through secret scanning, and reread them at the end of each iteration — scanning does not replace rereading;</li>
+        <li>never permanently approve a command that contains a secret in clear text: pass the secret through an environment variable;</li>
+        <li>treat a secret found in a shared repository as compromised: rotate it, then assess whether there is a data breach (Art. 33).</li>
+      </ul>
+      <p>Two situations specific to agents open the data breach procedure: an agent that accesses personal data outside its mandate or transmits it to an unplanned third party (unauthorised access or disclosure, Art. 4(12)), and a compromised extension, plugin or skill on a workstation that holds personal data or access to such data. The 72-hour deadline runs from the moment the <strong>controller</strong> becomes aware of the breach, not from the end of the investigation; an incomplete initial notification, completed afterwards, is allowed. Notification goes through the authority's online service, never by email to a generic contact address, and the breach is documented in the internal register even if it is not notified (Art. 33(5)).</p>
+      <p><strong>Reference outside the EU.</strong> On 8 October 2026, the UK data protection authority (ICO) opened a six-week call for views on agentic AI, closed on 20 November 2026. Its director of technology regulation writes there: "the fact AI agents act with autonomy is not an excuse for poor compliance". Three reading precautions: the UK regime is close to the GDPR but <strong>has no binding force in the EU</strong>; the statement addresses developers and deployers, without saying which answers for what; as of 12 November 2026, AIAD is not aware of an equivalent consultation by the CNIL or the EDPB dedicated to agents. The agent always checks the CNIL's publications before relying on a foreign position.</p>
 
       <h2 id="rgaa">AIAD-RGAA — digital accessibility</h2>
       <p>Triggered whenever the code produces a user interface. Reference framework: <strong>RGAA 4.1.2</strong> (decree of 20 September 2024, 106 criteria across 13 themes), built on WCAG 2.1 levels A and AA. The French legal obligation stems from Article 47 of law 2005-102 for the public sector, and since 28 June 2025 from the European Accessibility Act for a broad private-sector scope (banking, e-commerce, transport, telephony). The agent enforces <em>built-in</em> accessibility — alt text on images, 4.5:1 contrast ratios, form labels, keyboard navigation, visible focus, <code>aria-current</code>, skip link — because fixing it afterwards costs ten times more. Supervisory authority: ARCOM; penalties up to €300,000 within the EAA scope.</p>
@@ -366,7 +416,7 @@ question: &lt;reformulation for the human&gt;</code></pre>
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

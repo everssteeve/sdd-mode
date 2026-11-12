@@ -196,6 +196,7 @@
         <span class="callout-title">Anti-Drift Check — 10 minutes, trois questions</span>
         <p>Avant de fermer le ticket, le PE répond pour chaque SPEC utilisée : le comportement livré correspond-il exactement à ce que décrit la SPEC ? Les fichiers impactés listés sont-ils toujours exhaustifs ? Le CRITÈRE DE DRIFT de l'<a href="../concepts/intent-statement.html">Intent Statement</a> parent signale-t-il un écart ? Si une réponse est non, on met à jour la SPEC — committée dans la <em>même PR</em> que le code : c'est le <a href="../concepts/drift-lock.html">Drift Lock</a>.</p>
       </div>
+      <p><strong>En fin d'itération (doctrine v1.10).</strong> Trois vérifications s'ajoutent : la date de prochaine revue de l'AGENT-GUIDE n'est pas dépassée et la mémoire d'agent expirée est purgée ; les fichiers d'<a href="../concepts/autonomie-agent.html#approbation-persistee">approbations persistées</a> sont relus — rien de périmé, aucun secret, rien d'écrit par un outil tiers ; et la rétrospective revoit les <a href="../concepts/execution-gate.html#porte-reelle">seuils de supervision par classe de réversibilité</a>, en relisant cinq validations au hasard pour vérifier qu'elles sont motivées.</p>
       <p>Quatre stratégies de déploiement sont disponibles : Continuous Deployment (fonctionnalités non critiques), Staged Rollout (fonctionnalités majeures), Feature Flags (expérimentations, A/B tests) et Manual Release (critiques, conformité). Recommandation AIAD : Continuous Deployment avec Feature Flags. Indicateurs : merge → production en moins d'une heure (idéal quinze minutes), rollback &lt; 5 %, zéro downtime.</p>
 
       <h3 id="chaine-de-preuve">Déploiement automatisé : la confiance est une chaîne de preuve</h3>
@@ -281,7 +282,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

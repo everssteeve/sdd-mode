@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Execution Gate — SQS ≥ 4/5 ou rien | SDD Mode</title>
-<meta name="description" content="L'Execution Gate est le point de contrôle entre une SPEC et le lancement de l'agent : 5 critères SQS, Test de l'Étranger, plafonds, seuil d'arrêt et périmètre d'exécution pour les actions irréversibles, mode EARS strict, Gate INCONNUE fail-closed (JNSP) et préparation du Context Engineering Budget. Aucun code avant Gate ouverte.">
+<meta name="description" content="L'Execution Gate est le point de contrôle entre une SPEC et le lancement de l'agent : 5 critères SQS, Test de l'Étranger, plafonds, seuil d'arrêt et périmètre d'exécution pour les actions irréversibles, mode EARS strict, Gate INCONNUE fail-closed (JNSP), supervision graduée par classe de réversibilité (porte réelle, porte de théâtre) et préparation du Context Engineering Budget. Aucun code avant Gate ouverte.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../../en/concepts/execution-gate.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -222,6 +222,29 @@ Question à l'humain : &lt;question actionnable&gt;</code></pre>
       </table>
       <p>Seule une déclaration structurée peut fermer la Gate : des mots-clés en prose ne produisent qu'un avertissement, pour ne pas faire régresser les SPEC existantes.</p>
 
+      <h2 id="porte-reelle">Porte réelle, porte de théâtre (doctrine v1.10)</h2>
+      <p>Le Technology Radar de Thoughtworks (Vol. 35, novembre 2026) nomme en <em>Caution</em> le « <span lang="en">human-in-the-loop theater</span> » : garder un humain dans la boucle d'un agent comme une étape d'approbation vide plutôt que comme une vérification réelle. AIAD reprend le terme — <strong>supervision de théâtre</strong> — et le critère. Une porte humaine est réelle si elle réunit trois conditions ; faute de l'une d'elles, c'est une signature :</p>
+      <ul>
+        <li>un <strong>critère vérifié</strong> — on sait ce que la personne a contrôlé ;</li>
+        <li>un <strong>auteur identifié</strong> — un <a href="autonomie-agent.html#humain-qualifie">humain qualifié</a> ;</li>
+        <li>la <strong>possibilité effective de refuser</strong> — des refus sont observés.</li>
+      </ul>
+      <p>La supervision se gradue ensuite par <a href="autonomie-agent.html#reversibilite">classe de réversibilité</a> du changement — ce que le même Radar place en <em>Trial</em> sous le nom de « <span lang="en">risk-tiered human oversight</span> » :</p>
+      <table>
+        <caption>Supervision humaine par classe de réversibilité (doctrine AIAD v1.10)</caption>
+        <thead><tr><th scope="col">Classe de réversibilité du changement</th><th scope="col">Intervention humaine attendue</th><th scope="col">Seuil vérifiable</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Irréversible</th><td>Validation motivée ou demande de changement par un humain qualifié, avant fusion ou exécution</td><td>100 % des changements ; aucune fusion automatique</td></tr>
+          <tr><th scope="row">Coûteusement réversible</th><td>Revue humaine sur échantillon, étendue à tout le lot si l'échantillon révèle un défaut</td><td>Au moins 1 changement sur 5</td></tr>
+          <tr><th scope="row">Réversible</th><td>Fusion automatique admise</td><td>100 % des contrôles requis sont <a href="validation.html#controles">appliqués</a> et passants</td></tr>
+        </tbody>
+      </table>
+      <p>Ces seuils sont des <strong>valeurs de départ, sans base empirique propre</strong> : chaque équipe les calibre sur ses données et les revoit en rétrospective. Ils portent sur des <strong>changements de code</strong>, pas sur les décisions qu'un système prend sur une personne : là, une revue sur échantillon n'est pas une intervention humaine réelle (<a href="../gouvernance/index.html#rgpd-art22">AIAD-RGPD</a>). Trois indicateurs permettent de les suivre : voir <a href="../metriques.html#porte-humaine">Mesurer la porte humaine</a>.</p>
+      <h3 id="pas-un-gate">Ce qui n'est pas un gate</h3>
+      <p>Deux mécanismes ressemblent à une autorisation humaine sans en être une. Le <strong>consentement global de session</strong> — une confirmation unique qui lève l'approbation pour le reste de la session — n'est ni spécifique, ni borné par la classe de réversibilité, ni tracé action par action. Le <strong>refus déclaratif</strong> — un « non » en langage naturel — peut être contourné par un agent qui optimise sa tâche. Contourner un refus ou un blocage est un drift à arrêt immédiat, quelle que soit l'issue de la tâche ; un refus qui protège une action irréversible s'applique hors du modèle. Détail : <a href="autonomie-agent.html#pas-un-gate">Autonomie de l'agent</a>.</p>
+      <h3 id="exigences-critiques">Exigences critiques et humain qualifié</h3>
+      <p>Pour chaque exigence critique, la <a href="spec.html#exigences-critiques">SPEC</a> indique le contrôle qui la vérifie, son type (appliqué ou déclaratif) et la <strong>clause d'échec</strong> : bloquer, escalader, ou accepter par dérogation tracée. Si le domaine est sensible, elle nomme l'humain qualifié. La Gate vérifie que ces sections sont remplies quand elles s'appliquent. Dans le paquet aiad-sdd, ce contrôle est aujourd'hui fait par le relecteur : il n'est pas encore dans <code>gate-precheck</code>.</p>
+
       <h2 id="budget">Préparer le Context Engineering Budget</h2>
       <p>Si la Gate s'ouvre, elle ne se contente pas de tamponner la SPEC : elle prépare le <a href="context-budget.html">Context Engineering Budget</a> de la session agent à venir — liste des fichiers à injecter, total de tokens estimé, vérification d'un plafond d'environ 50K tokens par session — une <strong>heuristique de sobriété assumée, non sourcée</strong>, pas une limite technique ; le seuil opérationnel documenté reste 60-70 % de la fenêtre disponible. Le budget est ensuite revérifié au lancement par <a href="execution.html"><code>/sdd exec</code></a>.</p>
 
@@ -283,7 +306,7 @@ Question à l'humain : &lt;question actionnable&gt;</code></pre>
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

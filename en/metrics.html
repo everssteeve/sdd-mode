@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Metrics — measuring value, not activity | SDD Mode</title>
-<meta name="description" content="SDD Mode metrics: SQS and the Stranger Test, drift rate, first-time success rate, DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR), Flow Metrics and dashboards, efficiency versus quality (Verification Tax) — data-informed, never data-driven.">
+<meta name="description" content="SDD Mode metrics: SQS and the Stranger Test, drift rate, first-time success rate, DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR), Flow Metrics and dashboards, human gate indicators by reversibility class, efficiency versus quality (Verification Tax) — data-informed, never data-driven.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../fr/metriques.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -206,6 +206,25 @@
       </table>
       <p>The most valuable analysis is the <strong>Lead Time breakdown</strong>, which locates the bottlenecks: a 15-day Lead Time with a 2-day Cycle Time reveals 13 days of hidden waiting — often between the Intent and the SPEC, or in Gate iterations. Little's law (<em>Lead Time = WIP / Throughput</em>) is the lever: to go faster, reduce WIP or increase Throughput.</p>
 
+      <h2 id="porte-humaine">Measuring the human gate (doctrine v1.10)</h2>
+      <p>The doctrine grades human oversight by the <a href="concepts/execution-gate.html#porte-reelle">reversibility class</a> of the change and attaches a verifiable threshold to it. Three indicators answer a single question: <strong>does human intervention take place where it is expected, and is it real?</strong></p>
+      <table>
+        <caption>The three human gate indicators (AIAD doctrine v1.10, appendix E.13)</caption>
+        <thead><tr><th scope="col">Indicator</th><th scope="col">Definition</th><th scope="col">Reading</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">H1 — Share of merged changes with human intervention, by class</th><td>Merged changes that received a reasoned validation or a change request from a human, over merged changes, for each class.</td><td>Compare with the class threshold. Below the threshold on the irreversible class: stop and review, not a mere alert.</td></tr>
+          <tr><th scope="row">H2 — Rate of approvals without comment on the higher classes</th><td>Approvals with no comment or question at all, over approvals, on the irreversible and costly-to-reverse classes.</td><td>Oversight theatre detector: a high, stable rate signals routine approvals. Read it together with H3.</td></tr>
+          <tr><th scope="row">H3 — Human review time relative to volume</th><td>Cumulative human review time, over the number of merged pull requests, by class and by iteration.</td><td>If volume rises and time per pull request collapses, review is becoming nominal. If total time explodes, review is the bottleneck: reduce WIP before lightening the gate.</td></tr>
+        </tbody>
+      </table>
+      <p>Possible data sources: the Execution Gate log, the review history of the code forge, a class label on the pull request. None is a prerequisite: a team can keep H1 by hand on its irreversible changes alone, which are rare by construction. The thresholds themselves are <strong>starting values, with no empirical basis of their own</strong>, to be calibrated by each team.</p>
+      <ul>
+        <li><strong>A purely formal comment does not count</strong> as a reasoned validation: H1 is checked by sampling in retrospectives, rereading five validations at random.</li>
+        <li><strong>H2 is never an individual target</strong>: published per person, it produces token comments; per team and per class, it remains a signal.</li>
+        <li><strong>Do not aim for 0% approvals without comment</strong>: a simple, well-specified change deserves an approval with no remark. It is the drift over time that is informative.</li>
+      </ul>
+      <p>Two limits: these indicators measure the <em>presence</em> and the <em>form</em> of human intervention, not its soundness; and they assume the reversibility class was declared honestly. They apply to code changes, not to decisions a system takes about a person. In the aiad-sdd package, the reversibility class and the type of human intervention are not yet part of the Execution Gate trace: until then, they are filled in by hand during the Anti-Drift Check.</p>
+
       <h2 id="dashboards">The dashboards</h2>
       <table>
         <caption class="visually-hidden">The two AIAD dashboards</caption>
@@ -297,7 +316,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

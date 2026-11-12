@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nouveautés — doctrine AIAD et logiciel aiad-sdd | SDD Mode</title>
-<meta name="description" content="Les deux fils d'évolution d'AIAD : la doctrine (v1.5 à v1.9 — autonomie de l'agent, vérification, calendrier AI Act recalé) et le logiciel aiad-sdd (CHANGELOG officiel : 1.19.0, 1.18 « advisory → enforced », traçabilité, EARS, multi-runtime) et la prochaine version à paraître.">
+<meta name="description" content="Les deux fils d'évolution d'AIAD : la doctrine (v1.5 à v1.10 — supervision graduée, contrôles appliqués, autonomie de l'agent, vérification) et le logiciel aiad-sdd (CHANGELOG officiel : 1.19.0, 1.18 « advisory → enforced », traçabilité, EARS, multi-runtime) et la prochaine version à paraître.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../en/whats-new.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -146,10 +146,25 @@
 
       <p class="kicker">Ressources · versions</p>
       <h1>Nouveautés — la doctrine AIAD et le logiciel aiad-sdd</h1>
-      <p class="doc-lede">AIAD évolue selon <strong>deux cycles de versionnage</strong> distincts : la <strong>doctrine</strong> du framework (valeurs, responsabilités, artefacts, rituels, gouvernance — aujourd'hui v1.9) et le <strong>logiciel</strong> <code>aiad-sdd</code> (CLI, commandes slash, skills, hooks, dashboards), qui suit le versionnage SemVer de son CHANGELOG. Les deux n'avancent pas au même tempo : « v1.9 » de la doctrine et « aiad-sdd 1.9 » ne désignent pas la même chose. Cette page présente les deux fils, du plus récent au plus ancien.</p>
+      <p class="doc-lede">AIAD évolue selon <strong>deux cycles de versionnage</strong> distincts : la <strong>doctrine</strong> du framework (valeurs, responsabilités, artefacts, rituels, gouvernance — aujourd'hui v1.10) et le <strong>logiciel</strong> <code>aiad-sdd</code> (CLI, commandes slash, skills, hooks, dashboards), qui suit le versionnage SemVer de son CHANGELOG. Les deux n'avancent pas au même tempo : « v1.9 » de la doctrine et « aiad-sdd 1.9 » ne désignent pas la même chose. Cette page présente les deux fils, du plus récent au plus ancien.</p>
 
       <h2 id="doctrine">Doctrine AIAD</h2>
       <p>Les évolutions de la doctrine sont publiées sur <a href="https://aiad.ovh">aiad.ovh</a>. Chaque ajout est étiqueté dans le texte du framework par la version qui l'introduit.</p>
+
+      <h3 id="doctrine-v1-10">Doctrine v1.10 (novembre 2026) — supervision graduée, contrôles appliqués, outillage gouverné</h3>
+      <ul>
+        <li><strong>Supervision graduée</strong> : la supervision humaine se gradue par classe de réversibilité, avec un seuil vérifiable par classe — validation motivée d'un humain qualifié pour tout changement irréversible, revue sur échantillon pour le coûteusement réversible, fusion automatique admise pour le réversible si tous les contrôles requis sont appliqués et passants. Ce sont des valeurs de départ, à calibrer par chaque équipe — voir <a href="concepts/execution-gate.html#porte-reelle">Execution Gate</a>.</li>
+        <li><strong>Supervision de théâtre</strong> : une porte humaine n'est réelle que si elle réunit un critère vérifié, un auteur identifié et la possibilité effective de refuser ; trois indicateurs permettent de la mesurer — voir <a href="metriques.html#porte-humaine">Métriques</a>.</li>
+        <li><strong>Contrôle appliqué, contrôle déclaratif</strong> : un contrôle appliqué s'exécute hors du modèle (hook, intégration continue, politique, droit d'accès) ; un contrôle déclaratif est une instruction donnée au modèle. Tout contrôle qui garde une action irréversible est appliqué ; le SDD Mode classe ses propres contrôles — voir <a href="concepts/validation.html#controles">Validation</a>.</li>
+        <li><strong>SPEC</strong> : deux sections conditionnelles nouvelles, « Exigences critiques : contrôle et clause d'échec » (bloquer, escalader ou accepter par dérogation tracée) et « Humain qualifié » (compétence, autorité, information suffisante, trace), à nommer dès qu'un domaine sensible est touché — voir <a href="concepts/spec.html#exigences-critiques">SPEC</a>.</li>
+        <li><strong>Ce qui n'est pas un gate</strong> : ni le consentement global de session (« tout approuver »), ni le refus exprimé en langage naturel ne valent autorisation humaine. Contourner un refus ou un blocage devient un drift à arrêt immédiat, quelle que soit l'issue de la tâche — voir <a href="concepts/autonomie-agent.html#pas-un-gate">Autonomie de l'agent</a>.</li>
+        <li><strong>Tout ce que l'agent charge est gouverné</strong> : revue humaine de toute modification d'un fichier de contexte ou d'un skill, interdiction des directives qui relâchent la supervision sans condition, liste blanche des extensions, plugins et serveurs MCP, approbation des actions destructives configurée côté application. Les approbations mémorisées par l'outil (« oui, et ne plus demander ») deviennent des artefacts de gouvernance — voir <a href="concepts/autonomie-agent.html#charge-gouverne">Autonomie de l'agent</a>.</li>
+        <li><strong>Fichier d'instructions gouverné</strong> : en-tête obligatoire (propriétaire nommé, dernière et prochaine revue), source unique dont les variantes par outil sont générées, gabarit à sections qualifiées et borné en taille, aucun fichier généré par un agent versionné sans relecture humaine ; une durée de vie par catégorie de mémoire d'agent — voir <a href="artefacts.html#fichier-gouverne">Les artefacts</a> et <a href="concepts/context-budget.html#memoire">Context Engineering Budget</a>.</li>
+        <li><strong>Gouvernance</strong> : AIAD-AI-ACT ajoute la responsabilité du déployeur d'agents (partagée et étagée entre fournisseur et déployeur), une fiche réflexe « Incident agentique » (qualification, destinataires, délais) et la conduite à tenir en cas d'outillage compromis ; AIAD-RGPD ajoute les règles sur les secrets dans les fichiers d'approbation, l'incident agentique dans la procédure de violation de données, et cite la position de l'autorité britannique sur les agents comme référence non contraignante dans l'UE — voir <a href="gouvernance/index.html#deployeur">Gouvernance</a>.</li>
+        <li><strong>Positionnement</strong> : AIAD et OpenSpec sont tous deux au niveau <em>spec-anchored</em> ; OpenSpec peut servir de moteur de spec sous AIAD, et la doctrine dit aussi ce qu'il fait plus finement. Le vocabulaire <em>spec-first</em> / <em>spec-anchored</em> / <em>spec-as-source</em> est attribué à son autrice, Birgitta Böckeler (martinfowler.com, octobre 2025), et ses réserves sur l'approche sont rapportées — voir <a href="a-propos.html#openspec">À propos</a>.</li>
+        <li><strong>Légitimation</strong> : dossiers de preuves mis à jour avec des sources vérifiées sur leur origine, leur nature (preprints non relus par les pairs, chiffres d'éditeur non audités) et les éléments qui contredisent ou nuancent la thèse d'AIAD.</li>
+      </ul>
+      <p>Côté logiciel, ces règles ne sont pas encore toutes outillées : les pages concernées signalent ce que le paquet <code>aiad-sdd</code> ne fait pas encore (contrôle des nouvelles sections de SPEC à la Gate, vérification de l'en-tête de gouvernance, classe de réversibilité dans la trace de la Gate).</p>
 
       <h3 id="doctrine-v1-9">Doctrine v1.9 (septembre 2026) — autonomie de l'agent, vérification, conformité</h3>
       <ul>
@@ -331,7 +346,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>
