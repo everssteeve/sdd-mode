@@ -6,7 +6,8 @@
 
 import { test } from 'node:test';
 import { strict as assert } from 'node:assert';
-import { renameSync, readFileSync } from 'node:fs';
+import { copyFileSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { join, dirname } from 'node:path';
@@ -97,15 +98,18 @@ test('CA-6 — tokens négatifs clampés à 0, aucune valeur négative en sortie
 });
 
 // CA-7 — eco-models.json absent → EcoModelsNotFoundError à l'import
-test('CA-7 — eco-models.json absent → EcoModelsNotFoundError levée à l\'import', (t) => {
-  const backupPath = modelsPath + '.test-bak';
-  renameSync(modelsPath, backupPath);
+test('CA-7 — eco-models.json absent → EcoModelsNotFoundError levée à l\'import', () => {
+  // Import an isolated copy of the module from a directory with no
+  // eco-models.json. Renaming the real file raced with the other test files
+  // that import lib/eco-estimator.js while the suite runs in parallel.
+  const sandbox = mkdtempSync(join(tmpdir(), 'aiad-eco-estimator-'));
   try {
+    copyFileSync(join(root, 'lib', 'eco-estimator.js'), join(sandbox, 'eco-estimator.mjs'));
     let errorOutput = '';
     try {
       execSync(
-        `node --input-type=module --eval "import '../lib/eco-estimator.js'"`,
-        { cwd: __dirname, encoding: 'utf8', stdio: 'pipe', timeout: 5000 }
+        `node --input-type=module --eval "import './eco-estimator.mjs'"`,
+        { cwd: sandbox, encoding: 'utf8', stdio: 'pipe', timeout: 5000 }
       );
     } catch (e) {
       errorOutput = e.stderr + e.stdout;
@@ -115,7 +119,7 @@ test('CA-7 — eco-models.json absent → EcoModelsNotFoundError levée à l\'im
       `stderr doit mentionner EcoModelsNotFoundError, obtenu : ${errorOutput.slice(0, 300)}`
     );
   } finally {
-    renameSync(backupPath, modelsPath);
+    rmSync(sandbox, { recursive: true, force: true });
   }
 });
 
