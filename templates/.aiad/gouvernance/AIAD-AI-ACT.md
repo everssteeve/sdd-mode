@@ -768,6 +768,9 @@ Alternative proposée : [Solution conforme ou question à résoudre avant de con
 - [ ] Divulgation IA implémentée (si applicable)
 - [ ] Protocole de paiement agentique utilisé (x402, Cloudflare Wallets ou équivalent) ? Si oui : plafonds techniques reflétés dans l'Intent Statement et vérifiés à l'Execution Gate *(v1.9)*
 - [ ] Agent à effet irréversible : classe de réversibilité, seuil d'arrêt et isolation vérifiés (profil « Agents à effet irréversible ») *(v1.9)*
+- [ ] Humain qualifié nommé dans la SPEC si le domaine est sensible (« Responsabilité du déployeur d'agents ») *(v1.10)*
+- [ ] Tout contrôle qui garde une action irréversible est appliqué hors du modèle, pas confié à une consigne *(v1.10)*
+- [ ] Outillage de l'agent (extensions, plugins, skills, serveurs MCP) présent dans la liste blanche, versions épinglées *(v1.10)*
 - [ ] Logs de décision configurés
 - [ ] Supervision humaine codée (si haut risque)
 - [ ] Garde-fous d'entrée/sortie en place
@@ -791,6 +794,101 @@ Alternative proposée : [Solution conforme ou question à résoudre avant de con
 - **JAMAIS** exécuter une tâche dont l'origine humaine ne peut pas être retracée.
 
 > Argumentaire et sources (thèse Schneier / Sanders, injonction de Munich, données GitLab) : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/responsabilite-evidence.md`.
+
+---
+
+## RESPONSABILITÉ DU DÉPLOYEUR D'AGENTS *(v1.10)*
+
+**Principe : une responsabilité partagée et étagée — et une part que le déployeur ne peut pas déléguer.** L'AI Act répartit les obligations ; il ne les transfère pas d'un acteur à l'autre.
+
+| Qui | Ce que le texte lui confie (systèmes à haut risque) |
+|-----|------------------------------------------------------|
+| **Fournisseur du système** | Concevoir le système pour qu'il puisse être effectivement supervisé (Art. 14(1)) ; y intégrer les mesures de contrôle ou désigner celles que le déployeur doit mettre en œuvre (Art. 14(3)) ; signaler les incidents graves (Art. 73) |
+| **Fournisseur d'un modèle GPAI à risque systémique** | Suivre, documenter et signaler les incidents graves à l'AI Office (Art. 55(1)(c)) |
+| **Déployeur** | Confier le contrôle humain à des personnes ayant « the necessary competence, training and authority, as well as the necessary support » (Art. 26(2)) ; utiliser le système selon sa notice ; en surveiller le fonctionnement ; informer le fournisseur puis les autorités en cas d'incident grave (Art. 26(5)) |
+
+Les Art. 14 et 26 ne s'appliquent aux systèmes de l'Annexe III qu'à partir du **2 décembre 2027**. Hors haut risque, les règles ci-dessous sont une **bonne pratique AIAD**, pas une obligation de l'AI Act.
+
+**Ce qui reste au déployeur, quel que soit le fournisseur :**
+
+- **TOUJOURS** traiter le **confinement de l'usage** (isolation, sorties réseau, credentials), le **moindre privilège** et l'**affectation de la supervision humaine** comme des tâches de l'organisation qui déploie l'agent. Elle seule connaît les systèmes, les données et les personnes que l'agent peut atteindre.
+- **JAMAIS** présenter les garde-fous du fournisseur du modèle comme une mesure suffisante. En octobre 2026, interrogés sous serment par le conseil municipal de New York, aucun des quatre fournisseurs présents n'a garanti que ses agents respecteraient toujours ses propres garde-fous.
+- **JAMAIS** invoquer l'autonomie de l'agent pour expliquer un manquement. Elle ne change pas le régime de responsabilité.
+- **TOUJOURS** relire, à chaque cycle, la politique d'usage du fournisseur du modèle : elle crée des obligations contractuelles qui s'ajoutent à la loi (voir ci-dessous).
+
+**Humain qualifié — à nommer dans la SPEC.** Quand la SPEC touche l'un des domaines ci-dessous, elle nomme la personne qui supervise et ce qui la qualifie (guide du framework, § 4.4 ; annexe A.4) :
+
+| Domaine | Exemples |
+|---------|----------|
+| Santé | conseil médical, santé mentale, accès aux soins |
+| Droits et situation juridique | conseil juridique, statut, décisions administratives |
+| Finances | conseil financier, crédit, assurance |
+| Emploi et moyens de subsistance | recrutement, évaluation, rémunération |
+| Logement, éducation et diplômes | attribution, admission, notation |
+| Services et prestations essentiels | prestations sociales, services publics |
+
+Une personne est qualifiée si elle réunit **compétence** sur le domaine, **autorité** d'arrêter ou de modifier, **information suffisante** et **trace** de sa décision. Ce n'est pas une certification — sauf là où le droit exige un titre pour exercer l'activité.
+
+**Exigence contractuelle d'un fournisseur — politique d'usage d'Anthropic (version en vigueur le 12 novembre 2026).** Pour qui déploie ses modèles sur une recommandation ou une décision à haut risque au sens de cette politique :
+
+- **TOUJOURS** faire relire la recommandation, avant qu'elle soit délivrée ou appliquée, par une personne qualifiée « with the authority to change or modify it » ;
+- **TOUJOURS** dire clairement à la personne concernée que l'IA a été utilisée ;
+- **TOUJOURS** vérifier que les agents construits ou déployés respectent cette politique : elle en rend l'utilisateur responsable.
+
+Ces exigences existaient dans les versions précédentes ; la version de novembre 2026 précise ce qui est couvert et y ajoute les équipements pilotés par un agent. C'est le contrat d'un seul fournisseur, qui peut changer : la règle AIAD est de relire celui de chaque fournisseur utilisé.
+
+**Articulation.** Classe de réversibilité, seuil d'arrêt et isolation : profil « Agents à effet irréversible », inchangé. Conditions d'une intervention humaine réelle : AIAD-RGPD, Principe 7 bis.
+
+> Sources, citations exactes et limites (ICO, audition de New York, rapport d'Anthropic sur des actions non voulues, panel scientifique de l'UE) : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/responsabilite-evidence.md`.
+
+---
+
+## INCIDENT AGENTIQUE — FICHE RÉFLEXE *(v1.10)*
+
+**Incident agentique** : un agent agit hors de son mandat — il contourne un refus ou un blocage, accède à un système auquel il n'était pas autorisé, ou produit un effet irréversible non autorisé. La fiche s'applique que l'agent soit en production, en test ou en évaluation.
+
+1. **TOUJOURS arrêter et isoler** : stopper l'agent, révoquer ses credentials, couper ses sorties réseau.
+2. **TOUJOURS préserver les traces** : journaux de l'agent, transcriptions, journal de l'Execution Gate. **JAMAIS** relancer l'agent sur la même tâche avant la revue humaine.
+3. **TOUJOURS qualifier** l'incident avec le tableau ci-dessous, dans la journée.
+4. **TOUJOURS notifier par le canal officiel** de l'autorité ou du tiers touché. **JAMAIS** par une adresse de contact générique.
+5. **TOUJOURS prévenir le tiers** dont le système a été atteint, même sans obligation légale.
+6. **TOUJOURS consigner** l'incident dans les Human Learnings (catégorie « défaillances de supervision ») et réviser le Critère de Drift.
+
+| Qualification | Qui notifie | À qui | Délai |
+|---------------|-------------|-------|-------|
+| **Incident grave d'un système à haut risque** (Art. 3(49) : décès ou atteinte grave à la santé, perturbation grave d'une infrastructure critique, violation de droits fondamentaux, dommage grave aux biens ou à l'environnement) | Le **fournisseur** (Art. 73). Le **déployeur** informe immédiatement le fournisseur, puis l'importateur ou le distributeur et l'autorité (Art. 26(5)) | Autorité de surveillance du marché de l'État membre où l'incident est survenu | Immédiatement, au plus tard **15 jours** ; **2 jours** si infraction de grande ampleur ou infrastructure critique ; **10 jours** en cas de décès |
+| **Incident grave impliquant un modèle GPAI à risque systémique** | Le fournisseur du modèle (Art. 55(1)(c)) | AI Office et, le cas échéant, autorités nationales | Sans retard injustifié |
+| **Violation de données personnelles** | Le responsable de traitement (Art. 33 RGPD) ; le sous-traitant prévient le responsable | CNIL | **72 heures** après en avoir pris connaissance — voir AIAD-RGPD, « Violation de données » |
+| **Aucun des cas ci-dessus** | Pas d'obligation au titre de l'AI Act ; contrats, droit commun et étape 5 s'appliquent | Tiers touché | Sans délai |
+
+**Contenu minimal d'une notification** : nature de l'incident ; date de survenue et date de découverte ; systèmes, tiers et données touchés ; mesures prises ; point de contact.
+
+- Les obligations de l'Art. 73 suivent le calendrier du haut risque (2 décembre 2027 pour l'Annexe III) ; celles de l'Art. 55 sont en vigueur depuis le 2 août 2025.
+- Les délais ci-dessus sont ceux du Règlement (UE) 2024/1689. **TOUJOURS** les relire sur le texte consolidé avant de notifier.
+- Plusieurs qualifications peuvent se cumuler : c'est le délai le plus court qui commande.
+- Cette fiche est une aide à la décision, pas un avis juridique : **escalader** au responsable conformité ou au DPO dès l'étape 3.
+
+> Contre-exemple documenté (accès non autorisé à un portail public australien, signalé tardivement par courriel à une boîte générique) : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`.
+
+---
+
+## COMPROMISSION DE L'OUTILLAGE AGENTIQUE — CONDUITE À TENIR *(v1.10)*
+
+S'applique quand une extension, un plugin, un skill ou un serveur MCP installé sur un poste se révèle malveillant ou compromis.
+
+1. **Désinstaller ne suffit pas.** Un composant malveillant peut avoir installé une porte dérobée qui lui survit.
+2. **Isoler le poste** du réseau.
+3. **Chercher et retirer** : les clés inconnues dans `~/.ssh/authorized_keys` ; les mécanismes de persistance (macOS : LaunchAgents ; Linux : entrées crontab `@reboot`, services ; Windows : tâches planifiées, dossier Démarrage) ; les processus de tunnel sortant.
+4. **Faire tourner, depuis un système de confiance,** tous les secrets et sessions accessibles depuis le poste : clés SSH et cloud, jetons d'API, sessions de forge logicielle.
+5. **Examiner les journaux** d'accès SSH et réseau, et bloquer les adresses signalées par l'éditeur.
+6. **Appliquer l'avis de sécurité de l'éditeur** (scripts de remédiation) et envisager de reconstruire le poste.
+7. **Qualifier** : violation de données personnelles (AIAD-RGPD — le délai de 72 heures court dès la prise de connaissance) ; incident agentique (fiche ci-dessus).
+8. **Mettre à jour la liste blanche de l'outillage** (guide du framework, § 3.3) : version retirée, version saine épinglée.
+
+- **TOUJOURS** tenir la liste des extensions, plugins, skills et serveurs MCP autorisés, avec leur version : sans elle, on ne sait pas quels postes sont touchés.
+- **JAMAIS** laisser la mise à jour automatique des extensions activée sur un poste qui détient des accès de production.
+
+> Cas de référence (extension piégée distribuée le 29 octobre 2026) et sources : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`.
 
 ---
 
@@ -823,7 +921,7 @@ Un système IA conforme à l'AI Act est, par construction, aligné avec les vale
 | **Art. 17** — Système qualité | Processus qualité documenté | SDD Mode complet (cycle Intent → Drift Lock) | Toutes les boucles SDD |
 | **Art. 26.6** — Conservation logs | Minimum 6 mois post-déploiement | `.aiad/metrics/` (persistance systématique) | `/aiad-dora` + `/aiad-flow` |
 | **Art. 27** — FRIA | Évaluation d'impact droits fondamentaux | PRD.md (section risques) + AIAD-RGPD.md | `/aiad-gouvernance` |
-| **Art. 50** — Transparence (chatbots) | Divulgation IA obligatoire — **2 août 2026** | Checklist T1-T14 (section dédiée ci-dessous) | `/sdd-validate` — test divulgation |
+| **Art. 50** — Transparence (chatbots) | Divulgation IA obligatoire — en vigueur depuis le **2 août 2026** | Checklist T1-T14 (section dédiée ci-dessous) | `/sdd-validate` — test divulgation |
 | **Art. 72** — Post-Market Monitoring | Plan de suivi post-déploiement | `.aiad/metrics/deployments/` | `/aiad-dora` (MTTR + Change Failure Rate) |
 
 ---
@@ -837,7 +935,7 @@ Un système IA conforme à l'AI Act est, par construction, aligné avec les vale
 - [ ] Le système IA est identifié et délimité (quels composants ? quels outputs ?)
 - [ ] La classification de risque est documentée dans le PRD (risque inacceptable / haut risque / transparence / minimal)
 - [ ] La classification a été revue par une personne qualifiée (non uniquement par l'IA)
-- [ ] Le calendrier d'application applicable est identifié (Art. 50 → **2 août 2026** ; Annexe III haut risque → sous réserve Omnibus VII)
+- [ ] Le calendrier d'application applicable est identifié (Art. 50 → en vigueur depuis le **2 août 2026**, délai au **2 décembre 2026** pour l'art. 50(2) sur les systèmes mis sur le marché avant cette date ; Annexe III haut risque → **2 décembre 2027**, Règlement (UE) 2026/1744)
 
 ### Étape 2 — Artefacts AIAD en place
 
@@ -849,8 +947,8 @@ Un système IA conforme à l'AI Act est, par construction, aligné avec les vale
 
 ### Étape 3 — Obligations techniques vérifiées
 
-- [ ] Divulgation IA implémentée (Art. 50.1 si chatbot) — deadline **2 août 2026**
-- [ ] Contenus IA marqués (Art. 50.2 si génération de contenu) — deadline **2 août 2026**
+- [ ] Divulgation IA implémentée (Art. 50.1 si chatbot) — en vigueur depuis le **2 août 2026**
+- [ ] Contenus IA marqués (Art. 50.2 si génération de contenu) — en vigueur depuis le **2 août 2026** ; **2 décembre 2026** pour un système mis sur le marché avant cette date
 - [ ] Mécanisme d'override humain opérationnel (Art. 14 si haut risque)
 - [ ] Logs de décisions configurés (Art. 12 si haut risque)
 - [ ] Tests de robustesse réalisés (Art. 15 si haut risque)
@@ -946,6 +1044,11 @@ Un système IA conforme à l'AI Act est, par construction, aligné avec les vale
 
 - Depuis le **2 août 2026**, la Commission (AI Office) peut exiger des informations, évaluer, imposer des mesures, **restreindre ou retirer un modèle GPAI du marché de l'UE** et infliger des amendes (Art. 101). Premières demandes d'information le 29 août 2026.
 - **TOUJOURS** prévoir, pour un client européen, un plan de repli vers un autre modèle (approche model-agnostic) : la disponibilité d'un modèle dans l'UE n'est plus garantie.
+
+### Agents : signaux des régulateurs *(v1.10 — 12 novembre 2026)*
+
+- **Commission européenne (9 octobre 2026)** : réunion spéciale du panel scientifique de l'AI Act, qui a examiné de récents incidents de perte de contrôle ; le panel et l'AI Office ont préparé une série de questions pour les entreprises qui ont développé les modèles concernés. Aucune base légale n'est citée dans le communiqué. Pas d'obligation nouvelle pour un déployeur.
+- **ICO britannique (8 octobre 2026)** : appel à contributions sur l'IA agentique et la protection des données, clos le 20 novembre 2026. Non contraignant dans l'UE — voir AIAD-RGPD.
 
 Contexte, chronologie et sources : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md`.
 
@@ -1133,7 +1236,7 @@ Dès qu'un système IA traite des données personnelles, les deux régimes s'app
 ---
 
 *Agent EU AI Act — Tier 1 Gouvernance — Droit de veto*
-*Intégré au framework AIAD v1.9 — Valeur "Primauté de l'Intention Humaine" + "Transparence Radicale"*
+*Intégré au framework AIAD v1.10 — Valeur "Primauté de l'Intention Humaine" + "Transparence Radicale"*
 *Référentiel : Règlement (UE) 2024/1689 — Entré en vigueur le 1er août 2024*
 *⚠️ Cet agent ne remplace pas une évaluation de conformité formelle ni un avis juridique qualifié.*
 
@@ -1143,6 +1246,7 @@ Dès qu'un système IA traite des données personnelles, les deux régimes s'app
 
 | Date | Version | Modifications |
 |------|---------|--------------|
+| 2026-11-12 | v1.10 | **+ Responsabilité du déployeur d'agents** (répartition fournisseur / déployeur, Art. 14, 26(2), 26(5), 55, 73 ; ce que le déployeur ne délègue pas ; humain qualifié à nommer dans la SPEC ; exigences de la politique d'usage d'Anthropic en vigueur le 12 novembre 2026) · **+ Incident agentique — fiche réflexe** (qualification, destinataires, délais, contenu minimal) · **+ Compromission de l'outillage agentique — conduite à tenir** · trois points ajoutés à la checklist d'intégration · signaux des régulateurs sur les agents (panel scientifique de l'UE, ICO) · sources vérifiées le 12 novembre 2026, récits dans `framework/legitimation/` |
 | 2026-09-25 | v1.9 | **Calendrier recalé sur le Règlement (UE) 2026/1744** (Omnibus numérique IA, JO L du 24.7.2026, vérifié sur le texte) · deux nouvelles interdictions Art. 5 (b bis, b ter) · Art. 50 en vigueur · enforcement GPAI · Règlement Machines passé en section B de l'Annexe I · profil « Agents à effet irréversible » (classe de réversibilité, seuil d'arrêt, isolation, propriétés attendues) · consigne « Trace de délégation » · corrections : sanctions GPAI, T12, Art. 5, Art. 9/14/26 hors haut risque, double marquage CE · récits et sources déplacés vers `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md` — détail : notes de version de la v1.9 |
 | 2026-06-01 | v1.7 — autonomie financière | **+ PROFIL ÉMERGENT — AGENTS À AUTONOMIE FINANCIÈRE ET OPÉRATIONNELLE** : classification (Titre III si Annexe III, supervision renforcée Art. 26/9 sinon), 4 points de contrôle humains minimaux (validation délégation, plafond documenté, journal d'audit, rollback), articulation Execution Gate (validation des plafonds d'autonomie), cas terrain Cloudflare/Stripe — comble une lacune signalée par la veille du framework |
 | 2026-05-01 | v1.6 — conformité opérationnelle | **+ MAPPING AI ACT ↔ ARTEFACTS AIAD** (article par article, 13 obligations) — **+ CHECKLIST DE CONFORMITÉ ASSISTÉE** (4 étapes, 17 points) avec avertissement juridique explicite — deadline 2 août 2026 documentée sur Art. 50 |

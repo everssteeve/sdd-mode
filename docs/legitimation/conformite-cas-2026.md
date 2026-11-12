@@ -1,9 +1,9 @@
 # Légitimation — Cas et contexte réglementaires 2026
 
-**Version 1.0 — Septembre 2026 — Steeve Evers**
+**Version 1.1 — Novembre 2026 (v1.0 : septembre 2026) — Steeve Evers**
 Framework AIAD — Dossier de légitimation — aiad.ovh — Open Source
 
-> Ce dossier réunit les **cas, contextes et sources** qui justifient les règles des agents de gouvernance AIAD-AI-ACT et AIAD-RGPD (v1.9). Les agents de gouvernance ne contiennent que les règles, checklists et dates ; les récits sont ici, pour ne pas consommer le budget de contexte des sessions d'agent (Principe #3 du SDD Mode). Toutes les sources ont été vérifiées le 25 septembre 2026 ; les textes primaires (Règlement (UE) 2026/1744 au JO, communiqué de l'AP) ont été lus par le Gardien.
+> Ce dossier réunit les **cas, contextes et sources** qui justifient les règles des agents de gouvernance AIAD-AI-ACT et AIAD-RGPD. Les agents de gouvernance ne contiennent que les règles, checklists et dates ; les récits sont ici, pour ne pas consommer le budget de contexte des sessions d'agent (Principe #3 du SDD Mode). Les sources des sections 1 à 3 ont été vérifiées le 25 septembre 2026 ; les textes primaires (Règlement (UE) 2026/1744 au JO, communiqué de l'AP) ont été lus par le Gardien. Celles de la section 4 ont été vérifiées le 12 novembre 2026.
 >
 > ⚠️ Ce dossier ne constitue pas un avis juridique.
 
@@ -92,6 +92,40 @@ La CNIL et le Conseil de l'IA et du Numérique identifient quatre points de tens
 
 ---
 
+## 4. Incidents agentiques et outillage — cas de l'automne 2026 *(v1.10)*
+
+Ces deux cas fondent la fiche réflexe « Incident agentique » et la conduite à tenir « Compromission de l'outillage agentique » d'AIAD-AI-ACT. Sources vérifiées le 12 novembre 2026.
+
+### 4.1 Accès non autorisé à un portail public australien (juin – septembre 2026)
+
+**Ce qui est établi, et par qui.** Les faits sont connus par la presse (ABC News, 24 septembre 2026), qui rapporte les déclarations du Premier ministre australien et celles d'OpenAI. AIAD n'a trouvé ni transcription officielle ni communiqué d'OpenAI.
+
+- Selon le Premier ministre : le 18 juin 2026, un accès non autorisé au portail de statistiques Medicare de Services Australia, portant sur des fichiers publics et non publics ; l'agent « found a way around those blocks, didn't accept 'no' for an answer » ; l'entreprise a prévenu par « an email sent just to the public mailbox ».
+- Selon OpenAI, cité par la presse : lors d'une évaluation interne, ses modèles « took actions we did not intend » ; les données atteintes étaient des statistiques agrégées et des noms de fichiers internes ; aucune preuve d'accès à des dossiers de patients.
+
+**Chronologie rapportée.** 18 juin : incident. 11 août : OpenAI dit en avoir pris connaissance. 10 septembre : courriel à une boîte publique de l'administration. 15 septembre : saisine de l'agence australienne de cybersécurité. 24 septembre : annonce publique. Soit près de trois mois entre l'incident et le signalement, et environ un mois entre la découverte et le signalement.
+
+**Ce qui n'est pas établi.** La nature exacte du système (ABC écrit « understood to be an AI crawler ») ; le but de l'accès (recherche selon le Premier ministre, évaluation interne selon OpenAI) ; l'atteinte éventuelle à d'autres sites. L'enquête était en cours à la date de vérification.
+
+**Portée pour AIAD.** Deux leçons distinctes, à ne pas confondre. La première concerne le *contrôle* : un blocage contourné est un drift à arrêt immédiat, et un refus qui protège une action irréversible se place hors du modèle (guide du framework, § 4.0). La seconde concerne la *notification* : canal générique et délai long sont exactement ce que la fiche réflexe cherche à éviter. **Limite :** le système en cause était opéré par le fournisseur du modèle lui-même, pas par un client. Le cas illustre un mécanisme, il ne dit rien de la fréquence de tels incidents chez les déployeurs.
+
+### 4.2 Extension d'agent piégée sur une place de marché (29 octobre 2026)
+
+**Les faits, d'après l'avis de sécurité de Cursor (29 octobre, mis à jour le 30) et l'analyse technique de Phorion (30 octobre, mise à jour le 31).** Deux versions modifiées (2.1.312 et 2.1.313) de l'extension Claude Code ont été distribuées sur la place de marché d'extensions de Cursor, de 2 h 27 à 13 h 35 (heure du Pacifique) le 29 octobre, soit environ onze heures. Cursor précise : « These malicious versions of the extension were not developed by Anthropic. » Au 12 novembre 2026, la manière dont elles ont été publiées n'a pas été expliquée.
+
+- **Comportement** : exécution au chargement de l'extension ; ajout d'une clé SSH dans `~/.ssh/authorized_keys` ; tunnel SSH inverse relancé toutes les minutes ; envoi d'informations de reconnaissance (nom d'hôte, utilisateur, adresse e-mail Git, noms — pas valeurs — de variables d'environnement).
+- **Persistance** : LaunchAgent sur macOS, entrée crontab `@reboot` sur Linux, tâche planifiée et dossier Démarrage sur Windows.
+- **Nuance** : selon les deux sources, la porte dérobée échouait souvent à s'activer (droits insuffisants sur macOS, chemin d'interpréteur invalide sur Windows). La clé et la persistance étaient installées quand même.
+- **Remédiation** : Phorion écrit que « uninstalling the extension alone won't remove the backdoor » ; Cursor fournit des scripts de remédiation et recommande d'envisager la reconstruction du poste.
+
+**Chiffre écarté.** Le nombre de « 5 000 développeurs exposés » circule dans la presse ; il ne figure ni dans l'avis de Cursor ni dans l'analyse de Phorion. AIAD ne le reprend pas.
+
+**Même semaine.** GitHub a rendu généralement disponibles, le 28 octobre 2026, les plugins d'agent imposés par l'entreprise : « Required plugins are automatically installed and enabled, and users can't disable them. » Les administrateurs peuvent aussi bloquer des plugins et restreindre les places de marché. Un outillage imposé reste un outillage chargé par l'agent : il entre dans la liste blanche.
+
+**Portée pour AIAD.** L'extension de l'outil agentique s'exécute avec les droits du développeur, avant toute session et hors de tout Execution Gate. Elle relève donc de la règle « tout ce que l'agent charge est gouverné » (guide du framework, § 3.3). **Limite :** une liste blanche n'aurait pas empêché cette compromission — l'extension portait le nom d'un éditeur légitime. Elle aurait permis de savoir en quelques minutes quels postes avaient reçu les versions en cause.
+
+---
+
 ## Liens croisés
 
 - [Trace AIAD comme élément de preuve de la responsabilité](./responsabilite-evidence.md)
@@ -100,5 +134,5 @@ La CNIL et le Conseil de l'IA et du Numérique identifient quatre points de tens
 
 ---
 
-*Dossier de légitimation — Framework AIAD v1.9 — Septembre 2026*
+*Dossier de légitimation — Framework AIAD v1.10 — Novembre 2026 (v1.0 : septembre 2026 ; section 4 ajoutée le 12 novembre 2026)*
 *Gardien : Steeve Evers — aiad.ovh — Open Source*

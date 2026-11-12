@@ -25,6 +25,8 @@
 | **v1.19** | Runtime Kiro dans `emit-rules`, comparatif public, archivage automatique des artefacts livrés (`archive done`), empreinte tokens par artefact dans `/sdd context`, squelettes de tests depuis EARS (`suggest-tests`), collecte DORA automatisée en CI, dashboard enrichi |
 | **v1.20** | Doctrine AIAD v1.9 livrée et verrouillée (agents AI-ACT et RGPD à jour, guides, contrôle de drift en CI et à la release), pré-contrôle déterministe de la Gate (`gate-precheck`), sections de SPEC « Points d'arrêt de l'agent » et « Périmètre d'exécution de l'agent », contexte hérité dans `/sdd context`, `update` qui sauvegarde les agents de gouvernance modifiés localement, parité des commandes livrées |
 
+> **Doctrine — cycle novembre 2026 (Framework AIAD v1.10).** Ce guide reçoit des ajouts de doctrine sans changement de version logicielle ; ils sont marqués « doctrine — cycle novembre 2026 » : vocabulaire *spec-first / spec-anchored / spec-as-source* et retrait tracé d'une exigence (Principle #1), durée de vie de la mémoire d'agent (Principle #3), porte réelle et seuils par classe de réversibilité (`/sdd gate`), contrôles appliqués et déclaratifs (section dédiée), fichier d'instructions gouverné (`emit-rules`). Ce que ces ajouts demandent au package et qui n'est pas encore livré est signalé comme tel.
+
 > **Compatibilité.** Les anciens alias plats (`/sdd-spec`, `/aiad-status`…) restent fonctionnels jusqu'à la v2 avec message de migration. Les Intent / SPEC d'une v1.x sont migrés sans repartir de zéro (`aiad-sdd migrate`). Le runtime reste **zero-dependency**.
 
 ---
@@ -64,6 +66,10 @@ Puis dans Claude Code :
 
 La SPEC n'est pas un document de passage. Elle reste la source de vérité entre l'intention humaine et le code agent — avant, pendant et après l'implémentation. AIAD se positionne au niveau **spec-anchored** : la spec n'est ni abandonnée après la tâche (spec-first), ni générateur du code (spec-as-source). Elle est synchronisée avec le code à chaque PR via le Drift Lock, et désormais **machine-vérifiable** via les annotations de traçabilité (`/sdd trace`, v1.10).
 
+**Vocabulaire (doctrine — cycle novembre 2026).** Les trois niveaux viennent de l'article de Birgitta Böckeler sur martinfowler.com (15 octobre 2025) : *spec-first* — la spec est écrite d'abord et sert à la tâche en cours ; *spec-anchored* — la spec est conservée une fois la tâche terminée (« The spec is kept even after the task is complete. ») ; *spec-as-source* — la spec devient le fichier source principal. « SDD » employé seul ne dit plus de quel niveau on parle : dans les artefacts AIAD, préciser **spec-anchored**. Détail, et réserves de l'article sur l'approche : `positionnement-taxonomie-fowler.md`.
+
+**Le retrait tracé d'une exigence (doctrine — cycle novembre 2026).** Une exigence ne disparaît jamais d'une SPEC sans avoir été déclarée retirée, avec son motif, dans le PR qui la retire. OpenSpec en fournit depuis sa version 1.16.1 (novembre 2026) une implémentation *appliquée* : quand une exigence se retrouve sous un titre de section non reconnu, « validate now fails, and archive refuses » — auparavant, un simple avertissement la laissait disparaître à l'archivage. Dans le SDD Mode, ce retrait est aujourd'hui gardé par la revue du PR, l'Anti-Drift Check et `/sdd trace --fail-on-gap`, qui échoue sur un trou de traçabilité non annoté. **Limite connue :** le package ne compare pas encore, exigence par exigence, la SPEC avant et après un PR ; un retrait non déclaré peut donc passer si la traçabilité reste cohérente. Ce contrôle est une évolution demandée au package ; d'ici là, OpenSpec peut le fournir sous AIAD.
+
 ### Principle #2 — Drift = Échec de Processus
 
 Le spec drift — code qui évolue sans que les artefacts suivent — est traité comme un **échec de processus**, pas une erreur d'agent. La mise à jour des artefacts fait partie de la Definition of Done. Une tâche dont le code est mergé mais la SPEC désynchronisée n'est pas terminée. Depuis v1.10, un gap de traçabilité non annoté peut faire échouer la pipeline CI (`--fail-on-gap`).
@@ -81,6 +87,8 @@ Le Product Engineer est responsable du budget de contexte de chaque session agen
 **Référence modèles (au 25 septembre 2026 — à revalider à chaque cycle mensuel d'évolution du framework) :** les fenêtres natives de 1M tokens se sont généralisées sur les modèles frontières — Claude Sonnet 5, par exemple, a été diffusé fin juin 2026 dans Claude Code, Kiro et GitHub Copilot avec une fenêtre native de 1M. Les modèles rapides peuvent rester à 200k. La fenêtre disponible ne change pas le seuil opérationnel de 60-70 % — elle le déplace vers le haut ; elle ne dispense pas du découpage en sessions à objectif unique.
 
 **Règle de datation (doctrine — cycle d'évolution de septembre 2026) :** toute hypothèse de capacité citée dans un artefact AIAD — taille de fenêtre, prix, limite d'usage — est **datée** et revalidée à chaque cycle mensuel d'évolution du framework. Un tarif promotionnel ne sert jamais de base de calcul d'un budget : en 2026, un budget calibré sur le tarif de lancement d'un modèle est devenu faux à l'expiration de la promotion. Depuis v1.15, **chacune des 30 commandes porte une recommandation de modèle** (frontier pour audit/sécurité, modèle rapide pour les tâches mécaniques).
+
+**Mémoire d'agent : une durée de vie par catégorie (doctrine — cycle novembre 2026) :** les notes qu'un agent conserve d'une session à l'autre consomment le même budget, et une note fausse est réinjectée à chaque session. Deux anti-patterns à nommer (Adi Polak, InfoQ, novembre 2026) : le **Context Stuffing** — tout injecter « au cas où » — et l'**Unbounded Memory Growth** — une mémoire qui grossit sans jamais expirer. Règle : chaque catégorie de mémoire a une durée de vie écrite (données de session : jusqu'à la clôture ; observations en temps réel : minutes ou heures ; connaissances de fond : persistantes, revalidées à la revue de l'AGENT-GUIDE). Gabarit : annexe A.3.4 du framework. `/sdd context` audite le contexte d'une session ; il ne purge pas encore la mémoire expirée — c'est aujourd'hui un geste du PE.
 
 **Argument économique :** une session spec-anchored consomme en moyenne 41,7 % de tokens en moins qu'une session sans spécification (R2Code, arXiv avril 2026). Une seconde mesure converge : les approches *intent-based* réduisent jusqu'à 96 % les tokens consommés sur des tâches d'agents (AWS Strands, 2026). L'Intent Statement n'est donc pas seulement un artefact organisationnel — c'est une **décision technique d'optimisation mesurable** du Context Engineering Budget : une intention claire en tête de contexte réduit l'exploration de l'agent, donc la consommation. AIAD étant model-agnostic, cet avantage s'applique quelle que soit la plateforme — contrairement aux limites de tokens des outils propriétaires à abonnement fixe. La commande `/sdd context` fournit une estimation du coût évité par session. *(La convergence terminologique « intent-based » (AWS Strands) / « Intent Statement » (AIAD) positionne AIAD comme précurseur empiriquement validé — Valeur 5, Empirisme sans Concession.)*
 
@@ -264,6 +272,9 @@ Le cycle se lit de haut en bas. Deux points de décision (◇) peuvent renvoyer 
 **Légitimation empirique** : l'Execution Gate n'est pas une précaution philosophique — c'est une réponse à un biais d'action mesuré de 35 à 65 % sur les agents de pointe (FixedBench, arXiv mai 2026) et au constat que l'autorité de fusion reste « presque exclusivement humaine » (29 585 PRs analysés). Dossier de preuves : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/execution-gate-evidence.md`.
 **Effets irréversibles** : si l'exécution implique des effets financiers ou opérationnels irréversibles (agent à autonomie financière, déploiement automatique, achat), la Gate doit en outre valider les **plafonds d'autonomie** et les points de contrôle (plafond documenté, journal d'audit, procédure de rollback). Voir `https://github.com/everssteeve/sdd-mode/blob/main/templates/.aiad/gouvernance/AIAD-AI-ACT.md`.
 **Mapping SQS ↔ révision graduée** : la révision du code produit peut être outillée via `/code-review` de Claude Code, dont les niveaux d'effort se mappent sur le SQS — SQS 3/5 → effort `low`, SQS 4/5 → `medium`, SQS 5/5 → `high`. Plus l'intention a été spécifiée finement, plus la révision peut être ciblée. C'est une implémentation outillée de la « programmation agentique sérieuse » (Fowler) — l'humain valide, il ne délègue pas.
+**Porte réelle, porte de théâtre (doctrine — cycle novembre 2026)** : une Gate n'est réelle que si elle réunit un **critère vérifié** (on sait ce que la personne a contrôlé), un **auteur identifié** (un humain qualifié) et la **possibilité effective de refuser**. Sinon, c'est ce que le Technology Radar de Thoughtworks (Vol. 35, novembre 2026) nomme « human-in-the-loop theater ». La supervision se gradue par classe de réversibilité : *irréversible* — validation motivée d'un humain qualifié pour 100 % des changements, aucune fusion automatique ; *coûteusement réversible* — revue humaine d'au moins un changement sur cinq ; *réversible* — fusion automatique admise si tous les contrôles requis sont appliqués et passants. Ce sont des valeurs de départ, à calibrer (framework § 5.4 ; indicateurs : annexe E.13).
+**Ce qui n'est pas un gate (doctrine — cycle novembre 2026)** : (1) un **consentement global de session** — une confirmation unique qui lève l'approbation pour le reste de la session, du type `trust-all` — n'est ni spécifique, ni borné par la classe de réversibilité, ni tracé ; (2) un **refus déclaratif** — un « non » en langage naturel — peut être contourné par un agent qui optimise sa tâche. Contourner un refus ou un blocage est un drift à arrêt immédiat, quelle que soit l'issue de la tâche. Un refus qui protège une action irréversible s'applique hors du modèle.
+**Exigences critiques (doctrine — cycle novembre 2026)** : pour chaque exigence critique, la SPEC indique le contrôle qui la vérifie, son type (appliqué ou déclaratif) et la **clause d'échec** — bloquer, escalader, ou accepter par dérogation tracée (annexe A.4, § 15). Si le domaine est sensible, elle nomme l'**humain qualifié** (annexe A.4, § 16). La Gate vérifie que ces sections sont remplies quand elles s'appliquent ; ce contrôle est aujourd'hui fait par le relecteur, il n'est pas encore dans `gate-precheck`.
 **Sortie** : Score SQS + décision gate ouverte/fermée + contexte d'injection préparé.
 
 ---
@@ -512,6 +523,35 @@ La SPEC devient **vérifiable par la machine**, pas seulement par revue humaine.
 
 ---
 
+## Contrôles appliqués et contrôles déclaratifs (doctrine — cycle novembre 2026)
+
+Un contrôle est **appliqué** quand il s'exécute hors du modèle qu'il contraint : hook déterministe, intégration continue, politique de plateforme, droit d'accès. Il est **déclaratif** quand il repose sur une instruction donnée à ce même modèle. La première étude de journaux d'un workflow SDD à portes sous Claude Code (étude de cas de ses auteurs sur leur propre outil ; preprint de novembre 2026) situe le maillon faible dans l'orchestrateur, « which runs and judges its own checks ». Le SDD Mode n'échappe pas à ce constat : une partie de ses contrôles est déclarative. Mieux vaut le dire que le laisser découvrir.
+
+**Classement de départ**, établi d'après ce guide. L'inventaire complet, contrôle par contrôle, est une évolution demandée au package.
+
+| Contrôle | Mécanisme | Type |
+|----------|-----------|------|
+| Veto de gouvernance Tier 1 fail-closed (v1.18) | Hook | **Appliqué** |
+| Pré-contrôle de la Gate, `gate-precheck` (v1.20) | Commande déterministe, code de sortie | **Appliqué** s'il est lancé par un hook ou en CI ; sinon dépend de celui qui le lance |
+| Traçabilité, `/sdd trace --fail-on-gap` (v1.10) | CI | **Appliqué** |
+| Divergence entre variantes, `aiad-emit-rules-check.yml` (v1.12) | CI | **Appliqué** |
+| Divergence avec le package, `update --check` | Commande déterministe, code de sortie | **Appliqué** en CI |
+| Évaluation du SQS et Test de l'Étranger, `/sdd gate` | Skill exécuté par l'agent | **Déclaratif** |
+| Paternité humaine de l'Intent, `human-authorship-check` | Skill exécuté par l'agent | **Déclaratif** |
+| Détection de drift, `/sdd drift-check` | Skill exécuté par l'agent | **Déclaratif** |
+| Maintien dans le périmètre de la SPEC, `/sdd exec` | Consigne à l'agent | **Déclaratif** |
+| Validation fonctionnelle et gouvernance, `/sdd validate` | Skills exécutés par l'agent (hors veto par hook) | **Déclaratif** |
+
+**Règles.**
+- Tout contrôle qui garde une action de classe **irréversible** est appliqué. Si le seul contrôle disponible est déclaratif, on y ajoute un humain qualifié ou on retire à l'agent le droit d'accès qui rend l'action possible.
+- La SPEC et la trace de la Gate disent de quel type est chaque contrôle dont dépend une exigence critique.
+- Dans un dossier d'audit, seul un contrôle appliqué démontre que la règle tenait indépendamment du modèle. Un SQS évalué par un agent reste une aide à la décision de la personne qui ouvre la Gate — c'est elle le contrôle.
+- Priorité de migration : déplacer vers un hook ou la CI les contrôles déclaratifs qui gardent les classes de réversibilité élevées.
+
+**Ce que cette section ne dit pas.** Qu'un contrôle déclaratif est inutile : dans l'étude citée, l'exécuteur est resté dans ses fichiers déclarés, et le journal a rendu les écarts visibles. Ni qu'un contrôle appliqué suffit : il ne vérifie que ce qu'on a su écrire en règle.
+
+---
+
 ## Variante EARS (v1.11)
 
 EARS (Easy Approach to Requirements Syntax) est proposé **en option**, sans migration imposée — prose et EARS cohabitent.
@@ -532,6 +572,15 @@ EARS (Easy Approach to Requirements Syntax) est proposé **en option**, sans mig
 - `GEMINI.md` (Gemini)
 
 Le workflow CI `aiad-emit-rules-check.yml` **bloque toute PR** qui diverge entre les runtimes — un seul AGENT-GUIDE reste la source de vérité, model-agnostic.
+
+**Un fichier d'instructions gouverné (doctrine — cycle novembre 2026).** `emit-rules` est l'implémentation de la règle « une source unique » du framework (§ 4.3). Quatre règles l'accompagnent :
+
+- **Les variantes ne s'éditent pas à la main.** Toute correction se fait dans l'AGENT-GUIDE, puis se régénère. Le contrôle de divergence en CI est un contrôle appliqué.
+- **L'AGENT-GUIDE porte un en-tête de gouvernance** : propriétaire nommé, date de dernière revue, date de prochaine revue (annexe A.3). Une date dépassée se traite comme un drift.
+- **Le gabarit est borné en taille.** Sections qualifiées — socle, à compléter si l'information existe, facultative — et partie injectée courte (annexe A.3.4).
+- **Aucun fichier d'instructions généré ou réécrit par un agent n'est versionné sans relecture ligne à ligne** par son propriétaire, et aucun ne contient de directive qui relâche la supervision sans condition (liste de motifs : annexe A.3.4, § 4).
+
+Pourquoi : une étude de 2026 sur 3 387 fichiers d'instructions de 1 000 dépôts (preprint, non relu par les pairs) relève que 16,1 % des 386 paires de sections correspondantes examinées à la main, entre formats d'un même dépôt, donnent des consignes divergentes. Ce qui manque au package aujourd'hui : la vérification de l'en-tête de gouvernance et de la date de revue, la génération des instructions Copilot, et la recherche des directives interdites à l'import d'un skill tiers.
 
 ---
 
@@ -620,6 +669,11 @@ Métriques de leadership EU/FR exposées dans `doctor --json` : `humanAuthorship
 | **Cognitive Debt** | (Fowler/Joshi, 2026) Accumulation de code dont on accepte l'implémentation sans comprendre le modèle conceptuel. SDD Mode (spec-first + Human Learnings) l'évite. |
 | **Interrogatory LLM** | (Fowler, 2026) Pattern où l'agent construit le contexte par questions ciblées plutôt que passivement. Implémenté par `/sdd intent`. |
 | **Agent à autonomie financière** | Agent autorisé à engager des effets financiers/opérationnels irréversibles. Requiert validation des plafonds à l'Execution Gate. Voir AIAD-AI-ACT. |
+| **Contrôle appliqué / déclaratif** | *(doctrine — cycle novembre 2026)* Appliqué : exécuté hors du modèle qu'il contraint (hook, CI, politique, droit d'accès). Déclaratif : instruction donnée à ce même modèle. Seul le premier garde l'irréversible. |
+| **Supervision de théâtre** | *(doctrine — cycle novembre 2026)* Approbation humaine devenue étape vide (« human-in-the-loop theater », Thoughtworks). Une porte réelle a un critère vérifié, un auteur identifié et la possibilité de refuser. |
+| **Clause d'échec** | *(doctrine — cycle novembre 2026)* Ce que la SPEC prévoit si une exigence critique n'est pas satisfaite : bloquer, escalader, ou accepter par dérogation tracée. |
+| **Humain qualifié** | *(doctrine — cycle novembre 2026)* Personne réunissant compétence, autorité, information suffisante et trace de sa décision. Nommée dans la SPEC pour les domaines sensibles. |
+| **Approbation persistée** | *(doctrine — cycle novembre 2026)* « Oui, et ne plus demander » mémorisé par l'outil. Artefact de gouvernance : portée, auteur humain, durée de vie ; hors dépôt ; relu à chaque itération. |
 
 ---
 

@@ -290,6 +290,15 @@ async function sendMarketingEmail(userId: string): Promise<void> {
 - **TOUJOURS** implémenter une détection de violation de données (alertes sur accès anormaux)
 - **TOUJOURS** masquer les données personnelles dans les réponses d'erreur et les logs
 
+**Approbations persistées et secrets *(v1.10)*.** Répondre « oui, et ne plus demander » à un outil agentique peut inscrire la commande entière, secret compris, dans un fichier de réglages local (par exemple `.claude/settings.local.json`). Un secret ainsi exposé donne accès aux données qu'il protège.
+
+- **TOUJOURS** exclure du dépôt les fichiers d'approbation de l'outil agentique, dans le `.gitignore` du dépôt lui-même — une exclusion globale propre au poste ne protège ni les autres clones ni un fichier déjà suivi.
+- **TOUJOURS** passer ces fichiers et les transcriptions de sessions au scan de secrets, et les relire à chaque fin d'itération. Deux scanners courants peuvent manquer le même secret : le scan ne dispense pas de la relecture.
+- **JAMAIS** approuver de façon permanente une commande qui contient un secret en clair : passer le secret par une variable d'environnement.
+- **TOUJOURS** traiter un secret trouvé dans un dépôt partagé comme compromis : le faire tourner, puis évaluer s'il y a violation de données (Art. 33).
+
+> Mesure et limites : `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/execution-gate-evidence.md`.
+
 ```typescript
 // ✅ Hachage de mot de passe conforme
 import bcrypt from 'bcrypt';
@@ -388,6 +397,16 @@ Une validation en masse, un clic de confirmation systématique ou un contrôle a
 | A6 | Des données sensibles (Art. 9) entrent-elles dans la décision ? | Régime renforcé (Art. 22.4) |
 
 **Articulation AIAD.** Le Critère de Drift de l'Intent Statement et la classe de réversibilité (AIAD-AI-ACT, profil « Agents à effet irréversible ») s'appliquent : une désactivation de compte est une action à effet significatif, souvent coûteusement réversible pour la personne. Ce critère est l'expression opérationnelle de la Valeur 7 (Human Authorship) ; il ne modifie pas la Constitution.
+
+**Humain qualifié *(v1.10)*.** Ces quatre conditions définissent l'**humain qualifié** que le guide du framework (§ 4.4) demande de nommer dans la SPEC dès qu'un domaine sensible est touché — santé, droits, finances, emploi, logement, éducation, services essentiels. Liste des domaines et exigences contractuelles des fournisseurs de modèles : AIAD-AI-ACT, « Responsabilité du déployeur d'agents ».
+
+**Référence hors UE — ICO britannique *(v1.10)*.** Le 8 octobre 2026, l'autorité britannique de protection des données a ouvert un appel à contributions de six semaines sur l'IA agentique (clos le 20 novembre 2026), destiné à nourrir des lignes directrices et un futur code de pratique sur l'IA et la décision automatisée. Son directeur de la régulation des technologies y écrit : « the fact AI agents act with autonomy is not an excuse for poor compliance ». Trois précautions de lecture :
+
+- le régime britannique est proche du RGPD mais **n'a aucune force contraignante dans l'UE** ;
+- le communiqué s'adresse aux développeurs *et* aux déployeurs, sans dire lequel répond de quoi ;
+- au 12 novembre 2026, AIAD n'a pas connaissance d'une consultation équivalente de la CNIL ou du CEPD consacrée aux agents. **TOUJOURS** vérifier les publications de la CNIL avant de s'appuyer sur une position étrangère.
+
+- **JAMAIS** invoquer l'autonomie d'un agent pour justifier un traitement non conforme : le responsable de traitement reste celui qui en détermine les finalités et les moyens.
 
 ---
 
@@ -596,6 +615,18 @@ function initAnalytics(consent: CookieConsent): void {
 - Exception : mesures de protection appropriées rendant les données inintelligibles (chiffrement fort)
 
 **Téléservice CNIL :** https://notifications.cnil.fr/
+
+**Incident agentique et outillage compromis *(v1.10)*.** Deux situations propres aux agents ouvrent cette procédure :
+
+| Situation | Pourquoi c'est une violation possible | Réflexe |
+|-----------|----------------------------------------|---------|
+| Un agent accède à des données personnelles hors de son mandat, ou les transmet à un tiers non prévu | Accès ou divulgation non autorisés (Art. 4.12) | Arrêter l'agent, préserver les traces, qualifier — AIAD-AI-ACT, « Incident agentique — fiche réflexe » |
+| Une extension, un plugin ou un skill compromis sur un poste qui détient des données personnelles ou des accès à ces données | Un tiers a pu accéder au poste et aux secrets qu'il contient | AIAD-AI-ACT, « Compromission de l'outillage agentique » ; faire tourner les secrets, puis évaluer le risque |
+
+- Le délai de 72 heures court à partir du moment où le **responsable de traitement** a connaissance de la violation, pas de la fin de l'enquête. Une notification initiale incomplète, complétée ensuite, est admise.
+- Le **sous-traitant** qui opère l'agent prévient le responsable de traitement dans les meilleurs délais (Art. 33.2).
+- **TOUJOURS** notifier par le téléservice de l'autorité. **JAMAIS** par un courriel à une adresse de contact générique.
+- **TOUJOURS** documenter la violation dans le registre interne, même si elle n'est pas notifiée (Art. 33.5).
 
 ### Procédure — Transferts hors EEE post-Schrems II (Art. 44-49)
 
@@ -1051,7 +1082,7 @@ La Commission européenne a proposé le 19 novembre 2025 un paquet de simplifica
 ---
 
 *Agent RGPD — Tier 1 Gouvernance — Droit de veto*
-*Intégré au framework AIAD v1.9 — Valeur "Primauté de l'Intention Humaine"*
+*Intégré au framework AIAD v1.10 — Valeur "Primauté de l'Intention Humaine"*
 *Référentiel : RGPD (UE) 2016/679 + Loi Informatique et Libertés 78-17 — Autorité de contrôle : CNIL (France)*
 *⚠️ Cet agent ne remplace pas un avis juridique ni un DPO qualifié.*
 
@@ -1061,5 +1092,6 @@ La Commission européenne a proposé le 19 novembre 2025 un paquet de simplifica
 
 | Date | Version | Modifications |
 |------|---------|--------------|
+| 2026-11-12 | v1.10 | **+ Approbations persistées et secrets** (Principe 6) · **+ humain qualifié** et **référence ICO** (Principe 7 bis — position britannique, non contraignante dans l'UE, vérifiée sur le communiqué du 8 octobre 2026) · **+ incident agentique et outillage compromis** dans la procédure de violation de données · sources vérifiées le 12 novembre 2026 |
 | 2026-09-25 | v1.9 | **+ Principe 7 bis — Art. 22** (critère d'intervention humaine réelle, checklist ; précédent Uber vérifié sur le communiqué de l'AP) · résidence des données du modèle selon le canal · grille CNIL / CIANum pour les AIPD d'agents · récits et sources déplacés vers `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md` — détail : notes de version de la v1.9 |
 | 2026-04-20 | v1.5 — renforcement juridique | **+ CADRE LÉGAL DÉTAILLÉ** (Loi 78-17 consolidée, ePrivacy, Data Privacy Framework UE-US) — **+ sanctions Art. 83 chiffrées** (2 paliers 10 M€/2 % et 20 M€/4 %, 11 critères de modulation, échantillon amendes CNIL 2024) — **+ autorités** (CNIL, CEPD, chef de file) — **+ Dark Patterns JAMAIS** (CEPD Guidelines 03/2022) — **+ Art. 22 décision automatisée JAMAIS** — **+ OBLIGATIONS PAR ACTEUR** (responsable / conjoint / sous-traitant / représentant / DPO) — **+ procédure AIPD** (liste CNIL obligatoire, liste dispensée, 9 sections Art. 35.7) — **+ procédure violation 72 h** (contenu Art. 33.3 + téléservice CNIL) — **+ procédure TIA post-Schrems II** (CCT 2021/914, DPF état 2026-04-20) — **+ tableau des 7 droits** avec délais et formes — **+ ARTEFACTS OBLIGATOIRES** (registre Art. 30, AIPD, notification CNIL, DPA Art. 28) — **+ ARTICULATION** (ePrivacy/cookies CNIL 2020-091/092, AI Act double régime, référentiels sectoriels CNIL, règles de priorité) |

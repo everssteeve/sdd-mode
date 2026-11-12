@@ -1,20 +1,20 @@
 {
-  "doctrineVersion": "v1.9",
-  "syncedAt": "2026-09-26T19:08:16.132Z",
+  "doctrineVersion": "v1.10",
+  "syncedAt": "2026-11-12T08:02:17.666Z",
   "files": {
-    "templates/.aiad/gouvernance/AIAD-AI-ACT.md": "f3c244e5c87629b04db60b39d3660fce015a2ea9f10a83d43c3226bb7ca232bb",
-    ".aiad/gouvernance/AIAD-AI-ACT.md": "f3c244e5c87629b04db60b39d3660fce015a2ea9f10a83d43c3226bb7ca232bb",
-    "templates/.aiad/gouvernance/AIAD-RGPD.md": "ceaa2be5fd58430e24b26a206e621280dd4e7cb07ea9b17aaaa34555be3b84e9",
-    ".aiad/gouvernance/AIAD-RGPD.md": "ceaa2be5fd58430e24b26a206e621280dd4e7cb07ea9b17aaaa34555be3b84e9",
+    "templates/.aiad/gouvernance/AIAD-AI-ACT.md": "956835981a4bf7954f2f85c5e552294ea91553c6a24b471310fdd3e9b533f6c9",
+    ".aiad/gouvernance/AIAD-AI-ACT.md": "956835981a4bf7954f2f85c5e552294ea91553c6a24b471310fdd3e9b533f6c9",
+    "templates/.aiad/gouvernance/AIAD-RGPD.md": "1b0a31e4c047c1b803ab5632f0394ee15e1a2fece5154eb94455ac41db3886d6",
+    ".aiad/gouvernance/AIAD-RGPD.md": "1b0a31e4c047c1b803ab5632f0394ee15e1a2fece5154eb94455ac41db3886d6",
     "templates/.aiad/gouvernance/AIAD-RGAA.md": "b8434fb324ee1f7b2b69c7ac4d6b2c014bdc4ebcf30f0d8f0c4229de98baf556",
     ".aiad/gouvernance/AIAD-RGAA.md": "b8434fb324ee1f7b2b69c7ac4d6b2c014bdc4ebcf30f0d8f0c4229de98baf556",
     "templates/.aiad/gouvernance/AIAD-RGESN.md": "c4caba2605e838f63c611ec8aed75e594bef71ed065c632a3dada8a5258cdb20",
     ".aiad/gouvernance/AIAD-RGESN.md": "c4caba2605e838f63c611ec8aed75e594bef71ed065c632a3dada8a5258cdb20",
-    "templates/frameworkAIAD.md": "10af6265c5c4e8ab41048e0d4c892fa844656afe1b01f1821782d421e992ac6d",
-    "templates/SDDMode.md": "14293ef2162b24de34ced86c6640b91acbf60efffcde2d79e9a51f01fec3dca0",
-    "docs/legitimation/conformite-cas-2026.md": "7e176d4efb457e7aebce600a92e2866556d61929d6ff1519023addcddfe06ac5",
-    "docs/legitimation/execution-gate-evidence.md": "f946cde81ee8025a8fba69a57882a6c7f490a938e1a792426cb9f68130980597",
-    "docs/legitimation/responsabilite-evidence.md": "c828e6a0ebc1eb5161343a3801f71d28f7cc198b99f7a729d40b43ca5ee0a2c1",
+    "templates/frameworkAIAD.md": "a7ea427d1c2de4a2058f5c1c6c32c5cfeee00f1baf5b7fcfd101f2e5855d2899",
+    "templates/SDDMode.md": "8b48490b19490a40319f8d5bc94fba4592986d9c97456ca33b7d1486061d13fc",
+    "docs/legitimation/conformite-cas-2026.md": "312a6752cdc81f378d21cdf3061d18512d668e609a684fb7c1e24829c10f1935",
+    "docs/legitimation/execution-gate-evidence.md": "c3c7685154f69381e741f733d04d745f79b3ddd6dd2c46f4684557e7e04d22af",
+    "docs/legitimation/responsabilite-evidence.md": "62a006e8cf54edd24b2084f46d6fc6a1b1d85c9e0d06080c77fd80907d0c8982",
     "docs/legitimation/verification-evidence.md": "8b8a47dae4cb9c3d1a3755f807c188c8c19edcf326c290361b96573f3d05d1fa"
   }
 }
