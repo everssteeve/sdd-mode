@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Métriques — mesurer la valeur, pas l'activité | SDD Mode</title>
-<meta name="description" content="Les métriques SDD Mode : SQS et Test de l'Étranger, taux de drift, first-time success rate, DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR), Flow Metrics et dashboards, efficacité et qualité (Verification Tax) — data-informed, jamais data-driven.">
+<meta name="description" content="Les métriques SDD Mode : SQS et Test de l'Étranger, taux de drift, first-time success rate, DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR), Flow Metrics et dashboards, indicateurs de la porte humaine par classe de réversibilité, efficacité et qualité (Verification Tax) — data-informed, jamais data-driven.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../en/metrics.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -208,6 +208,25 @@
       </table>
       <p>L'analyse la plus précieuse est la <strong>décomposition du Lead Time</strong>, qui localise les goulots d'étranglement : un Lead Time de 15 jours avec un Cycle Time de 2 jours révèle 13 jours d'attente cachée — souvent entre l'Intent et la SPEC, ou dans les itérations de Gate. La loi de Little (<em>Lead Time = WIP / Throughput</em>) sert de levier : pour accélérer, réduire le WIP ou augmenter le Throughput.</p>
 
+      <h2 id="porte-humaine">Mesurer la porte humaine (doctrine v1.10)</h2>
+      <p>La doctrine gradue la supervision humaine selon la <a href="concepts/execution-gate.html#porte-reelle">classe de réversibilité</a> du changement et lui associe un seuil vérifiable. Trois indicateurs répondent à une seule question : <strong>l'intervention humaine a-t-elle lieu là où elle est attendue, et est-elle réelle ?</strong></p>
+      <table>
+        <caption>Les trois indicateurs de la porte humaine (doctrine AIAD v1.10, annexe E.13)</caption>
+        <thead><tr><th scope="col">Indicateur</th><th scope="col">Définition</th><th scope="col">Lecture</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">H1 — Part des changements fusionnés avec intervention humaine, par classe</th><td>Changements fusionnés ayant reçu une validation motivée ou une demande de changement d'un humain, rapportés aux changements fusionnés, pour chaque classe.</td><td>À comparer au seuil de la classe. Sous le seuil sur la classe irréversible : arrêt et revue, pas simple alerte.</td></tr>
+          <tr><th scope="row">H2 — Taux d'approbations sans commentaire sur les classes élevées</th><td>Approbations sans aucun commentaire ni question, rapportées aux approbations, sur les classes irréversible et coûteusement réversible.</td><td>Détecteur de supervision de théâtre : un taux élevé et stable signale des approbations de routine. À lire avec H3.</td></tr>
+          <tr><th scope="row">H3 — Temps de revue humaine rapporté au volume</th><td>Temps de revue humaine cumulé, rapporté au nombre de pull requests fusionnées, par classe et par itération.</td><td>Si le volume monte et que le temps par pull request s'effondre, la revue devient nominale. Si le temps total explose, la revue est le goulot : réduire le WIP avant d'alléger la porte.</td></tr>
+        </tbody>
+      </table>
+      <p>Sources de données possibles : le journal de l'Execution Gate, l'historique des revues de la forge logicielle, une étiquette de classe sur la pull request. Aucune n'est un prérequis : une équipe peut tenir H1 à la main sur ses seuls changements irréversibles, rares par construction. Les seuils eux-mêmes sont des <strong>valeurs de départ, sans base empirique propre</strong>, à calibrer par chaque équipe.</p>
+      <ul>
+        <li><strong>Un commentaire de pure forme ne compte pas</strong> comme validation motivée : H1 se vérifie par échantillonnage en rétrospective, en relisant cinq validations au hasard.</li>
+        <li><strong>H2 n'est jamais un objectif individuel</strong> : publié par personne, il produit des commentaires de complaisance ; par équipe et par classe, il reste un signal.</li>
+        <li><strong>Ne pas viser 0 % d'approbations sans commentaire</strong> : un changement simple et bien spécifié mérite une approbation sans remarque. C'est la dérive dans le temps qui informe.</li>
+      </ul>
+      <p>Deux limites : ces indicateurs mesurent la <em>présence</em> et la <em>forme</em> d'une intervention humaine, pas sa justesse ; et ils supposent que la classe de réversibilité a été déclarée honnêtement. Ils portent sur des changements de code, pas sur les décisions qu'un système prend sur une personne. Dans le paquet aiad-sdd, la classe de réversibilité et le type d'intervention humaine ne figurent pas encore dans la trace de l'Execution Gate : d'ici là, ils se renseignent à la main lors de l'Anti-Drift Check.</p>
+
       <h2 id="dashboards">Les dashboards</h2>
       <table>
         <caption class="visually-hidden">Les deux dashboards AIAD</caption>
@@ -299,7 +318,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

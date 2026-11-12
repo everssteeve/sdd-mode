@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gouvernance Tier 1 — le droit de veto réglementaire | SDD Mode</title>
-<meta name="description" content="Les quatre agents de gouvernance Tier 1 d'AIAD (AI Act, RGPD, RGAA, RGESN), complétés par l'agent CRA livré par le paquet, ont un droit de veto absolu sur tout livrable non conforme. Calendrier AI Act recalé sur le Règlement (UE) 2026/1744, agents à effet irréversible, trace de délégation, Art. 22 RGPD, politique fail-closed, packs régionaux et subagents Claude Code.">
+<meta name="description" content="Les quatre agents de gouvernance Tier 1 d'AIAD (AI Act, RGPD, RGAA, RGESN), complétés par l'agent CRA livré par le paquet, ont un droit de veto absolu sur tout livrable non conforme. Calendrier AI Act recalé sur le Règlement (UE) 2026/1744, agents à effet irréversible, trace de délégation, responsabilité du déployeur d'agents, incident agentique, Art. 22 RGPD, politique fail-closed, packs régionaux et subagents Claude Code.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../../en/governance/index.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -220,6 +220,45 @@ question: &lt;reformulation pour l'humain&gt;</code></pre>
       <h3 id="trace-delegation">Trace de délégation</h3>
       <p>Toute tâche confiée à un agent est rattachée à un <strong>Intent Statement</strong> (auteur humain identifié), à une <strong>SPEC</strong> (périmètre délégué) et à la <strong>trace de l'Execution Gate</strong> (validation humaine). L'organisation répond de ce que font ses agents : sans cette trace, elle ne peut démontrer ni sa diligence, ni l'origine du code. L'agent ne lance jamais une tâche dont l'origine humaine ne peut pas être retracée. Cette trace rend la responsabilité démontrable <em>dans un sens comme dans l'autre</em> : une SPEC défectueuse validée à la Gate engage celui qui l'a validée — une trace qui ne pourrait que disculper ne serait pas une preuve. L'idée que l'organisation doit répondre de ses agents est une thèse qu'AIAD fait sienne (Schneier et Sanders, 2026) — une thèse, pas l'état du droit.</p>
 
+      <h3 id="deployeur">Responsabilité du déployeur d'agents (v1.10)</h3>
+      <p>Principe : une responsabilité <strong>partagée et étagée</strong> — et une part que le déployeur ne peut pas déléguer. L'AI Act répartit les obligations ; il ne les transfère pas d'un acteur à l'autre.</p>
+      <table>
+        <caption>Ce que l'AI Act confie à chaque acteur (systèmes à haut risque)</caption>
+        <thead><tr><th scope="col">Qui</th><th scope="col">Ce que le texte lui confie</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Fournisseur du système</th><td>Concevoir le système pour qu'il puisse être effectivement supervisé (Art. 14(1)) ; y intégrer les mesures de contrôle ou désigner celles que le déployeur doit mettre en œuvre (Art. 14(3)) ; signaler les incidents graves (Art. 73)</td></tr>
+          <tr><th scope="row">Fournisseur d'un modèle GPAI à risque systémique</th><td>Suivre, documenter et signaler les incidents graves à l'AI Office (Art. 55(1)(c))</td></tr>
+          <tr><th scope="row">Déployeur</th><td>Confier le contrôle humain à des personnes qui ont la compétence, la formation et l'autorité nécessaires, ainsi que le soutien nécessaire (Art. 26(2)) ; utiliser le système selon sa notice ; en surveiller le fonctionnement ; informer le fournisseur puis les autorités en cas d'incident grave (Art. 26(5))</td></tr>
+        </tbody>
+      </table>
+      <p>Les articles 14 et 26 ne s'appliquent aux systèmes de l'Annexe III qu'à partir du <strong>2 décembre 2027</strong>. Hors haut risque, ce qui suit est une <strong>bonne pratique AIAD</strong>, pas une obligation de l'AI Act. Restent au déployeur, quel que soit le fournisseur : le <strong>confinement de l'usage</strong> (isolation, sorties réseau, credentials), le <strong>moindre privilège</strong> et l'<strong>affectation de la supervision humaine</strong> — lui seul connaît les systèmes, les données et les personnes que l'agent peut atteindre. L'agent ne présente jamais les garde-fous du fournisseur du modèle comme une mesure suffisante, et n'invoque jamais l'autonomie de l'agent pour expliquer un manquement : elle ne change pas le régime de responsabilité.</p>
+      <p><strong>Humain qualifié.</strong> Quand la SPEC touche un domaine sensible — santé ; droits et situation juridique ; finances ; emploi et moyens de subsistance ; logement, éducation et diplômes ; services et prestations essentiels —, elle nomme la personne qui supervise et ce qui la qualifie : compétence, autorité, information suffisante, trace (voir <a href="../concepts/autonomie-agent.html#humain-qualifie">L'humain qualifié</a>). La politique d'usage du fournisseur du modèle peut ajouter des obligations contractuelles à la loi : celle d'Anthropic, dans sa version en vigueur le 12 novembre 2026, exige pour une recommandation ou une décision à haut risque au sens de cette politique la relecture par une personne qualifiée ayant autorité pour la modifier, et l'information de la personne concernée. C'est le contrat d'un seul fournisseur, qui peut changer : la règle AIAD est de relire, à chaque cycle, celui de chaque fournisseur utilisé.</p>
+
+      <h3 id="incident-agentique">Incident agentique — fiche réflexe (v1.10)</h3>
+      <p>Un <strong>incident agentique</strong> est la situation où un agent agit hors de son mandat : il contourne un refus ou un blocage, accède à un système auquel il n'était pas autorisé, ou produit un effet irréversible non autorisé. La fiche s'applique que l'agent soit en production, en test ou en évaluation.</p>
+      <ol>
+        <li><strong>Arrêter et isoler</strong> : stopper l'agent, révoquer ses credentials, couper ses sorties réseau.</li>
+        <li><strong>Préserver les traces</strong> : journaux de l'agent, transcriptions, journal de l'Execution Gate. Ne jamais relancer l'agent sur la même tâche avant la revue humaine.</li>
+        <li><strong>Qualifier</strong> l'incident avec le tableau ci-dessous, dans la journée.</li>
+        <li><strong>Notifier par le canal officiel</strong> de l'autorité ou du tiers touché, jamais par une adresse de contact générique.</li>
+        <li><strong>Prévenir le tiers</strong> dont le système a été atteint, même sans obligation légale.</li>
+        <li><strong>Consigner</strong> l'incident dans les Human Learnings (catégorie « défaillances de supervision ») et réviser le Critère de Drift.</li>
+      </ol>
+      <table>
+        <caption>Incident agentique : qualification, destinataires et délais</caption>
+        <thead><tr><th scope="col">Qualification</th><th scope="col">Qui notifie</th><th scope="col">À qui</th><th scope="col">Délai</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Incident grave d'un système à haut risque (Art. 3(49))</th><td>Le fournisseur (Art. 73). Le déployeur informe immédiatement le fournisseur, puis l'importateur ou le distributeur et l'autorité (Art. 26(5))</td><td>Autorité de surveillance du marché de l'État membre où l'incident est survenu</td><td>Immédiatement, au plus tard 15 jours ; 2 jours si infraction de grande ampleur ou infrastructure critique ; 10 jours en cas de décès</td></tr>
+          <tr><th scope="row">Incident grave impliquant un modèle GPAI à risque systémique</th><td>Le fournisseur du modèle (Art. 55(1)(c))</td><td>AI Office et, le cas échéant, autorités nationales</td><td>Sans retard injustifié</td></tr>
+          <tr><th scope="row">Violation de données personnelles</th><td>Le responsable de traitement (Art. 33 RGPD) ; le sous-traitant prévient le responsable</td><td>CNIL</td><td>72 heures après en avoir pris connaissance</td></tr>
+          <tr><th scope="row">Aucun des cas ci-dessus</th><td>Pas d'obligation au titre de l'AI Act ; contrats, droit commun et étape 5 s'appliquent</td><td>Tiers touché</td><td>Sans délai</td></tr>
+        </tbody>
+      </table>
+      <p>Les obligations de l'article 73 suivent le calendrier du haut risque (2 décembre 2027 pour l'Annexe III) ; celles de l'article 55 sont en vigueur depuis le 2 août 2025. Plusieurs qualifications peuvent se cumuler : c'est le délai le plus court qui commande. Les délais sont ceux du Règlement (UE) 2024/1689, à relire sur le texte consolidé avant de notifier. Cette fiche est une aide à la décision, pas un avis juridique : escalader au responsable conformité ou au DPO dès l'étape 3.</p>
+
+      <h3 id="outillage-compromis">Compromission de l'outillage agentique (v1.10)</h3>
+      <p>Quand une extension, un plugin, un skill ou un serveur MCP installé sur un poste se révèle malveillant ou compromis, <strong>désinstaller ne suffit pas</strong> : un composant malveillant peut avoir installé une porte dérobée qui lui survit. La conduite à tenir : isoler le poste du réseau ; chercher et retirer les clés inconnues dans <code>~/.ssh/authorized_keys</code>, les mécanismes de persistance et les processus de tunnel sortant ; faire tourner, depuis un système de confiance, tous les secrets et sessions accessibles depuis le poste ; examiner les journaux d'accès ; appliquer l'avis de sécurité de l'éditeur et envisager de reconstruire le poste ; qualifier (violation de données, incident agentique) ; mettre à jour la <a href="../concepts/autonomie-agent.html#charge-gouverne">liste blanche de l'outillage</a>. Deux règles permanentes : tenir la liste des extensions, plugins, skills et serveurs MCP autorisés, avec leur version — sans elle, on ne sait pas quels postes sont touchés — et ne jamais laisser la mise à jour automatique des extensions activée sur un poste qui détient des accès de production.</p>
+
       <h2 id="rgpd">AIAD-RGPD — Privacy by Design</h2>
       <p>Déclenché dès que le code traite des données personnelles. Le principe directeur tient en une phrase : <em>une donnée non collectée ne peut pas être violée</em>. L'agent applique le Privacy by Design &amp; by Default (Art. 25) de façon architecturale : <strong>base légale documentée</strong> avant toute collecte (consentement, contrat, obligation légale, intérêt légitime…), <strong>minimisation</strong> (Art. 5.1.c), limitation des finalités et de la conservation, et implémentation des <strong>droits des personnes</strong> (Art. 15-22) — accès, effacement, portabilité, rectification, opposition, avec réponse sous 30 jours. Les données sensibles (Art. 9 : santé, biométrie, opinions, orientation sexuelle…) déclenchent un blocage et une escalade systématique au DPO ou au PM avant implémentation.</p>
 
@@ -255,6 +294,17 @@ question: &lt;reformulation pour l'humain&gt;</code></pre>
           <tr><td>Répartition des responsabilités entre acteurs</td><td>Qui est responsable de traitement, qui est sous-traitant, pour chaque étape ?</td><td>Responsabilité Partagée : chaque délégation a un responsable humain nommé</td></tr>
         </tbody>
       </table>
+
+      <h3 id="rgpd-agents">Approbations persistées, incident agentique et outillage compromis (v1.10)</h3>
+      <p>Répondre « oui, et ne plus demander » à un outil agentique peut inscrire la commande entière, secret compris, dans un fichier de réglages local (par exemple <code>.claude/settings.local.json</code>). Un secret ainsi exposé donne accès aux données qu'il protège. L'agent applique quatre règles :</p>
+      <ul>
+        <li>exclure du dépôt les fichiers d'approbation de l'outil agentique, dans le <code>.gitignore</code> du dépôt lui-même — une exclusion globale propre au poste ne protège ni les autres clones ni un fichier déjà suivi ;</li>
+        <li>passer ces fichiers et les transcriptions de sessions au scan de secrets, et les relire à chaque fin d'itération — le scan ne dispense pas de la relecture ;</li>
+        <li>ne jamais approuver de façon permanente une commande qui contient un secret en clair : passer le secret par une variable d'environnement ;</li>
+        <li>traiter un secret trouvé dans un dépôt partagé comme compromis : le faire tourner, puis évaluer s'il y a violation de données (Art. 33).</li>
+      </ul>
+      <p>Deux situations propres aux agents ouvrent la procédure de violation de données : un agent qui accède à des données personnelles hors de son mandat ou les transmet à un tiers non prévu (accès ou divulgation non autorisés, Art. 4.12), et une extension, un plugin ou un skill compromis sur un poste qui détient des données personnelles ou des accès à ces données. Le délai de 72 heures court à partir du moment où le <strong>responsable de traitement</strong> a connaissance de la violation, pas de la fin de l'enquête ; une notification initiale incomplète, complétée ensuite, est admise. La notification passe par le téléservice de l'autorité, jamais par un courriel à une adresse de contact générique, et la violation est documentée dans le registre interne même si elle n'est pas notifiée (Art. 33.5).</p>
+      <p><strong>Référence hors UE.</strong> Le 8 octobre 2026, l'autorité britannique de protection des données (ICO) a ouvert un appel à contributions de six semaines sur l'IA agentique, clos le 20 novembre 2026. Son directeur de la régulation des technologies y écrit que l'autonomie des agents n'est pas une excuse pour une conformité défaillante. Trois précautions de lecture : le régime britannique est proche du RGPD mais <strong>n'a aucune force contraignante dans l'UE</strong> ; le communiqué s'adresse aux développeurs et aux déployeurs, sans dire lequel répond de quoi ; au 12 novembre 2026, AIAD n'a pas connaissance d'une consultation équivalente de la CNIL ou du CEPD consacrée aux agents. L'agent vérifie toujours les publications de la CNIL avant de s'appuyer sur une position étrangère.</p>
 
       <h2 id="rgaa">AIAD-RGAA — accessibilité numérique</h2>
       <p>Déclenché dès que le code produit une interface utilisateur. Référentiel : <strong>RGAA 4.1.2</strong> (arrêté du 20 septembre 2024, 106 critères répartis en 13 thématiques), bâti sur WCAG 2.1 niveaux A et AA. L'obligation légale française découle de l'article 47 de la loi 2005-102 pour le secteur public, et depuis le 28 juin 2025 de l'European Accessibility Act pour un large périmètre privé (banque, e-commerce, transport, téléphonie). L'agent impose l'accessibilité <em>built-in</em> — alt sur les images, contrastes 4.5:1, labels de formulaire, navigation clavier, focus visible, <code>aria-current</code>, lien d'évitement — car corriger après coup coûte dix fois plus cher. Autorité de contrôle : ARCOM ; sanctions jusqu'à 300 000 € pour le périmètre EAA.</p>
@@ -368,7 +418,7 @@ question: &lt;reformulation pour l'humain&gt;</code></pre>
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Les artefacts — la mémoire collective de l'équipe | SDD Mode</title>
-<meta name="description" content="Les artefacts AIAD ne sont pas de la bureaucratie : Intent Statement, PRD, ARCHITECTURE, AGENT-GUIDE, SPECs et Definitions of Done forment une hiérarchie documentaire stricte — la mémoire collective de l'équipe et le carburant des agents IA. Classe de réversibilité, défaillances de supervision et sections de SPEC qui encadrent l'agent (v1.9).">
+<meta name="description" content="Les artefacts AIAD ne sont pas de la bureaucratie : Intent Statement, PRD, ARCHITECTURE, AGENT-GUIDE, SPECs et Definitions of Done forment une hiérarchie documentaire stricte — la mémoire collective de l'équipe et le carburant des agents IA. Classe de réversibilité, défaillances de supervision et sections de SPEC qui encadrent l'agent (v1.9), fichier d'instructions gouverné (v1.10).">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../en/artifacts.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -194,10 +194,20 @@
       </ul>
       <p>La question à poser en rétrospective : <em>à quel moment un humain aurait-il dû être consulté, et pourquoi ne l'a-t-il pas été ?</em> Les <a href="concepts/autonomie-agent.html#points-arret">points d'arrêt de l'agent</a> sont la réponse préventive.</p>
       <p>Un guide de cent règles est moins efficace qu'un guide de dix règles bien choisies : l'AGENT-GUIDE est borné par le Context Budget (condensé ≤ 500 tokens en session). Pour la même raison, les <a href="concepts/validation.html#exemplars">exemplars de revue</a> n'y figurent pas : ils ne sont chargés que dans les sessions de revue.</p>
+      <h3 id="fichier-gouverne">Un fichier d'instructions gouverné (doctrine v1.10)</h3>
+      <p>L'AGENT-GUIDE et ses variantes par outil sont les fichiers les plus lus par l'agent et, d'après les données disponibles, parmi les moins entretenus. Une étude de 2026 portant sur 3 387 fichiers d'instructions de 1 000 dépôts GitHub (preprint, non relu par les pairs) relève que 40,4 % des fichiers analysés n'ont qu'un seul événement de modification enregistré, et que 16,1 % des 386 paires de sections correspondantes examinées à la main, entre formats d'un même dépôt, donnent des consignes divergentes. AIAD en tire quatre règles.</p>
+      <ul>
+        <li><strong>Un en-tête de gouvernance.</strong> Tout fichier d'instructions porte un <strong>propriétaire nommé</strong>, la date de dernière revue et la date de prochaine revue — au plus tard trois mois après la dernière, valeur de départ à ajuster. Une date dépassée se traite comme un drift : le fichier est relu avant la prochaine session, pas après.</li>
+        <li><strong>Une source unique.</strong> Un seul fichier source par projet — l'AGENT-GUIDE — d'où sont générées les variantes par outil. Les variantes ne s'éditent pas à la main, et un contrôle en intégration continue signale toute divergence (dans le SDD Mode : <code>emit-rules</code> et son contrôle de divergence).</li>
+        <li><strong>Un gabarit à sections qualifiées, borné en taille.</strong> Chaque section est qualifiée : <em>socle</em>, <em>à compléter si l'information existe</em>, ou <em>facultative</em>. Un gabarit plus complet n'autorise pas un fichier plus long : la partie injectée à chaque session reste courte, le reste est chargé à la demande. <strong>Contre-indice à garder en tête :</strong> une autre étude de 2026 (ETH Zurich et LogicStar ; preprint) conclut, d'après son résumé, que les fichiers de contexte n'améliorent généralement pas le taux de réussite des agents et renchérissent l'inférence de plus de 20 % en moyenne. Le gabarit sert à ne rien oublier d'utile, pas à remplir : une rubrique sans contenu propre au projet reste vide.</li>
+        <li><strong>Jamais de fichier généré sans relecture humaine.</strong> Un fichier d'instructions généré ou réécrit par un agent se relit ligne à ligne par son propriétaire avant d'être versionné, et aucun ne contient de directive qui relâche la supervision sans condition — c'est l'application de la règle « <a href="concepts/autonomie-agent.html#charge-gouverne">tout ce que l'agent charge est gouverné</a> ».</li>
+      </ul>
+      <p>La mémoire d'agent suit la même logique : <a href="concepts/context-budget.html#memoire">une durée de vie par catégorie</a>. Dans le paquet aiad-sdd, <code>emit-rules</code> applique déjà la source unique ; la vérification de l'en-tête de gouvernance et de la date de revue, la génération des instructions Copilot et la recherche des directives interdites à l'import d'un skill tiers n'y sont pas encore.</p>
 
       <h2 id="spec">SPECs — l'instruction de travail de l'agent</h2>
       <p>Une <a href="concepts/spec.html">SPEC</a> fait le pont entre l'intention (PRD, Intent) et l'implémentation par l'agent. Une SPEC de qualité permet de générer 80 %+ du code correct du premier coup — c'est l'investissement au meilleur ROI du framework. Quatre critères la définissent : atomicité, précision, testabilité, complétude — scorés par le SQS à l'<a href="concepts/execution-gate.html">Execution Gate</a> (≥ 4/5 requis). Chaque SPEC porte son propre <strong>Critère de Drift</strong> et reste synchronisée avec le code à chaque PR.</p>
       <p>Deux sections, ajoutées par la doctrine v1.9, encadrent ce que l'agent est autorisé à faire : « <strong>Points d'arrêt de l'agent</strong> » (optionnelle — quand l'agent revient vers un humain : approbation, avis d'expert, pluralité de points de vue, témoin) et « <strong>Périmètre d'exécution de l'agent</strong> » (conditionnelle — requise dès que l'agent dispose de credentials ou d'un accès en écriture à une ressource partagée, « Non applicable » sinon). Voir <a href="concepts/spec.html#sections-agent">SPEC</a> et <a href="concepts/autonomie-agent.html">Autonomie de l'agent</a>.</p>
+      <p>La doctrine v1.10 en ajoute deux, conditionnelles elles aussi : « <strong>Exigences critiques : contrôle et clause d'échec</strong> » (pour chaque exigence critique, le contrôle qui la vérifie, son type — appliqué ou déclaratif — et ce qu'on fait si elle n'est pas satisfaite : bloquer, escalader ou accepter par dérogation tracée) et « <strong>Humain qualifié</strong> » (requise dès qu'un domaine sensible est touché — santé, droits, finances, emploi, logement, éducation, services essentiels). Voir <a href="concepts/spec.html#exigences-critiques">SPEC</a>.</p>
 
       <h2 id="dod">Les Definitions of Done</h2>
       <p>La <strong>Definition of Output Done (DoOD)</strong> établit le standard pour qu'un incrément soit livrable, en six catégories : techniques, sécurité, performance, fonctionnels, déploiement, review. Le principe est non négociable : tous les critères ou rien — <strong>« Done à 90 % n'est pas Done »</strong>.</p>
@@ -285,7 +295,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Validation — four axes, one verdict | SDD Mode</title>
-<meta name="description" content="SDD validation covers four axes: technical (lint, types, tests, build), functional (the SPEC's test cases), business (intent and Drift Criterion) and governance (4 Tier 1 agents, fail-closed veto), guided by four verification rules. VALIDATED / FIXES / REJECTED verdict, complemented by /sdd security and /sdd audit persisted in .aiad/metrics/.">
+<meta name="description" content="SDD validation covers four axes: technical (lint, types, tests, build), functional (the SPEC's test cases), business (intent and Drift Criterion) and governance (4 Tier 1 agents, fail-closed veto), guided by four verification rules, with the distinction between applied and declarative controls. VALIDATED / FIXES / REJECTED verdict, complemented by /sdd security and /sdd audit persisted in .aiad/metrics/.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/concepts/validation.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -196,6 +196,32 @@
       <h3 id="verification-tax">Verification Tax</h3>
       <p>A 2026 literature review uses this name for the gap between the productivity gain in writing code and the much smaller gain in delivering reliable software. The term describes what the upfront investment in SPEC and Gate seeks to reduce. The team-side corollary: efficiency is not quality — a faster review is not a better review (see the role of the <a href="../team/responsibilities.html#qa">QA Engineer</a>).</p>
 
+      <h2 id="controles">Applied control, declarative control (doctrine v1.10)</h2>
+      <p>A control is <strong>applied</strong> when it runs outside the model it constrains: deterministic hook, continuous integration, platform policy, access right. It is <strong>declarative</strong> when it relies on an instruction given to that same model. Both have their place; they do not carry the same evidential value. The first log study of a gated SDD workflow under Claude Code (nine features in seven projects, all run by the authors; November 2026 preprint) locates the weak link in the orchestrator, "which runs and judges its own checks". It is a case study, not a general measurement; it is enough to set three rules.</p>
+      <ul>
+        <li><strong>Say which type each control is.</strong> The SPEC and the Execution Gate trace state, for each control a critical requirement depends on, whether it is applied or declarative.</li>
+        <li><strong>Apply whatever guards the irreversible.</strong> Any control protecting an action of the irreversible class is applied. If the only available control is declarative, add a qualified human or remove from the agent the access right that makes the action possible.</li>
+        <li><strong>Do not count a declarative control as evidence.</strong> In an audit or compliance file, only an applied control demonstrates that the rule held independently of the model.</li>
+      </ul>
+      <p>SDD Mode is no exception: some of its controls are declarative. A starting classification, drawn from the SDD Mode guide — the full inventory, control by control, is still to be done in the package:</p>
+      <table>
+        <caption>SDD Mode controls: applied or declarative (starting classification)</caption>
+        <thead><tr><th scope="col">Control</th><th scope="col">Mechanism</th><th scope="col">Type</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Fail-closed Tier 1 governance veto</th><td>Hook</td><td>Applied</td></tr>
+          <tr><th scope="row">Gate pre-check, <code>gate-precheck</code></th><td>Deterministic command, exit code</td><td>Applied if launched by a hook or in CI; otherwise depends on whoever launches it</td></tr>
+          <tr><th scope="row">Traceability, <code>/sdd trace --fail-on-gap</code></th><td>CI</td><td>Applied</td></tr>
+          <tr><th scope="row">Divergence between variants, <code>emit-rules</code></th><td>CI</td><td>Applied</td></tr>
+          <tr><th scope="row">Divergence from the package, <code>update --check</code></th><td>Deterministic command, exit code</td><td>Applied in CI</td></tr>
+          <tr><th scope="row">SQS scoring and Stranger Test, <code>/sdd gate</code></th><td>Skill run by the agent</td><td>Declarative</td></tr>
+          <tr><th scope="row">Human authorship of the Intent, <code>human-authorship-check</code></th><td>Skill run by the agent</td><td>Declarative</td></tr>
+          <tr><th scope="row">Drift detection, <code>/sdd drift-check</code></th><td>Skill run by the agent</td><td>Declarative</td></tr>
+          <tr><th scope="row">Staying within the SPEC scope, <code>/sdd exec</code></th><td>Instruction to the agent</td><td>Declarative</td></tr>
+          <tr><th scope="row">Functional and governance validation, <code>/sdd validate</code></th><td>Skills run by the agent (apart from the hook-based veto)</td><td>Declarative</td></tr>
+        </tbody>
+      </table>
+      <p>An SQS scored by an agent remains a decision aid for the person who opens the Gate — that person is the control. This distinction does not say that a declarative control is useless: in the study cited, the executor stayed within its declared files, and the log made the deviations visible. Nor that an applied control is enough: it only checks what someone managed to write down as a rule.</p>
+
       <h2 id="composition">A composition of skills, with no duplication</h2>
       <p><code>/sdd validate</code> is the most composite command of the cycle: it implements no logic of its own but <strong>composes three reusable skills</strong> — <code>ears-validator</code> (coverage of §3's testable criteria), <code>drift-detection</code> (code ↔ SPEC gaps on the diff) and <code>regulatory-veto</code> (the 4 Tier 1 standards). Each skill is also invoked elsewhere in the cycle (<code>/sdd gate</code>, <code>/sdd drift-check</code>, <code>/sdd security</code>…): the logic lives in one place, and the commands orchestrate it.</p>
 
@@ -282,7 +308,7 @@ Question(s) for the human: &lt;actionable rephrasing&gt;</code></pre>
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

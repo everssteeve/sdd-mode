@@ -194,6 +194,7 @@
         <span class="callout-title">Anti-Drift Check — 10 minutes, three questions</span>
         <p>Before closing the ticket, the PE answers for each SPEC used: does the delivered behaviour match exactly what the SPEC describes? Is the list of impacted files still exhaustive? Does the DRIFT CRITERION of the parent <a href="../concepts/intent-statement.html">Intent Statement</a> signal a gap? If any answer is no, the SPEC is updated — committed in the <em>same PR</em> as the code: that is the <a href="../concepts/drift-lock.html">Drift Lock</a>.</p>
       </div>
+      <p><strong>At the end of the iteration (doctrine v1.10).</strong> Three checks are added: the AGENT-GUIDE's next review date is not overdue and expired agent memory is purged; the <a href="../concepts/agent-autonomy.html#approbation-persistee">persisted approval</a> files are reread — nothing stale, no secret, nothing written by a third-party tool; and the retrospective revisits the <a href="../concepts/execution-gate.html#porte-reelle">oversight thresholds by reversibility class</a>, rereading five validations at random to check that they are reasoned.</p>
       <p>Four deployment strategies are available: Continuous Deployment (non-critical features), Staged Rollout (major features), Feature Flags (experiments, A/B tests) and Manual Release (critical, compliance). AIAD recommendation: Continuous Deployment with Feature Flags. Indicators: merge → production in under one hour (ideally fifteen minutes), rollback &lt; 5%, zero downtime.</p>
 
       <h3 id="chain-of-evidence">Automated deployment: trust is a chain of evidence</h3>
@@ -279,7 +280,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

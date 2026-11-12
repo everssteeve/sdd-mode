@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Context Engineering Budget — the discipline of context | SDD Mode</title>
-<meta name="description" content="The Context Engineering Budget is principle #3 of SDD Mode: the Product Engineer owns the context budget of every agent session. 60-70% operational threshold, a dated window reference, a single active SPEC, the Intent at the top of the context, early delegation to sub-agents, 5 health metrics M1-M5.">
+<meta name="description" content="The Context Engineering Budget is principle #3 of SDD Mode: the Product Engineer owns the context budget of every agent session. 60-70% operational threshold, a dated window reference, a single active SPEC, the Intent at the top of the context, early delegation to sub-agents, agent memory lifetimes, 5 health metrics M1-M5.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../../fr/concepts/context-budget.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -197,6 +197,19 @@
       <h2 id="compaction">Intentional compaction and loop engineering</h2>
       <p>Two field practices complement the budget. <strong>Intentional compaction</strong> (Dex Horthy, HumanLayer) means deliberately compacting the history into a written state — decisions taken, files touched, next steps — rather than enduring automatic compaction. <strong>Loop engineering</strong> means structuring each agentic loop around an objective, an exit criterion and a check. This vocabulary dates from 2026 and remains <strong>unsettled vocabulary</strong>: it is adopted as a description of practices, not as a standard.</p>
 
+      <h2 id="memoire">Agent memory: a lifetime per category (doctrine v1.10)</h2>
+      <p>The notes an agent keeps from one session to the next consume the same budget, and a wrong or stale note is re-injected into every session. AIAD takes up two anti-patterns named by Adi Polak (InfoQ, November 2026): <strong>Context Stuffing</strong> — injecting everything "just in case" — and <strong>Unbounded Memory Growth</strong> — a memory that grows without ever expiring. Rule: each memory category has a written lifetime.</p>
+      <table>
+        <caption>Lifetime per agent memory category</caption>
+        <thead><tr><th scope="col">Category</th><th scope="col">Example</th><th scope="col">Lifetime</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Task or session data</th><td>Current plan, files touched</td><td>Expires when the session closes or the objective is reached</td></tr>
+          <tr><th scope="row">Real-time observations</th><td>State of a service, result of a test</td><td>Expires in minutes or hours</td></tr>
+          <tr><th scope="row">Background knowledge</th><td>Preferences, verified facts</td><td>Persists, with periodic revalidation — at the AGENT-GUIDE review</td></tr>
+        </tbody>
+      </table>
+      <p>The source gives no figures: each team sets its own. It is an architect's recommendation, not an independent measurement; AIAD adopts it as a rule of prudence. The <a href="../artifacts.html#fichier-gouverne">AGENT-GUIDE</a> review includes purging whatever has expired. In the aiad-sdd package, <code>/sdd context</code> audits a session's context; it does not yet purge expired memory — today that is a Product Engineer's task.</p>
+
       <h2 id="economie">The economic argument</h2>
       <p>The discipline of context is not just a quality matter — it is a measurable cost-optimisation decision. Two converging data points validate intent-based design: <strong>R2Code</strong> (arXiv, April 2026) measures <strong>−41.7% of tokens</strong> consumed on spec-anchored code, with +7.4% fidelity; <strong>AWS Strands</strong> (2026) observes <strong>−96% of tokens</strong> on intent-based workflows. On code-generation-intensive projects, the saving is directly measurable — and model-agnostic: it applies regardless of the platform. The <code>/sdd context</code> command provides an estimate of the cost avoided per session.</p>
 
@@ -269,7 +282,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

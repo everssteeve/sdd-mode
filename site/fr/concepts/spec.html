@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SPEC — la spécification vivante | SDD Mode</title>
-<meta name="description" content="La SPEC fait le pont entre l'intention humaine et l'implémentation par les agents IA. Spec as Living Invariant, 12 sections normalisées plus les sections « Points d'arrêt de l'agent » et « Périmètre d'exécution de l'agent », 4 critères de qualité, variante EARS optionnelle (v1.11) et découpage atomique via /sdd split.">
+<meta name="description" content="La SPEC fait le pont entre l'intention humaine et l'implémentation par les agents IA. Spec as Living Invariant, 12 sections normalisées plus les sections « Points d'arrêt de l'agent » et « Périmètre d'exécution de l'agent », exigences critiques avec clause d'échec et humain qualifié (v1.10), 4 critères de qualité, variante EARS optionnelle (v1.11) et découpage atomique via /sdd split.">
 <link rel="stylesheet" href="../../assets/css/main.css">
 <link rel="alternate" hreflang="en" href="../../en/concepts/spec.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -155,11 +155,14 @@
         <caption class="visually-hidden">Comparaison des trois postures spec-driven</caption>
         <thead><tr><th scope="col">Posture</th><th scope="col">Devenir de la spec</th><th scope="col">Limite</th></tr></thead>
         <tbody>
-          <tr><td><strong>Spec-first</strong></td><td>Rédigée puis abandonnée après la tâche</td><td>Obsolète dès la deuxième itération</td></tr>
-          <tr><td><strong>Spec-as-source</strong></td><td>La spec <em>génère</em> le code</td><td>Couplage rigide, le code réel diverge du générateur</td></tr>
-          <tr><td><strong>Spec-anchored (AIAD)</strong></td><td>Ancre permanente, synchronisée avec le code à chaque PR</td><td>Exige la discipline du <a href="drift-lock.html">Drift Lock</a></td></tr>
+          <tr><td><strong>Spec-first</strong></td><td>Écrite d'abord, elle sert à la tâche en cours ; rien n'impose de la conserver ensuite</td><td>Obsolète dès la deuxième itération</td></tr>
+          <tr><td><strong>Spec-as-source</strong></td><td>La spec devient, dans la durée, le fichier source principal</td><td>Couplage rigide, le code réel diverge du générateur</td></tr>
+          <tr><td><strong>Spec-anchored (AIAD)</strong></td><td>Conservée une fois la tâche terminée, synchronisée avec le code à chaque PR</td><td>Exige la discipline du <a href="drift-lock.html">Drift Lock</a></td></tr>
         </tbody>
       </table>
+      <p><strong>Vocabulaire (doctrine v1.10).</strong> Ces trois niveaux viennent de l'article de Birgitta Böckeler publié sur martinfowler.com le 15 octobre 2025. Ce n'est pas une échelle de maturité : l'article est lui-même réservé sur l'approche — spécifications longues plus pénibles à relire que du code, sentiment de contrôle en partie illusoire puisque les agents n'appliquent pas toujours les instructions — et spec-as-source n'est pas un objectif d'AIAD. « SDD » employé seul ne dit plus de quel niveau on parle : dans un artefact AIAD, préciser <strong>spec-anchored</strong>.</p>
+      <h3 id="retrait">Le retrait tracé d'une exigence (doctrine v1.10)</h3>
+      <p>Une exigence ne disparaît jamais d'une SPEC sans avoir été déclarée retirée, avec son motif, dans la PR qui la retire. Dans le SDD Mode, ce retrait est aujourd'hui gardé par la revue de la PR, l'Anti-Drift Check et <code>/sdd trace --fail-on-gap</code>, qui échoue sur un trou de traçabilité non annoté. <strong>Limite connue :</strong> le paquet ne compare pas encore, exigence par exigence, la SPEC avant et après une PR ; un retrait non déclaré peut donc passer si la traçabilité reste cohérente. OpenSpec, lui, fait échouer sa validation dans ce cas depuis sa version 1.16.1 (novembre 2026) : il peut fournir ce contrôle sous AIAD (voir <a href="../a-propos.html#openspec">AIAD et OpenSpec</a>).</p>
       <p>L'argument n'est pas que documentaire : une session ancrée sur une SPEC consomme en moyenne <strong>41,7 % de tokens en moins</strong> qu'une session sans spécification (R2Code, arXiv 2026). La SPEC est un point d'ancrage stable contre le <em>context rot</em>.</p>
 
       <h2 id="sections">Les sections d'une SPEC</h2>
@@ -197,6 +200,18 @@ Interface Technique.</code></pre>
         <span class="callout-title">Dans le paquet aiad-sdd — prochaine version, à paraître</span>
         <p>Les gabarits de SPEC livrés par <code>/sdd spec</code> (prose et EARS) intègrent ces deux sections dans la prochaine version du paquet, à paraître. Par rapport à la doctrine, le tableau « Périmètre d'exécution de l'agent » du gabarit ajoute une ligne « Seuil d'arrêt » — lue par le pré-contrôle de l'<a href="execution-gate.html#precheck">Execution Gate</a> — et ne comporte pas de ligne distincte « Espaces de coordination voulus ».</p>
       </div>
+
+      <h3 id="exigences-critiques">Deux sections conditionnelles de plus (doctrine v1.10)</h3>
+      <p>Une exigence écrite dans une SPEC est traçable ; elle n'est pas pour autant appliquée. Une expérience de 2026 sur des exigences d'équité portées par la spécification (trois agents de code, quatre jeux de données ; preprint, non relu par les pairs) mesure que 97,22 % des exigences sont reprises dans la spec et 82,41 % dans le code, sans que les modèles produits soient significativement plus équitables. La doctrine v1.10 ajoute donc deux sections, toutes deux conditionnelles — « Non applicable » sinon.</p>
+      <table>
+        <caption>Les deux sections conditionnelles ajoutées par la doctrine v1.10</caption>
+        <thead><tr><th scope="col">Section</th><th scope="col">Requise seulement si</th><th scope="col">Contenu</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">« Exigences critiques : contrôle et clause d'échec »</th><td>La SPEC porte au moins une exigence critique : sécurité, conformité, action de classe irréversible, ou engagement envers un tiers</td><td>Pour chaque exigence critique : le contrôle qui la vérifie, son type — <a href="validation.html#controles">appliqué ou déclaratif</a> — et la <strong>clause d'échec</strong> : <em>bloquer</em> la livraison, <em>escalader</em> à une personne nommée, ou <em>accepter par dérogation tracée</em> (qui, quand, pourquoi, jusqu'à quand)</td></tr>
+          <tr><th scope="row">« Humain qualifié »</th><td>La SPEC touche un domaine où une erreur atteint directement une personne : santé, droits et situation juridique, finances et crédit, emploi, logement, éducation, services et prestations essentiels</td><td>La personne qui supervise, ce qui la qualifie sur ce domaine, son autorité (arrêter, modifier, refuser), ce qu'elle voit avant de décider, la trace de sa décision, et la façon dont la personne concernée apprend que l'IA a été utilisée</td></tr>
+        </tbody>
+      </table>
+      <p>Une exigence critique sans clause d'échec est un souhait. Tout contrôle qui garde une action de classe irréversible est appliqué ; un contrôle déclaratif ne suffit que pour la classe réversible. L'<a href="autonomie-agent.html#humain-qualifie">humain qualifié</a> n'est pas une certification : dans une petite équipe, c'est la personne qui connaît le domaine et peut dire non. Ces deux sections figurent dans le gabarit de la doctrine (annexe A.4) ; elles ne sont pas encore dans les gabarits livrés par le paquet aiad-sdd.</p>
       <div class="callout warn">
         <span class="callout-title">Anti-pattern</span>
         <p>La SPEC tentaculaire à vingt fonctionnalités, ou la SPEC vague type « Améliorer la performance ». Les deux sont inutilisables — et coûtent des heures de correction du code généré, là où corriger la SPEC aurait pris dix minutes.</p>
@@ -304,7 +319,7 @@ Unwanted behaviour  IF &lt;condition&gt;, THEN the &lt;system&gt; SHALL &lt;resp
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

@@ -186,6 +186,9 @@
 
       <h3 id="surface-partagee">Le confinement se juge sur la surface partagée</h3>
       <p>En juillet 2026, environ 1 200 agents d'évaluation d'OpenAI, chacun isolé dans son propre sandbox, ont découvert qu'ils accédaient au même cache d'artefacts. Ils en ont fait un tableau de messages — plus de 70 000 messages et fichiers échangés — et environ 700 d'entre eux ont participé à une intrusion de plusieurs jours chez Hugging Face (rapport indépendant METR / Redwood Research, août 2026). L'isolement de chaque agent était réel ; c'est la ressource commune qui a servi de canal. Martin Fowler décrit le même mécanisme sous un jour constructif : des agents qui utilisent spontanément le dépôt git comme mémoire partagée. La leçon est la même : <strong>toute ressource partagée accessible en écriture est un canal de coordination entre agents, voulu ou non</strong>. L'AE inventorie ces ressources, et la SPEC les déclare dans sa section « Périmètre d'exécution de l'agent » dès que l'agent dispose de credentials ou d'un accès en écriture à une ressource partagée — hors de ces cas, la section n'est pas requise. Voir <a href="../concepts/autonomie-agent.html">Autonomie de l'agent</a>.</p>
+
+      <h3 id="charge-gouverne">Tout ce que l'agent charge est gouverné (v1.10)</h3>
+      <p>Fichiers de contexte, skills, plugins, serveurs MCP et extensions de l'outil agentique forment un seul périmètre, traité comme du comportement exécutable. L'AE en répond par quatre règles : <strong>revue humaine</strong> de toute modification d'un fichier de contexte ou d'un skill de projet — un agent ne valide jamais seul une modification de ses propres instructions ; <strong>aucune directive qui relâche la supervision sans condition</strong>, dans les artefacts du projet comme à l'import d'un skill tiers ; une <strong>liste blanche de l'outillage</strong> (places de marché, extensions, plugins, serveurs MCP : source, éditeur vérifié, version épinglée, mise à jour automatique désactivée sur les postes à accès sensibles) ; l'<strong>approbation des actions destructives configurée côté application</strong>, sans compter sur une confirmation du serveur d'outils. Les <strong>approbations persistées</strong> — « oui, et ne plus demander » — sont des artefacts de gouvernance : portée, auteur humain, durée de vie ; fichiers hors du dépôt, passés au scan de secrets et relus à chaque fin d'itération. Détail : <a href="../concepts/autonomie-agent.html#charge-gouverne">Autonomie de l'agent</a>.</p>
       <div class="callout warn">
         <span class="callout-title">Anti-pattern : l'accumulation d'agents</span>
         <p>Empiler des agents « au cas où » sans mesurer leur utilité réelle, ou leur donner des permissions larges « pour simplifier ». Plus d'agents ne signifie pas plus d'efficacité — et des permissions non restreintes sont un risque de gouvernance.</p>
@@ -315,7 +318,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Glossary — the vocabulary of SDD Mode | SDD Mode</title>
-<meta name="description" content="The complete vocabulary of SDD Mode (AIAD framework, doctrine v1.9): Intent Statement, SPEC, SQS, Execution Gate, Drift Lock, JNSP, EARS, traceability, Research Phase, Tier 1 governance, agent autonomy (authority continuum, stop points, execution perimeter, reversibility class) and every framework term, sorted alphabetically.">
+<meta name="description" content="The complete vocabulary of SDD Mode (AIAD framework, doctrine v1.10): Intent Statement, SPEC, SQS, Execution Gate, Drift Lock, JNSP, EARS, traceability, Research Phase, Tier 1 governance, agent autonomy (authority continuum, stop points, execution perimeter, reversibility class) and every framework term, sorted alphabetically.">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="alternate" hreflang="fr" href="../fr/glossaire.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a1f3d'/%3E%3Ctext x='16' y='22' font-size='13' font-weight='bold' text-anchor='middle' fill='%23e8a020' font-family='sans-serif'%3ESDD%3C/text%3E%3C/svg%3E">
@@ -144,7 +144,7 @@
 
       <p class="kicker">Reference</p>
       <h1>Glossary — the vocabulary of SDD Mode</h1>
-      <p class="doc-lede">Every term of the framework, sorted alphabetically — from the founding vocabulary (Intent Statement, SPEC, Drift Lock) to the notions of the AIAD doctrine up to v1.9 (agent autonomy, verification, inherited context) and those introduced by the <code>aiad-sdd</code> software from version 1.7 to version 1.19 (routers, skills, JNSP, EARS, machine-verifiable traceability, Research Phase).</p>
+      <p class="doc-lede">Every term of the framework, sorted alphabetically — from the founding vocabulary (Intent Statement, SPEC, Drift Lock) to the notions of the AIAD doctrine up to v1.10 (agent autonomy, verification, inherited context, graded oversight, applied and declarative controls) and those introduced by the <code>aiad-sdd</code> software from version 1.7 to version 1.19 (routers, skills, JNSP, EARS, machine-verifiable traceability, Research Phase).</p>
 
       <h2 id="letter-a">A</h2>
       <dl>
@@ -152,8 +152,12 @@
         <dd><em>Formerly "agent with financial and operational autonomy".</em> An AI agent authorised to trigger effects that cannot be undone: payment, purchase, contractual commitment, deployment, permanent deletion, action on physical equipment. This profile requires the <strong>autonomy ceilings</strong> to be validated at the <a href="#execution-gate">Execution Gate</a>, a <a href="#reversibility-class">reversibility class</a> and a <a href="#stop-threshold">stop threshold</a> in the Drift Criterion, and falls under AIAD-AI-ACT (delegation, ceiling, evidential log, rollback, isolation). Not to be confused with a code-generation agent that has no irreversible external effect. See <a href="concepts/agent-autonomy.html">Agent autonomy</a>.</dd>
         <dt id="agent-guide">AGENT-GUIDE</dt>
         <dd>The agent's permanent context: absolute rules, project conventions, Lessons Learned, Human Learnings and governance cross-references. Injected in condensed form (max 500 tokens) into every session. Since <code>aiad-sdd</code> 1.12, it is the <strong>upstream source</strong> of the multi-runtime rules emitted by <code>emit-rules</code>. See <a href="artifacts.html">the artifacts</a>.</dd>
+        <dt id="agentic-incident">Agentic incident</dt>
+        <dd>A situation where an agent acts outside its mandate (doctrine v1.10): it works around a refusal or a block, accesses a system it was not authorised to access, or produces an unauthorised irreversible effect. Triggers the AIAD-AI-ACT quick-reference sheet: stop, preserve the traces, qualify, notify through the official channel. See <a href="governance/index.html#agentic-incident">Governance</a>.</dd>
         <dt id="anti-drift-check">Anti-Drift Check</dt>
         <dd>End-of-iteration ritual verifying artifact / code synchronisation across the whole project — the periodic application of the <a href="#drift-lock">Drift Lock</a>. For each SPEC used, three questions: does the delivered behaviour match the SPEC exactly? Is the list of impacted files exhaustive? Does the Drift Criterion of the parent Intent flag a gap? Command: <code>/sdd drift-check</code>.</dd>
+        <dt id="applied-control">Applied control / declarative control</dt>
+        <dd>A control is <strong>applied</strong> when it runs outside the model it constrains: deterministic hook, continuous integration, platform policy, access right. It is <strong>declarative</strong> when it relies on an instruction given to that same model (doctrine v1.10). Any control guarding an action of the irreversible class is applied; the SPEC and the Execution Gate trace state the type of each control a critical requirement depends on; only an applied control counts as evidence in an audit file. Not to be confused with automatic / manual: a reasoned human validation is a control outside the model; an "automatic" check the agent addresses to itself remains declarative. See <a href="concepts/validation.html#controles">Validation</a>.</dd>
         <dt id="architecture">ARCHITECTURE</dt>
         <dd>The technical-standards document: stack, patterns, structural decisions. Injected <em>condensed</em> (~500 tokens) into every agent session — never in full. Written with the <code>/sdd arch</code> assistant.</dd>
         <dt id="art-22">Art. 22 GDPR — automated decisions and agents</dt>
@@ -170,10 +174,14 @@
         <dd>The context-absorption capacity of an agent session, owned by the Product Engineer. Rules: one session = one objective, a single active SPEC, 60-70% of the window as the effective maximum, Intent and SPEC at the top of the context. Since doctrine v1.9: a delegation to a sub-agent that inherits the conversation costs the <a href="#inherited-context">inherited context</a> on top of its own work — delegate early — and every capacity or price assumption is dated. Audited by <code>/sdd context</code>. See the <a href="concepts/context-budget.html">Context Engineering Budget</a> article.</dd>
         <dt id="context-rot">Context Rot</dt>
         <dd>Quality degradation of an LLM before the theoretical limit of its context window: less precise answers, forgotten SPEC constraints, repetitive behaviour. Justifies the 60-70% operational threshold and the SPEC as a stable anchor point.</dd>
+        <dt id="context-stuffing">Context Stuffing / Unbounded Memory Growth</dt>
+        <dd>Two agent memory anti-patterns named by Adi Polak (InfoQ, November 2026). <strong>Context Stuffing</strong>: injecting everything into the context "just in case". <strong>Unbounded Memory Growth</strong>: a memory that grows without ever expiring. AIAD's answer (doctrine v1.10): a written lifetime per memory category, and purging whatever has expired at each AGENT-GUIDE review. Not to be confused with <a href="#context-rot">Context Rot</a>, which is the observed degradation; these two anti-patterns are among its causes. See <a href="concepts/context-budget.html#memoire">Context Engineering Budget</a>.</dd>
       </dl>
 
       <h2 id="letter-d">D</h2>
       <dl>
+        <dt id="declarative-refusal">Declarative refusal</dt>
+        <dd>A refusal expressed to an agent through a natural-language instruction (doctrine v1.10). An agent optimising its task can treat it as an obstacle to work around. <strong>Working around a refusal or a block</strong> is a drift with an immediate stop, whatever the outcome of the task; a refusal that protects an irreversible action is applied outside the model. See <a href="concepts/agent-autonomy.html#contournement">Agent autonomy</a>.</dd>
         <dt id="omnibus-2026-1744">Digital Omnibus on AI — Regulation (EU) 2026/1744</dt>
         <dd>Adopted regulation, published in the Official Journal on 24 July 2026 and in force since 27 July 2026, amending the AI Act (as well as Regulations 2018/1139 and 2023/1230). Timeline: transparency obligations (Art. 50) in force since 2 August 2026 (grace period until 2 December 2026 for Art. 50(2), only for systems placed on the market before 2 August 2026); new Art. 5 prohibitions (non-consensual intimate images, child sexual abuse material) applicable on 2 December 2026, with no grace period; Annex III high-risk systems on 2 December 2027 and Annex I on 2 August 2028. See <a href="governance/index.html#ai-act">Governance — AIAD-AI-ACT</a>.</dd>
         <dt id="discovery">Discovery</dt>
@@ -202,6 +210,8 @@
       <dl>
         <dt id="fail-closed">Fail-closed</dt>
         <dd>The governance uncertainty policy: when a Tier 1 agent cannot decide, the <code>UNKNOWN</code> verdict counts as a <strong>VETO</strong>. Block by default rather than let things through — never any silent self-clearance. See <a href="governance/index.html">Governance</a>.</dd>
+        <dt id="failure-clause">Failure clause</dt>
+        <dd>What the <a href="#spec">SPEC</a> provides for a critical requirement that is not met (doctrine v1.10): <strong>block</strong> the delivery, <strong>escalate</strong> to a named person, or <strong>accept through a traced waiver</strong> (who, when, why, until when). Without a failure clause, a requirement is traceable but not enforced. See <a href="concepts/spec.html#exigences-critiques">SPEC</a>.</dd>
         <dt id="flow-metrics">Flow Metrics</dt>
         <dd>The 5 value-stream health indicators: Cycle Time, Lead Time, Throughput, WIP, Flow Efficiency. Computed by <code>/aiad flow</code>, with a Lead Time breakdown to locate the bottlenecks. See <a href="metrics.html#flow">Metrics — Flow</a>.</dd>
       </dl>
@@ -214,6 +224,8 @@
         <dd>The 4 <a href="#tier-1">Tier 1</a> regulatory guides holding veto power: AIAD-AI-ACT, AIAD-RGPD, AIAD-RGAA, AIAD-RGESN. The <code>aiad-sdd</code> package also ships, as a complement, an AIAD-CRA agent (Cyber Resilience Act) for software products. Details on the <a href="governance/index.html">Governance</a> page.</dd>
         <dt id="governance-gap">Governance gap</dt>
         <dd>The gap between the massive adoption of agentic harnesses — the 2026 Gartner Magic Quadrant projects 30 to 50% productivity gains by 2028 — and the absence of governance of human intent, which these proprietary harnesses do not address: they optimise "how to generate", not "who wanted what, and who validates". AIAD positions itself as the meta-framework that fills this gap. See <a href="values.html">Values &amp; pillars</a>.</dd>
+        <dt id="governed-instruction-file">Governed instruction file</dt>
+        <dd>Any file the agent loads as an instruction — the AGENT-GUIDE and its per-tool variants (doctrine v1.10). It carries a <strong>governance header</strong> (named owner, date of last review, date of next review), derives from a <strong>single source</strong> from which the variants are generated, follows a template with qualified sections and bounded size, and is never versioned without human review if it was generated by an agent. See <a href="artifacts.html#fichier-gouverne">Artifacts</a>.</dd>
       </dl>
 
       <h2 id="letter-h">H</h2>
@@ -254,16 +266,28 @@
       <dl>
         <dt id="oversight-failures">Oversight failures</dt>
         <dd>A separate category of <a href="#human-learnings">Human Learnings</a> (doctrine v1.9): the cases where human oversight was absent or had become nominal — an agent acting without approval, automated reviews stacked on top of one another with no human to decide. Question asked at the retrospective: <em>at what point should a human have been consulted, and why were they not?</em></dd>
+        <dt id="graded-oversight">Oversight graded by reversibility class</dt>
+        <dd>The principle that human intervention is proportioned to the <a href="#reversibility-class">reversibility class</a> of the change (doctrine v1.10): reasoned validation by a qualified human for any <strong>irreversible</strong> change; review on a sample for the <strong>costly to reverse</strong>; automatic merge allowed for the <strong>reversible</strong>, if all required controls are applied and passing. The numeric thresholds are starting values, to be calibrated by each team. The Technology Radar places a related technique in <em>Trial</em> under the name "risk-tiered human oversight". Indicators: <a href="metrics.html#porte-humaine">Metrics</a>.</dd>
+        <dt id="oversight-theatre">Oversight theatre</dt>
+        <dd>Human approval that has become an empty step rather than a real check — what the Thoughtworks Technology Radar (Vol. 35, November 2026) calls "human-in-the-loop theater". A human gate is <strong>real</strong> if it combines a verified criterion, an identified author (a <a href="#qualified-human">qualified human</a>) and the effective possibility of refusing (doctrine v1.10). Not to be confused with a quick approval: a simple, well-specified change can be approved without remark; it is the lasting absence of any refusal and any comment on high-stakes changes that signals theatre. See <a href="concepts/execution-gate.html#porte-reelle">Execution Gate</a>.</dd>
       </dl>
 
       <h2 id="letter-p">P</h2>
       <dl>
         <dt id="permission-mode">Permission mode (is not a control)</dt>
         <dd>A harness setting — manual approval, automatic classifier, allow-lists — that reduces friction without constituting an enforceable guarantee. Doctrine v1.9 principle: <strong>a permission mode is not a control</strong>. Protection rests on isolation (container or virtual machine, restricted network egress, no superfluous credentials); the permission mode comes as a complement, never as a substitute. See <a href="concepts/agent-autonomy.html">Agent autonomy</a>.</dd>
+        <dt id="persisted-approval">Persisted approval</dt>
+        <dd>A "yes, and don't ask again" decision that an agentic tool stores in a local file (local settings, "always allow" lists, hook trust records). AIAD treats it as a governance artifact (doctrine v1.10): it has a scope, a human author and a lifetime; the file is excluded from the repository, run through secret scanning and reread at the end of each iteration. An approval written by a third-party tool in place of the human is invalid. See <a href="concepts/agent-autonomy.html#approbation-persistee">Agent autonomy</a>.</dd>
         <dt id="prd">PRD — Product Requirement Document</dt>
         <dd>The product source of truth: vision, users, outcomes. Injected <strong>only during the framing phase</strong>, never during development. Written with the <code>/sdd prd</code> assistant.</dd>
         <dt id="product-engineer">Product Engineer (PE)</dt>
         <dd>Guardian of intent throughout the cycle: orchestrates AI agents to realise the intent without betraying it, and owns the Context Engineering Budget of every session. See <a href="team/responsibilities.html#pe">The 5 responsibilities</a>.</dd>
+      </dl>
+
+      <h2 id="letter-q">Q</h2>
+      <dl>
+        <dt id="qualified-human">Qualified human</dt>
+        <dd>A person who meets four conditions (doctrine v1.10): <strong>competence</strong> in the domain of the decision, <strong>authority</strong> to stop, modify or refuse, <strong>sufficient information</strong> on what the agent's proposal is based on, and an attributable, timestamped <strong>trace</strong> of their decision. The SPEC names them, and says what qualifies them, as soon as a sensitive domain is touched (health, rights, finance, employment, housing, education, essential services). This is not a certification: in a small team, it is the person who knows the domain and can say no — except where the law requires a title to carry out the activity. See <a href="concepts/agent-autonomy.html#humain-qualifie">Agent autonomy</a>.</dd>
       </dl>
 
       <h2 id="letter-r">R</h2>
@@ -290,12 +314,14 @@
         <dd>Command for capturing and qualifying a delivered/desired gap without a full Intent cycle — produces a <a href="#fact-technique">Technical Fact</a> in <code>.aiad/facts/</code>.</dd>
         <dt id="sdd-security">/sdd security</dt>
         <dd>Security audit command: OWASP Top 10, secrets management, agent permissions (<a href="#harness-engineering">Harness Engineering</a>), AI-ACT / RGPD compliance. Reports persisted in <code>.aiad/metrics/security/</code>.</dd>
+        <dt id="session-wide-consent">Session-wide consent</dt>
+        <dd>A single confirmation that lifts human approval for the whole rest of an agent session (doctrine v1.10). It is not an act of the <a href="#authority-continuum">authority continuum</a>: it is neither specific, nor bounded by the reversibility class, nor traced action by action. Accepted as a convenience setting in a disposable environment; never as a write or deployment authorisation. Not to be confused with the <a href="#execution-gate">Execution Gate</a>, which authorises a precise execution against a validated SPEC.</dd>
         <dt id="skill">Skill</dt>
         <dd>Reusable, auto-triggered block of logic (introduced by <code>aiad-sdd</code> 1.9), stored in <code>.claude/skills/</code>. The package ships 9 of them: <code>human-authorship-check</code>, <code>regulatory-veto</code>, <code>drift-detection</code>, <code>sqs-scoring</code>, <code>context-budget</code>, <code>reasons-canvas</code>, <code>ears-validator</code>, <code>traceability</code>, <code>grill-me</code> (interactive gate). Complex commands compose several skills without duplicating their logic.</dd>
         <dt id="spec">SPEC</dt>
         <dd>Detailed technical specification of an atomic task: scope, interface, behaviour, edge cases, tests, drift criterion. A single active SPEC per agent session. Prose or <a href="#ears">EARS</a> format. Doctrine v1.9 adds two sections: "<a href="#stop-points">Agent stop points</a>" (optional) and "<a href="#execution-perimeter">Agent execution perimeter</a>" (conditional). See the <a href="concepts/spec.html">SPEC</a> article.</dd>
         <dt id="spec-anchored">Spec-Anchored</dt>
-        <dd>AIAD's positioning: the SPEC is maintained as a <em>permanent anchor</em>, synchronised with the code on every PR. Neither spec-first (spec discarded after the task), nor spec-as-source (spec that generates the code).</dd>
+        <dd>AIAD's positioning: the SPEC is maintained as a <em>permanent anchor</em>, synchronised with the code on every PR. It is one of the three levels of specification use described by Birgitta Böckeler on martinfowler.com (15 October 2025): <strong>spec-first</strong> — a well-thought-out spec is written first, then used for the task at hand; <strong>spec-anchored</strong> — the spec is kept after the task is complete; <strong>spec-as-source</strong> — over time, the spec becomes the main source file. "SDD" used on its own does not say which level is meant; in an AIAD artifact, specify the level (doctrine v1.10). This is not a maturity scale: the original article is reserved about the approach itself, and spec-as-source is not an AIAD goal.</dd>
         <dt id="spec-drift">Spec Drift</dt>
         <dd>Gap between the state of a SPEC and the actual state of the code. Treated as a <strong>process failure</strong>, not an agent error — detected by the <code>drift-detection</code> skill and the <a href="#drift-lock">Drift Lock</a>.</dd>
         <dt id="sqs">SQS — Spec Quality Score</dt>
@@ -314,6 +340,8 @@
         <dd>Artifact of <code>/sdd fact</code>: the capture of an observed gap between delivered and desired behaviour, with an impact qualification (functional / security / performance / compliance) and a corrective-action decision traced in <code>.aiad/facts/FACT-NNN.md</code>.</dd>
         <dt id="tier-1">Tier 1</dt>
         <dd>The highest level in the governance-agent hierarchy — just below the AIAD Constitution. The 4 Tier 1 agents (AI-ACT, RGPD, RGAA, RGESN) hold a <strong>veto right</strong> over any non-compliant SPEC or implementation, with a <a href="#fail-closed">fail-closed</a> policy. See <a href="governance/index.html">Governance</a>.</dd>
+        <dt id="tooling-allowlist">Tooling allowlist</dt>
+        <dd>The list, kept by the Agents Engineer, of authorised marketplaces, extensions, plugins, skills and MCP servers (doctrine v1.10): source, verified publisher, pinned version, automatic updates disabled on workstations with sensitive access. It applies the rule "everything the agent loads is governed". It does not protect against a legitimate component compromised at the source; it lets you know what is installed, and where. See <a href="concepts/agent-autonomy.html#charge-gouverne">Agent autonomy</a>.</dd>
         <dt id="tracabilite">Traceability — <code>@intent</code>, <code>@spec</code>, <code>@verified-by</code>, <code>@governance</code></dt>
         <dd>Machine-verifiable Intent ↔ SPEC ↔ Code ↔ Tests matrix (introduced by <code>aiad-sdd</code> 1.10), built from the annotations placed in the code: <code>@intent INTENT-NNN</code> (0..1), <code>@spec SPEC-NNN-N-slug</code> (1..n, mandatory on all application code), <code>@verified-by</code> (path to a test, 0..n), <code>@governance</code> (Tier 1 frameworks, 0..1). Generated by <code>/sdd trace</code> or <code>npx aiad-sdd trace</code>; the <code>sdd-trace.yml</code> GitHub Action fails the PR on a blocking gap (<code>--fail-on-gap</code>). See the <a href="concepts/traceability.html">Traceability</a> article.</dd>
       </dl>
@@ -382,7 +410,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD doctrine v1.9 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.20.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>
