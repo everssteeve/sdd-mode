@@ -7,6 +7,25 @@
 > Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
 > Versionnage : [SemVer 2.0.0](https://semver.org/lang/fr/).
 
+## [1.21.0] — 2026-11-12
+
+### Ajouté
+
+- **doctrine** : sync shipped doctrine v1.10
+- **site** : 90-second animated explainer on the home page (#27)
+
+### Corrigé
+
+- **dashboard** : cap table sizes to meet RGESN page budgets (#29)
+
+### Documentation
+
+- **site** : align the public site on AIAD doctrine v1.10
+
+### Tests
+
+- **eco** : isolate the missing-models check from parallel test files
+
 ## [1.20.0] — 2026-09-26
 
 ### Ajouté

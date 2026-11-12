@@ -6,7 +6,7 @@ disallowedTools: Edit, Write, Bash, NotebookEdit
 model: inherit
 memory: project
 paths: ["**/*"]
-generated-by: aiad-emit-rules v1.20.0
+generated-by: aiad-emit-rules v1.21.0
 source-hash: 5a8f819b42e602a5
 intent_id: INTENT-033
 ---

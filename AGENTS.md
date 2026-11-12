@@ -1,6 +1,6 @@
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 ---
-generated-by: aiad-emit-rules v1.20.0
+generated-by: aiad-emit-rules v1.21.0
 source-hash: 5a8f819b42e602a5
 intent_id: INTENT-033
 ---
@@ -105,4 +105,4 @@ En cas de conflit SPEC ↔ gouvernance, **la gouvernance prévaut**.
 
 ---
 
-*Framework AIAD v1.20.0 — aiad.ovh — Open Source*
+*Framework AIAD v1.21.0 — aiad.ovh — Open Source*
