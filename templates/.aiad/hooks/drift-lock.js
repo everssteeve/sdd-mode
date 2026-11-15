@@ -9,6 +9,9 @@
 //
 // « Merger sans Drift Check » devient mécaniquement impossible.
 //
+// Si la CLI ne produit aucun verdict (paquet absent du projet), le hook ne
+// bloque pas : il prévient l'humain (systemMessage) et laisse clôturer.
+//
 // Self-contained par portabilité. Bypass : export AIAD_HOOK_SILENT=1
 // Documentation : https://aiad.ovh
 
@@ -67,7 +70,21 @@ function main() {
 
   let enveloppe = {};
   try { enveloppe = JSON.parse(stdout.trim().split('\n').pop() || '{}'); } catch { /* ignore */ }
-  const verdict = enveloppe.verdict || (code === 2 ? 'JNSP' : 'FAIL');
+
+  // Aucun verdict produit : la CLI n'a pas pu s'exécuter (paquet non installé
+  // dans le projet, `npx --no-install` en échec, plantage). Ce n'est ni un gap
+  // ni une traçabilité indécidable : le hook n'a rien mesuré. Bloquer ici
+  // réveillerait le modèle sans rien qu'il puisse corriger (boucle de clôture).
+  // On laisse clôturer et on prévient l'humain ; le pre-commit et la CI
+  // `sdd-trace` restent les garde-fous.
+  if (typeof enveloppe.verdict !== 'string') {
+    process.stdout.write(JSON.stringify({
+      systemMessage: 'Drift Lock non vérifié : la CLI aiad-sdd est introuvable ou a échoué sans verdict. '
+        + 'Installe-la dans le projet (npm install --save-dev aiad-sdd) pour réactiver le contrôle à la clôture.',
+    }));
+    return 0;
+  }
+  const verdict = enveloppe.verdict;
   const bloquants = Array.isArray(enveloppe.gaps) ? enveloppe.gaps.filter((g) => g.blocking) : [];
   const liste = bloquants.slice(0, 15).map((g) => `  - [${g.kind}] ${g.ref}${g.file ? ` (${g.file})` : ''}`).join('\n');
 
