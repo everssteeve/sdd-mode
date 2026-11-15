@@ -27,7 +27,7 @@ Six onglets : une vue d'ensemble de l'application en cours de développement, pu
 
 | Onglet | Pages | Ce qu'on y trouve |
 |--------|-------|-------------------|
-| **Vue d'ensemble** | `index.html`, `today.html`, `inbox.html`, `changelog.html`, `onboarding.html` | État global : maturité, santé, cycle SDD en six étapes, une carte par responsabilité, alertes |
+| **Vue d'ensemble** | `index.html`, `scorecard.html`, `today.html`, `inbox.html`, `changelog.html`, `onboarding.html` | État global : maturité, santé, cycle SDD en six étapes, une carte par responsabilité, alertes |
 | **Product Manager** | `pm.html`, `intents.html` | Cockpit PM, Intent Statements |
 | **Product Engineer** | `pe.html`, `specs.html`, `kanban.html`, `traceability.html`, `drifts.html` | SPECs, Execution Gate, traçabilité, Drift Lock, facts |
 | **Agents Engineer** | `ae.html`, `governance.html`, `eco.html` | Équipe d'agents et sa conformité au registre, skills, gouvernance Tier 1, hooks, impact écologique |
@@ -35,6 +35,10 @@ Six onglets : une vue d'ensemble de l'application en cours de développement, pu
 | **Tech Lead** | `tl.html`, `adrs.html`, `metrics.html`, `sre.html`, `graph.html` | Architecture, ADR, dette, DORA & Flow, sécurité |
 
 Chaque cockpit de rôle s'ouvre sur la carte de son assistant (`claude --agent aiad-<rôle>`) et liste les signaux qui attendent une décision sur son périmètre. L'onglet porte une pastille quand il y en a. Un chiffre non mesuré s'affiche « — ».
+
+**Métriques AIAD.** La page `scorecard.html` liste toutes les métriques que définit le framework — Productivité, Qualité, Efficacité IA, Outcomes, Équipe, DORA, Flow — avec leur cible, leur valeur et leur état : dans la cible, hors cible, mesuré, non mesuré. Une métrique sans donnée reste affichée, avec la façon de l'alimenter. La vue d'ensemble en donne la synthèse par catégorie ; chaque cockpit montre les métriques de sa responsabilité. Les trois signaux d'action immédiate du framework (Cycle Time qui double, score des SPECs sous 3,5 / 5, Change Failure Rate au-dessus de 15 %) remontent en alertes.
+
+**Piloter les métriques.** `npx aiad-sdd metrics` affiche dans le terminal ce qui remonte et ce qui ne remonte pas, catégorie par catégorie, avec l'état des rituels. `npx aiad-sdd metrics check` sort en erreur tant qu'une métrique ne remonte pas, qu'une valeur déclarée est périmée ou qu'un rituel est en retard — utilisable en intégration continue. `npx aiad-sdd metrics record <catégorie> clé=valeur…` enregistre des valeurs contrôlées. La couverture de tests, la dette technique, le taux d'adoption des agents et la part de code généré remontent sans saisie (rapport de couverture, instantanés du dashboard, historique git).
 
 **Mesure d'usage.** Le serveur local (`--serve`) compte les pages consultées, par jour et par onglet, dans `.aiad/metrics/dashboard-usage/` — un jour, un compteur, rien d'autre : ni adresse IP, ni navigateur, ni heure, et rien ne quitte la machine. La vue d'ensemble affiche les consultations des 30 derniers jours et signale un dashboard non consulté depuis plus de 14 jours. Un dashboard ouvert en fichier statique ou publié n'est pas compté : « non mesuré » ne veut pas dire « non utilisé ». Désactivation : `AIAD_DASHBOARD_USAGE=0`.
 

@@ -132,6 +132,16 @@ Cas limites :
 | **ÉCHEC** | Identifier : SPEC imprécise → Human Learning ; agent erroné → Lesson Learned |
 | **JNSP** | Validation impossible sans décision humaine — voir ci-dessous |
 
+### Étape 7 bis — Enregistrer la validation (toujours)
+
+Quel que soit le verdict, enregistre-le. C'est ce qui fait remonter dans le dashboard le *First-Time Success Rate* des agents et le nombre d'itérations par fonctionnalité ; le nombre de passages est compté par la commande.
+
+```bash
+npx aiad-sdd metrics record validations spec_id=SPEC-NNN-N-slug verdict=valide
+```
+
+`verdict` vaut `valide`, `corrections` (CORRECTIONS MINEURES) ou `echec`. Un verdict JNSP ne s'enregistre pas : la validation n'a pas eu lieu.
+
 ### Étape 8 — Verdict JNSP
 
 Sortir `JNSP` (pas VALIDÉ, pas ÉCHEC) quand au moins un de ces signaux

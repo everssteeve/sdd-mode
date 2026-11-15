@@ -93,6 +93,38 @@ Propose un résumé :
 | Lessons Learned ajoutés | [X] | |
 | Human Learnings ajoutés | [X] | |
 
+### Étape 4 bis — Métriques AIAD déclarées par l'équipe
+
+Ces métriques du framework (Efficacité IA, Équipe) ne se calculent pas : **l'équipe les déclare**. Pose chaque question, attends la réponse, n'en propose aucune. Une question sans réponse s'écrit `null` — jamais une estimation de ta part.
+
+| Clé | Question à l'équipe | Cible AIAD |
+|-----|---------------------|------------|
+| `adoption_agents_pct` | Quelle part du travail de l'itération est passée par les agents ? | > 90 % |
+| `taux_premier_passage` | Quelle part des livraisons d'agent a été acceptée du premier coup ? | > 70 % |
+| `code_genere_pct` | Quelle part du code livré a été générée plutôt qu'écrite à la main ? | > 80 % |
+| `iterations_par_feature` | Combien d'allers-retours avec l'agent, en moyenne, par fonctionnalité ? | < 3 |
+| `faux_positifs_pct` | Quelle part des alertes des agents de revue et d'audit était infondée ? | < 20 % |
+| `resolution_agents_heures` | Combien d'heures, en moyenne, pour débloquer un problème d'agent ? | < 2 h |
+| `satisfaction_pe` | Satisfaction des PE sur l'écosystème d'agents, sur 10 ? | > 8 |
+| `satisfaction_equipe` | Satisfaction de l'équipe, sur 10 (moyenne d'un vote anonyme) ? | > 7 |
+| `psychological_safety` | Sécurité psychologique, sur 10 (moyenne d'un vote anonyme) ? | > 8 |
+| `temps_flow_heures` | Heures de travail sans interruption par jour, en moyenne ? | > 4 h |
+
+Règles propres à ces métriques :
+
+- **Valeurs d'équipe uniquement** : une moyenne, jamais la réponse d'une personne, jamais un nom.
+- Dans une équipe de moins de quatre personnes, une moyenne peut révéler une réponse individuelle : l'équipe décide si elle l'écrit.
+- Le turnover et les jours de maladie figurent dans le framework mais **ne se saisissent pas ici** : ce sont des données RH et de santé, suivies hors du dépôt.
+
+Enregistre le tout, avec les métriques de l'étape 4, par la commande — elle contrôle les clés et les valeurs, et refuse les données RH :
+
+```bash
+npx aiad-sdd metrics record retro specs_livrees=4 taux_premier_passage=75 sqs_moyen=4.5 \
+  adoption_agents_pct=92 satisfaction_equipe=7.5 temps_flow_heures=null
+```
+
+Elle écrit `.aiad/metrics/retro/AAAA-MM-JJ.md`. Le dashboard affiche ces valeurs sur la page « Métriques AIAD », et les marque « à rafraîchir » si la rétrospective suivante tarde.
+
 ### Étape 5 — Actions
 
 Propose 1-3 actions concrètes pour la prochaine itération :

@@ -20,6 +20,7 @@ import { doctor } from '../lib/doctor.js';
 import { uninstall } from '../lib/uninstall.js';
 import { validerSkills } from '../lib/skills.js';
 import { commandeAgents } from '../lib/agents.js';
+import { commandeMetrics } from '../lib/metrics.js';
 import { docs } from '../lib/docs.js';
 import { versionSync } from '../lib/version-sync.js';
 import { optIn as telemetryOptIn, optOut as telemetryOptOut, showStatus as telemetryStatus, showUsage as telemetryUsage, track as telemetryTrack } from '../lib/telemetry.js';
@@ -385,6 +386,7 @@ const AIDE = `
     status [--json|--markdown] Affiche l'état SDD du projet · --markdown pour paste PR/Slack/Notion
     doctor [--json|--markdown|--quiet|--fix|--supplementaire|--strict-sante=N] Diagnostic + score santé #218 · --markdown PR/Slack · --quiet silent en CI si pass · --strict-sante=N exit 1 si <N
     skills validate       Vérifie le frontmatter des skills (.claude/skills/)
+    metrics [status|check|record|keys] Métriques AIAD : état de pilotage · check = exit 1 si une métrique ne remonte pas · record <catégorie> clé=valeur… = enregistrement contrôlé
     agents [list|validate|use <rôle>] Agents de rôle (PM, PE, AE, QA, Tech Lead) et leurs sous-agents · validate = conformité au registre · use = assistant par défaut
     repl                  REPL interactif (atelier intent/spec/trace/doctor sans quitter le terminal)
     migrate [--force]     Détecte les versions installées < courante et applique les migrations structurelles
@@ -1055,6 +1057,12 @@ async function main() {
       }
       const r = await validerSkills(cwd(), { json: Boolean(values.json) });
       if (!r.ok) exit(1);
+      break;
+    }
+
+    case 'metrics': {
+      const code = await commandeMetrics(cwd(), positionals[1], positionals.slice(2), { json: Boolean(values.json) });
+      if (code !== 0) exit(code);
       break;
     }
 
@@ -3840,7 +3848,7 @@ async function main() {
       const COMMANDES_VALIDES = [
         'init', 'update', 'gouvernance', 'hooks', 'status', 'doctor', 'repl',
         'migrate', 'migrate-v2', 'obsidian', 'workspace', 'ai-act', 'sbom', 'verify-reproducibility',
-        'dpia', 'docs', 'telemetry', 'feedback', 'skills', 'agents', 'uninstall', 'bench', 'trace', 'commands', 'guardrails',
+        'dpia', 'docs', 'telemetry', 'feedback', 'skills', 'agents', 'metrics', 'uninstall', 'bench', 'trace', 'commands', 'guardrails',
         'dashboard', 'emit-rules', 'new', 'import', 'score', 'template',
         'review', 'suggest-annotations', 'suggest-tests', 'export', 'storybook', 'cert',
         'marketplace', 'audit', 'provenance', 'hook-stats', 'dinum', 'sovereignty', 'adrs', 'dora', 'self-update', 'standup', 'brief', 'badge', 'gitlab', 'azure', 'webhooks', 'reflect', 'negotiate', 'refactor-spec', 'spec-version', 'archive', 'sla', 'completion', 'tour', 'pii-scan', 'backup', 'restore', 'offline', 'bitbucket', 'ci-template', 'github-app', 'anonymize', 'plugin', 'hooks-init', 'schema', 'org', 'rbac', 'tutorial', 'help', 'version',

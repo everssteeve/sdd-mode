@@ -114,8 +114,10 @@ feedbacks_count: [nombre]
 feedbacks_positifs: [nombre]
 feedbacks_negatifs: [nombre]
 decisions_count: [nombre]
-nps_indicatif: [score ou "non mesuré"]
+nps_indicatif: [note sur 10 donnée par les participants, ou null]
 ```
+
+`nps_indicatif` alimente la métrique « Satisfaction utilisateur » du dashboard. Ce sont les participants qui la donnent : tu ne la déduis pas des réactions. Pour faire contrôler les valeurs, enregistre-les aussi par `npx aiad-sdd metrics record demo features_demo_count=3 nps_indicatif=8`.
 
 ### Étape 5 — Actions post-démo
 

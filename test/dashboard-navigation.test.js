@@ -28,6 +28,8 @@ describe('dashboard — navigation par responsabilité', () => {
     for (const o of ONGLETS) assert.ok(o.pages.length >= 1);
     // Page d'accueil de chaque onglet de rôle = son cockpit.
     assert.deepEqual(ONGLETS_ROLE.map((o) => o.pages[0].file), ['pm.html', 'pe.html', 'ae.html', 'qa.html', 'tl.html']);
+    // La page des métriques AIAD est dans la vue d'ensemble (SPEC-038-1).
+    assert.equal(ongletDe('scorecard').id, 'global');
     // Aucune des 20 pages historiques n'a disparu.
     for (const s of ['today', 'inbox', 'index', 'pm', 'intents', 'specs', 'traceability', 'graph', 'metrics', 'qa', 'adrs', 'legal', 'governance', 'drifts', 'changelog', 'onboarding', 'kanban', 'sre', 'dpo', 'eco']) {
       assert.ok(slugs.includes(s), `page conservée : ${s}`);

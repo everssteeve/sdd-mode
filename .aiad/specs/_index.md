@@ -97,3 +97,5 @@
 | SPEC-036-3 | Hook drift-lock — ne plus bloquer la clôture sans verdict | INTENT-036 | prose | 5/5 | ready | — |
 | SPEC-037-1 | Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, design system | INTENT-037 | prose | 4/5 | ready | — |
 | SPEC-037-2 | Mesure d'usage locale du dashboard — critère de drift constatable | INTENT-037 | prose | 5/5 | ready | — |
+| SPEC-038-1 | Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation | INTENT-038 | prose | 4/5 | ready | — |
+| SPEC-038-2 | Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels | INTENT-038 | prose | 4/5 | ready | — |

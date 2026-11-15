@@ -127,11 +127,15 @@ describe('dashboard — cockpits par responsabilité', () => {
       assert.match(html, /Application en cours de développement/);
       assert.match(html, /Mon App/);
       assert.match(html, /Le cycle en un coup d'œil/);
-      assert.equal((html.match(/class="pipe-step/g) || []).length, 6);
+      // 6 étapes du cycle + 7 catégories de métriques AIAD (SPEC-038-1).
+      assert.equal((html.match(/class="pipe-step/g) || []).length, 13);
+      assert.match(html, /Métriques AIAD/);
       for (const [id, file] of [['pm', 'pm.html'], ['pe', 'pe.html'], ['ae', 'ae.html'], ['qa', 'qa.html'], ['tl', 'tl.html']]) {
         assert.ok(html.includes(`class="role-card" data-onglet="${id}" href="${file}"`), `carte ${id}`);
       }
-      assert.match(html, /3 signal\(s\) à traiter, dont 1 critique\(s\)/);
+      // 3 signaux du projet + les métriques AIAD qui ne remontent pas (SPEC-038-2).
+      assert.match(html, /4 signal\(s\) à traiter, dont 1 critique\(s\)/);
+      assert.match(html, /36 métrique\(s\) AIAD ne remontent pas/);
       // Les sections historiques restent présentes.
       assert.match(html, /Artefacts fondamentaux/);
       assert.match(html, /Maturité du projet/);

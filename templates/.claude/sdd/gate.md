@@ -76,6 +76,16 @@ Applique la skill `ears-validator` sur §3 :
 
 Applique la skill `sqs-scoring`. **Passe-lui le résultat du linter EARS** (mode + violations + bonus). Sortie attendue : score 0–5/5 + verdict Test de l'Étranger + décision Gate + plan de remédiation si nécessaire.
 
+### Étape 4 bis — Enregistrer le passage (toujours)
+
+Que la Gate s'ouvre ou non, enregistre le passage. C'est ce qui fait remonter le *First-Time Success Rate* et le SQS dans le dashboard ; le nombre de passages (`attempts`) est compté par la commande.
+
+```bash
+npx aiad-sdd metrics record specs spec_id=SPEC-NNN-N-slug sqs_score=4 gate_result=open
+```
+
+`gate_result` vaut `open` ou `closed`. Une Gate `INCONNUE` s'enregistre `closed`.
+
 ### Étape 5 — Si Gate OUVERTE
 
 1. Statut SPEC → `ready`

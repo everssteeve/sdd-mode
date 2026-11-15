@@ -334,6 +334,9 @@ npx aiad-sdd badge --shields-endpoint  # JSON pour gist + shields.io (live badge
 
 # Validation CI rapide sans écriture
 npx aiad-sdd dashboard --check      # exit 1 si erreur, ~5s
+npx aiad-sdd metrics                # métriques AIAD : ce qui remonte, ce qui ne remonte pas, rituels en retard
+npx aiad-sdd metrics check          # exit 1 tant qu'une métrique du framework ne remonte pas
+npx aiad-sdd metrics record retro satisfaction_equipe=8   # enregistrement contrôlé d'une métrique déclarée
 
 # Templates CI/CD pour 6 forges
 npx aiad-sdd ci-template --list                    # github|gitlab|jenkins|drone|bitbucket|azure

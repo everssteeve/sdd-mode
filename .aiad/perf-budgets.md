@@ -3,11 +3,13 @@
 > Poids mesuré = taille du fichier HTML généré (non compressé), hors assets partagés.
 > Budgets calibrés : tailles réelles × 1,2 (RESEARCH-022 — D2-B).
 > Assets partagés (app.js + style.css) : budget global 45 KB.
+> Overview relevé de 30 à 36 KB le 2026-11-15 (décision de l'auteur, règle de calibrage : taille réelle × 1,2) après l'ajout de la synthèse des métriques AIAD.
 > Metrics relevé de 11 à 15 KB le 2026-11-15 (décision de l'auteur) : la page grossit avec les données de livraison accumulées, pas avec son gabarit.
 
 | Page | Fichier | Budget HTML (KB) |
 |------|---------|-----------------|
-| Overview | dashboard/index.html | 30 |
+| Overview | dashboard/index.html | 36 |
+| Métriques AIAD | dashboard/scorecard.html | 26 |
 | PM Cockpit | dashboard/pm.html | 630 |
 | Intents | dashboard/intents.html | 90 |
 | Specs | dashboard/specs.html | 35 |

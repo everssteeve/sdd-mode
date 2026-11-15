@@ -3,7 +3,7 @@
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
 version: 1.21.0
-source-hash: 69eedcd6a99a92b0
+source-hash: b84588dad740da4e
 ---
 
 # aiad-sdd — Documentation utilisateur (v1.21.0)
@@ -85,6 +85,7 @@ aiad-sdd v1.21.0 — Spec Driven Development pour Claude Code
     status [--json|--markdown] Affiche l'état SDD du projet · --markdown pour paste PR/Slack/Notion
     doctor [--json|--markdown|--quiet|--fix|--supplementaire|--strict-sante=N] Diagnostic + score santé #218 · --markdown PR/Slack · --quiet silent en CI si pass · --strict-sante=N exit 1 si <N
     skills validate       Vérifie le frontmatter des skills (.claude/skills/)
+    metrics [status|check|record|keys] Métriques AIAD : état de pilotage · check = exit 1 si une métrique ne remonte pas · record <catégorie> clé=valeur… = enregistrement contrôlé
     agents [list|validate|use <rôle>] Agents de rôle (PM, PE, AE, QA, Tech Lead) et leurs sous-agents · validate = conformité au registre · use = assistant par défaut
     repl                  REPL interactif (atelier intent/spec/trace/doctor sans quitter le terminal)
     migrate [--force]     Détecte les versions installées < courante et applique les migrations structurelles
@@ -373,4 +374,4 @@ Un assistant par responsabilité AIAD, lancé en session principale (`claude --a
 
 ---
 
-*Document régénéré automatiquement — source-hash `69eedcd6a99a92b0`, package v1.21.0.*
+*Document régénéré automatiquement — source-hash `b84588dad740da4e`, package v1.21.0.*
