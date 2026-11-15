@@ -148,7 +148,7 @@
       <p class="doc-lede">The <code>/sdd</code> router groups every command of the Spec Driven Development cycle: from initial framing to the audits, through the Intent Statement, the Research phase, the SPEC, the Execution Gate and the Drift Lock.</p>
 
       <h2 id="routers">The routers (aiad-sdd 1.7)</h2>
-      <p>Since <code>aiad-sdd</code> 1.7, the framework's commands — 33 today: 17 <code>/sdd</code> and 16 <code>/aiad</code> — are grouped into <strong>3 routers</strong> — <code>/sdd</code>, <code>/aiad</code> and <code>/aiad-help</code> — to reduce the cold-start weight of the system prompt (<strong>−94% of frontmatter</strong> loaded once the backward-compatible aliases are removed). The subcommand bodies are stored in <code>.claude/sdd/</code> and <code>.claude/aiad/</code>, loaded <strong>only on demand</strong> by the router via <code>Read</code>: only the content of the invoked command occupies the context.</p>
+      <p>Since <code>aiad-sdd</code> 1.7, the framework's commands — 34 today: 17 <code>/sdd</code> and 17 <code>/aiad</code> — are grouped into <strong>3 routers</strong> — <code>/sdd</code>, <code>/aiad</code> and <code>/aiad-help</code> — to reduce the cold-start weight of the system prompt (<strong>−94% of frontmatter</strong> loaded once the backward-compatible aliases are removed). The subcommand bodies are stored in <code>.claude/sdd/</code> and <code>.claude/aiad/</code>, loaded <strong>only on demand</strong> by the router via <code>Read</code>: only the content of the invoked command occupies the context.</p>
 
       <h2 id="dual-mode">Dual-mode: <code>--guided</code> / <code>--fast</code></h2>
       <p>Each command accepts two execution modes, plus auto-detection:</p>
@@ -276,8 +276,8 @@
       <p><strong>Output.</strong> Report persisted in <code>.aiad/metrics/audit/YYYY-MM-DD-SPEC-NNN.md</code> with BLOCKING / IMPORTANT / SUGGESTION recommendations.</p>
 
       <div class="callout warn">
-        <span class="callout-title">Deprecated flat aliases</span>
-        <p>The old aliases (<code>/sdd-spec</code>, <code>/sdd-gate</code>, …) remain functional for one version and will be <strong>removed in v2</strong>. They display a migration message towards the <code>/sdd &lt;sub&gt;</code> form.</p>
+        <span class="callout-title">Flat aliases removed (v2.0)</span>
+        <p>The old flat aliases (<code>/sdd-spec</code>, <code>/sdd-gate</code>, …) are <strong>removed as of v2.0</strong>. Only the <code>/sdd &lt;sub&gt;</code> form exists; <code>npx aiad-sdd update</code> deletes them from projects installed with v1.x.</p>
       </div>
 
       <nav class="doc-pagination" aria-label="Adjacent pages">

@@ -257,10 +257,10 @@
       <p><strong>What it does.</strong> AIAD positions itself as the <strong>upstream source</strong>: instead of maintaining N diverging copies, the command regenerates all the targets from the AGENT-GUIDE and the governance — <code>AGENTS.md</code> (cross-tool standard, Copilot), the <code>CLAUDE.md</code> header (Claude Code), <code>.cursor/rules/*.mdc</code> (Cursor, including Tier 1 rules scoped by globs), <code>.codex/AGENT.md</code> (Codex), <code>GEMINI.md</code> (Gemini) and, since <code>aiad-sdd</code> 1.19.0, the <code>.kiro/steering/aiad*.md</code> steering files (Kiro). Each emitted file carries a <code>DO NOT EDIT</code> header and a SHA-256 <code>source-hash</code>. <strong>Idempotent</strong> regeneration; targeting is possible via <code>--runtime cursor,codex</code>.</p>
       <p><strong>Output.</strong> Summary <code>+ created ↑ regenerated ✓ unchanged</code>. In <code>--check</code> mode (CI), exit 1 on divergence — the <code>aiad-emit-rules-check.yml</code> workflow blocks any PR that modifies the AGENT-GUIDE without regenerating the targets, or that manually edits a derived file.</p>
 
-      <h2 id="alias">Deprecated flat aliases</h2>
+      <h2 id="alias">Flat aliases removed (v2.0)</h2>
       <div class="callout warn">
         <span class="callout-title">Removed in v2</span>
-        <p>The old flat aliases (<code>/aiad-status</code>, <code>/aiad-retro</code>, <code>/aiad-dashboard</code>, …) remain functional for one version for backward compatibility. When used, they display a migration message towards the <code>/aiad &lt;sub&gt;</code> form. They will be <strong>removed in v2</strong> — it is their removal that delivers the −94% of frontmatter from the move to routers.</p>
+        <p>The old flat aliases (<code>/aiad-status</code>, <code>/aiad-retro</code>, <code>/aiad-dashboard</code>, …) are <strong>removed as of v2.0</strong>. Only the <code>/aiad &lt;sub&gt;</code> form exists; <code>npx aiad-sdd update</code> deletes them from projects installed with v1.x.</p>
       </div>
 
       <nav class="doc-pagination" aria-label="Adjacent pages">

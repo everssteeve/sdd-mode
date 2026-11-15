@@ -1,10 +1,10 @@
-# AIAD SDD Mode — v1.20
+# AIAD SDD Mode — v2.0
 
 **Spec Driven Development — Guide opérationnel pour Product Engineers AIAD**
 
 *Framework AIAD — aiad.ovh — Open Source*
 
-> **Deux cycles de versionnage.** `v1.20` désigne la version du **logiciel** SDD Mode (le package `aiad-sdd` : CLI, commandes slash, skills, dashboards). La **doctrine** du framework AIAD (valeurs, responsabilités, principes) suit son propre rythme — le cycle mensuel d'évolution du framework — et n'avance pas au même tempo. Ce guide documente le logiciel ; la doctrine est portée par `intention.md` (document publié avec le framework AIAD) et la Constitution.
+> **Deux cycles de versionnage.** `v2.0` désigne la version du **logiciel** SDD Mode (le package `aiad-sdd` : CLI, commandes slash, skills, dashboards). La **doctrine** du framework AIAD (valeurs, responsabilités, principes) suit son propre rythme — le cycle mensuel d'évolution du framework — et n'avance pas au même tempo. Ce guide documente le logiciel ; la doctrine est portée par `intention.md` (document publié avec le framework AIAD) et la Constitution.
 
 ---
 
@@ -24,10 +24,12 @@
 | **v1.18** | « Advisory → enforced » : verdicts déterministes (exit 0/1/2 + JSON validé), veto de gouvernance Tier 1 fail-closed par hooks, phase Research gradée (`GO / CONDITIONAL GO / DEFER / NO-GO`), exécution phasée avec mini-gates, suite canary, revue croisée multi-modèles (`/sdd validate --cross-model`) |
 | **v1.19** | Runtime Kiro dans `emit-rules`, comparatif public, archivage automatique des artefacts livrés (`archive done`), empreinte tokens par artefact dans `/sdd context`, squelettes de tests depuis EARS (`suggest-tests`), collecte DORA automatisée en CI, dashboard enrichi |
 | **v1.20** | Doctrine AIAD v1.9 livrée et verrouillée (agents AI-ACT et RGPD à jour, guides, contrôle de drift en CI et à la release), pré-contrôle déterministe de la Gate (`gate-precheck`), sections de SPEC « Points d'arrêt de l'agent » et « Périmètre d'exécution de l'agent », contexte hérité dans `/sdd context`, `update` qui sauvegarde les agents de gouvernance modifiés localement, parité des commandes livrées |
+| **v1.21** | Doctrine AIAD v1.10 livrée et verrouillée (surveillance humaine graduée par réversibilité, contrôles appliqués et déclaratifs, fichier d'instructions gouverné, approbations persistées) |
+| **v2.0** | **Agents de rôle** : un assistant par responsabilité AIAD (`aiad-pm`, `aiad-pe`, `aiad-ae`, `aiad-qa`, `aiad-tech-lead`), 21 sous-agents gérés chacun par un seul agent de rôle, 16 skills associées, relais inter-rôles, commande `aiad-sdd agents` et `/aiad agents` | · **Dashboard par responsabilité** : vue d'ensemble de l'application + un onglet par rôle, nouveaux cockpits PE, AE et Tech Lead, design system refondu · **Alias plats retirés** (`/sdd-spec`, `/aiad-status`…) : seules les formes `/sdd <sub>` et `/aiad <sub>` existent · hook `drift-lock` : ne bloque plus la clôture quand la CLI est absente du projet
 
 > **Doctrine — cycle novembre 2026 (Framework AIAD v1.10).** Ce guide reçoit des ajouts de doctrine sans changement de version logicielle ; ils sont marqués « doctrine — cycle novembre 2026 » : vocabulaire *spec-first / spec-anchored / spec-as-source* et retrait tracé d'une exigence (Principle #1), durée de vie de la mémoire d'agent (Principle #3), porte réelle et seuils par classe de réversibilité (`/sdd gate`), contrôles appliqués et déclaratifs (section dédiée), fichier d'instructions gouverné (`emit-rules`). Ce que ces ajouts demandent au package et qui n'est pas encore livré est signalé comme tel.
 
-> **Compatibilité.** Les anciens alias plats (`/sdd-spec`, `/aiad-status`…) restent fonctionnels jusqu'à la v2 avec message de migration. Les Intent / SPEC d'une v1.x sont migrés sans repartir de zéro (`aiad-sdd migrate`). Le runtime reste **zero-dependency**.
+> **Compatibilité.** Les anciens alias plats (`/sdd-spec`, `/aiad-status`…) sont **retirés depuis la v2.0** ; `npx aiad-sdd update` les supprime des projets installés en v1.x, sans toucher aux commandes écrites par le projet. Les Intent / SPEC d'une v1.x sont migrés sans repartir de zéro (`aiad-sdd migrate`). Le runtime reste **zero-dependency**.
 
 ---
 
@@ -104,7 +106,7 @@ Les ~30 commandes plates sont regroupées en **3 routers** afin de réduire de *
 | `/aiad <sub>` | Rituels & métriques : `init`, `onboard`, `status`, `health`, `gouvernance`, `standup`, `demo`, `retro`, `intention`, `sync-strat`, `dora`, `flow`, `dashboard`, `dashboard-html`, `guide` |
 | `/aiad-help [sub]` | Aide contextuelle |
 
-Les anciens alias plats (`/sdd-spec`, `/aiad-status`…) restent fonctionnels **jusqu'à la v2** et affichent un message de migration. Dans ce guide, la forme router (`/sdd spec`) est canonique.
+Les anciens alias plats (`/sdd-spec`, `/aiad-status`…) sont **retirés depuis la v2.0**. La forme router (`/sdd spec`) est la seule ; le profil `--minimal` garde ses quatre commandes plates, qui sont des commandes complètes et non des alias.
 
 ---
 
@@ -207,10 +209,11 @@ Le cycle se lit de haut en bas. Deux points de décision (◇) peuvent renvoyer 
 | `/aiad tech-review` | Revue technique | Tech Lead / PE |
 | `/aiad standup` | Standup quotidien | Tous |
 | `/aiad dashboard` | Métriques générales | Tous |
-| `/aiad dashboard-html` | Dashboard HTML / PM Cockpit *(v1.13+)* | PM / PE |
+| `/aiad dashboard-html` | Dashboard HTML : vue d'ensemble + un onglet par responsabilité *(v1.13+, refondu en v2.0)* | Tous |
 | `/aiad dora` | DORA metrics | Tech Lead / PE |
 | `/aiad flow` | Flow metrics | PE / PM |
 | `/aiad guide` | Guide pratique + backlog health *(v1.15)* | PM / PE |
+| `/aiad agents` | Agents de rôle : voir l'équipe, choisir son assistant, vérifier *(v2.0)* | Tous / AE |
 
 ### Aide & feedback
 
@@ -469,10 +472,10 @@ Le cycle se lit de haut en bas. Deux points de décision (◇) peuvent renvoyer 
 
 ---
 
-### /aiad dashboard-html  *(v1.13 → PM Cockpit v1.15-1.17)*
+### /aiad dashboard-html  *(v1.13 → PM Cockpit v1.15-1.17 → dashboard par responsabilité v2.0)*
 
-**Quand** : À la demande, pour un cockpit visuel (PE et surtout PM).
-**Ce que ça fait** : Génère un **dashboard HTML multi-pages** dans `dashboard/`. Mode `--serve` : serveur local avec rechargement. La page `pm.html` est un **PM Cockpit** (131 sections h2) couvrant 6 grands thèmes : vision & alignement (goal-tree, OKR, roadmap Gantt-light SVG), intelligence PM (notification center, SQS readiness, velocity forecast OLS, cost-of-delay), qualité SPEC (score composite, AC extractor, annotation coverage, scope T-shirt), flow & vélocité (cycle time, throughput, SLA, scorecard PM), gestion sponsor (trackers, scorecard 5D, decision velocity), hygiène backlog (doublons Jaccard, auto-archive, pyramide, maturité Intent /100). Ergonomie : 5 onglets cockpit, 3 thèmes, export Markdown, conformité EU AI Act (heuristique + frontmatter `ai_risk:`), « what's new » diff anti-XSS. Publication automatique via le workflow GitHub Pages `docs-deploy.yml`.
+**Quand** : À la demande, pour piloter l'application en cours de développement.
+**Ce que ça fait** : Génère un **dashboard HTML multi-pages** dans `dashboard/`. Depuis la v2.0, il s'organise en **six onglets** : une **vue d'ensemble** (maturité, santé, cycle SDD en six étapes, une carte par responsabilité, alertes), puis **un onglet par responsabilité** — Product Manager, Product Engineer, Agents Engineer, QA Engineer, Tech Lead. Chaque cockpit de rôle s'ouvre sur la carte de son assistant et liste les signaux qui attendent une décision ; un chiffre non mesuré s'affiche « — ». Le design system est refondu (thèmes clair et sombre, une couleur par responsabilité, aucune ressource externe). Le serveur local (`--serve`) **mesure l'usage** : il compte les pages consultées par jour et par onglet, sans adresse IP, navigateur ni heure, et rien ne quitte la machine ; la vue d'ensemble signale un dashboard non consulté depuis plus de 14 jours. Un dashboard ouvert en fichier statique ou publié n'est pas compté. Mode `--serve` : serveur local avec rechargement. La page `pm.html` est un **PM Cockpit** (131 sections h2) couvrant 6 grands thèmes : vision & alignement (goal-tree, OKR, roadmap Gantt-light SVG), intelligence PM (notification center, SQS readiness, velocity forecast OLS, cost-of-delay), qualité SPEC (score composite, AC extractor, annotation coverage, scope T-shirt), flow & vélocité (cycle time, throughput, SLA, scorecard PM), gestion sponsor (trackers, scorecard 5D, decision velocity), hygiène backlog (doublons Jaccard, auto-archive, pyramide, maturité Intent /100). Ergonomie : 5 onglets cockpit, 3 thèmes, export Markdown, conformité EU AI Act (heuristique + frontmatter `ai_risk:`), « what's new » diff anti-XSS. Publication automatique via le workflow GitHub Pages `docs-deploy.yml`.
 **Sortie** : Dashboard HTML statique dans `dashboard/` (publiable sur GitHub Pages).
 
 ---
@@ -493,9 +496,172 @@ Le cycle se lit de haut en bas. Deux points de décision (◇) peuvent renvoyer 
 
 ---
 
+## Agents de rôle et sous-agents (v2.0)
+
+Jusqu'à la v1.21, le SDD Mode outillait le cycle ; il ne disait pas quel agent travaille pour qui. Depuis la v2.0, chacune des cinq responsabilités AIAD dispose d'un **agent de rôle** — l'assistant personnel de la personne qui la porte — et chaque agent spécialisé a **un seul gestionnaire** parmi ces cinq.
+
+```
+   Humain PM     Humain PE     Humain AE     Humain QA     Humain Tech Lead     ← l'intention et les décisions
+      │             │             │             │             │
+   aiad-pm       aiad-pe       aiad-ae       aiad-qa     aiad-tech-lead         ← 5 agents de rôle
+      │             │             │             │             │
+   pm-* (3)      pe-* (5)      ae-* (4)      qa-* (4)      tl-* (5)             ← 21 sous-agents
+
+   AIAD-AI-ACT · AIAD-RGPD · AIAD-RGAA · AIAD-RGESN       ← gouvernance : veto, consultable par tous
+```
+
+### Cinq règles
+
+1. **Un assistant par responsabilité.** L'agent de rôle travaille avec l'humain, pas à sa place. Une personne qui porte plusieurs responsabilités change d'assistant selon ce qu'elle fait.
+2. **Un seul gestionnaire par sous-agent.** L'agent qui assure les revues de code (`pe-code-reviewer`) est lancé par l'assistant du Product Engineer, et par lui seul. Les sous-agents ne délèguent pas à leur tour.
+3. **L'humain décide.** Chaque agent de rôle porte une liste de « décisions réservées à l'humain » sur lesquelles il s'arrête. La primauté de l'intention humaine et le Human Authorship ne changent pas : un assistant prépare, propose, exécute ce qui a été décidé.
+4. **Le veto prévaut.** Les agents de gouvernance restent consultables par les cinq rôles et sont administrés par l'assistant de l'Agents Engineer. Leur veto ne dépend d'aucun rôle.
+5. **Entre rôles, un relais.** Un agent de rôle n'agit pas dans le périmètre d'un autre. Il écrit une note datée dans `.aiad/handoffs/` (skill `role-handoff`), que l'assistant destinataire présente à son humain.
+
+### Utiliser son assistant
+
+```bash
+claude --agent aiad-pe          # ouvrir une session avec son assistant
+npx aiad-sdd agents use pe      # en faire l'assistant par défaut de ses sessions (réglage personnel, hors dépôt)
+npx aiad-sdd agents list        # l'équipe, ses skills, ses commandes
+npx aiad-sdd agents validate    # conformité de l'équipe installée au registre — exit 0 / 1
+```
+
+Dans une session déjà ouverte, `/aiad agents` présente l'équipe et aide à choisir.
+
+### L'équipe
+
+### `aiad-pm` — assistant du Product Manager
+
+*« Construit-on les bonnes choses ? »*
+
+- **Décisions réservées à l'humain** : rédiger l'Intent Statement, prioriser, prononcer la validation métier, modifier la vision du PRD.
+- **Skills du rôle** : `human-authorship-check`, `discovery-synthesis`, `backlog-health`, `outcome-review`, `role-handoff`.
+- **Commandes pilotées** : `/sdd prd`, `/sdd intent`, `/aiad sync-strat`, `/aiad demo`, `/aiad intention`, `/aiad dashboard-html`.
+
+| Sous-agent | Mission | Accès | Modèle | Skills |
+|------------|---------|-------|--------|--------|
+| `pm-discovery-analyst` | Synthèse de discovery : retours utilisateurs, hypothèses, signaux marché | lecture seule | sonnet | `discovery-synthesis` |
+| `pm-backlog-curator` | Santé du backlog : intents zombies, orphelins, doublons, cohérence PRD | lecture + exécution | haiku | `backlog-health` |
+| `pm-outcome-analyst` | Outcomes et validation métier : critère de drift, métriques, préparation de démo | lecture + exécution | sonnet | `outcome-review` |
+
+### `aiad-pe` — assistant du Product Engineer
+
+*« L'intention est-elle réalisée sans être trahie ? »*
+
+- **Décisions réservées à l'humain** : formuler l'intention, trancher la Research, ouvrir la Gate sous le seuil, accepter un écart à la SPEC, merger, pousser.
+- **Skills du rôle** : `human-authorship-check`, `sqs-scoring`, `context-budget`, `grill-me`, `exec-orchestration`, `role-handoff`.
+- **Commandes pilotées** : `/sdd intent`, `/sdd research`, `/sdd spec`, `/sdd gate`, `/sdd exec`, `/sdd validate`, `/sdd drift-check`, `/sdd trace`, `/sdd split`, `/sdd resume`, `/sdd fact`.
+
+| Sous-agent | Mission | Accès | Modèle | Skills |
+|------------|---------|-------|--------|--------|
+| `pe-spec-writer` | Brouillon de SPEC atomique depuis un Intent validé par l'humain | écriture | inherit | `spec-authoring`, `ears-validator`, `reasons-canvas` |
+| `pe-implementer` | Implémentation d'UNE SPEC dont l'Execution Gate est ouverte | écriture | inherit | `traceability` |
+| `pe-code-reviewer` | Revue de code adossée à la SPEC : conformité, défauts, lisibilité | lecture + exécution | inherit | `code-review`, `drift-detection` |
+| `pe-drift-sentinel` | Drift Lock : synchronisation SPEC ↔ code ↔ tests, matrice de traçabilité | lecture + exécution | haiku | `drift-detection`, `traceability` |
+| `pe-doc-writer` | Documentation synchronisée avec le code livré : README, changelog, guides | écriture | sonnet | — |
+
+### `aiad-ae` — assistant du Agents Engineer
+
+*« L'écosystème d'agents est-il optimal ? »*
+
+- **Décisions réservées à l'humain** : valider un changement de ce qu'un agent charge, élargir une permission, ajouter ou retirer un agent, toucher à la gouvernance.
+- **Skills du rôle** : `context-budget`, `regulatory-veto`, `agent-authoring`, `agent-monitoring`, `permissions-audit`, `role-handoff`.
+- **Commandes pilotées** : `/sdd context`, `/aiad emit-rules`, `/aiad gouvernance`, `/aiad health`, `/aiad agents`, `/aiad retro`.
+
+| Sous-agent | Mission | Accès | Modèle | Skills |
+|------------|---------|-------|--------|--------|
+| `ae-agent-configurator` | Création et maintenance d'agents, de skills et de l'AGENT-GUIDE | écriture | inherit | `agent-authoring` |
+| `ae-context-auditor` | Audit du budget de contexte : estimation vs réel, usage des skills, mémoire | lecture + exécution | haiku | `context-budget`, `agent-monitoring` |
+| `ae-agent-evaluator` | Évaluation des agents : canaris, taux de correction, faux positifs | lecture + exécution | sonnet | `agent-monitoring` |
+| `ae-permissions-auditor` | Moindre privilège : permissions, approbations persistées, outillage autorisé | lecture seule | sonnet | `permissions-audit` |
+
+### `aiad-qa` — assistant du QA Engineer
+
+*« La qualité est-elle intégrée dès le départ ? »*
+
+- **Décisions réservées à l'humain** : prononcer le sign-off, accepter un risque résiduel, requalifier un défaut.
+- **Skills du rôle** : `ears-validator`, `test-strategy`, `acceptance-verification`, `exploratory-charter`, `role-handoff`.
+- **Commandes pilotées** : `/sdd validate`, `/sdd audit`, `/sdd fact`, `/aiad gouvernance`, `/aiad demo`.
+
+| Sous-agent | Mission | Accès | Modèle | Skills |
+|------------|---------|-------|--------|--------|
+| `qa-test-strategist` | Stratégie de test dès la SPEC : plan dérivé des critères d'acceptation | lecture seule | sonnet | `test-strategy`, `ears-validator` |
+| `qa-test-author` | Écriture des tests automatisés, dans les répertoires de tests uniquement | écriture | inherit | `test-strategy`, `traceability` |
+| `qa-functional-validator` | Validation fonctionnelle : chaque critère d'acceptation, preuve à l'appui | lecture + exécution | sonnet | `acceptance-verification` |
+| `qa-exploratory-tester` | Test exploratoire par chartes : cas limites, parcours non spécifiés | lecture + exécution | sonnet | `exploratory-charter` |
+
+### `aiad-tech-lead` — assistant du Tech Lead
+
+*« L'ensemble reste-t-il techniquement cohérent ? »*
+
+- **Décisions réservées à l'humain** : prendre une décision d'architecture, accepter une dette ou un risque de sécurité, publier.
+- **Skills du rôle** : `architecture-review`, `security-audit`, `release-readiness`, `role-handoff`.
+- **Commandes pilotées** : `/sdd arch`, `/sdd security`, `/sdd audit`, `/aiad tech-review`, `/aiad dora`, `/aiad flow`.
+
+| Sous-agent | Mission | Accès | Modèle | Skills |
+|------------|---------|-------|--------|--------|
+| `tl-architecture-reviewer` | Cohérence avec ARCHITECTURE.md : patterns, couplage, brouillons d'ADR | lecture + exécution | inherit | `architecture-review` |
+| `tl-security-auditor` | Audit sécurité : OWASP, secrets, dépendances, authentification | lecture + exécution | inherit | `security-audit` |
+| `tl-performance-analyst` | Performance et sobriété : budgets, régressions, requêtes, poids | lecture + exécution | sonnet | `architecture-review` |
+| `tl-debt-analyst` | Dette technique : inventaire, classement, plans de refactoring et de migration | lecture + exécution | sonnet | `architecture-review` |
+| `tl-release-engineer` | Préparation de release : contrôles, changelog, version — sans publier | écriture | sonnet | `release-readiness` |
+
+### Skills des agents de rôle
+
+Seize skills accompagnent ces agents. Un sous-agent reçoit celles de son métier à son lancement ; un agent de rôle en session principale invoque les siennes à la demande ; les neuf skills du cycle (section suivante) restent déclenchées par les commandes et sont réutilisées par les agents.
+
+| Skill | Rôle | Utilisée par |
+|-------|------|----------------|
+| `role-handoff` | Relais inter-rôles : une note dans `.aiad/handoffs/` plutôt qu'une action hors de son rôle | `aiad-pm`, `aiad-pe`, `aiad-ae`, `aiad-qa`, `aiad-tech-lead` |
+| `discovery-synthesis` | Synthèse de discovery : constats sourcés, interprétations à part, hypothèses ouvertes | `aiad-pm`, `pm-discovery-analyst` |
+| `backlog-health` | Santé du backlog : intents zombies, orphelins, brouillons oubliés, doublons | `aiad-pm`, `pm-backlog-curator` |
+| `outcome-review` | Revue d'outcome : objectif atteint ? critère de drift déclenché ? | `aiad-pm`, `pm-outcome-analyst` |
+| `code-review` | Revue de code adossée à la SPEC : conformité d'abord, défauts vérifiés ensuite | `pe-code-reviewer` |
+| `spec-authoring` | Rédaction de SPEC : périmètre atomique, critères testables, rien que l'Intent ne porte | `pe-spec-writer` |
+| `exec-orchestration` | Orchestration : briefer, séquencer ou paralléliser les sous-agents, vérifier ce qui revient | `aiad-pe` |
+| `agent-authoring` | Création d'agents et de skills : besoin validé, gestionnaire unique, moindre privilège | `aiad-ae`, `ae-agent-configurator` |
+| `agent-monitoring` | Suivi de l'écosystème : usage, taux de correction, faux positifs — garder, recalibrer, retirer | `aiad-ae`, `ae-context-auditor`, `ae-agent-evaluator` |
+| `permissions-audit` | Audit des permissions : outils par agent, approbations persistées, outillage hors liste blanche | `aiad-ae`, `ae-permissions-auditor` |
+| `test-strategy` | Stratégie de test : une vérification au moins par critère d'acceptation, dès la SPEC | `aiad-qa`, `qa-test-strategist`, `qa-test-author` |
+| `acceptance-verification` | Vérification des critères d'acceptation : une preuve par critère, ou « non vérifié » | `aiad-qa`, `qa-functional-validator` |
+| `exploratory-charter` | Test exploratoire par chartes : mission, périmètre, durée, constats reproductibles | `aiad-qa`, `qa-exploratory-tester` |
+| `architecture-review` | Revue d'architecture : standards, couplage, dépendances, budgets, brouillons d'ADR | `aiad-tech-lead`, `tl-architecture-reviewer`, `tl-performance-analyst`, `tl-debt-analyst` |
+| `security-audit` | Audit sécurité : OWASP, secrets, dépendances, chemin de la donnée vérifié | `aiad-tech-lead`, `tl-security-auditor` |
+| `release-readiness` | Préparation de release : contrôles, changelog, version — sans publier | `aiad-tech-lead`, `tl-release-engineer` |
+
+### Ce qui est appliqué, ce qui est déclaratif
+
+Conformément à la section « Contrôles appliqués et contrôles déclaratifs », voici le classement des règles de cette équipe.
+
+| Règle | Nature | Par quoi |
+|-------|--------|----------|
+| Un agent de rôle ne délègue qu'à ses sous-agents et à la gouvernance | **appliquée**, en session `claude --agent` | liste `Agent(...)` du fichier d'agent, lue par l'outil |
+| Un sous-agent ne délègue pas | **appliquée** | son champ `tools` ne contient pas `Agent` |
+| Un sous-agent d'analyse n'écrit pas | **appliquée** | outils d'écriture absents et interdits |
+| L'équipe installée correspond au registre | **appliquée** quand on la lance | `aiad-sdd agents validate`, à brancher en intégration continue |
+| Décisions réservées à l'humain | **déclarative** | consignes de l'agent de rôle |
+| Écriture limitée à un répertoire (`pe-spec-writer`, `qa-test-author`, `pe-doc-writer`) | **déclarative** | consignes du sous-agent |
+| Limite de délégation quand le rôle est adopté en cours de session | **déclarative** | consignes |
+
+### Ce que nous ne savons pas encore
+
+- **L'utilité de chaque sous-agent n'est pas mesurée.** L'équipe est posée à dire d'expert. Le principe du framework s'applique : ajouter par douleur, retirer par obsolescence. La skill `agent-monitoring` sert à trancher sur preuve.
+- **Vingt-six agents, ce n'est pas vingt-six agents actifs.** Un assistant ne lance un sous-agent que si la tâche le justifie. Les lancer tous par principe est l'anti-pattern « tous les agents, tout le temps ».
+- **Claude Code uniquement.** Les agents de rôle ne sont pas émis pour les autres outils pris en charge par `emit-rules`.
+- **Un seul essai en session réelle** (15 novembre 2026, projet d'essai, assistant du Product Engineer) : la délégation a bien été bornée par l'outil — le lancement d'un sous-agent du QA a été refusé — et le sous-agent lancé a reçu ses skills. Les quatre autres agents de rôle n'ont pas été essayés.
+
+### Étendre l'équipe
+
+Un sous-agent propre au projet se crée avec l'assistant de l'Agents Engineer (skill `agent-authoring`) : il déclare son gestionnaire (`aiad-managed-by`), s'ajoute à la liste `Agent(...)` de ce rôle, et passe par une revue humaine — comme tout ce qu'un agent charge. `aiad-sdd agents validate` signale un sous-agent sans gestionnaire connu.
+
+**Après une mise à jour.** `aiad-sdd update` réécrit les agents livrés par le package, donc aussi la liste `Agent(...)` des agents de rôle : un sous-agent ajouté par le projet reste en place mais n'y figure plus. Il faut l'y réinscrire après chaque `update` ; `aiad-sdd agents validate` échoue tant que ce n'est pas fait et nomme le sous-agent concerné. Les adaptations locales d'un agent livré sont, elles, perdues à la mise à jour.
+
+---
+
 ## Skills réutilisables (v1.9)
 
-La logique répétée des commandes est extraite en **7 skills auto-déclenchées** dans `.claude/skills/<name>/SKILL.md`. Les commandes complexes (`/sdd validate`, `/sdd exec`, `/sdd gate`) les composent sans dupliquer leur logique.
+La logique répétée des commandes est extraite en **skills auto-déclenchées** (7 en v1.9, 9 depuis la v1.18) dans `.claude/skills/<name>/SKILL.md`. Les commandes complexes (`/sdd validate`, `/sdd exec`, `/sdd gate`) les composent sans dupliquer leur logique.
 
 | Skill | Rôle |
 |-------|------|
@@ -506,6 +672,8 @@ La logique répétée des commandes est extraite en **7 skills auto-déclenchée
 | `context-budget` | Calcule M1–M5 du budget de contexte |
 | `reasons-canvas` | Facilite la structuration SPDD (Kevlin Henney) |
 | `ears-validator` | Lint EARS strict / indicatif sur les critères d'acceptation |
+| `traceability` | Matrice Intent ↔ SPEC ↔ Code ↔ Tests *(v1.10)* |
+| `grill-me` | Gate humain interactif, une question à la fois *(v1.18)* |
 
 Le frontmatter des skills est vérifiable via `aiad-sdd skills validate`.
 
@@ -697,6 +865,9 @@ Métriques de leadership EU/FR exposées dans `doctor --json` : `humanAuthorship
 | Lessons Learned | I | R | C | I | I |
 | Mise à jour AGENT-GUIDE | I | C | R/A | I | C |
 | Pilotage backlog / PM Cockpit | R/A | C | I | I | I |
+| Configuration des agents de rôle et sous-agents *(v2.0)* | I | C | R/A | I | C |
+
+Chaque colonne a son assistant depuis la v2.0 : `aiad-pm`, `aiad-pe`, `aiad-ae`, `aiad-qa`, `aiad-tech-lead`. Le RACI décrit les responsabilités des **humains** ; un assistant ne reçoit jamais le « A ».
 
 ---
 
@@ -723,6 +894,7 @@ Métriques de leadership EU/FR exposées dans `doctor --json` : `humanAuthorship
 │   └── archive/
 ├── facts/                          ← Traces /sdd fact
 │   └── FACT-NNN.md
+├── handoffs/                       ← Relais inter-rôles (v2.0)
 ├── metrics/                        ← Persistance des données métriques
 │   ├── security/                   ← Rapports /sdd security
 │   ├── audit/                      ← Rapports /sdd audit
@@ -731,8 +903,9 @@ Métriques de leadership EU/FR exposées dans `doctor --json` : `humanAuthorship
 └── CHANGELOG-ARTEFACTS.md
 
 .claude/
-├── commands/                       ← Commandes slash (routers /sdd, /aiad + alias rétro-compatibles)
-└── skills/                         ← 7 skills réutilisables (v1.9)
+├── commands/                       ← Commandes slash (routers /sdd, /aiad, /aiad-help)
+├── agents/                         ← Agents de rôle aiad-*, sous-agents pm-/pe-/ae-/qa-/tl-* (v2.0) + gouvernance AIAD-* (emit-rules)
+└── skills/                         ← Skills du cycle (v1.9) + 16 skills des agents de rôle (v2.0)
     ├── human-authorship-check/SKILL.md
     ├── regulatory-veto/SKILL.md
     ├── drift-detection/SKILL.md
@@ -755,4 +928,4 @@ CLAUDE.md                           ← Configuré par npx aiad-sdd init
 
 ---
 
-*AIAD SDD Mode v1.20 — aiad.ovh — Open Source — Steeve Evers*
+*AIAD SDD Mode v2.0 — aiad.ovh — Open Source — Steeve Evers*

@@ -776,6 +776,20 @@ Le cycle SDD (étapes 1 à 7) couvre le travail quotidien. Les commandes AIAD co
 
 **`/aiad dashboard-html`** — Version HTML multi-pages du dashboard, dans `dashboard/`. Pour le pilotage continu.
 
+### Travailler avec son assistant de rôle
+
+Chaque responsabilité AIAD a son agent : `aiad-pm`, `aiad-pe`, `aiad-ae`, `aiad-qa`, `aiad-tech-lead`. C'est l'assistant personnel de la personne qui porte la responsabilité, et lui seul lance ses sous-agents spécialisés.
+
+```bash
+claude --agent aiad-pe        # ouvrir une session avec l'assistant du Product Engineer
+```
+
+Sur l'Expense Tracker, la séance du PE se déroule ainsi : l'assistant lit l'AGENT-GUIDE et la SPEC active, annonce où en est le cycle, puis propose la suite. Une fois la Gate ouverte, il confie l'implémentation à `pe-implementer`, fait relire le résultat par `pe-code-reviewer` — jamais par celui qui a écrit le code —, lance `pe-drift-sentinel`, et vous présente le tout avec ce qui reste à décider. Le merge reste votre geste.
+
+Si la revue soulève une question d'architecture, l'assistant du PE ne lance pas l'agent d'architecture, qui appartient au Tech Lead : il dépose un relais dans `.aiad/handoffs/`, que l'assistant du Tech Lead présentera à son humain.
+
+**`/aiad agents`** — Présente l'équipe, aide à choisir son assistant, vérifie la conformité (`npx aiad-sdd agents validate`). Catalogue complet : `docs/agents-de-role.md`.
+
 ### Adoption sur un projet existant
 
 **`/aiad init`** — Pour adopter AIAD sur un projet qui a déjà du code. Bootstrap progressif : analyse le codebase existant, génère les artefacts depuis l'état réel. Pas besoin de repartir de zéro.
@@ -842,6 +856,7 @@ Exemples :
 | `/aiad dora` | Sprint | Métriques DORA |
 | `/aiad flow` | Sprint | Métriques Flow |
 | `/aiad dashboard-html` | Sprint | Dashboard HTML dans `dashboard/` |
+| `/aiad agents` | À la demande | Agents de rôle, sous-agents et skills : voir, choisir, vérifier |
 | `/aiad intention` | Mensuel | Préparer l'Atelier d'Intention |
 | `/aiad sync-strat` | Mensuel | Synchronisation stratégique |
 | `/aiad gouvernance` | PR critique | Conformité Tier 1 (AI-ACT, RGPD, RGAA, RGESN) |

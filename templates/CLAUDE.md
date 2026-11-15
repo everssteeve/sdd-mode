@@ -78,6 +78,26 @@ Depuis la v1.9, les blocs de logique récurrents sont extraits en **skills auto-
 
 **Composition** : les commandes les plus complexes (`/sdd validate`, `/sdd exec`) **composent plusieurs skills sans dupliquer leur logique** — ex. validate = `ears-validator` + `drift-detection` + `regulatory-veto`.
 
+### Agents de rôle et sous-agents (v2.0)
+
+Chaque responsabilité AIAD a son **agent de rôle** (`.claude/agents/aiad-*.md`), assistant personnel de l'humain qui la porte. Il se lance en session principale — `claude --agent aiad-pe` — ou se fixe par `npx aiad-sdd agents use pe`.
+
+| Agent de rôle | Assistant du… | Sous-agents qu'il gère |
+|---------------|---------------|------------------------|
+| `aiad-pm` | Product Manager | `pm-discovery-analyst`, `pm-backlog-curator`, `pm-outcome-analyst` |
+| `aiad-pe` | Product Engineer | `pe-spec-writer`, `pe-implementer`, `pe-code-reviewer`, `pe-drift-sentinel`, `pe-doc-writer` |
+| `aiad-ae` | Agents Engineer | `ae-agent-configurator`, `ae-context-auditor`, `ae-agent-evaluator`, `ae-permissions-auditor` |
+| `aiad-qa` | QA Engineer | `qa-test-strategist`, `qa-test-author`, `qa-functional-validator`, `qa-exploratory-tester` |
+| `aiad-tech-lead` | Tech Lead | `tl-architecture-reviewer`, `tl-security-auditor`, `tl-performance-analyst`, `tl-debt-analyst`, `tl-release-engineer` |
+
+Règles :
+
+- **L'humain décide.** Un agent de rôle prépare, propose et exécute ce qui a été décidé ; il s'arrête sur les « Décisions réservées à l'humain » de son fichier.
+- **Un seul gestionnaire par sous-agent.** Tu ne lances que tes propres sous-agents et les agents de gouvernance Tier 1. Pour un sujet d'un autre rôle : un relais dans `.aiad/handoffs/` (skill `role-handoff`).
+- **Les sous-agents ne délèguent pas** et rendent un rapport étayé ; `JNSP` remonte à l'humain.
+- **L'auteur n'est pas le relecteur.** Le code écrit par `pe-implementer` est relu par `pe-code-reviewer`.
+- Vérification : `npx aiad-sdd agents validate` (exit 0 conforme, 1 écarts). Vue d'ensemble : `/aiad agents`.
+
 ### Variante EARS optionnelle (v1.11)
 
 Depuis la v1.11, les SPECs peuvent être rédigées au **format EARS** (Easy Approach to Requirements Syntax) via `/sdd spec --ears`. Cohabitation avec le format prose : aucune obligation, aucune migration imposée. La variante EARS s'appuie sur le template `.aiad/specs/spec-ears-template.md` et déclare `Format : EARS` en entête. Effets :
@@ -90,12 +110,12 @@ Depuis la v1.11, les SPECs peuvent être rédigées au **format EARS** (Easy App
 
 ### Routers (v1.7 — namespacing des commandes)
 
-Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire le poids du system prompt à froid (-94 % de frontmatter chargé une fois les alias rétro-compat retirés). Les corps des sous-commandes sont stockés dans `.claude/sdd/` et `.claude/aiad/` — chargés uniquement à la demande par le router via `Read`.
+Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire le poids du system prompt à froid (-94 % de frontmatter chargé, alias plats retirés en v2.0). Les corps des sous-commandes sont stockés dans `.claude/sdd/` et `.claude/aiad/` — chargés uniquement à la demande par le router via `Read`.
 
 | Router | Sous-commandes |
 |--------|----------------|
 | `/sdd <sub>` | `init`, `intent`, `spec`, `gate`, `exec`, `validate`, `drift-check`, `trace`, `fact`, `security`, `audit`, `context`, `resume`, `split` |
-| `/aiad <sub>` | `init`, `onboard`, `status`, `health`, `gouvernance`, `tech-review`, `standup`, `demo`, `retro`, `intention`, `sync-strat`, `dora`, `flow`, `dashboard`, `dashboard-html` |
+| `/aiad <sub>` | `init`, `onboard`, `status`, `health`, `gouvernance`, `tech-review`, `standup`, `demo`, `retro`, `intention`, `sync-strat`, `dora`, `flow`, `dashboard`, `dashboard-html`, `agents` |
 | `/aiad-help [sub]` | Aide contextuelle, parcours type, recherche d'une commande |
 
 ### Commandes du cycle SDD (16) — via `/sdd <sub>`
@@ -119,7 +139,7 @@ Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire
 | `/sdd security` | Audit | Audit sécurité (OWASP, secrets, permissions agents) |
 | `/sdd audit` | Audit | Audit qualité (conformité SPEC, dette technique) |
 
-### Commandes framework AIAD — Synchronisations & Rituels (11) — via `/aiad <sub>`
+### Commandes framework AIAD — Synchronisations & Rituels (12) — via `/aiad <sub>`
 
 | Forme courante | Phase | Description |
 |----------------|-------|-------------|
@@ -134,6 +154,7 @@ Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire
 | `/aiad demo` | Feedback | Demo & Feedback (hebdomadaire, 45 min) |
 | `/aiad tech-review` | Technique | Tech Review (synchronisation technique hebdomadaire) |
 | `/aiad standup` | Monitoring | Standup quotidien AIAD (état, blockers, intentions du jour) |
+| `/aiad agents` | Équipe | Agents de rôle, sous-agents et skills : voir, choisir, vérifier (v2.0) |
 
 ### Commandes métriques & dashboards AIAD (4) — via `/aiad <sub>`
 
@@ -144,9 +165,9 @@ Depuis la v1.7, les 27 commandes sont regroupées en **3 routers** pour réduire
 | `/aiad dora` | Métriques | DORA Metrics (Deployment Frequency, Lead Time, CFR, MTTR) |
 | `/aiad flow` | Métriques | Flow Metrics (Cycle Time, Lead Time, Throughput, WIP, Flow Efficiency) |
 
-### Compatibilité rétro
+### Alias plats retirés (v2.0)
 
-Les anciens alias plats (`/sdd-spec`, `/aiad-status`, `/aiad-retro`, …) restent **fonctionnels pendant 1 version** et seront **retirés à la v2**. Quand ils sont utilisés, ils affichent un message de migration vers la forme `/sdd <sub>` ou `/aiad <sub>`.
+Les anciens alias plats (`/sdd-spec`, `/aiad-status`, `/aiad-retro`, …) sont **retirés depuis la v2.0**. Seules les formes `/sdd <sub>` et `/aiad <sub>` existent. Sur un projet installé en v1.x, `npx aiad-sdd update` retire les alias livrés par le package ; une commande écrite ou modifiée par le projet n'est jamais supprimée.
 
 ## Dual-mode des commandes (`--guided` / `--fast`)
 

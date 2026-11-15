@@ -92,3 +92,8 @@
 | SPEC-034-1a | Synchroniser agents, guides et légitimation depuis le Drive publié | INTENT-034 | prose | 5/5 | ready | — |
 | SPEC-034-1b | update — écraser mais signaler (sauvegarde des agents modifiés) | INTENT-034 | prose | 5/5 | ready | — |
 | SPEC-034-2 | Contrôle de drift de la doctrine (version + contenu) | INTENT-034 | EARS | 5/5 | ready | — |
+| SPEC-036-1 | Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD | INTENT-036 | prose | 4/5 | ready | — |
+| SPEC-036-2 | Retrait des alias plats en v2.0 | INTENT-036 | prose | 5/5 | ready | — |
+| SPEC-036-3 | Hook drift-lock — ne plus bloquer la clôture sans verdict | INTENT-036 | prose | 5/5 | ready | — |
+| SPEC-037-1 | Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, design system | INTENT-037 | prose | 4/5 | ready | — |
+| SPEC-037-2 | Mesure d'usage locale du dashboard — critère de drift constatable | INTENT-037 | prose | 5/5 | ready | — |

@@ -235,6 +235,25 @@
         <p>Whatever the team size, <strong>every responsibility must have a clearly identified owner</strong>.</p>
       </div>
 
+      <h2 id="assistants">One assistant per responsibility (SDD Mode v2.0)</h2>
+      <p>In SDD Mode, each responsibility has a <strong>role agent</strong>: the personal assistant of the person who carries it. Each role agent manages its own specialised sub-agents — code review, for instance, is launched by the Product Engineer's assistant, and by it alone.</p>
+      <table>
+        <caption class="visually-hidden">Role agents and the sub-agents they manage</caption>
+        <thead><tr><th scope="col">Role agent</th><th scope="col">Assistant of the…</th><th scope="col">Sub-agents it manages</th></tr></thead>
+        <tbody>
+          <tr><td><code>aiad-pm</code></td><td>Product Manager</td><td><code>pm-discovery-analyst</code>, <code>pm-backlog-curator</code>, <code>pm-outcome-analyst</code></td></tr>
+          <tr><td><code>aiad-pe</code></td><td>Product Engineer</td><td><code>pe-spec-writer</code>, <code>pe-implementer</code>, <code>pe-code-reviewer</code>, <code>pe-drift-sentinel</code>, <code>pe-doc-writer</code></td></tr>
+          <tr><td><code>aiad-ae</code></td><td>Agents Engineer</td><td><code>ae-agent-configurator</code>, <code>ae-context-auditor</code>, <code>ae-agent-evaluator</code>, <code>ae-permissions-auditor</code></td></tr>
+          <tr><td><code>aiad-qa</code></td><td>QA Engineer</td><td><code>qa-test-strategist</code>, <code>qa-test-author</code>, <code>qa-functional-validator</code>, <code>qa-exploratory-tester</code></td></tr>
+          <tr><td><code>aiad-tech-lead</code></td><td>Tech Lead</td><td><code>tl-architecture-reviewer</code>, <code>tl-security-auditor</code>, <code>tl-performance-analyst</code>, <code>tl-debt-analyst</code>, <code>tl-release-engineer</code></td></tr>
+        </tbody>
+      </table>
+      <p>Three rules hold it together. <strong>The human decides</strong>: each role agent lists the decisions it never makes — writing the intent, prioritising, opening the Gate, signing off validation, settling an architecture question, publishing. <strong>One manager per sub-agent</strong>: started with <code>claude --agent aiad-pe</code>, a role agent can delegate only to its own sub-agents and to the governance agents; the tool enforces the limit. <strong>Between roles, a handoff</strong>: a topic that belongs to another responsibility goes through a note in <code>.aiad/handoffs/</code>, shown to the human concerned.</p>
+      <div class="callout warn">
+        <span class="callout-title">What we do not know yet</span>
+        <p>This team is set by expert judgement. How useful each sub-agent is remains to be measured on real projects; an unused agent gets removed. The agents ship for Claude Code only.</p>
+      </div>
+
       <h2 id="raci">The SDD Mode RACI</h2>
       <p><strong>R</strong> = Responsible · <strong>A</strong> = Accountable (approves) · <strong>C</strong> = Consulted · <strong>I</strong> = Informed</p>
       <table>
