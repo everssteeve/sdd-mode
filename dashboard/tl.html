@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-11-15T11:02:25.767Z"/><meta name="aiad-version" content="1.21.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Cockpit Tech Lead — aiad-sdd</title>
+<meta name="description" content="Cockpit Tech Lead — Cohérence technique : architecture, dette, sécurité, livraison · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Cockpit Tech Lead — aiad-sdd"/>
+<meta property="og:description" content="Cockpit Tech Lead — Cohérence technique : architecture, dette, sécurité, livraison · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
+<meta property="og:url" content="tl.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cockpit Tech Lead — aiad-sdd"/>
+<meta name="twitter:description" content="Cockpit Tech Lead — Cohérence technique : architecture, dette, sécurité, livraison · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body data-onglet="tl">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="appbar">
+  <a class="brand" href="index.html" aria-label="aiad-sdd — vue d'ensemble">
+    <span class="brand-mark" aria-hidden="true">AS</span>
+    <span class="brand-text"><span class="brand-title">aiad-sdd</span><span class="brand-sub">SDD Mode · <span class="brand-version">v1.21.0</span></span></span>
+  </a>
+  <nav class="tabs" aria-label="Responsabilités">
+    <ul><li><a href="index.html" class="tab" data-onglet="global" data-court="Global"><span class="tab-label">Vue d&#39;ensemble</span></a></li><li><a href="pm.html" class="tab" data-onglet="pm" data-court="PM"><span class="tab-label">Product Manager</span><span class="tab-count warn" title="3 signal(s) à traiter">3</span></a></li><li><a href="pe.html" class="tab" data-onglet="pe" data-court="PE"><span class="tab-label">Product Engineer</span></a></li><li><a href="ae.html" class="tab" data-onglet="ae" data-court="AE"><span class="tab-label">Agents Engineer</span></a></li><li><a href="qa.html" class="tab" data-onglet="qa" data-court="QA"><span class="tab-label">QA Engineer</span></a></li><li><a href="tl.html" class="tab active" data-onglet="tl" aria-current="true" data-court="TL"><span class="tab-label">Tech Lead</span></a></li></ul>
+  </nav>
+  <div class="appbar-tools">
+    <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/11/2026 12:02:25. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+    <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre">
+      <span class="icon icon-dark" aria-hidden="true">☾</span><span class="icon icon-light" aria-hidden="true">☀</span>
+    </button>
+  </div>
+</header>
+<nav class="subnav" aria-label="Pages — Tech Lead">
+  <ul><li><a href="tl.html" class="active" aria-current="page"><span class="nav-icon" aria-hidden="true">⌬</span>Tech Lead Cockpit</a></li><li><a href="adrs.html" class=""><span class="nav-icon" aria-hidden="true">⎈</span>ADRs</a></li><li><a href="metrics.html" class=""><span class="nav-icon" aria-hidden="true">⊞</span>Métriques</a></li><li><a href="sre.html" class=""><span class="nav-icon" aria-hidden="true">⚙</span>SRE / Ops</a></li><li><a href="graph.html" class=""><span class="nav-icon" aria-hidden="true">⊛</span>Graphe</a></li></ul>
+  <span class="subnav-agent">Assistant <code>aiad-tech-lead</code></span>
+</nav>
+<main id="contenu">
+  <header class="page-header">
+    <div>
+      <div class="eyebrow">Tech Lead</div>
+      <h1>Cockpit Tech Lead</h1>
+      <div class="subtitle">Cohérence technique : architecture, dette, sécurité, livraison</div>
+    </div>
+  </header>
+  <section class="assistant" aria-label="Assistant du Tech Lead">
+  <div>
+    <h2>Votre assistant : <code>aiad-tech-lead</code></h2>
+    <p>Il prépare, délègue à ses 5 sous-agents et rend compte. Les décisions restent les vôtres.</p>
+  </div>
+  <code class="assistant-cmd" data-copy="claude --agent aiad-tech-lead" title="Copier la commande">claude --agent aiad-tech-lead</code>
+  <div class="assistant-team"><span class="chip" title="Cohérence avec ARCHITECTURE.md : patterns, couplage, brouillons d&#39;ADR"><code>tl-architecture-reviewer</code></span><span class="chip" title="Audit sécurité : OWASP, secrets, dépendances, authentification"><code>tl-security-auditor</code></span><span class="chip" title="Performance et sobriété : budgets, régressions, requêtes, poids"><code>tl-performance-analyst</code></span><span class="chip" title="Dette technique : inventaire, classement, plans de refactoring et de migration"><code>tl-debt-analyst</code></span><span class="chip" title="Préparation de release : contrôles, changelog, version — sans publier"><code>tl-release-engineer</code></span></div>
+</section>
+<div class="kpis">
+  
+  <div class="kpi warn"><div class="label">ARCHITECTURE.md</div><div class="value">gabarit</div><div class="delta">référence de cohérence</div></div>
+  
+  <div class="kpi "><div class="label">ADR</div><div class="value">0</div><div class="delta">décisions d&#39;architecture tracées</div></div>
+  
+  <div class="kpi "><div class="label">Déploiements</div><div class="value">12</div><div class="delta">100 % réussis</div></div>
+  
+  <div class="kpi "><div class="label">Lead time moyen</div><div class="value">4 j</div><div class="delta">de la SPEC à la production</div></div>
+  
+  <div class="kpi warn"><div class="label">Violations Tier 1</div><div class="value">10</div><div class="delta">code ↔ gouvernance déclarée</div></div>
+  
+  <div class="kpi "><div class="label">Sécurité critique / élevée</div><div class="value">0</div><div class="delta">0 rapport(s) d&#39;audit</div></div>
+</div>
+<section><h2>À traiter</h2><div class="alertes ok"><span class="alertes-icon" aria-hidden="true">✓</span><div><strong>Rien à signaler</strong><div class="muted">Aucun signal ne demande de décision sur ce périmètre.</div></div></div></section>
+<section>
+  <h2>Dette technique</h2>
+  <div class="kpis">
+    
+  <div class="kpi ok"><div class="label">TODO-JNSP ouverts</div><div class="value">0</div><div class="delta">questions laissées à l&#39;humain dans le code</div></div>
+    
+  <div class="kpi "><div class="label">SPECs trop grosses</div><div class="value">0</div><div class="delta">au-delà de 200 lignes — à découper</div></div>
+    
+  <div class="kpi "><div class="label">SPECs proches du seuil</div><div class="value">2</div><div class="delta">au-delà de 100 lignes</div></div>
+  </div>
+</section>
+<section>
+  <h2>Aller plus loin</h2>
+  <div class="actions"><a href="adrs.html">→ Décisions d'architecture</a><a href="metrics.html">→ DORA &amp; Flow</a><a href="sre.html">→ SRE / Ops</a><a href="graph.html">→ Graphe de connaissances</a></div>
+</section>
+</main>
+<footer class="app-footer">
+  <span>Généré 15/11/2026 12:02:25</span>
+  <span>Framework AIAD v1.21.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener">aiad.ovh</a></span>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

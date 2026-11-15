@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-11-15T11:02:25.767Z"/><meta name="aiad-version" content="1.21.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Cockpit Product Engineer — aiad-sdd</title>
+<meta name="description" content="Cockpit Product Engineer — Cycle SDD : SPECs, Execution Gate, exécution, Drift Lock · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Cockpit Product Engineer — aiad-sdd"/>
+<meta property="og:description" content="Cockpit Product Engineer — Cycle SDD : SPECs, Execution Gate, exécution, Drift Lock · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
+<meta property="og:url" content="pe.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cockpit Product Engineer — aiad-sdd"/>
+<meta name="twitter:description" content="Cockpit Product Engineer — Cycle SDD : SPECs, Execution Gate, exécution, Drift Lock · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body data-onglet="pe">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="appbar">
+  <a class="brand" href="index.html" aria-label="aiad-sdd — vue d'ensemble">
+    <span class="brand-mark" aria-hidden="true">AS</span>
+    <span class="brand-text"><span class="brand-title">aiad-sdd</span><span class="brand-sub">SDD Mode · <span class="brand-version">v1.21.0</span></span></span>
+  </a>
+  <nav class="tabs" aria-label="Responsabilités">
+    <ul><li><a href="index.html" class="tab" data-onglet="global" data-court="Global"><span class="tab-label">Vue d&#39;ensemble</span></a></li><li><a href="pm.html" class="tab" data-onglet="pm" data-court="PM"><span class="tab-label">Product Manager</span><span class="tab-count warn" title="3 signal(s) à traiter">3</span></a></li><li><a href="pe.html" class="tab active" data-onglet="pe" aria-current="true" data-court="PE"><span class="tab-label">Product Engineer</span></a></li><li><a href="ae.html" class="tab" data-onglet="ae" data-court="AE"><span class="tab-label">Agents Engineer</span></a></li><li><a href="qa.html" class="tab" data-onglet="qa" data-court="QA"><span class="tab-label">QA Engineer</span></a></li><li><a href="tl.html" class="tab" data-onglet="tl" data-court="TL"><span class="tab-label">Tech Lead</span></a></li></ul>
+  </nav>
+  <div class="appbar-tools">
+    <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/11/2026 12:02:25. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+    <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre">
+      <span class="icon icon-dark" aria-hidden="true">☾</span><span class="icon icon-light" aria-hidden="true">☀</span>
+    </button>
+  </div>
+</header>
+<nav class="subnav" aria-label="Pages — Product Engineer">
+  <ul><li><a href="pe.html" class="active" aria-current="page"><span class="nav-icon" aria-hidden="true">◈</span>PE Cockpit</a></li><li><a href="specs.html" class=""><span class="nav-icon" aria-hidden="true">◆</span>SPECs</a></li><li><a href="kanban.html" class=""><span class="nav-icon" aria-hidden="true">▦</span>Kanban</a></li><li><a href="traceability.html" class=""><span class="nav-icon" aria-hidden="true">⇄</span>Traçabilité</a></li><li><a href="drifts.html" class=""><span class="nav-icon" aria-hidden="true">⚠</span>Drifts &amp; Facts</a></li></ul>
+  <span class="subnav-agent">Assistant <code>aiad-pe</code></span>
+</nav>
+<main id="contenu">
+  <header class="page-header">
+    <div>
+      <div class="eyebrow">Product Engineer</div>
+      <h1>Cockpit Product Engineer</h1>
+      <div class="subtitle">Cycle SDD : SPECs, Execution Gate, exécution, Drift Lock</div>
+    </div>
+  </header>
+  <section class="assistant" aria-label="Assistant du Product Engineer">
+  <div>
+    <h2>Votre assistant : <code>aiad-pe</code></h2>
+    <p>Il prépare, délègue à ses 5 sous-agents et rend compte. Les décisions restent les vôtres.</p>
+  </div>
+  <code class="assistant-cmd" data-copy="claude --agent aiad-pe" title="Copier la commande">claude --agent aiad-pe</code>
+  <div class="assistant-team"><span class="chip" title="Brouillon de SPEC atomique depuis un Intent validé par l&#39;humain"><code>pe-spec-writer</code></span><span class="chip" title="Implémentation d&#39;UNE SPEC dont l&#39;Execution Gate est ouverte"><code>pe-implementer</code></span><span class="chip" title="Revue de code adossée à la SPEC : conformité, défauts, lisibilité"><code>pe-code-reviewer</code></span><span class="chip" title="Drift Lock : synchronisation SPEC ↔ code ↔ tests, matrice de traçabilité"><code>pe-drift-sentinel</code></span><span class="chip" title="Documentation synchronisée avec le code livré : README, changelog, guides"><code>pe-doc-writer</code></span></div>
+</section>
+<div class="kpis">
+  
+  <div class="kpi "><div class="label">SPECs en cours</div><div class="value">12</div><div class="delta">sur 12 SPEC(s) non archivée(s)</div></div>
+  
+  <div class="kpi ok"><div class="label">À passer la Gate</div><div class="value">0</div><div class="delta">draft ou en revue</div></div>
+  
+  <div class="kpi "><div class="label">Gate ouverte</div><div class="value">12</div><div class="delta">prêtes pour /sdd exec</div></div>
+  
+  <div class="kpi ok"><div class="label">SQS moyen</div><div class="value">4.8/5</div><div class="delta">12 SPEC(s) notée(s)</div></div>
+  
+  <div class="kpi "><div class="label">Code tracé</div><div class="value">27 %</div><div class="delta">111/407 fichiers annotés @spec</div></div>
+  
+  <div class="kpi warn"><div class="label">Facts ouverts</div><div class="value">5</div><div class="delta">écarts livré / désiré</div></div>
+</div>
+<section><h2>À traiter</h2><div class="alertes ok"><span class="alertes-icon" aria-hidden="true">✓</span><div><strong>Rien à signaler</strong><div class="muted">Aucun signal ne demande de décision sur ce périmètre.</div></div></div></section>
+<section>
+  <h2>Où en sont les SPECs</h2>
+  <div class="dist-bar"><span class="dist-seg seg-info" style="width:100%" title="ready : 12">12</span></div><div class="dist-leg"><span class="dist-leg-item"><span class="dist-leg-dot seg-muted"></span>draft <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>review <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>ready <strong>12</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>in-progress <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>validation <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-ok"></span>done <strong>0</strong></span></div>
+</section>
+<section>
+  <h2>SPECs en cours <span class="count">12</span></h2>
+  <table><thead><tr><th>SPEC</th><th>Titre</th><th>Intent</th><th>Statut</th><th>SQS</th></tr></thead><tbody>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-033-1-resync-commandes-livrees.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-1-resync-commandes-livrees.md">SPEC-033-1-resync-commandes-livrees</a></td>
+      <td>Resynchroniser les commandes livrées sur celles du dépôt + contrôle anti-divergence</td>
+      <td><code>INTENT-033</code></td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td><span class="badge badge-ok">SQS 5.0/5</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-033-2-sections-gabarit-spec.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-2-sections-gabarit-spec.md">SPEC-033-2-sections-gabarit-spec</a></td>
+      <td>Gabarit de SPEC — sections « Points d&#39;arrêt de l&#39;agent » (optionnelle) et « Périmètre d&#39;exécution de l&#39;agent » (conditionnelle)</td>
+      <td><code>INTENT-033</code></td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td><span class="badge badge-ok">SQS 5.0/5</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-033-3-gate-precheck.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-3-gate-precheck.md">SPEC-033-3-gate-precheck</a></td>
+      <td>Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt</td>
+      <td><code>INTENT-033</code></td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td><span class="badge badge-ok">SQS 5.0/5</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-033-4-contexte-herite.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-4-contexte-herite.md">SPEC-033-4-contexte-herite</a></td>
+      <td>/sdd context — contexte hérité au point de fork d&#39;un sous-agent</td>
+      <td><code>INTENT-033</code></td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td><span class="badge badge-ok">SQS 5.0/5</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-034-1a-sync-doctrine-drive.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-034-1a-sync-doctrine-drive.md">SPEC-034-1a-sync-doctrine-drive</a></td>
+      <td>Synchroniser agents de gouvernance, guides et dossiers de légitimation depuis le Drive publié</td>
+      <td><code>INTENT-034</code></td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td><span class="badge badge-ok">SQS 5.0/5</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-034-1b-update-ecrase-signale.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-034-1b-update-ecrase-signale.md">SPEC-034-1b-update-ecrase-signale</a></td>
+      <td>update — écraser les agents de gouvernance mais signaler, avec sauvegarde des modifications locales</td>
+      <td><code>INTENT-034</code></td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td><span class="badge badge-ok">SQS 5.0/5</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-034-2-controle-drift-doctrine.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-034-2-controle-drift-doctrine.md">SPEC-034-2-controle-drift-doctrine</a></td>
+      <td>Contrôle de drift de la doctrine livrée — version et contenu, en CI et à la release</td>
+      <td><code>INTENT-034</code></td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td><span class="badge badge-ok">SQS 5.0/5</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-036-1-agents-de-role.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-1-agents-de-role.md">SPEC-036-1-agents-de-role</a></td>
+      <td>Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD</td>
+      <td><code>INTENT-036</code></td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td><span class="badge badge-ok">SQS 4.0/5</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-036-2-retrait-alias-plats.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-2-retrait-alias-plats.md">SPEC-036-2-retrait-alias-plats</a></td>
+      <td>Retrait des alias plats en v2.0</td>
+      <td><code>INTENT-036</code></td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td><span class="badge badge-ok">SQS 5.0/5</span></td>
+    </tr>
+    <tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-036-3-drift-lock-cli-absente.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-3-drift-lock-cli-absente.md">SPEC-036-3-drift-lock-cli-absente</a></td>
+      <td>Hook drift-lock — ne plus bloquer la clôture quand la CLI ne produit aucun verdict</td>
+      <td><code>INTENT-036</code></td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td><span class="badge badge-ok">SQS 5.0/5</span></td>
+    </tr></tbody></table>
+</section>
+<section>
+  <h2>Drift Lock</h2>
+  <div class="kpis">
+    
+  <div class="kpi warn"><div class="label">Gaps bloquants</div><div class="value">1</div><div class="delta">SPEC validée sans code · Intent sans SPEC</div></div>
+    
+  <div class="kpi "><div class="label">Code sans SPEC</div><div class="value">312</div><div class="delta">fichiers applicatifs non annotés</div></div>
+    
+  <div class="kpi "><div class="label">Code sans test lié</div><div class="value">13</div><div class="delta">annotation @verified-by absente</div></div>
+  </div>
+  <div class="actions"><a href="traceability.html">→ Matrice de traçabilité</a><a href="kanban.html">→ Kanban des SPECs</a><a href="drifts.html">→ Drifts &amp; Facts</a></div>
+</section>
+</main>
+<footer class="app-footer">
+  <span>Généré 15/11/2026 12:02:25</span>
+  <span>Framework AIAD v1.21.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener">aiad.ovh</a></span>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

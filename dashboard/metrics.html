@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-10-27T08:46:10.413Z"/><meta name="aiad-version" content="1.20.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-11-15T11:02:25.767Z"/><meta name="aiad-version" content="1.21.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Métriques — aiad-sdd</title>
-<meta name="description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
+<meta name="description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Métriques — aiad-sdd"/>
-<meta property="og:description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
+<meta property="og:description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
 <meta property="og:url" content="metrics.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Métriques — aiad-sdd"/>
-<meta name="twitter:description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
+<meta name="twitter:description" content="Métriques — DORA, Flow et qualité — agrégés depuis .aiad/metrics/ · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -28,88 +28,33 @@
   })();
 </script>
 </head>
-<body>
-<nav class="side">
-  <div class="brand">
-    <div class="brand-title">aiad-sdd</div>
-    <div class="brand-sub">SDD Mode · Dashboard</div>
-    <div class="brand-version">v1.20.0</div>
+<body data-onglet="tl">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="appbar">
+  <a class="brand" href="index.html" aria-label="aiad-sdd — vue d'ensemble">
+    <span class="brand-mark" aria-hidden="true">AS</span>
+    <span class="brand-text"><span class="brand-title">aiad-sdd</span><span class="brand-sub">SDD Mode · <span class="brand-version">v1.21.0</span></span></span>
+  </a>
+  <nav class="tabs" aria-label="Responsabilités">
+    <ul><li><a href="index.html" class="tab" data-onglet="global" data-court="Global"><span class="tab-label">Vue d&#39;ensemble</span></a></li><li><a href="pm.html" class="tab" data-onglet="pm" data-court="PM"><span class="tab-label">Product Manager</span><span class="tab-count warn" title="3 signal(s) à traiter">3</span></a></li><li><a href="pe.html" class="tab" data-onglet="pe" data-court="PE"><span class="tab-label">Product Engineer</span></a></li><li><a href="ae.html" class="tab" data-onglet="ae" data-court="AE"><span class="tab-label">Agents Engineer</span></a></li><li><a href="qa.html" class="tab" data-onglet="qa" data-court="QA"><span class="tab-label">QA Engineer</span></a></li><li><a href="tl.html" class="tab active" data-onglet="tl" aria-current="true" data-court="TL"><span class="tab-label">Tech Lead</span></a></li></ul>
+  </nav>
+  <div class="appbar-tools">
+    <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/11/2026 12:02:25. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+    <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre">
+      <span class="icon icon-dark" aria-hidden="true">☾</span><span class="icon icon-light" aria-hidden="true">☀</span>
+    </button>
   </div>
-  <ul>
-    <li><a href="today.html" class="">
-      <span class="nav-icon">⊙</span>Aujourd&#39;hui
-    </a></li>
-    <li><a href="inbox.html" class="">
-      <span class="nav-icon">📥</span>Inbox
-    </a></li>
-    <li><a href="index.html" class="">
-      <span class="nav-icon">◐</span>Vue d&#39;ensemble
-    </a></li>
-    <li><a href="pm.html" class="">
-      <span class="nav-icon">◑</span>PM Cockpit
-    </a></li>
-    <li><a href="intents.html" class="">
-      <span class="nav-icon">◇</span>Intents
-    </a></li>
-    <li><a href="specs.html" class="">
-      <span class="nav-icon">◆</span>SPECs
-    </a></li>
-    <li><a href="traceability.html" class="">
-      <span class="nav-icon">⇄</span>Traçabilité
-    </a></li>
-    <li><a href="graph.html" class="">
-      <span class="nav-icon">⊛</span>Graphe
-    </a></li>
-    <li><a href="metrics.html" class="active">
-      <span class="nav-icon">⊞</span>Métriques
-    </a></li>
-    <li><a href="qa.html" class="">
-      <span class="nav-icon">✓</span>QA
-    </a></li>
-    <li><a href="adrs.html" class="">
-      <span class="nav-icon">⎈</span>ADRs
-    </a></li>
-    <li><a href="legal.html" class="">
-      <span class="nav-icon">§</span>Legal
-    </a></li>
-    <li><a href="governance.html" class="">
-      <span class="nav-icon">⚖</span>Gouvernance
-    </a></li>
-    <li><a href="drifts.html" class="">
-      <span class="nav-icon">⚠</span>Drifts &amp; Facts
-    </a></li>
-    <li><a href="changelog.html" class="">
-      <span class="nav-icon">⏱</span>Changelog
-    </a></li>
-    <li><a href="onboarding.html" class="">
-      <span class="nav-icon">?</span>Onboarding
-    </a></li>
-    <li><a href="kanban.html" class="">
-      <span class="nav-icon">▦</span>Kanban
-    </a></li>
-    <li><a href="sre.html" class="">
-      <span class="nav-icon">⚙</span>SRE / Ops
-    </a></li>
-    <li><a href="dpo.html" class="">
-      <span class="nav-icon">⊙</span>DPO / RGPD
-    </a></li>
-    <li><a href="eco.html" class="">
-      <span class="nav-icon">🌱</span>Éco
-    </a></li></ul>
-  <div class="footer">Généré 27/10/2026 09:46:10<br/>Framework AIAD v1.20.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</header>
+<nav class="subnav" aria-label="Pages — Tech Lead">
+  <ul><li><a href="tl.html" class=""><span class="nav-icon" aria-hidden="true">⌬</span>Tech Lead Cockpit</a></li><li><a href="adrs.html" class=""><span class="nav-icon" aria-hidden="true">⎈</span>ADRs</a></li><li><a href="metrics.html" class="active" aria-current="page"><span class="nav-icon" aria-hidden="true">⊞</span>Métriques</a></li><li><a href="sre.html" class=""><span class="nav-icon" aria-hidden="true">⚙</span>SRE / Ops</a></li><li><a href="graph.html" class=""><span class="nav-icon" aria-hidden="true">⊛</span>Graphe</a></li></ul>
+  <span class="subnav-agent">Assistant <code>aiad-tech-lead</code></span>
 </nav>
-<main>
+<main id="contenu">
   <header class="page-header">
     <div>
+      <div class="eyebrow">Tech Lead</div>
       <h1>Métriques</h1>
       <div class="subtitle">DORA, Flow et qualité — agrégés depuis .aiad/metrics/</div>
-    </div>
-    <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 27/10/2026 09:46:10. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
-      <div class="meta">aiad-sdd · v1.20.0</div>
-      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
-        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
-      </button>
     </div>
   </header>
   
@@ -127,8 +72,8 @@
 <section>
   <h2>DORA</h2>
   <div class="kpis">
-    <div class="kpi"><div class="label">Déploiements</div><div class="value">11</div><div class="delta">11 OK · 0 hotfix</div></div>
-    <div class="kpi"><div class="label">Cycle Time moyen</div><div class="value">68 j</div><div class="spark-row"><svg class="spark" role="img" aria-label="Sparkline" width="120" height="32" viewBox="0 0 120 32"><polyline points="0.0,30.0 40.0,2.8 80.0,2.8 120.0,2.0"/></svg></div></div>
+    <div class="kpi"><div class="label">Déploiements</div><div class="value">12</div><div class="delta">12 OK · 0 hotfix</div></div>
+    <div class="kpi"><div class="label">Cycle Time moyen</div><div class="value">81.7 j</div><div class="spark-row"><svg class="spark" role="img" aria-label="Sparkline" width="120" height="32" viewBox="0 0 120 32"><polyline points="0.0,30.0 30.0,11.7 60.0,11.7 90.0,11.2 120.0,2.0"/></svg></div></div>
     <div class="kpi"><div class="label">Lead Time moyen</div><div class="value">4 j</div></div>
     <div class="kpi ok">
       <div class="label">Change Failure Rate</div>
@@ -140,30 +85,30 @@
 <section>
   <h2>Leadership EU/FR</h2>
   <p class="muted">Indicateurs de positionnement leader — calculés en local, sans télémétrie.</p>
-  <p class="muted">Évolution sur 3 mois (de 2026-05 à 2026-10).</p>
+  <p class="muted">Évolution sur 3 mois (de 2026-05 à 2026-11).</p>
   <div class="kpis">
     <div class="kpi ok">
       <div class="label">Human Authorship</div>
       <div class="value">100%</div>
-      <div class="delta">4/4 Intents ≥ 50 caractères</div>
+      <div class="delta">6/6 Intents ≥ 50 caractères</div>
       <div class="spark-row"><svg class="spark" width="120" height="18" viewBox="0 0 120 18" aria-hidden="true"><polyline points="0.0,16.0 120.0,16.0"/></svg></div>
     </div>
     <div class="kpi warn">
       <div class="label">Governance Coverage</div>
-      <div class="value">75%</div>
-      <div class="delta">9/12 fichiers sensibles annotés</div>
-      <div class="spark-row"><svg class="spark" width="120" height="18" viewBox="0 0 120 18" aria-hidden="true"><polyline points="0.0,16.0 60.0,2.0 120.0,2.0"/></svg></div>
+      <div class="value">77%</div>
+      <div class="delta">10/13 fichiers sensibles annotés</div>
+      <div class="spark-row"><svg class="spark" width="120" height="18" viewBox="0 0 120 18" aria-hidden="true"><polyline points="0.0,16.0 60.0,2.4 120.0,2.0"/></svg></div>
     </div>
     <div class="kpi warn">
       <div class="label">Trace Completeness</div>
-      <div class="value">71%</div>
-      <div class="delta">5/7 SPECs avec code+tests</div>
-      <div class="spark-row"><svg class="spark" width="120" height="18" viewBox="0 0 120 18" aria-hidden="true"><polyline points="0.0,2.0 120.0,16.0"/></svg></div>
+      <div class="value">75%</div>
+      <div class="delta">9/12 SPECs avec code+tests</div>
+      <div class="spark-row"><svg class="spark" width="120" height="18" viewBox="0 0 120 18" aria-hidden="true"><polyline points="0.0,16.0 120.0,16.0"/></svg></div>
     </div>
     <div class="kpi">
       <div class="label">Langue artefacts</div>
-      <div class="value">FR 7</div>
-      <div class="delta">7 FR · 0 EN · 0 mixte · 5 neutre</div>
+      <div class="value">FR 12</div>
+      <div class="delta">12 FR · 0 EN · 0 mixte · 7 neutre</div>
     </div>
   </div>
 </section>
@@ -188,25 +133,35 @@
 </section>
 <section>
   <h2>🌱 EcoLogits — Impact écologique</h2>
-  <div class="empty"><strong>Aucune donnée — hook Stop non configuré.</strong></div>
+  <div class="kpi-eco">
+  <div class="kpi-eco-header">🌱 Impact écologique (30 dernières)</div>
+  <table class="kpi-eco-table" aria-label="Résumé impact écologique">
+    <tbody>
+      <tr><th scope="row">CO₂ total</th><td>0.00 g CO₂eq</td></tr>
+      <tr><th scope="row">Tendance</th><td>Données insuffisantes pour calculer la tendance</td></tr>
+      <tr><th scope="row">Tokens</th><td>—</td></tr>
+    </tbody>
+  </table>
+  <p class="kpi-eco-note">estimation indicative (non certifiée)</p>
+</div>
   <div class="actions" style="margin-top:0.75rem;"><a href="eco.html">→ Détail 30 sessions</a></div>
 </section>
 <section>
-      <h2>deployments <span class="count">11 fichier(s) · .aiad/metrics/deployments</span></h2>
+      <h2>deployments <span class="count">12 fichier(s) · .aiad/metrics/deployments</span></h2>
       <table>
         <thead><tr><th>Fichier</th><th>Date</th><th>Métriques détectées</th></tr></thead>
         <tbody><tr>
+      <td><a class="src-link" href="../.aiad/metrics/deployments/2026-11-12-deploy-01.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/deployments/2026-11-12-deploy-01.md">2026-11-12-deploy-01.md</a></td>
+      <td class="muted">15/11/2026</td>
+      <td><code>status: success</code> <code>cycle_time_days: 136.5</code> <code>version: site-a843cf3874066f30fd45caff6b9c50971a279ca9</code></td>
+    </tr><tr>
       <td><a class="src-link" href="../.aiad/metrics/deployments/2026-09-29-deploy-01.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/deployments/2026-09-29-deploy-01.md">2026-09-29-deploy-01.md</a></td>
-      <td class="muted">27/10/2026</td>
+      <td class="muted">15/11/2026</td>
       <td><code>status: success</code> <code>cycle_time_days: 92</code> <code>version: site-819cc5e153da429f23d3c8a905df280c0077041d</code></td>
     </tr><tr>
       <td><a class="src-link" href="../.aiad/metrics/deployments/2026-09-26-deploy-02.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/deployments/2026-09-26-deploy-02.md">2026-09-26-deploy-02.md</a></td>
-      <td class="muted">27/10/2026</td>
+      <td class="muted">15/11/2026</td>
       <td><code>status: success</code> <code>cycle_time_days: 89.5</code> <code>version: site-e72dd259afac2b199e209623ef40694b8c96d61e</code></td>
-    </tr><tr>
-      <td><a class="src-link" href="../.aiad/metrics/deployments/2026-09-26-deploy-01.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/deployments/2026-09-26-deploy-01.md">2026-09-26-deploy-01.md</a></td>
-      <td class="muted">27/10/2026</td>
-      <td><code>status: success</code> <code>cycle_time_days: 89.5</code> <code>version: site-b83f5e77505b0db7e4644062cdbd45807410ba6c</code></td>
     </tr></tbody>
       </table>
     </section><section>
@@ -215,13 +170,17 @@
         <thead><tr><th>Fichier</th><th>Date</th><th>Métriques détectées</th></tr></thead>
         <tbody><tr>
       <td><a class="src-link" href="../.aiad/metrics/standup/2026-06-22.md" target="_blank" rel="noopener" title="Ouvrir .aiad/metrics/standup/2026-06-22.md">2026-06-22.md</a></td>
-      <td class="muted">27/10/2026</td>
+      <td class="muted">15/11/2026</td>
       <td><code>date: 2026-06-22</code> <code>type: standup</code> <code>format: async</code></td>
     </tr></tbody>
       </table>
     </section>
 
 </main>
+<footer class="app-footer">
+  <span>Généré 15/11/2026 12:02:25</span>
+  <span>Framework AIAD v1.21.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener">aiad.ovh</a></span>
+</footer>
 <script src="assets/app.js"></script>
 </body>
 </html>

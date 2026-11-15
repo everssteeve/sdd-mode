@@ -1,17 +1,17 @@
 {
-  "date": "2026-05-14",
-  "score": 50,
-  "niveau": "attention",
+  "date": "2026-11-15",
+  "score": 74,
+  "niveau": "sain",
   "composantes": [
     {
       "id": "maturite",
-      "points": 0,
+      "points": 16,
       "max": 20,
       "disponible": true
     },
     {
       "id": "governance",
-      "points": 0,
+      "points": 20,
       "max": 20,
       "disponible": true
     },
@@ -29,7 +29,7 @@
     },
     {
       "id": "violations",
-      "points": 20,
+      "points": 3,
       "max": 20,
       "disponible": true
     }

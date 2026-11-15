@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-11-15T11:02:25.767Z"/><meta name="aiad-version" content="1.21.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>INTENT-036-agents-de-role — Améliorer l&#39;aspect agentique de SDD Mode — un agent par rôle, qui gère ses sous-agents — aiad-sdd</title>
+<meta name="description" content="INTENT-036-agents-de-role — Améliorer l&#39;aspect agentique de SDD Mode — un agent par rôle, qui gère ses sous-agents — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-s…"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="INTENT-036-agents-de-role — Améliorer l&#39;aspect agentique de SDD Mode — un agent par rôle, qui gère ses sous-agents — aiad-sdd"/>
+<meta property="og:description" content="INTENT-036-agents-de-role — Améliorer l&#39;aspect agentique de SDD Mode — un agent par rôle, qui gère ses sous-agents — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-s…"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="INTENT-036-agents-de-role — Améliorer l&#39;aspect agentique de SDD Mode — un agent par rôle, qui gère ses sous-agents — aiad-sdd"/>
+<meta name="twitter:description" content="INTENT-036-agents-de-role — Améliorer l&#39;aspect agentique de SDD Mode — un agent par rôle, qui gère ses sous-agents — Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances · aiad-s…"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body data-onglet="pm">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="appbar">
+  <a class="brand" href="index.html" aria-label="aiad-sdd — vue d'ensemble">
+    <span class="brand-mark" aria-hidden="true">AS</span>
+    <span class="brand-text"><span class="brand-title">aiad-sdd</span><span class="brand-sub">SDD Mode · <span class="brand-version">v1.21.0</span></span></span>
+  </a>
+  <nav class="tabs" aria-label="Responsabilités">
+    <ul><li><a href="index.html" class="tab" data-onglet="global" data-court="Global"><span class="tab-label">Vue d&#39;ensemble</span></a></li><li><a href="pm.html" class="tab active" data-onglet="pm" aria-current="true" data-court="PM"><span class="tab-label">Product Manager</span><span class="tab-count warn" title="3 signal(s) à traiter">3</span></a></li><li><a href="pe.html" class="tab" data-onglet="pe" data-court="PE"><span class="tab-label">Product Engineer</span></a></li><li><a href="ae.html" class="tab" data-onglet="ae" data-court="AE"><span class="tab-label">Agents Engineer</span></a></li><li><a href="qa.html" class="tab" data-onglet="qa" data-court="QA"><span class="tab-label">QA Engineer</span></a></li><li><a href="tl.html" class="tab" data-onglet="tl" data-court="TL"><span class="tab-label">Tech Lead</span></a></li></ul>
+  </nav>
+  <div class="appbar-tools">
+    <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/11/2026 12:02:25. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+    <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre">
+      <span class="icon icon-dark" aria-hidden="true">☾</span><span class="icon icon-light" aria-hidden="true">☀</span>
+    </button>
+  </div>
+</header>
+<nav class="subnav" aria-label="Pages — Product Manager">
+  <ul><li><a href="pm.html" class=""><span class="nav-icon" aria-hidden="true">◑</span>PM Cockpit</a></li><li><a href="intents.html" class="active" aria-current="page"><span class="nav-icon" aria-hidden="true">◇</span>Intents</a></li></ul>
+  <span class="subnav-agent">Assistant <code>aiad-pm</code></span>
+</nav>
+<main id="contenu">
+  <header class="page-header">
+    <div>
+      <div class="eyebrow">Product Manager</div>
+      <h1>INTENT-036-agents-de-role — Améliorer l&#39;aspect agentique de SDD Mode — un agent par rôle, qui gère ses sous-agents</h1>
+      <div class="subtitle">Vue détaillée Intent — sections, SPECs, risques, hypothèse, dépendances</div>
+    </div>
+  </header>
+  <style>
+    .ip-cols { display:grid; grid-template-columns: 1fr 280px; gap: 1.5rem; align-items: start; }
+    @media (max-width: 900px) { .ip-cols { grid-template-columns: 1fr; } }
+    .ip-meta table { width:100%; font-size:.85rem; }
+    .ip-meta td { padding:.25rem .4rem; vertical-align:top; }
+    .ip-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+    .ip-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+    .ip-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+    .ip-sections pre { margin:0; white-space:pre-wrap; font-family: inherit; font-size:.88rem; line-height:1.45; }
+    .ip-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+    .ip-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+    .ip-actions a:hover { background:rgba(76,110,245,.18); }
+  </style>
+<div class="ip-cols">
+  <div class="ip-sections">
+    <h2><a class="src-link" href="../.aiad/intents/INTENT-036-agents-de-role.md" target="_blank" rel="noopener" title="Ouvrir .aiad/intents/INTENT-036-agents-de-role.md">INTENT-036-agents-de-role</a> — Améliorer l&#39;aspect agentique de SDD Mode — un agent par rôle, qui gère ses sous-agents</h2>
+    <section><h3>POURQUOI MAINTENANT</h3><div class="md-light"><p>« car l&#39;agentique prend le dessus avec toujours plus de délégation aux agents qui sont plus efficaces et fiables » <em>(réponse de l&#39;auteur du 2026-11-15 ; fautes de frappe corrigées, mots inchangés)</em></p></div></section><section><h3>POUR QUI</h3><div class="md-light"><p>« chacun des rôles nécessaires à l&#39;édition logicielle » ; « Les rôles identifiés dans AIAD auront chacun un agent avec qui travailler, ce sont leur assistant personnel. »</p></div></section><section><h3>OBJECTIF</h3><div class="md-light"><p>« Je souhaite améliorer l&#39;aspect agentique de SDD MODE. Définis quels sont tous les agents qui doivent être mis en oeuvre ainsi que l&#39;ensemble de leurs skills. SDD Mode doit devenir une expérience où chacun des rôles nécessaires à l&#39;édition logicielle sont pris en charge par des agents. »</p><p>« Implémente ces agents, sous agents et skills et met à jour toute documentation utile. »</p></div></section><section><h3>CONTRAINTES</h3><div class="md-light"><ul><li>« Human in the loop reste valable avec la primauté de l&#39;intention humaine. »</li><li>« Les rôles identifiés dans AIAD auront chacun un agent avec qui travailler, ce sont leur assistant personnel. »</li><li>« Tous les autres agents seront gérés par ces 5 agents principaux. Par exemple, l&#39;agent assurant les revues de code sera géré par l&#39;agent du product engineer. »</li></ul></div></section><section><h3>CRITÈRE DE DRIFT</h3><div class="md-light"><p>« drift si on ne doit plus intervenir en tant qu&#39;humain dans la création du produit » <em>(réponse de l&#39;auteur du 2026-11-15 ; fautes de frappe corrigées, mots inchangés)</em></p></div></section>
+    <section><h3>SPECs liées</h3><p class="muted" style="font-size:.85rem">Avancement : <strong>0/3</strong> SPECs livrées (0 %), 0 en cours.</p><table><thead><tr><th>ID</th><th>Titre</th><th>Statut</th><th>SQS</th></tr></thead><tbody><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-036-1-agents-de-role.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-1-agents-de-role.md">SPEC-036-1-agents-de-role</a></td>
+      <td>Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD</td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td class="muted">4</td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-036-2-retrait-alias-plats.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-2-retrait-alias-plats.md">SPEC-036-2-retrait-alias-plats</a></td>
+      <td>Retrait des alias plats en v2.0</td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td class="muted">5</td>
+    </tr><tr>
+      <td><a class="src-link" href="../.aiad/specs/SPEC-036-3-drift-lock-cli-absente.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-3-drift-lock-cli-absente.md">SPEC-036-3-drift-lock-cli-absente</a></td>
+      <td>Hook drift-lock — ne plus bloquer la clôture quand la CLI ne produit aucun verdict</td>
+      <td><span class="badge badge-info">ready</span></td>
+      <td class="muted">5</td>
+    </tr></tbody></table></section>
+    <section><h3>Risques</h3><p class="muted">Aucun risque détecté (frontmatter <code>risks:</code> ni heuristique sur CONTRAINTES).</p></section>
+    <section><h3>Hypothèse</h3><p class="muted">Aucune hypothèse déclarée (frontmatter <code>hypothesis:</code>).</p></section>
+    <section><h3>Dépendances</h3><p><strong>Bloqué par</strong> : <em class="muted">aucune</em></p><p><strong>Bloque</strong> : <em class="muted">aucun</em></p></section>
+    <div class="ip-actions">
+      <a href="pm.html">← Cockpit PM</a>
+      <a href="intents.html">← Catalogue Intents</a>
+      <a href="../.aiad/intents/INTENT-036-agents-de-role.md" target="_blank">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="ip-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .3rem">Métadonnées</h3>
+    <table><tr><td><strong>Statut</strong></td><td><span class="badge badge-ok">active</span></td></tr><tr><td><strong>Date</strong></td><td>2026-11-15</td></tr><tr><td><strong>Auteur</strong></td><td>Steeve Evers</td></tr></table>
+  </aside>
+</div>
+</main>
+<footer class="app-footer">
+  <span>Généré 15/11/2026 12:02:25</span>
+  <span>Framework AIAD v1.21.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener">aiad.ovh</a></span>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
