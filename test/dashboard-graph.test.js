@@ -206,12 +206,10 @@ test('dashboard — page graph.html générée avec slug graph et nav inclus', s
   } finally { rmSync(d, { recursive: true, force: true }); }
 }));
 
-test('PAGES inclut graph (entre traceability et metrics)', async () => {
+test('PAGES inclut graph, rattaché à l\'onglet Tech Lead (SPEC-037-1)', async () => {
   const { PAGES } = await import('../lib/dashboard/render.js');
-  const slugs = PAGES.map((p) => p.slug);
-  const idxTrace = slugs.indexOf('traceability');
-  const idxGraph = slugs.indexOf('graph');
-  const idxMetrics = slugs.indexOf('metrics');
-  assert.ok(idxGraph > idxTrace, 'graph avant traceability');
-  assert.ok(idxGraph < idxMetrics, 'graph après metrics');
+  const graph = PAGES.find((p) => p.slug === 'graph');
+  assert.ok(graph, 'page graph absente');
+  assert.equal(graph.onglet, 'tl');
+  assert.equal(graph.file, 'graph.html');
 });

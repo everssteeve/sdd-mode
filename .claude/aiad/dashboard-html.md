@@ -23,16 +23,20 @@ Le HTML est régénéré à la demande, lu dans un navigateur, pas un livrable d
 
 Le dashboard est produit dans `dashboard/` à la racine du projet :
 
-| Page | Rôle |
-|------|------|
-| `index.html` | Vue d'ensemble : maturité, KPIs, SPECs récentes, changelog |
-| `intents.html` | Catalogue des Intent Statements (statut, SPECs liées) |
-| `specs.html` | Catalogue des SPECs (SQS, format prose/EARS, statut) |
-| `traceability.html` | Matrice Forward / Backward + gaps détectés |
-| `metrics.html` | DORA + Flow + Qualité depuis `.aiad/metrics/` |
-| `governance.html` | Agents Tier 1 (AI-ACT / RGPD / RGAA / RGESN) |
-| `drifts.html` | Drifts & facts capturés via `/sdd fact` |
-| `changelog.html` | Historique des artefacts |
+Six onglets : une vue d'ensemble de l'application en cours de développement, puis un onglet par responsabilité AIAD. Les pages d'un onglet forment sa sous-navigation.
+
+| Onglet | Pages | Ce qu'on y trouve |
+|--------|-------|-------------------|
+| **Vue d'ensemble** | `index.html`, `today.html`, `inbox.html`, `changelog.html`, `onboarding.html` | État global : maturité, santé, cycle SDD en six étapes, une carte par responsabilité, alertes |
+| **Product Manager** | `pm.html`, `intents.html` | Cockpit PM, Intent Statements |
+| **Product Engineer** | `pe.html`, `specs.html`, `kanban.html`, `traceability.html`, `drifts.html` | SPECs, Execution Gate, traçabilité, Drift Lock, facts |
+| **Agents Engineer** | `ae.html`, `governance.html`, `eco.html` | Équipe d'agents et sa conformité au registre, skills, gouvernance Tier 1, hooks, impact écologique |
+| **QA Engineer** | `qa.html`, `legal.html`, `dpo.html` | File de validation, couverture, EARS, conformité |
+| **Tech Lead** | `tl.html`, `adrs.html`, `metrics.html`, `sre.html`, `graph.html` | Architecture, ADR, dette, DORA & Flow, sécurité |
+
+Chaque cockpit de rôle s'ouvre sur la carte de son assistant (`claude --agent aiad-<rôle>`) et liste les signaux qui attendent une décision sur son périmètre. L'onglet porte une pastille quand il y en a. Un chiffre non mesuré s'affiche « — ».
+
+**Mesure d'usage.** Le serveur local (`--serve`) compte les pages consultées, par jour et par onglet, dans `.aiad/metrics/dashboard-usage/` — un jour, un compteur, rien d'autre : ni adresse IP, ni navigateur, ni heure, et rien ne quitte la machine. La vue d'ensemble affiche les consultations des 30 derniers jours et signale un dashboard non consulté depuis plus de 14 jours. Un dashboard ouvert en fichier statique ou publié n'est pas compté : « non mesuré » ne veut pas dire « non utilisé ». Désactivation : `AIAD_DASHBOARD_USAGE=0`.
 
 Plus :
 - `dashboard/data.json` — dump complet (debug / intégration)
@@ -112,7 +116,7 @@ Selon le contexte :
 
 ## Critères de succès
 
-- ✅ Dossier `dashboard/` créé à la racine avec 8 pages HTML + `data.json` + `assets/`
+- ✅ Dossier `dashboard/` créé à la racine avec la vue d'ensemble, les cinq cockpits de rôle et leurs pages + `data.json` + `assets/`
 - ✅ Les pages s'ouvrent en mode statique (sans serveur) et la navigation fonctionne
 - ✅ La page d'accueil reflète l'état réel du projet (maturité cohérente avec `npx aiad-sdd status`)
 - ✅ La page traçabilité montre les mêmes gaps que `npx aiad-sdd trace`

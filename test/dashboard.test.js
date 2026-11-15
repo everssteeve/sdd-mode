@@ -92,7 +92,9 @@ test('dashboard — émet 12 pages + assets + data.json après init complet', as
     const p404 = readFileSync(join(r.outDir, '404.html'), 'utf-8');
     assert.match(p404, /Page introuvable/);
     assert.match(p404, /href="index\.html"/);
-    assert.match(p404, /<nav class="side">/);
+    assert.match(p404, /<nav class="tabs" aria-label="Responsabilités">/);
+    // (SPEC-037-1) cockpits par responsabilité
+    for (const f of ['pe.html', 'ae.html', 'tl.html']) assert.ok(existsSync(join(r.outDir, f)), `cockpit manquant : ${f}`);
     assert.match(p404, /manifest\.webmanifest/);
 
     // (#271) Footer mentionne la version AIAD pour debug cross-version

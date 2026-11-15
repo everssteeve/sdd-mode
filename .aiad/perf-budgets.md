@@ -3,6 +3,7 @@
 > Poids mesuré = taille du fichier HTML généré (non compressé), hors assets partagés.
 > Budgets calibrés : tailles réelles × 1,2 (RESEARCH-022 — D2-B).
 > Assets partagés (app.js + style.css) : budget global 45 KB.
+> Metrics relevé de 11 à 15 KB le 2026-11-15 (décision de l'auteur) : la page grossit avec les données de livraison accumulées, pas avec son gabarit.
 
 | Page | Fichier | Budget HTML (KB) |
 |------|---------|-----------------|
@@ -12,7 +13,7 @@
 | Specs | dashboard/specs.html | 35 |
 | Traceability | dashboard/traceability.html | 255 |
 | Graph | dashboard/graph.html | 45 |
-| Metrics | dashboard/metrics.html | 11 |
+| Metrics | dashboard/metrics.html | 15 |
 | QA | dashboard/qa.html | 40 |
 | ADRs | dashboard/adrs.html | 35 |
 | Legal | dashboard/legal.html | 15 |
