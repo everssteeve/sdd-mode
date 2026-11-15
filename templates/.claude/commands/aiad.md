@@ -1,6 +1,6 @@
 ---
 name: aiad
-description: Rituels AIAD + métriques + multi-runtime — status standup retro demo intention sync-strat dora flow dashboard dashboard-html emit-rules
+description: Rituels AIAD + métriques + multi-runtime — status standup retro demo intention sync-strat dora flow dashboard dashboard-html emit-rules agents
 ---
 
 # AIAD Router
@@ -27,6 +27,7 @@ Tu es un facilitateur AIAD. L'utilisateur a invoqué `/aiad` avec des arguments.
 | `dashboard`     | Dashboard équipe ASCII (hebdo / mensuel — rituel)             |
 | `dashboard-html`| Dashboard HTML multi-pages dans `dashboard/` (pilotage)       |
 | `emit-rules`    | Régénère AGENTS.md, CLAUDE.md, .cursor/rules/ (multi-runtime) |
+| `agents`        | Agents de rôle (PM, PE, AE, QA, TL), sous-agents et skills    |
 
 ## Routage
 
@@ -39,7 +40,7 @@ Tu es un facilitateur AIAD. L'utilisateur a invoqué `/aiad` avec des arguments.
 ## Notes d'architecture
 
 - Les corps des sous-commandes sont hors de `.claude/commands/` (dans `.claude/aiad/`) pour ne pas peser sur le system prompt à froid.
-- Anciens alias `/aiad-status`, `/aiad-retro`, `/aiad-dora`, … restent fonctionnels pendant 1 version. S'ils sont utilisés, signale brièvement la migration (`/aiad-status` → `/aiad status`).
+- Les anciens alias plats (`/aiad-status`, `/aiad-retro`, `/aiad-dora`, …) sont retirés depuis la v2.0. Si l'utilisateur en tape un, indique-lui la forme `/aiad <sub>`.
 - Pour l'aide globale ou contextuelle (parcours type, choix de commande), voir `/aiad-help`.
 
 $ARGUMENTS

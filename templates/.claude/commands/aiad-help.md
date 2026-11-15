@@ -40,9 +40,9 @@ Affiche dans cet ordre :
 - **Quand ça dérape** :
   `/sdd fact` (capturer l'écart) → `/sdd drift-check` → si SPEC trop grosse `/sdd split`, si session interrompue `/sdd resume`
 
-### 3. Compatibilité rétro (transition)
+### 3. Alias plats retirés (v2.0)
 
-- Les anciens alias plats (`/sdd-spec`, `/aiad-retro`, …) fonctionnent encore mais sont **dépréciés** et seront retirés à la prochaine version majeure. Ils affichent un avertissement de migration vers la forme `/sdd <cmd>` ou `/aiad <cmd>`.
+- Les anciens alias plats (`/sdd-spec`, `/aiad-retro`, …) n'existent plus depuis la v2.0. Oriente vers `/sdd <sub>` ou `/aiad <sub>` ; sur un projet v1.x, `npx aiad-sdd update` les retire.
 
 ## Notes
 

@@ -2,7 +2,7 @@
 
 > Chaque Intent Statement capture le POURQUOI d'une fonctionnalité avant toute spécification.
 > Format : `INTENT-NNN-[nom-court].md`
-> Commande : `/sdd-intent` dans Claude Code
+> Commande : `/sdd intent` dans Claude Code
 
 | ID | Titre | Auteur | Date | SPECs liées | Statut |
 |----|-------|--------|------|-------------|--------|
@@ -19,7 +19,7 @@ Chaque Intent Statement possède un champ `status:` dans son frontmatter :
 | `done` | Intent réalisé, toutes les SPECs liées sont complétées | → `archived` (après revue à l'Atelier d'Intention) |
 | `archived` | Intent historique, conservé pour traçabilité | Réactivation possible → `active` (nécessite un nouvel Intent Statement de justification) |
 
-### Signaux de santé (`/aiad-health`)
+### Signaux de santé (`/aiad health`)
 
 - **Zombie** : Intent `active` sans activité depuis >30 jours → décision humaine requise (archiver ou relancer)
 - **Orphelin** : Intent `active` sans SPEC liée → probablement un intent non décomposé

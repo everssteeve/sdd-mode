@@ -44,9 +44,9 @@ lire la zone concernée.
 
 ## Commandes associées
 
-- `/aiad-gouvernance` — Vérifier la conformité Tier 1 sur une SPEC ou un code
-- `/sdd-security` — Audit sécurité (inclut conformité AI-ACT et RGPD si applicable)
-- `/sdd-validate` — Validation incluant la gouvernance
+- `/aiad gouvernance` — Vérifier la conformité Tier 1 sur une SPEC ou un code
+- `/sdd security` — Audit sécurité (inclut conformité AI-ACT et RGPD si applicable)
+- `/sdd validate` — Validation incluant la gouvernance
 
 ---
 
