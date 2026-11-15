@@ -1,6 +1,6 @@
 {
   "doctrineVersion": "v1.10",
-  "syncedAt": "2026-11-15T13:09:07.477Z",
+  "syncedAt": "2026-11-15T14:05:04.762Z",
   "files": {
     "templates/.aiad/gouvernance/AIAD-AI-ACT.md": "956835981a4bf7954f2f85c5e552294ea91553c6a24b471310fdd3e9b533f6c9",
     ".aiad/gouvernance/AIAD-AI-ACT.md": "956835981a4bf7954f2f85c5e552294ea91553c6a24b471310fdd3e9b533f6c9",
@@ -11,7 +11,7 @@
     "templates/.aiad/gouvernance/AIAD-RGESN.md": "c4caba2605e838f63c611ec8aed75e594bef71ed065c632a3dada8a5258cdb20",
     ".aiad/gouvernance/AIAD-RGESN.md": "c4caba2605e838f63c611ec8aed75e594bef71ed065c632a3dada8a5258cdb20",
     "templates/frameworkAIAD.md": "dd5e5f5288f7c8107d25ca6eba05ff748d83e01058ed3cb3cec53f1ad9fb9ed8",
-    "templates/SDDMode.md": "69693d27e0e38399935cd380d71eefae332932149eec1413f94f9815a1e6e7a8",
+    "templates/SDDMode.md": "944249d70a350f594f4277a37a223ab39b94567bbc2f3e11194cd71624a7dd94",
     "docs/legitimation/conformite-cas-2026.md": "312a6752cdc81f378d21cdf3061d18512d668e609a684fb7c1e24829c10f1935",
     "docs/legitimation/execution-gate-evidence.md": "c3c7685154f69381e741f733d04d745f79b3ddd6dd2c46f4684557e7e04d22af",
     "docs/legitimation/responsabilite-evidence.md": "62a006e8cf54edd24b2084f46d6fc6a1b1d85c9e0d06080c77fd80907d0c8982",

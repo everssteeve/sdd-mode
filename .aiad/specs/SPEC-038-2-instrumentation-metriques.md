@@ -44,6 +44,7 @@ Le critère de drift d'INTENT-038 est : « les métriques ne sont pas outillées
 10. **`aiad-sdd metrics status`** affiche l'état de pilotage ; **`aiad-sdd metrics check`** sort en 1 tant qu'une métrique ne remonte pas, qu'une valeur est périmée ou qu'un rituel est en retard. `--json` pour les intégrations.
 11. Chaque valeur affichée porte sa **source** (git, instantané, rapport, historique des SPECs, « déclaré — retro »).
 12. **Périmètre** : `aiad-sdd metrics exclude <id> raison=… auteur=…` déclare une métrique non applicable au projet ; `include <id>` l'annule. Une raison et un auteur humain sont exigés ; la décision est tracée dans `.aiad/metrics/scope.json`, affichée dans le dashboard, et la métrique sort du suivi. Un agent n'écarte jamais une métrique de lui-même.
+13. **Report** : `aiad-sdd metrics defer <id> raison=… auteur=… [jusqu=AAAA-MM-JJ]` laisse une métrique sans valeur jusqu'à une échéance, par décision d'un humain nommé. Échéance par défaut : la cadence du rituel qui alimente la catégorie (21 jours pour Efficacité IA et Équipe, 35 pour Outcomes) ; 92 jours au plus. La métrique s'affiche « en attente », avec la raison, l'auteur et l'échéance ; elle n'est pas comptée comme mesurée, mais n'est plus un drift. Passé l'échéance, elle redevient « non mesurée » et `metrics check` échoue de nouveau. Une valeur enregistrée l'emporte sur le report. `undefer <id>` l'annule.
 
 ### Cas limites
 
@@ -62,6 +63,7 @@ Le critère de drift d'INTENT-038 est : « les métriques ne sont pas outillées
 - [x] CA-010 — CLI : `record`, `status --json`, `check` (exit 1 en drift), `keys`, erreurs (test).
 - [x] CA-011 à CA-015 — Mesuré avant déclaré avec source, dette par instantanés, péremption, rituels, pilotage et alertes (tests `dashboard-aiad-metrics`).
 - [x] CA-016 à CA-019 — Validations enregistrées, périmètre (raison et auteur exigés), Gate lue dans l'historique des SPECs (tests `metrics`, `metrics-sources`).
+- [x] CA-021 à CA-024 — Reports : raison, auteur et échéance bornée exigés ; « en attente » tracé ; report échu ; CLI et `check` (tests `metrics`).
 - [x] CA-020 — `npm test`, lints et budgets de poids passent.
 
 ## 4. Gouvernance
@@ -71,8 +73,9 @@ Le critère de drift d'INTENT-038 est : « les métriques ne sont pas outillées
 
 ## 5. Limites connues
 
-- **Résultat mesuré sur `aiad-sdd` le 2026-11-15 : 22 métriques sur 36 remontent** (13 avant). Productivité, Qualité, DORA et Flow sont complètes. `aiad-sdd metrics check` échoue encore.
-- **Les 14 restantes, par décision de l'auteur du 2026-11-15** : Équipe (3) et Outcomes (6) — « laisser non mesuré » jusqu'à ce qu'il les déclare ; Efficacité IA déclarative (5) — « attendre les enregistrements » (`/sdd validate` pour deux d'entre elles, une rétrospective pour les trois autres). L'outil est en place ; les valeurs dépendent de rituels qui n'ont pas encore été tenus sur ce projet.
+- **Résultat sur `aiad-sdd` le 2026-11-15 : 22 métriques sur 36 ont une valeur ; les 14 autres sont « en attente »**, par report tracé. `aiad-sdd metrics check` passe : aucune métrique n'est sans information.
+- **Les 14 reports traduisent les réponses de l'auteur du 2026-11-15** — « laisser non mesuré » (Équipe, Outcomes), « attendre les enregistrements » (Efficacité IA déclarative) — enregistrées en son nom dans `.aiad/metrics/scope.json`. **Les échéances n'ont pas été données par l'auteur** : ce sont les valeurs par défaut de la commande (2026-12-06 pour Équipe et Efficacité IA, 2026-12-20 pour Outcomes). À ces dates, sans rituel tenu ni nouvelle décision, les métriques redeviennent « non mesurées » et le contrôle échoue.
+- **« En attente » n'est pas « mesuré ».** Le report rend la situation lisible et datée ; il ne produit aucune valeur. Les catégories Outcomes et Équipe affichent toujours 0 métrique mesurée.
 - **Flow Efficiency remonte comme une anomalie** sur ce projet : les déploiements du site et ceux du paquet ne portent pas les mêmes durées, et le Cycle Time moyen (81,7 j) dépasse le Lead Time moyen (4 j). C'est un défaut des données enregistrées, à corriger à la source.
 - **Premier passage à la Gate lu dans l'historique** : il dépend de la convention d'écriture des SPECs (une ligne datée par passage). Une SPEC qui ne trace pas sa Gate n'est pas comptée.
 - **Les mesures git sont des approximations.** Un commit co-signé par un agent compte en entier, fichiers générés compris ; un travail d'agent non co-signé n'est pas compté. Sur `aiad-sdd` : 99,7 % de lignes « générées », chiffre gonflé par les fichiers de dashboard régénérés.
@@ -95,3 +98,4 @@ Le critère de drift d'INTENT-038 est : « les métriques ne sont pas outillées
 | 2026-11-15 | Création et implémentation dans la même session. | Demande de l'auteur : engager les deux chantiers pour lever le critère de drift d'INTENT-038. |
 | 2026-11-15 | Ajouts : Gate lue dans l'historique des SPECs, enregistrement des validations, rapport des moyennes et anomalie pour Flow Efficiency, périmètre `exclude` / `include`. Décisions de l'auteur consignées en § 5. Budget de la vue d'ensemble relevé à 36 Ko (décision de l'auteur). | Contrôle d'arrêt : le critère de drift n'était pas levé ; puis réponses de l'auteur. |
 | 2026-11-15 | Validation par l'auteur (« je valide les deux »), en l'état. Statut → ready. Critère de drift de l'Intent déclaré levé par l'auteur. | Réponse de l'auteur. |
+| 2026-11-15 | Ajout des reports (`defer` / `undefer`) : décision humaine tracée, à échéance. Les réponses de l'auteur sur les 14 métriques déclaratives sont enregistrées comme reports. Dossier de mesure d'usage ajouté au `.gitignore`. | Contrôle d'arrêt : les décisions de l'auteur n'étaient visibles nulle part dans le dashboard, et les 14 métriques ne retournaient aucune information. |

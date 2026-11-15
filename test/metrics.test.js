@@ -9,7 +9,7 @@ import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
-import { enregistrerMetriques, definirPerimetre, lirePaires, etatMetriques, commandeMetrics, CLES, CLES_INTERDITES } from '../lib/metrics.js';
+import { enregistrerMetriques, definirPerimetre, reporterMetrique, REPORT_MAX_JOURS, lirePaires, etatMetriques, commandeMetrics, CLES, CLES_INTERDITES } from '../lib/metrics.js';
 import { parserKv } from '../lib/dashboard/collect.js';
 
 const BIN = join(dirname(fileURLToPath(import.meta.url)), '..', 'bin', 'aiad-sdd.js');
@@ -195,6 +195,87 @@ describe('metrics — validations et périmètre (SPEC-038-2)', () => {
       mkdirSync(join(d, '.aiad', 'metrics'), { recursive: true });
       writeFileSync(join(d, '.aiad', 'metrics', 'scope.json'), JSON.stringify({ non_applicables: { retention: { raison: 'sans auteur' } } }));
       assert.equal((await etatMetriques(d)).metriques.find((x) => x.id === 'retention').etat, 'non-mesure');
+    } finally { rmSync(d, { recursive: true, force: true }); }
+  });
+});
+
+describe('metrics — reports décidés par un humain (SPEC-038-2)', () => {
+  const auj = new Date().toISOString().slice(0, 10);
+  const dans = (j) => new Date(Date.now() + j * 86400000).toISOString().slice(0, 10);
+
+  test('CA-021 — un report exige raison, auteur et une échéance bornée', () => {
+    const d = projet();
+    try {
+      assert.match(reporterMetrique(d, 'satisfaction-equipe', {}).erreurs.join(' | '), /raison est requise.*auteur humain est requis/);
+      assert.match(reporterMetrique(d, 'inconnue', { raison: 'x', auteur: 'y' }).erreurs[0], /Métrique inconnue/);
+      assert.match(reporterMetrique(d, 'sick-days', { raison: 'x', auteur: 'y' }).erreurs[0], /n'est pas collectée/);
+      assert.match(reporterMetrique(d, 'retention', { raison: 'x', auteur: 'y', jusqu: 'demain' }).erreurs[0], /Échéance invalide/);
+      assert.match(reporterMetrique(d, 'retention', { raison: 'x', auteur: 'y', jusqu: auj }).erreurs[0], /postérieure à aujourd'hui/);
+      assert.match(reporterMetrique(d, 'retention', { raison: 'x', auteur: 'y', jusqu: dans(REPORT_MAX_JOURS + 5) }).erreurs[0], /ne dépasse pas 92 jours/);
+      assert.equal(existsSync(join(d, '.aiad', 'metrics', 'scope.json')), false, 'rien écrit');
+      // Échéance par défaut : la cadence du rituel qui alimente la catégorie.
+      assert.equal(reporterMetrique(d, 'satisfaction-equipe', { raison: 'r', auteur: 'Ada', date: '2026-11-15' }).en_attente['satisfaction-equipe'].jusqu, '2026-12-06');
+      assert.equal(reporterMetrique(d, 'retention', { raison: 'r', auteur: 'Ada', date: '2026-11-15' }).en_attente.retention.jusqu, '2026-12-20');
+    } finally { rmSync(d, { recursive: true, force: true }); }
+  });
+
+  test('CA-022 — en attente : la métrique dit qui, pourquoi, jusqu\'à quand ; elle ne compte plus comme un drift', async () => {
+    const d = projet();
+    try {
+      assert.ok((await etatMetriques(d)).pilotage.nonMesurees.includes('satisfaction-equipe'));
+      reporterMetrique(d, 'satisfaction-equipe', { raison: 'première rétrospective à venir', auteur: 'Ada', jusqu: dans(10) });
+      const e = await etatMetriques(d);
+      const m = e.metriques.find((x) => x.id === 'satisfaction-equipe');
+      assert.equal(m.etat, 'en-attente');
+      assert.match(m.valeur, /en attente jusqu'au \d{4}-\d{2}-\d{2}/);
+      assert.match(m.source, /première rétrospective à venir — décidé par Ada/);
+      assert.deepEqual(e.pilotage.enAttente, ['satisfaction-equipe']);
+      assert.ok(!e.pilotage.nonMesurees.includes('satisfaction-equipe'));
+      assert.equal(e.categories.find((c) => c.id === 'equipe').enAttente, 1);
+      assert.equal(e.categories.find((c) => c.id === 'equipe').mesurees, 0, 'en attente n\'est pas mesuré');
+      // Une valeur déclarée l'emporte sur le report.
+      enregistrerMetriques(d, 'retro', { satisfaction_equipe: '8' }, { date: auj });
+      assert.equal((await etatMetriques(d)).metriques.find((x) => x.id === 'satisfaction-equipe').etat, 'ok');
+    } finally { rmSync(d, { recursive: true, force: true }); }
+  });
+
+  test('CA-023 — report échu : la métrique redevient « non mesurée » ; annulation ; exclusions préservées', async () => {
+    const d = projet();
+    try {
+      definirPerimetre(d, 'retention', { raison: 'sans objet', auteur: 'Ada' });
+      mkdirSync(join(d, '.aiad', 'metrics'), { recursive: true });
+      const scope = JSON.parse(readFileSync(join(d, '.aiad', 'metrics', 'scope.json'), 'utf-8'));
+      scope.en_attente = { 'temps-flow': { raison: 'r', auteur: 'Ada', date: '2026-01-01', jusqu: '2026-01-10' } };
+      writeFileSync(join(d, '.aiad', 'metrics', 'scope.json'), JSON.stringify(scope));
+      let e = await etatMetriques(d);
+      const m = e.metriques.find((x) => x.id === 'temps-flow');
+      assert.equal(m.etat, 'non-mesure');
+      assert.match(m.source, /report échu le 2026-01-10/);
+      assert.ok(e.pilotage.nonMesurees.includes('temps-flow'));
+
+      reporterMetrique(d, 'psychological-safety', { raison: 'r', auteur: 'Ada', jusqu: dans(5) });
+      assert.equal((await etatMetriques(d)).metriques.find((x) => x.id === 'retention').etat, 'non-applicable', 'exclusion préservée par un report');
+      assert.equal(reporterMetrique(d, 'psychological-safety', { annuler: true }).ok, true);
+      e = await etatMetriques(d);
+      assert.equal(e.metriques.find((x) => x.id === 'psychological-safety').etat, 'non-mesure');
+    } finally { rmSync(d, { recursive: true, force: true }); }
+  });
+
+  test('CA-024 — CLI defer / undefer ; check passe quand plus rien n\'est sans information', () => {
+    const d = projet();
+    try {
+      const run = (...args) => spawnSync(process.execPath, [BIN, 'metrics', ...args], { cwd: d, encoding: 'utf-8' });
+      assert.equal(run('defer', 'retention', 'raison=pas de mesure').status, 1, 'auteur manquant');
+      assert.equal(run('defer', 'retention', 'raison=pas de mesure', 'auteur=Ada').status, 0);
+      assert.equal(run('undefer', 'retention').status, 0);
+      assert.equal(run('check').status, 1);
+      const ids = JSON.parse(run('status', '--json').stdout).pilotage.nonMesurees;
+      for (const id of ids) assert.equal(run('defer', id, 'raison=projet neuf', 'auteur=Ada').status, 0, id);
+      const apres = JSON.parse(run('status', '--json').stdout).pilotage;
+      assert.deepEqual(apres.nonMesurees, []);
+      assert.equal(apres.enAttente.length, ids.length);
+      assert.equal(run('check').status, 0, 'chaque métrique a une valeur ou un report daté');
+      assert.match(run('status').stdout, /en attente/);
     } finally { rmSync(d, { recursive: true, force: true }); }
   });
 });
