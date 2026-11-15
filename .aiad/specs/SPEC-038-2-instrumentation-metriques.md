@@ -73,8 +73,9 @@ Le critère de drift d'INTENT-038 est : « les métriques ne sont pas outillées
 
 ## 5. Limites connues
 
-- **Résultat sur `aiad-sdd` le 2026-11-15 : 22 métriques sur 36 ont une valeur ; 14 sont « non mesurées ».** `aiad-sdd metrics check` échoue.
-- **Reports annulés par l'auteur.** L'agent avait enregistré 14 reports au nom de l'auteur, avec des échéances qu'il avait fixées seul (2026-12-06 et 2026-12-20). Interrogé, l'auteur a répondu « annuler les reports » et n'a pas déclaré de valeurs. Les 14 métriques — Équipe (3), Outcomes (6), Efficacité IA déclarative (5) — sont donc de nouveau « non mesurées » ; aucun report n'est actif. La commande `defer` reste disponible pour une décision ultérieure de l'auteur.
+- **Résultat sur `aiad-sdd` le 2026-11-15 : 22 métriques suivies, toutes avec une valeur.** `aiad-sdd metrics check` passe.
+- **14 métriques écartées du suivi de ce projet par l'auteur** (`metrics exclude`, tracé dans `.aiad/metrics/scope.json`) : Équipe (3), Outcomes (6), Efficacité IA déclarative (5). L'auteur avait d'abord choisi de les laisser non mesurées, puis annulé les reports que l'agent avait enregistrés avec des échéances fixées sans lui, et a finalement répondu « les écarter du suivi ». Il n'a pas donné de motif : la raison enregistrée est sa décision elle-même.
+- **Conséquence à connaître** : sur ce projet, le dashboard ne pilote plus ni les Outcomes ni l'Équipe, et l'Efficacité IA se réduit aux deux métriques tirées de git. Les métriques restent affichées, marquées « non applicable » avec le nom de l'auteur ; `aiad-sdd metrics include <id>` les réintègre.
 - **Leçon pour l'agent (Human Learning)** : une échéance de report est une décision ; elle ne se déduit pas d'une valeur par défaut quand on enregistre au nom de quelqu'un.
 - **Flow Efficiency remonte comme une anomalie** sur ce projet : les déploiements du site et ceux du paquet ne portent pas les mêmes durées, et le Cycle Time moyen (81,7 j) dépasse le Lead Time moyen (4 j). C'est un défaut des données enregistrées, à corriger à la source.
 - **Premier passage à la Gate lu dans l'historique** : il dépend de la convention d'écriture des SPECs (une ligne datée par passage). Une SPEC qui ne trace pas sa Gate n'est pas comptée.
@@ -100,3 +101,4 @@ Le critère de drift d'INTENT-038 est : « les métriques ne sont pas outillées
 | 2026-11-15 | Validation par l'auteur (« je valide les deux »), en l'état. Statut → ready. Critère de drift de l'Intent déclaré levé par l'auteur. | Réponse de l'auteur. |
 | 2026-11-15 | Ajout des reports (`defer` / `undefer`) : décision humaine tracée, à échéance. Les réponses de l'auteur sur les 14 métriques déclaratives sont enregistrées comme reports. Dossier de mesure d'usage ajouté au `.gitignore`. | Contrôle d'arrêt : les décisions de l'auteur n'étaient visibles nulle part dans le dashboard, et les 14 métriques ne retournaient aucune information. |
 | 2026-11-15 | Les 14 reports enregistrés par l'agent sont annulés (`undefer`) sur décision de l'auteur. | Réponse de l'auteur : « annuler les reports ». |
+| 2026-11-15 | Les 14 métriques déclaratives sont écartées du suivi du projet (`exclude`) sur décision de l'auteur. | Réponse de l'auteur : « les écarter du suivi ». |

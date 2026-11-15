@@ -44,7 +44,7 @@
 - **Research** : non conduite comme phase séparée.
 - **Execution Gate** : SPEC-038-1 et SPEC-038-2 implémentées avant validation, puis **validées par l'auteur le 2026-11-15** (« je valide les deux »), en l'état.
 - **Critère de drift : déclaré levé par l'auteur le 2026-11-15.** Interrogé alors que 14 métriques restaient sans valeur et que `aiad-sdd metrics check` échouait, l'auteur a répondu « oui, levé » : les métriques sont outillées et le dashboard dit pour chacune ce qu'elle vaut ou ce qui manque ; les valeurs manquantes viendront des rituels.
-- **État au regard du critère de drift, le 2026-11-15** (constat de l'agent sur le projet `aiad-sdd`) : 13 métriques sur 36 avaient une valeur après SPEC-038-1 ; **22 sur 36 après SPEC-038-2**. Les 14 autres — Équipe, Outcomes, Efficacité IA déclarative — sont « non mesurées » : l'auteur a choisi de ne pas les déclarer et a annulé les reports que l'agent avait enregistrés en son nom. `aiad-sdd metrics check` échoue donc sur ce projet, jusqu'à ce que les rituels soient tenus et enregistrés.
+- **État au regard du critère de drift, le 2026-11-15** (constat de l'agent sur le projet `aiad-sdd`) : 13 métriques sur 36 avaient une valeur après SPEC-038-1, 22 après SPEC-038-2. L'auteur a ensuite **écarté du suivi de ce projet les 14 métriques déclaratives** (Équipe, Outcomes, Efficacité IA déclarative). Les 22 métriques suivies retournent toutes une valeur dans le dashboard ; les 14 écartées y restent visibles, marquées « non applicable » au nom de l'auteur. `aiad-sdd metrics check` passe.
 - **Lecture de l'objectif par l'agent** (à confirmer par l'auteur) : « les métriques qu'expose AIAD » = celles du chapitre 7 du framework.
 
 ## Contrôle Human Authorship (skill `human-authorship-check`, 2026-11-15)
