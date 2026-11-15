@@ -24,6 +24,10 @@
     {
       "id": "INTENT-037-dashboard-par-role",
       "statut": "active"
+    },
+    {
+      "id": "INTENT-038-metriques-aiad-dashboard",
+      "statut": "active"
     }
   ],
   "specs": [
@@ -86,6 +90,16 @@
       "id": "SPEC-037-2-mesure-usage-dashboard",
       "statut": "ready",
       "parentIntent": "INTENT-037"
+    },
+    {
+      "id": "SPEC-038-1-metriques-aiad-dashboard",
+      "statut": "ready",
+      "parentIntent": "INTENT-038"
+    },
+    {
+      "id": "SPEC-038-2-instrumentation-metriques",
+      "statut": "ready",
+      "parentIntent": "INTENT-038"
     },
     {
       "id": "spec-template",

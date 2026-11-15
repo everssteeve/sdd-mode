@@ -3,7 +3,7 @@
     "type": "sante",
     "schemaVersion": 1,
     "label": "AIAD SDD",
-    "message": "74/100 sain",
+    "message": "70/100 sain",
     "color": "97ca00",
     "cacheSeconds": 300
   },
@@ -19,7 +19,7 @@
     "type": "violations",
     "schemaVersion": 1,
     "label": "AIAD Violations",
-    "message": "10 Tier 1",
+    "message": "14 Tier 1",
     "color": "e05d44",
     "cacheSeconds": 300
   }

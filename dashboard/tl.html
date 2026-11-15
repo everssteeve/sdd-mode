@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-11-15T11:02:25.767Z"/><meta name="aiad-version" content="1.21.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-11-15T13:13:48.460Z"/><meta name="aiad-version" content="1.21.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Cockpit Tech Lead — aiad-sdd</title>
-<meta name="description" content="Cockpit Tech Lead — Cohérence technique : architecture, dette, sécurité, livraison · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
+<meta name="description" content="Cockpit Tech Lead — Cohérence technique : architecture, dette, sécurité, livraison · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Cockpit Tech Lead — aiad-sdd"/>
-<meta property="og:description" content="Cockpit Tech Lead — Cohérence technique : architecture, dette, sécurité, livraison · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
+<meta property="og:description" content="Cockpit Tech Lead — Cohérence technique : architecture, dette, sécurité, livraison · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta property="og:url" content="tl.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cockpit Tech Lead — aiad-sdd"/>
-<meta name="twitter:description" content="Cockpit Tech Lead — Cohérence technique : architecture, dette, sécurité, livraison · aiad-sdd · Santé 74/100 · Maturité 4/5"/>
+<meta name="twitter:description" content="Cockpit Tech Lead — Cohérence technique : architecture, dette, sécurité, livraison · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -36,10 +36,10 @@
     <span class="brand-text"><span class="brand-title">aiad-sdd</span><span class="brand-sub">SDD Mode · <span class="brand-version">v1.21.0</span></span></span>
   </a>
   <nav class="tabs" aria-label="Responsabilités">
-    <ul><li><a href="index.html" class="tab" data-onglet="global" data-court="Global"><span class="tab-label">Vue d&#39;ensemble</span></a></li><li><a href="pm.html" class="tab" data-onglet="pm" data-court="PM"><span class="tab-label">Product Manager</span><span class="tab-count warn" title="3 signal(s) à traiter">3</span></a></li><li><a href="pe.html" class="tab" data-onglet="pe" data-court="PE"><span class="tab-label">Product Engineer</span></a></li><li><a href="ae.html" class="tab" data-onglet="ae" data-court="AE"><span class="tab-label">Agents Engineer</span></a></li><li><a href="qa.html" class="tab" data-onglet="qa" data-court="QA"><span class="tab-label">QA Engineer</span></a></li><li><a href="tl.html" class="tab active" data-onglet="tl" aria-current="true" data-court="TL"><span class="tab-label">Tech Lead</span></a></li></ul>
+    <ul><li><a href="index.html" class="tab" data-onglet="global" data-court="Global"><span class="tab-label">Vue d&#39;ensemble</span><span class="tab-count" title="2 signal(s) à traiter">2</span></a></li><li><a href="pm.html" class="tab" data-onglet="pm" data-court="PM"><span class="tab-label">Product Manager</span><span class="tab-count warn" title="3 signal(s) à traiter">3</span></a></li><li><a href="pe.html" class="tab" data-onglet="pe" data-court="PE"><span class="tab-label">Product Engineer</span></a></li><li><a href="ae.html" class="tab" data-onglet="ae" data-court="AE"><span class="tab-label">Agents Engineer</span></a></li><li><a href="qa.html" class="tab" data-onglet="qa" data-court="QA"><span class="tab-label">QA Engineer</span></a></li><li><a href="tl.html" class="tab active" data-onglet="tl" aria-current="true" data-court="TL"><span class="tab-label">Tech Lead</span></a></li></ul>
   </nav>
   <div class="appbar-tools">
-    <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/11/2026 12:02:25. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+    <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/11/2026 14:13:48. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
     <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre">
       <span class="icon icon-dark" aria-hidden="true">☾</span><span class="icon icon-light" aria-hidden="true">☀</span>
     </button>
@@ -75,11 +75,16 @@
   
   <div class="kpi "><div class="label">Lead time moyen</div><div class="value">4 j</div><div class="delta">de la SPEC à la production</div></div>
   
-  <div class="kpi warn"><div class="label">Violations Tier 1</div><div class="value">10</div><div class="delta">code ↔ gouvernance déclarée</div></div>
+  <div class="kpi warn"><div class="label">Violations Tier 1</div><div class="value">14</div><div class="delta">code ↔ gouvernance déclarée</div></div>
   
   <div class="kpi "><div class="label">Sécurité critique / élevée</div><div class="value">0</div><div class="delta">0 rapport(s) d&#39;audit</div></div>
 </div>
 <section><h2>À traiter</h2><div class="alertes ok"><span class="alertes-icon" aria-hidden="true">✓</span><div><strong>Rien à signaler</strong><div class="muted">Aucun signal ne demande de décision sur ce périmètre.</div></div></div></section>
+<section>
+  <h2>Vos métriques AIAD</h2>
+  <h3>DORA <span class="muted" style="font-weight:400">— Les quatre indicateurs de performance de livraison.</span></h3><table><thead><tr><th>Métrique</th><th>Valeur</th><th>Cible</th><th>État</th><th>Fréquence</th></tr></thead><tbody><tr data-freq="hebdo"><td><strong>Deployment Frequency</strong></td><td>0,2 / semaine</td><td>Quotidien (idéal)</td><td><span class="badge badge-info">mesuré</span></td><td class="muted">Hebdomadaire</td></tr><tr data-freq="mensuel"><td><strong>Lead Time for Changes</strong></td><td>4 j</td><td>&lt; 2 semaines</td><td><span class="badge badge-ok">dans la cible</span></td><td class="muted">Mensuel</td></tr><tr data-freq="hebdo"><td><strong>Change Failure Rate</strong></td><td>0 %</td><td>&lt; 15 %</td><td><span class="badge badge-ok">dans la cible</span></td><td class="muted">Hebdomadaire</td></tr><tr data-freq="mensuel"><td><strong>MTTR</strong></td><td>aucun incident</td><td>&lt; 4 h</td><td><span class="badge badge-info">mesuré</span></td><td class="muted">Mensuel</td></tr></tbody></table><h3>Flow <span class="muted" style="font-weight:400">— Les cinq indicateurs de flux.</span></h3><table><thead><tr><th>Métrique</th><th>Valeur</th><th>Cible</th><th>État</th><th>Fréquence</th></tr></thead><tbody><tr data-freq="hebdo"><td><strong>Cycle Time</strong></td><td>81,7 j</td><td>&lt; 3 jours</td><td><span class="badge badge-bad">hors cible</span></td><td class="muted">Hebdomadaire</td></tr><tr data-freq="mensuel"><td><strong>Lead Time</strong></td><td>4 j</td><td>&lt; 2 semaines</td><td><span class="badge badge-ok">dans la cible</span></td><td class="muted">Mensuel</td></tr><tr data-freq="hebdo"><td><strong>Throughput</strong></td><td>1 / 30 j <span class="muted">(avant : 3)</span></td><td>Stable ou en hausse</td><td><span class="badge badge-bad">hors cible</span></td><td class="muted">Hebdomadaire</td></tr><tr data-freq="hebdo"><td><strong>WIP</strong></td><td>0 SPEC(s)</td><td>Limité — à fixer par l&#39;équipe</td><td><span class="badge badge-info">mesuré</span></td><td class="muted">Hebdomadaire</td></tr><tr data-freq="mensuel"><td><strong>Flow Efficiency</strong></td><td>incohérent — Cycle Time moyen (81,7 j) supérieur au Lead Time moyen (4 j)</td><td>En hausse</td><td><span class="badge badge-bad">hors cible</span></td><td class="muted">Mensuel</td></tr></tbody></table>
+  <div class="actions"><a href="scorecard.html">→ Toutes les métriques, et comment les alimenter</a></div>
+</section>
 <section>
   <h2>Dette technique</h2>
   <div class="kpis">
@@ -97,7 +102,7 @@
 </section>
 </main>
 <footer class="app-footer">
-  <span>Généré 15/11/2026 12:02:25</span>
+  <span>Généré 15/11/2026 14:13:48</span>
   <span>Framework AIAD v1.21.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener">aiad.ovh</a></span>
 </footer>
 <script src="assets/app.js"></script>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-11-15T13:13:48.460Z"/><meta name="aiad-version" content="1.21.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>SPEC-038-2-instrumentation-metriques — Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels — aiad-sdd</title>
+<meta name="description" content="SPEC-038-2-instrumentation-metriques — Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels — Vue détaillée SPEC — critères, interface, dépendances…"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SPEC-038-2-instrumentation-metriques — Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels — aiad-sdd"/>
+<meta property="og:description" content="SPEC-038-2-instrumentation-metriques — Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels — Vue détaillée SPEC — critères, interface, dépendances…"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPEC-038-2-instrumentation-metriques — Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-038-2-instrumentation-metriques — Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels — Vue détaillée SPEC — critères, interface, dépendances…"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body data-onglet="pe">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="appbar">
+  <a class="brand" href="index.html" aria-label="aiad-sdd — vue d'ensemble">
+    <span class="brand-mark" aria-hidden="true">AS</span>
+    <span class="brand-text"><span class="brand-title">aiad-sdd</span><span class="brand-sub">SDD Mode · <span class="brand-version">v1.21.0</span></span></span>
+  </a>
+  <nav class="tabs" aria-label="Responsabilités">
+    <ul><li><a href="index.html" class="tab" data-onglet="global" data-court="Global"><span class="tab-label">Vue d&#39;ensemble</span><span class="tab-count" title="2 signal(s) à traiter">2</span></a></li><li><a href="pm.html" class="tab" data-onglet="pm" data-court="PM"><span class="tab-label">Product Manager</span><span class="tab-count warn" title="3 signal(s) à traiter">3</span></a></li><li><a href="pe.html" class="tab active" data-onglet="pe" aria-current="true" data-court="PE"><span class="tab-label">Product Engineer</span></a></li><li><a href="ae.html" class="tab" data-onglet="ae" data-court="AE"><span class="tab-label">Agents Engineer</span></a></li><li><a href="qa.html" class="tab" data-onglet="qa" data-court="QA"><span class="tab-label">QA Engineer</span></a></li><li><a href="tl.html" class="tab" data-onglet="tl" data-court="TL"><span class="tab-label">Tech Lead</span></a></li></ul>
+  </nav>
+  <div class="appbar-tools">
+    <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/11/2026 14:13:48. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+    <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre">
+      <span class="icon icon-dark" aria-hidden="true">☾</span><span class="icon icon-light" aria-hidden="true">☀</span>
+    </button>
+  </div>
+</header>
+<nav class="subnav" aria-label="Pages — Product Engineer">
+  <ul><li><a href="pe.html" class=""><span class="nav-icon" aria-hidden="true">◈</span>PE Cockpit</a></li><li><a href="specs.html" class="active" aria-current="page"><span class="nav-icon" aria-hidden="true">◆</span>SPECs</a></li><li><a href="kanban.html" class=""><span class="nav-icon" aria-hidden="true">▦</span>Kanban</a></li><li><a href="traceability.html" class=""><span class="nav-icon" aria-hidden="true">⇄</span>Traçabilité</a></li><li><a href="drifts.html" class=""><span class="nav-icon" aria-hidden="true">⚠</span>Drifts &amp; Facts</a></li></ul>
+  <span class="subnav-agent">Assistant <code>aiad-pe</code></span>
+</nav>
+<main id="contenu">
+  <header class="page-header">
+    <div>
+      <div class="eyebrow">Product Engineer</div>
+      <h1>SPEC-038-2-instrumentation-metriques — Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels</h1>
+      <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
+    </div>
+  </header>
+  <style>
+  .sp-cols { display:grid; grid-template-columns: 1fr 260px; gap: 1.5rem; align-items: start; }
+  @media (max-width: 900px) { .sp-cols { grid-template-columns: 1fr; } }
+  .sp-meta table { width:100%; font-size:.85rem; }
+  .sp-meta td { padding:.25rem .4rem; vertical-align:top; }
+  .sp-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+  .sp-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+  .sp-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+  .ca-item { margin-bottom:.75rem; padding:.5rem; background:rgba(127,127,127,.03); border-left:2px solid var(--border,#ddd); border-radius:.2rem; }
+  .ca-texte { margin:.4rem 0 0; padding:.4rem .6rem; background:rgba(76,110,245,.04); border-left:3px solid rgba(76,110,245,.3); font-size:.88rem; font-family:monospace; white-space:pre-wrap; }
+  .dood-list { list-style:none; padding:0; }
+  .dood-list li { padding:.15rem 0; font-size:.88rem; }
+  .sp-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+  .sp-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+  .sp-actions a:hover { background:rgba(76,110,245,.18); }
+  /* Masque le doublon h1 du page-header pour les pages détail SPEC */
+  body:has(.sp-cols) .page-header h1 { display:none; }
+</style>
+<div class="sp-cols">
+  <div class="sp-sections">
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-038-2-instrumentation-metriques.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-038-2-instrumentation-metriques.md">SPEC-038-2-instrumentation-metriques</a> — Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels</h1>
+
+    <section aria-label="Contexte">
+      <h3>§1 — Contexte</h3>
+      <p>Le critère de drift d&#39;INTENT-038 est : « les métriques ne sont pas outillées correctement et ne retournent pas les infos dans le dashboard ». Après SPEC-038-1, 13 métriques sur 36 remontaient sur le projet `aiad-sdd`. Cette SPEC traite les deux causes : des métriques calculables sans source automatique, et des métriques déclaratives sans outillage ni suivi.</p>
+    </section>
+
+    <section aria-label="Critères d'acceptation">
+      <h3>§3 — Critères d'acceptation</h3>
+      <p>Aucun critère d'acceptation défini.</p>
+    </section>
+
+    <section aria-label="Interface / API">
+      <h3>§4 — Interface / API</h3>
+      <pre><code>- **RGPD** : l&#39;analyse git ne conserve ni nom ni adresse — quatre totaux. Elle lit des co-auteurs déjà publics dans l&#39;historique. Les clés RH et de santé sont refusées à l&#39;enregistrement.
+- **RGESN** : une commande git bornée à 30 jours ; lecture de fichiers déjà présents.</code></pre>
+    </section>
+
+    <section aria-label="Dépendances">
+      <h3>§5 — Dépendances</h3>
+      <ul><li>**Résultat mesuré sur aiad-sdd le 2026-11-15 : 22 métriques sur 36 remontent** (13 avant). Productivité, Qualité, DORA et Flow sont complètes. aiad-sdd metrics check échoue encore.</li><li>**Les 14 restantes, par décision de l&#39;auteur du 2026-11-15** : Équipe (3) et Outcomes (6) — « laisser non mesuré » jusqu&#39;à ce qu&#39;il les déclare ; Efficacité IA déclarative (5) — « attendre les enregistrements » (/sdd validate pour deux d&#39;entre elles, une rétrospective pour les trois autres). L&#39;outil est en place ; les valeurs dépendent de rituels qui n&#39;ont pas encore été tenus sur ce projet.</li><li>**Flow Efficiency remonte comme une anomalie** sur ce projet : les déploiements du site et ceux du paquet ne portent pas les mêmes durées, et le Cycle Time moyen (81,7 j) dépasse le Lead Time moyen (4 j). C&#39;est un défaut des données enregistrées, à corriger à la source.</li><li>**Premier passage à la Gate lu dans l&#39;historique** : il dépend de la convention d&#39;écriture des SPECs (une ligne datée par passage). Une SPEC qui ne trace pas sa Gate n&#39;est pas comptée.</li><li>**Les mesures git sont des approximations.** Un commit co-signé par un agent compte en entier, fichiers générés compris ; un travail d&#39;agent non co-signé n&#39;est pas compté. Sur aiad-sdd : 99,7 % de lignes « générées », chiffre gonflé par les fichiers de dashboard régénérés.</li><li>**Cadences et seuils de péremption posés par l&#39;agent** (21 / 14 / 35 / 35 jours ; deux périodes), à ajuster par l&#39;auteur.</li><li>**metrics check n&#39;est pas branché en CI** : il échouerait aujourd&#39;hui sur ce dépôt.</li></ul>
+    </section>
+
+    <section aria-label="Definition of Output Done">
+      <h3>§7 — Definition of Output Done</h3>
+      <p class="muted">Non définie.</p>
+    </section>
+
+    <div class="sp-actions">
+      <a href="specs.html">← Retour à la liste des SPECs</a>
+      <a href="../.aiad/specs/SPEC-038-2-instrumentation-metriques.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="sp-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-info">ready</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-ok">SQS 4.0/5</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-muted">prose</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-038</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-11-15</td></tr></table>
+  </aside>
+</div>
+</main>
+<footer class="app-footer">
+  <span>Généré 15/11/2026 14:13:48</span>
+  <span>Framework AIAD v1.21.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener">aiad.ovh</a></span>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

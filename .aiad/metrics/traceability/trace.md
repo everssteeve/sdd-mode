@@ -1,15 +1,15 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-11-15T11:04:09.886Z
+> Généré le 2026-11-15T13:14:46.660Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 5 |
-| SPECs | 12 |
-| Fichiers code | 407 (annotés : 111) |
-| Fichiers test | 294 (annotés : 67) |
+| Intents | 6 |
+| SPECs | 14 |
+| Fichiers code | 411 (annotés : 115) |
+| Fichiers test | 297 (annotés : 70) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
@@ -23,28 +23,28 @@
 | INTENT-034-gouvernance-sync-drive | SPEC-034-1b-update-ecrase-signale | `lib/governance-shipped.js`<br/>`lib/init.js`<br/>`lib/update.js`<br/>`scripts/sync-doctrine.js` | `test/governance-shipped.test.js`<br/>`test/sync-doctrine.test.js`<br/>`test/init.test.js` | ✅ |
 | INTENT-034-gouvernance-sync-drive | SPEC-034-2-controle-drift-doctrine | `.github/workflows/ci.yml`<br/>`scripts/check-doctrine.js`<br/>`scripts/release.js` | `test/check-doctrine.test.js`<br/>`test/release.test.js` | ✅ |
 | INTENT-035-reactivation-npm | _(aucune SPEC)_ | — | — | ❌ orphelin |
-| INTENT-036-agents-de-role | SPEC-036-1-agents-de-role | `lib/agents-registry.js`<br/>`lib/agents.js`<br/>`.github/workflows/ci.yml` | `test/agents-registry.test.js`<br/>`test/agents.test.js` | ✅ |
+| INTENT-036-agents-de-role | SPEC-036-1-agents-de-role | `.github/workflows/ci.yml`<br/>`lib/agents-registry.js`<br/>`lib/agents.js` | `test/agents-registry.test.js`<br/>`test/agents.test.js` | ✅ |
 | INTENT-036-agents-de-role | SPEC-036-2-retrait-alias-plats | `lib/alias-retirement.js` | `test/alias-retirement.test.js` | ✅ |
 | INTENT-036-agents-de-role | SPEC-036-3-drift-lock-cli-absente | _(aucun)_ | `test/drift-lock-hook.test.js` | ⚠ non-implémentée |
-| INTENT-037-dashboard-par-role | SPEC-037-1-dashboard-par-role | `lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/views/roles.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/render.js` | `test/dashboard-design-system.test.js`<br/>`test/dashboard-navigation.test.js`<br/>`test/dashboard-roles.test.js`<br/>`absente')}` | ✅ |
+| INTENT-037-dashboard-par-role | SPEC-037-1-dashboard-par-role | `lib/dashboard/assets.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/render.js`<br/>`lib/dashboard/views/roles.js` | `test/dashboard-design-system.test.js`<br/>`test/dashboard-navigation.test.js`<br/>`test/dashboard-roles.test.js`<br/>`absente')}` | ✅ |
 | INTENT-037-dashboard-par-role | SPEC-037-2-mesure-usage-dashboard | `lib/dashboard/usage.js` | `test/dashboard-usage.test.js` | ✅ |
+| INTENT-038-metriques-aiad-dashboard | SPEC-038-1-metriques-aiad-dashboard | `lib/dashboard/aiad-metrics.js`<br/>`lib/dashboard/views/scorecard.js` | `test/dashboard-aiad-metrics.test.js` | ✅ |
+| INTENT-038-metriques-aiad-dashboard | SPEC-038-2-instrumentation-metriques | `lib/dashboard/metrics-sources.js`<br/>`lib/metrics.js` | `test/metrics-sources.test.js`<br/>`test/metrics.test.js` | ✅ |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/agents-registry.test.js` | SPEC-036-1-agents-de-role | INTENT-036-agents-de-role | `lib/agents-registry.js`<br/>`lib/agents.js`<br/>`.github/workflows/ci.yml` |
-| `test/agents.test.js` | SPEC-036-1-agents-de-role | INTENT-036-agents-de-role | `lib/agents-registry.js`<br/>`lib/agents.js`<br/>`.github/workflows/ci.yml` |
-| `test/alias-retirement.test.js` | SPEC-036-2-retrait-alias-plats | INTENT-036-agents-de-role | `lib/alias-retirement.js` |
-| `test/dashboard-design-system.test.js` | SPEC-037-1-dashboard-par-role | INTENT-037-dashboard-par-role | `lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/views/roles.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/render.js` |
-| `test/dashboard-navigation.test.js` | SPEC-037-1-dashboard-par-role | INTENT-037-dashboard-par-role | `lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/views/roles.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/render.js` |
-| `test/dashboard-roles.test.js` | SPEC-037-1-dashboard-par-role | INTENT-037-dashboard-par-role | `lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/views/roles.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/render.js` |
-| `test/dashboard-usage.test.js` | SPEC-037-2-mesure-usage-dashboard | INTENT-037-dashboard-par-role | `lib/dashboard/usage.js` |
-| `test/drift-lock-hook.test.js` | SPEC-036-3-drift-lock-cli-absente | INTENT-036-agents-de-role | _(aucun)_ |
+| `test/dashboard-aiad-metrics.test.js` | SPEC-038-1-metriques-aiad-dashboard | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/aiad-metrics.js`<br/>`lib/dashboard/views/scorecard.js` |
+| `test/metrics-sources.test.js` | SPEC-038-2-instrumentation-metriques | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/metrics-sources.js`<br/>`lib/metrics.js` |
+| `test/metrics.test.js` | SPEC-038-2-instrumentation-metriques | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/metrics-sources.js`<br/>`lib/metrics.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/agents-registry.test.js` | SPEC-036-1-agents-de-role | INTENT-036-agents-de-role | `.github/workflows/ci.yml`<br/>`lib/agents-registry.js`<br/>`lib/agents.js` |
+| `test/agents.test.js` | SPEC-036-1-agents-de-role | INTENT-036-agents-de-role | `.github/workflows/ci.yml`<br/>`lib/agents-registry.js`<br/>`lib/agents.js` |
 | `test/ai-act-audit.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/ai-act-audit.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/alias-retirement.test.js` | SPEC-036-2-retrait-alias-plats | INTENT-036-agents-de-role | `lib/alias-retirement.js` |
 | `test/annotations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/annotations.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -93,11 +93,12 @@
 | `test/dashboard-_history-utils.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-adrs.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-assets-autotag.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dashboard-assets.test.js` | ❌ non-tracé | — | `lib/dashboard/design-components.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-components.js`<br/>`dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/ui/sparklines.js` |
+| `test/dashboard-assets.test.js` | ❌ non-tracé | — | `dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/ui/sparklines.js` |
 | `test/dashboard-audit-trail.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-backlog-health-score.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-collect-supplementary.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-collect.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-design-system.test.js` | SPEC-037-1-dashboard-par-role | INTENT-037-dashboard-par-role | `lib/dashboard/assets.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/render.js`<br/>`lib/dashboard/views/roles.js` |
 | `test/dashboard-digest.test.js` | ❌ non-tracé | — | `lib/dashboard.js`<br/>`lib/dashboard/digest-delta.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/today.js` |
 | `test/dashboard-dpo.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-ebm-aires.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -112,6 +113,7 @@
 | `test/dashboard-learnings.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-legal.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-matrice-outcomes.test.js` | ❌ non-tracé | — | `lib/dashboard/model/index.js`<br/>`lib/dashboard/outcome-attribution.js` |
+| `test/dashboard-navigation.test.js` | SPEC-037-1-dashboard-par-role | INTENT-037-dashboard-par-role | `lib/dashboard/assets.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/render.js`<br/>`lib/dashboard/views/roles.js` |
 | `test/dashboard-onboarding.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-outcomes-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-outcomes.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -168,6 +170,7 @@
 | `test/dashboard-qa.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-render.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-rituels.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-roles.test.js` | SPEC-037-1-dashboard-par-role | INTENT-037-dashboard-par-role | `lib/dashboard/assets.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/render.js`<br/>`lib/dashboard/views/roles.js` |
 | `test/dashboard-sante-globale-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-sante-globale.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-source-base.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -176,6 +179,7 @@
 | `test/dashboard-tech-debt-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-tech-debt.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-today.test.js` | ❌ non-tracé | — | `lib/dashboard/views/today.js` |
+| `test/dashboard-usage.test.js` | SPEC-037-2-mesure-usage-dashboard | INTENT-037-dashboard-par-role | `lib/dashboard/usage.js` |
 | `test/dashboard-violations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-watch.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard.test.js` | ❌ non-tracé | — | `lib/dashboard/views/today.js` |
@@ -193,6 +197,7 @@
 | `test/dora-record.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dpia.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/dpia.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/drift-lock-hook.test.js` | SPEC-036-3-drift-lock-cli-absente | INTENT-036-agents-de-role | _(aucun)_ |
 | `test/drift-verdict.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dry-run.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/eco-dashboard.test.js` | ❌ non-tracé | — | `lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/metrics.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js` |

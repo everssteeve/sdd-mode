@@ -2,16 +2,16 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.21.0",
-    "generated": "2026-11-15T11:04:09.887Z"
+    "generated": "2026-11-15T13:14:46.660Z"
   },
-  "generatedAt": "2026-11-15T11:04:09.886Z",
+  "generatedAt": "2026-11-15T13:14:46.660Z",
   "summary": {
-    "intents": 5,
-    "specs": 12,
-    "codeFiles": 407,
-    "annotatedCodeFiles": 111,
-    "testFiles": 294,
-    "annotatedTestFiles": 67
+    "intents": 6,
+    "specs": 14,
+    "codeFiles": 411,
+    "annotatedCodeFiles": 115,
+    "testFiles": 297,
+    "annotatedTestFiles": 70
   },
   "forward": [
     {
@@ -270,16 +270,16 @@
           },
           "code": [
             {
+              "path": ".github/workflows/ci.yml",
+              "line": 45
+            },
+            {
               "path": "lib/agents-registry.js",
               "line": 16
             },
             {
               "path": "lib/agents.js",
               "line": 13
-            },
-            {
-              "path": ".github/workflows/ci.yml",
-              "line": 45
             }
           ],
           "tests": [
@@ -359,6 +359,10 @@
           },
           "code": [
             {
+              "path": "lib/dashboard/assets.js",
+              "line": 18
+            },
+            {
               "path": "lib/dashboard/design-components.js",
               "line": 9
             },
@@ -371,16 +375,12 @@
               "line": 14
             },
             {
-              "path": "lib/dashboard/views/roles.js",
-              "line": 15
-            },
-            {
-              "path": "lib/dashboard/assets.js",
-              "line": 18
-            },
-            {
               "path": "lib/dashboard/render.js",
               "line": 54
+            },
+            {
+              "path": "lib/dashboard/views/roles.js",
+              "line": 15
             }
           ],
           "tests": [
@@ -398,7 +398,7 @@
             },
             {
               "path": "absente')}",
-              "line": 230,
+              "line": 232,
               "viaCode": true
             }
           ]
@@ -428,303 +428,174 @@
           ]
         }
       ]
+    },
+    {
+      "intent": {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "title": "INTENT-038-metriques-aiad-dashboard",
+        "status": "active"
+      },
+      "specs": [
+        {
+          "spec": {
+            "id": "SPEC-038-1-metriques-aiad-dashboard",
+            "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+            "title": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+            "parentIntent": "INTENT-038",
+            "status": "ready",
+            "format": "PROSE",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/dashboard/aiad-metrics.js",
+              "line": 17
+            },
+            {
+              "path": "lib/dashboard/views/scorecard.js",
+              "line": 12
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/dashboard-aiad-metrics.test.js",
+              "line": 3
+            }
+          ]
+        },
+        {
+          "spec": {
+            "id": "SPEC-038-2-instrumentation-metriques",
+            "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+            "title": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+            "parentIntent": "INTENT-038",
+            "status": "ready",
+            "format": "PROSE",
+            "traceability": "",
+            "traceabilityReason": ""
+          },
+          "code": [
+            {
+              "path": "lib/dashboard/metrics-sources.js",
+              "line": 14
+            },
+            {
+              "path": "lib/metrics.js",
+              "line": 21
+            }
+          ],
+          "tests": [
+            {
+              "path": "test/metrics-sources.test.js",
+              "line": 3
+            },
+            {
+              "path": "test/metrics.test.js",
+              "line": 3
+            }
+          ]
+        }
+      ]
     }
   ],
   "backward": [
     {
       "test": {
-        "path": "test/agents-registry.test.js",
+        "path": "test/dashboard-aiad-metrics.test.js",
         "line": 3
       },
       "spec": {
-        "id": "SPEC-036-1-agents-de-role",
-        "file": ".aiad/specs/SPEC-036-1-agents-de-role.md",
-        "title": "Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD",
-        "parentIntent": "INTENT-036",
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+        "title": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "parentIntent": "INTENT-038",
         "status": "ready",
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
       "intent": {
-        "id": "INTENT-036-agents-de-role",
-        "file": ".aiad/intents/INTENT-036-agents-de-role.md",
-        "title": "INTENT-036-agents-de-role",
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "title": "INTENT-038-metriques-aiad-dashboard",
         "status": "active"
       },
       "code": [
         {
-          "path": "lib/agents-registry.js",
-          "line": 16
-        },
-        {
-          "path": "lib/agents.js",
-          "line": 13
-        },
-        {
-          "path": ".github/workflows/ci.yml",
-          "line": 45
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/agents.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-036-1-agents-de-role",
-        "file": ".aiad/specs/SPEC-036-1-agents-de-role.md",
-        "title": "Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD",
-        "parentIntent": "INTENT-036",
-        "status": "ready",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-036-agents-de-role",
-        "file": ".aiad/intents/INTENT-036-agents-de-role.md",
-        "title": "INTENT-036-agents-de-role",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/agents-registry.js",
-          "line": 16
-        },
-        {
-          "path": "lib/agents.js",
-          "line": 13
-        },
-        {
-          "path": ".github/workflows/ci.yml",
-          "line": 45
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/alias-retirement.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-036-2-retrait-alias-plats",
-        "file": ".aiad/specs/SPEC-036-2-retrait-alias-plats.md",
-        "title": "Retrait des alias plats en v2.0",
-        "parentIntent": "INTENT-036",
-        "status": "ready",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-036-agents-de-role",
-        "file": ".aiad/intents/INTENT-036-agents-de-role.md",
-        "title": "INTENT-036-agents-de-role",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/alias-retirement.js",
-          "line": 15
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/dashboard-design-system.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-037-1-dashboard-par-role",
-        "file": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
-        "title": "Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, nouveau design system",
-        "parentIntent": "INTENT-037",
-        "status": "ready",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-037-dashboard-par-role",
-        "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
-        "title": "INTENT-037-dashboard-par-role",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/dashboard/design-components.js",
-          "line": 9
-        },
-        {
-          "path": "lib/dashboard/design-tokens.js",
-          "line": 15
-        },
-        {
-          "path": "lib/dashboard/navigation.js",
-          "line": 14
-        },
-        {
-          "path": "lib/dashboard/views/roles.js",
-          "line": 15
-        },
-        {
-          "path": "lib/dashboard/assets.js",
-          "line": 18
-        },
-        {
-          "path": "lib/dashboard/render.js",
-          "line": 54
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/dashboard-navigation.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-037-1-dashboard-par-role",
-        "file": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
-        "title": "Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, nouveau design system",
-        "parentIntent": "INTENT-037",
-        "status": "ready",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-037-dashboard-par-role",
-        "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
-        "title": "INTENT-037-dashboard-par-role",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/dashboard/design-components.js",
-          "line": 9
-        },
-        {
-          "path": "lib/dashboard/design-tokens.js",
-          "line": 15
-        },
-        {
-          "path": "lib/dashboard/navigation.js",
-          "line": 14
-        },
-        {
-          "path": "lib/dashboard/views/roles.js",
-          "line": 15
-        },
-        {
-          "path": "lib/dashboard/assets.js",
-          "line": 18
-        },
-        {
-          "path": "lib/dashboard/render.js",
-          "line": 54
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/dashboard-roles.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-037-1-dashboard-par-role",
-        "file": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
-        "title": "Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, nouveau design system",
-        "parentIntent": "INTENT-037",
-        "status": "ready",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-037-dashboard-par-role",
-        "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
-        "title": "INTENT-037-dashboard-par-role",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/dashboard/design-components.js",
-          "line": 9
-        },
-        {
-          "path": "lib/dashboard/design-tokens.js",
-          "line": 15
-        },
-        {
-          "path": "lib/dashboard/navigation.js",
-          "line": 14
-        },
-        {
-          "path": "lib/dashboard/views/roles.js",
-          "line": 15
-        },
-        {
-          "path": "lib/dashboard/assets.js",
-          "line": 18
-        },
-        {
-          "path": "lib/dashboard/render.js",
-          "line": 54
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/dashboard-usage.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-037-2-mesure-usage-dashboard",
-        "file": ".aiad/specs/SPEC-037-2-mesure-usage-dashboard.md",
-        "title": "Mesure d'usage locale du dashboard — rendre le critère de drift constatable",
-        "parentIntent": "INTENT-037",
-        "status": "ready",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-037-dashboard-par-role",
-        "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
-        "title": "INTENT-037-dashboard-par-role",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/dashboard/usage.js",
+          "path": "lib/dashboard/aiad-metrics.js",
           "line": 17
+        },
+        {
+          "path": "lib/dashboard/views/scorecard.js",
+          "line": 12
         }
       ]
     },
     {
       "test": {
-        "path": "test/drift-lock-hook.test.js",
+        "path": "test/metrics-sources.test.js",
         "line": 3
       },
       "spec": {
-        "id": "SPEC-036-3-drift-lock-cli-absente",
-        "file": ".aiad/specs/SPEC-036-3-drift-lock-cli-absente.md",
-        "title": "Hook drift-lock — ne plus bloquer la clôture quand la CLI ne produit aucun verdict",
-        "parentIntent": "INTENT-036",
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "title": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "parentIntent": "INTENT-038",
         "status": "ready",
         "format": "PROSE",
         "traceability": "",
         "traceabilityReason": ""
       },
       "intent": {
-        "id": "INTENT-036-agents-de-role",
-        "file": ".aiad/intents/INTENT-036-agents-de-role.md",
-        "title": "INTENT-036-agents-de-role",
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "title": "INTENT-038-metriques-aiad-dashboard",
         "status": "active"
       },
-      "code": []
+      "code": [
+        {
+          "path": "lib/dashboard/metrics-sources.js",
+          "line": 14
+        },
+        {
+          "path": "lib/metrics.js",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/metrics.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "title": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "parentIntent": "INTENT-038",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "title": "INTENT-038-metriques-aiad-dashboard",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/metrics-sources.js",
+          "line": 14
+        },
+        {
+          "path": "lib/metrics.js",
+          "line": 21
+        }
+      ]
     },
     {
       "test": {
@@ -766,6 +637,78 @@
     },
     {
       "test": {
+        "path": "test/agents-registry.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-036-1-agents-de-role",
+        "file": ".aiad/specs/SPEC-036-1-agents-de-role.md",
+        "title": "Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD",
+        "parentIntent": "INTENT-036",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-036-agents-de-role",
+        "file": ".aiad/intents/INTENT-036-agents-de-role.md",
+        "title": "INTENT-036-agents-de-role",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "line": 45
+        },
+        {
+          "path": "lib/agents-registry.js",
+          "line": 16
+        },
+        {
+          "path": "lib/agents.js",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/agents.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-036-1-agents-de-role",
+        "file": ".aiad/specs/SPEC-036-1-agents-de-role.md",
+        "title": "Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD",
+        "parentIntent": "INTENT-036",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-036-agents-de-role",
+        "file": ".aiad/intents/INTENT-036-agents-de-role.md",
+        "title": "INTENT-036-agents-de-role",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "line": 45
+        },
+        {
+          "path": "lib/agents-registry.js",
+          "line": 16
+        },
+        {
+          "path": "lib/agents.js",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/ai-act-audit.test.js",
         "line": 94
       },
@@ -800,6 +743,34 @@
       },
       "intent": null,
       "code": []
+    },
+    {
+      "test": {
+        "path": "test/alias-retirement.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-036-2-retrait-alias-plats",
+        "file": ".aiad/specs/SPEC-036-2-retrait-alias-plats.md",
+        "title": "Retrait des alias plats en v2.0",
+        "parentIntent": "INTENT-036",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-036-agents-de-role",
+        "file": ".aiad/intents/INTENT-036-agents-de-role.md",
+        "title": "INTENT-036-agents-de-role",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/alias-retirement.js",
+          "line": 15
+        }
+      ]
     },
     {
       "test": {
@@ -1388,18 +1359,6 @@
       "intent": null,
       "code": [
         {
-          "path": "lib/dashboard/design-components.js",
-          "line": 178
-        },
-        {
-          "path": "lib/dashboard/design-components.js",
-          "line": 238
-        },
-        {
-          "path": "lib/dashboard/design-components.js",
-          "line": 245
-        },
-        {
           "path": "dashboard/assets/app.js",
           "line": 5
         },
@@ -1422,6 +1381,18 @@
         {
           "path": "lib/dashboard/assets.js",
           "line": 314
+        },
+        {
+          "path": "lib/dashboard/design-components.js",
+          "line": 178
+        },
+        {
+          "path": "lib/dashboard/design-components.js",
+          "line": 238
+        },
+        {
+          "path": "lib/dashboard/design-components.js",
+          "line": 245
         },
         {
           "path": "lib/dashboard/ui/sparklines.js",
@@ -1464,6 +1435,54 @@
       "spec": null,
       "intent": null,
       "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-design-system.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-037-1-dashboard-par-role",
+        "file": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
+        "title": "Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, nouveau design system",
+        "parentIntent": "INTENT-037",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-037-dashboard-par-role",
+        "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
+        "title": "INTENT-037-dashboard-par-role",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 18
+        },
+        {
+          "path": "lib/dashboard/design-components.js",
+          "line": 9
+        },
+        {
+          "path": "lib/dashboard/design-tokens.js",
+          "line": 15
+        },
+        {
+          "path": "lib/dashboard/navigation.js",
+          "line": 14
+        },
+        {
+          "path": "lib/dashboard/render.js",
+          "line": 54
+        },
+        {
+          "path": "lib/dashboard/views/roles.js",
+          "line": 15
+        }
+      ]
     },
     {
       "test": {
@@ -1648,6 +1667,54 @@
         {
           "path": "lib/dashboard/outcome-attribution.js",
           "line": 149
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/dashboard-navigation.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-037-1-dashboard-par-role",
+        "file": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
+        "title": "Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, nouveau design system",
+        "parentIntent": "INTENT-037",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-037-dashboard-par-role",
+        "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
+        "title": "INTENT-037-dashboard-par-role",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 18
+        },
+        {
+          "path": "lib/dashboard/design-components.js",
+          "line": 9
+        },
+        {
+          "path": "lib/dashboard/design-tokens.js",
+          "line": 15
+        },
+        {
+          "path": "lib/dashboard/navigation.js",
+          "line": 14
+        },
+        {
+          "path": "lib/dashboard/render.js",
+          "line": 54
+        },
+        {
+          "path": "lib/dashboard/views/roles.js",
+          "line": 15
         }
       ]
     },
@@ -2197,6 +2264,54 @@
     },
     {
       "test": {
+        "path": "test/dashboard-roles.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-037-1-dashboard-par-role",
+        "file": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
+        "title": "Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, nouveau design system",
+        "parentIntent": "INTENT-037",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-037-dashboard-par-role",
+        "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
+        "title": "INTENT-037-dashboard-par-role",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/assets.js",
+          "line": 18
+        },
+        {
+          "path": "lib/dashboard/design-components.js",
+          "line": 9
+        },
+        {
+          "path": "lib/dashboard/design-tokens.js",
+          "line": 15
+        },
+        {
+          "path": "lib/dashboard/navigation.js",
+          "line": 14
+        },
+        {
+          "path": "lib/dashboard/render.js",
+          "line": 54
+        },
+        {
+          "path": "lib/dashboard/views/roles.js",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "test": {
         "path": "test/dashboard-sante-globale-history.test.js",
         "line": 0
       },
@@ -2235,7 +2350,7 @@
         },
         {
           "path": "lib/dashboard/collect.js",
-          "line": 309
+          "line": 310
         },
         {
           "path": "lib/dashboard/spec-page.js",
@@ -2284,6 +2399,34 @@
         {
           "path": "lib/dashboard/views/today.js",
           "line": 2
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/dashboard-usage.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-037-2-mesure-usage-dashboard",
+        "file": ".aiad/specs/SPEC-037-2-mesure-usage-dashboard.md",
+        "title": "Mesure d'usage locale du dashboard — rendre le critère de drift constatable",
+        "parentIntent": "INTENT-037",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-037-dashboard-par-role",
+        "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
+        "title": "INTENT-037-dashboard-par-role",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/usage.js",
+          "line": 17
         }
       ]
     },
@@ -2340,7 +2483,7 @@
       "code": [
         {
           "path": "lib/dashboard.js",
-          "line": 373
+          "line": 375
         },
         {
           "path": "scripts/validate-data-schema.js",
@@ -2437,7 +2580,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 3668
+          "line": 3676
         },
         {
           "path": "lib/dora-record.js",
@@ -2489,6 +2632,29 @@
         "line": 114
       },
       "intent": null,
+      "code": []
+    },
+    {
+      "test": {
+        "path": "test/drift-lock-hook.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-036-3-drift-lock-cli-absente",
+        "file": ".aiad/specs/SPEC-036-3-drift-lock-cli-absente.md",
+        "title": "Hook drift-lock — ne plus bloquer la clôture quand la CLI ne produit aucun verdict",
+        "parentIntent": "INTENT-036",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-036-agents-de-role",
+        "file": ".aiad/intents/INTENT-036-agents-de-role.md",
+        "title": "INTENT-036-agents-de-role",
+        "status": "active"
+      },
       "code": []
     },
     {
@@ -2572,7 +2738,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2617
+          "line": 2625
         },
         {
           "path": "lib/eco-hook.js",
@@ -2642,7 +2808,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2617
+          "line": 2625
         },
         {
           "path": "lib/eco-hook.js",
@@ -2690,7 +2856,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2597
+          "line": 2605
         },
         {
           "path": "lib/empreinte-artefact.js",
@@ -2707,7 +2873,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2597
+          "line": 2605
         },
         {
           "path": "lib/empreinte-artefact.js",
@@ -2724,7 +2890,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2597
+          "line": 2605
         },
         {
           "path": "lib/empreinte-artefact.js",
@@ -4217,7 +4383,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2653
+          "line": 2661
         },
         {
           "path": "lib/spec-stamp.js",
@@ -5082,7 +5248,7 @@
       "code": [
         {
           "path": "bin/aiad-sdd.js",
-          "line": 2617
+          "line": 2625
         },
         {
           "path": "lib/eco-hook.js",
@@ -5148,7 +5314,7 @@
       "code": [
         {
           "path": "lib/dashboard.js",
-          "line": 373
+          "line": 375
         },
         {
           "path": "scripts/validate-data-schema.js",

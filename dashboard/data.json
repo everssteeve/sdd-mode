@@ -2,7 +2,7 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.21.0",
-    "generated": "2026-11-15T11:02:25.767Z",
+    "generated": "2026-11-15T13:13:48.460Z",
     "schema_version": "2.0",
     "slim": true
   },
@@ -14,7 +14,7 @@
     "nom": "aiad-sdd",
     "version": "1.21.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd-agents",
-    "genere": "2026-11-15T11:02:25.767Z"
+    "genere": "2026-11-15T13:13:48.460Z"
   },
   "fondamentaux": [
     {
@@ -156,6 +156,26 @@
         "critereDrift": "« le dashboard n'est pas utilisé » *(réponse de l'auteur du 2026-11-15)*"
       },
       "mtime": 1794740531936.151
+    },
+    {
+      "id": "INTENT-038-metriques-aiad-dashboard",
+      "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+      "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+      "statut": "active",
+      "auteur": "Steeve Evers",
+      "date": "2026-11-15",
+      "executor": null,
+      "validator": null,
+      "activatedAt": null,
+      "problem": null,
+      "sections": {
+        "pourquoi": "« car la v2 doit viser le prod ready et donc doit permettre de piloter l'activité » *(réponse de l'auteur du 2026-11-15 ; fautes de frappe corrigées, mots inchangés)*",
+        "pourQui": "« Les 5 responsabilités » — PM, PE, AE, QA et Tech Lead : chacun retrouve dans son onglet les métriques qu'il suit. *(formulation proposée par l'agent, choisie par l'auteur le 2026-11-15 — cas prévu par la skill `human-authorship-check`, critère #4)*",
+        "objectif": "« AIAD expose des métriques que l'on doit retrouver dans le dashboard. Mets cela en oeuvre. »",
+        "contraintes": "*Aucune contrainte exprimée par l'auteur.*",
+        "critereDrift": "« les métriques ne sont pas outillées correctement et ne retournent pas les infos dans le dashboard » *(réponse de l'auteur du 2026-11-15 ; fautes de frappe corrigées, mots inchangés)*"
+      },
+      "mtime": 1794748428049.8398
     }
   ],
   "specs": [
@@ -785,6 +805,65 @@
         "**La mesure est par machine** tant que le fichier n'est pas partagé. Versionné, il peut produire des conflits de fusion quand deux personnes consultent le même jour.",
         "**Une vue n'est pas un usage utile.** Le compteur dit que le dashboard est ouvert, pas qu'il sert à décider. Le jugement reste à l'équipe, en rétrospective.",
         "**L'alerte s'affiche dans le dashboard lui-même** : si personne ne l'ouvre, personne ne la voit. Elle est doublée par la ligne Usage de la commande aiad-sdd dashboard."
+      ],
+      "dood": []
+    },
+    {
+      "id": "SPEC-038-1-metriques-aiad-dashboard",
+      "slug": "038-1-metriques-aiad-dashboard",
+      "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+      "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+      "parentIntent": "INTENT-038",
+      "statut": "ready",
+      "format": "prose",
+      "sqs": "4",
+      "governance": null,
+      "governanceTags": [],
+      "parallelWith": [],
+      "auteur": "Steeve Evers",
+      "date": "2026-11-15",
+      "mtime": 1794748428050.141,
+      "contexte": "Le framework AIAD définit des métriques (chapitre 7) que le dashboard n'affichait qu'en petite partie, sans cible. Cette SPEC les fait toutes apparaître, avec leur cible et leur état, et donne un moyen d'alimenter celles qui n'avaient pas de source.\n\n### Contexte pour un lecteur extérieur\n\nLes rituels et commandes AIAD écrivent des fichiers dans `.aiad/metrics/<catégorie>/` (`deployments/`, `specs/`, `retro/`, `demo/`, `sync-strat/`, `tech-review/`, `standup/`…), sous la forme `clé: valeur`. Le dashboard les lit dans `donnees.metrics.categories`.",
+      "criteresAcceptation": [],
+      "interface_": "- **RGPD** : les métriques d'équipe saisies sont des moyennes déclarées en rétrospective, jamais une réponse individuelle ni un nom. Dans une équipe de moins de quatre personnes, une moyenne peut révéler une réponse : la commande `/aiad retro` le dit et laisse l'équipe décider. Turnover et jours de maladie — données RH et de santé — ne sont pas collectés.\n- **RGAA** : tableaux avec en-têtes, états portés par un libellé et non par la seule couleur.\n- **RGESN** : calcul sur les données déjà collectées ; budget de poids déclaré pour la nouvelle page.",
+      "dependances": [
+        "**Lecture de l'objectif.** « Les métriques qu'expose AIAD » a été lu comme le chapitre 7 du framework. Si l'auteur visait un autre périmètre (l'annexe E, par exemple), le catalogue est à ajuster.",
+        "**Critère de drift de l'Intent non levé pour toutes les métriques.** L'auteur a fixé le drift à « les métriques ne sont pas outillées correctement et ne retournent pas les infos dans le dashboard ». Cette SPEC affiche toutes les métriques et donne un moyen de les saisir ; elle n'instrumente pas celles qui restent déclaratives.",
+        "**Dix métriques sont déclaratives.** Efficacité IA (sauf le premier passage) et Équipe reposent sur ce que l'équipe déclare en rétrospective : ce ne sont pas des mesures instrumentées.",
+        "**Cibles « selon produit ».** Time to Value (< 5 min) et Retention (> 80 %) sont évaluées sur la cible générique du framework, que celui-ci dit dépendre du produit.",
+        "**Cibles non chiffrées.** Release Frequency, Deployment Frequency, WIP, Flow Efficiency et Business Impact n'ont pas de seuil dans le framework : elles s'affichent « mesuré », sans jugement.",
+        "**« Bugs en production »** est approché par le nombre de FACTs datés sur 90 jours — un FACT n'est pas toujours un bug de production.",
+        "**Clés nouvelles.** adoption_agents_pct, code_genere_pct, iterations_par_feature, faux_positifs_pct, resolution_agents_heures, satisfaction_pe, satisfaction_equipe, psychological_safety, temps_flow_heures, adoption_pct, time_to_value_min, retention_pct, business_impact, mttd_hours ont été nommées par l'agent.",
+        "**Poids de la vue d'ensemble.** index.html est à 29,7 Ko pour un budget de 30 : elle le dépassera dès que les données du projet grossiront."
+      ],
+      "dood": []
+    },
+    {
+      "id": "SPEC-038-2-instrumentation-metriques",
+      "slug": "038-2-instrumentation-metriques",
+      "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+      "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+      "parentIntent": "INTENT-038",
+      "statut": "ready",
+      "format": "prose",
+      "sqs": "4",
+      "governance": null,
+      "governanceTags": [],
+      "parallelWith": [],
+      "auteur": "Steeve Evers",
+      "date": "2026-11-15",
+      "mtime": 1794748428050.3455,
+      "contexte": "Le critère de drift d'INTENT-038 est : « les métriques ne sont pas outillées correctement et ne retournent pas les infos dans le dashboard ». Après SPEC-038-1, 13 métriques sur 36 remontaient sur le projet `aiad-sdd`. Cette SPEC traite les deux causes : des métriques calculables sans source automatique, et des métriques déclaratives sans outillage ni suivi.",
+      "criteresAcceptation": [],
+      "interface_": "- **RGPD** : l'analyse git ne conserve ni nom ni adresse — quatre totaux. Elle lit des co-auteurs déjà publics dans l'historique. Les clés RH et de santé sont refusées à l'enregistrement.\n- **RGESN** : une commande git bornée à 30 jours ; lecture de fichiers déjà présents.",
+      "dependances": [
+        "**Résultat mesuré sur aiad-sdd le 2026-11-15 : 22 métriques sur 36 remontent** (13 avant). Productivité, Qualité, DORA et Flow sont complètes. aiad-sdd metrics check échoue encore.",
+        "**Les 14 restantes, par décision de l'auteur du 2026-11-15** : Équipe (3) et Outcomes (6) — « laisser non mesuré » jusqu'à ce qu'il les déclare ; Efficacité IA déclarative (5) — « attendre les enregistrements » (/sdd validate pour deux d'entre elles, une rétrospective pour les trois autres). L'outil est en place ; les valeurs dépendent de rituels qui n'ont pas encore été tenus sur ce projet.",
+        "**Flow Efficiency remonte comme une anomalie** sur ce projet : les déploiements du site et ceux du paquet ne portent pas les mêmes durées, et le Cycle Time moyen (81,7 j) dépasse le Lead Time moyen (4 j). C'est un défaut des données enregistrées, à corriger à la source.",
+        "**Premier passage à la Gate lu dans l'historique** : il dépend de la convention d'écriture des SPECs (une ligne datée par passage). Une SPEC qui ne trace pas sa Gate n'est pas comptée.",
+        "**Les mesures git sont des approximations.** Un commit co-signé par un agent compte en entier, fichiers générés compris ; un travail d'agent non co-signé n'est pas compté. Sur aiad-sdd : 99,7 % de lignes « générées », chiffre gonflé par les fichiers de dashboard régénérés.",
+        "**Cadences et seuils de péremption posés par l'agent** (21 / 14 / 35 / 35 jours ; deux périodes), à ajuster par l'auteur.",
+        "**metrics check n'est pas branché en CI** : il échouerait aujourd'hui sur ce dépôt."
       ],
       "dood": []
     },
@@ -1564,6 +1643,11 @@
         "categorie": "audit",
         "dir": null,
         "fichiers": []
+      },
+      "validations": {
+        "categorie": "validations",
+        "dir": null,
+        "fichiers": []
       }
     },
     "agregats": {
@@ -1591,14 +1675,14 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-11-15T11:02:25.804Z",
+    "generatedAt": "2026-11-15T13:13:48.493Z",
     "summary": {
-      "intents": 5,
-      "specs": 12,
-      "codeFiles": 407,
-      "annotatedCodeFiles": 111,
-      "testFiles": 294,
-      "annotatedTestFiles": 67
+      "intents": 6,
+      "specs": 14,
+      "codeFiles": 411,
+      "annotatedCodeFiles": 115,
+      "testFiles": 297,
+      "annotatedTestFiles": 70
     },
     "forward": [
       {
@@ -1857,16 +1941,16 @@
             },
             "code": [
               {
+                "path": ".github/workflows/ci.yml",
+                "line": 45
+              },
+              {
                 "path": "lib/agents-registry.js",
                 "line": 16
               },
               {
                 "path": "lib/agents.js",
                 "line": 13
-              },
-              {
-                "path": ".github/workflows/ci.yml",
-                "line": 45
               }
             ],
             "tests": [
@@ -1946,6 +2030,10 @@
             },
             "code": [
               {
+                "path": "lib/dashboard/assets.js",
+                "line": 18
+              },
+              {
                 "path": "lib/dashboard/design-components.js",
                 "line": 9
               },
@@ -1958,16 +2046,12 @@
                 "line": 14
               },
               {
-                "path": "lib/dashboard/views/roles.js",
-                "line": 15
-              },
-              {
-                "path": "lib/dashboard/assets.js",
-                "line": 18
-              },
-              {
                 "path": "lib/dashboard/render.js",
                 "line": 54
+              },
+              {
+                "path": "lib/dashboard/views/roles.js",
+                "line": 15
               }
             ],
             "tests": [
@@ -1985,7 +2069,7 @@
               },
               {
                 "path": "absente')}",
-                "line": 230,
+                "line": 232,
                 "viaCode": true
               }
             ]
@@ -2015,303 +2099,174 @@
             ]
           }
         ]
+      },
+      {
+        "intent": {
+          "id": "INTENT-038-metriques-aiad-dashboard",
+          "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+          "title": "INTENT-038-metriques-aiad-dashboard",
+          "status": "active"
+        },
+        "specs": [
+          {
+            "spec": {
+              "id": "SPEC-038-1-metriques-aiad-dashboard",
+              "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+              "title": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+              "parentIntent": "INTENT-038",
+              "status": "ready",
+              "format": "PROSE",
+              "traceability": "",
+              "traceabilityReason": ""
+            },
+            "code": [
+              {
+                "path": "lib/dashboard/aiad-metrics.js",
+                "line": 17
+              },
+              {
+                "path": "lib/dashboard/views/scorecard.js",
+                "line": 12
+              }
+            ],
+            "tests": [
+              {
+                "path": "test/dashboard-aiad-metrics.test.js",
+                "line": 3
+              }
+            ]
+          },
+          {
+            "spec": {
+              "id": "SPEC-038-2-instrumentation-metriques",
+              "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+              "title": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+              "parentIntent": "INTENT-038",
+              "status": "ready",
+              "format": "PROSE",
+              "traceability": "",
+              "traceabilityReason": ""
+            },
+            "code": [
+              {
+                "path": "lib/dashboard/metrics-sources.js",
+                "line": 14
+              },
+              {
+                "path": "lib/metrics.js",
+                "line": 21
+              }
+            ],
+            "tests": [
+              {
+                "path": "test/metrics-sources.test.js",
+                "line": 3
+              },
+              {
+                "path": "test/metrics.test.js",
+                "line": 3
+              }
+            ]
+          }
+        ]
       }
     ],
     "backward": [
       {
         "test": {
-          "path": "test/agents-registry.test.js",
+          "path": "test/dashboard-aiad-metrics.test.js",
           "line": 3
         },
         "spec": {
-          "id": "SPEC-036-1-agents-de-role",
-          "file": ".aiad/specs/SPEC-036-1-agents-de-role.md",
-          "title": "Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD",
-          "parentIntent": "INTENT-036",
+          "id": "SPEC-038-1-metriques-aiad-dashboard",
+          "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+          "title": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+          "parentIntent": "INTENT-038",
           "status": "ready",
           "format": "PROSE",
           "traceability": "",
           "traceabilityReason": ""
         },
         "intent": {
-          "id": "INTENT-036-agents-de-role",
-          "file": ".aiad/intents/INTENT-036-agents-de-role.md",
-          "title": "INTENT-036-agents-de-role",
+          "id": "INTENT-038-metriques-aiad-dashboard",
+          "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+          "title": "INTENT-038-metriques-aiad-dashboard",
           "status": "active"
         },
         "code": [
           {
-            "path": "lib/agents-registry.js",
-            "line": 16
-          },
-          {
-            "path": "lib/agents.js",
-            "line": 13
-          },
-          {
-            "path": ".github/workflows/ci.yml",
-            "line": 45
-          }
-        ]
-      },
-      {
-        "test": {
-          "path": "test/agents.test.js",
-          "line": 3
-        },
-        "spec": {
-          "id": "SPEC-036-1-agents-de-role",
-          "file": ".aiad/specs/SPEC-036-1-agents-de-role.md",
-          "title": "Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD",
-          "parentIntent": "INTENT-036",
-          "status": "ready",
-          "format": "PROSE",
-          "traceability": "",
-          "traceabilityReason": ""
-        },
-        "intent": {
-          "id": "INTENT-036-agents-de-role",
-          "file": ".aiad/intents/INTENT-036-agents-de-role.md",
-          "title": "INTENT-036-agents-de-role",
-          "status": "active"
-        },
-        "code": [
-          {
-            "path": "lib/agents-registry.js",
-            "line": 16
-          },
-          {
-            "path": "lib/agents.js",
-            "line": 13
-          },
-          {
-            "path": ".github/workflows/ci.yml",
-            "line": 45
-          }
-        ]
-      },
-      {
-        "test": {
-          "path": "test/alias-retirement.test.js",
-          "line": 3
-        },
-        "spec": {
-          "id": "SPEC-036-2-retrait-alias-plats",
-          "file": ".aiad/specs/SPEC-036-2-retrait-alias-plats.md",
-          "title": "Retrait des alias plats en v2.0",
-          "parentIntent": "INTENT-036",
-          "status": "ready",
-          "format": "PROSE",
-          "traceability": "",
-          "traceabilityReason": ""
-        },
-        "intent": {
-          "id": "INTENT-036-agents-de-role",
-          "file": ".aiad/intents/INTENT-036-agents-de-role.md",
-          "title": "INTENT-036-agents-de-role",
-          "status": "active"
-        },
-        "code": [
-          {
-            "path": "lib/alias-retirement.js",
-            "line": 15
-          }
-        ]
-      },
-      {
-        "test": {
-          "path": "test/dashboard-design-system.test.js",
-          "line": 3
-        },
-        "spec": {
-          "id": "SPEC-037-1-dashboard-par-role",
-          "file": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
-          "title": "Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, nouveau design system",
-          "parentIntent": "INTENT-037",
-          "status": "ready",
-          "format": "PROSE",
-          "traceability": "",
-          "traceabilityReason": ""
-        },
-        "intent": {
-          "id": "INTENT-037-dashboard-par-role",
-          "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
-          "title": "INTENT-037-dashboard-par-role",
-          "status": "active"
-        },
-        "code": [
-          {
-            "path": "lib/dashboard/design-components.js",
-            "line": 9
-          },
-          {
-            "path": "lib/dashboard/design-tokens.js",
-            "line": 15
-          },
-          {
-            "path": "lib/dashboard/navigation.js",
-            "line": 14
-          },
-          {
-            "path": "lib/dashboard/views/roles.js",
-            "line": 15
-          },
-          {
-            "path": "lib/dashboard/assets.js",
-            "line": 18
-          },
-          {
-            "path": "lib/dashboard/render.js",
-            "line": 54
-          }
-        ]
-      },
-      {
-        "test": {
-          "path": "test/dashboard-navigation.test.js",
-          "line": 3
-        },
-        "spec": {
-          "id": "SPEC-037-1-dashboard-par-role",
-          "file": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
-          "title": "Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, nouveau design system",
-          "parentIntent": "INTENT-037",
-          "status": "ready",
-          "format": "PROSE",
-          "traceability": "",
-          "traceabilityReason": ""
-        },
-        "intent": {
-          "id": "INTENT-037-dashboard-par-role",
-          "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
-          "title": "INTENT-037-dashboard-par-role",
-          "status": "active"
-        },
-        "code": [
-          {
-            "path": "lib/dashboard/design-components.js",
-            "line": 9
-          },
-          {
-            "path": "lib/dashboard/design-tokens.js",
-            "line": 15
-          },
-          {
-            "path": "lib/dashboard/navigation.js",
-            "line": 14
-          },
-          {
-            "path": "lib/dashboard/views/roles.js",
-            "line": 15
-          },
-          {
-            "path": "lib/dashboard/assets.js",
-            "line": 18
-          },
-          {
-            "path": "lib/dashboard/render.js",
-            "line": 54
-          }
-        ]
-      },
-      {
-        "test": {
-          "path": "test/dashboard-roles.test.js",
-          "line": 3
-        },
-        "spec": {
-          "id": "SPEC-037-1-dashboard-par-role",
-          "file": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
-          "title": "Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, nouveau design system",
-          "parentIntent": "INTENT-037",
-          "status": "ready",
-          "format": "PROSE",
-          "traceability": "",
-          "traceabilityReason": ""
-        },
-        "intent": {
-          "id": "INTENT-037-dashboard-par-role",
-          "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
-          "title": "INTENT-037-dashboard-par-role",
-          "status": "active"
-        },
-        "code": [
-          {
-            "path": "lib/dashboard/design-components.js",
-            "line": 9
-          },
-          {
-            "path": "lib/dashboard/design-tokens.js",
-            "line": 15
-          },
-          {
-            "path": "lib/dashboard/navigation.js",
-            "line": 14
-          },
-          {
-            "path": "lib/dashboard/views/roles.js",
-            "line": 15
-          },
-          {
-            "path": "lib/dashboard/assets.js",
-            "line": 18
-          },
-          {
-            "path": "lib/dashboard/render.js",
-            "line": 54
-          }
-        ]
-      },
-      {
-        "test": {
-          "path": "test/dashboard-usage.test.js",
-          "line": 3
-        },
-        "spec": {
-          "id": "SPEC-037-2-mesure-usage-dashboard",
-          "file": ".aiad/specs/SPEC-037-2-mesure-usage-dashboard.md",
-          "title": "Mesure d'usage locale du dashboard — rendre le critère de drift constatable",
-          "parentIntent": "INTENT-037",
-          "status": "ready",
-          "format": "PROSE",
-          "traceability": "",
-          "traceabilityReason": ""
-        },
-        "intent": {
-          "id": "INTENT-037-dashboard-par-role",
-          "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
-          "title": "INTENT-037-dashboard-par-role",
-          "status": "active"
-        },
-        "code": [
-          {
-            "path": "lib/dashboard/usage.js",
+            "path": "lib/dashboard/aiad-metrics.js",
             "line": 17
+          },
+          {
+            "path": "lib/dashboard/views/scorecard.js",
+            "line": 12
           }
         ]
       },
       {
         "test": {
-          "path": "test/drift-lock-hook.test.js",
+          "path": "test/metrics-sources.test.js",
           "line": 3
         },
         "spec": {
-          "id": "SPEC-036-3-drift-lock-cli-absente",
-          "file": ".aiad/specs/SPEC-036-3-drift-lock-cli-absente.md",
-          "title": "Hook drift-lock — ne plus bloquer la clôture quand la CLI ne produit aucun verdict",
-          "parentIntent": "INTENT-036",
+          "id": "SPEC-038-2-instrumentation-metriques",
+          "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+          "title": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+          "parentIntent": "INTENT-038",
           "status": "ready",
           "format": "PROSE",
           "traceability": "",
           "traceabilityReason": ""
         },
         "intent": {
-          "id": "INTENT-036-agents-de-role",
-          "file": ".aiad/intents/INTENT-036-agents-de-role.md",
-          "title": "INTENT-036-agents-de-role",
+          "id": "INTENT-038-metriques-aiad-dashboard",
+          "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+          "title": "INTENT-038-metriques-aiad-dashboard",
           "status": "active"
         },
-        "code": []
+        "code": [
+          {
+            "path": "lib/dashboard/metrics-sources.js",
+            "line": 14
+          },
+          {
+            "path": "lib/metrics.js",
+            "line": 21
+          }
+        ]
+      },
+      {
+        "test": {
+          "path": "test/metrics.test.js",
+          "line": 3
+        },
+        "spec": {
+          "id": "SPEC-038-2-instrumentation-metriques",
+          "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+          "title": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+          "parentIntent": "INTENT-038",
+          "status": "ready",
+          "format": "PROSE",
+          "traceability": "",
+          "traceabilityReason": ""
+        },
+        "intent": {
+          "id": "INTENT-038-metriques-aiad-dashboard",
+          "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+          "title": "INTENT-038-metriques-aiad-dashboard",
+          "status": "active"
+        },
+        "code": [
+          {
+            "path": "lib/dashboard/metrics-sources.js",
+            "line": 14
+          },
+          {
+            "path": "lib/metrics.js",
+            "line": 21
+          }
+        ]
       },
       {
         "test": {
@@ -2353,6 +2308,78 @@
       },
       {
         "test": {
+          "path": "test/agents-registry.test.js",
+          "line": 3
+        },
+        "spec": {
+          "id": "SPEC-036-1-agents-de-role",
+          "file": ".aiad/specs/SPEC-036-1-agents-de-role.md",
+          "title": "Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD",
+          "parentIntent": "INTENT-036",
+          "status": "ready",
+          "format": "PROSE",
+          "traceability": "",
+          "traceabilityReason": ""
+        },
+        "intent": {
+          "id": "INTENT-036-agents-de-role",
+          "file": ".aiad/intents/INTENT-036-agents-de-role.md",
+          "title": "INTENT-036-agents-de-role",
+          "status": "active"
+        },
+        "code": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "line": 45
+          },
+          {
+            "path": "lib/agents-registry.js",
+            "line": 16
+          },
+          {
+            "path": "lib/agents.js",
+            "line": 13
+          }
+        ]
+      },
+      {
+        "test": {
+          "path": "test/agents.test.js",
+          "line": 3
+        },
+        "spec": {
+          "id": "SPEC-036-1-agents-de-role",
+          "file": ".aiad/specs/SPEC-036-1-agents-de-role.md",
+          "title": "Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD",
+          "parentIntent": "INTENT-036",
+          "status": "ready",
+          "format": "PROSE",
+          "traceability": "",
+          "traceabilityReason": ""
+        },
+        "intent": {
+          "id": "INTENT-036-agents-de-role",
+          "file": ".aiad/intents/INTENT-036-agents-de-role.md",
+          "title": "INTENT-036-agents-de-role",
+          "status": "active"
+        },
+        "code": [
+          {
+            "path": ".github/workflows/ci.yml",
+            "line": 45
+          },
+          {
+            "path": "lib/agents-registry.js",
+            "line": 16
+          },
+          {
+            "path": "lib/agents.js",
+            "line": 13
+          }
+        ]
+      },
+      {
+        "test": {
           "path": "test/ai-act-audit.test.js",
           "line": 94
         },
@@ -2387,6 +2414,34 @@
         },
         "intent": null,
         "code": []
+      },
+      {
+        "test": {
+          "path": "test/alias-retirement.test.js",
+          "line": 3
+        },
+        "spec": {
+          "id": "SPEC-036-2-retrait-alias-plats",
+          "file": ".aiad/specs/SPEC-036-2-retrait-alias-plats.md",
+          "title": "Retrait des alias plats en v2.0",
+          "parentIntent": "INTENT-036",
+          "status": "ready",
+          "format": "PROSE",
+          "traceability": "",
+          "traceabilityReason": ""
+        },
+        "intent": {
+          "id": "INTENT-036-agents-de-role",
+          "file": ".aiad/intents/INTENT-036-agents-de-role.md",
+          "title": "INTENT-036-agents-de-role",
+          "status": "active"
+        },
+        "code": [
+          {
+            "path": "lib/alias-retirement.js",
+            "line": 15
+          }
+        ]
       },
       {
         "test": {
@@ -2975,18 +3030,6 @@
         "intent": null,
         "code": [
           {
-            "path": "lib/dashboard/design-components.js",
-            "line": 178
-          },
-          {
-            "path": "lib/dashboard/design-components.js",
-            "line": 238
-          },
-          {
-            "path": "lib/dashboard/design-components.js",
-            "line": 245
-          },
-          {
             "path": "dashboard/assets/app.js",
             "line": 5
           },
@@ -3009,6 +3052,18 @@
           {
             "path": "lib/dashboard/assets.js",
             "line": 314
+          },
+          {
+            "path": "lib/dashboard/design-components.js",
+            "line": 178
+          },
+          {
+            "path": "lib/dashboard/design-components.js",
+            "line": 238
+          },
+          {
+            "path": "lib/dashboard/design-components.js",
+            "line": 245
           },
           {
             "path": "lib/dashboard/ui/sparklines.js",
@@ -3051,6 +3106,54 @@
         "spec": null,
         "intent": null,
         "code": []
+      },
+      {
+        "test": {
+          "path": "test/dashboard-design-system.test.js",
+          "line": 3
+        },
+        "spec": {
+          "id": "SPEC-037-1-dashboard-par-role",
+          "file": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
+          "title": "Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, nouveau design system",
+          "parentIntent": "INTENT-037",
+          "status": "ready",
+          "format": "PROSE",
+          "traceability": "",
+          "traceabilityReason": ""
+        },
+        "intent": {
+          "id": "INTENT-037-dashboard-par-role",
+          "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
+          "title": "INTENT-037-dashboard-par-role",
+          "status": "active"
+        },
+        "code": [
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 18
+          },
+          {
+            "path": "lib/dashboard/design-components.js",
+            "line": 9
+          },
+          {
+            "path": "lib/dashboard/design-tokens.js",
+            "line": 15
+          },
+          {
+            "path": "lib/dashboard/navigation.js",
+            "line": 14
+          },
+          {
+            "path": "lib/dashboard/render.js",
+            "line": 54
+          },
+          {
+            "path": "lib/dashboard/views/roles.js",
+            "line": 15
+          }
+        ]
       },
       {
         "test": {
@@ -3235,6 +3338,54 @@
           {
             "path": "lib/dashboard/outcome-attribution.js",
             "line": 149
+          }
+        ]
+      },
+      {
+        "test": {
+          "path": "test/dashboard-navigation.test.js",
+          "line": 3
+        },
+        "spec": {
+          "id": "SPEC-037-1-dashboard-par-role",
+          "file": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
+          "title": "Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, nouveau design system",
+          "parentIntent": "INTENT-037",
+          "status": "ready",
+          "format": "PROSE",
+          "traceability": "",
+          "traceabilityReason": ""
+        },
+        "intent": {
+          "id": "INTENT-037-dashboard-par-role",
+          "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
+          "title": "INTENT-037-dashboard-par-role",
+          "status": "active"
+        },
+        "code": [
+          {
+            "path": "lib/dashboard/assets.js",
+            "line": 18
+          },
+          {
+            "path": "lib/dashboard/design-components.js",
+            "line": 9
+          },
+          {
+            "path": "lib/dashboard/design-tokens.js",
+            "line": 15
+          },
+          {
+            "path": "lib/dashboard/navigation.js",
+            "line": 14
+          },
+          {
+            "path": "lib/dashboard/render.js",
+            "line": 54
+          },
+          {
+            "path": "lib/dashboard/views/roles.js",
+            "line": 15
           }
         ]
       },
@@ -8164,7 +8315,7 @@
         "traceabilityReason": "Livrable éditorial — commande, skill et gabarit Markdown, sans code applicatif annotable."
       }
     ],
-    "backward_total": 357,
+    "backward_total": 360,
     "backward_truncated": true
   },
   "signaux": {
@@ -8172,27 +8323,27 @@
     "hooks": true,
     "leadership": {
       "humanAuthorshipRatio": {
-        "total": 6,
-        "sufficient": 6,
+        "total": 7,
+        "sufficient": 7,
         "ratio": 1,
         "seuilCharsMinimum": 50
       },
       "governanceCoverage": {
-        "sensitiveFiles": 13,
-        "governedFiles": 10,
-        "ratio": 0.7692307692307693
+        "sensitiveFiles": 14,
+        "governedFiles": 11,
+        "ratio": 0.7857142857142857
       },
       "traceCompleteness": {
-        "total": 12,
-        "complete": 9,
-        "ratio": 0.75
+        "total": 14,
+        "complete": 11,
+        "ratio": 0.7857142857142857
       },
       "langueArtefacts": {
-        "fr": 12,
+        "fr": 14,
         "en": 0,
         "mixed": 0,
-        "neutral": 7,
-        "total": 19
+        "neutral": 8,
+        "total": 22
       }
     },
     "leadershipHistory": [
@@ -8226,16 +8377,16 @@
       },
       {
         "mois": "2026-11",
-        "ts": 1794740545839,
+        "ts": 1794748428524,
         "humanAuthorshipRatio": 1,
-        "governanceCoverage": 0.7692307692307693,
-        "traceCompleteness": 0.75,
+        "governanceCoverage": 0.7857142857142857,
+        "traceCompleteness": 0.7857142857142857,
         "langueArtefacts": {
-          "fr": 12,
+          "fr": 14,
           "en": 0,
           "mixed": 0,
-          "neutral": 7,
-          "total": 19
+          "neutral": 8,
+          "total": 22
         }
       }
     ]
@@ -8289,12 +8440,12 @@
         },
         "langueFr": {
           "score": 13,
-          "ratioFr": 0.631578947368421,
-          "fr": 12,
+          "ratioFr": 0.6363636363636364,
+          "fr": 14,
           "mixed": 0,
           "en": 0,
-          "neutral": 7,
-          "total": 19
+          "neutral": 8,
+          "total": 22
         },
         "autorites": {
           "score": 15,
@@ -8316,21 +8467,63 @@
     },
     "hookStats": {
       "available": true,
-      "count": 16,
+      "count": 31,
       "ratioFail": 1,
       "timeouts": 0,
       "scopeLeaks": 0,
       "sante": "attention"
     }
   },
+  "couverture": {
+    "pct": 93,
+    "source": ".aiad/metrics/coverage/badge.json"
+  },
+  "detteHistorique": [
+    {
+      "date": "2026-06-22",
+      "total": 39
+    },
+    {
+      "date": "2026-06-23",
+      "total": 0
+    },
+    {
+      "date": "2026-06-25",
+      "total": 0
+    },
+    {
+      "date": "2026-11-15",
+      "total": 0
+    }
+  ],
+  "activiteGit": {
+    "jours": 30,
+    "commits": 12,
+    "commitsAgent": 11,
+    "lignes": 32738,
+    "lignesAgent": 32628
+  },
+  "gatesHistorique": {
+    "specs": 8,
+    "premierPassage": 3,
+    "passages": 16
+  },
+  "perimetreMetriques": {},
   "usage": {
-    "mesure": false,
-    "vues": 0,
-    "joursActifs": 0,
+    "mesure": true,
+    "vues": 26,
+    "joursActifs": 1,
     "fenetre": 30,
-    "derniereVue": null,
-    "joursDepuis": null,
-    "parOnglet": {},
+    "derniereVue": "2026-11-15",
+    "joursDepuis": 0,
+    "parOnglet": {
+      "global": 18,
+      "pm": 4,
+      "pe": 1,
+      "ae": 1,
+      "qa": 1,
+      "tl": 1
+    },
     "inutilise": false
   },
   "maturite": {
@@ -8985,6 +9178,67 @@
         "dood": []
       }
     ],
+    "INTENT-038": [
+      {
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "slug": "038-1-metriques-aiad-dashboard",
+        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+        "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "parentIntent": "INTENT-038",
+        "statut": "ready",
+        "format": "prose",
+        "sqs": "4",
+        "governance": null,
+        "governanceTags": [],
+        "parallelWith": [],
+        "auteur": "Steeve Evers",
+        "date": "2026-11-15",
+        "mtime": 1794748428050.141,
+        "contexte": "Le framework AIAD définit des métriques (chapitre 7) que le dashboard n'affichait qu'en petite partie, sans cible. Cette SPEC les fait toutes apparaître, avec leur cible et leur état, et donne un moyen d'alimenter celles qui n'avaient pas de source.\n\n### Contexte pour un lecteur extérieur\n\nLes rituels et commandes AIAD écrivent des fichiers dans `.aiad/metrics/<catégorie>/` (`deployments/`, `specs/`, `retro/`, `demo/`, `sync-strat/`, `tech-review/`, `standup/`…), sous la forme `clé: valeur`. Le dashboard les lit dans `donnees.metrics.categories`.",
+        "criteresAcceptation": [],
+        "interface_": "- **RGPD** : les métriques d'équipe saisies sont des moyennes déclarées en rétrospective, jamais une réponse individuelle ni un nom. Dans une équipe de moins de quatre personnes, une moyenne peut révéler une réponse : la commande `/aiad retro` le dit et laisse l'équipe décider. Turnover et jours de maladie — données RH et de santé — ne sont pas collectés.\n- **RGAA** : tableaux avec en-têtes, états portés par un libellé et non par la seule couleur.\n- **RGESN** : calcul sur les données déjà collectées ; budget de poids déclaré pour la nouvelle page.",
+        "dependances": [
+          "**Lecture de l'objectif.** « Les métriques qu'expose AIAD » a été lu comme le chapitre 7 du framework. Si l'auteur visait un autre périmètre (l'annexe E, par exemple), le catalogue est à ajuster.",
+          "**Critère de drift de l'Intent non levé pour toutes les métriques.** L'auteur a fixé le drift à « les métriques ne sont pas outillées correctement et ne retournent pas les infos dans le dashboard ». Cette SPEC affiche toutes les métriques et donne un moyen de les saisir ; elle n'instrumente pas celles qui restent déclaratives.",
+          "**Dix métriques sont déclaratives.** Efficacité IA (sauf le premier passage) et Équipe reposent sur ce que l'équipe déclare en rétrospective : ce ne sont pas des mesures instrumentées.",
+          "**Cibles « selon produit ».** Time to Value (< 5 min) et Retention (> 80 %) sont évaluées sur la cible générique du framework, que celui-ci dit dépendre du produit.",
+          "**Cibles non chiffrées.** Release Frequency, Deployment Frequency, WIP, Flow Efficiency et Business Impact n'ont pas de seuil dans le framework : elles s'affichent « mesuré », sans jugement.",
+          "**« Bugs en production »** est approché par le nombre de FACTs datés sur 90 jours — un FACT n'est pas toujours un bug de production.",
+          "**Clés nouvelles.** adoption_agents_pct, code_genere_pct, iterations_par_feature, faux_positifs_pct, resolution_agents_heures, satisfaction_pe, satisfaction_equipe, psychological_safety, temps_flow_heures, adoption_pct, time_to_value_min, retention_pct, business_impact, mttd_hours ont été nommées par l'agent.",
+          "**Poids de la vue d'ensemble.** index.html est à 29,7 Ko pour un budget de 30 : elle le dépassera dès que les données du projet grossiront."
+        ],
+        "dood": []
+      },
+      {
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "slug": "038-2-instrumentation-metriques",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "parentIntent": "INTENT-038",
+        "statut": "ready",
+        "format": "prose",
+        "sqs": "4",
+        "governance": null,
+        "governanceTags": [],
+        "parallelWith": [],
+        "auteur": "Steeve Evers",
+        "date": "2026-11-15",
+        "mtime": 1794748428050.3455,
+        "contexte": "Le critère de drift d'INTENT-038 est : « les métriques ne sont pas outillées correctement et ne retournent pas les infos dans le dashboard ». Après SPEC-038-1, 13 métriques sur 36 remontaient sur le projet `aiad-sdd`. Cette SPEC traite les deux causes : des métriques calculables sans source automatique, et des métriques déclaratives sans outillage ni suivi.",
+        "criteresAcceptation": [],
+        "interface_": "- **RGPD** : l'analyse git ne conserve ni nom ni adresse — quatre totaux. Elle lit des co-auteurs déjà publics dans l'historique. Les clés RH et de santé sont refusées à l'enregistrement.\n- **RGESN** : une commande git bornée à 30 jours ; lecture de fichiers déjà présents.",
+        "dependances": [
+          "**Résultat mesuré sur aiad-sdd le 2026-11-15 : 22 métriques sur 36 remontent** (13 avant). Productivité, Qualité, DORA et Flow sont complètes. aiad-sdd metrics check échoue encore.",
+          "**Les 14 restantes, par décision de l'auteur du 2026-11-15** : Équipe (3) et Outcomes (6) — « laisser non mesuré » jusqu'à ce qu'il les déclare ; Efficacité IA déclarative (5) — « attendre les enregistrements » (/sdd validate pour deux d'entre elles, une rétrospective pour les trois autres). L'outil est en place ; les valeurs dépendent de rituels qui n'ont pas encore été tenus sur ce projet.",
+          "**Flow Efficiency remonte comme une anomalie** sur ce projet : les déploiements du site et ceux du paquet ne portent pas les mêmes durées, et le Cycle Time moyen (81,7 j) dépasse le Lead Time moyen (4 j). C'est un défaut des données enregistrées, à corriger à la source.",
+          "**Premier passage à la Gate lu dans l'historique** : il dépend de la convention d'écriture des SPECs (une ligne datée par passage). Une SPEC qui ne trace pas sa Gate n'est pas comptée.",
+          "**Les mesures git sont des approximations.** Un commit co-signé par un agent compte en entier, fichiers générés compris ; un travail d'agent non co-signé n'est pas compté. Sur aiad-sdd : 99,7 % de lignes « générées », chiffre gonflé par les fichiers de dashboard régénérés.",
+          "**Cadences et seuils de péremption posés par l'agent** (21 / 14 / 35 / 35 jours ; deux périodes), à ajuster par l'auteur.",
+          "**metrics check n'est pas branché en CI** : il échouerait aujourd'hui sur ce dépôt."
+        ],
+        "dood": []
+      }
+    ],
     "INTENT-[NNN]": [
       {
         "id": "spec-template",
@@ -9158,6 +9412,28 @@
         "source": "heuristique"
       },
       {
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+        "tests": 1,
+        "code": 2,
+        "ratio": 0.5,
+        "pct": null,
+        "band": "ok",
+        "source": "heuristique"
+      },
+      {
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "tests": 2,
+        "code": 2,
+        "ratio": 1,
+        "pct": null,
+        "band": "ok",
+        "source": "heuristique"
+      },
+      {
         "id": "SPEC-033-2-sections-gabarit-spec",
         "titre": "Gabarit de SPEC — sections « Points d'arrêt de l'agent » (optionnelle) et « Périmètre d'exécution de l'agent » (conditionnelle)",
         "file": ".aiad/specs/SPEC-033-2-sections-gabarit-spec.md",
@@ -9223,6 +9499,30 @@
     },
     "testsRecents": [
       {
+        "path": "test/dashboard-aiad-metrics.test.js",
+        "mtime": 1794744745598.1458
+      },
+      {
+        "path": "test/metrics-sources.test.js",
+        "mtime": 1794744730136.1074
+      },
+      {
+        "path": "test/metrics.test.js",
+        "mtime": 1794744730135.8909
+      },
+      {
+        "path": "test/dashboard-roles.test.js",
+        "mtime": 1794743746336.7314
+      },
+      {
+        "path": "test/commands-registry.test.js",
+        "mtime": 1794743616746.855
+      },
+      {
+        "path": "test/dashboard-navigation.test.js",
+        "mtime": 1794742434801.7227
+      },
+      {
         "path": "test/dashboard-usage.test.js",
         "mtime": 1794740492322.3374
       },
@@ -9247,24 +9547,12 @@
         "mtime": 1794739681951.0125
       },
       {
-        "path": "test/commands-registry.test.js",
-        "mtime": 1794739681950.8806
-      },
-      {
         "path": "test/check-commands-parity.test.js",
         "mtime": 1794739681950.7537
       },
       {
         "path": "test/dashboard-design-system.test.js",
         "mtime": 1794737309805.6826
-      },
-      {
-        "path": "test/dashboard-roles.test.js",
-        "mtime": 1794737151204.2551
-      },
-      {
-        "path": "test/dashboard-navigation.test.js",
-        "mtime": 1794737116905.9385
       },
       {
         "path": "test/alias-retirement.test.js",
@@ -10463,12 +10751,22 @@
         "done": 0,
         "enCours": 0,
         "ratio": 0
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "statut": "active",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "total": 2,
+        "done": 0,
+        "enCours": 0,
+        "ratio": 0
       }
     ],
     "funnel": {
       "idea": 1,
       "validated": 1,
-      "inDelivery": 4,
+      "inDelivery": 5,
       "done": 0,
       "archived": 0
     },
@@ -10700,12 +10998,18 @@
         "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
         "titre": "Refondre le dashboard — une vision globale et un onglet par rôle, avec un design system moderne",
         "statut": "active"
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "statut": "active"
       }
     ],
     "totaux": {
       "planifies": 0,
-      "nonDates": 6,
-      "total": 6
+      "nonDates": 7,
+      "total": 7
     }
   },
   "adrs": {
@@ -10867,6 +11171,30 @@
           "file": ".aiad/specs/SPEC-037-2-mesure-usage-dashboard.md"
         },
         {
+          "id": "SPEC-038-1-metriques-aiad-dashboard",
+          "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+          "intentId": "INTENT-038-metriques-aiad-dashboard",
+          "intentFile": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+          "statut": "ready",
+          "sqs": "4",
+          "governance": [],
+          "testsCount": 1,
+          "codeCount": 2,
+          "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md"
+        },
+        {
+          "id": "SPEC-038-2-instrumentation-metriques",
+          "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+          "intentId": "INTENT-038-metriques-aiad-dashboard",
+          "intentFile": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+          "statut": "ready",
+          "sqs": "4",
+          "governance": [],
+          "testsCount": 2,
+          "codeCount": 2,
+          "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md"
+        },
+        {
           "id": "spec-template",
           "titre": "SPEC-[NNN]-[nom-court]",
           "intentId": "INTENT-[NNN]",
@@ -10911,7 +11239,7 @@
     "all": [
       {
         "priorite": "P5",
-        "titre": "12 SPEC(s) prête(s) à exécuter",
+        "titre": "14 SPEC(s) prête(s) à exécuter",
         "detail": "SPEC-033-1-resync-commandes-livrees · SPEC-033-2-sections-gabarit-spec · SPEC-033-3-gate-precheck",
         "action": "PE — démarrer la prochaine via `/sdd exec`.",
         "cardIds": [
@@ -10926,7 +11254,9 @@
           "SPEC-036-2-retrait-alias-plats",
           "SPEC-036-3-drift-lock-cli-absente",
           "SPEC-037-1-dashboard-par-role",
-          "SPEC-037-2-mesure-usage-dashboard"
+          "SPEC-037-2-mesure-usage-dashboard",
+          "SPEC-038-1-metriques-aiad-dashboard",
+          "SPEC-038-2-instrumentation-metriques"
         ],
         "roles": [
           "pe"
@@ -10936,7 +11266,7 @@
     "pm": [
       {
         "priorite": "P5",
-        "titre": "12 SPEC(s) prête(s) à exécuter",
+        "titre": "14 SPEC(s) prête(s) à exécuter",
         "detail": "SPEC-033-1-resync-commandes-livrees · SPEC-033-2-sections-gabarit-spec · SPEC-033-3-gate-precheck",
         "action": "PE — démarrer la prochaine via `/sdd exec`.",
         "cardIds": [
@@ -10951,7 +11281,9 @@
           "SPEC-036-2-retrait-alias-plats",
           "SPEC-036-3-drift-lock-cli-absente",
           "SPEC-037-1-dashboard-par-role",
-          "SPEC-037-2-mesure-usage-dashboard"
+          "SPEC-037-2-mesure-usage-dashboard",
+          "SPEC-038-1-metriques-aiad-dashboard",
+          "SPEC-038-2-instrumentation-metriques"
         ],
         "roles": [
           "pe"
@@ -10961,7 +11293,7 @@
     "pe": [
       {
         "priorite": "P5",
-        "titre": "12 SPEC(s) prête(s) à exécuter",
+        "titre": "14 SPEC(s) prête(s) à exécuter",
         "detail": "SPEC-033-1-resync-commandes-livrees · SPEC-033-2-sections-gabarit-spec · SPEC-033-3-gate-precheck",
         "action": "PE — démarrer la prochaine via `/sdd exec`.",
         "cardIds": [
@@ -10976,7 +11308,9 @@
           "SPEC-036-2-retrait-alias-plats",
           "SPEC-036-3-drift-lock-cli-absente",
           "SPEC-037-1-dashboard-par-role",
-          "SPEC-037-2-mesure-usage-dashboard"
+          "SPEC-037-2-mesure-usage-dashboard",
+          "SPEC-038-1-metriques-aiad-dashboard",
+          "SPEC-038-2-instrumentation-metriques"
         ],
         "roles": [
           "pe"
@@ -10986,7 +11320,7 @@
     "ae": [
       {
         "priorite": "P5",
-        "titre": "12 SPEC(s) prête(s) à exécuter",
+        "titre": "14 SPEC(s) prête(s) à exécuter",
         "detail": "SPEC-033-1-resync-commandes-livrees · SPEC-033-2-sections-gabarit-spec · SPEC-033-3-gate-precheck",
         "action": "PE — démarrer la prochaine via `/sdd exec`.",
         "cardIds": [
@@ -11001,7 +11335,9 @@
           "SPEC-036-2-retrait-alias-plats",
           "SPEC-036-3-drift-lock-cli-absente",
           "SPEC-037-1-dashboard-par-role",
-          "SPEC-037-2-mesure-usage-dashboard"
+          "SPEC-037-2-mesure-usage-dashboard",
+          "SPEC-038-1-metriques-aiad-dashboard",
+          "SPEC-038-2-instrumentation-metriques"
         ],
         "roles": [
           "pe"
@@ -11011,7 +11347,7 @@
     "qa": [
       {
         "priorite": "P5",
-        "titre": "12 SPEC(s) prête(s) à exécuter",
+        "titre": "14 SPEC(s) prête(s) à exécuter",
         "detail": "SPEC-033-1-resync-commandes-livrees · SPEC-033-2-sections-gabarit-spec · SPEC-033-3-gate-precheck",
         "action": "PE — démarrer la prochaine via `/sdd exec`.",
         "cardIds": [
@@ -11026,7 +11362,9 @@
           "SPEC-036-2-retrait-alias-plats",
           "SPEC-036-3-drift-lock-cli-absente",
           "SPEC-037-1-dashboard-par-role",
-          "SPEC-037-2-mesure-usage-dashboard"
+          "SPEC-037-2-mesure-usage-dashboard",
+          "SPEC-038-1-metriques-aiad-dashboard",
+          "SPEC-038-2-instrumentation-metriques"
         ],
         "roles": [
           "pe"
@@ -11036,7 +11374,7 @@
     "tl": [
       {
         "priorite": "P5",
-        "titre": "12 SPEC(s) prête(s) à exécuter",
+        "titre": "14 SPEC(s) prête(s) à exécuter",
         "detail": "SPEC-033-1-resync-commandes-livrees · SPEC-033-2-sections-gabarit-spec · SPEC-033-3-gate-precheck",
         "action": "PE — démarrer la prochaine via `/sdd exec`.",
         "cardIds": [
@@ -11051,7 +11389,9 @@
           "SPEC-036-2-retrait-alias-plats",
           "SPEC-036-3-drift-lock-cli-absente",
           "SPEC-037-1-dashboard-par-role",
-          "SPEC-037-2-mesure-usage-dashboard"
+          "SPEC-037-2-mesure-usage-dashboard",
+          "SPEC-038-1-metriques-aiad-dashboard",
+          "SPEC-038-2-instrumentation-metriques"
         ],
         "roles": [
           "pe"
@@ -11250,9 +11590,9 @@
     }
   },
   "violations": {
-    "total": 10,
+    "total": 14,
     "typeA": {
-      "total": 10,
+      "total": 14,
       "entrees": [
         {
           "type": "code-non-déclaré-dans-SPEC",
@@ -11269,6 +11609,14 @@
           "specFile": ".aiad/specs/SPEC-034-2-controle-drift-doctrine.md",
           "codeFile": "scripts/check-doctrine.js",
           "line": 7
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-037-1-dashboard-par-role",
+          "specFile": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
+          "codeFile": "lib/dashboard/assets.js",
+          "line": 19
         },
         {
           "type": "code-non-déclaré-dans-SPEC",
@@ -11299,24 +11647,16 @@
           "tag": "AIAD-RGAA",
           "specId": "SPEC-037-1-dashboard-par-role",
           "specFile": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
-          "codeFile": "lib/dashboard/views/roles.js",
-          "line": 17
-        },
-        {
-          "type": "code-non-déclaré-dans-SPEC",
-          "tag": "AIAD-RGAA",
-          "specId": "SPEC-037-1-dashboard-par-role",
-          "specFile": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
-          "codeFile": "lib/dashboard/assets.js",
-          "line": 19
-        },
-        {
-          "type": "code-non-déclaré-dans-SPEC",
-          "tag": "AIAD-RGAA",
-          "specId": "SPEC-037-1-dashboard-par-role",
-          "specFile": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
           "codeFile": "lib/dashboard/render.js",
           "line": 56
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-037-1-dashboard-par-role",
+          "specFile": ".aiad/specs/SPEC-037-1-dashboard-par-role.md",
+          "codeFile": "lib/dashboard/views/roles.js",
+          "line": 17
         },
         {
           "type": "code-non-déclaré-dans-SPEC",
@@ -11333,6 +11673,38 @@
           "specFile": ".aiad/specs/SPEC-037-2-mesure-usage-dashboard.md",
           "codeFile": "lib/dashboard/usage.js",
           "line": 19
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGAA",
+          "specId": "SPEC-038-1-metriques-aiad-dashboard",
+          "specFile": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+          "codeFile": "lib/dashboard/views/scorecard.js",
+          "line": 14
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGPD",
+          "specId": "SPEC-038-1-metriques-aiad-dashboard",
+          "specFile": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+          "codeFile": "lib/dashboard/aiad-metrics.js",
+          "line": 19
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGPD",
+          "specId": "SPEC-038-2-instrumentation-metriques",
+          "specFile": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+          "codeFile": "lib/dashboard/metrics-sources.js",
+          "line": 16
+        },
+        {
+          "type": "code-non-déclaré-dans-SPEC",
+          "tag": "AIAD-RGPD",
+          "specId": "SPEC-038-2-instrumentation-metriques",
+          "specFile": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+          "codeFile": "lib/metrics.js",
+          "line": 23
         }
       ]
     },
@@ -11342,14 +11714,14 @@
     },
     "parTag": {
       "AIAD-RGESN": 3,
-      "AIAD-RGAA": 6,
-      "AIAD-RGPD": 1
+      "AIAD-RGAA": 7,
+      "AIAD-RGPD": 4
     }
   },
   "sre": {
     "hookStats": {
       "available": true,
-      "count": 16,
+      "count": 31,
       "ratioFail": 1,
       "timeouts": 0,
       "scopeLeaks": 0,
@@ -11392,10 +11764,16 @@
       "entrees": []
     },
     "fichiersRgpd": {
-      "total": 15,
+      "total": 18,
       "entrees": [
         {
-          "path": "lib/dashboard/usage.js"
+          "path": "lib/dashboard/aiad-metrics.js"
+        },
+        {
+          "path": "lib/dashboard/metrics-sources.js"
+        },
+        {
+          "path": "lib/metrics.js"
         },
         {
           "path": ".aiad/hooks/veto.js"
@@ -11408,6 +11786,9 @@
         },
         {
           "path": "lib/dashboard/intent-humans-agents.js"
+        },
+        {
+          "path": "lib/dashboard/usage.js"
         },
         {
           "path": "lib/dashboard/views/inbox.js"
@@ -11705,6 +12086,15 @@
           "target": null,
           "target_date": null,
           "joursRestants": null
+        },
+        {
+          "id": "INTENT-038-metriques-aiad-dashboard",
+          "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+          "statut": "active",
+          "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+          "target": null,
+          "target_date": null,
+          "joursRestants": null
         }
       ],
       "livre": []
@@ -11714,7 +12104,7 @@
       "urgent": 0,
       "proche": 0,
       "planifie": 0,
-      "sansCible": 6,
+      "sansCible": 7,
       "livre": 0
     }
   },
@@ -11762,6 +12152,10 @@
           },
           {
             "id": "INTENT-037-dashboard-par-role",
+            "statut": "active"
+          },
+          {
+            "id": "INTENT-038-metriques-aiad-dashboard",
             "statut": "active"
           }
         ],
@@ -11827,13 +12221,23 @@
             "parentIntent": "INTENT-037"
           },
           {
+            "id": "SPEC-038-1-metriques-aiad-dashboard",
+            "statut": "ready",
+            "parentIntent": "INTENT-038"
+          },
+          {
+            "id": "SPEC-038-2-instrumentation-metriques",
+            "statut": "ready",
+            "parentIntent": "INTENT-038"
+          },
+          {
             "id": "spec-template",
             "statut": "draft",
             "parentIntent": "INTENT-[NNN]"
           }
         ]
       },
-      "mtime": 1794740545915.4685
+      "mtime": 1794748428665.8828
     },
     "totalChangements": 0
   },
@@ -11892,6 +12296,15 @@
         "bloquePar": [],
         "bloque": [],
         "bloqueActif": false
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "statut": "active",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "bloquePar": [],
+        "bloque": [],
+        "bloqueActif": false
       }
     ],
     "avecDeps": [],
@@ -11942,18 +12355,24 @@
             "titre": "Refondre le dashboard — une vision globale et un onglet par rôle, avec un design system moderne",
             "statut": "active",
             "file": ".aiad/intents/INTENT-037-dashboard-par-role.md"
+          },
+          {
+            "id": "INTENT-038-metriques-aiad-dashboard",
+            "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+            "statut": "active",
+            "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md"
           }
         ],
         "totaux": {
-          "total": 6,
-          "actifs": 6,
+          "total": 7,
+          "actifs": 7,
           "livres": 0
         }
       }
     ],
     "totaux": {
       "ownersReels": 0,
-      "sansOwner": 6
+      "sansOwner": 7
     }
   },
   "bottlenecks": {
@@ -11999,7 +12418,7 @@
     "sponsors": [],
     "totaux": {
       "sponsors": 0,
-      "sansSponsor": 6
+      "sansSponsor": 7
     }
   },
   "cycleTime": {
@@ -12010,35 +12429,42 @@
         "id": "INTENT-033-doctrine-v19-gate-context",
         "titre": "Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9",
         "file": ".aiad/intents/INTENT-033-doctrine-v19-gate-context.md",
-        "ageJours": 0,
+        "ageJours": 1,
         "statut": "active"
       },
       {
         "id": "INTENT-034-gouvernance-sync-drive",
         "titre": "Synchroniser les agents de gouvernance du package sur le corpus Drive, qui fait foi",
         "file": ".aiad/intents/INTENT-034-gouvernance-sync-drive.md",
-        "ageJours": 0,
+        "ageJours": 1,
         "statut": "active"
       },
       {
         "id": "INTENT-035-reactivation-npm",
         "titre": "Réactiver la distribution npm du package aiad-sdd",
         "file": ".aiad/intents/INTENT-035-reactivation-npm.md",
-        "ageJours": 0,
+        "ageJours": 1,
         "statut": "active"
       },
       {
         "id": "INTENT-036-agents-de-role",
         "titre": "Améliorer l'aspect agentique de SDD Mode — un agent par rôle, qui gère ses sous-agents",
         "file": ".aiad/intents/INTENT-036-agents-de-role.md",
-        "ageJours": 0,
+        "ageJours": 1,
         "statut": "active"
       },
       {
         "id": "INTENT-037-dashboard-par-role",
         "titre": "Refondre le dashboard — une vision globale et un onglet par rôle, avec un design system moderne",
         "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
-        "ageJours": 0,
+        "ageJours": 1,
+        "statut": "active"
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "ageJours": 1,
         "statut": "active"
       }
     ],
@@ -12048,35 +12474,35 @@
         "id": "INTENT-033-doctrine-v19-gate-context",
         "titre": "Aligner /sdd gate et /sdd context sur la doctrine AIAD v1.9",
         "file": ".aiad/intents/INTENT-033-doctrine-v19-gate-context.md",
-        "ageJours": 0,
+        "ageJours": 1,
         "statut": "active"
       },
       {
         "id": "INTENT-034-gouvernance-sync-drive",
         "titre": "Synchroniser les agents de gouvernance du package sur le corpus Drive, qui fait foi",
         "file": ".aiad/intents/INTENT-034-gouvernance-sync-drive.md",
-        "ageJours": 0,
+        "ageJours": 1,
         "statut": "active"
       },
       {
         "id": "INTENT-035-reactivation-npm",
         "titre": "Réactiver la distribution npm du package aiad-sdd",
         "file": ".aiad/intents/INTENT-035-reactivation-npm.md",
-        "ageJours": 0,
+        "ageJours": 1,
         "statut": "active"
       },
       {
         "id": "INTENT-036-agents-de-role",
         "titre": "Améliorer l'aspect agentique de SDD Mode — un agent par rôle, qui gère ses sous-agents",
         "file": ".aiad/intents/INTENT-036-agents-de-role.md",
-        "ageJours": 0,
+        "ageJours": 1,
         "statut": "active"
       },
       {
         "id": "INTENT-037-dashboard-par-role",
         "titre": "Refondre le dashboard — une vision globale et un onglet par rôle, avec un design system moderne",
         "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
-        "ageJours": 0,
+        "ageJours": 1,
         "statut": "active"
       }
     ]
@@ -12139,12 +12565,21 @@
         "impact": 0,
         "effort": 4,
         "quadrant": "fill-ins"
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "impact": 0,
+        "effort": 4,
+        "quadrant": "fill-ins"
       }
     ],
     "totaux": {
       "quick-wins": 0,
       "big-bets": 0,
-      "fill-ins": 1,
+      "fill-ins": 2,
       "time-sinks": 3
     }
   },
@@ -12252,14 +12687,46 @@
   "recentActivity": {
     "items": [
       {
+        "type": "SPEC",
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "statut": "ready",
+        "mtime": 1794748428050.3455,
+        "parentIntent": "INTENT-038",
+        "ageMs": 617.654541015625,
+        "ageHumain": "à l'instant"
+      },
+      {
+        "type": "SPEC",
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+        "statut": "ready",
+        "mtime": 1794748428050.141,
+        "parentIntent": "INTENT-038",
+        "ageMs": 617.85888671875,
+        "ageHumain": "à l'instant"
+      },
+      {
+        "type": "Intent",
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "mtime": 1794748428049.8398,
+        "ageMs": 618.16015625,
+        "ageHumain": "à l'instant"
+      },
+      {
         "type": "Intent",
         "id": "INTENT-037-dashboard-par-role",
         "titre": "Refondre le dashboard — une vision globale et un onglet par rôle, avec un design system moderne",
         "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
         "statut": "active",
         "mtime": 1794740531936.151,
-        "ageMs": 13981.84912109375,
-        "ageHumain": "à l'instant"
+        "ageMs": 7896731.849121094,
+        "ageHumain": "il y a 2 h"
       },
       {
         "type": "SPEC",
@@ -12269,8 +12736,8 @@
         "statut": "ready",
         "mtime": 1794740531935.915,
         "parentIntent": "INTENT-037",
-        "ageMs": 13982.0849609375,
-        "ageHumain": "à l'instant"
+        "ageMs": 7896732.0849609375,
+        "ageHumain": "il y a 2 h"
       },
       {
         "type": "SPEC",
@@ -12280,8 +12747,8 @@
         "statut": "ready",
         "mtime": 1794740531900.2383,
         "parentIntent": "INTENT-037",
-        "ageMs": 14017.76171875,
-        "ageHumain": "à l'instant"
+        "ageMs": 7896767.76171875,
+        "ageHumain": "il y a 2 h"
       },
       {
         "type": "SPEC",
@@ -12291,8 +12758,8 @@
         "statut": "ready",
         "mtime": 1794737230059.3647,
         "parentIntent": "INTENT-036",
-        "ageMs": 3315858.6352539062,
-        "ageHumain": "il y a 55 min"
+        "ageMs": 11198608.635253906,
+        "ageHumain": "il y a 3 h"
       },
       {
         "type": "SPEC",
@@ -12302,8 +12769,8 @@
         "statut": "ready",
         "mtime": 1794737230057.5847,
         "parentIntent": "INTENT-036",
-        "ageMs": 3315860.415283203,
-        "ageHumain": "il y a 55 min"
+        "ageMs": 11198610.415283203,
+        "ageHumain": "il y a 3 h"
       },
       {
         "type": "SPEC",
@@ -12313,8 +12780,8 @@
         "statut": "ready",
         "mtime": 1794735533872.449,
         "parentIntent": "INTENT-036",
-        "ageMs": 5012045.551025391,
-        "ageHumain": "il y a 1 h"
+        "ageMs": 12894795.55102539,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "Intent",
@@ -12323,46 +12790,13 @@
         "file": ".aiad/intents/INTENT-036-agents-de-role.md",
         "statut": "active",
         "mtime": 1794735533872.2273,
-        "ageMs": 5012045.772705078,
-        "ageHumain": "il y a 1 h"
-      },
-      {
-        "type": "SPEC",
-        "id": "spec-template",
-        "titre": "SPEC-[NNN]-[nom-court]",
-        "file": ".aiad/specs/spec-template.md",
-        "statut": "draft",
-        "mtime": 1794733258873.6077,
-        "parentIntent": "INTENT-[NNN]",
-        "ageMs": 7287044.392333984,
-        "ageHumain": "il y a 2 h"
-      },
-      {
-        "type": "SPEC",
-        "id": "SPEC-034-2-controle-drift-doctrine",
-        "titre": "Contrôle de drift de la doctrine livrée — version et contenu, en CI et à la release",
-        "file": ".aiad/specs/SPEC-034-2-controle-drift-doctrine.md",
-        "statut": "ready",
-        "mtime": 1794733258868.6604,
-        "parentIntent": "INTENT-034",
-        "ageMs": 7287049.339599609,
-        "ageHumain": "il y a 2 h"
-      },
-      {
-        "type": "SPEC",
-        "id": "SPEC-034-1b-update-ecrase-signale",
-        "titre": "update — écraser les agents de gouvernance mais signaler, avec sauvegarde des modifications locales",
-        "file": ".aiad/specs/SPEC-034-1b-update-ecrase-signale.md",
-        "statut": "ready",
-        "mtime": 1794733258868.6016,
-        "parentIntent": "INTENT-034",
-        "ageMs": 7287049.3984375,
-        "ageHumain": "il y a 2 h"
+        "ageMs": 12894795.772705078,
+        "ageHumain": "il y a 4 h"
       }
     ],
     "totaux": {
-      "intents": 6,
-      "specs": 13,
+      "intents": 7,
+      "specs": 15,
       "facts": 0
     }
   },
@@ -12411,7 +12845,7 @@
         "date": "2026-11-15",
         "par": {
           "draft": 0,
-          "active": 5,
+          "active": 6,
           "review": 0,
           "in-progress": 0,
           "validation": 0,
@@ -12436,7 +12870,7 @@
       "objectifs": 0,
       "keyResults": 0,
       "intentsAlignes": 0,
-      "intentsTotal": 6,
+      "intentsTotal": 7,
       "orphelines": 0
     }
   },
@@ -12494,12 +12928,20 @@
         "statut": "active",
         "hypothese": null,
         "hypothesisStatus": null
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "hypothese": null,
+        "hypothesisStatus": null
       }
     ],
     "totaux": {
       "discovery": 0,
-      "delivery": 6,
-      "total": 6
+      "delivery": 7,
+      "total": 7
     }
   },
   "tagCloud": {
@@ -12507,7 +12949,7 @@
     "totaux": {
       "tagsUniques": 0,
       "intentsAvecTag": 0,
-      "intentsTotal": 6
+      "intentsTotal": 7
     }
   },
   "burnupChart": {
@@ -12529,14 +12971,14 @@
       },
       {
         "date": "2026-11-15",
-        "total": 6,
+        "total": 7,
         "done": 0
       }
     ],
     "estimation": {
-      "vitesse": 3.2375032375032375e-10,
-      "date": "2027-06-17",
-      "restant": 6
+      "vitesse": 2.428127428127428e-10,
+      "date": "2027-10-14",
+      "restant": 7
     },
     "snapshots": 4
   },
@@ -12670,13 +13112,34 @@
           }
         ],
         "pireGravite": "low"
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "raisons": [
+          {
+            "key": "no-target",
+            "gravite": "low",
+            "label": "Aucun target déclaré",
+            "action": "Ajouter `target: Q3-2026` ou `target_date: ...` dans le frontmatter."
+          },
+          {
+            "key": "no-owner",
+            "gravite": "low",
+            "label": "Aucun owner / sponsor",
+            "action": "Ajouter `owner:` et `sponsor:` dans le frontmatter."
+          }
+        ],
+        "pireGravite": "low"
       }
     ],
     "totaux": {
-      "total": 5,
+      "total": 6,
       "high": 0,
       "medium": 4,
-      "low": 1
+      "low": 2
     }
   },
   "capacityPlanner": {
@@ -12751,7 +13214,7 @@
     ],
     "totaux": {
       "satures": 0,
-      "sansQuarter": 5
+      "sansQuarter": 6
     }
   },
   "confidenceTracker": {
@@ -13134,12 +13597,12 @@
       {
         "date": "2026-11-15",
         "dow": 0,
-        "count": 19
+        "count": 22
       }
     ],
     "nbJours": 60,
-    "max": 19,
-    "total": 19,
+    "max": 22,
+    "total": 22,
     "joursActifs": 1,
     "streak": 1
   },
@@ -13185,9 +13648,9 @@
       "source": "défaut (5/8)"
     },
     "intents": {
-      "charge": 5,
+      "charge": 6,
       "limite": 5,
-      "etat": "depasse",
+      "etat": "critique",
       "items": [
         {
           "id": "INTENT-033-doctrine-v19-gate-context",
@@ -13218,6 +13681,12 @@
           "titre": "Refondre le dashboard — une vision globale et un onglet par rôle, avec un design system moderne",
           "statut": "active",
           "file": ".aiad/intents/INTENT-037-dashboard-par-role.md"
+        },
+        {
+          "id": "INTENT-038-metriques-aiad-dashboard",
+          "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+          "statut": "active",
+          "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md"
         }
       ]
     },
@@ -13277,6 +13746,16 @@
         "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
         "statut": "active",
         "mtime": 1794740531936.151,
+        "ageJours": 0,
+        "bande": "frais"
+      },
+      {
+        "type": "Intent",
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "mtime": 1794748428049.8398,
         "ageJours": 0,
         "bande": "frais"
       },
@@ -13402,6 +13881,26 @@
       },
       {
         "type": "SPEC",
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+        "statut": "ready",
+        "mtime": 1794748428050.141,
+        "ageJours": 0,
+        "bande": "frais"
+      },
+      {
+        "type": "SPEC",
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "statut": "ready",
+        "mtime": 1794748428050.3455,
+        "ageJours": 0,
+        "bande": "frais"
+      },
+      {
+        "type": "SPEC",
         "id": "spec-template",
         "titre": "SPEC-[NNN]-[nom-court]",
         "file": ".aiad/specs/spec-template.md",
@@ -13412,11 +13911,11 @@
       }
     ],
     "totaux": {
-      "total": 18,
+      "total": 21,
       "abandonne": 0,
       "stale": 0,
       "tiede": 0,
-      "frais": 18
+      "frais": 21
     }
   },
   "goalTree": {
@@ -13562,12 +14061,32 @@
             "file": ".aiad/specs/SPEC-037-2-mesure-usage-dashboard.md"
           }
         ]
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "statut": "active",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "specs": [
+          {
+            "id": "SPEC-038-1-metriques-aiad-dashboard",
+            "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+            "statut": "ready",
+            "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md"
+          },
+          {
+            "id": "SPEC-038-2-instrumentation-metriques",
+            "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+            "statut": "ready",
+            "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md"
+          }
+        ]
       }
     ],
     "totaux": {
       "outcomes": 3,
       "intentsLies": 0,
-      "intentsOrphelins": 6
+      "intentsOrphelins": 7
     }
   },
   "abTestTracker": {
@@ -13648,10 +14167,22 @@
         "poidsPrio": 1,
         "base": 0,
         "bonus": 0.5
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "priority": null,
+        "score": 0.5,
+        "outcomesServis": 0,
+        "poidsPrio": 1,
+        "base": 0,
+        "bonus": 0.5
       }
     ],
     "totaux": {
-      "total": 5
+      "total": 6
     }
   },
   "velocityForecast": {
@@ -13790,11 +14321,26 @@
           "scored": 2
         },
         "specsFaibles": []
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "priority": null,
+        "etat": "ready",
+        "total": 2,
+        "score": {
+          "min": 4,
+          "avg": 4,
+          "scored": 2
+        },
+        "specsFaibles": []
       }
     ],
     "totaux": {
-      "total": 6,
-      "ready": 4,
+      "total": 7,
+      "ready": 5,
       "partial": 0,
       "needsWork": 0,
       "toScore": 0,
@@ -13920,7 +14466,7 @@
       },
       {
         "date": "2026-11-15",
-        "score": 73,
+        "score": 70,
         "niveau": "sain",
         "composantes": [
           {
@@ -13949,17 +14495,17 @@
           },
           {
             "id": "violations",
-            "points": 2,
+            "points": 0,
             "max": 20,
             "disponible": true
           }
         ],
-        "mtime": 1794739682204.0215
+        "mtime": 1794748253348.1577
       }
     ],
     "tendance": {
       "direction": "up",
-      "delta": 6.5,
+      "delta": 5,
       "base": 65
     },
     "courant": null,
@@ -14251,11 +14797,57 @@
         ],
         "score": 90,
         "etat": "complete"
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "priority": null,
+        "cellules": [
+          {
+            "cle": "pourquoi",
+            "label": "POURQUOI MAINTENANT",
+            "etat": "mature",
+            "points": 20,
+            "chars": 166
+          },
+          {
+            "cle": "pourQui",
+            "label": "POUR QUI",
+            "etat": "mature",
+            "points": 20,
+            "chars": 250
+          },
+          {
+            "cle": "objectif",
+            "label": "OBJECTIF",
+            "etat": "mature",
+            "points": 20,
+            "chars": 93
+          },
+          {
+            "cle": "contraintes",
+            "label": "CONTRAINTES",
+            "etat": "squelette",
+            "points": 10,
+            "chars": 42
+          },
+          {
+            "cle": "critereDrift",
+            "label": "CRITÈRE DE DRIFT",
+            "etat": "mature",
+            "points": 20,
+            "chars": 184
+          }
+        ],
+        "score": 90,
+        "etat": "complete"
       }
     ],
     "totaux": {
-      "total": 6,
-      "complete": 3,
+      "total": 7,
+      "complete": 4,
       "structured": 2,
       "skeleton": 0,
       "incomplete": 1
@@ -14440,6 +15032,44 @@
         "bonus": 0
       },
       {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "statut": "active",
+        "auteur": "Steeve Evers",
+        "date": "2026-11-15",
+        "executor": null,
+        "validator": null,
+        "activatedAt": null,
+        "problem": null,
+        "sections": {
+          "pourquoi": "« car la v2 doit viser le prod ready et donc doit permettre de piloter l'activité » *(réponse de l'auteur du 2026-11-15 ; fautes de frappe corrigées, mots inchangés)*",
+          "pourQui": "« Les 5 responsabilités » — PM, PE, AE, QA et Tech Lead : chacun retrouve dans son onglet les métriques qu'il suit. *(formulation proposée par l'agent, choisie par l'auteur le 2026-11-15 — cas prévu par la skill `human-authorship-check`, critère #4)*",
+          "objectif": "« AIAD expose des métriques que l'on doit retrouver dans le dashboard. Mets cela en oeuvre. »",
+          "contraintes": "*Aucune contrainte exprimée par l'auteur.*",
+          "critereDrift": "« les métriques ne sont pas outillées correctement et ne retournent pas les infos dans le dashboard » *(réponse de l'auteur du 2026-11-15 ; fautes de frappe corrigées, mots inchangés)*"
+        },
+        "mtime": 1794748428049.8398,
+        "readiness": {
+          "id": "INTENT-038-metriques-aiad-dashboard",
+          "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+          "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+          "statut": "active",
+          "priority": null,
+          "etat": "ready",
+          "total": 2,
+          "score": {
+            "min": 4,
+            "avg": 4,
+            "scored": 2
+          },
+          "specsFaibles": []
+        },
+        "score": 30,
+        "poids": 3,
+        "bonus": 0
+      },
+      {
         "id": "ATELIER-INTENTION-2026-06",
         "file": ".aiad/intents/ATELIER-INTENTION-2026-06.md",
         "titre": "ATELIER-INTENTION-2026-06",
@@ -14517,16 +15147,16 @@
       "label": "Q3-2026",
       "source": "défaut (2 Intents × 5 PE)"
     },
-    "seuilCommit": 6
+    "seuilCommit": 7
   },
   "strategicNarrative": {
-    "texte": "**aiad-sdd** — état 2026-11-15 : 5 Intent(s) actif(s), 4 en delivery, 0 livré(s). Santé du projet **73/100** en amélioration (+6.5 pts) sur 4 snapshots.",
+    "texte": "**aiad-sdd** — état 2026-11-15 : 6 Intent(s) actif(s), 5 en delivery, 0 livré(s). Santé du projet **70/100** en amélioration (+5 pts) sur 4 snapshots.",
     "phrases": [
-      "**aiad-sdd** — état 2026-11-15 : 5 Intent(s) actif(s), 4 en delivery, 0 livré(s).",
-      "Santé du projet **73/100** en amélioration (+6.5 pts) sur 4 snapshots."
+      "**aiad-sdd** — état 2026-11-15 : 6 Intent(s) actif(s), 5 en delivery, 0 livré(s).",
+      "Santé du projet **70/100** en amélioration (+5 pts) sur 4 snapshots."
     ],
     "meta": {
-      "intentsActifs": 5,
+      "intentsActifs": 6,
       "risquesEleves": 0,
       "healthScore": null,
       "healthTrend": "up",
@@ -14612,13 +15242,26 @@
         "derniereComm": null,
         "etat": "silencieux",
         "jours": null
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "sponsor": null,
+        "lastDemo": null,
+        "lastSync": null,
+        "lastJournal": null,
+        "derniereComm": null,
+        "etat": "silencieux",
+        "jours": null
       }
     ],
     "totaux": {
-      "total": 6,
+      "total": 7,
       "recent": 0,
       "tiede": 0,
-      "silencieux": 6
+      "silencieux": 7
     },
     "lastDemo": null,
     "lastSync": null,
@@ -14629,57 +15272,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1789902145923,
-        "fin": 1790506945923,
+        "debut": 1789910028672,
+        "fin": 1790514828672,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1790506945923,
-        "fin": 1791111745923,
+        "debut": 1790514828672,
+        "fin": 1791119628672,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1791111745923,
-        "fin": 1791716545923,
+        "debut": 1791119628672,
+        "fin": 1791724428672,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1791716545923,
-        "fin": 1792321345923,
+        "debut": 1791724428672,
+        "fin": 1792329228672,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1792321345923,
-        "fin": 1792926145923,
+        "debut": 1792329228672,
+        "fin": 1792934028672,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1792926145923,
-        "fin": 1793530945923,
+        "debut": 1792934028672,
+        "fin": 1793538828672,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1793530945923,
-        "fin": 1794135745923,
+        "debut": 1793538828672,
+        "fin": 1794143628672,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1794135745923,
-        "fin": 1794740545923,
+        "debut": 1794143628672,
+        "fin": 1794748428672,
         "count": 6,
         "decisions": [
           {
@@ -14859,15 +15502,15 @@
   "discoveryDeliveryBalance": {
     "buckets": {
       "discovery": 0,
-      "delivery": 4,
+      "delivery": 5,
       "enabler": 0,
       "inconnu": 2
     },
     "pcts": {
       "discovery": 0,
-      "delivery": 67,
+      "delivery": 71,
       "enabler": 0,
-      "inconnu": 33
+      "inconnu": 29
     },
     "echantillons": {
       "discovery": [],
@@ -14891,6 +15534,11 @@
           "id": "INTENT-037-dashboard-par-role",
           "titre": "Refondre le dashboard — une vision globale et un onglet par rôle, avec un design system moderne",
           "source": "heuristique-specs"
+        },
+        {
+          "id": "INTENT-038-metriques-aiad-dashboard",
+          "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+          "source": "heuristique-specs"
         }
       ],
       "enabler": [],
@@ -14907,11 +15555,11 @@
         }
       ]
     },
-    "total": 6,
+    "total": 7,
     "sante": {
       "delivery": {
         "etat": "sain",
-        "delta": 2
+        "delta": 6
       },
       "discovery": {
         "etat": "tendu",
@@ -14941,7 +15589,7 @@
     },
     "timeToMarket": {
       "valeur": 0,
-      "label": "0 Intent(s) delivery actif(s) / 6 total",
+      "label": "0 Intent(s) delivery actif(s) / 7 total",
       "jnsp": false
     },
     "abilityToInnovate": {
@@ -14955,7 +15603,7 @@
       "features": 0,
       "enabler": 0,
       "conformite": 0,
-      "inconnu": 6
+      "inconnu": 7
     },
     "pcts": {
       "features": 0,
@@ -14963,7 +15611,7 @@
       "conformite": 0,
       "inconnu": 100
     },
-    "total": 6,
+    "total": 7,
     "sante": "critique"
   },
   "hillCharts": {
@@ -14999,6 +15647,13 @@
       {
         "id": "INTENT-037-dashboard-par-role",
         "titre": "Refondre le dashboard — une vision globale et un onglet par rôle, avec un design system moderne",
+        "positionX": 0,
+        "jnsp": true,
+        "trajectoire": []
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
         "positionX": 0,
         "jnsp": true,
         "trajectoire": []
@@ -15083,6 +15738,24 @@
     {
       "id": "INTENT-037-dashboard-par-role",
       "titre": "Refondre le dashboard — une vision globale et un onglet par rôle, avec un design system moderne",
+      "statut": "active",
+      "formulateur": {
+        "nom": "Steeve Evers",
+        "type": "human"
+      },
+      "executor": {
+        "nom": null,
+        "type": "inconnu"
+      },
+      "validator": {
+        "nom": null,
+        "type": "inconnu"
+      },
+      "agentsGouvernance": []
+    },
+    {
+      "id": "INTENT-038-metriques-aiad-dashboard",
+      "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
       "statut": "active",
       "formulateur": {
         "nom": "Steeve Evers",
@@ -15185,6 +15858,29 @@
   },
   "whatsNew": {
     "items": [
+      {
+        "type": "spec",
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "mtime": 1794748428050.3455,
+        "parentIntent": "INTENT-038",
+        "statut": "ready"
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "mtime": 1794748428050.141,
+        "parentIntent": "INTENT-038",
+        "statut": "ready"
+      },
+      {
+        "type": "intent",
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "mtime": 1794748428049.8398,
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md"
+      },
       {
         "type": "intent",
         "id": "INTENT-037-dashboard-par-role",
@@ -15332,7 +16028,7 @@
         "file": ".aiad/intents/ATELIER-INTENTION-2026-06.md"
       }
     ],
-    "nowMs": 1794740545925
+    "nowMs": 1794748428674
   },
   "hypothesisLifecycle": {
     "items": [],
@@ -15352,7 +16048,7 @@
   "roadmapTimeline": {
     "items": [],
     "plage": null,
-    "now": 1794740545925,
+    "now": 1794748428674,
     "totaux": {
       "total": 0,
       "retard": 0,
@@ -15366,10 +16062,10 @@
       {
         "cle": "intents-crees",
         "label": "Intents capturés",
-        "courant": 6,
+        "courant": 7,
         "precedent": 0,
         "icone": "💡",
-        "delta": 6,
+        "delta": 7,
         "direction": "up"
       },
       {
@@ -15419,14 +16115,14 @@
       }
     ],
     "fenetre": {
-      "debut": 1792148545925,
-      "fin": 1794740545925
+      "debut": 1792156428674,
+      "fin": 1794748428674
     },
     "fenetrePrecedente": {
-      "debut": 1789556545925,
-      "fin": 1792148545925
+      "debut": 1789564428674,
+      "fin": 1792156428674
     },
-    "totalActivite": 13,
+    "totalActivite": 14,
     "totalPrecedent": 0,
     "directionGlobale": "up"
   },
@@ -15555,7 +16251,7 @@
       "INTENT-033-doctrine-v19-gate-context",
       "INTENT-034-gouvernance-sync-drive"
     ],
-    "totalIntentsDispo": 6
+    "totalIntentsDispo": 7
   },
   "sponsorPrep": {
     "items": [],
@@ -15651,11 +16347,24 @@
         },
         "ttfsJours": 0,
         "etat": "rapide"
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "mtime": 1794748428049.8398,
+        "premiereSpec": {
+          "id": "SPEC-038-1-metriques-aiad-dashboard",
+          "mtime": 1794748428050.141
+        },
+        "ttfsJours": 0,
+        "etat": "rapide"
       }
     ],
     "totaux": {
-      "total": 6,
-      "rapide": 4,
+      "total": 7,
+      "rapide": 5,
       "normal": 0,
       "lent": 0,
       "tresLent": 0,
@@ -15716,7 +16425,7 @@
       "total": 0,
       "specs": 0,
       "intents": 0,
-      "now": 1794740545927
+      "now": 1794748428675
     }
   },
   "stateTransitions": {
@@ -15823,7 +16532,7 @@
     "clusters": [],
     "topTags": [],
     "totaux": {
-      "intents": 6,
+      "intents": 7,
       "tagsUniques": 0,
       "clusters": 0
     }
@@ -15870,7 +16579,7 @@
         "urgenceMult": 0.7,
         "statutMult": 1.2,
         "cod": 8.4,
-        "tier": "eleve"
+        "tier": "critical"
       },
       {
         "id": "INTENT-036-agents-de-role",
@@ -15898,6 +16607,20 @@
         "urgenceMult": 0.7,
         "statutMult": 1.2,
         "cod": 8.4,
+        "tier": "eleve"
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "priority": null,
+        "poidsPrio": 10,
+        "target": null,
+        "urgenceClasse": "aucun-target",
+        "urgenceMult": 0.7,
+        "statutMult": 1.2,
+        "cod": 8.4,
         "tier": "standard"
       },
       {
@@ -15916,8 +16639,8 @@
       }
     ],
     "totaux": {
-      "total": 6,
-      "critical": 2,
+      "total": 7,
+      "critical": 3,
       "eleve": 2,
       "standard": 2
     },
@@ -15972,9 +16695,16 @@
             "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
             "jours": 0,
             "statut": "active"
+          },
+          {
+            "id": "INTENT-038-metriques-aiad-dashboard",
+            "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+            "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+            "jours": 0,
+            "statut": "active"
           }
         ],
-        "count": 6
+        "count": 7
       },
       {
         "cle": "recent",
@@ -16009,14 +16739,14 @@
         "count": 0
       }
     ],
-    "total": 6,
+    "total": 7,
     "ageMoyen": 0
   },
   "specCrossIntent": {
     "items": [],
     "totaux": {
       "specs": 0,
-      "totalSpecs": 13,
+      "totalSpecs": 15,
       "maxIntentsCroises": 0
     }
   },
@@ -16069,54 +16799,54 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1791716545928,
+        "finSem": 1791724428675,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1792321345928,
+        "finSem": 1792329228675,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1792926145928,
+        "finSem": 1792934028675,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1793530945928,
+        "finSem": 1793538828675,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1794135745928,
+        "finSem": 1794143628675,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 5,
-        "finSem": 1794740545928,
-        "intake": 6,
+        "finSem": 1794748428675,
+        "intake": 7,
         "delivery": 0,
-        "delta": 6
+        "delta": 7
       }
     ],
     "nbSem": 6,
     "cumul": {
-      "intake": 6,
+      "intake": 7,
       "delivery": 0
     },
     "dernieres3": {
-      "intake": 6,
+      "intake": 7,
       "delivery": 0
     },
     "direction": "gonfle"
@@ -16211,6 +16941,16 @@
         "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
         "statut": "active",
         "mots": 94,
+        "minutes": 1,
+        "trop_long": false
+      },
+      {
+        "type": "intent",
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "mots": 122,
         "minutes": 1,
         "trop_long": false
       },
@@ -16336,6 +17076,26 @@
       },
       {
         "type": "spec",
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+        "statut": "ready",
+        "mots": 10,
+        "minutes": 1,
+        "trop_long": false
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "statut": "ready",
+        "mots": 11,
+        "minutes": 1,
+        "trop_long": false
+      },
+      {
+        "type": "spec",
         "id": "spec-template",
         "titre": "SPEC-[NNN]-[nom-court]",
         "file": ".aiad/specs/spec-template.md",
@@ -16403,6 +17163,16 @@
         "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
         "statut": "active",
         "mots": 94,
+        "minutes": 1,
+        "trop_long": false
+      },
+      {
+        "type": "intent",
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "mots": 122,
         "minutes": 1,
         "trop_long": false
       }
@@ -16530,6 +17300,26 @@
       },
       {
         "type": "spec",
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+        "statut": "ready",
+        "mots": 10,
+        "minutes": 1,
+        "trop_long": false
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "statut": "ready",
+        "mots": 11,
+        "minutes": 1,
+        "trop_long": false
+      },
+      {
+        "type": "spec",
         "id": "spec-template",
         "titre": "SPEC-[NNN]-[nom-court]",
         "file": ".aiad/specs/spec-template.md",
@@ -16540,10 +17330,10 @@
       }
     ],
     "totaux": {
-      "total": 19,
-      "intents": 6,
-      "specs": 13,
-      "totalMinutes": 19,
+      "total": 22,
+      "intents": 7,
+      "specs": 15,
+      "totalMinutes": 22,
       "moyenneMinutes": 1,
       "tropLongs": 0,
       "vitesseMotsParMin": 220
@@ -16673,6 +17463,28 @@
         "aDecouper": false
       },
       {
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "statut": "ready",
+        "parentIntent": "INTENT-038",
+        "mots": 11,
+        "sections": 0,
+        "taille": "XS",
+        "aDecouper": false
+      },
+      {
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+        "statut": "ready",
+        "parentIntent": "INTENT-038",
+        "mots": 10,
+        "sections": 0,
+        "taille": "XS",
+        "aDecouper": false
+      },
+      {
         "id": "SPEC-036-2-retrait-alias-plats",
         "titre": "Retrait des alias plats en v2.0",
         "file": ".aiad/specs/SPEC-036-2-retrait-alias-plats.md",
@@ -16696,8 +17508,8 @@
       }
     ],
     "totaux": {
-      "total": 13,
-      "XS": 13,
+      "total": 15,
+      "XS": 15,
       "S": 0,
       "M": 0,
       "L": 0,
@@ -16761,14 +17573,23 @@
         "score": 0,
         "etat": "isole",
         "tokensIntent": 38
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "statut": "active",
+        "score": 0,
+        "etat": "isole",
+        "tokensIntent": 27
       }
     ],
     "totaux": {
-      "total": 6,
+      "total": 7,
       "aligne": 0,
       "partiel": 1,
-      "isole": 5,
-      "scoreMoyen": 0.016
+      "isole": 6,
+      "scoreMoyen": 0.013
     },
     "northStar": "Toute organisation peut adopter un process Spec Driven Development assisté par IA sans friction — l'intention humaine reste maîtrisée du début à la fin.",
     "tokensNorthStar": 15,
@@ -16992,13 +17813,13 @@
     }
   },
   "cumulativeAchievements": {
-    "intentsTotal": 6,
-    "intentsActifs": 5,
+    "intentsTotal": 7,
+    "intentsActifs": 6,
     "intentsLivres": 0,
     "intentsDraft": 0,
-    "specsTotal": 13,
+    "specsTotal": 15,
     "specsLivrees": 0,
-    "specsEnCours": 12,
+    "specsEnCours": 14,
     "ageMois": 1,
     "ageJours": 1,
     "debut": 1794733258852.985,
@@ -17016,7 +17837,7 @@
   },
   "quarterlyRetroDraft": {
     "trim": "Q4-2026",
-    "texte": "# Rétrospective Q4-2026 — aiad-sdd\n\n_Brouillon généré automatiquement le 15/11/2026 depuis le dashboard PM. À enrichir en atelier équipe._\n\n## 1. 🎉 Livraisons du trimestre\n_Aucune livraison enregistrée ce trimestre — à creuser en atelier._\n\n## 2. 📊 Métriques clés\n- Vélocité moyenne : **0 SPECs/sem** (slope 0)\n- Throughput backlog : 6 intake vs 0 delivery sur 6 sem (direction : gonfle)\n\n## 3. 🧪 Hypothèses (apprentissages)\n_Aucune hypothèse formulée — opportunité d'instaurer la pratique._\n\n## 4. ⚠ Risques marquants\n_Aucun risque critical/high — portefeuille en bon état._\n\n## 5. 🤝 Sujets pour la rétro humaine\nÀ remplir en atelier :\n- Qu'est-ce qui a bien fonctionné ?\n- Qu'est-ce qui a mal fonctionné ?\n- Quelle action concrète pour le prochain trimestre ?\n\n---\n_Généré par aiad-sdd dashboard — humain garde la paternité de la rétro réelle._",
+    "texte": "# Rétrospective Q4-2026 — aiad-sdd\n\n_Brouillon généré automatiquement le 15/11/2026 depuis le dashboard PM. À enrichir en atelier équipe._\n\n## 1. 🎉 Livraisons du trimestre\n_Aucune livraison enregistrée ce trimestre — à creuser en atelier._\n\n## 2. 📊 Métriques clés\n- Vélocité moyenne : **0 SPECs/sem** (slope 0)\n- Throughput backlog : 7 intake vs 0 delivery sur 6 sem (direction : gonfle)\n\n## 3. 🧪 Hypothèses (apprentissages)\n_Aucune hypothèse formulée — opportunité d'instaurer la pratique._\n\n## 4. ⚠ Risques marquants\n_Aucun risque critical/high — portefeuille en bon état._\n\n## 5. 🤝 Sujets pour la rétro humaine\nÀ remplir en atelier :\n- Qu'est-ce qui a bien fonctionné ?\n- Qu'est-ce qui a mal fonctionné ?\n- Quelle action concrète pour le prochain trimestre ?\n\n---\n_Généré par aiad-sdd dashboard — humain garde la paternité de la rétro réelle._",
     "meta": {
       "specsLivrees": 0,
       "intentsArchives": 0,
@@ -17255,6 +18076,36 @@
         "etat": "vide"
       },
       {
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+        "statut": "ready",
+        "tags": {
+          "@intent": 0,
+          "@spec": 0,
+          "@verified-by": 0,
+          "@governance": 0
+        },
+        "nbTags": 0,
+        "pct": 0,
+        "etat": "vide"
+      },
+      {
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "statut": "ready",
+        "tags": {
+          "@intent": 0,
+          "@spec": 0,
+          "@verified-by": 0,
+          "@governance": 0
+        },
+        "nbTags": 0,
+        "pct": 0,
+        "etat": "vide"
+      },
+      {
         "id": "spec-template",
         "titre": "SPEC-[NNN]-[nom-court]",
         "file": ".aiad/specs/spec-template.md",
@@ -17271,12 +18122,12 @@
       }
     ],
     "totaux": {
-      "total": 13,
+      "total": 15,
       "complet": 0,
       "avance": 0,
       "partiel": 0,
       "debut": 0,
-      "vide": 13,
+      "vide": 15,
       "tags": {
         "@intent": 0,
         "@spec": 0,
@@ -17349,7 +18200,7 @@
     ]
   },
   "portfolioDiversity": {
-    "nbActifs": 5,
+    "nbActifs": 6,
     "dimensions": {
       "tags": {
         "score": 0,
@@ -17358,7 +18209,7 @@
         "top": [
           {
             "valeur": "(non-déclaré)",
-            "count": 5
+            "count": 6
           }
         ],
         "total": 1
@@ -17370,7 +18221,7 @@
         "top": [
           {
             "valeur": "(non-déclaré)",
-            "count": 5
+            "count": 6
           }
         ],
         "total": 1
@@ -17382,7 +18233,7 @@
         "top": [
           {
             "valeur": "(non-déclaré)",
-            "count": 5
+            "count": 6
           }
         ],
         "total": 1
@@ -17436,14 +18287,14 @@
       {
         "jour": "Dim",
         "idx": 6,
-        "total": 19,
-        "intents": 6,
-        "specs": 13
+        "total": 22,
+        "intents": 7,
+        "specs": 15
       }
     ],
-    "total": 19,
-    "maxTotal": 19,
-    "weekend": 19,
+    "total": 22,
+    "maxTotal": 22,
+    "weekend": 22,
     "semaine": 0,
     "fenetreJours": 90,
     "pourcentageWeekend": 100,
@@ -17482,10 +18333,18 @@
         "texte": "## Summary\nImplémente **Refondre le dashboard — une vision globale et un onglet par rôle, avec un design system moderne** (INTENT-037).\n\n**Objectif** : « modifie entièrement le dashboard qui doit maintenant comporter 5 onglets principaux (1 par role) et une page principale permettant d'avoir une vision globale sur l'application en cours de dev. »\n\n## Changes\n- _(à compléter)_\n\n## Test plan\n- [ ] Tests unitaires passent (`npm test`)\n- [ ] `npx aiad-sdd trace` ne signale aucun gap nouveau\n- [ ] Validation manuelle du flow utilisateur\n\n## Drift Lock\nAnnotations attendues dans le code applicatif :\n```\n@intent INTENT-037\n@verified-by tests/<chemin>.test.js\n```",
         "gouvernances": [],
         "nbSpecs": 2
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "texte": "## Summary\nImplémente **Retrouver dans le dashboard les métriques qu'expose AIAD** (INTENT-038).\n\n**Objectif** : « AIAD expose des métriques que l'on doit retrouver dans le dashboard. Mets cela en oeuvre. »\n\n## Changes\n- _(à compléter)_\n\n## Test plan\n- [ ] Tests unitaires passent (`npm test`)\n- [ ] `npx aiad-sdd trace` ne signale aucun gap nouveau\n- [ ] Validation manuelle du flow utilisateur\n\n## Drift Lock\nAnnotations attendues dans le code applicatif :\n```\n@intent INTENT-038\n@verified-by tests/<chemin>.test.js\n```",
+        "gouvernances": [],
+        "nbSpecs": 2
       }
     ],
     "totaux": {
-      "total": 4,
+      "total": 5,
       "avecGouv": 0
     }
   },
@@ -17553,11 +18412,11 @@
     "enCoursAuDebutSample": [],
     "totaux": {
       "duree": 14,
-      "debutSprint": 1793530945934,
-      "finSprint": 1794740545934,
+      "debutSprint": 1793538828678,
+      "finSprint": 1794748428678,
       "livrees": 0,
       "enCoursAuDebut": 0,
-      "ajoutees": 13,
+      "ajoutees": 15,
       "existant": 0,
       "completionRatio": null
     }
@@ -17566,8 +18425,8 @@
     "items": [],
     "totaux": {
       "specsAvecAC": 0,
-      "totalSpecs": 13,
-      "sansAC": 13,
+      "totalSpecs": 15,
+      "sansAC": 15,
       "totalCriteres": 0,
       "totalEars": 0,
       "totalCheckboxes": 0,
@@ -17641,12 +18500,21 @@
         "owners": [],
         "busFactor": 0,
         "etat": "pas-downer"
+      },
+      {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "priority": null,
+        "owners": [],
+        "busFactor": 0,
+        "etat": "pas-downer"
       }
     ],
     "totaux": {
-      "total": 5,
+      "total": 6,
       "singleOwner": 0,
-      "pasDowner": 5,
+      "pasDowner": 6,
       "duo": 0,
       "sain": 0,
       "tauxSain": 0
@@ -17656,7 +18524,7 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1790506945935,
+        "finSem": 1790514828678,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -17665,7 +18533,7 @@
       },
       {
         "idx": 1,
-        "finSem": 1791111745935,
+        "finSem": 1791119628678,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -17674,7 +18542,7 @@
       },
       {
         "idx": 2,
-        "finSem": 1791716545935,
+        "finSem": 1791724428678,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -17683,7 +18551,7 @@
       },
       {
         "idx": 3,
-        "finSem": 1792321345935,
+        "finSem": 1792329228678,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -17692,7 +18560,7 @@
       },
       {
         "idx": 4,
-        "finSem": 1792926145935,
+        "finSem": 1792934028678,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -17701,7 +18569,7 @@
       },
       {
         "idx": 5,
-        "finSem": 1793530945935,
+        "finSem": 1793538828678,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -17710,7 +18578,7 @@
       },
       {
         "idx": 6,
-        "finSem": 1794135745935,
+        "finSem": 1794143628678,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -17719,7 +18587,7 @@
       },
       {
         "idx": 7,
-        "finSem": 1794740545935,
+        "finSem": 1794748428678,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18362,12 +19230,72 @@
             "valeur": "stable"
           }
         }
+      },
+      {
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+        "statut": "ready",
+        "score": 3,
+        "etat": "bon",
+        "checks": {
+          "sqs": {
+            "ok": true,
+            "valeur": 4
+          },
+          "taille": {
+            "ok": true,
+            "valeur": "XS"
+          },
+          "ac": {
+            "ok": false,
+            "valeur": 0
+          },
+          "anno": {
+            "ok": false,
+            "valeur": 0
+          },
+          "stable": {
+            "ok": true,
+            "valeur": "stable"
+          }
+        }
+      },
+      {
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "statut": "ready",
+        "score": 3,
+        "etat": "bon",
+        "checks": {
+          "sqs": {
+            "ok": true,
+            "valeur": 4
+          },
+          "taille": {
+            "ok": true,
+            "valeur": "XS"
+          },
+          "ac": {
+            "ok": false,
+            "valeur": 0
+          },
+          "anno": {
+            "ok": false,
+            "valeur": 0
+          },
+          "stable": {
+            "ok": true,
+            "valeur": "stable"
+          }
+        }
       }
     ],
     "totaux": {
-      "total": 13,
+      "total": 15,
       "excellent": 0,
-      "bon": 12,
+      "bon": 14,
       "partiel": 1,
       "faible": 0,
       "scoreMoyen": 2.9
@@ -18418,6 +19346,27 @@
   },
   "activityFeed": {
     "events": [
+      {
+        "type": "spec",
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "statut": "ready",
+        "mtime": 1794748428050.3455
+      },
+      {
+        "type": "spec",
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "titre": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "statut": "ready",
+        "mtime": 1794748428050.141
+      },
+      {
+        "type": "intent",
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
+        "statut": "active",
+        "mtime": 1794748428049.8398
+      },
       {
         "type": "intent",
         "id": "INTENT-037-dashboard-par-role",
@@ -18589,9 +19538,9 @@
       }
     ],
     "totaux": {
-      "total": 25,
-      "intents": 6,
-      "specs": 13,
+      "total": 28,
+      "intents": 7,
+      "specs": 15,
       "journal": 0,
       "facts": 6,
       "demos": 0
@@ -18615,7 +19564,7 @@
       {
         "statut": "ready",
         "median": 0,
-        "nbObservations": 12,
+        "nbObservations": 14,
         "max": 0
       },
       {
@@ -18679,15 +19628,23 @@
   },
   "perfBudgets": {
     "fichier": ".aiad/perf-budgets.md",
-    "total": 19,
+    "total": 20,
     "budgets": [
       {
         "metric": "Overview",
-        "budget": "30",
+        "budget": "36",
         "actuel": null,
         "date": null,
         "etat": "unknown",
         "fichier": "dashboard/index.html"
+      },
+      {
+        "metric": "Métriques AIAD",
+        "budget": "26",
+        "actuel": null,
+        "date": null,
+        "etat": "unknown",
+        "fichier": "dashboard/scorecard.html"
       },
       {
         "metric": "PM Cockpit",
@@ -18836,9 +19793,9 @@
     ]
   },
   "santeGlobale": {
-    "score": 74,
+    "score": 70,
     "total": 100,
-    "scoreBrut": 59,
+    "scoreBrut": 56,
     "maxBrut": 80,
     "breakdown": [
       {
@@ -18877,8 +19834,8 @@
         "id": "violations",
         "label": "Conformité Tier 1",
         "max": 20,
-        "ratio": 0.16666666666666663,
-        "points": 3,
+        "ratio": 0,
+        "points": 0,
         "disponible": true
       }
     ],
@@ -18967,7 +19924,7 @@
         {
           "semaine": "2026-11-09",
           "samples": 1,
-          "score": 74,
+          "score": 70,
           "niveau": "sain"
         }
       ],
@@ -19198,27 +20155,20 @@
       "specsDone": 0,
       "intentsArchived": 0,
       "zombies": 0,
-      "santeScore": 1
+      "santeScore": 0
     },
-    "depuis": "2026-11-15T10:48:02.279Z",
-    "message": null
+    "depuis": "2026-11-15T13:09:08.443Z",
+    "message": "Aucun changement depuis la dernière génération."
   },
   "ecoMetrics": {
-    "sessionCount": 16,
-    "sessionEstimees": 16,
-    "sessionsAvecCo2": 16,
+    "sessionCount": 30,
+    "sessionEstimees": 30,
+    "sessionsAvecCo2": 30,
     "co2Total30": 0,
     "co2Moyenne": 0,
     "tokensTotal30": 0,
     "tendance": null,
     "sessions": [
-      {
-        "date": "2026-11-15T09:02:34.992Z",
-        "model": null,
-        "tokens": 0,
-        "co2g": 0,
-        "method": "estimated"
-      },
       {
         "date": "2026-11-15T09:14:55.371Z",
         "model": null,
@@ -19323,10 +20273,115 @@
         "tokens": 0,
         "co2g": 0,
         "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T11:02:32.483Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T11:03:34.980Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T11:04:17.169Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T11:19:55.940Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T11:36:25.518Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T11:37:25.618Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T11:38:02.722Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T11:57:04.892Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T11:58:04.066Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T11:58:40.096Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T12:12:47.651Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T12:13:42.247Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T13:09:15.792Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T13:10:20.287Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T13:11:00.822Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
       }
     ]
   },
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-11-15T11:02:25.767Z"
+  "generatedAt": "2026-11-15T13:13:48.460Z"
 }

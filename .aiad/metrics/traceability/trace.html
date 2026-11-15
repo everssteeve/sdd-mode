@@ -24,13 +24,13 @@
 </head>
 <body>
 <h1>SDD Trace</h1>
-<p><em>Généré le 2026-11-15T11:04:09.886Z</em></p>
+<p><em>Généré le 2026-11-15T13:14:46.660Z</em></p>
 
 <div class="stats">
-  <div class="stat"><div class="v">5</div><div class="k">Intents</div></div>
-  <div class="stat"><div class="v">12</div><div class="k">SPECs</div></div>
-  <div class="stat"><div class="v">111 / 407</div><div class="k">Code annoté</div></div>
-  <div class="stat"><div class="v">67 / 294</div><div class="k">Tests annotés</div></div>
+  <div class="stat"><div class="v">6</div><div class="k">Intents</div></div>
+  <div class="stat"><div class="v">14</div><div class="k">SPECs</div></div>
+  <div class="stat"><div class="v">115 / 411</div><div class="k">Code annoté</div></div>
+  <div class="stat"><div class="v">70 / 297</div><div class="k">Tests annotés</div></div>
   <div class="stat"><div class="v">312</div><div class="k">Code sans @spec</div></div>
   <div class="stat"><div class="v">0</div><div class="k">SPECs non-implémentées</div></div>
 </div>
@@ -46,28 +46,28 @@
 <tr class="ok"><td>INTENT-034-gouvernance-sync-drive</td><td>SPEC-034-1b-update-ecrase-signale</td><td><code>lib/governance-shipped.js</code><br/><code>lib/init.js</code><br/><code>lib/update.js</code><br/><code>scripts/sync-doctrine.js</code></td><td><code>test/governance-shipped.test.js</code><br/><code>test/sync-doctrine.test.js</code><br/><code>test/init.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="ok"><td>INTENT-034-gouvernance-sync-drive</td><td>SPEC-034-2-controle-drift-doctrine</td><td><code>.github/workflows/ci.yml</code><br/><code>scripts/check-doctrine.js</code><br/><code>scripts/release.js</code></td><td><code>test/check-doctrine.test.js</code><br/><code>test/release.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr><td>INTENT-035-reactivation-npm</td><td><em>(aucune SPEC)</em></td><td>—</td><td>—</td><td class="bad">❌ orphelin</td></tr>
-<tr class="ok"><td>INTENT-036-agents-de-role</td><td>SPEC-036-1-agents-de-role</td><td><code>lib/agents-registry.js</code><br/><code>lib/agents.js</code><br/><code>.github/workflows/ci.yml</code></td><td><code>test/agents-registry.test.js</code><br/><code>test/agents.test.js</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-036-agents-de-role</td><td>SPEC-036-1-agents-de-role</td><td><code>.github/workflows/ci.yml</code><br/><code>lib/agents-registry.js</code><br/><code>lib/agents.js</code></td><td><code>test/agents-registry.test.js</code><br/><code>test/agents.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="ok"><td>INTENT-036-agents-de-role</td><td>SPEC-036-2-retrait-alias-plats</td><td><code>lib/alias-retirement.js</code></td><td><code>test/alias-retirement.test.js</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="warn"><td>INTENT-036-agents-de-role</td><td>SPEC-036-3-drift-lock-cli-absente</td><td><em>(aucun)</em></td><td><code>test/drift-lock-hook.test.js</code></td><td><span class="warn">⚠ non-implémentée</span></td></tr>
-<tr class="ok"><td>INTENT-037-dashboard-par-role</td><td>SPEC-037-1-dashboard-par-role</td><td><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-tokens.js</code><br/><code>lib/dashboard/navigation.js</code><br/><code>lib/dashboard/views/roles.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/render.js</code></td><td><code>test/dashboard-design-system.test.js</code><br/><code>test/dashboard-navigation.test.js</code><br/><code>test/dashboard-roles.test.js</code><br/><code>absente&#39;)}</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-037-dashboard-par-role</td><td>SPEC-037-1-dashboard-par-role</td><td><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-tokens.js</code><br/><code>lib/dashboard/navigation.js</code><br/><code>lib/dashboard/render.js</code><br/><code>lib/dashboard/views/roles.js</code></td><td><code>test/dashboard-design-system.test.js</code><br/><code>test/dashboard-navigation.test.js</code><br/><code>test/dashboard-roles.test.js</code><br/><code>absente&#39;)}</code></td><td><span class="ok">✅</span></td></tr>
 <tr class="ok"><td>INTENT-037-dashboard-par-role</td><td>SPEC-037-2-mesure-usage-dashboard</td><td><code>lib/dashboard/usage.js</code></td><td><code>test/dashboard-usage.test.js</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-038-metriques-aiad-dashboard</td><td>SPEC-038-1-metriques-aiad-dashboard</td><td><code>lib/dashboard/aiad-metrics.js</code><br/><code>lib/dashboard/views/scorecard.js</code></td><td><code>test/dashboard-aiad-metrics.test.js</code></td><td><span class="ok">✅</span></td></tr>
+<tr class="ok"><td>INTENT-038-metriques-aiad-dashboard</td><td>SPEC-038-2-instrumentation-metriques</td><td><code>lib/dashboard/metrics-sources.js</code><br/><code>lib/metrics.js</code></td><td><code>test/metrics-sources.test.js</code><br/><code>test/metrics.test.js</code></td><td><span class="ok">✅</span></td></tr>
 </tbody></table>
 
 <h2>Matrice Backward</h2>
 <div class="filter"><input type="search" id="qbwd" placeholder="Filtrer Backward…" /></div>
 <table id="bwd"><thead><tr><th>Test</th><th>SPEC</th><th>Intent</th><th>Code couvert</th></tr></thead><tbody>
-<tr class="ok"><td><code>test/agents-registry.test.js</code></td><td>SPEC-036-1-agents-de-role</td><td>INTENT-036-agents-de-role</td><td><code>lib/agents-registry.js</code><br/><code>lib/agents.js</code><br/><code>.github/workflows/ci.yml</code></td></tr>
-<tr class="ok"><td><code>test/agents.test.js</code></td><td>SPEC-036-1-agents-de-role</td><td>INTENT-036-agents-de-role</td><td><code>lib/agents-registry.js</code><br/><code>lib/agents.js</code><br/><code>.github/workflows/ci.yml</code></td></tr>
-<tr class="ok"><td><code>test/alias-retirement.test.js</code></td><td>SPEC-036-2-retrait-alias-plats</td><td>INTENT-036-agents-de-role</td><td><code>lib/alias-retirement.js</code></td></tr>
-<tr class="ok"><td><code>test/dashboard-design-system.test.js</code></td><td>SPEC-037-1-dashboard-par-role</td><td>INTENT-037-dashboard-par-role</td><td><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-tokens.js</code><br/><code>lib/dashboard/navigation.js</code><br/><code>lib/dashboard/views/roles.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/render.js</code></td></tr>
-<tr class="ok"><td><code>test/dashboard-navigation.test.js</code></td><td>SPEC-037-1-dashboard-par-role</td><td>INTENT-037-dashboard-par-role</td><td><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-tokens.js</code><br/><code>lib/dashboard/navigation.js</code><br/><code>lib/dashboard/views/roles.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/render.js</code></td></tr>
-<tr class="ok"><td><code>test/dashboard-roles.test.js</code></td><td>SPEC-037-1-dashboard-par-role</td><td>INTENT-037-dashboard-par-role</td><td><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-tokens.js</code><br/><code>lib/dashboard/navigation.js</code><br/><code>lib/dashboard/views/roles.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/render.js</code></td></tr>
-<tr class="ok"><td><code>test/dashboard-usage.test.js</code></td><td>SPEC-037-2-mesure-usage-dashboard</td><td>INTENT-037-dashboard-par-role</td><td><code>lib/dashboard/usage.js</code></td></tr>
-<tr class="ok"><td><code>test/drift-lock-hook.test.js</code></td><td>SPEC-036-3-drift-lock-cli-absente</td><td>INTENT-036-agents-de-role</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/dashboard-aiad-metrics.test.js</code></td><td>SPEC-038-1-metriques-aiad-dashboard</td><td>INTENT-038-metriques-aiad-dashboard</td><td><code>lib/dashboard/aiad-metrics.js</code><br/><code>lib/dashboard/views/scorecard.js</code></td></tr>
+<tr class="ok"><td><code>test/metrics-sources.test.js</code></td><td>SPEC-038-2-instrumentation-metriques</td><td>INTENT-038-metriques-aiad-dashboard</td><td><code>lib/dashboard/metrics-sources.js</code><br/><code>lib/metrics.js</code></td></tr>
+<tr class="ok"><td><code>test/metrics.test.js</code></td><td>SPEC-038-2-instrumentation-metriques</td><td>INTENT-038-metriques-aiad-dashboard</td><td><code>lib/dashboard/metrics-sources.js</code><br/><code>lib/metrics.js</code></td></tr>
 <tr class="bad"><td><code>templates/projects/fastapi-aiad/tests/test_main.py</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>templates/projects/node-aiad/test/index.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/agents-registry.test.js</code></td><td>SPEC-036-1-agents-de-role</td><td>INTENT-036-agents-de-role</td><td><code>.github/workflows/ci.yml</code><br/><code>lib/agents-registry.js</code><br/><code>lib/agents.js</code></td></tr>
+<tr class="ok"><td><code>test/agents.test.js</code></td><td>SPEC-036-1-agents-de-role</td><td>INTENT-036-agents-de-role</td><td><code>.github/workflows/ci.yml</code><br/><code>lib/agents-registry.js</code><br/><code>lib/agents.js</code></td></tr>
 <tr class="bad"><td><code>test/ai-act-audit.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/ai-act-audit.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/alias-retirement.test.js</code></td><td>SPEC-036-2-retrait-alias-plats</td><td>INTENT-036-agents-de-role</td><td><code>lib/alias-retirement.js</code></td></tr>
 <tr class="bad"><td><code>test/annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/annotations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -116,11 +116,12 @@
 <tr class="bad"><td><code>test/dashboard-_history-utils.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-adrs.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-assets-autotag.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
-<tr class="bad"><td><code>test/dashboard-assets.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-components.js</code><br/><code>dashboard/assets/app.js</code><br/><code>dashboard/assets/app.js</code><br/><code>dashboard/assets/app.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/ui/sparklines.js</code></td></tr>
+<tr class="bad"><td><code>test/dashboard-assets.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>dashboard/assets/app.js</code><br/><code>dashboard/assets/app.js</code><br/><code>dashboard/assets/app.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/ui/sparklines.js</code></td></tr>
 <tr class="bad"><td><code>test/dashboard-audit-trail.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-backlog-health-score.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-collect-supplementary.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-collect.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/dashboard-design-system.test.js</code></td><td>SPEC-037-1-dashboard-par-role</td><td>INTENT-037-dashboard-par-role</td><td><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-tokens.js</code><br/><code>lib/dashboard/navigation.js</code><br/><code>lib/dashboard/render.js</code><br/><code>lib/dashboard/views/roles.js</code></td></tr>
 <tr class="bad"><td><code>test/dashboard-digest.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/dashboard.js</code><br/><code>lib/dashboard/digest-delta.js</code><br/><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/views/today.js</code></td></tr>
 <tr class="bad"><td><code>test/dashboard-dpo.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-ebm-aires.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -135,6 +136,7 @@
 <tr class="bad"><td><code>test/dashboard-learnings.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-legal.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-matrice-outcomes.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/outcome-attribution.js</code></td></tr>
+<tr class="ok"><td><code>test/dashboard-navigation.test.js</code></td><td>SPEC-037-1-dashboard-par-role</td><td>INTENT-037-dashboard-par-role</td><td><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-tokens.js</code><br/><code>lib/dashboard/navigation.js</code><br/><code>lib/dashboard/render.js</code><br/><code>lib/dashboard/views/roles.js</code></td></tr>
 <tr class="bad"><td><code>test/dashboard-onboarding.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-outcomes-history.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-outcomes.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -191,6 +193,7 @@
 <tr class="bad"><td><code>test/dashboard-qa.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-render.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-rituels.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/dashboard-roles.test.js</code></td><td>SPEC-037-1-dashboard-par-role</td><td>INTENT-037-dashboard-par-role</td><td><code>lib/dashboard/assets.js</code><br/><code>lib/dashboard/design-components.js</code><br/><code>lib/dashboard/design-tokens.js</code><br/><code>lib/dashboard/navigation.js</code><br/><code>lib/dashboard/render.js</code><br/><code>lib/dashboard/views/roles.js</code></td></tr>
 <tr class="bad"><td><code>test/dashboard-sante-globale-history.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-sante-globale.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-source-base.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
@@ -199,6 +202,7 @@
 <tr class="bad"><td><code>test/dashboard-tech-debt-history.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-tech-debt.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-today.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/dashboard/views/today.js</code></td></tr>
+<tr class="ok"><td><code>test/dashboard-usage.test.js</code></td><td>SPEC-037-2-mesure-usage-dashboard</td><td>INTENT-037-dashboard-par-role</td><td><code>lib/dashboard/usage.js</code></td></tr>
 <tr class="bad"><td><code>test/dashboard-violations.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard-watch.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dashboard.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/dashboard/views/today.js</code></td></tr>
@@ -216,6 +220,7 @@
 <tr class="bad"><td><code>test/dora-record.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dpia.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/feedback.js</code><br/><code>lib/tour.js</code><br/><code>scripts/bench-trace.js</code><br/><code>templates/projects/fastapi-aiad/app/main.py</code><br/><code>templates/projects/node-aiad/src/index.js</code></td></tr>
 <tr class="bad"><td><code>test/dpia.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
+<tr class="ok"><td><code>test/drift-lock-hook.test.js</code></td><td>SPEC-036-3-drift-lock-cli-absente</td><td>INTENT-036-agents-de-role</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/drift-verdict.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/dry-run.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><em>(aucun)</em></td></tr>
 <tr class="bad"><td><code>test/eco-dashboard.test.js</code></td><td><span class="bad">❌ non-tracé</span></td><td>—</td><td><code>lib/dashboard.js</code><br/><code>lib/dashboard/model/index.js</code><br/><code>lib/dashboard/views/metrics.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code><br/><code>lib/eco-dashboard.js</code></td></tr>
