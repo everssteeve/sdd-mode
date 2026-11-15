@@ -1,6 +1,6 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-11-15T13:14:46.660Z
+> Généré le 2026-11-15T14:06:35.670Z
 
 ## Synthèse
 
@@ -35,9 +35,6 @@
 
 | Test | SPEC | Intent | Code couvert |
 |------|------|--------|--------------|
-| `test/dashboard-aiad-metrics.test.js` | SPEC-038-1-metriques-aiad-dashboard | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/aiad-metrics.js`<br/>`lib/dashboard/views/scorecard.js` |
-| `test/metrics-sources.test.js` | SPEC-038-2-instrumentation-metriques | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/metrics-sources.js`<br/>`lib/metrics.js` |
-| `test/metrics.test.js` | SPEC-038-2-instrumentation-metriques | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/metrics-sources.js`<br/>`lib/metrics.js` |
 | `templates/projects/fastapi-aiad/tests/test_main.py` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/agents-registry.test.js` | SPEC-036-1-agents-de-role | INTENT-036-agents-de-role | `.github/workflows/ci.yml`<br/>`lib/agents-registry.js`<br/>`lib/agents.js` |
@@ -92,6 +89,7 @@
 | `test/cycle-graph.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-_history-utils.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-adrs.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-aiad-metrics.test.js` | SPEC-038-1-metriques-aiad-dashboard | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/aiad-metrics.js`<br/>`lib/dashboard/views/scorecard.js` |
 | `test/dashboard-assets-autotag.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-assets.test.js` | ❌ non-tracé | — | `dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/ui/sparklines.js` |
 | `test/dashboard-audit-trail.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -267,6 +265,8 @@
 | `test/memory.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/meta-share.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/meta.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/metrics-sources.test.js` | SPEC-038-2-instrumentation-metriques | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/metrics-sources.js`<br/>`lib/metrics.js` |
+| `test/metrics.test.js` | SPEC-038-2-instrumentation-metriques | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/metrics-sources.js`<br/>`lib/metrics.js` |
 | `test/migrate-v2.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/migrate.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/mini-gate.test.js` | ❌ non-tracé | — | _(aucun)_ |

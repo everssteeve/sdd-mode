@@ -2,9 +2,9 @@
   "_meta": {
     "schema": "aiad-sdd-trace",
     "version": "1.21.0",
-    "generated": "2026-11-15T13:14:46.660Z"
+    "generated": "2026-11-15T14:06:35.671Z"
   },
-  "generatedAt": "2026-11-15T13:14:46.660Z",
+  "generatedAt": "2026-11-15T14:06:35.670Z",
   "summary": {
     "intents": 6,
     "specs": 14,
@@ -483,7 +483,7 @@
             },
             {
               "path": "lib/metrics.js",
-              "line": 21
+              "line": 23
             }
           ],
           "tests": [
@@ -501,102 +501,6 @@
     }
   ],
   "backward": [
-    {
-      "test": {
-        "path": "test/dashboard-aiad-metrics.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-038-1-metriques-aiad-dashboard",
-        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
-        "title": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
-        "parentIntent": "INTENT-038",
-        "status": "ready",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-038-metriques-aiad-dashboard",
-        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
-        "title": "INTENT-038-metriques-aiad-dashboard",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/dashboard/aiad-metrics.js",
-          "line": 17
-        },
-        {
-          "path": "lib/dashboard/views/scorecard.js",
-          "line": 12
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/metrics-sources.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-038-2-instrumentation-metriques",
-        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
-        "title": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
-        "parentIntent": "INTENT-038",
-        "status": "ready",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-038-metriques-aiad-dashboard",
-        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
-        "title": "INTENT-038-metriques-aiad-dashboard",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/dashboard/metrics-sources.js",
-          "line": 14
-        },
-        {
-          "path": "lib/metrics.js",
-          "line": 21
-        }
-      ]
-    },
-    {
-      "test": {
-        "path": "test/metrics.test.js",
-        "line": 3
-      },
-      "spec": {
-        "id": "SPEC-038-2-instrumentation-metriques",
-        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
-        "title": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
-        "parentIntent": "INTENT-038",
-        "status": "ready",
-        "format": "PROSE",
-        "traceability": "",
-        "traceabilityReason": ""
-      },
-      "intent": {
-        "id": "INTENT-038-metriques-aiad-dashboard",
-        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
-        "title": "INTENT-038-metriques-aiad-dashboard",
-        "status": "active"
-      },
-      "code": [
-        {
-          "path": "lib/dashboard/metrics-sources.js",
-          "line": 14
-        },
-        {
-          "path": "lib/metrics.js",
-          "line": 21
-        }
-      ]
-    },
     {
       "test": {
         "path": "templates/projects/fastapi-aiad/tests/test_main.py",
@@ -1341,6 +1245,38 @@
       "spec": null,
       "intent": null,
       "code": []
+    },
+    {
+      "test": {
+        "path": "test/dashboard-aiad-metrics.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-038-1-metriques-aiad-dashboard",
+        "file": ".aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md",
+        "title": "Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation",
+        "parentIntent": "INTENT-038",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "title": "INTENT-038-metriques-aiad-dashboard",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/aiad-metrics.js",
+          "line": 17
+        },
+        {
+          "path": "lib/dashboard/views/scorecard.js",
+          "line": 12
+        }
+      ]
     },
     {
       "test": {
@@ -3480,6 +3416,70 @@
       "spec": null,
       "intent": null,
       "code": []
+    },
+    {
+      "test": {
+        "path": "test/metrics-sources.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "title": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "parentIntent": "INTENT-038",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "title": "INTENT-038-metriques-aiad-dashboard",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/metrics-sources.js",
+          "line": 14
+        },
+        {
+          "path": "lib/metrics.js",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "test": {
+        "path": "test/metrics.test.js",
+        "line": 3
+      },
+      "spec": {
+        "id": "SPEC-038-2-instrumentation-metriques",
+        "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
+        "title": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
+        "parentIntent": "INTENT-038",
+        "status": "ready",
+        "format": "PROSE",
+        "traceability": "",
+        "traceabilityReason": ""
+      },
+      "intent": {
+        "id": "INTENT-038-metriques-aiad-dashboard",
+        "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
+        "title": "INTENT-038-metriques-aiad-dashboard",
+        "status": "active"
+      },
+      "code": [
+        {
+          "path": "lib/dashboard/metrics-sources.js",
+          "line": 14
+        },
+        {
+          "path": "lib/metrics.js",
+          "line": 23
+        }
+      ]
     },
     {
       "test": {
