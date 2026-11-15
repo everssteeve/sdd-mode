@@ -71,8 +71,15 @@ describe('check-commands-parity (SPEC-033-1)', () => {
     assert.equal(verifierParite(racine, { exclusions: ['sdd/interne.md'] }).exitCode, 0);
   });
 
-  it('dossiers hors périmètre (agents, rules) → ignorés', () => {
+  it('agents de gouvernance générés (AIAD-*) et rules → ignorés', () => {
     const racine = creerRacine({ '.claude/agents/AIAD-X.md': 'x\n', '.claude/rules/r.md': 'y\n' });
     assert.equal(verifierParite(racine).exitCode, 0);
+  });
+
+  it('agent de rôle présent d\'un seul côté → divergence (SPEC-036-1)', () => {
+    const racine = creerRacine({ '.claude/agents/aiad-pe.md': 'x\n' });
+    const r = verifierParite(racine);
+    assert.equal(r.exitCode, 1);
+    assert.deepEqual(r.divergents, [{ fichier: 'agents/aiad-pe.md', motif: 'absent de templates/.claude/' }]);
   });
 });

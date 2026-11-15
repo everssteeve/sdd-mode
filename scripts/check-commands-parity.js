@@ -3,7 +3,7 @@
  * @intent INTENT-033
  * @verified-by test/check-commands-parity.test.js
  *
- * Parité des commandes et skills : `.claude/` (dépôt) ↔ `templates/.claude/` (livré).
+ * Parité des commandes, skills et agents de rôle : `.claude/` (dépôt) ↔ `templates/.claude/` (livré).
  * `templates/.claude/` est la source unique ; toute divergence fait échouer la CI.
  *
  * node scripts/check-commands-parity.js [--root <path>] [--json]
@@ -14,11 +14,16 @@ import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join, resolve, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const DOSSIERS = ['sdd', 'aiad', 'skills'];
+export const DOSSIERS = ['sdd', 'aiad', 'skills', 'agents'];
 
 // Fichiers propres au dépôt, exclus du contrôle (chemins relatifs à `.claude/`).
 // Vide par défaut — chaque exclusion affaiblit la parité.
 export const EXCLUSIONS = [];
+
+// Agents de gouvernance Tier 1 (`agents/AIAD-*.md`) : générés par `emit-rules`
+// depuis `.aiad/gouvernance/`, non packagés en statique — leur parité est
+// contrôlée par `emit-rules --check`, pas ici.
+const estGenere = (rel) => /^agents\/AIAD-[^/]+\.md$/.test(rel);
 
 function lister(base) {
   if (!existsSync(base)) return [];
@@ -42,7 +47,7 @@ export function verifierParite(racine, { exclusions = EXCLUSIONS } = {}) {
     const fichiers = new Set([...lister(depot), ...lister(livre)]);
     for (const f of [...fichiers].sort()) {
       const rel = `${dossier}/${f}`;
-      if (exclusions.includes(rel)) continue;
+      if (exclusions.includes(rel) || estGenere(rel)) continue;
       const a = join(depot, f);
       const b = join(livre, f);
       if (!existsSync(a)) divergents.push({ fichier: rel, motif: 'absent de .claude/' });

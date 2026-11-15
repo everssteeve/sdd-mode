@@ -2,13 +2,49 @@
   "name": "aiad-sdd",
   "description": "AIAD SDD Mode — Spec Driven Development pour Claude Code : cycle Intent → Research → SPEC → Gate → Exec → Validate → Drift-Lock, gouvernance Tier 1 enforced, verdicts déterministes.",
   "version": "1.17.0",
-  "author": { "name": "Steeve Evers" },
+  "author": {
+    "name": "Steeve Evers"
+  },
   "homepage": "https://aiad.ovh",
   "repository": "https://github.com/everssteeve/sdd-mode",
   "license": "MIT",
-  "keywords": ["sdd", "spec-driven", "aiad", "governance", "drift-lock"],
+  "keywords": [
+    "sdd",
+    "spec-driven",
+    "aiad",
+    "governance",
+    "drift-lock"
+  ],
   "commands": "./templates/.claude/commands",
   "skills": "./templates/.claude/skills",
   "hooks": "./templates/.claude/settings.json",
-  "_comment_agents": "Les agents de gouvernance Tier 1 (AIAD-*) sont générés par `aiad-sdd emit-rules` dans .claude/agents/ (read-only, veto) — non packagés en statique."
+  "agents": [
+    "./templates/.claude/agents/ae-agent-configurator.md",
+    "./templates/.claude/agents/ae-agent-evaluator.md",
+    "./templates/.claude/agents/ae-context-auditor.md",
+    "./templates/.claude/agents/ae-permissions-auditor.md",
+    "./templates/.claude/agents/aiad-ae.md",
+    "./templates/.claude/agents/aiad-pe.md",
+    "./templates/.claude/agents/aiad-pm.md",
+    "./templates/.claude/agents/aiad-qa.md",
+    "./templates/.claude/agents/aiad-tech-lead.md",
+    "./templates/.claude/agents/pe-code-reviewer.md",
+    "./templates/.claude/agents/pe-doc-writer.md",
+    "./templates/.claude/agents/pe-drift-sentinel.md",
+    "./templates/.claude/agents/pe-implementer.md",
+    "./templates/.claude/agents/pe-spec-writer.md",
+    "./templates/.claude/agents/pm-backlog-curator.md",
+    "./templates/.claude/agents/pm-discovery-analyst.md",
+    "./templates/.claude/agents/pm-outcome-analyst.md",
+    "./templates/.claude/agents/qa-exploratory-tester.md",
+    "./templates/.claude/agents/qa-functional-validator.md",
+    "./templates/.claude/agents/qa-test-author.md",
+    "./templates/.claude/agents/qa-test-strategist.md",
+    "./templates/.claude/agents/tl-architecture-reviewer.md",
+    "./templates/.claude/agents/tl-debt-analyst.md",
+    "./templates/.claude/agents/tl-performance-analyst.md",
+    "./templates/.claude/agents/tl-release-engineer.md",
+    "./templates/.claude/agents/tl-security-auditor.md"
+  ],
+  "_comment_agents": "Agents de rôle (aiad-*) et leurs sous-agents : packagés. Les agents de gouvernance Tier 1 (AIAD-*) sont générés par `aiad-sdd emit-rules` dans .claude/agents/ (read-only, veto) — non packagés en statique."
 }
