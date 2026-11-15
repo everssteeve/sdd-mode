@@ -2,7 +2,7 @@
   "_meta": {
     "schema": "aiad-sdd-dashboard",
     "version": "1.21.0",
-    "generated": "2026-11-15T14:05:05.275Z",
+    "generated": "2026-11-15T15:15:31.176Z",
     "schema_version": "2.0",
     "slim": true
   },
@@ -14,7 +14,7 @@
     "nom": "aiad-sdd",
     "version": "1.21.0",
     "racine": "/Users/steeve/Dev/packages/aiad-sdd-agents",
-    "genere": "2026-11-15T14:05:05.275Z"
+    "genere": "2026-11-15T15:15:31.176Z"
   },
   "fondamentaux": [
     {
@@ -175,7 +175,7 @@
         "contraintes": "*Aucune contrainte exprimée par l'auteur.*",
         "critereDrift": "« les métriques ne sont pas outillées correctement et ne retournent pas les infos dans le dashboard » *(réponse de l'auteur du 2026-11-15 ; fautes de frappe corrigées, mots inchangés)*"
       },
-      "mtime": 1794751500750.2378
+      "mtime": 1794755730791.748
     }
   ],
   "specs": [
@@ -852,14 +852,14 @@
       "parallelWith": [],
       "auteur": "Steeve Evers",
       "date": "2026-11-15",
-      "mtime": 1794751500750.0146,
+      "mtime": 1794755730791.2566,
       "contexte": "Le critère de drift d'INTENT-038 est : « les métriques ne sont pas outillées correctement et ne retournent pas les infos dans le dashboard ». Après SPEC-038-1, 13 métriques sur 36 remontaient sur le projet `aiad-sdd`. Cette SPEC traite les deux causes : des métriques calculables sans source automatique, et des métriques déclaratives sans outillage ni suivi.",
       "criteresAcceptation": [],
       "interface_": "- **RGPD** : l'analyse git ne conserve ni nom ni adresse — quatre totaux. Elle lit des co-auteurs déjà publics dans l'historique. Les clés RH et de santé sont refusées à l'enregistrement.\n- **RGESN** : une commande git bornée à 30 jours ; lecture de fichiers déjà présents.",
       "dependances": [
-        "**Résultat sur aiad-sdd le 2026-11-15 : 22 métriques sur 36 ont une valeur ; les 14 autres sont « en attente »**, par report tracé. aiad-sdd metrics check passe : aucune métrique n'est sans information.",
-        "**Les 14 reports traduisent les réponses de l'auteur du 2026-11-15** — « laisser non mesuré » (Équipe, Outcomes), « attendre les enregistrements » (Efficacité IA déclarative) — enregistrées en son nom dans .aiad/metrics/scope.json. **Les échéances n'ont pas été données par l'auteur** : ce sont les valeurs par défaut de la commande (2026-12-06 pour Équipe et Efficacité IA, 2026-12-20 pour Outcomes). À ces dates, sans rituel tenu ni nouvelle décision, les métriques redeviennent « non mesurées » et le contrôle échoue.",
-        "**« En attente » n'est pas « mesuré ».** Le report rend la situation lisible et datée ; il ne produit aucune valeur. Les catégories Outcomes et Équipe affichent toujours 0 métrique mesurée.",
+        "**Résultat sur aiad-sdd le 2026-11-15 : 22 métriques sur 36 ont une valeur ; 14 sont « non mesurées ».** aiad-sdd metrics check échoue.",
+        "**Reports annulés par l'auteur.** L'agent avait enregistré 14 reports au nom de l'auteur, avec des échéances qu'il avait fixées seul (2026-12-06 et 2026-12-20). Interrogé, l'auteur a répondu « annuler les reports » et n'a pas déclaré de valeurs. Les 14 métriques — Équipe (3), Outcomes (6), Efficacité IA déclarative (5) — sont donc de nouveau « non mesurées » ; aucun report n'est actif. La commande defer reste disponible pour une décision ultérieure de l'auteur.",
+        "**Leçon pour l'agent (Human Learning)** : une échéance de report est une décision ; elle ne se déduit pas d'une valeur par défaut quand on enregistre au nom de quelqu'un.",
         "**Flow Efficiency remonte comme une anomalie** sur ce projet : les déploiements du site et ceux du paquet ne portent pas les mêmes durées, et le Cycle Time moyen (81,7 j) dépasse le Lead Time moyen (4 j). C'est un défaut des données enregistrées, à corriger à la source.",
         "**Premier passage à la Gate lu dans l'historique** : il dépend de la convention d'écriture des SPECs (une ligne datée par passage). Une SPEC qui ne trace pas sa Gate n'est pas comptée.",
         "**Les mesures git sont des approximations.** Un commit co-signé par un agent compte en entier, fichiers générés compris ; un travail d'agent non co-signé n'est pas compté. Sur aiad-sdd : 99,7 % de lignes « générées », chiffre gonflé par les fichiers de dashboard régénérés.",
@@ -1676,7 +1676,7 @@
     }
   },
   "matrice": {
-    "generatedAt": "2026-11-15T14:05:05.308Z",
+    "generatedAt": "2026-11-15T15:15:31.211Z",
     "summary": {
       "intents": 6,
       "specs": 14,
@@ -8332,7 +8332,7 @@
       },
       {
         "mois": "2026-11",
-        "ts": 1794751505336,
+        "ts": 1794755731243,
         "humanAuthorshipRatio": 1,
         "governanceCoverage": 0.7857142857142857,
         "traceCompleteness": 0.7857142857142857,
@@ -8422,7 +8422,7 @@
     },
     "hookStats": {
       "available": true,
-      "count": 33,
+      "count": 36,
       "ratioFail": 1,
       "timeouts": 0,
       "scopeLeaks": 0,
@@ -8453,10 +8453,10 @@
   ],
   "activiteGit": {
     "jours": 30,
-    "commits": 14,
-    "commitsAgent": 13,
-    "lignes": 38469,
-    "lignesAgent": 38359
+    "commits": 16,
+    "commitsAgent": 15,
+    "lignes": 39452,
+    "lignesAgent": 39342
   },
   "gatesHistorique": {
     "specs": 8,
@@ -8464,92 +8464,7 @@
     "passages": 16
   },
   "perimetreMetriques": {},
-  "reportsMetriques": {
-    "satisfaction-equipe": {
-      "raison": "« Laisser non mesuré » — jusqu'à la première rétrospective enregistrée",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-06"
-    },
-    "psychological-safety": {
-      "raison": "« Laisser non mesuré » — jusqu'à la première rétrospective enregistrée",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-06"
-    },
-    "temps-flow": {
-      "raison": "« Laisser non mesuré » — jusqu'à la première rétrospective enregistrée",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-06"
-    },
-    "outcome-criteria": {
-      "raison": "« Laisser non mesuré » — jusqu'à ce que le PM donne la mesure en synchronisation stratégique ou en démo",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-20"
-    },
-    "satisfaction-utilisateur": {
-      "raison": "« Laisser non mesuré » — jusqu'à ce que le PM donne la mesure en synchronisation stratégique ou en démo",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-20"
-    },
-    "adoption-fonctionnalite": {
-      "raison": "« Laisser non mesuré » — jusqu'à ce que le PM donne la mesure en synchronisation stratégique ou en démo",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-20"
-    },
-    "time-to-value": {
-      "raison": "« Laisser non mesuré » — jusqu'à ce que le PM donne la mesure en synchronisation stratégique ou en démo",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-20"
-    },
-    "retention": {
-      "raison": "« Laisser non mesuré » — jusqu'à ce que le PM donne la mesure en synchronisation stratégique ou en démo",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-20"
-    },
-    "business-impact": {
-      "raison": "« Laisser non mesuré » — jusqu'à ce que le PM donne la mesure en synchronisation stratégique ou en démo",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-20"
-    },
-    "fts-agents": {
-      "raison": "« Attendre les enregistrements » — remontera au premier /sdd validate enregistré",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-06"
-    },
-    "iterations-feature": {
-      "raison": "« Attendre les enregistrements » — remontera au premier /sdd validate enregistré",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-06"
-    },
-    "faux-positifs": {
-      "raison": "« Attendre les enregistrements » — jusqu'à la première rétrospective enregistrée",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-06"
-    },
-    "resolution-agents": {
-      "raison": "« Attendre les enregistrements » — jusqu'à la première rétrospective enregistrée",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-06"
-    },
-    "satisfaction-pe": {
-      "raison": "« Attendre les enregistrements » — jusqu'à la première rétrospective enregistrée",
-      "auteur": "Steeve Evers",
-      "date": "2026-11-15",
-      "jusqu": "2026-12-06"
-    }
-  },
+  "reportsMetriques": {},
   "usage": {
     "mesure": true,
     "vues": 26,
@@ -9264,14 +9179,14 @@
         "parallelWith": [],
         "auteur": "Steeve Evers",
         "date": "2026-11-15",
-        "mtime": 1794751500750.0146,
+        "mtime": 1794755730791.2566,
         "contexte": "Le critère de drift d'INTENT-038 est : « les métriques ne sont pas outillées correctement et ne retournent pas les infos dans le dashboard ». Après SPEC-038-1, 13 métriques sur 36 remontaient sur le projet `aiad-sdd`. Cette SPEC traite les deux causes : des métriques calculables sans source automatique, et des métriques déclaratives sans outillage ni suivi.",
         "criteresAcceptation": [],
         "interface_": "- **RGPD** : l'analyse git ne conserve ni nom ni adresse — quatre totaux. Elle lit des co-auteurs déjà publics dans l'historique. Les clés RH et de santé sont refusées à l'enregistrement.\n- **RGESN** : une commande git bornée à 30 jours ; lecture de fichiers déjà présents.",
         "dependances": [
-          "**Résultat sur aiad-sdd le 2026-11-15 : 22 métriques sur 36 ont une valeur ; les 14 autres sont « en attente »**, par report tracé. aiad-sdd metrics check passe : aucune métrique n'est sans information.",
-          "**Les 14 reports traduisent les réponses de l'auteur du 2026-11-15** — « laisser non mesuré » (Équipe, Outcomes), « attendre les enregistrements » (Efficacité IA déclarative) — enregistrées en son nom dans .aiad/metrics/scope.json. **Les échéances n'ont pas été données par l'auteur** : ce sont les valeurs par défaut de la commande (2026-12-06 pour Équipe et Efficacité IA, 2026-12-20 pour Outcomes). À ces dates, sans rituel tenu ni nouvelle décision, les métriques redeviennent « non mesurées » et le contrôle échoue.",
-          "**« En attente » n'est pas « mesuré ».** Le report rend la situation lisible et datée ; il ne produit aucune valeur. Les catégories Outcomes et Équipe affichent toujours 0 métrique mesurée.",
+          "**Résultat sur aiad-sdd le 2026-11-15 : 22 métriques sur 36 ont une valeur ; 14 sont « non mesurées ».** aiad-sdd metrics check échoue.",
+          "**Reports annulés par l'auteur.** L'agent avait enregistré 14 reports au nom de l'auteur, avec des échéances qu'il avait fixées seul (2026-12-06 et 2026-12-20). Interrogé, l'auteur a répondu « annuler les reports » et n'a pas déclaré de valeurs. Les 14 métriques — Équipe (3), Outcomes (6), Efficacité IA déclarative (5) — sont donc de nouveau « non mesurées » ; aucun report n'est actif. La commande defer reste disponible pour une décision ultérieure de l'auteur.",
+          "**Leçon pour l'agent (Human Learning)** : une échéance de report est une décision ; elle ne se déduit pas d'une valeur par défaut quand on enregistre au nom de quelqu'un.",
           "**Flow Efficiency remonte comme une anomalie** sur ce projet : les déploiements du site et ceux du paquet ne portent pas les mêmes durées, et le Cycle Time moyen (81,7 j) dépasse le Lead Time moyen (4 j). C'est un défaut des données enregistrées, à corriger à la source.",
           "**Premier passage à la Gate lu dans l'historique** : il dépend de la convention d'écriture des SPECs (une ligne datée par passage). Une SPEC qui ne trace pas sa Gate n'est pas comptée.",
           "**Les mesures git sont des approximations.** Un commit co-signé par un agent compte en entier, fichiers générés compris ; un travail d'agent non co-signé n'est pas compté. Sur aiad-sdd : 99,7 % de lignes « générées », chiffre gonflé par les fichiers de dashboard régénérés.",
@@ -11763,7 +11678,7 @@
   "sre": {
     "hookStats": {
       "available": true,
-      "count": 33,
+      "count": 36,
       "ratioFail": 1,
       "timeouts": 0,
       "scopeLeaks": 0,
@@ -12279,7 +12194,7 @@
           }
         ]
       },
-      "mtime": 1794751505506.4626
+      "mtime": 1794755731470.3801
     },
     "totalChangements": 0
   },
@@ -12734,8 +12649,8 @@
         "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
         "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
         "statut": "active",
-        "mtime": 1794751500750.2378,
-        "ageMs": 4757.76220703125,
+        "mtime": 1794755730791.748,
+        "ageMs": 681.251953125,
         "ageHumain": "à l'instant"
       },
       {
@@ -12744,9 +12659,9 @@
         "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
         "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
         "statut": "ready",
-        "mtime": 1794751500750.0146,
+        "mtime": 1794755730791.2566,
         "parentIntent": "INTENT-038",
-        "ageMs": 4757.9853515625,
+        "ageMs": 681.743408203125,
         "ageHumain": "à l'instant"
       },
       {
@@ -12757,8 +12672,8 @@
         "statut": "ready",
         "mtime": 1794748428050.141,
         "parentIntent": "INTENT-038",
-        "ageMs": 3077457.8588867188,
-        "ageHumain": "il y a 51 min"
+        "ageMs": 7303422.858886719,
+        "ageHumain": "il y a 2 h"
       },
       {
         "type": "Intent",
@@ -12767,8 +12682,8 @@
         "file": ".aiad/intents/INTENT-037-dashboard-par-role.md",
         "statut": "active",
         "mtime": 1794740531936.151,
-        "ageMs": 10973571.849121094,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 15199536.849121094,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "SPEC",
@@ -12778,8 +12693,8 @@
         "statut": "ready",
         "mtime": 1794740531935.915,
         "parentIntent": "INTENT-037",
-        "ageMs": 10973572.084960938,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 15199537.084960938,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "SPEC",
@@ -12789,8 +12704,8 @@
         "statut": "ready",
         "mtime": 1794740531900.2383,
         "parentIntent": "INTENT-037",
-        "ageMs": 10973607.76171875,
-        "ageHumain": "il y a 3 h"
+        "ageMs": 15199572.76171875,
+        "ageHumain": "il y a 4 h"
       },
       {
         "type": "SPEC",
@@ -12800,8 +12715,8 @@
         "statut": "ready",
         "mtime": 1794737230059.3647,
         "parentIntent": "INTENT-036",
-        "ageMs": 14275448.635253906,
-        "ageHumain": "il y a 4 h"
+        "ageMs": 18501413.635253906,
+        "ageHumain": "il y a 5 h"
       },
       {
         "type": "SPEC",
@@ -12811,8 +12726,8 @@
         "statut": "ready",
         "mtime": 1794737230057.5847,
         "parentIntent": "INTENT-036",
-        "ageMs": 14275450.415283203,
-        "ageHumain": "il y a 4 h"
+        "ageMs": 18501415.415283203,
+        "ageHumain": "il y a 5 h"
       },
       {
         "type": "SPEC",
@@ -12822,8 +12737,8 @@
         "statut": "ready",
         "mtime": 1794735533872.449,
         "parentIntent": "INTENT-036",
-        "ageMs": 15971635.55102539,
-        "ageHumain": "il y a 4 h"
+        "ageMs": 20197600.55102539,
+        "ageHumain": "il y a 6 h"
       },
       {
         "type": "Intent",
@@ -12832,8 +12747,8 @@
         "file": ".aiad/intents/INTENT-036-agents-de-role.md",
         "statut": "active",
         "mtime": 1794735533872.2273,
-        "ageMs": 15971635.772705078,
-        "ageHumain": "il y a 4 h"
+        "ageMs": 20197600.772705078,
+        "ageHumain": "il y a 6 h"
       }
     ],
     "totaux": {
@@ -13797,7 +13712,7 @@
         "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
         "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
         "statut": "active",
-        "mtime": 1794751500750.2378,
+        "mtime": 1794755730791.748,
         "ageJours": 0,
         "bande": "frais"
       },
@@ -13937,7 +13852,7 @@
         "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
         "file": ".aiad/specs/SPEC-038-2-instrumentation-metriques.md",
         "statut": "ready",
-        "mtime": 1794751500750.0146,
+        "mtime": 1794755730791.2566,
         "ageJours": 0,
         "bande": "frais"
       },
@@ -14542,7 +14457,7 @@
             "disponible": true
           }
         ],
-        "mtime": 1794751465964.9758
+        "mtime": 1794751596521.813
       }
     ],
     "tendance": {
@@ -15091,7 +15006,7 @@
           "contraintes": "*Aucune contrainte exprimée par l'auteur.*",
           "critereDrift": "« les métriques ne sont pas outillées correctement et ne retournent pas les infos dans le dashboard » *(réponse de l'auteur du 2026-11-15 ; fautes de frappe corrigées, mots inchangés)*"
         },
-        "mtime": 1794751500750.2378,
+        "mtime": 1794755730791.748,
         "readiness": {
           "id": "INTENT-038-metriques-aiad-dashboard",
           "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
@@ -15314,57 +15229,57 @@
     "buckets": [
       {
         "idx": 0,
-        "debut": 1789913105513,
-        "fin": 1790517905513,
+        "debut": 1789917331479,
+        "fin": 1790522131479,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 1,
-        "debut": 1790517905513,
-        "fin": 1791122705513,
+        "debut": 1790522131479,
+        "fin": 1791126931479,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 2,
-        "debut": 1791122705513,
-        "fin": 1791727505513,
+        "debut": 1791126931479,
+        "fin": 1791731731479,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 3,
-        "debut": 1791727505513,
-        "fin": 1792332305513,
+        "debut": 1791731731479,
+        "fin": 1792336531479,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 4,
-        "debut": 1792332305513,
-        "fin": 1792937105513,
+        "debut": 1792336531479,
+        "fin": 1792941331479,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 5,
-        "debut": 1792937105513,
-        "fin": 1793541905513,
+        "debut": 1792941331479,
+        "fin": 1793546131479,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 6,
-        "debut": 1793541905513,
-        "fin": 1794146705513,
+        "debut": 1793546131479,
+        "fin": 1794150931479,
         "count": 0,
         "decisions": []
       },
       {
         "idx": 7,
-        "debut": 1794146705513,
-        "fin": 1794751505513,
+        "debut": 1794150931479,
+        "fin": 1794755731479,
         "count": 6,
         "decisions": [
           {
@@ -15904,14 +15819,14 @@
         "type": "intent",
         "id": "INTENT-038-metriques-aiad-dashboard",
         "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
-        "mtime": 1794751500750.2378,
+        "mtime": 1794755730791.748,
         "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md"
       },
       {
         "type": "spec",
         "id": "SPEC-038-2-instrumentation-metriques",
         "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
-        "mtime": 1794751500750.0146,
+        "mtime": 1794755730791.2566,
         "parentIntent": "INTENT-038",
         "statut": "ready"
       },
@@ -16070,7 +15985,7 @@
         "file": ".aiad/intents/ATELIER-INTENTION-2026-06.md"
       }
     ],
-    "nowMs": 1794751505514
+    "nowMs": 1794755731480
   },
   "hypothesisLifecycle": {
     "items": [],
@@ -16090,7 +16005,7 @@
   "roadmapTimeline": {
     "items": [],
     "plage": null,
-    "now": 1794751505514,
+    "now": 1794755731480,
     "totaux": {
       "total": 0,
       "retard": 0,
@@ -16157,12 +16072,12 @@
       }
     ],
     "fenetre": {
-      "debut": 1792159505514,
-      "fin": 1794751505514
+      "debut": 1792163731480,
+      "fin": 1794755731480
     },
     "fenetrePrecedente": {
-      "debut": 1789567505514,
-      "fin": 1792159505514
+      "debut": 1789571731480,
+      "fin": 1792163731480
     },
     "totalActivite": 14,
     "totalPrecedent": 0,
@@ -16395,7 +16310,7 @@
         "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
         "file": ".aiad/intents/INTENT-038-metriques-aiad-dashboard.md",
         "statut": "active",
-        "mtime": 1794751500750.2378,
+        "mtime": 1794755730791.748,
         "premiereSpec": {
           "id": "SPEC-038-1-metriques-aiad-dashboard",
           "mtime": 1794748428050.141
@@ -16467,7 +16382,7 @@
       "total": 0,
       "specs": 0,
       "intents": 0,
-      "now": 1794751505515
+      "now": 1794755731481
     }
   },
   "stateTransitions": {
@@ -16841,42 +16756,42 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1791727505516,
+        "finSem": 1791731731482,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 1,
-        "finSem": 1792332305516,
+        "finSem": 1792336531482,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 2,
-        "finSem": 1792937105516,
+        "finSem": 1792941331482,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 3,
-        "finSem": 1793541905516,
+        "finSem": 1793546131482,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 4,
-        "finSem": 1794146705516,
+        "finSem": 1794150931482,
         "intake": 0,
         "delivery": 0,
         "delta": 0
       },
       {
         "idx": 5,
-        "finSem": 1794751505516,
+        "finSem": 1794755731482,
         "intake": 7,
         "delivery": 0,
         "delta": 7
@@ -18454,8 +18369,8 @@
     "enCoursAuDebutSample": [],
     "totaux": {
       "duree": 14,
-      "debutSprint": 1793541905518,
-      "finSprint": 1794751505518,
+      "debutSprint": 1793546131484,
+      "finSprint": 1794755731484,
       "livrees": 0,
       "enCoursAuDebut": 0,
       "ajoutees": 15,
@@ -18566,7 +18481,7 @@
     "buckets": [
       {
         "idx": 0,
-        "finSem": 1790517905519,
+        "finSem": 1790522131485,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18575,7 +18490,7 @@
       },
       {
         "idx": 1,
-        "finSem": 1791122705519,
+        "finSem": 1791126931485,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18584,7 +18499,7 @@
       },
       {
         "idx": 2,
-        "finSem": 1791727505519,
+        "finSem": 1791731731485,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18593,7 +18508,7 @@
       },
       {
         "idx": 3,
-        "finSem": 1792332305519,
+        "finSem": 1792336531485,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18602,7 +18517,7 @@
       },
       {
         "idx": 4,
-        "finSem": 1792937105519,
+        "finSem": 1792941331485,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18611,7 +18526,7 @@
       },
       {
         "idx": 5,
-        "finSem": 1793541905519,
+        "finSem": 1793546131485,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18620,7 +18535,7 @@
       },
       {
         "idx": 6,
-        "finSem": 1794146705519,
+        "finSem": 1794150931485,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -18629,7 +18544,7 @@
       },
       {
         "idx": 7,
-        "finSem": 1794751505519,
+        "finSem": 1794755731485,
         "total": 0,
         "positif": 0,
         "negatif": 0,
@@ -19393,14 +19308,14 @@
         "id": "INTENT-038-metriques-aiad-dashboard",
         "titre": "Retrouver dans le dashboard les métriques qu'expose AIAD",
         "statut": "active",
-        "mtime": 1794751500750.2378
+        "mtime": 1794755730791.748
       },
       {
         "type": "spec",
         "id": "SPEC-038-2-instrumentation-metriques",
         "titre": "Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels",
         "statut": "ready",
-        "mtime": 1794751500750.0146
+        "mtime": 1794755730791.2566
       },
       {
         "type": "spec",
@@ -20197,10 +20112,10 @@
       "specsDone": 0,
       "intentsArchived": 0,
       "zombies": 0,
-      "santeScore": -4
+      "santeScore": 0
     },
-    "depuis": "2026-11-15T11:02:26.120Z",
-    "message": null
+    "depuis": "2026-11-15T14:05:05.635Z",
+    "message": "Aucun changement depuis la dernière génération."
   },
   "ecoMetrics": {
     "sessionCount": 30,
@@ -20211,27 +20126,6 @@
     "tokensTotal30": 0,
     "tendance": null,
     "sessions": [
-      {
-        "date": "2026-11-15T09:22:56.945Z",
-        "model": null,
-        "tokens": 0,
-        "co2g": 0,
-        "method": "estimated"
-      },
-      {
-        "date": "2026-11-15T09:23:40.667Z",
-        "model": null,
-        "tokens": 0,
-        "co2g": 0,
-        "method": "estimated"
-      },
-      {
-        "date": "2026-11-15T09:29:43.558Z",
-        "model": null,
-        "tokens": 0,
-        "co2g": 0,
-        "method": "estimated"
-      },
       {
         "date": "2026-11-15T09:30:46.518Z",
         "model": null,
@@ -20420,10 +20314,31 @@
         "tokens": 0,
         "co2g": 0,
         "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T14:05:11.034Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T14:06:07.123Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
+      },
+      {
+        "date": "2026-11-15T14:06:42.449Z",
+        "model": null,
+        "tokens": 0,
+        "co2g": 0,
+        "method": "estimated"
       }
     ]
   },
   "publicUrl": "",
   "sourceBase": "",
-  "generatedAt": "2026-11-15T14:05:05.275Z"
+  "generatedAt": "2026-11-15T15:15:31.176Z"
 }
