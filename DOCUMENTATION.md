@@ -2,11 +2,11 @@
 ---
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
-version: 1.21.0
-source-hash: b84588dad740da4e
+version: 2.0.0-rc.1
+source-hash: 17a774b594af0303
 ---
 
-# aiad-sdd — Documentation utilisateur (v1.21.0)
+# aiad-sdd — Documentation utilisateur (v2.0.0-rc.1)
 
 > Cette documentation est **régénérée à chaque changement** des sources de vérité (CLI, commandes slash, skills, gouvernance, conventions d'annotations). Toute édition manuelle sera écrasée. Pour modifier le contenu : édite la source puis relance `npx aiad-sdd docs`. Le mode `npx aiad-sdd docs --check` est utilisable en CI pour bloquer les PR qui désynchronisent la doc.
 
@@ -25,7 +25,7 @@ source-hash: b84588dad740da4e
 Sortie de `aiad-sdd help` (extraite du bin pour rester à jour) :
 
 ```
-aiad-sdd v1.21.0 — Spec Driven Development pour Claude Code
+aiad-sdd v2.0.0-rc.1 — Spec Driven Development pour Claude Code
   https://aiad.ovh
 
   Commandes :
@@ -297,8 +297,8 @@ Pack par défaut : `eu-baseline`. Autres packs disponibles via `aiad-sdd gouvern
 |-------|-----------|-------------|
 | **AIAD-AI-ACT** |  | Règlement (UE) 2024/1689 — AI Act — Entré en vigueur le 1er août 2024 |
 | **AIAD-CRA** |  | Règlement (UE) 2024/2847 — Cyber Resilience Act (CRA) — Entré en vigueur le 10 décembre 2024 — Application générale : 11 décembre 2027 (obligation de signalement des vulnérabilités exploitées : 11 septembre 2026). |
-| **AIAD-RGAA** |  | RGAA 4.1.2 — Arrêté du 20 septembre 2024 (106 critères, ~257 tests) |
-| **AIAD-RGESN** |  | RGESN v2 (Référentiel Général d'Écoconception de Services Numériques), publié mai 2024 par ARCEP / ARCOM / ADEME / DINUM. |
+| **AIAD-RGAA** |  | RGAA 4.1.2 — approuvé par l'arrêté du 20 septembre 2019 (106 critères, ~257 tests). RGAA 5 (aligné WCAG 2.2) en cours de rédaction, non publié au 2026-11-17. |
+| **AIAD-RGESN** |  | RGESN v2 (Référentiel Général d'Écoconception de Services Numériques), publié le 17 mai 2024 par l'ARCEP et l'ARCOM, en lien avec l'ADEME, avec la DINUM, la CNIL et l'Inria. |
 | **AIAD-RGPD** |  | Règlement Général sur la Protection des Données (UE) 2016/679 |
 
 ## 6. Annotations machine-vérifiables
@@ -374,4 +374,4 @@ Un assistant par responsabilité AIAD, lancé en session principale (`claude --a
 
 ---
 
-*Document régénéré automatiquement — source-hash `b84588dad740da4e`, package v1.21.0.*
+*Document régénéré automatiquement — source-hash `17a774b594af0303`, package v2.0.0-rc.1.*

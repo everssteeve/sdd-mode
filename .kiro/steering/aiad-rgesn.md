@@ -2,7 +2,7 @@
 inclusion: fileMatch
 fileMatchPattern: **/*
 # intent_id: INTENT-033
-# generated-by: aiad-emit-rules v1.21.0
+# generated-by: aiad-emit-rules v2.0.0-rc.1
 # source-hash: d2be4814c73b1607
 ---
 

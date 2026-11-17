@@ -1,7 +1,7 @@
 {
   "name": "aiad-sdd",
   "description": "AIAD SDD Mode — Spec Driven Development pour Claude Code : cycle Intent → Research → SPEC → Gate → Exec → Validate → Drift-Lock, gouvernance Tier 1 enforced, verdicts déterministes.",
-  "version": "1.17.0",
+  "version": "2.0.0-rc.1",
   "author": {
     "name": "Steeve Evers"
   },

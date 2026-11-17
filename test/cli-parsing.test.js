@@ -35,7 +35,7 @@ test('cli — `aiad-sdd -h` (short flag) → aide', () => {
 test('cli — `aiad-sdd --version` → version SEULE (pas le help) #275', () => {
   const r = run('--version');
   assert.equal(r.status, 0);
-  assert.match(r.stdout, /^aiad-sdd v\d+\.\d+\.\d+\s*$/);
+  assert.match(r.stdout, /^aiad-sdd v\d+\.\d+\.\d+(-[\w.]+)?\s*$/);
   // (#275) Régression : ne doit PAS contenir le help (qui matchait avant)
   assert.doesNotMatch(r.stdout, /Commandes/);
 });
@@ -43,14 +43,14 @@ test('cli — `aiad-sdd --version` → version SEULE (pas le help) #275', () => 
 test('cli — `aiad-sdd -v` (short flag) → version SEULE #275', () => {
   const r = run('-v');
   assert.equal(r.status, 0);
-  assert.match(r.stdout, /^aiad-sdd v\d+\.\d+\.\d+\s*$/);
+  assert.match(r.stdout, /^aiad-sdd v\d+\.\d+\.\d+(-[\w.]+)?\s*$/);
   assert.doesNotMatch(r.stdout, /Commandes/);
 });
 
 test('cli — `aiad-sdd version` (positional) → version SEULE', () => {
   const r = run('version');
   assert.equal(r.status, 0);
-  assert.match(r.stdout, /^aiad-sdd v\d+\.\d+\.\d+\s*$/);
+  assert.match(r.stdout, /^aiad-sdd v\d+\.\d+\.\d+(-[\w.]+)?\s*$/);
   assert.doesNotMatch(r.stdout, /Commandes/);
 });
 

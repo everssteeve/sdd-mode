@@ -102,7 +102,7 @@ test('dashboard — émet 12 pages + assets + data.json après init complet', as
     assert.match(index, /href="https:\/\/aiad\.ovh"/);
 
     // (#272) <meta name="aiad-version"> pour discovery DOM programmatique
-    assert.match(index, /<meta name="aiad-version" content="\d+\.\d+\.\d+"/);
+    assert.match(index, /<meta name="aiad-version" content="\d+\.\d+\.\d+(-[\w.]+)?"/);
 
     // (#244 + #246) CSP meta tag présent dans <head>
     assert.match(index, /<meta http-equiv="Content-Security-Policy"/);
