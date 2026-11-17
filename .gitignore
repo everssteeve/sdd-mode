@@ -38,6 +38,8 @@ bench/**/.aiad/metrics/
 .aiad/.cache/
 .aiad/metrics/hook-runs.jsonl
 .aiad/metrics/skill-usage.jsonl
+# Mesure d'usage du dashboard (SPEC-037-2) — propre à chaque machine.
+.aiad/metrics/dashboard-usage/
 .claude/scheduled_tasks.lock
 
 # Cache régénérable des scénarios bench (les métriques sont déjà ignorées

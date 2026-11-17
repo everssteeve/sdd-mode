@@ -7,10 +7,13 @@
 
 auto_chain:
   # Chaînage automatique conditionnel du cycle SDD (INTENT-031).
-  # true  : les transitions automatiques (spec→gate, exec→validate, …) se
-  #         déclenchent sans prompt si les conditions sont satisfaites.
-  # false : comportement manuel pré-v1.19, aucune transition auto.
-  enabled: true
+  # false (défaut depuis la 2.0) : chaque étape du cycle est lancée par un
+  #         humain. C'est lui qui décide de passer de la SPEC à la Gate, de
+  #         l'exécution à la validation, de la validation au Drift Lock.
+  # true  : les transitions (spec→gate, exec→validate, …) s'enchaînent sans
+  #         confirmation. À n'activer qu'en connaissance de cause : c'est le
+  #         drift défini par AIAD — l'humain n'intervient plus dans le cycle.
+  enabled: false
 
   # Seuil max du budget contexte (%) pour autoriser la prochaine étape.
   # Si le budget dépasse ce seuil, le chaînage s'arrête et remonte au PE.

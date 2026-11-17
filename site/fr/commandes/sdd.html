@@ -150,7 +150,7 @@
       <p class="doc-lede">Le router <code>/sdd</code> regroupe toutes les commandes du cycle Spec Driven Development : du cadrage initial jusqu'aux audits, en passant par l'Intent Statement, la phase Research, la SPEC, l'Execution Gate et le Drift Lock.</p>
 
       <h2 id="routers">Les routers (aiad-sdd 1.7)</h2>
-      <p>Depuis <code>aiad-sdd</code> 1.7, les commandes du framework — 33 aujourd'hui : 17 <code>/sdd</code> et 16 <code>/aiad</code> — sont regroupées en <strong>3 routers</strong> — <code>/sdd</code>, <code>/aiad</code> et <code>/aiad-help</code> — pour réduire le poids du system prompt à froid (<strong>−94&nbsp;% de frontmatter</strong> chargé une fois les alias rétro-compatibles retirés). Les corps des sous-commandes sont stockés dans <code>.claude/sdd/</code> et <code>.claude/aiad/</code>, chargés <strong>uniquement à la demande</strong> par le router via <code>Read</code> : seul le contenu de la commande invoquée occupe le contexte.</p>
+      <p>Depuis <code>aiad-sdd</code> 1.7, les commandes du framework — 34 aujourd'hui : 17 <code>/sdd</code> et 17 <code>/aiad</code> — sont regroupées en <strong>3 routers</strong> — <code>/sdd</code>, <code>/aiad</code> et <code>/aiad-help</code> — pour réduire le poids du system prompt à froid (<strong>−94&nbsp;% de frontmatter</strong> chargé une fois les alias rétro-compatibles retirés). Les corps des sous-commandes sont stockés dans <code>.claude/sdd/</code> et <code>.claude/aiad/</code>, chargés <strong>uniquement à la demande</strong> par le router via <code>Read</code> : seul le contenu de la commande invoquée occupe le contexte.</p>
 
       <h2 id="dual-mode">Dual-mode : <code>--guided</code> / <code>--fast</code></h2>
       <p>Chaque commande accepte deux modes d'exécution, plus une auto-détection :</p>
@@ -278,8 +278,8 @@
       <p><strong>Sortie.</strong> Rapport persisté dans <code>.aiad/metrics/audit/YYYY-MM-DD-SPEC-NNN.md</code> avec recommandations BLOQUANT / IMPORTANT / SUGGESTION.</p>
 
       <div class="callout warn">
-        <span class="callout-title">Alias plats dépréciés</span>
-        <p>Les anciens alias (<code>/sdd-spec</code>, <code>/sdd-gate</code>, …) restent fonctionnels pendant une version et seront <strong>retirés à la v2</strong>. Ils affichent un message de migration vers la forme <code>/sdd &lt;sub&gt;</code>.</p>
+        <span class="callout-title">Alias plats retirés (v2.0)</span>
+        <p>Les anciens alias plats (<code>/sdd-spec</code>, <code>/sdd-gate</code>, …) sont <strong>retirés depuis la v2.0</strong>. Seule la forme <code>/sdd &lt;sub&gt;</code> existe ; <code>npx aiad-sdd update</code> les supprime des projets installés en v1.x.</p>
       </div>
 
       <nav class="doc-pagination" aria-label="Pages voisines">
@@ -333,7 +333,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->2.0.0-rc.1<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

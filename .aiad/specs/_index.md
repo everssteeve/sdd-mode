@@ -92,3 +92,14 @@
 | SPEC-034-1a | Synchroniser agents, guides et légitimation depuis le Drive publié | INTENT-034 | prose | 5/5 | ready | — |
 | SPEC-034-1b | update — écraser mais signaler (sauvegarde des agents modifiés) | INTENT-034 | prose | 5/5 | ready | — |
 | SPEC-034-2 | Contrôle de drift de la doctrine (version + contenu) | INTENT-034 | EARS | 5/5 | ready | — |
+| SPEC-036-1 | Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD | INTENT-036 | prose | 4/5 | ready | — |
+| SPEC-036-2 | Retrait des alias plats en v2.0 | INTENT-036 | prose | 5/5 | ready | — |
+| SPEC-036-3 | Hook drift-lock — ne plus bloquer la clôture sans verdict | INTENT-036 | prose | 5/5 | ready | — |
+| SPEC-037-1 | Dashboard par responsabilité — vue d'ensemble, cinq onglets de rôle, design system | INTENT-037 | prose | 4/5 | ready | — |
+| SPEC-037-2 | Mesure d'usage locale du dashboard — critère de drift constatable | INTENT-037 | prose | 5/5 | ready | — |
+| SPEC-038-1 | Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation | INTENT-038 | prose | 4/5 | ready | — |
+| SPEC-038-2 | Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels | INTENT-038 | prose | 4/5 | ready | — |
+| SPEC-039-1 | Installation fiable — hooks câblés, portables, fail-closed | INTENT-039 | prose | — | draft | — |
+| SPEC-039-2 | Contrôle humain — premiers verrous opposables | INTENT-039 | prose | — | draft | — |
+| SPEC-039-3 | Diagnostics vrais et intégration continue verte dès l'installation | INTENT-039 | prose | — | draft | — |
+| SPEC-039-4 | Guides de gouvernance — corrections vérifiées sur sources primaires | INTENT-039 | prose | — | draft | — |

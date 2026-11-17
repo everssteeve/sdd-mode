@@ -265,6 +265,22 @@ La taille de l'équipe détermine comment les responsabilités se distribuent �
 
 **La règle d'or :** quelle que soit la taille de l'équipe, chaque responsabilité doit avoir un porteur clairement identifié.
 
+### 3.8 Un assistant par responsabilité (ajout du 15 novembre 2026)
+
+Chacune des cinq responsabilités dispose d'un **agent de rôle** : l'assistant personnel de la personne qui la porte. Le PM travaille avec le sien, le PE avec le sien, et ainsi de l'AE, du QA et du Tech Lead. Une personne qui porte plusieurs responsabilités change d'assistant selon ce qu'elle fait.
+
+Tous les autres agents — revue de code, sécurité, tests, architecture, documentation — sont **gérés par l'un de ces cinq agents, et un seul**. L'agent qui assure les revues de code, par exemple, est lancé par l'assistant du Product Engineer. Un agent de rôle n'agit pas dans le périmètre d'un autre : il lui adresse un relais, que l'humain concerné tranche.
+
+Trois choses ne changent pas.
+
+- **L'intention et les décisions restent humaines.** Un assistant prépare, propose et exécute ce qui a été décidé. Chaque agent de rôle porte la liste des décisions qu'il ne prend jamais : rédiger l'intention, prioriser, ouvrir l'Execution Gate, signer une validation, trancher une architecture, publier.
+- **La responsabilité reste celle de son porteur.** Avoir un assistant ne transfère rien : le RACI décrit des humains.
+- **La gouvernance réglementaire reste hors hiérarchie.** Les agents de Niveau 0 sont consultables par les cinq assistants et leur veto ne dépend d'aucun d'eux.
+
+Cette organisation répond à un fait : la délégation aux agents augmente, à mesure qu'ils deviennent plus efficaces et plus fiables. Elle fixe aussi sa limite. **Si l'humain n'a plus à intervenir dans la création du produit, c'est un drift** — pas un progrès.
+
+Deux réserves. L'équipe d'agents livrée par le SDD Mode est posée à dire d'expert : l'utilité de chacun reste à mesurer, et les principes de sélection de la section 3.3 s'appliquent — ajouter par douleur, retirer par obsolescence. Et la limite de délégation n'est appliquée par l'outil que dans certaines conditions ; le guide SDD Mode dit lesquelles (section « Agents de rôle et sous-agents »).
+
 ### Anti-patterns d'écosystème
 
 "On n'a pas besoin d'Agents Engineer, chacun gère ses agents." Résultat : chaque PE configure différemment, l'écosystème devient incohérent, les bonnes pratiques ne se partagent pas. Même à temps partiel, quelqu'un doit avoir la vision globale.

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-11-15T16:24:04.629Z"/><meta name="aiad-version" content="1.21.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>SPEC-036-1-agents-de-role — Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD — aiad-sdd</title>
+<meta name="description" content="SPEC-036-1-agents-de-role — Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 70/100 · Ma…"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SPEC-036-1-agents-de-role — Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD — aiad-sdd"/>
+<meta property="og:description" content="SPEC-036-1-agents-de-role — Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 70/100 · Ma…"/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SPEC-036-1-agents-de-role — Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD — aiad-sdd"/>
+<meta name="twitter:description" content="SPEC-036-1-agents-de-role — Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD — Vue détaillée SPEC — critères, interface, dépendances, DoOD · aiad-sdd · Santé 70/100 · Ma…"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body data-onglet="pe">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="appbar">
+  <a class="brand" href="index.html" aria-label="aiad-sdd — vue d'ensemble">
+    <span class="brand-mark" aria-hidden="true">AS</span>
+    <span class="brand-text"><span class="brand-title">aiad-sdd</span><span class="brand-sub">SDD Mode · <span class="brand-version">v1.21.0</span></span></span>
+  </a>
+  <nav class="tabs" aria-label="Responsabilités">
+    <ul><li><a href="index.html" class="tab" data-onglet="global" data-court="Global"><span class="tab-label">Vue d&#39;ensemble</span><span class="tab-count" title="1 signal(s) à traiter">1</span></a></li><li><a href="pm.html" class="tab" data-onglet="pm" data-court="PM"><span class="tab-label">Product Manager</span><span class="tab-count warn" title="3 signal(s) à traiter">3</span></a></li><li><a href="pe.html" class="tab active" data-onglet="pe" aria-current="true" data-court="PE"><span class="tab-label">Product Engineer</span></a></li><li><a href="ae.html" class="tab" data-onglet="ae" data-court="AE"><span class="tab-label">Agents Engineer</span></a></li><li><a href="qa.html" class="tab" data-onglet="qa" data-court="QA"><span class="tab-label">QA Engineer</span></a></li><li><a href="tl.html" class="tab" data-onglet="tl" data-court="TL"><span class="tab-label">Tech Lead</span></a></li></ul>
+  </nav>
+  <div class="appbar-tools">
+    <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/11/2026 17:24:04. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+    <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre">
+      <span class="icon icon-dark" aria-hidden="true">☾</span><span class="icon icon-light" aria-hidden="true">☀</span>
+    </button>
+  </div>
+</header>
+<nav class="subnav" aria-label="Pages — Product Engineer">
+  <ul><li><a href="pe.html" class=""><span class="nav-icon" aria-hidden="true">◈</span>PE Cockpit</a></li><li><a href="specs.html" class="active" aria-current="page"><span class="nav-icon" aria-hidden="true">◆</span>SPECs</a></li><li><a href="kanban.html" class=""><span class="nav-icon" aria-hidden="true">▦</span>Kanban</a></li><li><a href="traceability.html" class=""><span class="nav-icon" aria-hidden="true">⇄</span>Traçabilité</a></li><li><a href="drifts.html" class=""><span class="nav-icon" aria-hidden="true">⚠</span>Drifts &amp; Facts</a></li></ul>
+  <span class="subnav-agent">Assistant <code>aiad-pe</code></span>
+</nav>
+<main id="contenu">
+  <header class="page-header">
+    <div>
+      <div class="eyebrow">Product Engineer</div>
+      <h1>SPEC-036-1-agents-de-role — Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD</h1>
+      <div class="subtitle">Vue détaillée SPEC — critères, interface, dépendances, DoOD</div>
+    </div>
+  </header>
+  <style>
+  .sp-cols { display:grid; grid-template-columns: 1fr 260px; gap: 1.5rem; align-items: start; }
+  @media (max-width: 900px) { .sp-cols { grid-template-columns: 1fr; } }
+  .sp-meta table { width:100%; font-size:.85rem; }
+  .sp-meta td { padding:.25rem .4rem; vertical-align:top; }
+  .sp-meta td:first-child { width: 110px; color: var(--muted, #777); font-size:.78rem; }
+  .sp-sections > section { margin-bottom: 1rem; padding: .6rem .8rem; background: rgba(127,127,127,.04); border-radius:.3rem; }
+  .sp-sections h3 { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color: var(--muted, #777); margin: 0 0 .35rem; }
+  .ca-item { margin-bottom:.75rem; padding:.5rem; background:rgba(127,127,127,.03); border-left:2px solid var(--border,#ddd); border-radius:.2rem; }
+  .ca-texte { margin:.4rem 0 0; padding:.4rem .6rem; background:rgba(76,110,245,.04); border-left:3px solid rgba(76,110,245,.3); font-size:.88rem; font-family:monospace; white-space:pre-wrap; }
+  .dood-list { list-style:none; padding:0; }
+  .dood-list li { padding:.15rem 0; font-size:.88rem; }
+  .sp-actions { margin-top: 1rem; display:flex; gap:.5rem; flex-wrap:wrap; font-size:.85rem; }
+  .sp-actions a { padding:.3rem .6rem; background:rgba(76,110,245,.1); color:#3a4cba; border-radius:.25rem; text-decoration:none; }
+  .sp-actions a:hover { background:rgba(76,110,245,.18); }
+  /* Masque le doublon h1 du page-header pour les pages détail SPEC */
+  body:has(.sp-cols) .page-header h1 { display:none; }
+</style>
+<div class="sp-cols">
+  <div class="sp-sections">
+    <h1><a class="src-link" href="../.aiad/specs/SPEC-036-1-agents-de-role.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-1-agents-de-role.md">SPEC-036-1-agents-de-role</a> — Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD</h1>
+
+    <section aria-label="Contexte">
+      <h3>§1 — Contexte</h3>
+      <p>Le package livre des commandes, 9 skills et 4 agents de gouvernance Tier 1. Aucun agent ne correspond aux 5 responsabilités AIAD (PM, PE, AE, QA, Tech Lead), et rien ne dit quel agent lance les agents spécialisés décrits dans le catalogue du framework (revue de code, sécurité, architecture…).
+
+Cette SPEC introduit une équipe d&#39;agents à deux niveaux :
+
+- **5 agents de rôle** — l&#39;assistant personnel de l&#39;humain qui porte une responsabilité ;
+- **des sous-agents spécialisés**, chacun géré par **un seul** agent de rôle.
+
+L&#39;humain garde l&#39;intention et les décisions ; chaque agent de rôle liste celles qu&#39;il ne prend jamais.
+
+### Contexte pour un lecteur extérieur
+
+Dans Claude Code, un agent est un fichier `.claude/agents/&lt;nom&gt;.md` (frontmatter + consignes). Lancé en session principale (`claude --agent &lt;nom&gt;` ou clé `agent` des réglages), il ne peut déléguer qu&#39;aux types listés dans `tools: Agent(a, b)`. Le champ `skills:` précharge des skills à l&#39;ouverture. Un sous-agent dont le champ `tools` ne contient pas `Agent` ne peut pas déléguer à son tour.</p>
+    </section>
+
+    <section aria-label="Critères d'acceptation">
+      <h3>§3 — Critères d'acceptation</h3>
+      <p>Aucun critère d'acceptation défini.</p>
+    </section>
+
+    <section aria-label="Interface / API">
+      <h3>§4 — Interface / API</h3>
+      <pre><code>```
+aiad-sdd agents [list] [--json]
+aiad-sdd agents validate [--json]        exit 0 conforme · 1 écarts
+aiad-sdd agents use &lt;pm|pe|ae|qa|tl|none&gt;
+
+Frontmatter d&#39;un agent de rôle :
+  name, description, tools: Agent(&lt;sous-agents&gt;, &lt;AIAD-*&gt;), &lt;outils&gt;
+  model: inherit · memory: project · skills: [...] · aiad-role · aiad-kind: role-agent
+
+Frontmatter d&#39;un sous-agent :
+  name, description, tools (sans Agent), disallowedTools, model, skills: [...]
+  aiad-managed-by: &lt;agent de rôle&gt; · aiad-kind: sub-agent
+```
+
+Les clés `aiad-*` sont ignorées par Claude Code et lues par `agents validate`.</code></pre>
+    </section>
+
+    <section aria-label="Dépendances">
+      <h3>§5 — Dépendances</h3>
+      <ul><li>Toute décision listée dans « Décisions réservées à l&#39;humain » d&#39;un agent de rôle.</li><li>Tout verdict NON-CONFORME ou UNKNOWN d&#39;un agent de gouvernance Tier 1.</li><li>Tout rapport JNSP d&#39;un sous-agent : il remonte à l&#39;humain avec sa question.</li></ul>
+    </section>
+
+    <section aria-label="Definition of Output Done">
+      <h3>§7 — Definition of Output Done</h3>
+      <p class="muted">Non définie.</p>
+    </section>
+
+    <div class="sp-actions">
+      <a href="specs.html">← Retour à la liste des SPECs</a>
+      <a href="../.aiad/specs/SPEC-036-1-agents-de-role.md" target="_blank" rel="noopener">Ouvrir le fichier .md</a>
+    </div>
+  </div>
+  <aside class="sp-meta">
+    <h3 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted,#777); margin:0 0 .3rem">Métadonnées</h3>
+    <table><caption class="sr-only">Métadonnées de la SPEC</caption><tr><th scope="row">Statut</th><td><span class="badge badge-info">ready</span></td></tr><tr><th scope="row">SQS</th><td><span class="badge badge-ok">SQS 4.0/5</span></td></tr><tr><th scope="row">Format</th><td><span class="badge badge-muted">prose</span></td></tr><tr><th scope="row">Intent parent</th><td><code>INTENT-036</code></td></tr><tr><th scope="row">Auteur</th><td>Steeve Evers</td></tr><tr><th scope="row">Date</th><td>2026-11-15</td></tr></table>
+  </aside>
+</div>
+</main>
+<footer class="app-footer">
+  <span>Généré 15/11/2026 17:24:04</span>
+  <span>Framework AIAD v1.21.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener">aiad.ovh</a></span>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

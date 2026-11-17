@@ -61,10 +61,9 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 
 **Échantillon amendes CNIL 2024-2025 :**
 - Amazon France Logistique — 32 M€ (surveillance excessive des salariés) — déc. 2023
-- SFR — 3,2 M€ (non-respect des droits) — sept. 2024
 - Cegedim Santé — 800 000 € (base légale insuffisante données de santé) — sept. 2024
 - Orange — 50 M€ (publicités non sollicitées) — nov. 2024
-- Secteur plus large : > 300 sanctions CNIL en 2024, total > 55 M€
+- Ensemble des secteurs : **87 sanctions** prononcées par la CNIL en 2024 (331 mesures correctrices au total), pour 55,2 M€ d'amendes (bilan CNIL 2024)
 
 > ⚠️ Les montants ci-dessus sont indicatifs et à vérifier sur `cnil.fr/fr/les-sanctions-prononcees-par-la-cnil` pour toute citation formelle.
 
@@ -73,7 +72,7 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 | Autorité | Périmètre |
 |----------|-----------|
 | **CNIL** | Autorité française — sanctions, lignes directrices, médiation |
-| **CEPD / EDPB** | Comité européen — lignes directrices contraignantes, mécanisme de cohérence |
+| **CEPD / EDPB** | Comité européen — lignes directrices (non contraignantes, mais suivies par les autorités), décisions contraignantes dans le mécanisme de cohérence (art. 65) |
 | **Autorité chef de file** | Si établissement principal dans un État membre (guichet unique) |
 
 ### Calendrier clé à date (2026-04-20)
@@ -83,7 +82,7 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 | 25 mai 2018 | Entrée en application RGPD |
 | 10 juil. 2023 | Décision d'adéquation UE-US Data Privacy Framework (Commission) |
 | 19 nov. 2025 | Proposition Digital Omnibus (simplifications RGPD) |
-| 2026 — trilogue en cours | Digital Omnibus (volet RGPD) — non adopté au 2026-04-20 ; *statut non revérifié au 2026-09-25* |
+| 2026 — première lecture | Digital Omnibus, volet RGPD (COM(2025) 837, procédure 2025/0360(COD)) — **non adopté** au 2026-11-17 : en attente de décision de commission au Parlement européen. Aucune modification du RGPD n'est en vigueur |
 | 20 juil. 2026 | Note exploratoire CNIL / CIANum sur l'IA agentique et les données personnelles *(ajout v1.9)* |
 | 21 août 2026 | Sanction de 824 990 000 € infligée à Uber par l'AP néerlandaise (décisions entièrement automatisées — Art. 22 — et défaut d'information) — **Uber a fait appel** *(ajout v1.9, vérifié sur le communiqué de l'AP)* |
 
@@ -91,8 +90,8 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 
 Points clés spécifiques au droit français :
 - **Art. 82 Loi 78-17** : cookies et traceurs — consentement préalable obligatoire (régime ePrivacy).
-- **Art. 8 & 9 Loi 78-17** : traitements spécifiques (statistique publique, santé, recherche).
-- **Art. 44 à 50 Loi 78-17** : pouvoirs d'enquête et de sanction de la CNIL.
+- **Art. 64 à 77 Loi 78-17** : traitements de données de santé ; **art. 78 et 79** : recherche et statistiques ; **art. 44** : exceptions pour les données sensibles ; **art. 45** : consentement des mineurs (15 ans).
+- **Art. 19 à 23 Loi 78-17** : pouvoirs de contrôle et de sanction de la CNIL (les art. 8 et 9 fixent ses missions et sa composition).
 - **Âge du consentement numérique en France : 15 ans** (Art. 45 Loi 78-17) — en dessous : consentement parental requis.
 
 ---
@@ -336,7 +335,7 @@ logger.error('User login failed', { userId: user.id, timestamp: new Date() });
 - **TOUJOURS** implémenter un endpoint de droit à la portabilité (export JSON ou CSV)
 - **TOUJOURS** implémenter un endpoint de droit de rectification
 - **TOUJOURS** implémenter un endpoint de droit d'opposition au traitement
-- **TOUJOURS** répondre aux demandes dans un délai de 30 jours (prévoir un système de suivi)
+- **TOUJOURS** répondre aux demandes dans un délai d'**un mois**, prolongeable de deux mois si la demande est complexe, en en informant la personne dans le premier mois (art. 12(3)) — prévoir un système de suivi
 - **TOUJOURS** vérifier l'identité du demandeur avant de communiquer des données (sans collecter plus que nécessaire)
 
 ```typescript
@@ -535,7 +534,7 @@ function initAnalytics(consent: CookieConsent): void {
 - **JAMAIS** rendre difficile l'exercice des droits (formulaires complexes, délais excessifs)
 - **JAMAIS** demander plus d'informations que nécessaire pour vérifier l'identité d'un demandeur
 - **JAMAIS** facturer l'exercice des droits (sauf demandes manifestement excessives)
-- **JAMAIS** ignorer ou retarder au-delà de 30 jours une demande d'exercice de droits
+- **JAMAIS** ignorer ou retarder au-delà d'un mois une demande d'exercice de droits sans avoir notifié la prolongation (art. 12(3))
 - **JAMAIS** soumettre une personne à une décision fondée exclusivement sur un traitement automatisé produisant des effets juridiques (Art. 22) sans base légale explicite + droit d'intervention humaine + explication
 
 ### 🚫 DARK PATTERNS (lignes directrices CEPD 03/2022)
@@ -584,7 +583,7 @@ function initAnalytics(consent: CookieConsent): void {
 - Traitements de gestion courante du personnel (paie, congés), comptabilité, fournisseurs
 - Registres légaux (associations, ordres professionnels)
 
-**Contenu minimal (Art. 35.7) — 9 sections :**
+**Contenu : les 4 éléments exigés par l'art. 35(7) (sections 1 à 4), complétés de 5 sections de méthode — 9 sections :**
 1. Description systématique du traitement et de ses finalités
 2. Évaluation de la nécessité et de la proportionnalité
 3. Évaluation des risques pour les droits et libertés
@@ -641,7 +640,7 @@ function initAnalytics(consent: CookieConsent): void {
 - Évaluer les mesures supplémentaires (chiffrement, pseudonymisation, contrôle fractionné)
 - Documenter l'analyse — doit être fourni à la CNIL sur demande
 
-**État UE-US Data Privacy Framework au 2026-04-20 :** en vigueur depuis 10 juil. 2023. Recours Schrems III introduit — issue non tranchée. **Règle AIAD : même si un fournisseur US est DPF-certifié, documenter un TIA et préférer hébergement EEE quand pertinent.**
+**État UE-US Data Privacy Framework au 2026-04-20 :** en vigueur depuis 10 juil. 2023. Recours en annulation (affaire Latombe c/ Commission) rejeté par le Tribunal de l'UE le 3 septembre 2025 (T-553/23) ; pourvoi pendant devant la Cour (C-703/25 P) au 2026-11-17 — le cadre reste en vigueur. **Règle AIAD : même si un fournisseur US est DPF-certifié, documenter un TIA et préférer hébergement EEE quand pertinent.**
 
 > 📚 Base : CJUE C-311/18 (Schrems II, 16 juil. 2020) + Décision 2021/914 (CCT) + CEPD Recommandations 01/2020.
 
@@ -1018,7 +1017,7 @@ Tout projet traitant des données personnelles doit inclure une section dédiée
 
 ### Contexte — Digital Omnibus Package
 
-La Commission européenne a proposé le 19 novembre 2025 un paquet de simplifications réglementaires dans le domaine numérique, incluant des modifications du RGPD. Le trilogue est à peine amorcé en mars 2026. Adoption attendue fin 2026 au plus tôt, plus probablement mi-2027. Des États membres (France, Estonie, Autriche, Slovénie) s'opposent à certaines simplifications.
+La Commission européenne a proposé le 19 novembre 2025 un paquet de simplifications réglementaires dans le domaine numérique, incluant des modifications du RGPD. Au 2026-11-17, la proposition (COM(2025) 837, procédure 2025/0360(COD)) est en première lecture au Parlement européen, en attente de décision de commission : le trilogue n'a pas commencé et aucune date d'adoption n'est fixée. Des États membres (France, Estonie, Autriche, Slovénie) s'opposent à certaines simplifications.
 
 **Source officielle :** Commission européenne — Digital Omnibus AI Regulation Proposal (19 nov. 2025)
 
@@ -1067,7 +1066,7 @@ La Commission européenne a proposé le 19 novembre 2025 un paquet de simplifica
 | Exemption registre PME < 750 | Proposé | Maintenir le registre comme bonne pratique |
 | Cookies faible risque — intérêt légitime | Proposé | Maintenir consentement en attendant liste blanche |
 
-**Aucune des simplifications proposées ne justifie d'alléger les recommandations AIAD aujourd'hui.** La surveillance du trilogue Digital Omnibus est en place (WATCHLIST.md).
+**Aucune des simplifications proposées ne justifie d'alléger les recommandations AIAD aujourd'hui.** L'avancement du Digital Omnibus est suivi par la veille du framework.
 
 ---
 
@@ -1092,6 +1091,7 @@ La Commission européenne a proposé le 19 novembre 2025 un paquet de simplifica
 
 | Date | Version | Modifications |
 |------|---------|--------------|
+| 2026-11-17 | corrections vérifiées sur sources primaires (texte du RGPD, Légifrance, cnil.fr) | **87 sanctions** CNIL en 2024 (et non « plus de 300 ») · ligne « SFR 3,2 M€ » retirée (absente de la liste de la CNIL) · lignes directrices du CEPD : non contraignantes · articles de la loi 78-17 corrigés (contrôle et sanctions : art. 19 à 23 ; santé : 64 à 77 ; recherche et statistiques : 78-79) · délai de réponse : **un mois, prolongeable de deux** (art. 12(3)) et non « 30 jours » · AIPD : 4 éléments exigés par l'art. 35(7) · Digital Omnibus : proposition non adoptée · Data Privacy Framework : affaire Latombe (T-553/23, pourvoi C-703/25 P). |
 | 2026-11-12 | v1.10 | **+ Approbations persistées et secrets** (Principe 6) · **+ humain qualifié** et **référence ICO** (Principe 7 bis — position britannique, non contraignante dans l'UE, vérifiée sur le communiqué du 8 octobre 2026) · **+ incident agentique et outillage compromis** dans la procédure de violation de données · sources vérifiées le 12 novembre 2026 |
 | 2026-09-25 | v1.9 | **+ Principe 7 bis — Art. 22** (critère d'intervention humaine réelle, checklist ; précédent Uber vérifié sur le communiqué de l'AP) · résidence des données du modèle selon le canal · grille CNIL / CIANum pour les AIPD d'agents · récits et sources déplacés vers `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md` — détail : notes de version de la v1.9 |
 | 2026-04-20 | v1.5 — renforcement juridique | **+ CADRE LÉGAL DÉTAILLÉ** (Loi 78-17 consolidée, ePrivacy, Data Privacy Framework UE-US) — **+ sanctions Art. 83 chiffrées** (2 paliers 10 M€/2 % et 20 M€/4 %, 11 critères de modulation, échantillon amendes CNIL 2024) — **+ autorités** (CNIL, CEPD, chef de file) — **+ Dark Patterns JAMAIS** (CEPD Guidelines 03/2022) — **+ Art. 22 décision automatisée JAMAIS** — **+ OBLIGATIONS PAR ACTEUR** (responsable / conjoint / sous-traitant / représentant / DPO) — **+ procédure AIPD** (liste CNIL obligatoire, liste dispensée, 9 sections Art. 35.7) — **+ procédure violation 72 h** (contenu Art. 33.3 + téléservice CNIL) — **+ procédure TIA post-Schrems II** (CCT 2021/914, DPF état 2026-04-20) — **+ tableau des 7 droits** avec délais et formes — **+ ARTEFACTS OBLIGATOIRES** (registre Art. 30, AIPD, notification CNIL, DPA Art. 28) — **+ ARTICULATION** (ePrivacy/cookies CNIL 2020-091/092, AI Act double régime, référentiels sectoriels CNIL, règles de priorité) |

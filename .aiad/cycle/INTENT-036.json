@@ -1,0 +1,47 @@
+{
+  "intent": "INTENT-036",
+  "etapes": [
+    {
+      "name": "INTENT",
+      "status": "done",
+      "blockedBy": null,
+      "note": "Les cinq champs sont les mots de l'auteur (2026-11-15)."
+    },
+    {
+      "name": "RESEARCH",
+      "status": "todo",
+      "blockedBy": "INTENT",
+      "note": "Non conduite — conception et implémentation demandées dans la même consigne."
+    },
+    {
+      "name": "SPEC",
+      "status": "done",
+      "blockedBy": "RESEARCH",
+      "note": "SPEC-036-1 rédigée par l'agent."
+    },
+    {
+      "name": "GATE",
+      "status": "done",
+      "blockedBy": "SPEC",
+      "note": "SQS 4/5 validé par l'auteur le 2026-11-15, après implémentation."
+    },
+    {
+      "name": "EXEC",
+      "status": "done",
+      "blockedBy": "GATE",
+      "note": "Implémenté le 2026-11-15 sur demande explicite de l'auteur."
+    },
+    {
+      "name": "VALIDATE",
+      "status": "todo",
+      "blockedBy": "EXEC",
+      "note": null
+    },
+    {
+      "name": "DRIFT-LOCK",
+      "status": "todo",
+      "blockedBy": "VALIDATE",
+      "note": null
+    }
+  ]
+}

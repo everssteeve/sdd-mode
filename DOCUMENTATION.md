@@ -2,11 +2,11 @@
 ---
 title: aiad-sdd — Documentation utilisateur
 generated-by: aiad-sdd docs
-version: 1.21.0
-source-hash: a3ff65aebd8429ca
+version: 2.0.0-rc.1
+source-hash: 17a774b594af0303
 ---
 
-# aiad-sdd — Documentation utilisateur (v1.21.0)
+# aiad-sdd — Documentation utilisateur (v2.0.0-rc.1)
 
 > Cette documentation est **régénérée à chaque changement** des sources de vérité (CLI, commandes slash, skills, gouvernance, conventions d'annotations). Toute édition manuelle sera écrasée. Pour modifier le contenu : édite la source puis relance `npx aiad-sdd docs`. Le mode `npx aiad-sdd docs --check` est utilisable en CI pour bloquer les PR qui désynchronisent la doc.
 
@@ -18,13 +18,14 @@ source-hash: a3ff65aebd8429ca
 4. [Skills auto-déclenchées](#4-skills-auto-déclenchées)
 5. [Gouvernance Tier 1](#5-gouvernance-tier-1)
 6. [Annotations machine-vérifiables](#6-annotations-machine-vérifiables)
+7. [Agents de rôle et sous-agents](#7-agents-de-rôle-et-sous-agents)
 
 ## 1. Interface en ligne de commande
 
 Sortie de `aiad-sdd help` (extraite du bin pour rester à jour) :
 
 ```
-aiad-sdd v1.21.0 — Spec Driven Development pour Claude Code
+aiad-sdd v2.0.0-rc.1 — Spec Driven Development pour Claude Code
   https://aiad.ovh
 
   Commandes :
@@ -84,6 +85,8 @@ aiad-sdd v1.21.0 — Spec Driven Development pour Claude Code
     status [--json|--markdown] Affiche l'état SDD du projet · --markdown pour paste PR/Slack/Notion
     doctor [--json|--markdown|--quiet|--fix|--supplementaire|--strict-sante=N] Diagnostic + score santé #218 · --markdown PR/Slack · --quiet silent en CI si pass · --strict-sante=N exit 1 si <N
     skills validate       Vérifie le frontmatter des skills (.claude/skills/)
+    metrics [status|check|record|keys] Métriques AIAD : état de pilotage · check = exit 1 si une métrique ne remonte pas · record <catégorie> clé=valeur… = enregistrement contrôlé
+    agents [list|validate|use <rôle>] Agents de rôle (PM, PE, AE, QA, Tech Lead) et leurs sous-agents · validate = conformité au registre · use = assistant par défaut
     repl                  REPL interactif (atelier intent/spec/trace/doctor sans quitter le terminal)
     migrate [--force]     Détecte les versions installées < courante et applique les migrations structurelles
     migrate-v2 [--apply]  Squelette migration v1 → v2 (dry-run par défaut, --json, --rollback-on-error, --keep-backups N)
@@ -236,6 +239,7 @@ Disponibles via `/aiad <sub>` (rituels, métriques, multi-runtime).
 
 | Commande | Description |
 |----------|-------------|
+| `/aiad agents` | Présente l'équipe d'agents de rôle (PM, PE, AE, QA, Tech Lead), leurs sous-agents et leurs skills, vérifie sa conformité et aide à choisir son assistant |
 | `/aiad dashboard-html` | Générer le dashboard HTML multi-pages du projet SDD Mode (dossier dashboard/) |
 | `/aiad dashboard` | Générer le dashboard AIAD hebdomadaire ou mensuel depuis les données métriques persistées |
 | `/aiad demo` | Faciliter la démo & feedback et persister les données métriques |
@@ -259,14 +263,30 @@ Claude Code charge dynamiquement ces skills selon leur `description`. Validable 
 
 | Skill | Déclencheur (description frontmatter) |
 |-------|----------------------------------------|
+| **acceptance-verification** | Use when validating delivered code against its SPEC - every acceptance criterion gets evidence (named test, command output, observed behaviour) or is reported as not verified. Produces the QA report. |
+| **agent-authoring** | Use when creating or modifying an agent (.claude/agents/) or a skill (.claude/skills/) - need validated by a human, single owning role agent, least-privilege tools, execution contract, trigger description, deterministic validation. |
+| **agent-monitoring** | Use when measuring whether agents and skills earn their place - usage, human correction rate, false positives, context cost, canary results - and deciding to keep, recalibrate or retire them. |
+| **architecture-review** | Use when reviewing a change, a design, technical debt or performance against ARCHITECTURE.md - standards, coupling, dependencies, budgets - and when drafting ADR options for the Tech Lead to decide. |
+| **backlog-health** | Use when auditing the intent backlog before a strategic sync or on request - detects zombie, orphan, stale-draft and duplicate intents and PRD inconsistencies, and lists the decisions the PM must make. |
+| **code-review** | Use when reviewing a code change - checks conformity to the SPEC acceptance criteria first, then defects, tests, readability and traceability annotations. Every finding is verified in the code before being reported. |
 | **context-budget** | Use when estimating or auditing a Context Engineering Budget. Computes the 5 health metrics (M1-M5), produces a health score 0–5/5 and actionable recommendations. Triggered by /sdd context, /sdd exec budget check, /sdd resume. |
+| **discovery-synthesis** | Use when turning raw product discovery material (interviews, user feedback, support tickets, market signals) into sourced findings and open hypotheses before an Intent or a PRD revision. |
 | **drift-detection** | Use when checking that code changes are synchronised with their SPEC (Drift Lock). Cross-references modified files against active SPECs and emits an OK/DRIFT verdict. Triggered by /sdd drift-check, /sdd validate, /sdd audit, pre-commit hook. |
 | **ears-validator** | Use when linting requirements or acceptance criteria for EARS syntax (Easy Approach to Requirements Syntax). Detects forbidden vague words (should, might, fast, user-friendly, intuitive…), multiple SHALL in a single requirement, missing trigger keywo |
+| **exec-orchestration** | Use when a role agent delegates work to sub-agents - how to brief, sequence or parallelize them, verify what comes back and keep the main context for the intent. Applies to the SDD cycle driven by aiad-pe and to any role agent delegation. |
+| **exploratory-charter** | Use when exploring a feature beyond its scripted tests - session-based exploratory testing with charters (mission, scope, timebox), reproducible findings, defects separated from open questions. |
 | **grill-me** | Use when a human gate must be interactive (« grill me ») rather than a static form — one question at a time, the agent proposes its recommended answer, the human validates or corrects. Triggered by /sdd gate --guided and /sdd research --guided. Prese |
 | **human-authorship-check** | Use when validating that an Intent Statement, decision or strategic artefact has explicit human authorship — ensures the POURQUOI is not generated, paraphrased or invented by the agent. Triggered by /sdd intent, /sdd spec, /aiad intention. |
+| **outcome-review** | Use when checking whether a delivered Intent reached its stated objective and whether its drift criterion is triggered - business validation support for the PM, after a delivery or before a demo. |
+| **permissions-audit** | Use when auditing least privilege in the agent ecosystem - tool grants per agent, permission settings, persisted approvals, MCP servers and plugins outside the allowlist, directives that relax human oversight. Run at iteration end and before a releas |
 | **reasons-canvas** | Use when structuring a SPEC via the REASONS Canvas (SPDD — Kevlin Henney). Facilitates the capture of intent justification before the standard AIAD SPEC format. Triggered by /sdd spec when the Intent is complex/ambiguous, or on explicit user request. |
 | **regulatory-veto** | Use when validating code, a SPEC or an Intent against the 4 Tier 1 governance agents (AI-ACT, RGPD, RGAA, RGESN). Emits PASS / WARN / VETO with structured remediation. Triggered by /sdd validate, /sdd security, /sdd exec, /aiad gouvernance. |
+| **release-readiness** | Use when preparing a release without publishing it - release checks, Drift Lock, governance veto, changelog draft, version proposal, blockers. Tagging, pushing, publishing and deploying remain human actions. |
+| **role-handoff** | Use when a topic belongs to another AIAD responsibility (PM, PE, AE, QA, Tech Lead) - writes or reads a handoff note in .aiad/handoffs/ instead of acting outside the current role. Used by the five role agents. |
+| **security-audit** | Use when auditing code for security - OWASP Top 10, secrets, dependency risk, input validation, authentication and authorization, agent permissions. Each vulnerability is confirmed by following the data path before being reported. |
+| **spec-authoring** | Use when drafting a SPEC from a validated Intent Statement - atomic scope, testable acceptance criteria, edge cases, agent stop points, no requirement the Intent does not carry. |
 | **sqs-scoring** | Use when evaluating a SPEC's quality (Spec Quality Score). Scores the 5 SQS criteria + Test de l'Étranger and decides whether the Execution Gate opens (SQS ≥ 4/5). Triggered by /sdd gate, /sdd split, /sdd exec prerequisite check. |
+| **test-strategy** | Use when deriving a test plan from a SPEC before or right after the Execution Gate - one or more checks per acceptance criterion, test level, automation versus manual, untestable criteria flagged. |
 | **traceability** | Use when generating, auditing or repairing the machine-verifiable traceability matrix Intent ↔ SPEC ↔ Code ↔ Tests. Reads code annotations (@intent, @spec, @verified-by, @governance), cross-references with .aiad/intents/ and .aiad/specs/, and emits o |
 
 ## 5. Gouvernance Tier 1
@@ -277,8 +297,8 @@ Pack par défaut : `eu-baseline`. Autres packs disponibles via `aiad-sdd gouvern
 |-------|-----------|-------------|
 | **AIAD-AI-ACT** |  | Règlement (UE) 2024/1689 — AI Act — Entré en vigueur le 1er août 2024 |
 | **AIAD-CRA** |  | Règlement (UE) 2024/2847 — Cyber Resilience Act (CRA) — Entré en vigueur le 10 décembre 2024 — Application générale : 11 décembre 2027 (obligation de signalement des vulnérabilités exploitées : 11 septembre 2026). |
-| **AIAD-RGAA** |  | RGAA 4.1.2 — Arrêté du 20 septembre 2024 (106 critères, ~257 tests) |
-| **AIAD-RGESN** |  | RGESN v2 (Référentiel Général d'Écoconception de Services Numériques), publié mai 2024 par ARCEP / ARCOM / ADEME / DINUM. |
+| **AIAD-RGAA** |  | RGAA 4.1.2 — approuvé par l'arrêté du 20 septembre 2019 (106 critères, ~257 tests). RGAA 5 (aligné WCAG 2.2) en cours de rédaction, non publié au 2026-11-17. |
+| **AIAD-RGESN** |  | RGESN v2 (Référentiel Général d'Écoconception de Services Numériques), publié le 17 mai 2024 par l'ARCEP et l'ARCOM, en lien avec l'ADEME, avec la DINUM, la CNIL et l'Inria. |
 | **AIAD-RGPD** |  | Règlement Général sur la Protection des Données (UE) 2016/679 |
 
 ## 6. Annotations machine-vérifiables
@@ -292,6 +312,66 @@ Conventions reconnues par `aiad-sdd trace` (regex stables exportées par `lib/sd
 | `@verified-by` | Chemin relatif vers un test qui couvre ce fichier. Cardinalité 0..n. |
 | `@governance` | Liste d'agents Tier 1 invoqués (`AIAD-RGPD,AIAD-AI-ACT`, …). Cardinalité 0..1. |
 
+## 7. Agents de rôle et sous-agents
+
+Un assistant par responsabilité AIAD, lancé en session principale (`claude --agent <nom>`). Chaque sous-agent est géré par un seul agent de rôle ; les agents de gouvernance Tier 1 restent consultables par tous. Conformité vérifiable via `aiad-sdd agents validate`.
+
+### `aiad-pm` — Product Manager
+
+« Construit-on les bonnes choses ? » — skills du rôle : `human-authorship-check`, `discovery-synthesis`, `backlog-health`, `outcome-review`, `role-handoff`.
+
+| Sous-agent | Mission | Modèle | Outils |
+|------------|---------|--------|--------|
+| `pm-discovery-analyst` | Synthèse de discovery : retours utilisateurs, hypothèses, signaux marché | sonnet | Read, Grep, Glob, WebFetch, WebSearch |
+| `pm-backlog-curator` | Santé du backlog : intents zombies, orphelins, doublons, cohérence PRD | haiku | Read, Grep, Glob, Bash |
+| `pm-outcome-analyst` | Outcomes et validation métier : critère de drift, métriques, préparation de démo | sonnet | Read, Grep, Glob, Bash |
+
+### `aiad-pe` — Product Engineer
+
+« L'intention est-elle réalisée sans être trahie ? » — skills du rôle : `human-authorship-check`, `sqs-scoring`, `context-budget`, `grill-me`, `exec-orchestration`, `role-handoff`.
+
+| Sous-agent | Mission | Modèle | Outils |
+|------------|---------|--------|--------|
+| `pe-spec-writer` | Brouillon de SPEC atomique depuis un Intent validé par l'humain | inherit | Read, Grep, Glob, Bash, Edit, Write |
+| `pe-implementer` | Implémentation d'UNE SPEC dont l'Execution Gate est ouverte | inherit | Read, Grep, Glob, Bash, Edit, Write |
+| `pe-code-reviewer` | Revue de code adossée à la SPEC : conformité, défauts, lisibilité | inherit | Read, Grep, Glob, Bash |
+| `pe-drift-sentinel` | Drift Lock : synchronisation SPEC ↔ code ↔ tests, matrice de traçabilité | haiku | Read, Grep, Glob, Bash |
+| `pe-doc-writer` | Documentation synchronisée avec le code livré : README, changelog, guides | sonnet | Read, Grep, Glob, Bash, Edit, Write |
+
+### `aiad-ae` — Agents Engineer
+
+« L'écosystème d'agents est-il optimal ? » — skills du rôle : `context-budget`, `regulatory-veto`, `agent-authoring`, `agent-monitoring`, `permissions-audit`, `role-handoff`.
+
+| Sous-agent | Mission | Modèle | Outils |
+|------------|---------|--------|--------|
+| `ae-agent-configurator` | Création et maintenance d'agents, de skills et de l'AGENT-GUIDE | inherit | Read, Grep, Glob, Bash, Edit, Write |
+| `ae-context-auditor` | Audit du budget de contexte : estimation vs réel, usage des skills, mémoire | haiku | Read, Grep, Glob, Bash |
+| `ae-agent-evaluator` | Évaluation des agents : canaris, taux de correction, faux positifs | sonnet | Read, Grep, Glob, Bash |
+| `ae-permissions-auditor` | Moindre privilège : permissions, approbations persistées, outillage autorisé | sonnet | Read, Grep, Glob |
+
+### `aiad-qa` — QA Engineer
+
+« La qualité est-elle intégrée dès le départ ? » — skills du rôle : `ears-validator`, `test-strategy`, `acceptance-verification`, `exploratory-charter`, `role-handoff`.
+
+| Sous-agent | Mission | Modèle | Outils |
+|------------|---------|--------|--------|
+| `qa-test-strategist` | Stratégie de test dès la SPEC : plan dérivé des critères d'acceptation | sonnet | Read, Grep, Glob |
+| `qa-test-author` | Écriture des tests automatisés, dans les répertoires de tests uniquement | inherit | Read, Grep, Glob, Bash, Edit, Write |
+| `qa-functional-validator` | Validation fonctionnelle : chaque critère d'acceptation, preuve à l'appui | sonnet | Read, Grep, Glob, Bash |
+| `qa-exploratory-tester` | Test exploratoire par chartes : cas limites, parcours non spécifiés | sonnet | Read, Grep, Glob, Bash |
+
+### `aiad-tech-lead` — Tech Lead
+
+« L'ensemble reste-t-il techniquement cohérent ? » — skills du rôle : `architecture-review`, `security-audit`, `release-readiness`, `role-handoff`.
+
+| Sous-agent | Mission | Modèle | Outils |
+|------------|---------|--------|--------|
+| `tl-architecture-reviewer` | Cohérence avec ARCHITECTURE.md : patterns, couplage, brouillons d'ADR | inherit | Read, Grep, Glob, Bash |
+| `tl-security-auditor` | Audit sécurité : OWASP, secrets, dépendances, authentification | inherit | Read, Grep, Glob, Bash |
+| `tl-performance-analyst` | Performance et sobriété : budgets, régressions, requêtes, poids | sonnet | Read, Grep, Glob, Bash |
+| `tl-debt-analyst` | Dette technique : inventaire, classement, plans de refactoring et de migration | sonnet | Read, Grep, Glob, Bash |
+| `tl-release-engineer` | Préparation de release : contrôles, changelog, version — sans publier | sonnet | Read, Grep, Glob, Bash, Edit, Write |
+
 ---
 
-*Document régénéré automatiquement — source-hash `a3ff65aebd8429ca`, package v1.21.0.*
+*Document régénéré automatiquement — source-hash `17a774b594af0303`, package v2.0.0-rc.1.*

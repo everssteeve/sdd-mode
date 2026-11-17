@@ -2,8 +2,8 @@
 inclusion: fileMatch
 fileMatchPattern: ["**/api/**","**/auth/**","**/users/**","**/account/**","**/gdpr/**"]
 # intent_id: INTENT-033
-# generated-by: aiad-emit-rules v1.21.0
-# source-hash: 5a8f819b42e602a5
+# generated-by: aiad-emit-rules v2.0.0-rc.1
+# source-hash: d2be4814c73b1607
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
@@ -73,14 +73,17 @@ async function collectUserEmail(email: string): Promise<void> { ... }
 - **JAMAIS** rendre difficile l'exercice des droits (formulaires complexes, délais excessifs)
 - **JAMAIS** demander plus d'informations que nécessaire pour vérifier l'identité d'un demandeur
 - **JAMAIS** facturer l'exercice des droits (sauf demandes manifestement excessives)
-- **JAMAIS** ignorer ou retarder au-delà de 30 jours une demande d'exercice de droits
+- **JAMAIS** ignorer ou retarder au-delà d'un mois une demande d'exercice de droits sans avoir notifié la prolongation (art. 12(3))
 - **JAMAIS** soumettre une personne à une décision fondée exclusivement sur un traitement automatisé produisant des effets juridiques (Art. 22) sans base légale explicite + droit d'intervention humaine + explication
 
 ### 🚫 DARK PATTERNS (lignes directrices CEPD 03/2022)
 - **JAMAIS** utiliser un design qui pousse à accepter plutôt qu'à refuser (couleur, taille, placement)
 - **JAMAIS** cacher l'option de refus derrière plusieurs clics ("Paramètres" → "Personnaliser" → "Tout refuser")
 - **JAMAIS** pré-sélectionner ou "recommander" un choix de partage étendu
-- **JAMAIS** utiliser des formulations culpabilisantes ("Vous refuse
+- **JAMAIS** utiliser des formulations culpabilisantes ("Vous refusez vraiment ?", "En refusant, vous dégradez votre expérience")
+
+> 📚 Base : CEPD — Guidelines 03/2022 on Dark Patterns (adoptées 14 févr. 2023).
+
 
 ## PROTOCOLE DE SIGNALEMENT
 

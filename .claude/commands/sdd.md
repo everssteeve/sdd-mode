@@ -40,7 +40,7 @@ Tu es un Product Engineer AIAD. L'utilisateur a invoqué `/sdd` avec des argumen
 ## Notes d'architecture
 
 - **Pourquoi les corps sont hors de `.claude/commands/`** : Claude Code charge le frontmatter de chaque fichier de `commands/` (et de ses sous-dossiers) dans le system prompt à froid. En stockant les 13 prompts SDD dans `.claude/sdd/`, ils sont chargés **uniquement à la demande** via `Read` — c'est la condition pour atteindre la cible de -70% sur le cold-start.
-- Les anciens alias `/sdd-init`, `/sdd-spec`, `/sdd-gate`, … restent fonctionnels pendant 1 version et redirigent ici. S'ils sont utilisés, signale-le brièvement à l'utilisateur (« migration : `/sdd-spec` → `/sdd spec` »).
+- Les anciens alias plats (`/sdd-init`, `/sdd-spec`, `/sdd-gate`, …) sont retirés depuis la v2.0. Si l'utilisateur en tape un, indique-lui la forme `/sdd <sub>`.
 - Aucun comportement métier n'est modifié — toute la logique reste dans les sous-commandes.
 
 $ARGUMENTS

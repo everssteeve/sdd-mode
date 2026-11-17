@@ -237,6 +237,25 @@
         <p>Quelle que soit la taille de l'équipe, <strong>chaque responsabilité doit avoir un porteur clairement identifié</strong>.</p>
       </div>
 
+      <h2 id="assistants">Un assistant par responsabilité (SDD Mode v2.0)</h2>
+      <p>Dans le SDD Mode, chaque responsabilité dispose d'un <strong>agent de rôle</strong> : l'assistant personnel de la personne qui la porte. Chaque agent de rôle gère ses propres sous-agents spécialisés — la revue de code, par exemple, est lancée par l'assistant du Product Engineer, et par lui seul.</p>
+      <table>
+        <caption class="visually-hidden">Agents de rôle et sous-agents qu'ils gèrent</caption>
+        <thead><tr><th scope="col">Agent de rôle</th><th scope="col">Assistant du…</th><th scope="col">Sous-agents qu'il gère</th></tr></thead>
+        <tbody>
+          <tr><td><code>aiad-pm</code></td><td>Product Manager</td><td><code>pm-discovery-analyst</code>, <code>pm-backlog-curator</code>, <code>pm-outcome-analyst</code></td></tr>
+          <tr><td><code>aiad-pe</code></td><td>Product Engineer</td><td><code>pe-spec-writer</code>, <code>pe-implementer</code>, <code>pe-code-reviewer</code>, <code>pe-drift-sentinel</code>, <code>pe-doc-writer</code></td></tr>
+          <tr><td><code>aiad-ae</code></td><td>Agents Engineer</td><td><code>ae-agent-configurator</code>, <code>ae-context-auditor</code>, <code>ae-agent-evaluator</code>, <code>ae-permissions-auditor</code></td></tr>
+          <tr><td><code>aiad-qa</code></td><td>QA Engineer</td><td><code>qa-test-strategist</code>, <code>qa-test-author</code>, <code>qa-functional-validator</code>, <code>qa-exploratory-tester</code></td></tr>
+          <tr><td><code>aiad-tech-lead</code></td><td>Tech Lead</td><td><code>tl-architecture-reviewer</code>, <code>tl-security-auditor</code>, <code>tl-performance-analyst</code>, <code>tl-debt-analyst</code>, <code>tl-release-engineer</code></td></tr>
+        </tbody>
+      </table>
+      <p>Trois règles tiennent l'ensemble. <strong>L'humain décide</strong> : chaque agent de rôle liste les décisions qu'il ne prend jamais — rédiger l'intention, prioriser, ouvrir la Gate, signer la validation, trancher une architecture, publier. <strong>Un seul gestionnaire par sous-agent</strong> : lancé par <code>claude --agent aiad-pe</code>, un agent de rôle ne peut déléguer qu'à ses sous-agents et aux agents de gouvernance ; la limite est appliquée par l'outil. <strong>Entre rôles, un relais</strong> : un sujet qui relève d'une autre responsabilité passe par une note dans <code>.aiad/handoffs/</code>, présentée à l'humain concerné.</p>
+      <div class="callout warn">
+        <span class="callout-title">Ce que nous ne savons pas encore</span>
+        <p>Cette équipe est posée à dire d'expert. L'utilité de chaque sous-agent reste à mesurer sur des projets réels ; un agent inutilisé se retire. Les agents sont livrés pour Claude Code uniquement.</p>
+      </div>
+
       <h2 id="raci">Le RACI du SDD Mode</h2>
       <p><strong>R</strong> = Réalise · <strong>A</strong> = Approuve · <strong>C</strong> = Consulté · <strong>I</strong> = Informé</p>
       <table>
@@ -318,7 +337,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->2.0.0-rc.1<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

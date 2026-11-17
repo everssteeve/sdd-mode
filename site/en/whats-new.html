@@ -203,6 +203,7 @@
       <p>Summary of the official <code>CHANGELOG.md</code> of the <code>aiad-sdd</code> package, newest version first. Each version links to the site articles documenting the features concerned.</p>
 
       <h3 id="upcoming">Next release — upcoming</h3>
+      <p><strong>aiad-sdd 2.0 — role agents.</strong> Each of the five responsibilities gets an assistant (<code>aiad-pm</code>, <code>aiad-pe</code>, <code>aiad-ae</code>, <code>aiad-qa</code>, <code>aiad-tech-lead</code>) that manages its own sub-agents — 21 in total, each with a single manager — along with 16 skills. The human keeps the intent and the decisions; the delegation limit is enforced by the tool when the assistant is started with <code>claude --agent</code>. Commands <code>aiad-sdd agents</code> and <code>/aiad agents</code>. How useful each sub-agent is remains to be measured — see <a href="team/responsibilities.html#assistants">One assistant per responsibility</a>.</p>
       <p>Features merged into the repository but <strong>not yet published</strong> on npm. They are not part of <code>aiad-sdd</code> 1.19.0:</p>
       <ul>
         <li><strong>Deterministic Gate pre-check</strong>: <code>aiad-sdd gate-precheck &lt;SPEC&gt;</code> checks, outside the model and before SQS scoring, the "Agent execution perimeter" section (irreversible action without a stop threshold, credentials or shared resources without declared isolation or network egress). Verdict <code>PASS</code> / <code>FAIL</code> / <code>JNSP</code> (exit 0 / 1 / 2): <code>FAIL</code> closes the Gate, <code>JNSP</code> makes it unknown — see <a href="commands/cli.html#gate-precheck">CLI — gate-precheck</a>.</li>
@@ -340,7 +341,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">AIAD doctrine v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->2.0.0-rc.1<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../assets/js/main.js"></script>

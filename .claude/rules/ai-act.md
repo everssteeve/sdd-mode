@@ -5,8 +5,8 @@ paths:
   - "**/llm/**"
   - "**/models/**"
   - "**/agents/**"
-generated-by: aiad-emit-rules v1.21.0
-source-hash: 5a8f819b42e602a5
+generated-by: aiad-emit-rules v2.0.0-rc.1
+source-hash: d2be4814c73b1607
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->

@@ -1,17 +1,32 @@
 {
   "env": {
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "65",
-    "_comment_otel": "Observabilité OTel (§3.11, opt-in) : renomme les clés _OTEL_* en OTEL_* et pointe vers ton collecteur. service.name sans PII.",
-    "_OTEL_METRICS_EXPORTER": "otlp",
-    "_OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4318",
-    "_OTEL_RESOURCE_ATTRIBUTES": "service.name=aiad-sdd"
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "65"
   },
   "skillListingMaxDescChars": 1536,
   "skillListingBudgetFraction": 0.01,
-  "includeCoAuthoredBy": true,
   "statusLine": {
     "type": "command",
-    "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/statusline.js"
+    "command": "node \"${CLAUDE_PROJECT_DIR}/.aiad/hooks/statusline.js\""
+  },
+  "permissions": {
+    "deny": [
+      "Edit(.aiad/hooks/**)",
+      "Write(.aiad/hooks/**)",
+      "Edit(.aiad/hook-bypass.yml)",
+      "Write(.aiad/hook-bypass.yml)",
+      "Edit(.aiad/hooks-config.json)",
+      "Write(.aiad/hooks-config.json)",
+      "Edit(.aiad/hooks-config.local.json)",
+      "Write(.aiad/hooks-config.local.json)",
+      "Edit(.aiad/gouvernance/**)",
+      "Write(.aiad/gouvernance/**)",
+      "Bash(git commit --no-verify*)",
+      "Bash(git commit * --no-verify*)"
+    ],
+    "ask": [
+      "Edit(.aiad/config.yml)",
+      "Write(.aiad/config.yml)"
+    ]
   },
   "hooks": {
     "SessionStart": [
@@ -20,7 +35,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/session-start.js"
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.aiad/hooks/session-start.js\""
           }
         ]
       }
@@ -31,7 +46,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/discovery-gate.js",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.aiad/hooks/discovery-gate.js\"",
             "statusMessage": "Prérequis Discovery — phase Research…"
           }
         ]
@@ -40,16 +55,17 @@
     "PreToolUse": [
       {
         "matcher": "Bash",
-        "if": "Bash(git commit *)",
         "hooks": [
           {
             "type": "command",
-            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/jnsp-scan.js --effort ${CLAUDE_EFFORT}",
+            "if": "Bash(git commit *)",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.aiad/hooks/jnsp-scan.js\"",
             "statusMessage": "Garde-fou JNSP — scan TODO-JNSP…"
           },
           {
             "type": "command",
-            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/veto.js",
+            "if": "Bash(git commit *)",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.aiad/hooks/veto.js\"",
             "statusMessage": "Veto Tier 1 — zones réglementées…"
           }
         ]
@@ -59,7 +75,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/skill-usage.js"
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.aiad/hooks/skill-usage.js\""
           }
         ]
       }
@@ -70,9 +86,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ${CLAUDE_PROJECT_DIR}/.aiad/hooks/drift-lock.js",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.aiad/hooks/drift-lock.js\"",
             "statusMessage": "Drift Lock — vérification traçabilité…",
-            "asyncRewake": true,
             "timeout": 180
           }
         ]

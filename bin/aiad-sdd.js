@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 
 import { argv, exit, cwd } from 'node:process';
+
+// Sorties synchrones : sans cela, `exit()` juste après une écriture coupe la
+// sortie à 64 Ko dès qu'elle part dans un tube (verdicts lus par les hooks).
+for (const flux of [process.stdout, process.stderr]) {
+  try { flux._handle?.setBlocking?.(true); } catch { /* flux non pilotable : on garde le défaut */ }
+}
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -19,6 +25,8 @@ import { dashboard, serveDashboard, watcher } from '../lib/dashboard.js';
 import { doctor } from '../lib/doctor.js';
 import { uninstall } from '../lib/uninstall.js';
 import { validerSkills } from '../lib/skills.js';
+import { commandeAgents } from '../lib/agents.js';
+import { commandeMetrics } from '../lib/metrics.js';
 import { docs } from '../lib/docs.js';
 import { versionSync } from '../lib/version-sync.js';
 import { optIn as telemetryOptIn, optOut as telemetryOptOut, showStatus as telemetryStatus, showUsage as telemetryUsage, track as telemetryTrack } from '../lib/telemetry.js';
@@ -384,6 +392,8 @@ const AIDE = `
     status [--json|--markdown] Affiche l'état SDD du projet · --markdown pour paste PR/Slack/Notion
     doctor [--json|--markdown|--quiet|--fix|--supplementaire|--strict-sante=N] Diagnostic + score santé #218 · --markdown PR/Slack · --quiet silent en CI si pass · --strict-sante=N exit 1 si <N
     skills validate       Vérifie le frontmatter des skills (.claude/skills/)
+    metrics [status|check|record|keys] Métriques AIAD : état de pilotage · check = exit 1 si une métrique ne remonte pas · record <catégorie> clé=valeur… = enregistrement contrôlé
+    agents [list|validate|use <rôle>] Agents de rôle (PM, PE, AE, QA, Tech Lead) et leurs sous-agents · validate = conformité au registre · use = assistant par défaut
     repl                  REPL interactif (atelier intent/spec/trace/doctor sans quitter le terminal)
     migrate [--force]     Détecte les versions installées < courante et applique les migrations structurelles
     migrate-v2 [--apply]  Squelette migration v1 → v2 (dry-run par défaut, --json, --rollback-on-error, --keep-backups N)
@@ -1056,6 +1066,18 @@ async function main() {
       break;
     }
 
+    case 'metrics': {
+      const code = await commandeMetrics(cwd(), positionals[1], positionals.slice(2), { json: Boolean(values.json) });
+      if (code !== 0) exit(code);
+      break;
+    }
+
+    case 'agents': {
+      const code = await commandeAgents(cwd(), positionals[1], positionals[2], { json: Boolean(values.json) });
+      if (code !== 0) exit(code);
+      break;
+    }
+
     case 'uninstall':
       await uninstall(cwd(), {
         force: Boolean(values.force),
@@ -1457,7 +1479,7 @@ async function main() {
       if (values.serve) {
         // (#310) Propage --quiet à serveDashboard pour silencer le banner
         // "Dashboard servi en local …" en CI / scripts d'orchestration.
-        const { server } = await serveDashboard(result.outDir, { port: values.port, quiet: Boolean(values.quiet) });
+        const { server } = await serveDashboard(result.outDir, { port: values.port, quiet: Boolean(values.quiet), usageDir: cwd() });
         let watch;
         if (values.watch) {
           watch = watcher(cwd(), async (filename) => {
@@ -1956,6 +1978,7 @@ async function main() {
           check: Boolean(values.check),
           force: Boolean(values.force),
           dryRun: Boolean(values['dry-run']),
+          installedOnly: Boolean(values.check) && !values.runtime,
         });
       } finally {
         if (json) console.log = savedLog;
@@ -3554,7 +3577,7 @@ async function main() {
           const { join: joinPath2, resolve: resolvePath2 } = await import('node:path');
           const racineDash = resolvePath2(cwd(), outDir);
           // (#310) Propage --quiet à serveDashboard pour silencer le banner.
-          const { server, url: serverBase } = await serveDashboard(racineDash, { port: values.port, quiet: Boolean(values.quiet) });
+          const { server, url: serverBase } = await serveDashboard(racineDash, { port: values.port, quiet: Boolean(values.quiet), usageDir: cwd() });
           const httpUrl = buildStandupUrl({ lens: values.lens, cwd: cwd(), outDir, serverUrl: serverBase.replace(/\/$/, '') }).serverUrl;
           console.log(`  Lien standup : ${httpUrl}\n`);
           if (values.open) {
@@ -3832,7 +3855,7 @@ async function main() {
       const COMMANDES_VALIDES = [
         'init', 'update', 'gouvernance', 'hooks', 'status', 'doctor', 'repl',
         'migrate', 'migrate-v2', 'obsidian', 'workspace', 'ai-act', 'sbom', 'verify-reproducibility',
-        'dpia', 'docs', 'telemetry', 'feedback', 'skills', 'uninstall', 'bench', 'trace', 'commands', 'guardrails',
+        'dpia', 'docs', 'telemetry', 'feedback', 'skills', 'agents', 'metrics', 'uninstall', 'bench', 'trace', 'commands', 'guardrails',
         'dashboard', 'emit-rules', 'new', 'import', 'score', 'template',
         'review', 'suggest-annotations', 'suggest-tests', 'export', 'storybook', 'cert',
         'marketplace', 'audit', 'provenance', 'hook-stats', 'dinum', 'sovereignty', 'adrs', 'dora', 'self-update', 'standup', 'brief', 'badge', 'gitlab', 'azure', 'webhooks', 'reflect', 'negotiate', 'refactor-spec', 'spec-version', 'archive', 'sla', 'completion', 'tour', 'pii-scan', 'backup', 'restore', 'offline', 'bitbucket', 'ci-template', 'github-app', 'anonymize', 'plugin', 'hooks-init', 'schema', 'org', 'rbac', 'tutorial', 'help', 'version',

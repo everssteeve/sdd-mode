@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main, dev]
+    branches: [main, dev, 'release/**']
   pull_request:
-    branches: [main, dev]
+    branches: [main, dev, 'release/**']
 
 jobs:
   test:
@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest]
-        node: [18, 20, 22]
+        node: [22, 24]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -41,6 +41,10 @@ jobs:
       # @spec SPEC-033-1-resync-commandes-livrees
       - name: Parité commandes .claude/ ↔ templates/.claude/ (SPEC-033-1)
         run: node scripts/check-commands-parity.js
+
+      # @spec SPEC-036-1-agents-de-role
+      - name: Agents de rôle conformes au registre (SPEC-036-1)
+        run: node bin/aiad-sdd.js agents validate
 
       # @spec SPEC-034-2-controle-drift-doctrine
       - name: Drift doctrine livrée ↔ templates/doctrine.lock.json (SPEC-034-2)
@@ -166,7 +170,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18, 20, 22]
+        node: [22, 24]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -195,7 +199,7 @@ jobs:
           path: content-hash-node-${{ matrix.node }}.txt
 
   reproducibility-verify:
-    name: vérifie identité des hashes Node 18/20/22
+    name: vérifie identité des hashes Node 22/24
     needs: reproducibility
     runs-on: ubuntu-latest
     steps:
@@ -205,14 +209,12 @@ jobs:
           merge-multiple: true
       - name: Compare les hashes
         run: |
-          H18=$(cat content-hash-node-18.txt)
-          H20=$(cat content-hash-node-20.txt)
           H22=$(cat content-hash-node-22.txt)
-          echo "Node 18 : $H18"
-          echo "Node 20 : $H20"
+          H24=$(cat content-hash-node-24.txt)
           echo "Node 22 : $H22"
-          if [ "$H18" != "$H20" ] || [ "$H20" != "$H22" ]; then
+          echo "Node 24 : $H24"
+          if [ "$H22" != "$H24" ]; then
             echo "::error::Build NON reproductible — les hashes divergent."
             exit 1
           fi
-          echo "✓ Build reproductible — hash identique sur Node 18/20/22 : $H22"
+          echo "✓ Build reproductible — hash identique sur Node 22/24 : $H22"

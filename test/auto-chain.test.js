@@ -238,7 +238,7 @@ test('exitCode absent (défaut 0) — transition déclenchée si commande dans r
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 
-test('config absente → defaults (enabled: true) → transition déclenchée', async () => {
+test('config absente → défaut 2.0 (enabled: false) → aucune transition : l\'humain lance chaque étape', async () => {
   const d = tmp(); // pas de config.yml
   const dispatched = [];
   try {
@@ -246,8 +246,7 @@ test('config absente → defaults (enabled: true) → transition déclenchée', 
       dispatcher: (cmd) => { dispatched.push(cmd); },
       stream: mockStream(),
     });
-    assert.equal(dispatched.length, 1);
-    assert.equal(dispatched[0], 'validate');
+    assert.equal(dispatched.length, 0);
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 

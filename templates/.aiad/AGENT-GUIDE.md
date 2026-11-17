@@ -107,7 +107,7 @@
 
 ## LESSONS LEARNED
 
-> Section mise à jour à chaque fin d'itération (commande `/aiad-retro`).
+> Section mise à jour à chaque fin d'itération (commande `/aiad retro`).
 > Documentez ici les erreurs récurrentes de l'agent ET les corrections appliquées.
 
 | Date | Erreur agent | Correction | Impact |

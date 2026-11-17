@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-10-27T08:46:10.413Z"/><meta name="aiad-version" content="1.20.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-11-15T16:24:04.629Z"/><meta name="aiad-version" content="1.21.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>Quality Assurance — aiad-sdd</title>
-<meta name="description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
+<meta name="description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Quality Assurance — aiad-sdd"/>
-<meta property="og:description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
+<meta property="og:description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta property="og:url" content="qa.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Quality Assurance — aiad-sdd"/>
-<meta name="twitter:description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
+<meta name="twitter:description" content="Quality Assurance — Queue, coverage, audit, EARS lint, régressions · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -28,91 +28,47 @@
   })();
 </script>
 </head>
-<body>
-<nav class="side">
-  <div class="brand">
-    <div class="brand-title">aiad-sdd</div>
-    <div class="brand-sub">SDD Mode · Dashboard</div>
-    <div class="brand-version">v1.20.0</div>
+<body data-onglet="qa">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="appbar">
+  <a class="brand" href="index.html" aria-label="aiad-sdd — vue d'ensemble">
+    <span class="brand-mark" aria-hidden="true">AS</span>
+    <span class="brand-text"><span class="brand-title">aiad-sdd</span><span class="brand-sub">SDD Mode · <span class="brand-version">v1.21.0</span></span></span>
+  </a>
+  <nav class="tabs" aria-label="Responsabilités">
+    <ul><li><a href="index.html" class="tab" data-onglet="global" data-court="Global"><span class="tab-label">Vue d&#39;ensemble</span><span class="tab-count" title="1 signal(s) à traiter">1</span></a></li><li><a href="pm.html" class="tab" data-onglet="pm" data-court="PM"><span class="tab-label">Product Manager</span><span class="tab-count warn" title="3 signal(s) à traiter">3</span></a></li><li><a href="pe.html" class="tab" data-onglet="pe" data-court="PE"><span class="tab-label">Product Engineer</span></a></li><li><a href="ae.html" class="tab" data-onglet="ae" data-court="AE"><span class="tab-label">Agents Engineer</span></a></li><li><a href="qa.html" class="tab active" data-onglet="qa" aria-current="true" data-court="QA"><span class="tab-label">QA Engineer</span></a></li><li><a href="tl.html" class="tab" data-onglet="tl" data-court="TL"><span class="tab-label">Tech Lead</span></a></li></ul>
+  </nav>
+  <div class="appbar-tools">
+    <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/11/2026 17:24:04. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+    <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre">
+      <span class="icon icon-dark" aria-hidden="true">☾</span><span class="icon icon-light" aria-hidden="true">☀</span>
+    </button>
   </div>
-  <ul>
-    <li><a href="today.html" class="">
-      <span class="nav-icon">⊙</span>Aujourd&#39;hui
-    </a></li>
-    <li><a href="inbox.html" class="">
-      <span class="nav-icon">📥</span>Inbox
-    </a></li>
-    <li><a href="index.html" class="">
-      <span class="nav-icon">◐</span>Vue d&#39;ensemble
-    </a></li>
-    <li><a href="pm.html" class="">
-      <span class="nav-icon">◑</span>PM Cockpit
-    </a></li>
-    <li><a href="intents.html" class="">
-      <span class="nav-icon">◇</span>Intents
-    </a></li>
-    <li><a href="specs.html" class="">
-      <span class="nav-icon">◆</span>SPECs
-    </a></li>
-    <li><a href="traceability.html" class="">
-      <span class="nav-icon">⇄</span>Traçabilité
-    </a></li>
-    <li><a href="graph.html" class="">
-      <span class="nav-icon">⊛</span>Graphe
-    </a></li>
-    <li><a href="metrics.html" class="">
-      <span class="nav-icon">⊞</span>Métriques
-    </a></li>
-    <li><a href="qa.html" class="active">
-      <span class="nav-icon">✓</span>QA
-    </a></li>
-    <li><a href="adrs.html" class="">
-      <span class="nav-icon">⎈</span>ADRs
-    </a></li>
-    <li><a href="legal.html" class="">
-      <span class="nav-icon">§</span>Legal
-    </a></li>
-    <li><a href="governance.html" class="">
-      <span class="nav-icon">⚖</span>Gouvernance
-    </a></li>
-    <li><a href="drifts.html" class="">
-      <span class="nav-icon">⚠</span>Drifts &amp; Facts
-    </a></li>
-    <li><a href="changelog.html" class="">
-      <span class="nav-icon">⏱</span>Changelog
-    </a></li>
-    <li><a href="onboarding.html" class="">
-      <span class="nav-icon">?</span>Onboarding
-    </a></li>
-    <li><a href="kanban.html" class="">
-      <span class="nav-icon">▦</span>Kanban
-    </a></li>
-    <li><a href="sre.html" class="">
-      <span class="nav-icon">⚙</span>SRE / Ops
-    </a></li>
-    <li><a href="dpo.html" class="">
-      <span class="nav-icon">⊙</span>DPO / RGPD
-    </a></li>
-    <li><a href="eco.html" class="">
-      <span class="nav-icon">🌱</span>Éco
-    </a></li></ul>
-  <div class="footer">Généré 27/10/2026 09:46:10<br/>Framework AIAD v1.20.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</header>
+<nav class="subnav" aria-label="Pages — QA Engineer">
+  <ul><li><a href="qa.html" class="active" aria-current="page"><span class="nav-icon" aria-hidden="true">✓</span>QA</a></li><li><a href="legal.html" class=""><span class="nav-icon" aria-hidden="true">§</span>Legal</a></li><li><a href="dpo.html" class=""><span class="nav-icon" aria-hidden="true">⊙</span>DPO / RGPD</a></li></ul>
+  <span class="subnav-agent">Assistant <code>aiad-qa</code></span>
 </nav>
-<main>
+<main id="contenu">
   <header class="page-header">
     <div>
+      <div class="eyebrow">QA Engineer</div>
       <h1>Quality Assurance</h1>
       <div class="subtitle">Queue, coverage, audit, EARS lint, régressions</div>
     </div>
-    <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 27/10/2026 09:46:10. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
-      <div class="meta">aiad-sdd · v1.20.0</div>
-      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
-        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
-      </button>
-    </div>
   </header>
-  
+  <section class="assistant" aria-label="Assistant du QA Engineer">
+  <div>
+    <h2>Votre assistant : <code>aiad-qa</code></h2>
+    <p>Il prépare, délègue à ses 4 sous-agents et rend compte. Les décisions restent les vôtres.</p>
+  </div>
+  <code class="assistant-cmd" data-copy="claude --agent aiad-qa" title="Copier la commande">claude --agent aiad-qa</code>
+  <div class="assistant-team"><span class="chip" title="Stratégie de test dès la SPEC : plan dérivé des critères d&#39;acceptation"><code>qa-test-strategist</code></span><span class="chip" title="Écriture des tests automatisés, dans les répertoires de tests uniquement"><code>qa-test-author</code></span><span class="chip" title="Validation fonctionnelle : chaque critère d&#39;acceptation, preuve à l&#39;appui"><code>qa-functional-validator</code></span><span class="chip" title="Test exploratoire par chartes : cas limites, parcours non spécifiés"><code>qa-exploratory-tester</code></span></div>
+</section><section>
+  <h2>Vos métriques AIAD</h2>
+  <h3>Qualité <span class="muted" style="font-weight:400">— La robustesse du code et la fiabilité du produit.</span></h3><table><thead><tr><th>Métrique</th><th>Valeur</th><th>Cible</th><th>État</th><th>Fréquence</th></tr></thead><tbody><tr data-freq="hebdo"><td><strong>Couverture de tests</strong></td><td>93 %</td><td>&gt; 80 % backend, &gt; 70 % frontend</td><td><span class="badge badge-ok">dans la cible</span></td><td class="muted">Hebdomadaire</td></tr><tr data-freq="hebdo"><td><strong>Bugs en production</strong></td><td>0 / 90 j <span class="muted">(avant : 6)</span></td><td>Tendance en baisse (−20 % / trimestre)</td><td><span class="badge badge-ok">dans la cible</span></td><td class="muted">Hebdomadaire</td></tr><tr data-freq="mensuel"><td><strong>Mean Time To Detect (MTTD)</strong></td><td>aucun incident</td><td>&lt; 24 h</td><td><span class="badge badge-info">mesuré</span></td><td class="muted">Mensuel</td></tr><tr data-freq="mensuel"><td><strong>Mean Time To Repair (MTTR)</strong></td><td>aucun incident</td><td>&lt; 4 h</td><td><span class="badge badge-info">mesuré</span></td><td class="muted">Mensuel</td></tr><tr data-freq="mensuel"><td><strong>Dette technique</strong></td><td>0 élément(s) <span class="muted">(avant : 0)</span></td><td>Stable ou en baisse</td><td><span class="badge badge-ok">dans la cible</span></td><td class="muted">Mensuel</td></tr><tr data-freq="hebdo"><td><strong>First-Time Success Rate</strong></td><td>37,5 %</td><td>&gt; 70 %</td><td><span class="badge badge-bad">hors cible</span></td><td class="muted">Hebdomadaire</td></tr></tbody></table>
+  <div class="actions"><a href="scorecard.html">→ Toutes les métriques, et comment les alimenter</a></div>
+</section>
 <div class="kpis">
     <div class="kpi warn">
       <div class="label">SPECs ready sans tests</div>
@@ -141,7 +97,7 @@
     </div>
     <div class="kpi">
       <div class="label">Tests ajoutés cette semaine</div>
-      <div class="value">284</div>
+      <div class="value">295</div>
       <div class="delta">fichiers .test/.spec mtime &lt; 7j</div>
     </div>
   </div>
@@ -164,7 +120,7 @@
 </section>
 
 <section>
-  <h2>Coverage par SPEC <span class="count">7 SPEC(s)</span></h2>
+  <h2>Coverage par SPEC <span class="count">14 SPEC(s)</span></h2>
   <p class="muted">Coverage heuristique (ratio tests/code). Pour un coverage réel, écris <code>.aiad/metrics/tests/coverage-summary.json</code> en sortie de c8/istanbul.</p>
   <div class="filter"><input type="search" id="qQaCoverage" data-filter-target="tQaCoverage" placeholder="Filtrer par ID, titre, bande…" autocomplete="off"/></div>
       <table id="tQaCoverage" data-sortable="true" data-a11y-caption="Couverture EARS par SPEC">
@@ -184,11 +140,32 @@
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-034-2-controle-drift-doctrine.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-034-2-controle-drift-doctrine.md">SPEC-034-2-controle-drift-doctrine</a></td><td>Contrôle de drift de la doctrine livrée — version et contenu, en CI et à la release</td>
       <td class="muted">3</td><td class="muted">2</td>
       <td><span class="badge ok">67%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-036-1-agents-de-role.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-1-agents-de-role.md">SPEC-036-1-agents-de-role</a></td><td>Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD</td>
+      <td class="muted">3</td><td class="muted">2</td>
+      <td><span class="badge ok">67%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-036-2-retrait-alias-plats.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-2-retrait-alias-plats.md">SPEC-036-2-retrait-alias-plats</a></td><td>Retrait des alias plats en v2.0</td>
+      <td class="muted">1</td><td class="muted">1</td>
+      <td><span class="badge ok">100%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-037-1-dashboard-par-role.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-037-1-dashboard-par-role.md">SPEC-037-1-dashboard-par-role</a></td><td>Dashboard par responsabilité — vue d&#39;ensemble, cinq onglets de rôle, nouveau design system</td>
+      <td class="muted">6</td><td class="muted">4</td>
+      <td><span class="badge ok">67%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-037-2-mesure-usage-dashboard.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-037-2-mesure-usage-dashboard.md">SPEC-037-2-mesure-usage-dashboard</a></td><td>Mesure d&#39;usage locale du dashboard — rendre le critère de drift constatable</td>
+      <td class="muted">1</td><td class="muted">1</td>
+      <td><span class="badge ok">100%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md">SPEC-038-1-metriques-aiad-dashboard</a></td><td>Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation</td>
+      <td class="muted">2</td><td class="muted">1</td>
+      <td><span class="badge ok">50%</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-038-2-instrumentation-metriques.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-038-2-instrumentation-metriques.md">SPEC-038-2-instrumentation-metriques</a></td><td>Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels</td>
+      <td class="muted">2</td><td class="muted">2</td>
+      <td><span class="badge ok">100%</span></td>
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-033-2-sections-gabarit-spec.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-2-sections-gabarit-spec.md">SPEC-033-2-sections-gabarit-spec</a></td><td>Gabarit de SPEC — sections « Points d&#39;arrêt de l&#39;agent » (optionnelle) et « Périmètre d&#39;exécution de l&#39;agent » (conditionnelle)</td>
       <td class="muted">0</td><td class="muted">0</td>
       <td><span class="badge ">—</span></td>
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-033-4-contexte-herite.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-033-4-contexte-herite.md">SPEC-033-4-contexte-herite</a></td><td>/sdd context — contexte hérité au point de fork d&#39;un sous-agent</td>
       <td class="muted">0</td><td class="muted">0</td>
+      <td><span class="badge ">—</span></td>
+      <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr><tr><td><a class="src-link" href="../.aiad/specs/SPEC-036-3-drift-lock-cli-absente.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-3-drift-lock-cli-absente.md">SPEC-036-3-drift-lock-cli-absente</a></td><td>Hook drift-lock — ne plus bloquer la clôture quand la CLI ne produit aucun verdict</td>
+      <td class="muted">0</td><td class="muted">1</td>
       <td><span class="badge ">—</span></td>
       <td><span class="badge badge-muted" title="Ratio tests/code (fallback)">heuristique</span></td></tr></tbody>
       </table>
@@ -210,40 +187,40 @@
 </section>
 
 <section>
-  <h2>Tests ajoutés cette semaine <span class="count">284 fichier(s)</span></h2>
+  <h2>Tests ajoutés cette semaine <span class="count">295 fichier(s)</span></h2>
   <table data-sortable="true">
         <thead><tr><th>Fichier</th><th>Modifié</th></tr></thead>
         <tbody>
-    <tr><td><a class="src-link" href="../test/dashboard-render.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-render.test.js">test/dashboard-render.test.js</a></td><td class="muted">27/10/2026 09:44:58</td></tr>
-    <tr><td><a class="src-link" href="../test/workspace.test.js" target="_blank" rel="noopener" title="Ouvrir test/workspace.test.js">test/workspace.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/workspace-analytics.test.js" target="_blank" rel="noopener" title="Ouvrir test/workspace-analytics.test.js">test/workspace-analytics.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/webhooks.test.js" target="_blank" rel="noopener" title="Ouvrir test/webhooks.test.js">test/webhooks.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/vscode-snippets.test.js" target="_blank" rel="noopener" title="Ouvrir test/vscode-snippets.test.js">test/vscode-snippets.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/vscode-extension.test.js" target="_blank" rel="noopener" title="Ouvrir test/vscode-extension.test.js">test/vscode-extension.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/veto.test.js" target="_blank" rel="noopener" title="Ouvrir test/veto.test.js">test/veto.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/version-sync.test.js" target="_blank" rel="noopener" title="Ouvrir test/version-sync.test.js">test/version-sync.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/verdict.test.js" target="_blank" rel="noopener" title="Ouvrir test/verdict.test.js">test/verdict.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/validate-data-schema.test.js" target="_blank" rel="noopener" title="Ouvrir test/validate-data-schema.test.js">test/validate-data-schema.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/upgrade.test.js" target="_blank" rel="noopener" title="Ouvrir test/upgrade.test.js">test/upgrade.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/update.test.js" target="_blank" rel="noopener" title="Ouvrir test/update.test.js">test/update.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/update-check.test.js" target="_blank" rel="noopener" title="Ouvrir test/update-check.test.js">test/update-check.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/uninstall.test.js" target="_blank" rel="noopener" title="Ouvrir test/uninstall.test.js">test/uninstall.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/tutorial.test.js" target="_blank" rel="noopener" title="Ouvrir test/tutorial.test.js">test/tutorial.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/track-cli.test.js" target="_blank" rel="noopener" title="Ouvrir test/track-cli.test.js">test/track-cli.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/trace.test.js" target="_blank" rel="noopener" title="Ouvrir test/trace.test.js">test/trace.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/trace-worker.test.js" target="_blank" rel="noopener" title="Ouvrir test/trace-worker.test.js">test/trace-worker.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/trace-watch.test.js" target="_blank" rel="noopener" title="Ouvrir test/trace-watch.test.js">test/trace-watch.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/trace-perf.test.js" target="_blank" rel="noopener" title="Ouvrir test/trace-perf.test.js">test/trace-perf.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/trace-git.test.js" target="_blank" rel="noopener" title="Ouvrir test/trace-git.test.js">test/trace-git.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/trace-ears-gap.test.js" target="_blank" rel="noopener" title="Ouvrir test/trace-ears-gap.test.js">test/trace-ears-gap.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/trace-cache.test.js" target="_blank" rel="noopener" title="Ouvrir test/trace-cache.test.js">test/trace-cache.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/tour.test.js" target="_blank" rel="noopener" title="Ouvrir test/tour.test.js">test/tour.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/term.test.js" target="_blank" rel="noopener" title="Ouvrir test/term.test.js">test/term.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/templates.test.js" target="_blank" rel="noopener" title="Ouvrir test/templates.test.js">test/templates.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/telemetry.test.js" target="_blank" rel="noopener" title="Ouvrir test/telemetry.test.js">test/telemetry.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/telemetry-usage.test.js" target="_blank" rel="noopener" title="Ouvrir test/telemetry-usage.test.js">test/telemetry-usage.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/tarball-hygiene.test.js" target="_blank" rel="noopener" title="Ouvrir test/tarball-hygiene.test.js">test/tarball-hygiene.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr>
-    <tr><td><a class="src-link" href="../test/sync-doctrine.test.js" target="_blank" rel="noopener" title="Ouvrir test/sync-doctrine.test.js">test/sync-doctrine.test.js</a></td><td class="muted">27/10/2026 09:44:28</td></tr></tbody>
+    <tr><td><a class="src-link" href="../test/metrics.test.js" target="_blank" rel="noopener" title="Ouvrir test/metrics.test.js">test/metrics.test.js</a></td><td class="muted">15/11/2026 15:04:17</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard-aiad-metrics.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-aiad-metrics.test.js">test/dashboard-aiad-metrics.test.js</a></td><td class="muted">15/11/2026 13:12:25</td></tr>
+    <tr><td><a class="src-link" href="../test/metrics-sources.test.js" target="_blank" rel="noopener" title="Ouvrir test/metrics-sources.test.js">test/metrics-sources.test.js</a></td><td class="muted">15/11/2026 13:12:10</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard-roles.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-roles.test.js">test/dashboard-roles.test.js</a></td><td class="muted">15/11/2026 12:55:46</td></tr>
+    <tr><td><a class="src-link" href="../test/commands-registry.test.js" target="_blank" rel="noopener" title="Ouvrir test/commands-registry.test.js">test/commands-registry.test.js</a></td><td class="muted">15/11/2026 12:53:36</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard-navigation.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-navigation.test.js">test/dashboard-navigation.test.js</a></td><td class="muted">15/11/2026 12:33:54</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard-usage.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-usage.test.js">test/dashboard-usage.test.js</a></td><td class="muted">15/11/2026 12:01:32</td></tr>
+    <tr><td><a class="src-link" href="../test/upgrade.test.js" target="_blank" rel="noopener" title="Ouvrir test/upgrade.test.js">test/upgrade.test.js</a></td><td class="muted">15/11/2026 11:48:01</td></tr>
+    <tr><td><a class="src-link" href="../test/update-check.test.js" target="_blank" rel="noopener" title="Ouvrir test/update-check.test.js">test/update-check.test.js</a></td><td class="muted">15/11/2026 11:48:01</td></tr>
+    <tr><td><a class="src-link" href="../test/init-snapshot.test.js" target="_blank" rel="noopener" title="Ouvrir test/init-snapshot.test.js">test/init-snapshot.test.js</a></td><td class="muted">15/11/2026 11:48:01</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard.test.js">test/dashboard.test.js</a></td><td class="muted">15/11/2026 11:48:01</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard-graph.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-graph.test.js">test/dashboard-graph.test.js</a></td><td class="muted">15/11/2026 11:48:01</td></tr>
+    <tr><td><a class="src-link" href="../test/check-commands-parity.test.js" target="_blank" rel="noopener" title="Ouvrir test/check-commands-parity.test.js">test/check-commands-parity.test.js</a></td><td class="muted">15/11/2026 11:48:01</td></tr>
+    <tr><td><a class="src-link" href="../test/dashboard-design-system.test.js" target="_blank" rel="noopener" title="Ouvrir test/dashboard-design-system.test.js">test/dashboard-design-system.test.js</a></td><td class="muted">15/11/2026 11:08:29</td></tr>
+    <tr><td><a class="src-link" href="../test/alias-retirement.test.js" target="_blank" rel="noopener" title="Ouvrir test/alias-retirement.test.js">test/alias-retirement.test.js</a></td><td class="muted">15/11/2026 10:53:11</td></tr>
+    <tr><td><a class="src-link" href="../test/drift-lock-hook.test.js" target="_blank" rel="noopener" title="Ouvrir test/drift-lock-hook.test.js">test/drift-lock-hook.test.js</a></td><td class="muted">15/11/2026 10:52:48</td></tr>
+    <tr><td><a class="src-link" href="../test/agents.test.js" target="_blank" rel="noopener" title="Ouvrir test/agents.test.js">test/agents.test.js</a></td><td class="muted">15/11/2026 10:14:41</td></tr>
+    <tr><td><a class="src-link" href="../test/agents-registry.test.js" target="_blank" rel="noopener" title="Ouvrir test/agents-registry.test.js">test/agents-registry.test.js</a></td><td class="muted">15/11/2026 10:14:36</td></tr>
+    <tr><td><a class="src-link" href="../test/workspace.test.js" target="_blank" rel="noopener" title="Ouvrir test/workspace.test.js">test/workspace.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr>
+    <tr><td><a class="src-link" href="../test/workspace-analytics.test.js" target="_blank" rel="noopener" title="Ouvrir test/workspace-analytics.test.js">test/workspace-analytics.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr>
+    <tr><td><a class="src-link" href="../test/webhooks.test.js" target="_blank" rel="noopener" title="Ouvrir test/webhooks.test.js">test/webhooks.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr>
+    <tr><td><a class="src-link" href="../test/vscode-snippets.test.js" target="_blank" rel="noopener" title="Ouvrir test/vscode-snippets.test.js">test/vscode-snippets.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr>
+    <tr><td><a class="src-link" href="../test/vscode-extension.test.js" target="_blank" rel="noopener" title="Ouvrir test/vscode-extension.test.js">test/vscode-extension.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr>
+    <tr><td><a class="src-link" href="../test/veto.test.js" target="_blank" rel="noopener" title="Ouvrir test/veto.test.js">test/veto.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr>
+    <tr><td><a class="src-link" href="../test/version-sync.test.js" target="_blank" rel="noopener" title="Ouvrir test/version-sync.test.js">test/version-sync.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr>
+    <tr><td><a class="src-link" href="../test/verdict.test.js" target="_blank" rel="noopener" title="Ouvrir test/verdict.test.js">test/verdict.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr>
+    <tr><td><a class="src-link" href="../test/validate-data-schema.test.js" target="_blank" rel="noopener" title="Ouvrir test/validate-data-schema.test.js">test/validate-data-schema.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr>
+    <tr><td><a class="src-link" href="../test/update.test.js" target="_blank" rel="noopener" title="Ouvrir test/update.test.js">test/update.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr>
+    <tr><td><a class="src-link" href="../test/uninstall.test.js" target="_blank" rel="noopener" title="Ouvrir test/uninstall.test.js">test/uninstall.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr>
+    <tr><td><a class="src-link" href="../test/tutorial.test.js" target="_blank" rel="noopener" title="Ouvrir test/tutorial.test.js">test/tutorial.test.js</a></td><td class="muted">15/11/2026 10:00:59</td></tr></tbody>
       </table>
 </section>
 
@@ -255,6 +232,10 @@
 
 
 </main>
+<footer class="app-footer">
+  <span>Généré 15/11/2026 17:24:04</span>
+  <span>Framework AIAD v1.21.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener">aiad.ovh</a></span>
+</footer>
 <script src="assets/app.js"></script>
 </body>
 </html>

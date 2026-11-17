@@ -42,8 +42,8 @@ test('upgrade rituals — ajoute le router /aiad et les sous-commandes rituels',
     await upgrade(dir, 'rituals', {});
 
     assert.ok(existsSync(join(dir, '.claude', 'commands', 'aiad.md')));
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'aiad-standup.md')));
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'aiad-retro.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'aiad', 'standup.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'aiad', 'retro.md')));
     assert.ok(existsSync(join(dir, '.claude', 'aiad', 'standup.md')));
     // Skills déployées dès qu'on quitte le minimal
     assert.ok(existsSync(join(dir, '.claude', 'skills', 'human-authorship-check', 'SKILL.md')));
@@ -62,13 +62,13 @@ test('upgrade metrics — ajoute dashboard/dora/flow + commandes SDD étendues',
 
     await upgrade(dir, 'metrics', {});
 
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'aiad-dashboard.md')));
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'aiad-dora.md')));
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'aiad-flow.md')));
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'sdd-fact.md')));
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'sdd-security.md')));
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'sdd-audit.md')));
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'sdd-context.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'aiad', 'dashboard.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'aiad', 'dora.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'aiad', 'flow.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'sdd', 'fact.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'sdd', 'security.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'sdd', 'audit.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'sdd', 'context.md')));
     // Dossiers metrics
     assert.ok(existsSync(join(dir, '.aiad', 'metrics', 'security')));
     assert.ok(existsSync(join(dir, '.aiad', 'metrics', 'audit')));
@@ -92,7 +92,7 @@ test('upgrade gouvernance — ajoute les 4 agents Tier 1 sur profil minimal', si
         `agent manquant : ${a}`,
       );
     }
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'aiad-gouvernance.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'aiad', 'gouvernance.md')));
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -107,8 +107,11 @@ test('upgrade all — bascule profil minimal → profil complet', silencerStdout
 
     // Mix de toutes les catégories
     assert.ok(existsSync(join(dir, '.claude', 'commands', 'aiad.md')));
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'sdd-exec.md')));
-    assert.ok(existsSync(join(dir, '.claude', 'commands', 'aiad-dashboard.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'sdd', 'exec.md')));
+    // v2.0 : les commandes plates du profil minimal sont remplacées par le router /sdd
+    assert.ok(!existsSync(join(dir, '.claude', 'commands', 'sdd-spec.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'commands', 'sdd.md')));
+    assert.ok(existsSync(join(dir, '.claude', 'aiad', 'dashboard.md')));
     assert.ok(existsSync(join(dir, '.aiad', 'gouvernance', 'AIAD-RGPD.md')));
     assert.ok(existsSync(join(dir, '.github', 'workflows', 'sdd-trace.yml')));
     // PRD/ARCHITECTURE/AGENT-GUIDE créés s'ils n'existaient pas

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-10-27T08:46:10.413Z"/><meta name="aiad-version" content="1.20.0"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-11-15T16:24:04.629Z"/><meta name="aiad-version" content="1.21.0"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
 <title>SPECs — aiad-sdd</title>
-<meta name="description" content="SPECs — Spécifications techniques atomiques liées aux Intents · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
+<meta name="description" content="SPECs — Spécifications techniques atomiques liées aux Intents · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta name="generator" content="AIAD SDD Mode"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="SPECs — aiad-sdd"/>
-<meta property="og:description" content="SPECs — Spécifications techniques atomiques liées aux Intents · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
+<meta property="og:description" content="SPECs — Spécifications techniques atomiques liées aux Intents · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <meta property="og:url" content="specs.html"/>
 <meta property="og:image" content="badge.svg"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SPECs — aiad-sdd"/>
-<meta name="twitter:description" content="SPECs — Spécifications techniques atomiques liées aux Intents · aiad-sdd · Santé 88/100 · Maturité 4/5"/>
+<meta name="twitter:description" content="SPECs — Spécifications techniques atomiques liées aux Intents · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="stylesheet" href="assets/style.css"/>
@@ -28,94 +28,39 @@
   })();
 </script>
 </head>
-<body>
-<nav class="side">
-  <div class="brand">
-    <div class="brand-title">aiad-sdd</div>
-    <div class="brand-sub">SDD Mode · Dashboard</div>
-    <div class="brand-version">v1.20.0</div>
+<body data-onglet="pe">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="appbar">
+  <a class="brand" href="index.html" aria-label="aiad-sdd — vue d'ensemble">
+    <span class="brand-mark" aria-hidden="true">AS</span>
+    <span class="brand-text"><span class="brand-title">aiad-sdd</span><span class="brand-sub">SDD Mode · <span class="brand-version">v1.21.0</span></span></span>
+  </a>
+  <nav class="tabs" aria-label="Responsabilités">
+    <ul><li><a href="index.html" class="tab" data-onglet="global" data-court="Global"><span class="tab-label">Vue d&#39;ensemble</span><span class="tab-count" title="1 signal(s) à traiter">1</span></a></li><li><a href="pm.html" class="tab" data-onglet="pm" data-court="PM"><span class="tab-label">Product Manager</span><span class="tab-count warn" title="3 signal(s) à traiter">3</span></a></li><li><a href="pe.html" class="tab active" data-onglet="pe" aria-current="true" data-court="PE"><span class="tab-label">Product Engineer</span></a></li><li><a href="ae.html" class="tab" data-onglet="ae" data-court="AE"><span class="tab-label">Agents Engineer</span></a></li><li><a href="qa.html" class="tab" data-onglet="qa" data-court="QA"><span class="tab-label">QA Engineer</span></a></li><li><a href="tl.html" class="tab" data-onglet="tl" data-court="TL"><span class="tab-label">Tech Lead</span></a></li></ul>
+  </nav>
+  <div class="appbar-tools">
+    <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/11/2026 17:24:04. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+    <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre">
+      <span class="icon icon-dark" aria-hidden="true">☾</span><span class="icon icon-light" aria-hidden="true">☀</span>
+    </button>
   </div>
-  <ul>
-    <li><a href="today.html" class="">
-      <span class="nav-icon">⊙</span>Aujourd&#39;hui
-    </a></li>
-    <li><a href="inbox.html" class="">
-      <span class="nav-icon">📥</span>Inbox
-    </a></li>
-    <li><a href="index.html" class="">
-      <span class="nav-icon">◐</span>Vue d&#39;ensemble
-    </a></li>
-    <li><a href="pm.html" class="">
-      <span class="nav-icon">◑</span>PM Cockpit
-    </a></li>
-    <li><a href="intents.html" class="">
-      <span class="nav-icon">◇</span>Intents
-    </a></li>
-    <li><a href="specs.html" class="active">
-      <span class="nav-icon">◆</span>SPECs
-    </a></li>
-    <li><a href="traceability.html" class="">
-      <span class="nav-icon">⇄</span>Traçabilité
-    </a></li>
-    <li><a href="graph.html" class="">
-      <span class="nav-icon">⊛</span>Graphe
-    </a></li>
-    <li><a href="metrics.html" class="">
-      <span class="nav-icon">⊞</span>Métriques
-    </a></li>
-    <li><a href="qa.html" class="">
-      <span class="nav-icon">✓</span>QA
-    </a></li>
-    <li><a href="adrs.html" class="">
-      <span class="nav-icon">⎈</span>ADRs
-    </a></li>
-    <li><a href="legal.html" class="">
-      <span class="nav-icon">§</span>Legal
-    </a></li>
-    <li><a href="governance.html" class="">
-      <span class="nav-icon">⚖</span>Gouvernance
-    </a></li>
-    <li><a href="drifts.html" class="">
-      <span class="nav-icon">⚠</span>Drifts &amp; Facts
-    </a></li>
-    <li><a href="changelog.html" class="">
-      <span class="nav-icon">⏱</span>Changelog
-    </a></li>
-    <li><a href="onboarding.html" class="">
-      <span class="nav-icon">?</span>Onboarding
-    </a></li>
-    <li><a href="kanban.html" class="">
-      <span class="nav-icon">▦</span>Kanban
-    </a></li>
-    <li><a href="sre.html" class="">
-      <span class="nav-icon">⚙</span>SRE / Ops
-    </a></li>
-    <li><a href="dpo.html" class="">
-      <span class="nav-icon">⊙</span>DPO / RGPD
-    </a></li>
-    <li><a href="eco.html" class="">
-      <span class="nav-icon">🌱</span>Éco
-    </a></li></ul>
-  <div class="footer">Généré 27/10/2026 09:46:10<br/>Framework AIAD v1.20.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">aiad.ovh</a></div>
+</header>
+<nav class="subnav" aria-label="Pages — Product Engineer">
+  <ul><li><a href="pe.html" class=""><span class="nav-icon" aria-hidden="true">◈</span>PE Cockpit</a></li><li><a href="specs.html" class="active" aria-current="page"><span class="nav-icon" aria-hidden="true">◆</span>SPECs</a></li><li><a href="kanban.html" class=""><span class="nav-icon" aria-hidden="true">▦</span>Kanban</a></li><li><a href="traceability.html" class=""><span class="nav-icon" aria-hidden="true">⇄</span>Traçabilité</a></li><li><a href="drifts.html" class=""><span class="nav-icon" aria-hidden="true">⚠</span>Drifts &amp; Facts</a></li></ul>
+  <span class="subnav-agent">Assistant <code>aiad-pe</code></span>
 </nav>
-<main>
+<main id="contenu">
   <header class="page-header">
     <div>
+      <div class="eyebrow">Product Engineer</div>
       <h1>SPECs</h1>
       <div class="subtitle">Spécifications techniques atomiques liées aux Intents</div>
-    </div>
-    <div class="header-right">
-      <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 27/10/2026 09:46:10. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
-      <div class="meta">aiad-sdd · v1.20.0</div>
-      <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre" title="Basculer thème clair / sombre">
-        <span class="icon icon-dark">☾</span><span class="icon icon-light">☀</span>
-      </button>
     </div>
   </header>
   
 <div class="kpis">
-    <div class="kpi"><div class="label">Total</div><div class="value">8</div></div>
-    <div class="kpi ok"><div class="label">SQS moyen</div><div class="value">5.0/5</div></div>
+    <div class="kpi"><div class="label">Total</div><div class="value">15</div></div>
+    <div class="kpi ok"><div class="label">SQS moyen</div><div class="value">4.7/5</div></div>
     <div class="kpi"><div class="label">Done</div><div class="value">0</div></div>
     <div class="kpi"><div class="label">In progress</div><div class="value">0</div></div>
     <div class="kpi"><div class="label">Draft / Review</div><div class="value">1</div></div>
@@ -124,11 +69,11 @@
 
 <section>
   <h2>Répartition par statut</h2>
-  <div class="card"><div class="dist-bar"><span class="dist-seg seg-info" style="width:87.5%" title="ready : 7">7</span><span class="dist-seg seg-warn" style="width:12.5%" title="draft : 1"></span></div><div class="dist-leg"><span class="dist-leg-item"><span class="dist-leg-dot seg-ok"></span>done <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>in-progress <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>validation <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>ready <strong>7</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>review <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>draft <strong>1</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-muted"></span>archived <strong>0</strong></span></div></div>
+  <div class="card"><div class="dist-bar"><span class="dist-seg seg-info" style="width:93.33333333333333%" title="ready : 14">14</span><span class="dist-seg seg-warn" style="width:6.666666666666667%" title="draft : 1"></span></div><div class="dist-leg"><span class="dist-leg-item"><span class="dist-leg-dot seg-ok"></span>done <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>in-progress <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>validation <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-info"></span>ready <strong>14</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>review <strong>0</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-warn"></span>draft <strong>1</strong></span><span class="dist-leg-item"><span class="dist-leg-dot seg-muted"></span>archived <strong>0</strong></span></div></div>
 </section>
 
 <section>
-  <h2>Catalogue <span class="count">8 spec(s)</span></h2>
+  <h2>Catalogue <span class="count">15 spec(s)</span></h2>
   <div class="filter"><input type="search" id="qSpecs" data-filter-target="tSpecs" placeholder="Filtrer par ID, titre, intent, format…"/></div>
   <table id="tSpecs" data-sortable="true" data-a11y-caption="SPECs techniques du projet">
     <thead><tr><th>ID</th><th>Titre</th><th>Intent parent</th><th>Format</th><th>SQS</th><th>Statut</th><th>Date</th></tr></thead>
@@ -217,6 +162,90 @@
     <td data-sort="ready"><span class="badge badge-info">ready</span></td>
     <td class="muted" data-sort="2026-09-25">2026-09-25</td>
   </tr><tr>
+    <td><a class="src-link" href="../.aiad/specs/SPEC-036-1-agents-de-role.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-1-agents-de-role.md">SPEC-036-1-agents-de-role</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD</strong>
+      </div>
+    </td>
+    <td><code>INTENT-036</code></td>
+    <td data-sort="prose"><span class="badge badge-muted">prose</span></td>
+    <td data-sort="4"><span class="badge badge-ok">SQS 4.0/5</span></td>
+    <td data-sort="ready"><span class="badge badge-info">ready</span></td>
+    <td class="muted" data-sort="2026-11-15">2026-11-15</td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/specs/SPEC-036-2-retrait-alias-plats.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-2-retrait-alias-plats.md">SPEC-036-2-retrait-alias-plats</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>Retrait des alias plats en v2.0</strong>
+      </div>
+    </td>
+    <td><code>INTENT-036</code></td>
+    <td data-sort="prose"><span class="badge badge-muted">prose</span></td>
+    <td data-sort="5"><span class="badge badge-ok">SQS 5.0/5</span></td>
+    <td data-sort="ready"><span class="badge badge-info">ready</span></td>
+    <td class="muted" data-sort="2026-11-15">2026-11-15</td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/specs/SPEC-036-3-drift-lock-cli-absente.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-036-3-drift-lock-cli-absente.md">SPEC-036-3-drift-lock-cli-absente</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>Hook drift-lock — ne plus bloquer la clôture quand la CLI ne produit aucun verdict</strong>
+      </div>
+    </td>
+    <td><code>INTENT-036</code></td>
+    <td data-sort="prose"><span class="badge badge-muted">prose</span></td>
+    <td data-sort="5"><span class="badge badge-ok">SQS 5.0/5</span></td>
+    <td data-sort="ready"><span class="badge badge-info">ready</span></td>
+    <td class="muted" data-sort="2026-11-15">2026-11-15</td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/specs/SPEC-037-1-dashboard-par-role.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-037-1-dashboard-par-role.md">SPEC-037-1-dashboard-par-role</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>Dashboard par responsabilité — vue d&#39;ensemble, cinq onglets de rôle, nouveau design system</strong>
+      </div>
+    </td>
+    <td><code>INTENT-037</code></td>
+    <td data-sort="prose"><span class="badge badge-muted">prose</span></td>
+    <td data-sort="4"><span class="badge badge-ok">SQS 4.0/5</span></td>
+    <td data-sort="ready"><span class="badge badge-info">ready</span></td>
+    <td class="muted" data-sort="2026-11-15">2026-11-15</td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/specs/SPEC-037-2-mesure-usage-dashboard.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-037-2-mesure-usage-dashboard.md">SPEC-037-2-mesure-usage-dashboard</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>Mesure d&#39;usage locale du dashboard — rendre le critère de drift constatable</strong>
+      </div>
+    </td>
+    <td><code>INTENT-037</code></td>
+    <td data-sort="prose"><span class="badge badge-muted">prose</span></td>
+    <td data-sort="5"><span class="badge badge-ok">SQS 5.0/5</span></td>
+    <td data-sort="ready"><span class="badge badge-info">ready</span></td>
+    <td class="muted" data-sort="2026-11-15">2026-11-15</td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-038-1-metriques-aiad-dashboard.md">SPEC-038-1-metriques-aiad-dashboard</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation</strong>
+      </div>
+    </td>
+    <td><code>INTENT-038</code></td>
+    <td data-sort="prose"><span class="badge badge-muted">prose</span></td>
+    <td data-sort="4"><span class="badge badge-ok">SQS 4.0/5</span></td>
+    <td data-sort="ready"><span class="badge badge-info">ready</span></td>
+    <td class="muted" data-sort="2026-11-15">2026-11-15</td>
+  </tr><tr>
+    <td><a class="src-link" href="../.aiad/specs/SPEC-038-2-instrumentation-metriques.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/SPEC-038-2-instrumentation-metriques.md">SPEC-038-2-instrumentation-metriques</a></td>
+    <td>
+      <div class="row-cluster">
+        <strong>Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels</strong>
+      </div>
+    </td>
+    <td><code>INTENT-038</code></td>
+    <td data-sort="prose"><span class="badge badge-muted">prose</span></td>
+    <td data-sort="4"><span class="badge badge-ok">SQS 4.0/5</span></td>
+    <td data-sort="ready"><span class="badge badge-info">ready</span></td>
+    <td class="muted" data-sort="2026-11-15">2026-11-15</td>
+  </tr><tr>
     <td><a class="src-link" href="../.aiad/specs/spec-template.md" target="_blank" rel="noopener" title="Ouvrir .aiad/specs/spec-template.md">spec-template</a></td>
     <td>
       <div class="row-cluster">
@@ -237,12 +266,16 @@
 .sp-list-link { padding:.35rem .55rem; background:rgba(127,127,127,.05); border-radius:.25rem; font-size:.85rem; text-decoration:none; color:inherit; border:1px solid var(--border,#ddd); }
 .sp-list-link:hover { background:rgba(76,110,245,.06); border-color:rgba(76,110,245,.3); }
 </style><section aria-label="Pages détaillées SPEC">
-  <h2>Pages détaillées SPEC <span class="count">8 pages générées</span></h2>
+  <h2>Pages détaillées SPEC <span class="count">15 pages générées</span></h2>
   <p class="muted" style="font-size:.85rem">Chaque SPEC dispose de sa propre page HTML avec ses critères d'acceptation, interface, dépendances et DoOD.</p>
-  <div class="sp-list-links"><a class="sp-list-link" href="spec-033-1-resync-commandes-livrees.html" aria-label="Page détail de la SPEC SPEC-033-1-resync-commandes-livrees : Resynchroniser les commandes livrées sur celles du dépôt + contrôle anti-divergence"><code>SPEC-033-1-resync-commandes-livrees</code> — Resynchroniser les commandes livrées sur celles du dépôt + contrôle anti-divergence</a><a class="sp-list-link" href="spec-033-2-sections-gabarit-spec.html" aria-label="Page détail de la SPEC SPEC-033-2-sections-gabarit-spec : Gabarit de SPEC — sections « Points d&#39;arrêt de l&#39;agent » (optionnelle) et « Périmètre d&#39;exécution de l&#39;agent » (conditionnelle)"><code>SPEC-033-2-sections-gabarit-spec</code> — Gabarit de SPEC — sections « Points d&#39;arrêt de l&#39;agent » (optionnelle) et « Périmètre d&#39;exécution de l&#39;agent » (conditionnelle)</a><a class="sp-list-link" href="spec-033-3-gate-precheck.html" aria-label="Page détail de la SPEC SPEC-033-3-gate-precheck : Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt"><code>SPEC-033-3-gate-precheck</code> — Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt</a><a class="sp-list-link" href="spec-033-4-contexte-herite.html" aria-label="Page détail de la SPEC SPEC-033-4-contexte-herite : /sdd context — contexte hérité au point de fork d&#39;un sous-agent"><code>SPEC-033-4-contexte-herite</code> — /sdd context — contexte hérité au point de fork d&#39;un sous-agent</a><a class="sp-list-link" href="spec-034-1a-sync-doctrine-drive.html" aria-label="Page détail de la SPEC SPEC-034-1a-sync-doctrine-drive : Synchroniser agents de gouvernance, guides et dossiers de légitimation depuis le Drive publié"><code>SPEC-034-1a-sync-doctrine-drive</code> — Synchroniser agents de gouvernance, guides et dossiers de légitimation depuis le Drive publié</a><a class="sp-list-link" href="spec-034-1b-update-ecrase-signale.html" aria-label="Page détail de la SPEC SPEC-034-1b-update-ecrase-signale : update — écraser les agents de gouvernance mais signaler, avec sauvegarde des modifications locales"><code>SPEC-034-1b-update-ecrase-signale</code> — update — écraser les agents de gouvernance mais signaler, avec sauvegarde des modifications locales</a><a class="sp-list-link" href="spec-034-2-controle-drift-doctrine.html" aria-label="Page détail de la SPEC SPEC-034-2-controle-drift-doctrine : Contrôle de drift de la doctrine livrée — version et contenu, en CI et à la release"><code>SPEC-034-2-controle-drift-doctrine</code> — Contrôle de drift de la doctrine livrée — version et contenu, en CI et à la release</a><a class="sp-list-link" href="spec-template.html" aria-label="Page détail de la SPEC spec-template : SPEC-[NNN]-[nom-court]"><code>spec-template</code> — SPEC-[NNN]-[nom-court]</a></div>
+  <div class="sp-list-links"><a class="sp-list-link" href="spec-033-1-resync-commandes-livrees.html" aria-label="Page détail de la SPEC SPEC-033-1-resync-commandes-livrees : Resynchroniser les commandes livrées sur celles du dépôt + contrôle anti-divergence"><code>SPEC-033-1-resync-commandes-livrees</code> — Resynchroniser les commandes livrées sur celles du dépôt + contrôle anti-divergence</a><a class="sp-list-link" href="spec-033-2-sections-gabarit-spec.html" aria-label="Page détail de la SPEC SPEC-033-2-sections-gabarit-spec : Gabarit de SPEC — sections « Points d&#39;arrêt de l&#39;agent » (optionnelle) et « Périmètre d&#39;exécution de l&#39;agent » (conditionnelle)"><code>SPEC-033-2-sections-gabarit-spec</code> — Gabarit de SPEC — sections « Points d&#39;arrêt de l&#39;agent » (optionnelle) et « Périmètre d&#39;exécution de l&#39;agent » (conditionnelle)</a><a class="sp-list-link" href="spec-033-3-gate-precheck.html" aria-label="Page détail de la SPEC SPEC-033-3-gate-precheck : Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt"><code>SPEC-033-3-gate-precheck</code> — Pré-contrôle déterministe de la Gate — périmètre d&#39;exécution, actions irréversibles, seuil d&#39;arrêt</a><a class="sp-list-link" href="spec-033-4-contexte-herite.html" aria-label="Page détail de la SPEC SPEC-033-4-contexte-herite : /sdd context — contexte hérité au point de fork d&#39;un sous-agent"><code>SPEC-033-4-contexte-herite</code> — /sdd context — contexte hérité au point de fork d&#39;un sous-agent</a><a class="sp-list-link" href="spec-034-1a-sync-doctrine-drive.html" aria-label="Page détail de la SPEC SPEC-034-1a-sync-doctrine-drive : Synchroniser agents de gouvernance, guides et dossiers de légitimation depuis le Drive publié"><code>SPEC-034-1a-sync-doctrine-drive</code> — Synchroniser agents de gouvernance, guides et dossiers de légitimation depuis le Drive publié</a><a class="sp-list-link" href="spec-034-1b-update-ecrase-signale.html" aria-label="Page détail de la SPEC SPEC-034-1b-update-ecrase-signale : update — écraser les agents de gouvernance mais signaler, avec sauvegarde des modifications locales"><code>SPEC-034-1b-update-ecrase-signale</code> — update — écraser les agents de gouvernance mais signaler, avec sauvegarde des modifications locales</a><a class="sp-list-link" href="spec-034-2-controle-drift-doctrine.html" aria-label="Page détail de la SPEC SPEC-034-2-controle-drift-doctrine : Contrôle de drift de la doctrine livrée — version et contenu, en CI et à la release"><code>SPEC-034-2-controle-drift-doctrine</code> — Contrôle de drift de la doctrine livrée — version et contenu, en CI et à la release</a><a class="sp-list-link" href="spec-036-1-agents-de-role.html" aria-label="Page détail de la SPEC SPEC-036-1-agents-de-role : Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD"><code>SPEC-036-1-agents-de-role</code> — Agents de rôle, sous-agents et skills — un assistant par responsabilité AIAD</a><a class="sp-list-link" href="spec-036-2-retrait-alias-plats.html" aria-label="Page détail de la SPEC SPEC-036-2-retrait-alias-plats : Retrait des alias plats en v2.0"><code>SPEC-036-2-retrait-alias-plats</code> — Retrait des alias plats en v2.0</a><a class="sp-list-link" href="spec-036-3-drift-lock-cli-absente.html" aria-label="Page détail de la SPEC SPEC-036-3-drift-lock-cli-absente : Hook drift-lock — ne plus bloquer la clôture quand la CLI ne produit aucun verdict"><code>SPEC-036-3-drift-lock-cli-absente</code> — Hook drift-lock — ne plus bloquer la clôture quand la CLI ne produit aucun verdict</a><a class="sp-list-link" href="spec-037-1-dashboard-par-role.html" aria-label="Page détail de la SPEC SPEC-037-1-dashboard-par-role : Dashboard par responsabilité — vue d&#39;ensemble, cinq onglets de rôle, nouveau design system"><code>SPEC-037-1-dashboard-par-role</code> — Dashboard par responsabilité — vue d&#39;ensemble, cinq onglets de rôle, nouveau design system</a><a class="sp-list-link" href="spec-037-2-mesure-usage-dashboard.html" aria-label="Page détail de la SPEC SPEC-037-2-mesure-usage-dashboard : Mesure d&#39;usage locale du dashboard — rendre le critère de drift constatable"><code>SPEC-037-2-mesure-usage-dashboard</code> — Mesure d&#39;usage locale du dashboard — rendre le critère de drift constatable</a><a class="sp-list-link" href="spec-038-1-metriques-aiad-dashboard.html" aria-label="Page détail de la SPEC SPEC-038-1-metriques-aiad-dashboard : Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation"><code>SPEC-038-1-metriques-aiad-dashboard</code> — Métriques AIAD dans le dashboard — catalogue, calcul, cibles, alimentation</a><a class="sp-list-link" href="spec-038-2-instrumentation-metriques.html" aria-label="Page détail de la SPEC SPEC-038-2-instrumentation-metriques : Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels"><code>SPEC-038-2-instrumentation-metriques</code> — Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels</a><a class="sp-list-link" href="spec-template.html" aria-label="Page détail de la SPEC spec-template : SPEC-[NNN]-[nom-court]"><code>spec-template</code> — SPEC-[NNN]-[nom-court]</a></div>
 </section>
 
 </main>
+<footer class="app-footer">
+  <span>Généré 15/11/2026 17:24:04</span>
+  <span>Framework AIAD v1.21.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener">aiad.ovh</a></span>
+</footer>
 <script src="assets/app.js"></script>
 </body>
 </html>

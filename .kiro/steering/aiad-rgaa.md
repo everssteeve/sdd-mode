@@ -2,8 +2,8 @@
 inclusion: fileMatch
 fileMatchPattern: ["**/components/**","**/pages/**","**/views/**","**/app/**/*.tsx","**/app/**/*.jsx","**/*.vue"]
 # intent_id: INTENT-033
-# generated-by: aiad-emit-rules v1.21.0
-# source-hash: 5a8f819b42e602a5
+# generated-by: aiad-emit-rules v2.0.0-rc.1
+# source-hash: d2be4814c73b1607
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
@@ -37,7 +37,32 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 > | 7. Scripts | 7.1 → 7.5 | compatible a11y, clavier, changement de contexte, alertes, événements |
 > | 8. Éléments obligatoires | 8.1 → 8.9 | doctype, lang, title, validité code, changement de langue |
 > | 9. Structuration | 9.1 → 9.4 | titres, landmarks, listes, citations |
-> | 10. Présentation | 10.1 → 10.14 | CSS, feuilles de style, ordre, 
+> | 10. Présentation | 10.1 → 10.14 | CSS, feuilles de style, ordre, zoom, responsive |
+> | 11. Formulaires | 11.1 → 11.13 | label, fieldset/legend, aria, erreurs, required, autocomplete |
+> | 12. Navigation | 12.1 → 12.11 | lien d'évitement, plusieurs modes de navigation, focus, ordre tabulation |
+> | 13. Consultation | 13.1 → 13.12 | délais, interruption, téléchargement, documents bureautiques |
+
+### 🖼️ THÉMATIQUE 1 — IMAGES (critères 1.1 à 1.9)
+
+- **TOUJOURS** fournir un attribut `alt` sur toute balise `<img>`
+- **TOUJOURS** laisser `alt=""` pour les images décoratives (aucune information utile)
+- **TOUJOURS** rédiger un `alt` descriptif et concis pour les images informatives (< 80 caractères si possible)
+- **TOUJOURS** utiliser `aria-label` ou `aria-labelledby` pour les images SVG porteuses de sens
+- **TOUJOURS** ajouter `role="img"` et un `aria-label` sur les SVG inline informatifs
+- **TOUJOURS** fournir une alternative longue (via `aria-describedby` ou lien adjacent) pour les images complexes (graphiques, diagrammes, cartes)
+- **TOUJOURS** associer un `<figcaption>` lisible aux images qui en ont besoin via `<figure>`
+
+```html
+
+<img src="graphique.png" alt="Évolution des ventes 2024 : +23% au T4">
+
+
+<img src="separateur.png" alt="">
+
+
+<svg role="img" aria-label="Logo de l'entreprise">...</svg>
+```
+
 
 ## RÈGLES ABSOLUES — JAMAIS
 

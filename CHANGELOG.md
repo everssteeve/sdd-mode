@@ -7,6 +7,36 @@
 > Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
 > Versionnage : [SemVer 2.0.0](https://semver.org/lang/fr/).
 
+## [2.0.0-rc.1] — 2026-11-17
+
+> Version candidate, publiée sur le canal `next` (`npm install aiad-sdd@next`). Elle n'est pas servie par défaut.
+> Guide de migration depuis la 1.x, et liste de ce que la 2.0 ne fait pas encore : [MIGRATION-2.0.md](MIGRATION-2.0.md).
+
+### ⚠️ Breaking changes
+
+- **release** : prereleases go to the `next` channel; Node 22; migration guide
+- **metrics** : no automatic purge of metric snapshots by default
+- **gate** : first enforceable locks on human control
+- **install** : wire, port and fail-close the guardrail hooks; exact uninstall
+- **commands** : remove the flat command aliases
+
+### Ajouté
+
+- **metrics** : human-decided deferrals so every metric reports something
+- **metrics** : AIAD framework metrics in the dashboard, instrumented and tracked
+- **dashboard** : role-based dashboard — overview, one tab per responsibility, new design system
+- **agents** : role agents, sub-agents and skills — one assistant per AIAD responsibility
+
+### Corrigé
+
+- **governance** : correct the veto guides against primary sources
+- **ci** : truthful diagnostics and a green CI on a fresh project
+- **hooks** : drift-lock no longer blocks the stop when the CLI yields no verdict
+
+### Documentation
+
+- role agents, role-based dashboard and alias removal for v2.0
+
 ## [1.21.0] — 2026-11-12
 
 ### Ajouté

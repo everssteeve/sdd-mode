@@ -259,10 +259,10 @@
       <p><strong>Ce que ça fait.</strong> AIAD se positionne en <strong>source amont</strong> : au lieu de maintenir N copies divergentes, la commande régénère toutes les cibles depuis l'AGENT-GUIDE et la gouvernance — <code>AGENTS.md</code> (standard inter-outils, Copilot), le header de <code>CLAUDE.md</code> (Claude Code), <code>.cursor/rules/*.mdc</code> (Cursor, dont les règles Tier 1 scopées par globs), <code>.codex/AGENT.md</code> (Codex), <code>GEMINI.md</code> (Gemini) et, depuis <code>aiad-sdd</code> 1.19.0, les fichiers de steering <code>.kiro/steering/aiad*.md</code> (Kiro). Chaque fichier émis porte un header <code>DO NOT EDIT</code> et un <code>source-hash</code> SHA-256. Régénération <strong>idempotente</strong> ; ciblage possible via <code>--runtime cursor,codex</code>.</p>
       <p><strong>Sortie.</strong> Résumé <code>+ créés ↑ régénérés ✓ inchangés</code>. En mode <code>--check</code> (CI), exit 1 si divergence — le workflow <code>aiad-emit-rules-check.yml</code> bloque toute PR qui modifie l'AGENT-GUIDE sans régénérer les cibles, ou qui édite manuellement un fichier dérivé.</p>
 
-      <h2 id="alias">Alias plats dépréciés</h2>
+      <h2 id="alias">Alias plats retirés (v2.0)</h2>
       <div class="callout warn">
         <span class="callout-title">Retirés à la v2</span>
-        <p>Les anciens alias plats (<code>/aiad-status</code>, <code>/aiad-retro</code>, <code>/aiad-dashboard</code>, …) restent fonctionnels pendant une version pour la rétro-compatibilité. Quand ils sont utilisés, ils affichent un message de migration vers la forme <code>/aiad &lt;sub&gt;</code>. Ils seront <strong>retirés à la v2</strong> — c'est leur suppression qui concrétise les −94&nbsp;% de frontmatter du passage aux routers.</p>
+        <p>Les anciens alias plats (<code>/aiad-status</code>, <code>/aiad-retro</code>, <code>/aiad-dashboard</code>, …) sont <strong>retirés depuis la v2.0</strong>. Seule la forme <code>/aiad &lt;sub&gt;</code> existe ; <code>npx aiad-sdd update</code> les supprime des projets installés en v1.x.</p>
       </div>
 
       <nav class="doc-pagination" aria-label="Pages voisines">
@@ -316,7 +316,7 @@
       </ul>
     </div>
   </div>
-  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->1.21.0<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
+  <p class="legal">Doctrine AIAD v1.10 · SDD Mode (aiad-sdd) v<!--VERSION:START-->2.0.0-rc.1<!--VERSION:END--> — <a href="https://aiad.ovh">aiad.ovh</a> — Open Source — Steeve Evers</p>
 </footer>
 
 <script src="../../assets/js/main.js"></script>

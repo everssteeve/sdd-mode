@@ -6,7 +6,7 @@
       "tool": {
         "driver": {
           "name": "aiad-sdd-trace",
-          "version": "1.18.0",
+          "version": "1.21.0",
           "informationUri": "https://aiad.ovh",
           "rules": [
             {
@@ -97,6 +97,25 @@
         }
       },
       "results": [
+        {
+          "ruleId": "AIAD-TRACE-001",
+          "level": "warning",
+          "message": {
+            "text": "Intent INTENT-035-reactivation-npm (« INTENT-035-reactivation-npm ») n'a pas de SPEC associée."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".aiad/intents/INTENT-035-reactivation-npm.md"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
         {
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
@@ -5288,25 +5307,6 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
-            "text": "Aucune annotation @spec dans lib/update.js."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/update.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-005",
-          "level": "note",
-          "message": {
             "text": "Aucune annotation @spec dans lib/upgrade.js."
           },
           "locations": [
@@ -5535,13 +5535,32 @@
           "ruleId": "AIAD-TRACE-005",
           "level": "note",
           "message": {
-            "text": "Aucune annotation @spec dans scripts/release.js."
+            "text": "Aucune annotation @spec dans scripts/sdd-mode-coverage.js."
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "scripts/release.js"
+                  "uri": "scripts/sdd-mode-coverage.js"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AIAD-TRACE-005",
+          "level": "note",
+          "message": {
+            "text": "Aucune annotation @spec dans site/assets/js/explainer.js."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "site/assets/js/explainer.js"
                 },
                 "region": {
                   "startLine": 1
@@ -6029,25 +6048,6 @@
           "ruleId": "AIAD-TRACE-006",
           "level": "warning",
           "message": {
-            "text": "Code .github/workflows/ci.yml annoté @spec mais sans test lié."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": ".github/workflows/ci.yml"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-006",
-          "level": "warning",
-          "message": {
             "text": "Code .github/workflows/release.yml annoté @spec mais sans test lié."
           },
           "locations": [
@@ -6112,25 +6112,6 @@
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "lib/dashboard/ebm-aires.js"
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "AIAD-TRACE-006",
-          "level": "warning",
-          "message": {
-            "text": "Code lib/dashboard/render.js annoté @spec mais sans test lié."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "lib/dashboard/render.js"
                 },
                 "region": {
                   "startLine": 1
@@ -6314,7 +6295,7 @@
       "invocations": [
         {
           "executionSuccessful": true,
-          "endTimeUtc": "2026-06-30T07:27:43.766Z"
+          "endTimeUtc": "2026-11-15T16:25:04.623Z"
         }
       ]
     }

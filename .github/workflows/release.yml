@@ -3,6 +3,14 @@ name: Release
 # Publication sur npm déclenchée par un tag `v*`. Provenance signée
 # (https://docs.npmjs.com/generating-provenance-statements) pour permettre
 # la vérification supply chain depuis les projets clients.
+#
+# Deux canaux (2.0) :
+#   - version de pré-sortie (`2.0.0-rc.1`, `2.1.0-beta.2`…) → dist-tag `next`.
+#     Elle n'atteint aucun utilisateur qui n'a pas demandé `aiad-sdd@next`.
+#   - version stable → dist-tag `latest`, uniquement si le commit tagué est
+#     sur `main`.
+# Une régression ne peut donc pas atteindre `latest` depuis une branche de
+# travail, ni par un tag de pré-sortie.
 
 on:
   push:
@@ -18,6 +26,8 @@ jobs:
       contents: write   # requis pour git push metrics (SPEC-027-3)
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node 22
         uses: actions/setup-node@v4
@@ -34,6 +44,22 @@ jobs:
             exit 1
           fi
 
+      - name: Choisir le canal (next pour une pré-sortie, latest sinon)
+        id: canal
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          case "$VERSION" in
+            *-*) echo "tag=next" >> "$GITHUB_OUTPUT" ;;
+            *)
+              git fetch origin main --quiet
+              if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
+                echo "Version stable $VERSION : le commit tagué n'est pas sur main. Publication refusée." >&2
+                exit 1
+              fi
+              echo "tag=latest" >> "$GITHUB_OUTPUT"
+              ;;
+          esac
+
       # Gates bloquants avant publication (SPEC-014-1 / INTENT-014) — parité avec
       # `prepublishOnly`. `npm publish` redéclenche prepublishOnly, mais on arme
       # aussi les gates ici pour un échec précoce et lisible au moment du release.
@@ -42,33 +68,44 @@ jobs:
           npm run lint
           npm run lint:deps
           npm run lint:size
+          npm run lint:esm
+          npm run lint:claims
+          node bin/aiad-sdd.js agents validate
+          node scripts/check-doctrine.js
+          npm run smoke
+          npm run test:sdd-mode
           npm run test:coverage:threshold
 
       - name: Publish (avec provenance npm SLSA L3)
-        run: npm publish --provenance --access public
+        run: npm publish --provenance --access public --tag "$DIST_TAG"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          DIST_TAG: ${{ steps.canal.outputs.tag }}
 
       # @intent INTENT-027
       # @spec SPEC-027-3-ci-workflow-steps
       - name: Record DORA metrics
         if: success()
         continue-on-error: true
+        env:
+          RELEASE_REF: ${{ github.ref_name }}
         run: |
-          npx aiad-sdd dora --record --auto \
+          node bin/aiad-sdd.js dora --record --auto \
             --status=success \
-            --release=${{ github.ref_name }} \
-            --commit=${{ github.sha }}
+            --release="$RELEASE_REF" \
+            --commit="$GITHUB_SHA"
 
       - name: Commit metrics to repository
-        if: success()
+        if: success() && steps.canal.outputs.tag == 'latest'
         continue-on-error: true
+        env:
+          RELEASE_REF: ${{ github.ref_name }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .aiad/metrics/deployments/
           if ! git diff --cached --quiet; then
-            git commit -m "chore(metrics): record release ${{ github.ref_name }}"
+            git commit -m "chore(metrics): record release $RELEASE_REF"
             git push origin main || (git pull --rebase origin main && git push origin main)
           fi
 

@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-15",
+  "intents": [
+    {
+      "id": "ATELIER-INTENTION-2026-06",
+      "statut": "unknown"
+    },
+    {
+      "id": "INTENT-033-doctrine-v19-gate-context",
+      "statut": "active"
+    },
+    {
+      "id": "INTENT-034-gouvernance-sync-drive",
+      "statut": "active"
+    },
+    {
+      "id": "INTENT-035-reactivation-npm",
+      "statut": "active"
+    },
+    {
+      "id": "INTENT-036-agents-de-role",
+      "statut": "active"
+    },
+    {
+      "id": "INTENT-037-dashboard-par-role",
+      "statut": "active"
+    },
+    {
+      "id": "INTENT-038-metriques-aiad-dashboard",
+      "statut": "active"
+    }
+  ],
+  "specs": [
+    {
+      "id": "SPEC-033-1-resync-commandes-livrees",
+      "statut": "ready",
+      "parentIntent": "INTENT-033"
+    },
+    {
+      "id": "SPEC-033-2-sections-gabarit-spec",
+      "statut": "ready",
+      "parentIntent": "INTENT-033"
+    },
+    {
+      "id": "SPEC-033-3-gate-precheck",
+      "statut": "ready",
+      "parentIntent": "INTENT-033"
+    },
+    {
+      "id": "SPEC-033-4-contexte-herite",
+      "statut": "ready",
+      "parentIntent": "INTENT-033"
+    },
+    {
+      "id": "SPEC-034-1a-sync-doctrine-drive",
+      "statut": "ready",
+      "parentIntent": "INTENT-034"
+    },
+    {
+      "id": "SPEC-034-1b-update-ecrase-signale",
+      "statut": "ready",
+      "parentIntent": "INTENT-034"
+    },
+    {
+      "id": "SPEC-034-2-controle-drift-doctrine",
+      "statut": "ready",
+      "parentIntent": "INTENT-034"
+    },
+    {
+      "id": "SPEC-036-1-agents-de-role",
+      "statut": "ready",
+      "parentIntent": "INTENT-036"
+    },
+    {
+      "id": "SPEC-036-2-retrait-alias-plats",
+      "statut": "ready",
+      "parentIntent": "INTENT-036"
+    },
+    {
+      "id": "SPEC-036-3-drift-lock-cli-absente",
+      "statut": "ready",
+      "parentIntent": "INTENT-036"
+    },
+    {
+      "id": "SPEC-037-1-dashboard-par-role",
+      "statut": "ready",
+      "parentIntent": "INTENT-037"
+    },
+    {
+      "id": "SPEC-037-2-mesure-usage-dashboard",
+      "statut": "ready",
+      "parentIntent": "INTENT-037"
+    },
+    {
+      "id": "SPEC-038-1-metriques-aiad-dashboard",
+      "statut": "ready",
+      "parentIntent": "INTENT-038"
+    },
+    {
+      "id": "SPEC-038-2-instrumentation-metriques",
+      "statut": "ready",
+      "parentIntent": "INTENT-038"
+    },
+    {
+      "id": "spec-template",
+      "statut": "draft",
+      "parentIntent": "INTENT-[NNN]"
+    }
+  ]
+}

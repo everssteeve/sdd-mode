@@ -48,7 +48,7 @@ jobs:
           AIAD_NO_COLOR: '1'
         run: |
           BASE_BRANCH="${{ github.base_ref || 'main' }}"
-          npx -y aiad-sdd review "$BASE_BRANCH" --out .aiad/reviews/pr-${{ github.event.pull_request.number }}.md || true
+          npx -y aiad-sdd@^2 review "$BASE_BRANCH" --out .aiad/reviews/pr-${{ github.event.pull_request.number }}.md || true
           if [ -f ".aiad/reviews/pr-${{ github.event.pull_request.number }}.md" ]; then
             REPORT=$(cat ".aiad/reviews/pr-${{ github.event.pull_request.number }}.md")
             # Escape for GHA output
@@ -65,7 +65,7 @@ jobs:
         env:
           AIAD_NO_COLOR: '1'
         run: |
-          SCORE_JSON=$(npx -y aiad-sdd sovereignty --json)
+          SCORE_JSON=$(npx -y aiad-sdd@^2 sovereignty --json)
           SCORE=$(echo "$SCORE_JSON" | node -e 'process.stdin.on("data",d=>{const r=JSON.parse(d.toString());console.log(r.score+"/"+r.maxScore+" "+r.level)})')
           echo "score=$SCORE" >> "$GITHUB_OUTPUT"
 
@@ -74,7 +74,7 @@ jobs:
         env:
           AIAD_NO_COLOR: '1'
         run: |
-          npx -y aiad-sdd trace --json --quiet > /tmp/trace.json || true
+          npx -y aiad-sdd@^2 trace --json --quiet > /tmp/trace.json || true
           GAPS=$(node -e 'const r=JSON.parse(require("fs").readFileSync("/tmp/trace.json","utf8"));console.log((r.gaps||[]).length)')
           echo "gaps=$GAPS" >> "$GITHUB_OUTPUT"
 

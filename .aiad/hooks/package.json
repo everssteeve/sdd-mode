@@ -1,0 +1,5 @@
+{
+  "type": "module",
+  "private": true,
+  "description": "Marque les hooks AIAD comme modules ES quel que soit le champ type du projet hôte."
+}

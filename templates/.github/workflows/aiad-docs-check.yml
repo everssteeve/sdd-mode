@@ -28,4 +28,9 @@ jobs:
           node-version: 22
 
       - name: Vérifie la parité doc ↔ sources
-        run: npx aiad-sdd docs --check
+        run: |
+          if [ -f DOCUMENTATION.md ]; then
+            npx -y aiad-sdd@^2 docs --check
+          else
+            echo "DOCUMENTATION.md absente : contrôle non applicable. Générez-la avec 'npx aiad-sdd docs' pour l'activer."
+          fi

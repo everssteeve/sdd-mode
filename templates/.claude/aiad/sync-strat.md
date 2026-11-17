@@ -115,7 +115,19 @@ intents_at_risk: [nombre]
 intents_revised: [nombre]
 decisions_count: [nombre]
 backlog_size: [nombre]
+adoption_pct: [% d'utilisateurs ayant adopté la dernière fonctionnalité livrée, ou null]
+time_to_value_min: [minutes avant la première valeur obtenue par un utilisateur, ou null]
+retention_pct: [% de rétention, ou null]
+business_impact: [une phrase, ou null]
 ```
+
+Les quatre dernières clés sont les métriques **Outcomes** du framework. Le PM les donne ; tu ne les estimes pas. Sans mesure, écris `null`. Enregistre les métriques par la commande, qui contrôle clés et valeurs :
+
+```bash
+npx aiad-sdd metrics record sync-strat intents_actifs=3 backlog_size=12 adoption_pct=64 retention_pct=null
+```
+
+Le dashboard les affiche sur la page « Métriques AIAD ».
 
 ### Étape 4 — Compte-rendu exécutif
 

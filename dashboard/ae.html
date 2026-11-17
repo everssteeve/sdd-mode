@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="aiad-generated-at" content="2026-11-15T16:24:04.629Z"/><meta name="aiad-version" content="1.21.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'"/>
+<title>Cockpit Agents Engineer — aiad-sdd</title>
+<meta name="description" content="Cockpit Agents Engineer — L&#39;écosystème d&#39;agents : équipe, skills, gouvernance, hooks · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
+<meta name="generator" content="AIAD SDD Mode"/>
+<meta name="theme-color" content="#2563eb"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Cockpit Agents Engineer — aiad-sdd"/>
+<meta property="og:description" content="Cockpit Agents Engineer — L&#39;écosystème d&#39;agents : équipe, skills, gouvernance, hooks · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
+<meta property="og:url" content="ae.html"/>
+<meta property="og:image" content="badge.svg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cockpit Agents Engineer — aiad-sdd"/>
+<meta name="twitter:description" content="Cockpit Agents Engineer — L&#39;écosystème d&#39;agents : équipe, skills, gouvernance, hooks · aiad-sdd · Santé 70/100 · Maturité 4/5"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="stylesheet" href="assets/style.css"/>
+<script>
+  // Applique le thème enregistré avant le rendu pour éviter le flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('aiad-dashboard-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body data-onglet="ae">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<header class="appbar">
+  <a class="brand" href="index.html" aria-label="aiad-sdd — vue d'ensemble">
+    <span class="brand-mark" aria-hidden="true">AS</span>
+    <span class="brand-text"><span class="brand-title">aiad-sdd</span><span class="brand-sub">SDD Mode · <span class="brand-version">v1.21.0</span></span></span>
+  </a>
+  <nav class="tabs" aria-label="Responsabilités">
+    <ul><li><a href="index.html" class="tab" data-onglet="global" data-court="Global"><span class="tab-label">Vue d&#39;ensemble</span><span class="tab-count" title="1 signal(s) à traiter">1</span></a></li><li><a href="pm.html" class="tab" data-onglet="pm" data-court="PM"><span class="tab-label">Product Manager</span><span class="tab-count warn" title="3 signal(s) à traiter">3</span></a></li><li><a href="pe.html" class="tab" data-onglet="pe" data-court="PE"><span class="tab-label">Product Engineer</span></a></li><li><a href="ae.html" class="tab active" data-onglet="ae" aria-current="true" data-court="AE"><span class="tab-label">Agents Engineer</span></a></li><li><a href="qa.html" class="tab" data-onglet="qa" data-court="QA"><span class="tab-label">QA Engineer</span></a></li><li><a href="tl.html" class="tab" data-onglet="tl" data-court="TL"><span class="tab-label">Tech Lead</span></a></li></ul>
+  </nav>
+  <div class="appbar-tools">
+    <span class="badge badge-ok freshness" role="button" tabindex="0" data-copy="npx aiad-sdd dashboard" title="Données générées : 15/11/2026 17:24:04. TTL 24h. Cliquer pour copier la commande de rafraîchissement.">à l&#39;instant</span>
+    <button type="button" class="toggle-theme" id="toggleTheme" aria-label="Basculer thème clair / sombre">
+      <span class="icon icon-dark" aria-hidden="true">☾</span><span class="icon icon-light" aria-hidden="true">☀</span>
+    </button>
+  </div>
+</header>
+<nav class="subnav" aria-label="Pages — Agents Engineer">
+  <ul><li><a href="ae.html" class="active" aria-current="page"><span class="nav-icon" aria-hidden="true">✦</span>AE Cockpit</a></li><li><a href="governance.html" class=""><span class="nav-icon" aria-hidden="true">⚖</span>Gouvernance</a></li><li><a href="eco.html" class=""><span class="nav-icon" aria-hidden="true">🌱</span>Éco</a></li></ul>
+  <span class="subnav-agent">Assistant <code>aiad-ae</code></span>
+</nav>
+<main id="contenu">
+  <header class="page-header">
+    <div>
+      <div class="eyebrow">Agents Engineer</div>
+      <h1>Cockpit Agents Engineer</h1>
+      <div class="subtitle">L'écosystème d'agents : équipe, skills, gouvernance, hooks</div>
+    </div>
+  </header>
+  <section class="assistant" aria-label="Assistant du Agents Engineer">
+  <div>
+    <h2>Votre assistant : <code>aiad-ae</code></h2>
+    <p>Il prépare, délègue à ses 4 sous-agents et rend compte. Les décisions restent les vôtres.</p>
+  </div>
+  <code class="assistant-cmd" data-copy="claude --agent aiad-ae" title="Copier la commande">claude --agent aiad-ae</code>
+  <div class="assistant-team"><span class="chip" title="Création et maintenance d&#39;agents, de skills et de l&#39;AGENT-GUIDE"><code>ae-agent-configurator</code></span><span class="chip" title="Audit du budget de contexte : estimation vs réel, usage des skills, mémoire"><code>ae-context-auditor</code></span><span class="chip" title="Évaluation des agents : canaris, taux de correction, faux positifs"><code>ae-agent-evaluator</code></span><span class="chip" title="Moindre privilège : permissions, approbations persistées, outillage autorisé"><code>ae-permissions-auditor</code></span></div>
+</section>
+<div class="kpis">
+  
+  <div class="kpi ok"><div class="label">Agents conformes</div><div class="value">26/26</div><div class="delta">registre vs .claude/agents/</div></div>
+  
+  <div class="kpi "><div class="label">Agents de rôle</div><div class="value">5</div><div class="delta">un assistant par responsabilité</div></div>
+  
+  <div class="kpi "><div class="label">Sous-agents</div><div class="value">21</div><div class="delta">un seul gestionnaire chacun</div></div>
+  
+  <div class="kpi "><div class="label">Skills installées</div><div class="value">25</div><div class="delta">.claude/skills/</div></div>
+  
+  <div class="kpi ok"><div class="label">Gouvernance Tier 1</div><div class="value">5/5</div><div class="delta">agents à droit de veto</div></div>
+  
+  <div class="kpi warn"><div class="label">Hooks</div><div class="value">attention</div><div class="delta">38 exécution(s) mesurée(s)</div></div>
+</div>
+<section><h2>À traiter</h2><div class="alertes ok"><span class="alertes-icon" aria-hidden="true">✓</span><div><strong>Rien à signaler</strong><div class="muted">Aucun signal ne demande de décision sur ce périmètre.</div></div></div></section>
+<section>
+  <h2>Vos métriques AIAD</h2>
+  <h3>Efficacité IA <span class="muted" style="font-weight:400">— La performance de l&#39;écosystème d&#39;agents.</span></h3><table><thead><tr><th>Métrique</th><th>Valeur</th><th>Cible</th><th>État</th><th>Fréquence</th></tr></thead><tbody><tr data-freq="hebdo"><td><strong>Taux d&#39;adoption des agents</strong></td><td>94,1 %</td><td>&gt; 90 %</td><td><span class="badge badge-ok">dans la cible</span></td><td class="muted">Hebdomadaire</td></tr><tr data-freq="hebdo"><td><strong>First-Time Success Rate (agents)</strong></td><td><span class="muted">—</span></td><td>&gt; 70 %</td><td><span class="badge badge-muted">non applicable</span></td><td class="muted">Hebdomadaire</td></tr><tr data-freq="hebdo"><td><strong>Ratio code généré / manuel</strong></td><td>99,7 % généré</td><td>&gt; 80 / 20</td><td><span class="badge badge-ok">dans la cible</span></td><td class="muted">Hebdomadaire</td></tr><tr data-freq="hebdo"><td><strong>Itérations moyennes par feature</strong></td><td><span class="muted">—</span></td><td>&lt; 3</td><td><span class="badge badge-muted">non applicable</span></td><td class="muted">Hebdomadaire</td></tr><tr data-freq="mensuel"><td><strong>Taux de faux positifs (agents)</strong></td><td><span class="muted">—</span></td><td>&lt; 20 %</td><td><span class="badge badge-muted">non applicable</span></td><td class="muted">Mensuel</td></tr><tr data-freq="mensuel"><td><strong>Temps de résolution des problèmes agents</strong></td><td><span class="muted">—</span></td><td>&lt; 2 h</td><td><span class="badge badge-muted">non applicable</span></td><td class="muted">Mensuel</td></tr><tr data-freq="mensuel"><td><strong>Satisfaction PE sur l&#39;écosystème</strong></td><td><span class="muted">—</span></td><td>&gt; 8 / 10</td><td><span class="badge badge-muted">non applicable</span></td><td class="muted">Mensuel</td></tr></tbody></table>
+  <div class="actions"><a href="scorecard.html">→ Toutes les métriques, et comment les alimenter</a></div>
+</section>
+<section>
+  <h2>L'équipe d'agents</h2>
+  <p class="section-lede">Chaque sous-agent est lancé par un seul agent de rôle. Les agents de gouvernance (<code>AIAD-AI-ACT</code>, <code>AIAD-RGPD</code>, <code>AIAD-RGAA</code>, <code>AIAD-RGESN</code>) restent consultables par tous : leur veto prévaut.</p>
+  <table><thead><tr><th>Agent de rôle</th><th>Sous-agents</th><th>Conformité</th></tr></thead><tbody>
+    <tr>
+      <td><code>aiad-pm</code><div class="muted">Product Manager</div></td>
+      <td><span class="chip" title="Synthèse de discovery : retours utilisateurs, hypothèses, signaux marché"><code>pm-discovery-analyst</code></span> <span class="chip" title="Santé du backlog : intents zombies, orphelins, doublons, cohérence PRD"><code>pm-backlog-curator</code></span> <span class="chip" title="Outcomes et validation métier : critère de drift, métriques, préparation de démo"><code>pm-outcome-analyst</code></span></td>
+      <td><span class="badge badge-ok">conforme</span></td>
+    </tr>
+    <tr>
+      <td><code>aiad-pe</code><div class="muted">Product Engineer</div></td>
+      <td><span class="chip" title="Brouillon de SPEC atomique depuis un Intent validé par l&#39;humain"><code>pe-spec-writer</code></span> <span class="chip" title="Implémentation d&#39;UNE SPEC dont l&#39;Execution Gate est ouverte"><code>pe-implementer</code></span> <span class="chip" title="Revue de code adossée à la SPEC : conformité, défauts, lisibilité"><code>pe-code-reviewer</code></span> <span class="chip" title="Drift Lock : synchronisation SPEC ↔ code ↔ tests, matrice de traçabilité"><code>pe-drift-sentinel</code></span> <span class="chip" title="Documentation synchronisée avec le code livré : README, changelog, guides"><code>pe-doc-writer</code></span></td>
+      <td><span class="badge badge-ok">conforme</span></td>
+    </tr>
+    <tr>
+      <td><code>aiad-ae</code><div class="muted">Agents Engineer</div></td>
+      <td><span class="chip" title="Création et maintenance d&#39;agents, de skills et de l&#39;AGENT-GUIDE"><code>ae-agent-configurator</code></span> <span class="chip" title="Audit du budget de contexte : estimation vs réel, usage des skills, mémoire"><code>ae-context-auditor</code></span> <span class="chip" title="Évaluation des agents : canaris, taux de correction, faux positifs"><code>ae-agent-evaluator</code></span> <span class="chip" title="Moindre privilège : permissions, approbations persistées, outillage autorisé"><code>ae-permissions-auditor</code></span></td>
+      <td><span class="badge badge-ok">conforme</span></td>
+    </tr>
+    <tr>
+      <td><code>aiad-qa</code><div class="muted">QA Engineer</div></td>
+      <td><span class="chip" title="Stratégie de test dès la SPEC : plan dérivé des critères d&#39;acceptation"><code>qa-test-strategist</code></span> <span class="chip" title="Écriture des tests automatisés, dans les répertoires de tests uniquement"><code>qa-test-author</code></span> <span class="chip" title="Validation fonctionnelle : chaque critère d&#39;acceptation, preuve à l&#39;appui"><code>qa-functional-validator</code></span> <span class="chip" title="Test exploratoire par chartes : cas limites, parcours non spécifiés"><code>qa-exploratory-tester</code></span></td>
+      <td><span class="badge badge-ok">conforme</span></td>
+    </tr>
+    <tr>
+      <td><code>aiad-tech-lead</code><div class="muted">Tech Lead</div></td>
+      <td><span class="chip" title="Cohérence avec ARCHITECTURE.md : patterns, couplage, brouillons d&#39;ADR"><code>tl-architecture-reviewer</code></span> <span class="chip" title="Audit sécurité : OWASP, secrets, dépendances, authentification"><code>tl-security-auditor</code></span> <span class="chip" title="Performance et sobriété : budgets, régressions, requêtes, poids"><code>tl-performance-analyst</code></span> <span class="chip" title="Dette technique : inventaire, classement, plans de refactoring et de migration"><code>tl-debt-analyst</code></span> <span class="chip" title="Préparation de release : contrôles, changelog, version — sans publier"><code>tl-release-engineer</code></span></td>
+      <td><span class="badge badge-ok">conforme</span></td>
+    </tr></tbody></table>
+  
+  <div class="actions"><code>npx aiad-sdd agents validate</code><code>npx aiad-sdd skills validate</code><a href="governance.html">→ Gouvernance Tier 1</a><a href="eco.html">→ Impact écologique</a></div>
+</section>
+<section>
+  <h2>Ce qui n'est pas mesuré ici</h2>
+  <p class="section-lede">L'utilité réelle de chaque agent (usage, taux de correction humaine, faux positifs) ne figure pas encore dans ce cockpit. Elle se juge avec la skill <code>agent-monitoring</code> ; un agent inutilisé se retire.</p>
+</section>
+</main>
+<footer class="app-footer">
+  <span>Généré 15/11/2026 17:24:04</span>
+  <span>Framework AIAD v1.21.0 · <a href="https://aiad.ovh" target="_blank" rel="noopener">aiad.ovh</a></span>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

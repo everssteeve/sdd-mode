@@ -1,21 +1,35 @@
 # SDD Trace — Matrice de traçabilité
 
-> Généré le 2026-06-30T07:27:43.766Z
+> Généré le 2026-11-15T16:25:04.623Z
 
 ## Synthèse
 
 | Métrique | Valeur |
 |----------|--------|
-| Intents | 1 |
-| SPECs | 1 |
-| Fichiers code | 392 (annotés : 95) |
-| Fichiers test | 277 (annotés : 53) |
+| Intents | 6 |
+| SPECs | 14 |
+| Fichiers code | 411 (annotés : 115) |
+| Fichiers test | 297 (annotés : 70) |
 
 ## Matrice Forward — Intent → SPEC → Code → Tests
 
 | Intent | SPEC | Code | Tests | Verdict |
 |--------|------|------|-------|---------|
-| INTENT-029-archivage-facts-resolus | SPEC-029-1-archive-facts-resolus | `lib/archive.js`<br/>`lib/memory.js` | `test/archive.test.js`<br/>`test/memory.test.js` | ✅ |
+| INTENT-033-doctrine-v19-gate-context | SPEC-033-1-resync-commandes-livrees | `.github/workflows/ci.yml`<br/>`scripts/check-commands-parity.js` | `test/check-commands-parity.test.js` | ✅ |
+| INTENT-033-doctrine-v19-gate-context | SPEC-033-2-sections-gabarit-spec | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-033-doctrine-v19-gate-context | SPEC-033-3-gate-precheck | `lib/gate-precheck.js` | `test/gate-precheck.test.js` | ✅ |
+| INTENT-033-doctrine-v19-gate-context | SPEC-033-4-contexte-herite | _(aucun)_ | _(aucun)_ | ⚠ non-implémentée |
+| INTENT-034-gouvernance-sync-drive | SPEC-034-1a-sync-doctrine-drive | `lib/governance-shipped.js`<br/>`lib/init.js`<br/>`lib/update.js`<br/>`scripts/sync-doctrine.js` | `test/governance-shipped.test.js`<br/>`test/sync-doctrine.test.js`<br/>`test/init.test.js` | ✅ |
+| INTENT-034-gouvernance-sync-drive | SPEC-034-1b-update-ecrase-signale | `lib/governance-shipped.js`<br/>`lib/init.js`<br/>`lib/update.js`<br/>`scripts/sync-doctrine.js` | `test/governance-shipped.test.js`<br/>`test/sync-doctrine.test.js`<br/>`test/init.test.js` | ✅ |
+| INTENT-034-gouvernance-sync-drive | SPEC-034-2-controle-drift-doctrine | `.github/workflows/ci.yml`<br/>`scripts/check-doctrine.js`<br/>`scripts/release.js` | `test/check-doctrine.test.js`<br/>`test/release.test.js` | ✅ |
+| INTENT-035-reactivation-npm | _(aucune SPEC)_ | — | — | ❌ orphelin |
+| INTENT-036-agents-de-role | SPEC-036-1-agents-de-role | `.github/workflows/ci.yml`<br/>`lib/agents-registry.js`<br/>`lib/agents.js` | `test/agents-registry.test.js`<br/>`test/agents.test.js` | ✅ |
+| INTENT-036-agents-de-role | SPEC-036-2-retrait-alias-plats | `lib/alias-retirement.js` | `test/alias-retirement.test.js` | ✅ |
+| INTENT-036-agents-de-role | SPEC-036-3-drift-lock-cli-absente | _(aucun)_ | `test/drift-lock-hook.test.js` | ⚠ non-implémentée |
+| INTENT-037-dashboard-par-role | SPEC-037-1-dashboard-par-role | `lib/dashboard/assets.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/render.js`<br/>`lib/dashboard/views/roles.js` | `test/dashboard-design-system.test.js`<br/>`test/dashboard-navigation.test.js`<br/>`test/dashboard-roles.test.js`<br/>`absente')}` | ✅ |
+| INTENT-037-dashboard-par-role | SPEC-037-2-mesure-usage-dashboard | `lib/dashboard/usage.js` | `test/dashboard-usage.test.js` | ✅ |
+| INTENT-038-metriques-aiad-dashboard | SPEC-038-1-metriques-aiad-dashboard | `lib/dashboard/aiad-metrics.js`<br/>`lib/dashboard/views/scorecard.js` | `test/dashboard-aiad-metrics.test.js` | ✅ |
+| INTENT-038-metriques-aiad-dashboard | SPEC-038-2-instrumentation-metriques | `lib/dashboard/metrics-sources.js`<br/>`lib/metrics.js` | `test/metrics-sources.test.js`<br/>`test/metrics.test.js` | ✅ |
 
 ## Matrice Backward — Tests → Code → SPEC → Intent
 
@@ -23,8 +37,11 @@
 |------|------|--------|--------------|
 | `templates/projects/fastapi-aiad/tests/test_main.py` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `templates/projects/node-aiad/test/index.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/agents-registry.test.js` | SPEC-036-1-agents-de-role | INTENT-036-agents-de-role | `.github/workflows/ci.yml`<br/>`lib/agents-registry.js`<br/>`lib/agents.js` |
+| `test/agents.test.js` | SPEC-036-1-agents-de-role | INTENT-036-agents-de-role | `.github/workflows/ci.yml`<br/>`lib/agents-registry.js`<br/>`lib/agents.js` |
 | `test/ai-act-audit.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/ai-act-audit.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/alias-retirement.test.js` | SPEC-036-2-retrait-alias-plats | INTENT-036-agents-de-role | `lib/alias-retirement.js` |
 | `test/annotations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/annotations.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/annotations.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -35,7 +52,7 @@
 | `test/anonymize.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/archive.test.js` | ❌ non-tracé | — | `lib/statusline.js` |
 | `test/archive.test.js` | ❌ non-tracé | — | `lib/statusline.js` |
-| `test/archive.test.js` | SPEC-029-1-archive-facts-resolus | INTENT-029-archivage-facts-resolus | `lib/archive.js`<br/>`lib/memory.js` |
+| `test/archive.test.js` | ❌ non-tracé | — | `lib/archive.js`<br/>`lib/memory.js` |
 | `test/audit.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/auto-chain-config.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/auto-chain.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -55,6 +72,8 @@
 | `test/bun-parity.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/canary.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/cert.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/check-commands-parity.test.js` | SPEC-033-1-resync-commandes-livrees | INTENT-033-doctrine-v19-gate-context | `.github/workflows/ci.yml`<br/>`scripts/check-commands-parity.js` |
+| `test/check-doctrine.test.js` | SPEC-034-2-controle-drift-doctrine | INTENT-034-gouvernance-sync-drive | `.github/workflows/ci.yml`<br/>`scripts/check-doctrine.js`<br/>`scripts/release.js` |
 | `test/check-page-budgets.test.js` | ❌ non-tracé | — | `scripts/check-page-budgets.js` |
 | `test/ci-templates.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/cli-adrs.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -70,11 +89,14 @@
 | `test/cycle-graph.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-_history-utils.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-adrs.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-aiad-metrics.test.js` | SPEC-038-1-metriques-aiad-dashboard | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/aiad-metrics.js`<br/>`lib/dashboard/views/scorecard.js` |
 | `test/dashboard-assets-autotag.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/dashboard-assets.test.js` | ❌ non-tracé | — | `dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/ui/sparklines.js` |
+| `test/dashboard-assets.test.js` | ❌ non-tracé | — | `dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`dashboard/assets/app.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/assets.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/ui/sparklines.js` |
 | `test/dashboard-audit-trail.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-backlog-health-score.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-collect-supplementary.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-collect.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-design-system.test.js` | SPEC-037-1-dashboard-par-role | INTENT-037-dashboard-par-role | `lib/dashboard/assets.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/render.js`<br/>`lib/dashboard/views/roles.js` |
 | `test/dashboard-digest.test.js` | ❌ non-tracé | — | `lib/dashboard.js`<br/>`lib/dashboard/digest-delta.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/today.js` |
 | `test/dashboard-dpo.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-ebm-aires.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -89,6 +111,7 @@
 | `test/dashboard-learnings.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-legal.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-matrice-outcomes.test.js` | ❌ non-tracé | — | `lib/dashboard/model/index.js`<br/>`lib/dashboard/outcome-attribution.js` |
+| `test/dashboard-navigation.test.js` | SPEC-037-1-dashboard-par-role | INTENT-037-dashboard-par-role | `lib/dashboard/assets.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/render.js`<br/>`lib/dashboard/views/roles.js` |
 | `test/dashboard-onboarding.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-outcomes-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-outcomes.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -145,6 +168,7 @@
 | `test/dashboard-qa.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-render.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-rituels.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/dashboard-roles.test.js` | SPEC-037-1-dashboard-par-role | INTENT-037-dashboard-par-role | `lib/dashboard/assets.js`<br/>`lib/dashboard/design-components.js`<br/>`lib/dashboard/design-tokens.js`<br/>`lib/dashboard/navigation.js`<br/>`lib/dashboard/render.js`<br/>`lib/dashboard/views/roles.js` |
 | `test/dashboard-sante-globale-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-sante-globale.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-source-base.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -153,6 +177,7 @@
 | `test/dashboard-tech-debt-history.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-tech-debt.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-today.test.js` | ❌ non-tracé | — | `lib/dashboard/views/today.js` |
+| `test/dashboard-usage.test.js` | SPEC-037-2-mesure-usage-dashboard | INTENT-037-dashboard-par-role | `lib/dashboard/usage.js` |
 | `test/dashboard-violations.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard-watch.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dashboard.test.js` | ❌ non-tracé | — | `lib/dashboard/views/today.js` |
@@ -170,6 +195,7 @@
 | `test/dora-record.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dpia.test.js` | ❌ non-tracé | — | `lib/feedback.js`<br/>`lib/tour.js`<br/>`scripts/bench-trace.js`<br/>`templates/projects/fastapi-aiad/app/main.py`<br/>`templates/projects/node-aiad/src/index.js` |
 | `test/dpia.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/drift-lock-hook.test.js` | SPEC-036-3-drift-lock-cli-absente | INTENT-036-agents-de-role | _(aucun)_ |
 | `test/drift-verdict.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/dry-run.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/eco-dashboard.test.js` | ❌ non-tracé | — | `lib/dashboard.js`<br/>`lib/dashboard/model/index.js`<br/>`lib/dashboard/views/metrics.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js`<br/>`lib/eco-dashboard.js` |
@@ -192,6 +218,7 @@
 | `test/frontmatter.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/fs-ops-errors.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/fs-ops.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/gate-precheck.test.js` | SPEC-033-3-gate-precheck | INTENT-033-doctrine-v19-gate-context | `lib/gate-precheck.js` |
 | `test/github-action.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/github-app.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/gitlab.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -208,6 +235,7 @@
 | `test/governance-lint.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/governance-marketplace.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/governance-packs.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/governance-shipped.test.js` | SPEC-034-1a-sync-doctrine-drive | INTENT-034-gouvernance-sync-drive | `lib/governance-shipped.js`<br/>`lib/init.js`<br/>`lib/update.js`<br/>`scripts/sync-doctrine.js` |
 | `test/grill.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/guardrails.test.js` | ❌ non-tracé | — | `.aiad/hooks/veto.js`<br/>`lib/guardrails.js` |
 | `test/hook-sandbox.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -237,6 +265,8 @@
 | `test/memory.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/meta-share.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/meta.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/metrics-sources.test.js` | SPEC-038-2-instrumentation-metriques | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/metrics-sources.js`<br/>`lib/metrics.js` |
+| `test/metrics.test.js` | SPEC-038-2-instrumentation-metriques | INTENT-038-metriques-aiad-dashboard | `lib/dashboard/metrics-sources.js`<br/>`lib/metrics.js` |
 | `test/migrate-v2.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/migrate.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/mini-gate.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -277,7 +307,7 @@
 | `test/rbac.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/refactor-spec.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/reflect.test.js` | ❌ non-tracé | — | _(aucun)_ |
-| `test/release.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/release.test.js` | SPEC-034-2-controle-drift-doctrine | INTENT-034-gouvernance-sync-drive | `.github/workflows/ci.yml`<br/>`scripts/check-doctrine.js`<br/>`scripts/release.js` |
 | `test/repl.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/reproducibility.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/research.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -287,6 +317,9 @@
 | `test/sarif.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/sbom.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/score.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/sdd-mode-e2e/coverage-tool.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/sdd-mode-e2e/full-cycle-integration.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/sdd-mode-e2e/session-start-hook.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/sdd-trace-aliases.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/security-md.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/self-update.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -319,6 +352,7 @@
 | `test/suggest-tests.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/suggest.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/sunset.test.js` | ❌ non-tracé | — | _(aucun)_ |
+| `test/sync-doctrine.test.js` | SPEC-034-1a-sync-doctrine-drive | INTENT-034-gouvernance-sync-drive | `lib/governance-shipped.js`<br/>`lib/init.js`<br/>`lib/update.js`<br/>`scripts/sync-doctrine.js` |
 | `test/tarball-hygiene.test.js` | ❌ non-tracé | — | _(aucun)_ |
 | `test/telemetry-usage.test.js` | ❌ non-tracé | — | `lib/telemetry.js` |
 | `test/telemetry.test.js` | ❌ non-tracé | — | _(aucun)_ |
@@ -365,8 +399,12 @@
 ## Gaps détectés
 
 ### Orphelins
-- Intents sans SPEC : **0**
-- SPECs sans code (hors draft/review) : **0**
+- Intents sans SPEC : **1**
+  - INTENT-035-reactivation-npm — INTENT-035-reactivation-npm
+- SPECs sans code (hors draft/review) : **3**
+  - SPEC-033-2-sections-gabarit-spec (statut : ready)
+  - SPEC-033-4-contexte-herite (statut : ready)
+  - SPEC-036-3-drift-lock-cli-absente (statut : ready)
 - SPECs orphelins référencés dans le code : **0**
 - Intents orphelins référencés dans le code : **0**
 
@@ -429,13 +467,11 @@
   - lib/dashboard/_history-utils.js
   - lib/dashboard/ab-test-tracker.js
   - … (+262 autres)
-- Code annoté sans tests liés : **15**
-  - .github/workflows/ci.yml
+- Code annoté sans tests liés : **13**
   - .github/workflows/release.yml
   - .github/workflows/site-deploy.yml
   - lib/command-hooks.js
   - lib/dashboard/ebm-aires.js
-  - lib/dashboard/render.js
   - lib/dashboard/ui/badges.js
   - lib/dashboard/ui/helpers.js
   - lib/dashboard/views/changelog.js

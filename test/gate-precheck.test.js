@@ -43,7 +43,7 @@ const CONFORME = {
 
 // Fabrique une SPEC avec la section 9 au format SPEC-033-2 §2.
 function spec({ lignes = CONFORME, omettre = [], corps = null, titre = "## 9. Périmètre d'exécution de l'agent (conditionnel)" } = {}) {
-  const L = ['---', 'id: SPEC-900-1', 'status: draft', '---', '', '# SPEC-900-1 — Fixture', '', '## 7. Definition of Output Done (DoOD)', '', '- [ ] Code', ''];
+  const L = ['---', 'id: SPEC-900-1', 'parent_intent: INTENT-900', 'status: draft', '---', '', '# SPEC-900-1 — Fixture', '', '## 3. Critères d\'Acceptation', '', '- [ ] CA-001 — La fixture est rédigée : elle a un Intent parent et un critère.', '', '## 7. Definition of Output Done (DoOD)', '', '- [ ] Code', ''];
   L.push(titre, '', '<!-- Requis si l\'agent dispose de credentials ou d\'un accès en écriture à une ressource partagée. Sinon : « Non applicable ». -->', '');
   if (corps !== null) {
     L.push(corps);
@@ -96,8 +96,12 @@ test('CA-001 — CLI exit 0 sur une SPEC archivée résolue par identifiant', ()
 
 // ─── CA-002 — mots-clés sans section ────────────────────────────────────────
 
+// Enveloppe un fragment dans une SPEC rédigée (Intent parent + critère), pour
+// tester les mots-clés sans tomber sur la règle « SPEC non rédigée ».
+const redigee = (fragment) => `# SPEC\n\n**Intent parent** : INTENT-900\n\n${fragment}\n\n- [ ] CA-001 — Le comportement décrit est observable.\n`;
+
 test('CA-002 — mots-clés sans section : exit 0, un avertissement par mot-clé', () => {
-  const md = '# SPEC\n\nL\'agent lit un TOKEN et un Password, puis un token encore.\nPaiement et suppression  définitive.\n';
+  const md = redigee('L\'agent lit un TOKEN et un Password, puis un token encore.\nPaiement et suppression  définitive.');
   const r = calculerPrecheck(md);
   assert.equal(r.verdict, 'PASS');
   assert.equal(r.section, 'absente');
@@ -108,14 +112,14 @@ test('CA-002 — mots-clés sans section : exit 0, un avertissement par mot-clé
 });
 
 test('CA-002 — mots entiers seulement (tokens ≠ token, irréversibles ≠ irréversible)', () => {
-  const r = calculerPrecheck('# SPEC\n\nLes tokens sont comptés ; actions irréversibles ; secrets ; passwords.\n');
+  const r = calculerPrecheck(redigee('Les tokens sont comptés ; actions irréversibles ; secrets ; passwords.'));
   assert.deepEqual(r.avertissements, []);
-  assert.equal(computeGatePrecheck('# x\n\nCredential.').avertissements.length, 1);
+  assert.equal(computeGatePrecheck(redigee('Credential.')).avertissements.length, 1);
 });
 
 test('CA-002 — chaque mot-clé listé est détecté', () => {
   for (const t of MOTS_CLES) {
-    const r = calculerPrecheck(`# SPEC\n\nTexte avec ${t.toUpperCase()} au milieu.\n`);
+    const r = calculerPrecheck(redigee(`Texte avec ${t.toUpperCase()} au milieu.`));
     assert.ok(r.avertissements.some((a) => a.includes(`« ${t} »`)), t);
   }
 });
@@ -123,7 +127,7 @@ test('CA-002 — chaque mot-clé listé est détecté', () => {
 test('CA-002 — CLI : exit 0 et avertissements en JSON', () => {
   const dir = tmp();
   try {
-    writeFileSync(join(dir, 'x.md'), '# SPEC\n\nUne clé API est utilisée.\n');
+    writeFileSync(join(dir, 'x.md'), '# SPEC\n\n**Intent parent** : INTENT-900\n\nUne clé API est utilisée par le module décrit ici, sans section de périmètre.\n\n- [ ] CA-001 — Le module répond.\n');
     const r = cli(['gate-precheck', 'x.md', '--json'], dir);
     assert.equal(r.status, 0);
     const out = JSON.parse(r.stdout.trim());
@@ -296,4 +300,43 @@ test('CA-010 — un cas canary déterministe attend FAIL de gate-precheck sur la
   const r = cli(args);
   assert.equal(r.status, 1, r.stderr);
   assert.equal(JSON.parse(r.stdout.trim()).verdict, 'FAIL');
+});
+
+// ─── Règle 0bis — SPEC non rédigée (SPEC-039-2) ─────────────────────────────
+
+import { defautsRedaction } from '../lib/gate-precheck.js';
+
+test('SPEC-039-2 CA-001 — SPEC vide → FAIL', () => {
+  assert.equal(calculerPrecheck('').verdict, 'FAIL');
+  assert.equal(calculerPrecheck('---\nid: SPEC-1-1\n---\n\n# SPEC\n').verdict, 'FAIL');
+  assert.match(calculerPrecheck('').manques[0], /vide/);
+});
+
+test('SPEC-039-2 CA-001 — gabarit livré non rempli → FAIL avec les marqueurs listés', () => {
+  const gabarit = readFileSync(join(RACINE, 'templates', '.aiad', 'specs', '_spec-template.md'), 'utf-8');
+  const r = calculerPrecheck(gabarit);
+  assert.equal(r.verdict, 'FAIL');
+  assert.ok(r.manques.some((m) => m.includes('[NNN]')), r.manques.join(' | '));
+});
+
+test('SPEC-039-2 CA-001 — sans Intent parent ou sans critère → FAIL', () => {
+  const sansParent = '# SPEC-1-1\n\nUne SPEC assez longue pour ne pas être considérée comme vide, mais sans parent déclaré.\n\n- [ ] CA-001 — Critère.\n';
+  const sansCritere = '---\nparent_intent: INTENT-001\n---\n\n# SPEC-1-1\n\nUne SPEC assez longue pour ne pas être considérée comme vide, avec un parent mais sans critère.\n';
+  assert.ok(defautsRedaction(sansParent).some((d) => d.includes('Intent parent')));
+  assert.ok(defautsRedaction(sansCritere).some((d) => d.includes("critère d'acceptation")));
+  assert.equal(calculerPrecheck(sansParent).verdict, 'FAIL');
+  assert.equal(calculerPrecheck(sansCritere).verdict, 'FAIL');
+});
+
+test('SPEC-039-2 CA-001 — SPEC rédigée (prose ou EARS) → aucun défaut de rédaction', () => {
+  assert.deepEqual(defautsRedaction(spec()), []);
+  const ears = '---\nintent: INTENT-001\n---\n\n# SPEC-1-1\n\nWHEN le solde est inférieur au montant, le système SHALL refuser le virement avec le code SOLDE_INSUFFISANT.\n';
+  assert.deepEqual(defautsRedaction(ears), []);
+});
+
+test('SPEC-039-2 CA-001 — les SPEC du dépôt passent toutes la règle de rédaction', () => {
+  const dir = join(RACINE, '.aiad', 'specs');
+  for (const f of readdirSync(dir).filter((n) => /^SPEC-\d/.test(n))) {
+    assert.deepEqual(defautsRedaction(readFileSync(join(dir, f), 'utf-8')), [], f);
+  }
 });

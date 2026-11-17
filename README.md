@@ -5,8 +5,11 @@
 **Spec Driven Development pour Claude Code** — Framework de développement spec-anchored avec agents IA.
 
 ```bash
+npm install --save-dev aiad-sdd
 npx aiad-sdd init
 ```
+
+> **Version 2.0** — les garde-fous annoncés sont réellement installés et bloquants, et l'outil ne touche plus aux fichiers de votre projet. Vous venez d'une 1.x : lisez [MIGRATION-2.0.md](MIGRATION-2.0.md), qui liste aussi ce que la 2.0 ne fait pas encore.
 
 ---
 
@@ -145,16 +148,18 @@ section INCERTITUDE, propagé automatiquement à `AGENTS.md`,
 │   └── _index.md
 ├── specs/                  ← SPECs techniques
 │   └── _index.md
-├── facts/                  ← Traces /sdd-fact
+├── facts/                  ← Traces /sdd fact
 ├── metrics/                ← Persistance des données métriques
-│   ├── security/           ← Rapports /sdd-security
-│   └── audit/              ← Rapports /sdd-audit
+│   ├── security/           ← Rapports /sdd security
+│   └── audit/              ← Rapports /sdd audit
 └── CHANGELOG-ARTEFACTS.md  ← Historique des mises à jour
 ```
 
 ### Commandes Claude Code
 
-> **Nouveau en v1.7** — Les 27 commandes sont regroupées sous **3 routers** (`/sdd`, `/aiad`, `/aiad-help`). Les corps des sous-commandes sont chargés à la demande, pas dans le system prompt à froid (mesure : -94 % de frontmatter chargé une fois les alias rétro-compat retirés). Mesure-le toi-même : `npx aiad-sdd bench`.
+> **Nouveau en v1.7** — Les 27 commandes sont regroupées sous **3 routers** (`/sdd`, `/aiad`, `/aiad-help`). Les corps des sous-commandes sont chargés à la demande, pas dans le system prompt à froid (mesure : -94 % de frontmatter chargé alias plats retirés en v2.0). Mesure-le toi-même : `npx aiad-sdd bench`.
+>
+> **Nouveau en v2.0** — 5 **agents de rôle** (PM, PE, AE, QA, Tech Lead), 21 sous-agents et 16 skills associées. Cf. [Agents de rôle](#agents-de-rôle).
 >
 > **Nouveau en v1.9** — 7 **skills réutilisables** auto-déclenchées factorisent la logique récurrente : `human-authorship-check`, `regulatory-veto`, `drift-detection`, `sqs-scoring`, `context-budget`, `reasons-canvas`, `ears-validator`. Les commandes SDD sont **plus courtes (-32 % de bytes cumulés)** et composables. Cf. `.claude/skills/`.
 >
@@ -162,7 +167,7 @@ section INCERTITUDE, propagé automatiquement à `AGENTS.md`,
 >
 > **Nouveau en v1.12** — **Multi-runtime** via `/aiad emit-rules`. AIAD devient **source amont** : `.aiad/AGENT-GUIDE.md` + `.aiad/gouvernance/` génèrent `AGENTS.md`, `CLAUDE.md` (header), `.cursor/rules/*.mdc`, `.codex/AGENT.md`, `GEMINI.md`. Une seule modification → tous les runtimes alignés. Workflow CI `aiad-emit-rules-check.yml` bloque toute divergence. Cible explicite via `aiad-sdd init --runtime cursor|codex|copilot|gemini|all`.
 >
-> Les anciens alias plats (`/sdd-spec`, `/aiad-status`, …) restent fonctionnels pendant 1 version et seront retirés à la v2.
+> **v2.0** — Les anciens alias plats (`/sdd-spec`, `/aiad-status`, …) sont retirés. `npx aiad-sdd update` les supprime des projets installés en v1.x, sans toucher aux commandes écrites par le projet.
 
 **Cycle SDD (13 sous-commandes) — `/sdd <sub>` :**
 
@@ -313,7 +318,8 @@ npx aiad-sdd init
 Au-delà du cycle SDD, AIAD propose une **chaîne complète de publication** du dashboard projet :
 
 ```bash
-# Génère dashboard HTML (16 pages) + badges SVG + sitemap + manifest PWA + 404.html
+# Génère le dashboard HTML — vue d'ensemble + un onglet par responsabilité (PM, PE, AE, QA, Tech Lead)
+# + badges SVG + sitemap + manifest PWA + 404.html
 npx aiad-sdd dashboard
 
 # Brief one-pager pour standup / Slack-bot
@@ -331,6 +337,9 @@ npx aiad-sdd badge --shields-endpoint  # JSON pour gist + shields.io (live badge
 
 # Validation CI rapide sans écriture
 npx aiad-sdd dashboard --check      # exit 1 si erreur, ~5s
+npx aiad-sdd metrics                # métriques AIAD : ce qui remonte, ce qui ne remonte pas, rituels en retard
+npx aiad-sdd metrics check          # exit 1 tant qu'une métrique du framework ne remonte pas
+npx aiad-sdd metrics record retro satisfaction_equipe=8   # enregistrement contrôlé d'une métrique déclarée
 
 # Templates CI/CD pour 6 forges
 npx aiad-sdd ci-template --list                    # github|gitlab|jenkins|drone|bitbucket|azure
@@ -356,6 +365,34 @@ Toutes les commandes `--json` exposent un bloc `_meta: { schema, version, genera
 **Documentation OpenAPI 3.1** : **22 routes** + **13 composants réutilisables** (TraceabilityMatrix, AuditEvent, PublicationContext, SovereigntyScore, HookStats, LeadershipMetrics, etc.) documentés dans `lib/cli-schema.js`. Codegen TypeScript supporté via `openapi-typescript` sur le doc construit par `construireOpenApi()`. Contrats `publicationContext` + `--source-base` chain garantis typés côté consumer (Slack-bot, Notion sync, audit scripts).
 
 Le pattern Unix `--quiet` *quiet on success, loud on failure* est appliqué à 4 commandes CI : `brief --quiet --strict=N`, `doctor --quiet --strict-sante=N`, `workspace --quiet`, `dashboard --serve --quiet`.
+
+## Agents de rôle
+
+Chacune des 5 responsabilités AIAD dispose d'un **agent de rôle** : l'assistant personnel de la personne qui la porte. Chaque agent de rôle gère ses propres sous-agents spécialisés — la revue de code, par exemple, est lancée par l'assistant du Product Engineer.
+
+| Agent de rôle | Assistant du… | Sous-agents qu'il gère |
+|---------------|---------------|------------------------|
+| `aiad-pm` | Product Manager | `pm-discovery-analyst`, `pm-backlog-curator`, `pm-outcome-analyst` |
+| `aiad-pe` | Product Engineer | `pe-spec-writer`, `pe-implementer`, `pe-code-reviewer`, `pe-drift-sentinel`, `pe-doc-writer` |
+| `aiad-ae` | Agents Engineer | `ae-agent-configurator`, `ae-context-auditor`, `ae-agent-evaluator`, `ae-permissions-auditor` |
+| `aiad-qa` | QA Engineer | `qa-test-strategist`, `qa-test-author`, `qa-functional-validator`, `qa-exploratory-tester` |
+| `aiad-tech-lead` | Tech Lead | `tl-architecture-reviewer`, `tl-security-auditor`, `tl-performance-analyst`, `tl-debt-analyst`, `tl-release-engineer` |
+
+```bash
+claude --agent aiad-pe          # ouvrir une session avec son assistant
+npx aiad-sdd agents use pe      # en faire l'assistant par défaut de ses sessions (réglage personnel)
+npx aiad-sdd agents list        # voir l'équipe, ses skills, ses commandes
+npx aiad-sdd agents validate    # vérifier que l'équipe installée est conforme au registre
+```
+
+- **L'humain décide.** Chaque agent de rôle liste les décisions qu'il ne prend jamais : rédiger l'intention, prioriser, ouvrir la Gate, signer la validation, trancher une architecture, publier.
+- **Un seul gestionnaire par sous-agent.** Lancé par `claude --agent`, un agent de rôle ne peut déléguer qu'à ses sous-agents et aux agents de gouvernance — la limite est appliquée par Claude Code, pas laissée à la discipline du modèle. Les sous-agents ne délèguent pas.
+- **Entre rôles, un relais.** Un sujet qui relève d'une autre responsabilité passe par une note dans `.aiad/handoffs/` (skill `role-handoff`), présentée à l'humain concerné.
+- **16 skills** accompagnent ces agents (revue de code, rédaction de SPEC, stratégie de test, audit sécurité, préparation de release…).
+
+- **Après une mise à jour.** `aiad-sdd update` réécrit les agents livrés par le package, donc aussi la liste `Agent(...)` des agents de rôle : un sous-agent ajouté par le projet reste en place mais n'y figure plus. Il faut l'y réinscrire après chaque `update` ; `aiad-sdd agents validate` échoue tant que ce n'est pas fait et nomme le sous-agent concerné. Les adaptations locales d'un agent livré sont, elles, perdues à la mise à jour.
+
+Catalogue complet : [`docs/agents-de-role.md`](docs/agents-de-role.md). Limites connues : agents livrés pour Claude Code uniquement ; leur utilité n'a pas encore été mesurée sur des projets réels.
 
 ## Agents de gouvernance
 

@@ -1,0 +1,14 @@
+{
+  "mois": "2026-11",
+  "ts": 1794759904873,
+  "humanAuthorshipRatio": 1,
+  "governanceCoverage": 0.7857142857142857,
+  "traceCompleteness": 0.7857142857142857,
+  "langueArtefacts": {
+    "fr": 14,
+    "en": 0,
+    "mixed": 0,
+    "neutral": 8,
+    "total": 22
+  }
+}

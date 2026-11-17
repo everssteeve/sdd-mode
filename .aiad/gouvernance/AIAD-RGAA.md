@@ -4,9 +4,9 @@
 > **Rôle : Agent de Gouvernance Tier 1 — Droit de veto sur tout code non conforme**
 > Ce fichier s'intègre dans le fichier de configuration de votre agent IA (`CLAUDE.md`, `.cursorrules`, ou équivalent).
 > Il est injecté dans CHAQUE session de développement.
-> Référentiel : **RGAA 4.1.2** — Arrêté du 20 septembre 2024 (106 critères, ~257 tests)
+> Référentiel : **RGAA 4.1.2** — approuvé par l'arrêté du 20 septembre 2019 (106 critères, ~257 tests). RGAA 5 (aligné WCAG 2.2) en cours de rédaction, non publié au 2026-11-17.
 > Base technique : WCAG 2.1 niveaux A et AA, alignée EN 301 549 v3.2.1
-> Autorité de contrôle : ARCOM (depuis la loi 2022-1598)
+> Autorité de contrôle : ARCOM pour l'article 47 de la loi 2005-102 (ordonnance n° 2023-859 du 6 septembre 2023)
 
 ---
 
@@ -17,7 +17,7 @@ Cet agent applique les critères techniques du RGAA 4.1.2 au niveau du code. Il 
 **L'accessibilité a une dimension humaine que le code seul ne couvre pas :** tests utilisateurs avec personnes en situation de handicap, relecture rédactionnelle en langage clair, parcours multi-canal — à mener en complément.
 
 **Zones d'incertitude au 2026-04-20 :**
-- La transposition française de l'**European Accessibility Act** (Directive 2019/882) via l'Ordonnance 2023-859 du 6 sept. 2023 et le Décret 2024-1270 du 31 déc. 2024 (modifiant le Décret 2019-768) est en vigueur depuis le 28 juin 2025 — périmètres exacts (secteurs privés concernés, seuils) : à valider avec un juriste selon le service concerné.
+- La transposition française de l'**European Accessibility Act** (Directive 2019/882) via la loi n° 2023-171 du 9 mars 2023 (art. 16), le décret n° 2023-931 du 9 octobre 2023 et l'arrêté du 9 octobre 2023 est applicable depuis le 28 juin 2025 — périmètres exacts (secteurs privés concernés, seuils) : à valider avec un juriste selon le service concerné.
 
 ---
 
@@ -38,12 +38,13 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 | Texte | Portée |
 |-------|--------|
 | **Loi n° 2005-102 du 11 février 2005, Art. 47** | Obligation d'accessibilité des services de communication publique en ligne |
-| **Décret n° 2019-768 du 24 juillet 2019**, modifié par Décret 2024-1270 | Modalités d'application et sanctions |
-| **Arrêté du 20 septembre 2024** | Approuve la version **RGAA 4.1.2** (référentiel en vigueur) |
+| **Décret n° 2019-768 du 24 juillet 2019**, modifié par le décret n° 2026-816 du 24 août 2026 | Modalités d'application (déclaration, schéma pluriannuel, suivi). Son article 8 (sanctions) est abrogé depuis le 27 août 2026 : les sanctions sont à l'article 47-1 de la loi |
+| **Ordonnance n° 2023-859 du 6 septembre 2023** | Crée l'article 47-1 de la loi 2005-102 : contrôle et sanctions par l'ARCOM |
+| **Loi n° 2023-171 du 9 mars 2023 (art. 16), décret n° 2023-931 et arrêté du 9 octobre 2023** | Transposition de la directive (UE) 2019/882 (produits et services du secteur privé, dont les services bancaires) |
+| **Arrêté du 20 septembre 2019** | Approuve le RGAA 4 (version en vigueur : **4.1.2**) |
 | **Loi n° 2016-1321 pour une République Numérique** | Renforce les obligations |
-| **Loi n° 2022-1598 "Marché du travail"** | Transfère la supervision à l'ARCOM |
 
-> 📚 Base : `legifrance.gouv.fr/loda/id/LEGITEXT000006074069` (Loi 2005-102) + Arrêté du 20 sept. 2024 publié au JORF.
+> 📚 Base : `legifrance.gouv.fr/loda/id/LEGITEXT000006074069` (Loi 2005-102) + arrêté du 20 septembre 2019 (JORF) — références vérifiées sur Légifrance le 2026-11-17.
 
 ### Texte fondateur — Union européenne
 
@@ -52,7 +53,6 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 | **Directive (UE) 2016/2102** (services publics numériques) | Transposée en France par la Loi 2005-102 révisée |
 | **Directive (UE) 2019/882 — European Accessibility Act (EAA)** | Application obligatoire depuis le **28 juin 2025** — produits et services numériques du secteur privé |
 | **Norme EN 301 549 v3.2.1** | Norme technique harmonisée — présomption de conformité |
-| **Directive (UE) 2024/2853** (complément EAA) | Précisions sectorielles — à surveiller |
 
 ### Périmètre d'assujettissement
 
@@ -77,20 +77,22 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 
 | Manquement | Sanction | Base légale |
 |-----------|---------|-------------|
-| Absence de déclaration d'accessibilité | **20 000 €** (renouvelable si persistance) | Art. 8 Décret 2019-768 modifié |
-| Absence de schéma pluriannuel ou de plan annuel | **20 000 €** | Art. 8 Décret 2019-768 modifié |
-| Non-respect des obligations EAA (secteur privé) | Jusqu'à **300 000 €** (personne morale) + publication | Ordonnance 2023-859 — transposition FR |
-| Publication nominative | Possible — ARCOM peut publier la liste des organismes en défaut | Art. 8 Décret 2019-768 |
+| Service en ligne inaccessible (obligation de l'art. 47 I) | Jusqu'à **50 000 €**, après mise en demeure restée sans effet ; nouvelle sanction possible après 6 mois | Art. 47-1 de la loi 2005-102 |
+| Absence de déclaration d'accessibilité, de schéma pluriannuel, de plan annuel ou des mentions obligatoires (art. 47 III et IV) | Jusqu'à **25 000 €** | Art. 47-1 de la loi 2005-102 |
+| Manquement aux obligations de la directive 2019/882 (secteur privé) | Contravention de 5e classe | Art. R. 451-4 du code de la consommation (décret n° 2023-931) |
+| Publicité | Les mises en demeure de l'ARCOM sont publiques ; la sanction peut être assortie d'une publication | Art. 47-1 de la loi 2005-102 |
 
-> ⚠️ Montants à jour au 2026-04-20 selon la dernière rédaction publique du Décret 2019-768 modifié. La valeur historique largement citée "25 000 €" a été actualisée par les décrets successifs — à vérifier avec le texte consolidé Légifrance avant tout usage contentieux.
+> ⚠️ Montants vérifiés le 2026-11-17 : l'article 8 du décret 2019-768, ancienne base de ces sanctions, est abrogé depuis le 27 août 2026 (décret n° 2026-816). Le texte de l'article 47-1 est à relire sur Légifrance avant tout usage contentieux. Un montant de « 300 000 € » figurait ici jusqu'à la v1.5 : il n'a été retrouvé dans aucun texte et a été retiré.
 
 ### Autorité de contrôle
 
 **ARCOM** (Autorité de régulation de la communication audiovisuelle et numérique) :
-- Contrôle la conformité
+- Contrôle la conformité à l'article 47 de la loi 2005-102
 - Reçoit les signalements des usagers
-- Peut prononcer les amendes administratives
+- Met en demeure, puis peut prononcer les sanctions administratives
 - Publie annuellement un état des lieux
+
+**Pour les produits et services de la directive 2019/882**, l'autorité dépend du service : DGCCRF (cas général), ARCEP (communications électroniques), ARCOM (médias audiovisuels), **ACPR et AMF** (caractère compréhensible des informations des services bancaires et financiers), **Banque de France** (identification, signature électronique, services de paiement).
 
 **Défenseur des droits** : saisine possible par les personnes en situation de handicap victimes de discrimination par inaccessibilité.
 
@@ -143,7 +145,7 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 
 - **TOUJOURS** vérifier que l'information n'est pas transmise par la couleur seule (ajouter icône, texte, motif)
 - **TOUJOURS** respecter un ratio de contraste minimum de **4.5:1** pour le texte normal
-- **TOUJOURS** respecter un ratio de contraste minimum de **3:1** pour le texte large (≥ 18px normal ou ≥ 14px gras)
+- **TOUJOURS** respecter un ratio de contraste minimum de **3:1** pour le texte de grande taille (≥ 24 px sans graisse ou ≥ 18,5 px en gras — critère 3.2 ; les valeurs « 18 / 14 » des WCAG sont des points, pas des pixels)
 - **TOUJOURS** respecter un ratio de contraste de **3:1** pour les composants UI et les graphiques informatifs
 - **TOUJOURS** tester avec un outil de contraste (ex. : Colour Contrast Analyser) avant de valider une palette
 
@@ -478,7 +480,7 @@ background: #ffffff;
 
 ### Procédure — Schéma pluriannuel (3 ans) + plan d'actions annuel
 
-**Schéma pluriannuel (Art. 3 Décret 2019-768) :**
+**Schéma pluriannuel (art. 47 III de la loi 2005-102) :**
 - Période couverte : 3 ans
 - Objectifs stratégiques
 - Moyens alloués (budget, formations, ressources)
@@ -797,7 +799,7 @@ it('est accessible', async () => {
 
 ### Officielles — France
 - RGAA 4.1.2 — Méthode et critères : https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/
-- Arrêté du 20 septembre 2024 (RGAA 4.1.2) : https://www.legifrance.gouv.fr/
+- Arrêté du 20 septembre 2019 (RGAA 4 ; version en vigueur 4.1.2) : https://www.legifrance.gouv.fr/ — référentiel : https://accessibilite.numerique.gouv.fr/
 - Décret 2019-768 modifié : https://www.legifrance.gouv.fr/loda/id/LEGITEXT000038811952/
 - Loi 2005-102 Art. 47 : https://www.legifrance.gouv.fr/loda/id/LEGITEXT000006074069/
 - ARCOM — Accessibilité numérique : https://www.arcom.fr/
@@ -831,7 +833,7 @@ it('est accessible', async () => {
 
 *Agent RGAA — Tier 1 Gouvernance — Droit de veto*
 *Intégré au framework AIAD v1.5 — Valeur "Excellence Intentionnelle"*
-*Référentiel : RGAA 4.1.2 — Arrêté du 20 septembre 2024 — DINUM / ARCOM*
+*Référentiel : RGAA 4.1.2 — arrêté du 20 septembre 2019 — DINUM / ARCOM*
 *⚠️ Cet agent ne remplace pas un audit d'accessibilité formel ni un avis juridique qualifié.*
 
 ---
@@ -841,3 +843,4 @@ it('est accessible', async () => {
 | Date | Version | Modifications |
 |------|---------|--------------|
 | 2026-04-20 | v1.5 — renforcement juridique | **+ AVERTISSEMENT PRÉLIMINAIRE** — **+ CADRE LÉGAL DÉTAILLÉ** (Loi 2005-102 Art. 47, Décret 2019-768 modifié par Décret 2024-1270, Arrêté du 20 sept. 2024 — RGAA 4.1.2, EAA Directive 2019/882 + Ordonnance 2023-859, EN 301 549 v3.2.1, Loi 2022-1598 — transfert ARCOM) — **+ périmètre d'assujettissement détaillé** (secteur public + secteur privé post-EAA, exemptions microentreprises) — **+ sanctions chiffrées** (20 000 €, EAA jusqu'à 300 000 €, publication nominative ARCOM) — **+ tableau des 13 thématiques / 106 critères** — **+ OBLIGATIONS PAR ACTEUR** (responsable éditorial, DSI, PM/PE/QA AIAD) — **+ procédure audit** (auto-évaluation vs tierce partie, méthode échantillon, calcul taux) — **+ ARTEFACTS OBLIGATOIRES** (déclaration d'accessibilité complète, schéma pluriannuel 3 ans, plan d'actions annuel) — **+ ARTICULATION** (WCAG 2.2, EN 301 549, RGPD, AI Act, RGESN, règles de priorité) — **+ ressources officielles structurées** |
+| 2026-11-17 | corrections vérifiées sur sources primaires (Légifrance, accessibilite.numerique.gouv.fr) | Arrêté RGAA daté du 20 septembre **2019** (et non 2024) — base des sanctions : **art. 47-1 de la loi 2005-102** (art. 8 du décret 2019-768 abrogé le 27 août 2026) ; plafonds **50 000 €** et **25 000 €** ; montant « 300 000 € » retiré (introuvable) — compétence ARCOM fondée sur l'ordonnance 2023-859 (et non la loi 2022-1598, sans rapport) — transposition de la directive 2019/882 : loi 2023-171 art. 16, décret 2023-931, arrêté du 9 octobre 2023 (le « décret 2024-1270 » porte sur les tarifs d'EHPAD) ; autorités par service, dont ACPR, AMF et Banque de France — seuil du texte de grande taille : 24 px / 18,5 px gras — directive 2024/2853 retirée (responsabilité du fait des produits, sans lien) — schéma pluriannuel : art. 47 III de la loi. |

@@ -21,7 +21,7 @@ inputs:
   version:
     description: 'Version de aiad-sdd à utiliser (npm tag, défaut "latest").'
     required: false
-    default: 'latest'
+    default: '^2'
 
   working-directory:
     description: 'Dossier où la commande est exécutée.'

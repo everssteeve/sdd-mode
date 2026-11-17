@@ -1,7 +1,13 @@
 # AIAD SDD Mode — Dashboard publication (GitHub Pages)
 #
-# Régénère le dashboard HTML multi-pages à chaque push sur main et le publie
-# via GitHub Pages. Le dashboard reflète l'état réel du projet (intents,
+# Régénère le dashboard HTML multi-pages et le publie via GitHub Pages.
+#
+# PUBLICATION SUR DEMANDE UNIQUEMENT (depuis la 2.0) : le dashboard contient
+# vos Intents, vos SPEC et vos métriques. Rien n'est publié tant qu'un humain
+# ne lance pas ce workflow à la main (onglet Actions → Run workflow). Pour
+# publier à chaque push sur main, décommentez le bloc `push:` ci-dessous en
+# connaissance de cause.
+# Le dashboard reflète l'état réel du projet (intents,
 # specs, traçabilité, gouvernance, métriques) et est consultable depuis
 # n'importe quel navigateur — desktop comme mobile.
 #
@@ -14,16 +20,16 @@
 name: AIAD Dashboard (GitHub Pages)
 
 on:
-  push:
-    branches: [main, master]
-    paths:
-      - '.aiad/**'
-      - 'src/**'
-      - 'app/**'
-      - 'lib/**'
-      - 'tests/**'
-      - 'package.json'
-      - '.github/workflows/aiad-dashboard.yml'
+  # push:
+  #   branches: [main, master]
+  #   paths:
+  #     - '.aiad/**'
+  #     - 'src/**'
+  #     - 'app/**'
+  #     - 'lib/**'
+  #     - 'tests/**'
+  #     - 'package.json'
+  #     - '.github/workflows/aiad-dashboard.yml'
   workflow_dispatch:
 
 permissions:
@@ -57,7 +63,7 @@ jobs:
           if [ -f package.json ]; then
             npm install --no-audit --no-fund --omit=optional || true
           fi
-          npm install --no-save --no-audit --no-fund aiad-sdd@latest
+          npm install --no-save --no-audit --no-fund aiad-sdd@^2
 
       - name: Build dashboard
         run: |
