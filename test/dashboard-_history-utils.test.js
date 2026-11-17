@@ -16,8 +16,8 @@ function tmpProjet() {
 
 // ─── lireRetention ──────────────────────────────────────────────────────────
 
-test('lireRetention — sans config.json → défaut 180j', () => {
-  assert.equal(lireRetention(tmpProjet()), 180);
+test('lireRetention — sans config.json → aucune purge par défaut (null)', () => {
+  assert.equal(lireRetention(tmpProjet()), null);
 });
 
 test('lireRetention — config.json#dashboard.retentionJours pris en compte', () => {
@@ -29,12 +29,12 @@ test('lireRetention — config.json#dashboard.retentionJours pris en compte', ()
   } finally { rmSync(racine, { recursive: true, force: true }); }
 });
 
-test('lireRetention — JSON cassé → fallback 180j', () => {
+test('lireRetention — JSON cassé → aucune purge (null)', () => {
   const racine = tmpProjet();
   try {
     mkdirSync(join(racine, '.aiad'), { recursive: true });
     writeFileSync(join(racine, '.aiad', 'config.json'), '{ not json');
-    assert.equal(lireRetention(racine), 180);
+    assert.equal(lireRetention(racine), null);
   } finally { rmSync(racine, { recursive: true, force: true }); }
 });
 
