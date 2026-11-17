@@ -24,7 +24,7 @@ node --version  # ≥ 18.0.0 requis (parseArgs natif)
 npm install      # zero dep, instantané
 ```
 
-Pas de dépendances runtime. **Node ≥ 18** ou **Bun ≥ 1.2** au choix.
+Pas de dépendances runtime. **Node ≥ 22** ou **Bun ≥ 1.2** au choix.
 
 ### Bun runtime (alternative)
 
@@ -157,7 +157,7 @@ lib/
 3. **Écris le test d'abord** quand tu peux — la couverture actuelle est exhaustive, on aimerait qu'elle le reste.
 4. **Code en suivant les conventions ci-dessus**.
 5. **Lance `npm run lint && npm test`** localement.
-6. **Pousse et ouvre une PR** ; la CI tourne sur Node 18, 20, 22 × ubuntu, macos.
+6. **Pousse et ouvre une PR** ; la CI tourne sur Node 22 et 24 × ubuntu, macos.
 7. **Réponds aux retours de revue** dans la même PR (force-push autorisé, pas de fix-up commit imposé).
 
 ## Ajouter un pack de gouvernance

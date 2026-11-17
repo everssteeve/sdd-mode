@@ -5,8 +5,11 @@
 **Spec Driven Development pour Claude Code** — Framework de développement spec-anchored avec agents IA.
 
 ```bash
+npm install --save-dev aiad-sdd
 npx aiad-sdd init
 ```
+
+> **Version 2.0** — les garde-fous annoncés sont réellement installés et bloquants, et l'outil ne touche plus aux fichiers de votre projet. Vous venez d'une 1.x : lisez [MIGRATION-2.0.md](MIGRATION-2.0.md), qui liste aussi ce que la 2.0 ne fait pas encore.
 
 ---
 

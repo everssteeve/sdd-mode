@@ -25,7 +25,11 @@ test('SECURITY.md — TL;DR avec canal de signalement', () => {
 test('SECURITY.md — matrice versions supportées', () => {
   const c = readFileSync(SECURITY_PATH, 'utf-8');
   assert.match(c, /Versions supportées/i);
-  assert.match(c, /1\.14\.x/);
+  // La matrice suit la version du paquet : une chaîne figée ici avait laissé
+  // la politique annoncer 1.14.x comme supportée alors que la 1.21 était sortie.
+  const majeure = JSON.parse(readFileSync(join(dirname(SECURITY_PATH), 'package.json'), 'utf-8')).version.split('.')[0];
+  assert.match(c, new RegExp(`\\b${majeure}\\.(x|\\d+\\.x)`), `la version majeure ${majeure} doit figurer dans la matrice`);
+  assert.doesNotMatch(c, /1\.14\.x/);
 });
 
 test('SECURITY.md — surface d\'attaque documentée', () => {

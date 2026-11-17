@@ -6,12 +6,13 @@
 
 Seules les versions ci-dessous reçoivent des correctifs de sécurité. Les versions plus anciennes ne sont **pas** supportées — migre vers une version supportée pour bénéficier des correctifs.
 
-| Version    | Supportée |
-|------------|:---------:|
-| 1.14.x     | ✅        |
-| 1.13.x     | ✅ (jusqu'à 2026-08) |
-| 1.12.x     | ❌        |
-| < 1.12     | ❌        |
+| Version | Supportée |
+|---------|:---------:|
+| 2.x (dernière version mineure et la précédente) | ✅ |
+| 1.21.x | ✅ correctifs de sécurité uniquement, pendant 12 mois après la sortie de la 2.0.0 |
+| < 1.21 | ❌ |
+
+Node.js : versions maintenues par le projet Node.js au moment de la sortie (22 et 24 pour la 2.0).
 
 ## Surface d'attaque considérée
 
@@ -40,7 +41,7 @@ Les classes de vulnérabilités prioritaires :
 
 [evers.steeve@gmail.com](mailto:evers.steeve@gmail.com) — sujet `[SECURITY] aiad-sdd <vX.Y.Z>`.
 
-Si la vulnérabilité est sensible (ex. exfiltration de fichiers), tu peux chiffrer le message avec ma clé PGP publiée sur [keys.openpgp.org](https://keys.openpgp.org/) (à venir — pour l'instant l'email simple suffit, le repo est encore petit).
+Si la vulnérabilité est sensible (ex. exfiltration de fichiers), tu peux chiffrer le message avec ma clé PGP publiée sur [keys.openpgp.org](https://keys.openpgp.org/) (clé non encore publiée : en attendant, utilise le signalement privé GitHub, qui est chiffré de bout en bout par la plateforme).
 
 ### Ce qu'il faut inclure
 

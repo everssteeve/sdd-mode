@@ -27,10 +27,11 @@
     "lib/",
     "templates/",
     "README.md",
+    "MIGRATION-2.0.md",
     "LICENSE"
   ],
   "engines": {
-    "node": ">=18.0.0",
+    "node": ">=22.0.0",
     "bun": ">=1.2.0"
   },
   "type": "module",
