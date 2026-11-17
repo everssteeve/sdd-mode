@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 
 import { argv, exit, cwd } from 'node:process';
+
+// Sorties synchrones : sans cela, `exit()` juste après une écriture coupe la
+// sortie à 64 Ko dès qu'elle part dans un tube (verdicts lus par les hooks).
+for (const flux of [process.stdout, process.stderr]) {
+  try { flux._handle?.setBlocking?.(true); } catch { /* flux non pilotable : on garde le défaut */ }
+}
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';

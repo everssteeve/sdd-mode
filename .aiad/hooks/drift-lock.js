@@ -4,8 +4,12 @@
 // À la clôture d'une session/agent, exécute le verdict de traçabilité
 // déterministe (`aiad-sdd trace --output-format verdict`, exit 0/1/2) et
 // REFUSE la clôture (decision: block + exit 2) tant qu'un gap bloquant
-// (FAIL) ou une traçabilité indécidable (JNSP) subsiste — réveillant le
-// modèle (asyncRewake) avec la liste des annotations à poser.
+// (FAIL) ou une traçabilité indécidable (JNSP) subsiste, en rendant au
+// modèle la liste des annotations à poser. Hook synchrone : un hook
+// d'arrière-plan ne peut pas retenir une clôture.
+//
+// Anti-boucle : si la clôture est déjà relancée par un hook Stop
+// (`stop_hook_active`), on laisse clôturer et on prévient l'humain.
 //
 // « Merger sans Drift Check » devient mécaniquement impossible.
 //
@@ -46,8 +50,20 @@ function resoudreCli(projectDir) {
   return { cmd: 'npx', base: ['--no-install', 'aiad-sdd'] };
 }
 
+// Entrée du hook (JSON sur stdin). {} hors harness ou si illisible.
+function lireEntree() {
+  try {
+    if (process.stdin.isTTY) return {};
+    const data = readFileSync(0, { encoding: 'utf-8' });
+    return data.trim() ? JSON.parse(data) : {};
+  } catch {
+    return {};
+  }
+}
+
 function main() {
   if (process.env.AIAD_HOOK_SILENT === '1') return 0;
+  const entree = lireEntree();
 
   const projectDir = process.env.CLAUDE_PROJECT_DIR || process.cwd();
   if (!existsSync(join(projectDir, '.aiad'))) return 0;
@@ -79,12 +95,22 @@ function main() {
   // `sdd-trace` restent les garde-fous.
   if (typeof enveloppe.verdict !== 'string') {
     process.stdout.write(JSON.stringify({
-      systemMessage: 'Drift Lock non vérifié : la CLI aiad-sdd est introuvable ou a échoué sans verdict. '
-        + 'Installe-la dans le projet (npm install --save-dev aiad-sdd) pour réactiver le contrôle à la clôture.',
+      systemMessage: stdout.trim() === ''
+        ? 'Drift Lock non vérifié : la CLI aiad-sdd est introuvable dans le projet. '
+          + 'Installe-la (npm install --save-dev aiad-sdd) pour réactiver le contrôle à la clôture.'
+        : 'Drift Lock non vérifié : la CLI aiad-sdd a répondu, mais son verdict est illisible. '
+          + 'Lance `aiad-sdd trace --output-format verdict` pour diagnostiquer.',
     }));
     return 0;
   }
   const verdict = enveloppe.verdict;
+  if (entree.stop_hook_active === true) {
+    process.stdout.write(JSON.stringify({
+      systemMessage: `Drift Lock — verdict ${verdict} toujours présent après une relance : clôture autorisée pour éviter une boucle. `
+        + 'Le pre-commit et la CI restent bloquants ; lance `aiad-sdd trace` pour voir les écarts.',
+    }));
+    return 0;
+  }
   const bloquants = Array.isArray(enveloppe.gaps) ? enveloppe.gaps.filter((g) => g.blocking) : [];
   const liste = bloquants.slice(0, 15).map((g) => `  - [${g.kind}] ${g.ref}${g.file ? ` (${g.file})` : ''}`).join('\n');
 
