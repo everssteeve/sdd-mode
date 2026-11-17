@@ -8,6 +8,26 @@
     "type": "command",
     "command": "node \"${CLAUDE_PROJECT_DIR}/.aiad/hooks/statusline.js\""
   },
+  "permissions": {
+    "deny": [
+      "Edit(.aiad/hooks/**)",
+      "Write(.aiad/hooks/**)",
+      "Edit(.aiad/hook-bypass.yml)",
+      "Write(.aiad/hook-bypass.yml)",
+      "Edit(.aiad/hooks-config.json)",
+      "Write(.aiad/hooks-config.json)",
+      "Edit(.aiad/hooks-config.local.json)",
+      "Write(.aiad/hooks-config.local.json)",
+      "Edit(.aiad/gouvernance/**)",
+      "Write(.aiad/gouvernance/**)",
+      "Bash(git commit --no-verify*)",
+      "Bash(git commit * --no-verify*)"
+    ],
+    "ask": [
+      "Edit(.aiad/config.yml)",
+      "Write(.aiad/config.yml)"
+    ]
+  },
   "hooks": {
     "SessionStart": [
       {

@@ -135,6 +135,10 @@ if [ "$PII_MODE" != "off" ] && command -v node >/dev/null 2>&1; then
   if [ -z "$AIAD_BIN" ]; then
     AIAD_BIN="$(command -v aiad-sdd 2>/dev/null || true)"
   fi
+  # Installation locale (cas recommandé) : le binaire n'est pas dans le PATH.
+  if [ -z "$AIAD_BIN" ] && [ -x "./node_modules/.bin/aiad-sdd" ]; then
+    AIAD_BIN="./node_modules/.bin/aiad-sdd"
+  fi
   if [ -n "$AIAD_BIN" ] && [ -x "$AIAD_BIN" ]; then
     AIAD_PII_MODE="$PII_MODE" "$AIAD_BIN" pii-scan --staged
     PII_EXIT=$?
@@ -204,7 +208,9 @@ while IFS= read -r f; do
   # Classification AIAD-first : SPECs et autres artefacts ne sont jamais
   # whitelistés (sinon une whitelist trop large casserait la détection).
   case "$f" in
-    .aiad/specs/*)
+    .aiad/specs/SPEC-*.md|.aiad/specs/archive/SPEC-*.md)
+      # Seule une vraie SPEC compte : modifier `_index.md` ou un gabarit ne
+      # prouve pas que la SPEC a suivi le code.
       SPECS_CHANGED=$((SPECS_CHANGED + 1))
       continue
       ;;

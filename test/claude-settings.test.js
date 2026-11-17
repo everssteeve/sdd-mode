@@ -1,11 +1,12 @@
 // @intent INTENT-039
 // @spec SPEC-039-1-installation-fiable
+// @spec SPEC-039-2-controle-humain
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { estHookAiad, fusionnerHooksAiad, retirerHooksAiad, scriptsHooksCables } from '../lib/claude-settings.js';
+import { estHookAiad, estRegleAiad, fusionnerHooksAiad, retirerHooksAiad, scriptsHooksCables } from '../lib/claude-settings.js';
 
 const RACINE = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TPL = JSON.parse(readFileSync(join(RACINE, 'templates', '.claude', 'settings.json'), 'utf-8'));
@@ -20,7 +21,7 @@ const UTILISATEUR = {
 
 test('CA-001 — fusion : hooks AIAD ajoutés, entrées utilisateur intactes et en premier', () => {
   const r = fusionnerHooksAiad(UTILISATEUR, TPL);
-  assert.deepEqual(r.permissions, UTILISATEUR.permissions);
+  assert.equal(r.permissions.deny[0], 'Read(./.env)', 'règle de l\'utilisateur conservée, en premier');
   assert.equal(r.hooks.PreToolUse[0].hooks[0].command, 'echo maison');
   assert.deepEqual(r.hooks.Notification, UTILISATEUR.hooks.Notification);
   assert.deepEqual(scriptsHooksCables(r), scriptsHooksCables(TPL));
@@ -37,6 +38,8 @@ test('CA-001 — fusion idempotente : rejouée, elle ne produit aucun diff', () 
 test('CA-001 — fusion sobre : aucune clé du gabarit imposée hors hooks et statusLine', () => {
   const r = fusionnerHooksAiad(UTILISATEUR, TPL);
   assert.deepEqual(Object.keys(r).sort(), ['hooks', 'permissions', 'statusLine']);
+  assert.equal(r.env, undefined);
+  assert.equal(r.skillListingMaxDescChars, undefined);
   const avecStatus = fusionnerHooksAiad({ statusLine: { type: 'command', command: 'echo moi' } }, TPL);
   assert.equal(avecStatus.statusLine.command, 'echo moi', 'le statusLine de l\'utilisateur prime');
 });
@@ -103,4 +106,24 @@ test('copies racine et gabarit des hooks identiques (pas de modèle périmé)', 
       `divergence racine ↔ gabarit : ${f}`,
     );
   }
+});
+
+test('SPEC-039-2 CA-003 — le gabarit protège les garde-fous contre l\'agent qu\'ils contrôlent', () => {
+  const deny = TPL.permissions.deny;
+  for (const attendu of [
+    'Edit(.aiad/hooks/**)', 'Write(.aiad/hooks/**)',
+    'Edit(.aiad/hook-bypass.yml)', 'Edit(.aiad/hooks-config.json)', 'Edit(.aiad/hooks-config.local.json)',
+    'Edit(.aiad/gouvernance/**)', 'Bash(git commit --no-verify*)', 'Bash(git commit * --no-verify*)',
+  ]) assert.ok(deny.includes(attendu), `règle absente : ${attendu}`);
+  assert.ok(TPL.permissions.ask.includes('Edit(.aiad/config.yml)'), 'modifier config.yml demande une confirmation humaine');
+  for (const r of [...deny, ...TPL.permissions.ask]) assert.equal(estRegleAiad(r), true, `règle non reconnue comme AIAD : ${r}`);
+});
+
+test('SPEC-039-2 CA-003 — fusion : les règles de protection sont ajoutées, puis retirées exactement', () => {
+  const r = fusionnerHooksAiad(UTILISATEUR, TPL);
+  assert.ok(r.permissions.deny.includes('Edit(.aiad/hooks/**)'));
+  assert.ok(r.permissions.ask.includes('Edit(.aiad/config.yml)'));
+  assert.deepEqual(retirerHooksAiad(r), UTILISATEUR);
+  const vierge = fusionnerHooksAiad({}, TPL);
+  assert.deepEqual(retirerHooksAiad(vierge), {});
 });

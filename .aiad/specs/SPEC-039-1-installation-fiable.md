@@ -49,17 +49,17 @@ L'audit du 2026-11-17 a reproduit sept défauts qui font que les garde-fous anno
 
 ## 3. Critères d'Acceptation
 
-- [ ] CA-001 — Fusion : hooks AIAD ajoutés, entrées utilisateur intactes, opération idempotente (test).
-- [ ] CA-002 — Retrait : seules les entrées AIAD partent (test).
-- [ ] CA-003 — `init` sur un projet avec `settings.json` préexistant câble les six hooks (test).
-- [ ] CA-004 — `update` resynchronise tous les scripts de hooks et câble tous les hooks (test).
-- [ ] CA-005 — Aucun chemin non quoté dans les commandes de hooks du gabarit (test).
-- [ ] CA-006 — Chaque hook s'exécute dans un projet `"type": "commonjs"` (test).
-- [ ] CA-007 — Veto sans CLI : code 2 et motif explicite (test).
-- [ ] CA-008 — Verdict de plus de 64 Ko lu en entier à travers un tube (test).
-- [ ] CA-009 — `node_modules/` non ignoré par git : aucun écart n'en provient (test).
-- [ ] CA-010 — `update --dry-run` laisse l'arbre inchangé (test).
-- [ ] CA-011 — `uninstall` conserve le texte utilisateur de `CLAUDE.md` et les commandes du projet, et ne laisse aucun hook AIAD (test).
+- [x] CA-001 — Fusion : hooks AIAD ajoutés, entrées utilisateur intactes, opération idempotente (test).
+- [x] CA-002 — Retrait : seules les entrées AIAD partent (test).
+- [x] CA-003 — `init` sur un projet avec `settings.json` préexistant câble les six hooks (test).
+- [x] CA-004 — `update` resynchronise tous les scripts de hooks et câble tous les hooks (test).
+- [x] CA-005 — Aucun chemin non quoté dans les commandes de hooks du gabarit (test).
+- [x] CA-006 — Chaque hook s'exécute dans un projet `"type": "commonjs"` (test).
+- [x] CA-007 — Veto sans CLI : code 2 et motif explicite (test).
+- [x] CA-008 — Verdict de plus de 64 Ko lu en entier à travers un tube (test).
+- [x] CA-009 — `node_modules/` non ignoré par git : aucun écart n'en provient (test).
+- [x] CA-010 — `update --dry-run` laisse l'arbre inchangé (test).
+- [x] CA-011 — `uninstall` conserve le texte utilisateur de `CLAUDE.md` et les commandes du projet, et ne laisse aucun hook AIAD (test).
 
 ## 4. Déploiement et retour arrière
 

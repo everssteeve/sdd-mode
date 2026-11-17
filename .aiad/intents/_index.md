@@ -61,4 +61,4 @@ Chaque Intent Statement possède un champ `status:` dans son frontmatter :
 | INTENT-036 | Améliorer l'aspect agentique de SDD Mode — un agent par rôle, qui gère ses sous-agents | Steeve Evers | 2026-11-15 | SPEC-036-1/2/3 ready | active |
 | INTENT-037 | Refondre le dashboard — une vision globale et un onglet par rôle, avec un design system moderne | Steeve Evers | 2026-11-15 | SPEC-037-1/2 ready | active |
 | INTENT-038 | Retrouver dans le dashboard les métriques qu'expose AIAD | Steeve Evers | 2026-11-15 | SPEC-038-1/2 ready | active |
-| INTENT-039 | AIAD et SDD Mode 2.0 — de l'outil de recherche à l'outil utilisable en production | Steeve Evers | 2026-11-17 | SPEC-039-1 draft | active |
+| INTENT-039 | AIAD et SDD Mode 2.0 — de l'outil de recherche à l'outil utilisable en production | Steeve Evers | 2026-11-17 | SPEC-039-1/2 draft | active |

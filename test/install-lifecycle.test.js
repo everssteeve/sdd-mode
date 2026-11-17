@@ -65,7 +65,8 @@ test('CA-003 — init sur un projet avec settings.json préexistant câble tous 
     const r = b.cli('init');
     assert.equal(r.status, 0, r.stderr);
     const s = JSON.parse(readFileSync(join(b.projet, '.claude', 'settings.json'), 'utf-8'));
-    assert.deepEqual(s.permissions, REGLAGES.permissions);
+    assert.equal(s.permissions.deny[0], 'Read(./.env)', 'règle de l\'équipe conservée');
+    assert.ok(s.permissions.deny.includes('Edit(.aiad/hooks/**)'), 'garde-fous protégés contre l\'agent');
     assert.equal(s.hooks.PreToolUse[0].hooks[0].command, 'echo maison');
     const cables = scriptsHooksCables(s);
     for (const attendu of ['veto.js', 'drift-lock.js', 'jnsp-scan.js', 'discovery-gate.js', 'session-start.js', 'skill-usage.js']) {

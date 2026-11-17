@@ -20,7 +20,7 @@ function ecrireConfig(racine, contenu) {
 test('CA-1a — .aiad/config.yml absent → defaults', () => {
   const d = tmp();
   try {
-    assert.deepEqual(lireConfigAutoChain(d), { enabled: true, max_context_pct: 40 });
+    assert.deepEqual(lireConfigAutoChain(d), { enabled: false, max_context_pct: 40 });
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 
@@ -28,7 +28,7 @@ test('CA-1b — section auto_chain absente → defaults', () => {
   const d = tmp();
   try {
     ecrireConfig(d, 'hooks:\n  pre_commit: block\n');
-    assert.deepEqual(lireConfigAutoChain(d), { enabled: true, max_context_pct: 40 });
+    assert.deepEqual(lireConfigAutoChain(d), { enabled: false, max_context_pct: 40 });
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 
@@ -93,7 +93,7 @@ test('CA-4 — templates/.aiad/config.yml contient auto_chain', async () => {
 
 // ─── CA-5 : .aiad/config.yml du repo contient auto_chain enabled: true ───
 
-test('CA-5 — .aiad/config.yml du repo contient auto_chain avec enabled: true', async () => {
+test('CA-5 — .aiad/config.yml du repo et le gabarit livré : auto_chain présent, désactivé par défaut (2.0)', async () => {
   const { readFileSync, existsSync } = await import('node:fs');
   const { resolve, dirname } = await import('node:path');
   const { fileURLToPath } = await import('node:url');
@@ -102,7 +102,9 @@ test('CA-5 — .aiad/config.yml du repo contient auto_chain avec enabled: true',
   assert.ok(existsSync(configPath), '.aiad/config.yml absent');
   const contenu = readFileSync(configPath, 'utf-8');
   assert.ok(contenu.includes('auto_chain:'), 'section auto_chain manquante');
-  assert.ok(contenu.includes('enabled: true'), 'enabled: true manquant');
+  assert.ok(contenu.includes('enabled: false'), 'chaînage automatique désactivé par défaut depuis la 2.0');
+  const gabarit = readFileSync(join(root, 'templates', '.aiad', 'config.yml'), 'utf-8');
+  assert.match(gabarit, /auto_chain:[\s\S]*?\n  enabled: false/, 'le gabarit livré doit désactiver le chaînage automatique');
 });
 
 // ─── CA-6 : alias EN disponible ───────────────────────────────────────────
@@ -110,7 +112,7 @@ test('CA-5 — .aiad/config.yml du repo contient auto_chain avec enabled: true',
 test('CA-6 — alias EN readAutoChainConfig fonctionne', () => {
   const d = tmp();
   try {
-    assert.deepEqual(readAutoChainConfig(d), { enabled: true, max_context_pct: 40 });
+    assert.deepEqual(readAutoChainConfig(d), { enabled: false, max_context_pct: 40 });
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 
@@ -121,11 +123,11 @@ test('YAML malformé → defaults silencieux (pas de throw)', () => {
   try {
     ecrireConfig(d, ':::malformed yaml:::\n  ----\n');
     assert.doesNotThrow(() => lireConfigAutoChain(d));
-    assert.deepEqual(lireConfigAutoChain(d), { enabled: true, max_context_pct: 40 });
+    assert.deepEqual(lireConfigAutoChain(d), { enabled: false, max_context_pct: 40 });
   } finally { rmSync(d, { recursive: true, force: true }); }
 });
 
-test('enabled non-booléen → default true + warning stderr', () => {
+test('enabled non-booléen → défaut false + warning stderr', () => {
   const d = tmp();
   const messages = [];
   const origWrite = process.stderr.write.bind(process.stderr);
@@ -133,7 +135,7 @@ test('enabled non-booléen → default true + warning stderr', () => {
   try {
     ecrireConfig(d, 'auto_chain:\n  enabled: "yes"\n  max_context_pct: 40\n');
     const result = lireConfigAutoChain(d);
-    assert.equal(result.enabled, true);
+    assert.equal(result.enabled, false);
     assert.ok(messages.some((m) => m.includes('enabled')), 'warning stderr attendu');
   } finally {
     process.stderr.write = origWrite;

@@ -283,9 +283,11 @@ test('hook bash — exécution end-to-end écrit hook-runs.jsonl', () => {
     mkdirSync(join(d, '.aiad', 'hooks'), { recursive: true });
     writeFileSync(hookDest, readFileSync(hookSrc, 'utf-8'), { mode: 0o755 });
 
-    // Stage un fichier markdown (aucun code → exit 0)
+    // Un fichier hors `.aiad/` accompagné d'une vraie SPEC dans le même commit
+    // → Drift Lock respecté, exit 0. (`_index.md` seul ne suffit plus : 2.0.)
     writeFileSync(join(d, 'doc.md'), '# doc');
-    spawnSync('git', ['add', 'doc.md', '.aiad/specs/_index.md', '.aiad/hooks/pre-commit.sh'], repoOpts);
+    writeFileSync(join(d, '.aiad', 'specs', 'SPEC-001-1-doc.md'), '# SPEC-001-1-doc');
+    spawnSync('git', ['add', 'doc.md', '.aiad/specs/_index.md', '.aiad/specs/SPEC-001-1-doc.md', '.aiad/hooks/pre-commit.sh'], repoOpts);
 
     // Lance le hook directement
     const r = spawnSync('bash', [hookDest], repoOpts);
@@ -321,4 +323,28 @@ test('CONSTANTS — exposées', () => {
   assert.equal(CONSTANTS.METRICS_PATH, '.aiad/metrics/hook-runs.jsonl');
   assert.equal(CONSTANTS.TIMEOUT_DEFAUT_MS, 30000);
   assert.equal(CONSTANTS.TIMEOUT_PLAFOND_MS, 120000);
+});
+
+// @spec SPEC-039-2-controle-humain
+test('SPEC-039-2 CA-002 — pre-commit : modifier _index.md ne satisfait pas le Drift Lock', () => {
+  const d = tmp();
+  try {
+    const repoOpts = { cwd: d, encoding: 'utf-8' };
+    spawnSync('git', ['init', '-q'], repoOpts);
+    mkdirSync(join(d, '.aiad', 'specs'), { recursive: true });
+    mkdirSync(join(d, '.aiad', 'hooks'), { recursive: true });
+    mkdirSync(join(d, 'src'), { recursive: true });
+    const hookDest = join(d, '.aiad', 'hooks', 'pre-commit.sh');
+    writeFileSync(hookDest, readFileSync(join(process.cwd(), 'templates', '.aiad', 'hooks', 'pre-commit.sh'), 'utf-8'), { mode: 0o755 });
+    writeFileSync(join(d, 'src', 'a.js'), 'export const a = 1;\n');
+    writeFileSync(join(d, '.aiad', 'specs', '_index.md'), '# index\n\n');
+    spawnSync('git', ['add', 'src/a.js', '.aiad/specs/_index.md'], repoOpts);
+    const sans = spawnSync('bash', [hookDest], repoOpts);
+    assert.equal(sans.status, 1, 'code + _index.md seul : refus attendu');
+    assert.match(sans.stdout + sans.stderr, /Drift Lock/);
+
+    writeFileSync(join(d, '.aiad', 'specs', 'SPEC-001-1-a.md'), '# SPEC-001-1-a\n');
+    spawnSync('git', ['add', '.aiad/specs/SPEC-001-1-a.md'], repoOpts);
+    assert.equal(spawnSync('bash', [hookDest], repoOpts).status, 0, 'code + vraie SPEC : accepté');
+  } finally { rmSync(d, { recursive: true, force: true }); }
 });
