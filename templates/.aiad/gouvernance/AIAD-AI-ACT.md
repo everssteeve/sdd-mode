@@ -226,7 +226,7 @@ Un système IA est à haut risque s'il est utilisé dans l'un de ces secteurs **
 - **TOUJOURS** documenter les capacités et les limites du système (cas d'usage hors scope)
 - **TOUJOURS** maintenir des logs automatiques de toute décision ou output significatif (traçabilité)
 - **TOUJOURS** versionner le système IA avec documentation des changements et de leurs impacts
-- **TOUJOURS** conserver les logs pendant la durée légale applicable (minimum 6 mois post-déploiement)
+- **TOUJOURS** conserver les journaux pendant une durée adaptée à la destination du système, **d'au moins six mois**, sauf disposition contraire du droit applicable (art. 19 pour le fournisseur, art. 26(6) pour le déployeur)
 
 ```typescript
 // ✅ Structure de documentation technique obligatoire (Art. 11)
@@ -376,7 +376,7 @@ interface PostMarketMonitoring {
   // Signalement des incidents (Art. 73)
   incidentReportingRequired: boolean;
   seriousIncidentDefinition: string; // Définir ce qui constitue un incident grave
-  reportingDeadline: '72h' | '15d';  // 72h pour incidents graves
+  reportingDeadline: '2d' | '10d' | '15d';  // Art. 73(2)-(4) : 15 jours ; 2 jours (infraction de grande ampleur, infrastructure critique) ; 10 jours (décès)
 }
 ```
 
@@ -568,7 +568,7 @@ AIAD prescrit des **propriétés**, pas des produits. Pour tout agent à effet i
 | Utilisation conforme aux instructions | — | ✅ | — | — |
 | Supervision humaine effective (Art. 14) | Concevoir | Appliquer | — | — |
 | Surveillance du fonctionnement | — | ✅ | — | — |
-| Conservation des journaux (Art. 26.6) | — | ✅ (≥ 6 mois) | — | — |
+| Conservation des journaux (Art. 26.6) | — | ✅ (durée adaptée, ≥ 6 mois, sauf disposition contraire) | — | — |
 | Information des personnes concernées (Art. 26.11) | — | ✅ | — | — |
 | FRIA (Art. 27) si déployeur public ou secteur Art. 27.1 | — | ✅ | — | — |
 | Enregistrement Art. 71 (déployeur service public) | — | ✅ | — | — |
@@ -914,12 +914,12 @@ Un système IA conforme à l'AI Act est, par construction, aligné avec les vale
 | **Art. 9** — Gestion des risques | Système de gestion des risques tout au long du cycle de vie | Intent Statement (CONTRAINTES) + SPEC (critère de drift) | `/sdd-gate` — validation du contexte de risque avant exec |
 | **Art. 10** — Données d'entraînement | Qualité et gouvernance des données | ARCHITECTURE.md (section données) | `/sdd-validate` — validation qualité |
 | **Art. 11** — Documentation technique | Documentation complète avant mise en service | PRD.md + ARCHITECTURE.md + AGENT-GUIDE.md + SPECs | `/aiad-status` — état des artefacts |
-| **Art. 12** — Journalisation | Logs automatiques des décisions IA | `.aiad/metrics/` (toutes les commandes) | `/aiad-dashboard` — revue des métriques |
+| **Art. 12** — Journalisation | Enregistrement automatique des événements (journaux) du système à haut risque, sur toute sa durée de vie | **Aucun artefact AIAD ne remplit cette obligation** : elle se réalise dans le produit. `.aiad/metrics/` trace le cycle de développement, pas le fonctionnement du système d'IA. La SPEC doit exiger la journalisation | `/sdd-validate` — vérifier que la journalisation exigée par la SPEC est implémentée et testée |
 | **Art. 13** — Transparence | Information claire sur les capacités et limites | AGENT-GUIDE (section limites) + SPECs | Atelier d'Intention mensuel |
 | **Art. 14** — Supervision humaine | Mécanisme d'override humain effectif | Human Authorship (Intent Statement) + Execution Gate | `/sdd-gate` — refus si Human Authorship absent |
 | **Art. 15** — Précision & robustesse | Monitoring et dégradation gracieuse | `/sdd-context` (CE Budget audit) + Lessons Learned | `/aiad-retro` — suivi des dégradations |
 | **Art. 17** — Système qualité | Processus qualité documenté | SDD Mode complet (cycle Intent → Drift Lock) | Toutes les boucles SDD |
-| **Art. 26.6** — Conservation logs | Minimum 6 mois post-déploiement | `.aiad/metrics/` (persistance systématique) | `/aiad-dora` + `/aiad-flow` |
+| **Art. 26.6** — Conservation des journaux | Durée adaptée à la destination, au moins six mois, sauf disposition contraire | **Aucun artefact AIAD ne remplit cette obligation** : c'est une exigence d'exploitation du déployeur (politique de conservation). Les métriques de livraison ne sont pas ces journaux | Décision de mise en production — vérifier que la politique de conservation existe |
 | **Art. 27** — FRIA | Évaluation d'impact droits fondamentaux | PRD.md (section risques) + AIAD-RGPD.md | `/aiad-gouvernance` |
 | **Art. 50** — Transparence (chatbots) | Divulgation IA obligatoire — en vigueur depuis le **2 août 2026** | Checklist T1-T14 (section dédiée ci-dessous) | `/sdd-validate` — test divulgation |
 | **Art. 72** — Post-Market Monitoring | Plan de suivi post-déploiement | `.aiad/metrics/deployments/` | `/aiad-dora` (MTTR + Change Failure Rate) |
@@ -1102,7 +1102,7 @@ Version : [X.Y] — Dernière MAJ : [ISO 8601] — Responsable : [Fournisseur]
 ## 9. Plan post-commercialisation (Art. 72)
 - Collecte continue des données de performance
 - Processus de traitement des incidents graves (Art. 73)
-- Délai de notification : 72 h (incidents graves)
+- Délai de notification (art. 73) : 15 jours ; 2 jours en cas d'infraction de grande ampleur ou de perturbation d'une infrastructure critique ; 10 jours en cas de décès
 ```
 
 ### 2. Template — FRIA (Art. 27) — 6 sections minimales
@@ -1196,11 +1196,11 @@ Dès qu'un système IA traite des données personnelles, les deux régimes s'app
 - Les exigences propres à l'IA seront intégrées **dans le Règlement Machines lui-même**, par actes délégués de la Commission modifiant son annexe III (reflétant le chapitre III, section 2, et les art. 17, 19, 72 et 73 de l'AI Act), applicables **au plus tard le 2 août 2028**.
 - En attendant des normes propres, les systèmes conformes aux normes harmonisées ou spécifications communes de l'AI Act (art. 40 et 41) sont **présumés conformes** aux exigences de santé et de sécurité correspondantes du Règlement Machines (nouvel art. 20(10)).
 
-### AI Act ↔ Product Liability Directive (révision en cours)
+### AI Act ↔ directive sur la responsabilité du fait des produits défectueux
 
-- Responsabilité sans faute pour les dommages causés par les systèmes IA.
-- Présomption de défectuosité dans certaines conditions.
-- À surveiller : directive AI Liability toujours en négociation au 2026-04-20.
+- **Directive (UE) 2024/2853** du 23 octobre 2024 (JO du 18 novembre 2024) : elle remplace la directive 85/374/CEE et couvre explicitement le logiciel et les systèmes d'IA. Transposition au plus tard le **9 décembre 2026** ; elle s'applique aux produits mis sur le marché après cette date.
+- Responsabilité sans faute du fabricant pour les dommages causés par un produit défectueux ; présomption de défectuosité dans certaines conditions.
+- La proposition de directive sur la responsabilité en matière d'IA (« AI Liability », COM(2022) 496) a été **retirée** (JO C/2025/5423 du 6 octobre 2025) : il n'y a plus de texte européen en préparation sur ce point.
 
 ### Priorité en cas de conflit
 
@@ -1246,6 +1246,7 @@ Dès qu'un système IA traite des données personnelles, les deux régimes s'app
 
 | Date | Version | Modifications |
 |------|---------|--------------|
+| 2026-11-17 | corrections vérifiées sur sources primaires (Journal officiel de l'UE) | Délais de signalement des incidents graves alignés sur l'**art. 73** : 15 jours, 2 jours, 10 jours — le délai de « 72 h » n'existe pas dans le règlement (il relève de l'art. 33 du RGPD) · conservation des journaux : « durée adaptée, au moins six mois, sauf disposition contraire » (art. 19 et 26(6)) · mapping : les art. 12 et 26(6) ne sont remplis par **aucun artefact AIAD** (`.aiad/metrics/` trace le développement, pas le système d'IA) · **directive (UE) 2024/2853** adoptée (transposition au 9 décembre 2026) ; proposition « AI Liability » **retirée** (JO C/2025/5423). Calendrier d'application du guide confirmé conforme à l'art. 113 modifié par le règlement (UE) 2026/1744. |
 | 2026-11-12 | v1.10 | **+ Responsabilité du déployeur d'agents** (répartition fournisseur / déployeur, Art. 14, 26(2), 26(5), 55, 73 ; ce que le déployeur ne délègue pas ; humain qualifié à nommer dans la SPEC ; exigences de la politique d'usage d'Anthropic en vigueur le 12 novembre 2026) · **+ Incident agentique — fiche réflexe** (qualification, destinataires, délais, contenu minimal) · **+ Compromission de l'outillage agentique — conduite à tenir** · trois points ajoutés à la checklist d'intégration · signaux des régulateurs sur les agents (panel scientifique de l'UE, ICO) · sources vérifiées le 12 novembre 2026, récits dans `framework/legitimation/` |
 | 2026-09-25 | v1.9 | **Calendrier recalé sur le Règlement (UE) 2026/1744** (Omnibus numérique IA, JO L du 24.7.2026, vérifié sur le texte) · deux nouvelles interdictions Art. 5 (b bis, b ter) · Art. 50 en vigueur · enforcement GPAI · Règlement Machines passé en section B de l'Annexe I · profil « Agents à effet irréversible » (classe de réversibilité, seuil d'arrêt, isolation, propriétés attendues) · consigne « Trace de délégation » · corrections : sanctions GPAI, T12, Art. 5, Art. 9/14/26 hors haut risque, double marquage CE · récits et sources déplacés vers `https://github.com/everssteeve/sdd-mode/blob/main/docs/legitimation/conformite-cas-2026.md` — détail : notes de version de la v1.9 |
 | 2026-06-01 | v1.7 — autonomie financière | **+ PROFIL ÉMERGENT — AGENTS À AUTONOMIE FINANCIÈRE ET OPÉRATIONNELLE** : classification (Titre III si Annexe III, supervision renforcée Art. 26/9 sinon), 4 points de contrôle humains minimaux (validation délégation, plafond documenté, journal d'audit, rollback), articulation Execution Gate (validation des plafonds d'autonomie), cas terrain Cloudflare/Stripe — comble une lacune signalée par la veille du framework |

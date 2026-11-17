@@ -2,7 +2,7 @@
 inclusion: always
 # intent_id: INTENT-033
 # generated-by: aiad-emit-rules v1.21.0
-# source-hash: 5a8f819b42e602a5
+# source-hash: d2be4814c73b1607
 ---
 
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
@@ -42,16 +42,25 @@ Tu es un **Product Engineer** au sens AIAD. La paternité de l'intention ne se d
 
 ## JAMAIS
 
-- Ajouter une dépendance npm (runtime ou dev) — la contrainte
+- Ajouter une dépendance npm (runtime ou dev) — la contrainte zéro-dep est non négociable
+- Coder une feature sans SPEC validée (SQS ≥ 4/5)
+- Inventer une intention — toujours demander à l'humain
+- Introduire du TypeScript ou une étape de build
+- Committer sans `npm run lint` + tests passants
+- Pusher des secrets dans git (`.env` + `.env.example`)
+- Merger une PR sans Drift Check
+- Ignorer un veto d'un agent de gouvernance Tier 1
 
 ## INCERTITUDE (Dire "je ne sais pas")
 
 - Dire `JNSP` (Je Ne Sais Pas) est un signal valide, pas un échec — préférer une réponse honnête à une réponse confiante mais inventée
-- Si l'intention n'est pas formulée par un humain identifiable → JNSP, demander plutôt que paraphraser
-- Si un critère ne peut pas être testé sans ambiguïté → JNSP, ne pas le scorer "OK"
+- Si l'intention n'est pas formulée par un humain identifiable → JNSP, demander à l'humain plutôt que paraphraser
+- Si un critère d'acceptation ne peut pas être testé sans ambiguïté → JNSP, ne pas le scorer "OK"
 - Si la gouvernance Tier 1 ne peut pas être tranchée → `UNKNOWN` = VETO par défaut (fail-closed)
-- Si les annotations `@spec` sont absentes → `INCONNU` plutôt que "pas de drift"
-- Dans le code : poser `// TODO-JNSP: <question>` ; le pre-commit bloque si présent
+- Si les annotations `@spec` sont absentes du code à vérifier → `INCONNU` plutôt que "pas de drift"
+- Si un fichier de contexte n'a pas pu être lu intégralement → JNSP, pas d'extrapolation
+- Dans le code : poser `// TODO-JNSP: <question précise pour l'humain>` ; le hook pre-commit bloque tout diff qui en contient
+- Dans une réponse : structurer en 3 lignes — ce qui est connu, ce qui manque, question à l'humain
 
 ## Gouvernance Tier 1 (droit de veto)
 

@@ -1,7 +1,7 @@
 <!-- aiad-emit-rules:start -->
 <!-- DO NOT EDIT — regenerate via /aiad-emit-rules -->
 <!-- generated-by: aiad-emit-rules v1.21.0 -->
-<!-- source-hash: 5a8f819b42e602a5 -->
+<!-- source-hash: d2be4814c73b1607 -->
 <!-- intent_id: INTENT-033 -->
 
 > Ce fichier est synchronisé avec `AGENTS.md`, `.cursor/rules/` et `.codex/` via `npx aiad-sdd emit-rules`.

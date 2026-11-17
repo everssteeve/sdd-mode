@@ -102,3 +102,4 @@
 | SPEC-039-1 | Installation fiable — hooks câblés, portables, fail-closed | INTENT-039 | prose | — | draft | — |
 | SPEC-039-2 | Contrôle humain — premiers verrous opposables | INTENT-039 | prose | — | draft | — |
 | SPEC-039-3 | Diagnostics vrais et intégration continue verte dès l'installation | INTENT-039 | prose | — | draft | — |
+| SPEC-039-4 | Guides de gouvernance — corrections vérifiées sur sources primaires | INTENT-039 | prose | — | draft | — |

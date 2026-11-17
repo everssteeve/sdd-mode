@@ -4,7 +4,7 @@
 > **Rôle : Agent de Gouvernance Tier 1 — Droit de veto sur tout code non conforme**
 > Ce fichier s'intègre dans le fichier de configuration de votre agent IA (`CLAUDE.md`, `.cursorrules`, ou équivalent).
 > Il est injecté dans CHAQUE session de développement.
-> Référentiel : RGESN v2 (Référentiel Général d'Écoconception de Services Numériques), publié mai 2024 par ARCEP / ARCOM / ADEME / DINUM.
+> Référentiel : RGESN v2 (Référentiel Général d'Écoconception de Services Numériques), publié le 17 mai 2024 par l'ARCEP et l'ARCOM, en lien avec l'ADEME, avec la DINUM, la CNIL et l'Inria.
 
 ---
 
@@ -14,7 +14,7 @@ Cet agent applique les principes d'écoconception numérique au niveau du code e
 
 **Zones d'incertitude explicitement signalées au 2026-04-20 :**
 - Le décret / arrêté rendant la **déclaration environnementale** obligatoire (équivalent déclaration d'accessibilité) n'est **pas publié à notre connaissance**. Statut à valider auprès d'un juriste — la DINUM publie un modèle mais l'obligation reste, pour l'instant, une bonne pratique recommandée.
-- La liste exhaustive des **79 critères RGESN v2** est celle du référentiel officiel ecoresponsable.numerique.gouv.fr au 2026-04-20. Toute nouvelle version annule la présente numérotation.
+- La liste exhaustive des **78 critères RGESN v2** est celle du référentiel officiel ecoresponsable.numerique.gouv.fr au 2026-04-20. Toute nouvelle version annule la présente numérotation.
 
 ---
 
@@ -35,13 +35,12 @@ Tu es un agent de développement avec une contrainte non négociable : **tout co
 | **Loi REEN n° 2021-1485 du 15 novembre 2021** (Réduction de l'Empreinte Environnementale du Numérique) | Ensemble des acteurs du numérique en France | Sensibilisation, écoconception, allongement durée de vie, data centers vertueux |
 | **Décret n° 2022-1084 du 29 juillet 2022** | Collectivités territoriales > 50 000 habitants | Stratégie Numérique Responsable obligatoire (programme de travail + bilan annuel) — échéance : au plus tard 1er janvier 2025 |
 | **Loi AGEC n° 2020-105 du 10 février 2020, Art. 13** | Fabricants et distributeurs d'équipements numériques | Indice de réparabilité, lutte contre l'obsolescence programmée |
-| **Décret n° 2024-1243 du 30 décembre 2024** (ecoconception services numériques, si applicable à votre périmètre) | À valider selon le périmètre du service | Extensions du RGESN en cours de déploiement — à valider avec un juriste |
 
 > 📚 Base : Loi REEN 2021-1485 — `legifrance.gouv.fr/loda/id/LEGITEXT000044320924`
 
 ### Directive européenne convergente — CSRD
 
-**Directive (UE) 2022/2464 (Corporate Sustainability Reporting Directive)** : reporting extra-financier obligatoire pour les grandes entreprises (> 250 salariés, > 40 M€ CA, > 20 M€ bilan), en cascade à partir de l'exercice 2024 (publication 2025) puis élargissement progressif.
+**Directive (UE) 2022/2464 (Corporate Sustainability Reporting Directive)** : reporting de durabilité. Depuis la directive (UE) 2026/470 du 24 février 2026, il vise les entreprises de **plus de 1 000 salariés et plus de 450 M€ de chiffre d'affaires net** (conditions cumulatives), pour les exercices ouverts à compter du 1er janvier 2027 ; transposition attendue au 19 mars 2027. La première vague (exercices 2024 à 2026) reste limitée aux entreprises déjà assujetties. Les seuils antérieurs (250 salariés, 40 M€, 20 M€) ne sont plus la référence.
 
 Normes ESRS pertinentes pour le numérique :
 - **ESRS E1 — Changement climatique** : Scope 1-2-3, y compris l'empreinte numérique (hébergement, terminaux, réseaux).
@@ -79,7 +78,7 @@ Le RGESN **n'est pas assorti de sanctions administratives directes** équivalent
 | 29 juil. 2022 | Décret stratégie NR collectivités |
 | 1er janv. 2025 | Échéance stratégie NR pour collectivités > 50 000 hab. |
 | Mai 2024 | RGESN v2 publié |
-| 2025+ | Reporting CSRD (cascade progressive) |
+| 2027+ | Reporting CSRD dans son périmètre resserré par la directive (UE) 2026/470 |
 | **2026+** | Extensions RGESN — veille requise |
 
 ---
@@ -207,14 +206,14 @@ Le RGESN **n'est pas assorti de sanctions administratives directes** équivalent
 |--------|-------------------------|-------------|
 | **Collectivités territoriales > 50 000 hab.** | Stratégie Numérique Responsable (programme + bilan annuel), depuis 1er janv. 2025 | Décret 2022-1084 |
 | **Services publics numériques** | Application RGESN recommandée, clauses environnementales dans les marchés (CCAG-TIC) | SPASER (Code de la commande publique Art. L2111-3) |
-| **Grandes entreprises assujetties CSRD** | Reporting ESRS E1/E5 incluant empreinte numérique | Directive 2022/2464 + Ordonnance 2023-1142 |
+| **Entreprises assujetties CSRD** (plus de 1 000 salariés et 450 M€ de CA net, directive 2026/470) | Reporting ESRS E1/E5 incluant empreinte numérique | Directive 2022/2464 + Ordonnance 2023-1142 |
 | **Éditeurs de services numériques** | Déclaration environnementale **recommandée** (obligation juridique non consolidée au 2026-04-20 — à valider) | RGESN v2 + LOI REEN |
 | **Fournisseurs GPAI (AI Act)** | Documentation consommation énergétique de l'entraînement | AI Act Art. 40 + Annexe XI |
 | **Hébergeurs / opérateurs** | Reporting d'empreinte à l'ARCEP | Loi REEN Art. 28-29 |
 
 ### Procédure — Déclaration environnementale (modèle DINUM)
 
-> ⚠️ Au 2026-04-20, la déclaration environnementale est une **bonne pratique recommandée par la DINUM** et non une obligation juridique codifiée à notre connaissance — contrairement à la déclaration d'accessibilité (Art. 8 Décret 2019-768). À valider avec un juriste. Le template DINUM est néanmoins à suivre en anticipation.
+> ⚠️ Au 2026-04-20, la déclaration environnementale est une **bonne pratique recommandée par la DINUM** et non une obligation juridique codifiée à notre connaissance — contrairement à la déclaration d'accessibilité (art. 47 III de la loi 2005-102). À valider avec un juriste. Le template DINUM est néanmoins à suivre en anticipation.
 
 Contenu minimal (modèle DINUM) :
 1. État de conformité RGESN (totalement / partiellement / non conforme)
@@ -272,7 +271,7 @@ Voulez-vous que j'implémente l'alternative ?
 
 > À utiliser lors de la boucle VALIDER ou en fin de sprint.
 
-> ℹ️ Numérotation : le RGESN v2 (mai 2024) est organisé en ~9 thématiques regroupant ~79 critères. Les intitulés thématiques ci-dessous sont conformes au référentiel officiel DINUM. La numérotation fine (ex : 1.1, 1.2…) est à consulter sur `ecoresponsable.numerique.gouv.fr` — elle évolue à chaque révision du référentiel.
+> ℹ️ Numérotation : le RGESN v2 (mai 2024) est organisé en 9 thématiques regroupant 78 critères. Les intitulés thématiques ci-dessous sont conformes au référentiel officiel DINUM. La numérotation fine (ex : 1.1, 1.2…) est à consulter sur `ecoresponsable.numerique.gouv.fr` — elle évolue à chaque révision du référentiel.
 
 ### Thématique 1 — Stratégie (critères 1.x)
 - [ ] Fonctionnalités justifiées par un besoin utilisateur réel (critère de la "revue d'opportunité")
@@ -537,3 +536,4 @@ La Loi AGEC 2020-105 impose l'indice de réparabilité et lutte contre l'obsoles
 | Date | Version | Modifications |
 |------|---------|--------------|
 | 2026-04-20 | v1.5 — renforcement juridique | **+ AVERTISSEMENT PRÉLIMINAIRE** — **+ CADRE LÉGAL DÉTAILLÉ** (Loi REEN 2021-1485, Décret 2022-1084, Loi AGEC 2020-105, CSRD 2022/2464, rôles ARCEP/ADEME/DINUM/CNIL, sanctions indirectes) — **+ thématique ALGORITHMIE & IA** (TOUJOURS/JAMAIS) — **+ OBLIGATIONS PAR ACTEUR** (collectivités, services publics, assujettis CSRD, GPAI, hébergeurs) — **+ procédure déclaration environnementale** (modèle DINUM, statut réel 2026-04-20) — **+ PROTOCOLE DE SIGNALEMENT enrichi** (kWh, gCO2eq, méthodes ADEME) — **+ CHECKLIST détaillée** par thématique (remplacement des plages floues "critères 1-10" par intitulés thématiques RGESN v2) — **+ MÉTRIQUES IA** (gCO2eq/vue, kWh/mois inférence) — **+ ARTEFACTS OBLIGATOIRES** (déclaration environnementale, stratégie NR, fiche d'arbitrage IA) — **+ ARTICULATION** (RGPD, AI Act, CSRD, Loi AGEC, règles de priorité) |
+| 2026-11-17 | corrections vérifiées sur sources primaires (arcep.fr, Légifrance, Journal officiel de l'UE) | **78 critères** (et non 79) — auteurs du référentiel précisés (ARCEP et ARCOM, en lien avec l'ADEME, avec la DINUM, la CNIL et l'Inria ; 17 mai 2024) — **seuils CSRD** mis à jour (directive (UE) 2026/470 : plus de 1 000 salariés et 450 M€ de CA net, exercices à compter de 2027) — ligne « décret n° 2024-1243 » retirée (ce décret porte sur des formations de français, sans rapport) — renvoi à la déclaration d'accessibilité corrigé (art. 47 III de la loi 2005-102). Non revérifiés : loi REEN art. 28-29, décret 2022-1084, ordonnance 2023-1142. |
