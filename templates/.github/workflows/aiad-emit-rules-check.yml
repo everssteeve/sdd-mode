@@ -42,7 +42,7 @@ jobs:
           if [ -f package.json ]; then
             npm install --no-audit --no-fund --omit=optional || true
           fi
-          npm install --no-save --no-audit --no-fund aiad-sdd@latest
+          npm install --no-save --no-audit --no-fund aiad-sdd@^2
 
       - name: Verify multi-runtime parity
         run: npx aiad-sdd emit-rules --check

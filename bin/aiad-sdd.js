@@ -1978,6 +1978,7 @@ async function main() {
           check: Boolean(values.check),
           force: Boolean(values.force),
           dryRun: Boolean(values['dry-run']),
+          installedOnly: Boolean(values.check) && !values.runtime,
         });
       } finally {
         if (json) console.log = savedLog;

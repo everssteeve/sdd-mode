@@ -41,7 +41,7 @@ jobs:
           if [ -f package.json ]; then
             npm install --no-audit --no-fund --omit=optional || true
           fi
-          npm install --no-save --no-audit --no-fund aiad-sdd@latest
+          npm install --no-save --no-audit --no-fund aiad-sdd@^2
 
       - name: Run canary suite
         run: npx aiad-sdd canary --output-format verdict | tee canary-report.json

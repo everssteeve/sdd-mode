@@ -4,6 +4,7 @@
 //
 // @intent INTENT-039
 // @spec SPEC-039-1-installation-fiable
+// @spec SPEC-039-3-diagnostics-vrais
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
@@ -219,4 +220,47 @@ test('CA-009 — node_modules/ non ignoré par git : aucun écart n\'en provient
     const fuites = verdict.gaps.filter((g) => String(g.file || g.ref).includes('node_modules'));
     assert.deepEqual(fuites, []);
   } finally { b.nettoyer(); }
+});
+
+test('SPEC-039-3 CA-002 — projet neuf : les contrôles CI livrés sont verts, y compris après le dashboard', () => {
+  const b = bac();
+  try {
+    assert.equal(b.cli('init').status, 0);
+    for (const args of [['emit-rules', '--check'], ['trace', '--fail-on-gap'], ['update', '--check']]) {
+      const r = b.cli(...args);
+      assert.equal(r.status, 0, `${args.join(' ')} : ${r.stdout.slice(-400)}`);
+    }
+    assert.equal(b.cli('dashboard').status, 0);
+    assert.ok(existsSync(join(b.projet, 'dashboard', '.aiad-generated')));
+    const apres = b.cli('trace', '--fail-on-gap');
+    assert.equal(apres.status, 0, apres.stdout.slice(-400));
+  } finally { b.nettoyer(); }
+});
+
+test('SPEC-039-3 CA-003 — gabarits de projet : la traçabilité du squelette livré est verte', () => {
+  for (const gabarit of ['node-aiad', 'fastapi-aiad']) {
+    const b = bac();
+    try {
+      const creation = b.lancer(process.execPath, [CLI, 'new', gabarit, 'demo'], { cwd: b.base });
+      assert.equal(creation.status, 0, creation.stderr || creation.stdout);
+      const demo = join(b.base, 'demo');
+      b.lancer('git', ['init', '-q'], { cwd: demo });
+      const r = b.lancer(process.execPath, [CLI, 'trace', '--fail-on-gap'], { cwd: demo });
+      assert.equal(r.status, 0, `${gabarit} : ${r.stdout.slice(-400)}`);
+    } finally { b.nettoyer(); }
+  }
+});
+
+test('SPEC-039-3 CA-004 — workflows livrés : pas de `latest`, pas de publication automatique du dashboard', () => {
+  const dir = join(RACINE, 'templates', '.github', 'workflows');
+  for (const f of readdirSync(dir)) {
+    const contenu = readFileSync(join(dir, f), 'utf-8');
+    assert.doesNotMatch(contenu, /aiad-sdd@latest/, f);
+    assert.doesNotMatch(contenu, /npx -y aiad-sdd /, `${f} : npx -y sans version fixée`);
+  }
+  const dash = readFileSync(join(dir, 'aiad-dashboard.yml'), 'utf-8');
+  const on = dash.slice(dash.indexOf('\non:\n'), dash.indexOf('\npermissions:'));
+  assert.doesNotMatch(on, /^  push:/m, 'le déclencheur push doit être commenté');
+  assert.match(on, /^  workflow_dispatch:/m);
+  assert.doesNotMatch(readFileSync(join(RACINE, '.github', 'actions', 'aiad-sdd', 'action.yml'), 'utf-8'), /default: 'latest'/);
 });

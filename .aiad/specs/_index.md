@@ -101,3 +101,4 @@
 | SPEC-038-2 | Instrumentation des métriques AIAD — sources automatiques, enregistrement contrôlé, fraîcheur, rituels | INTENT-038 | prose | 4/5 | ready | — |
 | SPEC-039-1 | Installation fiable — hooks câblés, portables, fail-closed | INTENT-039 | prose | — | draft | — |
 | SPEC-039-2 | Contrôle humain — premiers verrous opposables | INTENT-039 | prose | — | draft | — |
+| SPEC-039-3 | Diagnostics vrais et intégration continue verte dès l'installation | INTENT-039 | prose | — | draft | — |
